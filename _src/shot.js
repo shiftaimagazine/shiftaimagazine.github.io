@@ -2,7 +2,7 @@
 const { chromium } = require('playwright');
 (async () => {
   const [url, out] = process.argv.slice(2);
-  const b = await chromium.launch();
+  const b = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});
   const p = await b.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1, locale: 'ko-KR' });
   await p.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
   await p.waitForTimeout(3000);

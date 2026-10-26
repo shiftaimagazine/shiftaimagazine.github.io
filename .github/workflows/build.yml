@@ -14,6 +14,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    env:
+      PW_CHANNEL: chrome   # 러너에 이미 깔린 구글 크롬을 쓴다(브라우저 따로 설치 안 함)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,8 +28,8 @@ jobs:
         run: |
           pip install pillow==11.0.0 requests==2.32.3
           npm install --no-save --no-package-lock playwright@1.48.2
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y fonts-noto-cjk >/dev/null
+          mkdir -p ~/.local/share/fonts   # 원문 화면 캡처용 한글 글꼴
+          curl -sfL -o ~/.local/share/fonts/NotoSansKR.ttf "https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf" && fc-cache -f >/dev/null || echo "글꼴 받기 실패(캡처 한글이 깨질 수 있음)"
       - name: 새 기사 사진 받기
         run: python3 _src/fetch_images.py
       - name: 사이트 만들기

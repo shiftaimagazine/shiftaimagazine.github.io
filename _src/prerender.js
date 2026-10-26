@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
 });
 server.listen(0, '127.0.0.1', async () => {
   const port = server.address().port, base = `http://127.0.0.1:${port}`;
-  const b = await chromium.launch(); const ctx = await b.newContext();
+  const b = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); const ctx = await b.newContext();
   await ctx.route(/.*/, r => r.request().url().startsWith(base) ? r.continue() : r.abort());
   const pg = await ctx.newPage(); const errs = [];
   pg.on('pageerror', e => errs.push(e.message));
