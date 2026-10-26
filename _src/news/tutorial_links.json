@@ -4,7 +4,8 @@
   "t-privacy-settings": "2026-10-16-google-privacy-personal-intelligence",
   "t-verify-numbers": "2026-10-24-kimi-k3-1-pro",
   "t-pdf-to-markdown": "2026-10-07-claude-haiku-5-5",
-  "t-reels-script": "2026-10-19-paris-city-tours-ai-satire"
+  "t-reels-script": "2026-10-19-paris-city-tours-ai-satire",
+  "t-meeting-interpreter": "2026-10-20-mistral-voxtral-3"
  },
  "TFIG": {
   "t-redact-before-upload": [
@@ -14,6 +15,10 @@
   "t-auto-update-site": [
    "img/ph/elephpant.webp",
    "PHP 마스코트 엘레펀트 · Wikimedia Commons · Atomic Taco (CC BY-SA 2.0)"
+  ],
+  "t-meeting-interpreter": [
+   "img/ph/meeting-interpreter.webp",
+   "SHIFT AI 회의 통역창 첫 화면 · SHIFT AI 직접 캡처"
   ]
  }
 }

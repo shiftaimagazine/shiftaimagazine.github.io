@@ -181,6 +181,9 @@ figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 .tut-page .pages img{flex:none;width:120px;aspect-ratio:210/297;object-fit:cover;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.15);background:#fff}
 .tut-page .pdfmeta{display:flex;gap:12px 16px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:14px;color:var(--sub)}
 .tut-page .pdfmeta b{color:var(--ink);font-size:15px;display:block}
+.tut-page .appbox{display:flex;gap:12px 16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--bg2);border-radius:12px;padding:16px 18px;margin:-12px 0 26px;font-size:14px;color:var(--sub)}
+.tut-page .appbox b{color:var(--ink);font-size:16px;display:block;margin-bottom:2px}
+.tut-page .appbox .btn{padding:10px 18px;font-size:15px}
 .prep{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 26px}
 .prep div{background:var(--bg2);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--ink)}
 .prep div b{display:block;font-size:12px;color:var(--sub);margin-bottom:2px}
