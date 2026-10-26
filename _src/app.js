@@ -167,6 +167,7 @@ function renderTutorial(t){
   const i = TUTORIALS.findIndex(x=>x.id===t.id); const nx = TUTORIALS[(i+1)%TUTORIALS.length]; const rel = t.rel && byId[t.rel];
   const items = t.items.map((it,k)=>`<section class="ti"><div class="no">${String(k+1).padStart(2,"0")}</div>
       <div class="tb"><h3>${esc(it.h)}</h3><p class="d">${esc(it.d)}</p>
+        ${it.img?`<figure class="tfig"><img src="${it.img.src}" alt="${esc(it.img.alt||it.h)}" loading="lazy">${it.img.cap?`<figcaption>${esc(it.img.cap)}</figcaption>`:""}</figure>`:""}
         ${it.how?`<div class="how"><b>이렇게 쓰세요</b>${esc(it.how)}</div>`:""}
         ${it.prompt?`<div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">${esc(it.prompt)}</div><button class="copy dark" data-copy="${esc(it.prompt)}">복사하기</button></div>`:""}
         ${it.example?`<div class="ex"><div><b>넣는 것 (예시)</b><pre>${esc(it.example.in)}</pre></div><div><b>나오는 것 (예시)</b><pre>${esc(it.example.out)}</pre></div></div>`:""}
