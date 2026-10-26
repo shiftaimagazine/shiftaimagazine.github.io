@@ -125,11 +125,11 @@
     "공익법인(PBC)"
    ],
    "image": {
-    "page": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+    "page": "https://www.anthropic.com/news",
     "og": null,
-    "credit": "이미지: SEC EDGAR(앤트로픽 S-1) 화면",
-    "alt": "앤트로픽 증권신고서 첫 화면",
-    "mode": "screenshot"
+    "credit": "이미지: Anthropic",
+    "alt": "앤트로픽 공식 대표 이미지",
+    "mode": null
    },
    "verify": [
     {
@@ -305,8 +305,8 @@
     "page": "https://openai.com/index/introducing-gpt-6-1-terra/",
     "og": "https://cdn.openai.com/mdx-assets/71f084db-a08b-48c5-b96e-5fbdc21a1a00/terra-art-card-16x9.0394724b.png",
     "credit": "이미지: OpenAI",
-    "alt": "오픈AI GPT-6.1 테라 발표 화면",
-    "mode": "screenshot"
+    "alt": "오픈AI GPT-6.1 테라 공식 대표 이미지",
+    "mode": null
    },
    "verify": [
     {
