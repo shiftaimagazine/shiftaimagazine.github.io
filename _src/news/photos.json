@@ -1,0 +1,130 @@
+{
+ "2026-10-21-php2shell": {
+  "src": "img/ph/php2shell.webp",
+  "credit": "이미지: Wiz Research"
+ },
+ "2026-10-21-chatgpt-ads-89-countries": {
+  "src": "img/ph/chatgpt-ads.webp",
+  "credit": "이미지: OpenAI"
+ },
+ "2026-10-22-canva-craft": {
+  "src": "img/ph/canva-craft.webp",
+  "credit": "이미지: Canva"
+ },
+ "2026-10-22-cerebras-trillion-deploy": {
+  "src": "img/ph/cerebras.webp",
+  "credit": "이미지: Cerebras"
+ },
+ "2026-10-19-tinyfish-students": {
+  "src": "img/ph/tinyfish-students.webp",
+  "credit": "화면: tinyfish.ai/students"
+ },
+ "2026-10-26-text-message-ai-assistants": {
+  "src": "img/ph/martin.webp",
+  "credit": "화면: trymartin.com"
+ },
+ "2026-10-23-aisi-mythos5-alignment": {
+  "src": "img/ph/aisi.webp",
+  "credit": "이미지: 영국 AI 보안연구소(AISI)"
+ },
+ "2026-10-23-openai-offline-training": {
+  "src": "img/ph/openai-offline.webp",
+  "credit": "이미지: OpenAI"
+ },
+ "2026-10-19-whatsapp-hidden-ai-instructions": {
+  "src": "img/ph/whatsapp-redact.webp",
+  "credit": "화면: redact.dev — 개인정보처리방침과 숨은 지시문 비교표"
+ },
+ "2026-10-22-pennsylvania-ai-ad-disclosure": {
+  "src": "img/ph/pa-capitol.webp",
+  "credit": "사진: 펜실베이니아 주의회 웹사이트(palegis.us)"
+ },
+ "2026-10-16-google-privacy-personal-intelligence": {
+  "src": "img/ph/google-privacy.webp",
+  "credit": "화면: 구글 개인정보처리방침(policies.google.com), 2026년 10월 16일 시행본"
+ },
+ "2026-10-09-nikon-small-world-in-motion-ai": {
+  "src": "img/ph/nikon-statement.webp",
+  "credit": "화면: nikonsmallworld.com 입장문"
+ },
+ "2026-10-24-kimi-k3-1-pro": {
+  "src": "img/ph/kimi.webp",
+  "credit": "이미지: 문샷AI(Kimi)"
+ },
+ "2026-10-07-claude-haiku-5-5": {
+  "src": "img/ph/haiku.webp",
+  "credit": "이미지: Anthropic"
+ },
+ "2026-10-23-oracle-partner-1b": {
+  "src": "img/ph/oracle.webp",
+  "credit": "이미지: Oracle"
+ },
+ "2026-10-24-apollo-no-ai-payoff": {
+  "src": "img/ph/apollo-margin.webp",
+  "credit": "그래프: Apollo, The Daily Spark(10월 24일) — 이익률, S&P 493 대 매그니피센트 7"
+ },
+ "2026-09-27-apricitas-creative-class-jobs": {
+  "src": "img/ph/apricitas.webp",
+  "credit": "그래프: Apricitas Economics(조지프 폴리타노, 미 노동통계국 자료)"
+ },
+ "2026-10-19-openai-low-resource-languages": {
+  "src": "img/ph/openai-lowres.webp",
+  "credit": "이미지: OpenAI"
+ },
+ "2026-10-21-why-ai-text-hard-to-read": {
+  "src": "img/ph/arxiv-aitext.webp",
+  "credit": "그림: 논문 그림 3(a) — 대화·코딩·에세이별 언어 특징 변화 (arXiv 2610.29162)"
+ },
+ "2026-10-25-old-cnn-beats-llm-skin-cancer": {
+  "src": "img/ph/lynchlab.webp",
+  "credit": "화면: lynchlab.net 원문"
+ },
+ "2026-10-05-mit-machine-playing-island": {
+  "src": "img/ph/mit-tower.webp",
+  "credit": "그림: 논문 그림 8 — 에이전트들이 처음 쌓은 높은 탑 (arXiv 2610.07130)"
+ },
+ "2026-10-15-deepmind-gemini-agents-beat-minecraft": {
+  "src": "img/ph/minecraft-portal.webp",
+  "credit": "이미지: 논문 그림 9 — 12개 눈을 모두 끼운 엔드 포털, 게임 화면 렌더링 (arXiv 2610.22319)"
+ },
+ "2026-10-15-konami-hayakawa-ai-games": {
+  "src": "img/ph/konami-report.webp",
+  "credit": "이미지: 코나미그룹 2026 통합보고서 표지"
+ },
+ "2026-10-19-paris-city-tours-ai-satire": {
+  "src": "img/ph/paris-night.webp",
+  "credit": "자료 사진 · Benh LIEU SONG, Wikimedia Commons (CC BY-SA 4.0) — 영상 속 장면이 아님"
+ },
+ "2026-10-19-naver-cloud-security-self-check": {
+  "src": "img/ph/naver-cloud.webp",
+  "credit": "이미지: 네이버클라우드"
+ },
+ "2026-10-20-mistral-voxtral-3": {
+  "src": "img/ph/voxtral.webp",
+  "credit": "이미지: Mistral AI"
+ },
+ "2026-10-21-openai-models-google-cloud": {
+  "src": "img/ph/openai-gcloud.webp",
+  "credit": "이미지: OpenAI"
+ },
+ "2026-10-21-naver-d2sf-traceweave": {
+  "src": "img/ph/d2sf.webp",
+  "credit": "이미지: 네이버 D2SF"
+ },
+ "2026-10-22-anthropic-agent-skills-aaif": {
+  "src": "img/ph/anthropic-skills.webp",
+  "credit": "이미지: Anthropic"
+ },
+ "2026-10-22-openai-decisions-api": {
+  "src": "img/ph/openai-decisions.webp",
+  "credit": "이미지: OpenAI"
+ },
+ "2026-10-22-skt-ax-k2-math": {
+  "src": "img/ph/skt.webp",
+  "credit": "사진: SK텔레콤"
+ },
+ "2026-10-21-nodejs-security-release": {
+  "src": "img/ph/nodejs.webp",
+  "credit": "이미지: Node.js"
+ }
+}

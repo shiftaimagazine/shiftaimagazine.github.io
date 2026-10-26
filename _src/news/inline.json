@@ -1,0 +1,42 @@
+{
+ "2026-10-21-php2shell": {
+  "after": "세부 내용",
+  "img": {
+   "src": "img/ph/wiz-blog.webp",
+   "credit": "화면: wiz.io 블로그 PHP2Shell 공개 글",
+   "alt": "위즈 블로그 PHP2Shell 글 화면"
+  }
+ },
+ "2026-10-19-tinyfish-students": {
+  "after": "누가 받을 수 있나",
+  "img": {
+   "src": "img/ph/tinyfish-how.webp",
+   "credit": "화면: tinyfish.ai/students — 참여 방법(Claim · Build · Submit · Earn)",
+   "alt": "타이니피시 참여 방법 화면"
+  }
+ },
+ "2026-10-24-apollo-no-ai-payoff": {
+  "after": "세부 내용",
+  "img": {
+   "src": "img/ph/apollo-revenue.webp",
+   "credit": "그래프: Apollo, The Daily Spark(10월 24일) — 직원 1인당 매출, S&P 493 대 매그니피센트 7",
+   "alt": "직원 1인당 매출 추이 그래프"
+  }
+ },
+ "2026-10-15-deepmind-gemini-agents-beat-minecraft": {
+  "after": "세부 내용",
+  "img": {
+   "src": "img/ph/minecraft-aerial.webp",
+   "credit": "이미지: 논문 수록 오버월드 항공 렌더링 (arXiv 2610.22319)",
+   "alt": "에이전트들이 플레이한 마인크래프트 월드 항공 화면"
+  }
+ },
+ "2026-10-05-mit-machine-playing-island": {
+  "after": "세부 내용",
+  "img": {
+   "src": "img/ph/mit-spire.webp",
+   "credit": "그림: 논문 그림 7 — 에이전트들이 처음 첨탑에 오른 순간 (arXiv 2610.07130)",
+   "alt": "에이전트별 첫 첨탑 등반 장면"
+  }
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "TREL": {
+  "t-auto-update-site": "2026-10-21-php2shell",
+  "t-privacy-settings": "2026-10-16-google-privacy-personal-intelligence",
+  "t-verify-numbers": "2026-10-24-kimi-k3-1-pro",
+  "t-pdf-to-markdown": "2026-10-07-claude-haiku-5-5",
+  "t-reels-script": "2026-10-19-paris-city-tours-ai-satire"
+ },
+ "TFIG": {
+  "t-redact-before-upload": [
+   "img/ph/spreadsheet.webp",
+   "예시 표 · Wikimedia Commons · Smallbones (CC0)"
+  ],
+  "t-auto-update-site": [
+   "img/ph/elephpant.webp",
+   "PHP 마스코트 엘레펀트 · Wikimedia Commons · Atomic Taco (CC BY-SA 2.0)"
+  ]
+ }
+}

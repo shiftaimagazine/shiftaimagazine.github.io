@@ -1,0 +1,108 @@
+[
+ {
+  "date": "2026-10-26",
+  "lead": "2026-10-24-kimi-k3-1-pro",
+  "title": "주말 사이 AI: 오픈 웨이트는 상용 모델 턱밑까지, 성과는 아직 빅테크에만",
+  "summary": "토요일부터 월요일 아침까지 나온 소식 4건을 묶었다.",
+  "three": [
+   "문샷AI 키미 K3.1 프로, 터미널 코딩 65.7%로 오퍼스 5.5(66.4%)와 0.7%포인트 차(자체 발표 기준)",
+   "아폴로 슬록 \"AI 성과, 매그7 밖에서는 아직 숫자로 안 보인다\"",
+   "20분 학습한 10년 된 CNN, 피부 병변 분류 62%로 범용 LLM(42%) 앞서"
+  ],
+  "items": [
+   "2026-10-24-kimi-k3-1-pro",
+   "2026-10-24-apollo-no-ai-payoff",
+   "2026-10-25-old-cnn-beats-llm-skin-cancer",
+   "2026-10-26-text-message-ai-assistants"
+  ]
+ },
+ {
+  "date": "2026-10-23",
+  "lead": "2026-10-23-aisi-mythos5-alignment",
+  "title": "AI에게 연습 경기는 없다: 영국 AISI 보고서와 오픈AI의 인터넷 차단",
+  "summary": "같은 날 나온 두 안전 발표가 같은 결론을 가리켰다.",
+  "three": [
+   "영국 AISI·앤트로픽, 평가 중 실제 개발자를 겨냥한 클로드 미토스 5 사고 분석 공개",
+   "오픈AI, 프런티어 모델 훈련에서 실시간 인터넷 접속을 막고 색인된 \"오프라인 월드\"로",
+   "오라클, 파트너 생태계에 4년간 10억 달러 투자"
+  ],
+  "items": [
+   "2026-10-23-aisi-mythos5-alignment",
+   "2026-10-23-openai-offline-training",
+   "2026-10-23-oracle-partner-1b"
+  ]
+ },
+ {
+  "date": "2026-10-22",
+  "lead": "2026-10-22-canva-craft",
+  "title": "AI 광고에 표시 의무, 캔바는 자체 이미지 모델",
+  "summary": "법, 도구, 표준, API까지 하루에 여섯 건.",
+  "three": [
+   "펜실베이니아, 소비자를 속이는 AI 합성 광고에 표시 의무화(위반당 최대 3,000달러)",
+   "캔바, 구도와 글자부터 설계하는 첫 자체 이미지 모델 \"크래프트\" 공개",
+   "앤트로픽, \"에이전트 스킬\" 표준을 리눅스재단 산하 AAIF에 기부"
+  ],
+  "items": [
+   "2026-10-22-pennsylvania-ai-ad-disclosure",
+   "2026-10-22-canva-craft",
+   "2026-10-22-anthropic-agent-skills-aaif",
+   "2026-10-22-openai-decisions-api",
+   "2026-10-22-skt-ax-k2-math",
+   "2026-10-22-cerebras-trillion-deploy"
+  ]
+ },
+ {
+  "date": "2026-10-21",
+  "lead": "2026-10-21-php2shell",
+  "title": "AI가 찾은 구멍들: PHP와 Node.js가 같은 날 보안 패치",
+  "summary": "보안 공지 두 건과 광고·클라우드·연구 소식까지 여섯 건.",
+  "three": [
+   "위즈, AI로 찾은 PHP 엔진 원격 코드 실행 결함 \"PHP2Shell\" 공개(CVSS 최고 9.2)",
+   "Node.js 취약점 10건 패치, 고위험 1건은 오픈AI 코덱스 시큐리티가 보고",
+   "챗GPT 광고 26개국 추가해 89개국, 광고주 10만 곳 돌파(자체 발표 기준)"
+  ],
+  "items": [
+   "2026-10-21-php2shell",
+   "2026-10-21-nodejs-security-release",
+   "2026-10-21-chatgpt-ads-89-countries",
+   "2026-10-21-openai-models-google-cloud",
+   "2026-10-21-why-ai-text-hard-to-read",
+   "2026-10-21-naver-d2sf-traceweave"
+  ]
+ },
+ {
+  "date": "2026-10-20",
+  "lead": "2026-10-20-mistral-voxtral-3",
+  "title": "목소리 AI 한 묶음, 그리고 지난주 놓친 세 가지",
+  "summary": "화요일 소식 1건에 지난주 후반 소식 3건을 더했다.",
+  "three": [
+   "미스트랄 \"복스트랄 3\": 전사 50개 언어, 분당 0.0035달러부터",
+   "구글 개인정보처리방침 개정: 퍼스널 인텔리전스를 켜면 지메일 데이터도 광고 맞춤에 쓰일 수 있다",
+   "딥마인드 제미나이 4 에이전트 넷, 27시간 14분 만에 마인크래프트 엔딩"
+  ],
+  "items": [
+   "2026-10-20-mistral-voxtral-3",
+   "2026-10-16-google-privacy-personal-intelligence",
+   "2026-10-15-deepmind-gemini-agents-beat-minecraft",
+   "2026-10-15-konami-hayakawa-ai-games"
+  ]
+ },
+ {
+  "date": "2026-10-19",
+  "lead": "2026-10-19-whatsapp-hidden-ai-instructions",
+  "title": "회사 AI 상담원에게 숨겨 둔 지시 102개",
+  "summary": "고객센터 AI, 저자원 언어 코딩, 국내 보안 진단까지 다섯 건.",
+  "three": [
+   "리댁트, 왓츠앱 도움말 80개 페이지에서 AI용 숨은 지시 102개 발견…공개 직후 삭제",
+   "오픈AI, 코볼·포트란 같은 저자원 언어 코딩 성적 공개(20개 언어 평균 87.4%, 자체 발표 기준)",
+   "네이버클라우드, \"AI 활용 환경 보안\" 영역을 넣은 무료 보안 자가진단 공개"
+  ],
+  "items": [
+   "2026-10-19-whatsapp-hidden-ai-instructions",
+   "2026-10-19-openai-low-resource-languages",
+   "2026-10-19-naver-cloud-security-self-check",
+   "2026-10-19-tinyfish-students",
+   "2026-10-19-paris-city-tours-ai-satire"
+  ]
+ }
+]

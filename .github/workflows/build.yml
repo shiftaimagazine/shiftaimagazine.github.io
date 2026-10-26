@@ -1,0 +1,43 @@
+# _src/ 가 바뀌면 새 기사 사진을 받고 사이트 전체를 다시 만들어 커밋한다(GitHub Pages 가 그 커밋을 배포).
+name: build-site
+on:
+  push:
+    branches: [main]
+    paths: ['_src/**', '.github/workflows/build.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 도구 설치
+        run: |
+          pip install pillow==11.0.0 requests==2.32.3
+          npm install --no-save --no-package-lock playwright@1.48.2
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-cjk >/dev/null
+      - name: 새 기사 사진 받기
+        run: python3 _src/fetch_images.py
+      - name: 사이트 만들기
+        run: sh _src/build.sh
+      - name: 결과 커밋
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git reset -q node_modules 2>/dev/null || true
+          if git diff --cached --quiet; then echo "바뀐 것 없음"; exit 0; fi
+          git commit -m "사이트 다시 만들기 (자동)"
+          git push

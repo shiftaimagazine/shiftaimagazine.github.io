@@ -31,7 +31,7 @@ const tutHTML = t=>`<a class="post" href="${P(t.id)}">${thumb({src:t.thumb})}
   <div class="b"><span class="cat">튜토리얼 · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
 const colImg = c=>c.image||(c.rel&&byId[c.rel]?imgOf(byId[c.rel]):{src:"img/logo.webp"});
 const colHTML = c=>`<a class="post" href="${P(c.id)}">${thumb(colImg(c))}
-  <div class="b"><span class="cat">칼럼 · 확신도 ${esc(c.level)}</span><h3>${esc(c.title)}</h3><p>${esc(c.deck)}</p><div class="meta"><span>${fmtDate(c.date)}</span><span class="dot"></span><span>점검일 ${fmtDate(c.check)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div></div></a>`;
+  <div class="b"><span class="cat">칼럼</span><h3>${esc(c.title)}</h3><p>${esc(c.deck)}</p><div class="meta"><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div></div></a>`;
 const dayItems = d=>d.items.map(id=>byId[id]).filter(Boolean);
 const dayPhoto = d=>{const its=dayItems(d); return (byId[d.lead]&&!byId[d.lead].image.temp)?byId[d.lead]:(its.find(a=>!a.image.temp)||byId[d.lead]||its[0]);};
 
@@ -109,7 +109,7 @@ function bodyHTML(body){
     if(x.h) return `<h3>${esc(x.h)}</h3>`;
     if(x.ul) return `<ul>${x.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`;
     if(x.q) return `<div class="q">${esc(x.q)}<br><button class="copy" data-copy="${esc(x.q)}">복사하기</button></div>`;
-    if(x.pred) return `<div class="pred"><div class="ph2">편집장의 예측</div><ol>${x.pred.map(p=>`<li>${esc(p)}</li>`).join("")}</ol></div>`;
+    if(x.pred) return `<div class="pred"><div class="ph2">편집장의 전망</div><ol>${x.pred.map(p=>`<li>${esc(p)}</li>`).join("")}</ol></div>`;
     if(x.table) return `<div class="tbl"><table class="dtable"><thead><tr>${x.table.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${x.table.note?`<div class="note">${esc(x.table.note)}</div>`:""}`;
     if(x.img) return fig(x.img,"inline-fig");
     return "";
@@ -145,11 +145,11 @@ function renderColumn(c){
   const i = COLUMNS.findIndex(x=>x.id===c.id); const nx = COLUMNS[(i+1)%COLUMNS.length]; const rel = c.rel && byId[c.rel];
   $("#v-article").innerHTML = `<article class="article narrow">
     <a class="back" href="/column/">← 칼럼</a>
-    <span class="cat">칼럼 · 편집장의 예측</span>
+    <span class="cat">칼럼</span>
     <h1>${esc(c.title)}</h1><p class="deck">${esc(c.deck)}</p>
-    <div class="meta"><span>SHIFT AI 편집장</span><span class="dot"></span><span>${fmtDate(c.date)}</span><span class="dot"></span><span>확신도 ${esc(c.level)}</span><span class="dot"></span><span>점검일 ${fmtDate(c.check)}</span></div>
+    <div class="meta"><span>SHIFT AI 편집장</span><span class="dot"></span><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div>
     ${fig(colImg(c),"lead-fig")}
-    <div class="body">${bodyHTML(c.body)}<div class="pred"><div class="chk"><span>확신도 ${esc(c.level)}</span><span>점검일 ${fmtDate(c.check)}</span><span>결과: 아직</span></div></div></div>
+    <div class="body">${bodyHTML(c.body)}</div>
     ${rel?`<div class="next"><div class="lbl">바탕이 된 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
     <div class="links"><a href="${TH}" target="_blank" rel="noopener">쓰레드에서 반론 남기기</a>${linkCopy(c.id,"링크 복사")}</div>
     ${SUBBOX}
