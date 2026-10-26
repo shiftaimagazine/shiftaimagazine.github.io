@@ -55,8 +55,11 @@ if __name__ == '__main__':
     for d in DAILY:
         lead = next((x for x in out if x['id'] == d['lead']), None)
         if lead and not lead['image'].get('temp'): lead['featured'] = True; break
+    GROUPS = {'AI', '개발', '인프라', '보안·개인정보', '비즈니스·정책'}
     for t in TERMS:
         assert not t.get('rel') or t['rel'] in byid, ('용어 rel 오류', t['t'])
+        assert t.get('g') in GROUPS, ('용어 분야(g) 오류', t['t'], t.get('g'))
+    assert len({t['t'] for t in TERMS}) == len(TERMS), '중복 용어'
 
     old = J('old_tut.json'); tl = J('tutorial_links.json')
     cross = old['cross']; cross['thumb'] = 'img/cover/t-crosscheck-prompts.webp'; cross['rel'] = '2026-10-19-whatsapp-hidden-ai-instructions'

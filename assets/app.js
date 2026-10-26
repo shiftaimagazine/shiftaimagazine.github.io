@@ -52,29 +52,39 @@ function renderHome(){
   $("#reelwelcome").innerHTML = `<b>릴스에서 오셨군요. 여기서는 끝까지 읽습니다.</b><p>방금 본 30초 영상의 긴 판과 오늘 기사가 아래에 있습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
 }
 
-let catFilter="all";
+// AI 뉴스 목록 = 기사 + 칼럼(분류 "칼럼")
+const COL = "칼럼";
+const FEED = [...ARTICLES.map(a=>({k:"a", key:a.date+" "+(a.time||"00:00"), o:a, cat:a.cat})), ...COLUMNS.map(c=>({k:"c", key:c.date+" 23:59", o:c, cat:COL}))].sort((x,y)=>y.key.localeCompare(x.key));
+let catFilter = new URLSearchParams(location.search).get("cat") || "all";
 function renderNews(){
   if(!$("#newsList")) return;
-  $("#catFilters").innerHTML = `<button aria-pressed="${catFilter==="all"}" data-c="all">전체 ${ARTICLES.length}</button>`+CATS.map(c=>`<button aria-pressed="${catFilter===c}" data-c="${esc(c)}">${esc(c)} ${ARTICLES.filter(a=>a.cat===c).length}</button>`).join("");
+  const cnt = c=>FEED.filter(x=>x.cat===c).length;
+  $("#catFilters").innerHTML = `<button aria-pressed="${catFilter==="all"}" data-c="all">전체 ${FEED.length}</button>`+[...CATS, COL].map(c=>`<button aria-pressed="${catFilter===c}" data-c="${esc(c)}">${esc(c)} ${cnt(c)}</button>`).join("");
   const q = ($("#q").value||"").trim().toLowerCase();
-  const list = sorted.filter(a=>(catFilter==="all"||a.cat===catFilter) && (!q || (a.title+a.hook+a.sub+a.cat).toLowerCase().includes(q)));
-  $("#newsList").innerHTML = list.length ? list.map(postHTML).join("") : `<div class="empty">해당하는 기사가 없다.</div>`;
+  const list = FEED.filter(x=>(catFilter==="all"||x.cat===catFilter) && (!q || (x.o.title+(x.o.hook||x.o.deck||"")+(x.o.sub||"")+x.cat).toLowerCase().includes(q)));
+  $("#newsList").innerHTML = list.length ? list.map(x=>x.k==="c"?colHTML(x.o):postHTML(x.o)).join("") : `<div class="empty">해당하는 기사가 없다.</div>`;
 }
-$("#catFilters") && $("#catFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-c]"); if(!b) return; catFilter=b.dataset.c; renderNews();});
+$("#catFilters") && $("#catFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-c]"); if(!b) return; catFilter=b.dataset.c; renderNews();
+  try{ history.replaceState(null,"", catFilter==="all" ? "/news/" : "/news/?cat="+encodeURIComponent(catFilter)); }catch(_){} });
 
 const KO = ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"];
 const EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-let dictFilter = "all";
+let dictFilter = "all", grpFilter = "all";
+const GROUPS = ["AI","개발","인프라","보안·개인정보","비즈니스·정책"];
+const ORD = [...KO,...EN];
+const TERMS_SORTED = [...TERMS].sort((a,b)=>(ORD.indexOf(a.i)-ORD.indexOf(b.i)) || a.t.localeCompare(b.t,"ko"));
 function renderDict(){
   if(!$("#terms")) return;
-  const have = new Set(TERMS.map(t=>t.i));
+  if($("#grp")) $("#grp").innerHTML = `<button aria-pressed="${grpFilter==="all"}" data-g="all">전체 ${TERMS.length}</button>` + GROUPS.map(g=>`<button aria-pressed="${grpFilter===g}" data-g="${esc(g)}">${esc(g)} ${TERMS.filter(t=>t.g===g).length}</button>`).join("");
+  const have = new Set(TERMS.filter(t=>grpFilter==="all"||t.g===grpFilter).map(t=>t.i));
   $("#idx").innerHTML = `<button aria-pressed="${dictFilter==="all"}" data-i="all">전체</button>` + [...KO,...EN].map(c=>`<button aria-pressed="${dictFilter===c}" data-i="${c}" ${have.has(c)?"":"disabled"}>${c}</button>`).join("");
   const q = ($("#q").value||"").trim().toLowerCase();
-  const list = TERMS.filter(t=>(dictFilter==="all"||t.i===dictFilter) && (!q || (t.t+t.en+t.d).toLowerCase().includes(q)));
-  $("#terms").innerHTML = list.map(t=>`<div class="term"><dt>${esc(t.t)}<small>${esc(t.en)}</small></dt><dd>${esc(t.d)}${t.rel&&byId[t.rel]?`<br><a href="${P("a-"+t.rel)}">관련 기사: ${esc(byId[t.rel].title)}</a>`:""}</dd></div>`).join("");
+  const list = TERMS_SORTED.filter(t=>(dictFilter==="all"||t.i===dictFilter) && (grpFilter==="all"||t.g===grpFilter) && (!q || (t.t+t.en+t.d).toLowerCase().includes(q)));
+  $("#terms").innerHTML = list.map(t=>`<div class="term"><dt>${esc(t.t)}<small>${esc(t.en)}</small>${t.g?`<span class="tg">${esc(t.g)}</span>`:""}</dt><dd>${esc(t.d)}${t.rel&&byId[t.rel]?`<br><a href="${P("a-"+t.rel)}">관련 기사: ${esc(byId[t.rel].title)}</a>`:""}</dd></div>`).join("");
   $("#dictEmpty").hidden = list.length>0;
 }
 $("#idx") && $("#idx").addEventListener("click",e=>{const b=e.target.closest("button[data-i]"); if(!b||b.disabled) return; dictFilter=b.dataset.i; renderDict();});
+$("#grp") && $("#grp").addEventListener("click",e=>{const b=e.target.closest("button[data-g]"); if(!b) return; grpFilter=b.dataset.g; dictFilter="all"; renderDict();});
 
 const drowHTML = d=>{const its=dayItems(d); const lead=dayPhoto(d); const [y,m,dd]=d.date.split("-");
     return `<a class="drow" href="${P("d-"+d.date)}"><div class="dd">${m}.${dd}<small>${korDate(d.date).split(" ").pop()} · ${its.length}건</small></div>
@@ -91,7 +101,7 @@ function renderLists(){
 
 function renderAbout(){
   if(!$("#stats")) return;
-  const n=[["기사",ARTICLES.length,"/news/"],["튜토리얼",TUTORIALS.length,"/tutorial/"],["칼럼",COLUMNS.length,"/column/"],["데일리 이슈",DAILY.length,"/daily/"],["AI 사전",TERMS.length,"/dict/"]];
+  const n=[["기사",ARTICLES.length,"/news/"],["튜토리얼",TUTORIALS.length,"/tutorial/"],["칼럼",COLUMNS.length,"/news/?cat=칼럼"],["데일리 이슈",DAILY.length,"/daily/"],["AI 사전",TERMS.length,"/dict/"]];
   $("#stats").innerHTML = n.map(([k,v,h])=>`<a class="stat" href="${h}"><b>${k}</b><span>${v}</span></a>`).join("");
   const f = ARTICLES.find(a=>a.featured) || sorted[0];
   const last = (f.body.filter(x=>x.p).slice(-1)[0]||{}).p||f.hook;
@@ -144,7 +154,7 @@ function renderArticle(a){
 function renderColumn(c){
   const i = COLUMNS.findIndex(x=>x.id===c.id); const nx = COLUMNS[(i+1)%COLUMNS.length]; const rel = c.rel && byId[c.rel];
   $("#v-article").innerHTML = `<article class="article narrow">
-    <a class="back" href="/column/">← 칼럼</a>
+    <a class="back" href="/news/?cat=칼럼">← AI 뉴스 · 칼럼</a>
     <span class="cat">칼럼</span>
     <h1>${esc(c.title)}</h1><p class="deck">${esc(c.deck)}</p>
     <div class="meta"><span>SHIFT AI 편집장</span><span class="dot"></span><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div>
@@ -208,7 +218,7 @@ document.addEventListener("click",e=>{
 });
 let toastT; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),1600);}
 
-const NAV = r=>r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"column":r.startsWith("d-")?"daily":r;
+const NAV = r=>r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"news":r.startsWith("d-")?"daily":r;
 // 옛 해시 주소(#a-… 등)로 들어오면 새 주소로 보낸다
 (function(){ const h=location.hash.slice(1); if(!h) return;
   if(h==="reel") return location.replace("/?from=reels");
@@ -223,7 +233,7 @@ function init(){
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);
     else if(r.startsWith("c-") && colById[r]) renderColumn(colById[r]);
     else if(r.startsWith("d-") && dayById[r]) renderDaily(dayById[r]);
-  } else if(q0){ renderNews(); renderDict(); }
+  } else if(q0 || catFilter!=="all"){ renderNews(); renderDict(); }
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
   document.querySelectorAll("[data-nav]").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===NAV(r) ? "true":"false"));

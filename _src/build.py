@@ -41,7 +41,6 @@ STATIC = {
     'home': home,
     'news': with_sub(fix_links(view('news'))),
     'tutorial': with_sub(fix_links(view('tutorial'))),
-    'column': with_sub(fix_links(view('column'))),
     'daily': with_sub(fix_links(view('daily'))),
     'dict': fix_links(view('dict')),
     'about': about,
@@ -162,7 +161,6 @@ HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_
 page('/', 'home', 'SHIFT AI — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진', '오늘 나온 AI 뉴스를 회사 발표·논문·공식 게시물 같은 원문부터 읽고 쉽게 정리합니다. 챗GPT·클로드·제미나이 등 인공지능 소식, AI 데일리 이슈, 따라 하는 AI 튜토리얼과 칼럼.', STATIC['home'], OG_SITE, 'website', HOME_EXTRA)
 LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 AI 뉴스와 인공지능 기사. 회사 발표·논문·공식 게시물 같은 원문을 읽고 쓰며, 모든 기사 끝에 원문 링크가 있다.'),
          'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 항목마다 복사해 쓰는 프롬프트와 함께.'),
-         'column': ('칼럼', '편집장의 시선. 뉴스에서 한 걸음 물러나, 그래서 앞으로 무엇이 달라질지를 쓴다.'),
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에. 제목 한 줄, 요점 세 줄, 소식 목록과 숫자.'),
          'dict': ('AI 사전', '기사에 나오는 AI 용어를 한 줄로 풀고 관련 기사로 잇는다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 읽고 "그래서 무엇이 달라지는가"를 쓰는 AI 매거진이다.'),
@@ -172,6 +170,15 @@ for r, (t, ds) in LISTS.items():
     page(f'/{r}/', r, f'{t} · SHIFT AI', ds, STATIC[r], OG_SITE)
 
 ART = '<main id="v-article"></main>'
+# 칼럼 목록은 AI 뉴스 안의 '칼럼' 분류로 옮김 → 예전 주소 /column/ 은 그쪽으로 넘긴다
+_go = '/news/?cat=%EC%B9%BC%EB%9F%BC'
+os.makedirs(OUT + 'column', exist_ok=True)
+open(OUT + 'column/index.html', 'w').write(f'''<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>칼럼 · SHIFT AI</title>
+<link rel="canonical" href="{SITE}{_go}"><meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={_go}"><script>location.replace("{_go}")</script></head>
+<body><a href="{_go}">칼럼 보기</a></body></html>
+''')
 for a in A:
     og = og_from(img_of(a), 'a-' + a['id'])
     ld = {'@context': 'https://schema.org', '@type': 'NewsArticle', 'headline': a['title'], 'description': a['hook'],

@@ -311,3 +311,7 @@ footer a:hover{color:var(--ink)}
 .subbox h2{color:#111214}.subbox .st p,.subbox .consent,.subslot small{color:#6f7076}.subbox .k{color:#d4581f}.subbox .consent a{color:#111214}
 .subsoon input{background:#fff;color:#111214;border-color:#e6e6e3}.subsoon .btn{background:#111214;color:#fff}
 .subslot{min-height:150px}
+
+/* AI 사전 분야 표시 */
+#grp{margin-bottom:4px}
+.term dt .tg{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:1px 8px;vertical-align:middle;letter-spacing:0}
