@@ -126,5 +126,23 @@
  "2026-10-21-nodejs-security-release": {
   "src": "img/ph/nodejs.webp",
   "credit": "이미지: Node.js"
+ },
+ "2026-10-26-anthropic-s1-ipo": {
+  "src": "img/ph/2026-10-26-anthropic-s1-ipo.webp",
+  "credit": "화면: sec.gov",
+  "alt": "앤트로픽 증권신고서 첫 화면",
+  "auto": true
+ },
+ "2026-10-26-gpt-6-1-terra": {
+  "src": "img/ph/2026-10-26-gpt-6-1-terra.webp",
+  "credit": "화면: openai.com",
+  "alt": "오픈AI GPT-6.1 테라 발표 화면",
+  "auto": true
+ },
+ "2026-10-26-cohere-qwen-exfiltration": {
+  "src": "img/ph/2026-10-26-cohere-qwen-exfiltration.webp",
+  "credit": "이미지: Cohere",
+  "alt": "코히어 블로그 대표 이미지",
+  "auto": true
  }
 }
