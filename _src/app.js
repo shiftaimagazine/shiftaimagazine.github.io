@@ -36,15 +36,12 @@ const dayItems = d=>d.items.map(id=>byId[id]).filter(Boolean);
 const dayPhoto = d=>{const its=dayItems(d); return (byId[d.lead]&&!byId[d.lead].image.temp)?byId[d.lead]:(its.find(a=>!a.image.temp)||byId[d.lead]||its[0]);};
 
 function renderHome(){
-  const f = ARTICLES.find(a=>a.featured) || sorted[0];
-  $("#feature").href = P("a-"+f.id);
-  $("#feature").innerHTML = `${fig(imgOf(f))}<div class="ft"><span class="cat">${esc(f.cat)}</span><h1>${esc(f.title)}</h1><p>${esc(f.hook)}</p><div class="meta"><span>${fmtDate(f.date)}</span><span class="dot"></span><span>${readMin(f.body)}분 읽기</span></div></div>`;
   const d = dailySorted[0];
   if(d){ const its=dayItems(d); const lead=dayPhoto(d);
     $("#dailyHome").innerHTML = `<div><span class="k">AI 데일리 · ${korDate(d.date)}</span><h3>${esc(d.title)}</h3>
       <ol>${its.slice(0,5).map((a,i)=>`<li><a href="${P("a-"+a.id)}"><i>${String(i+1).padStart(2,"0")}</i><div><span>${esc(a.cat)}</span><b>${esc(a.title)}</b></div></a></li>`).join("")}</ol>
       <a class="go" href="${P("d-"+d.date)}">이날 소식 ${its.length}건 전체 보기</a></div>${lead?fig(imgOf(lead)):""}`; }
-  $("#homeNews").innerHTML = sorted.filter(a=>a.id!==f.id).slice(0,6).map(postHTML).join("");
+  $("#homeNews").innerHTML = sorted.slice(0,6).map(postHTML).join("");
   $("#homeTuts").innerHTML = TUTORIALS.slice(0,3).map(tutHTML).join("");
   $("#homeCols").innerHTML = COLUMNS.slice(0,3).map(colHTML).join("");
   $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="/dict/"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
@@ -70,7 +67,7 @@ $("#catFilters") && $("#catFilters").addEventListener("click",e=>{const b=e.targ
 const KO = ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"];
 const EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 let dictFilter = "all", grpFilter = "all";
-const GROUPS = ["AI","개발","인프라","보안·개인정보","비즈니스·정책"];
+const GROUPS = ["AI","제품·회사","개발","인프라","보안·개인정보","비즈니스·정책"];
 const ORD = [...KO,...EN];
 const TERMS_SORTED = [...TERMS].sort((a,b)=>(ORD.indexOf(a.i)-ORD.indexOf(b.i)) || a.t.localeCompare(b.t,"ko"));
 function renderDict(){
@@ -147,7 +144,7 @@ function renderArticle(a){
     ${srcHTML(a.sources)}
     ${tl.length?`<div class="chips">${tl.map(t=>`<a href="/dict/" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
     <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 판 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
-    ${SUBBOX}
+    ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
   </article>`;
 }
@@ -162,7 +159,7 @@ function renderColumn(c){
     <div class="body">${bodyHTML(c.body)}</div>
     ${rel?`<div class="next"><div class="lbl">바탕이 된 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
     <div class="links"><a href="${TH}" target="_blank" rel="noopener">쓰레드에서 반론 남기기</a>${linkCopy(c.id,"링크 복사")}</div>
-    ${SUBBOX}
+    ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 칼럼</div><div class="list">${colHTML(nx)}</div></div>
   </article>`;
 }
@@ -188,7 +185,7 @@ function renderTutorial(t){
     ${srcHTML(t.sources)}
     ${rel?`<div class="next"><div class="lbl">관련 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
     <div class="links">${t.pdf?`<a href="${t.pdf.url}" target="_blank" rel="noopener">PDF 정리본 열기</a>`:""}<a href="${TH}" target="_blank" rel="noopener">쓰레드에서 질문하기</a>${linkCopy(t.id,"링크 복사")}</div>
-    ${SUBBOX}
+    ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list">${tutHTML(nx)}</div></div>
   </article>`;
 }
@@ -206,7 +203,7 @@ function renderDaily(d){
     <div class="items">${its.map((a,k)=>`<a class="it" href="${P("a-"+a.id)}"><span class="n">${String(k+1).padStart(2,"0")}</span><div><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p></div><figure>${thumb(imgOf(a))}</figure></a>`).join("")}</div>
     ${nums.length?`<div class="sec" style="margin-top:40px"><h2>숫자로 보는 오늘</h2></div><div class="tbl"><table class="dtable"><thead><tr><th>소식</th><th>숫자</th></tr></thead><tbody>${nums.map(([a,v])=>`<tr><td>${esc(a.title)}</td><td>${esc(v)}</td></tr>`).join("")}</tbody></table></div>`:""}
     <div class="links">${prev?`<a href="${P("d-"+prev.date)}">← ${fmtDate(prev.date)}</a>`:""}${next?`<a href="${P("d-"+next.date)}">${fmtDate(next.date)} →</a>`:""}${linkCopy("d-"+d.date,"링크 복사")}</div>
-    ${SUBBOX}
+    ${FOLLOWBOX}
   </article>`;
 }
 
@@ -227,7 +224,7 @@ const q0 = new URLSearchParams(location.search).get("q"); if(q0) $("#q").value =
 function init(){
   const r = ROUTE;
   if(!PRE){
-    if($("#feature")) renderHome();
+    if($("#dailyHome")) renderHome();
     renderNews(); renderDict(); renderLists(); renderAbout();
     if(r.startsWith("a-") && byId[r.slice(2)]) renderArticle(byId[r.slice(2)]);
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);

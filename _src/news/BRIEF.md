@@ -59,7 +59,7 @@ SHIFT AI는 한국어 AI 웹 매거진이다(https://shiftaimagazine.github.io).
 ```
 - `image`: 사진은 GitHub Actions가 og 주소 → 원문 페이지의 og:image → 원문 첫 화면 캡처 순서로 받아 붙인다(img/ph/<id>.webp). 회사 공식 이미지·보도 사진·제품 화면이 우선. AI로 만든 그림으로 보이면 `"mode": "screenshot"`(원문 화면 캡처)으로 바꾼다. 언론사 사진은 쓰지 않는다.
 - `verify`는 화면에 안 나온다. 기사 속 **모든 숫자·날짜·인용**마다 하나씩, 원문 문장을 그대로 붙인다(검수용).
-- 용어(terms): `_src/news/terms.json` 의 `t` 값만 쓴다(AI 용어와 API·SDK·GPU 같은 IT 용어가 함께 있다). 새 용어는 {t, en, i(첫 초성 또는 알파벳 대문자), g(AI | 개발 | 인프라 | 보안·개인정보 | 비즈니스·정책), d(한두 문장 풀이), rel(관련 기사 id 또는 null)} 로 추가한다.
+- 용어(terms): `_src/news/terms.json` 의 `t` 값만 쓴다(AI 용어와 API·SDK·GPU 같은 IT 용어가 함께 있다). 새 용어는 {t, en, i(첫 초성 또는 알파벳 대문자), g(AI | 제품·회사 | 개발 | 인프라 | 보안·개인정보 | 비즈니스·정책), d(한두 문장 풀이), rel(관련 기사 id 또는 null)} 로 추가한다.
 
 ## 5. 작업 방식
 - 주제마다 WebSearch로 원문을 찾고 WebFetch로 열어 확인한다. 주제당 검색·열람 4회 안팎, 전체 50회 안쪽.

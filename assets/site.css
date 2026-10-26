@@ -315,3 +315,17 @@ footer a:hover{color:var(--ink)}
 /* AI 사전 분야 표시 */
 #grp{margin-bottom:4px}
 .term dt .tg{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:1px 8px;vertical-align:middle;letter-spacing:0}
+
+/* 팔로우 상자 (뉴스레터 대신) */
+.followbox{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;background:var(--bg2);border-radius:14px;padding:28px 30px;margin:56px 0 8px}
+.followbox>*{min-width:0}
+.followbox .k{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em}
+.followbox h2{font-size:23px;line-height:1.35;margin:6px 0 8px}
+.followbox .st p{margin:0;color:var(--sub);font-size:15px;line-height:1.7}
+.fbtns{display:grid;gap:10px}
+.fbtn{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:13px 16px}
+.fbtn b{color:var(--ink);font-size:15px}
+.fbtn span{color:var(--sub);font-size:13.5px}
+.fbtn:hover{border-color:var(--line-strong)}
+.article .followbox,.narrow .followbox{grid-template-columns:1fr;gap:16px}
+@media (max-width:760px){.followbox{grid-template-columns:1fr;gap:16px;padding:22px}}

@@ -19,33 +19,27 @@ def fix_links(s):
     s = re.sub(r'href="#(news|tutorial|column|daily|dict|about)"', r'href="/\1/"', s)
     return s
 
-SUBBOX = view('subscribe-box').replace('<label class="sr" for="subsoon-email">이메일 주소</label><input type="email"', '<input type="email" aria-label="이메일 주소"').strip()
-header = fix_links(view('header')).replace(
-    f'<a class="btn" href="{IG}" target="_blank" rel="noopener">팔로우</a>',
-    f'<a class="btn" href="/subscribe/">구독</a><a class="ghost" href="{IG}" target="_blank" rel="noopener">팔로우</a>')
-assert 'href="/subscribe/"' in header
+FOLLOWBOX = view('follow-box').strip()
+header = fix_links(view('header'))
 footer = fix_links(view('footer')).replace('<span>shiftai.magazine@gmail.com</span>',
-    '<a href="/subscribe/">뉴스레터</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span>')
+    '<a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span>')
 assert '/privacy/' in footer
 
-def with_sub(v, before='</main>'):
-    i = v.rindex(before); return v[:i] + SUBBOX + '\n' + v[i:]
+def with_follow(v, before='</main>'):
+    i = v.rindex(before); return v[:i] + FOLLOWBOX + '\n' + v[i:]
 
 home = fix_links(view('home'))
-home = home.replace('<div class="sec"><h2>튜토리얼</h2>', SUBBOX + '\n  <div class="sec"><h2>튜토리얼</h2>', 1)
-about = fix_links(view('about')).replace(
-    '<tr><td>AI 사전</td><td>기사에 나온 용어 풀이</td><td>수시</td></tr>',
-    '<tr><td>AI 사전</td><td>기사에 나온 용어 풀이</td><td>수시</td></tr>\n        <tr><td>뉴스레터</td><td>한 주의 데일리 이슈와 튜토리얼 한 편을 메일로. <a href="/subscribe/">구독하기</a></td><td>매주 월요일</td></tr>')
-assert '/subscribe/' in about
+home = home.replace('<div class="sec"><h2>튜토리얼</h2>', FOLLOWBOX + '\n  <div class="sec"><h2>튜토리얼</h2>', 1)
+about = fix_links(view('about'))
+
 STATIC = {
     'home': home,
-    'news': with_sub(fix_links(view('news'))),
-    'tutorial': with_sub(fix_links(view('tutorial'))),
-    'daily': with_sub(fix_links(view('daily'))),
+    'news': with_follow(fix_links(view('news'))),
+    'tutorial': with_follow(fix_links(view('tutorial'))),
+    'daily': with_follow(fix_links(view('daily'))),
     'dict': fix_links(view('dict')),
     'about': about,
     'privacy': view('privacy'),
-    'subscribe': view('subscribe').replace('<!--SUBBOX-->', SUBBOX),
 }
 
 # ---- 공유 이미지(og) ----
@@ -70,7 +64,7 @@ def og_brand():
     logo = Image.open(OUT + 'img/logo-wide.webp').convert('RGBA'); s = 520 / logo.width
     logo = logo.resize((520, round(logo.height * s)), Image.LANCZOS); c.paste(logo, ((W - 520) // 2, 150), logo)
     fb = ImageFont.truetype(FONT_B, 50, index=1); fr = ImageFont.truetype(FONT_R, 28, index=1)
-    t1 = 'AI 소식, 검색하지 말고 SHIFT 하세요.'; t2 = 'AI 뉴스 · 튜토리얼 · 칼럼 · 데일리 이슈 · 주간 뉴스레터'
+    t1 = 'AI 소식, 검색하지 말고 SHIFT 하세요.'; t2 = 'AI 데일리 이슈 · AI 뉴스 · 튜토리얼 · AI 사전'
     y = 150 + logo.height + 56
     d.text(((W - d.textlength(t1, font=fb)) / 2, y), t1, font=fb, fill=(17, 18, 20))
     d.text(((W - d.textlength(t2, font=fr)) / 2, y + 78), t2, font=fr, fill=(111, 112, 118))
@@ -94,7 +88,7 @@ for size, name in [(64, 'favicon.png'), (180, 'apple-touch-icon.png')]:
 
 # ---- 공유 자산 ----
 os.makedirs(OUT + 'assets', exist_ok=True)
-data_js = ''.join(f'const {k} = {json.dumps(v, ensure_ascii=False)};\n' for k, v in D.items()) + f'const SUBBOX = {json.dumps(SUBBOX, ensure_ascii=False)};\n'
+data_js = ''.join(f'const {k} = {json.dumps(v, ensure_ascii=False)};\n' for k, v in D.items()) + f'const FOLLOWBOX = {json.dumps(FOLLOWBOX, ensure_ascii=False)};\n'
 app_js = open(SRC + 'app.js').read()
 css = open(SRC + 'site.css').read()
 open(OUT + 'assets/data.js', 'w').write(data_js)
@@ -164,12 +158,14 @@ LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에. 제목 한 줄, 요점 세 줄, 소식 목록과 숫자.'),
          'dict': ('AI 사전', '기사에 나오는 AI 용어를 한 줄로 풀고 관련 기사로 잇는다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 읽고 "그래서 무엇이 달라지는가"를 쓰는 AI 매거진이다.'),
-         'subscribe': ('뉴스레터 구독', '매주 월요일 아침, 지난 한 주의 AI를 메일 한 통에. 데일리 이슈 정리와 튜토리얼 한 편. 무료.'),
-         'privacy': ('개인정보처리방침', 'SHIFT AI 뉴스레터 구독자 개인정보처리방침.')}
+         'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
 for r, (t, ds) in LISTS.items():
     page(f'/{r}/', r, f'{t} · SHIFT AI', ds, STATIC[r], OG_SITE)
 
 ART = '<main id="v-article"></main>'
+# 뉴스레터 페이지는 없앰 → /subscribe/ 는 첫 화면으로
+os.makedirs(OUT + 'subscribe', exist_ok=True)
+open(OUT + 'subscribe/index.html', 'w').write(f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>SHIFT AI</title><link rel="canonical" href="{SITE}/"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0; url=/"><script>location.replace("/")</script></head><body><a href="/">SHIFT AI</a></body></html>\n')
 # 칼럼 목록은 AI 뉴스 안의 '칼럼' 분류로 옮김 → 예전 주소 /column/ 은 그쪽으로 넘긴다
 _go = '/news/?cat=%EC%B9%BC%EB%9F%BC'
 os.makedirs(OUT + 'column', exist_ok=True)
