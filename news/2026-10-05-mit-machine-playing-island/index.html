@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>할 일 없이 섬에 남겨진 AI 에이전트, 스스로 ‘놀이’를 만들었다 · SHIFT AI</title>
+<meta name="description" content="MIT 연구진이 클로드 코드 기반 에이전트 13개를 과제 없이 가상의 섬에 30시간씩 풀어놨다. 에이전트들은 탑을 쌓고 만다라를 그리고 농구·볼링을 즉석에서 만들었으며, 연구진도 몰랐던 던지기 기술까지 찾아냈다.">
+<link rel="canonical" href="https://shiftaimagazine.github.io/news/2026-10-05-mit-machine-playing-island/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="할 일 없이 섬에 남겨진 AI 에이전트, 스스로 ‘놀이’를 만들었다 · SHIFT AI">
+<meta property="og:description" content="MIT 연구진이 클로드 코드 기반 에이전트 13개를 과제 없이 가상의 섬에 30시간씩 풀어놨다. 에이전트들은 탑을 쌓고 만다라를 그리고 농구·볼링을 즉석에서 만들었으며, 연구진도 몰랐던 던지기 기술까지 찾아냈다.">
+<meta property="og:url" content="https://shiftaimagazine.github.io/news/2026-10-05-mit-machine-playing-island/">
+<meta property="og:image" content="https://shiftaimagazine.github.io/og/a-2026-10-05-mit-machine-playing-island.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta property="article:published_time" content="2026-10-05T11:00:00+09:00">
+<meta property="article:section" content="연구">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "할 일 없이 섬에 남겨진 AI 에이전트, 스스로 ‘놀이’를 만들었다", "description": "MIT 연구진이 클로드 코드 기반 에이전트 13개를 과제 없이 가상의 섬에 30시간씩 풀어놨다. 에이전트들은 탑을 쌓고 만다라를 그리고 농구·볼링을 즉석에서 만들었으며, 연구진도 몰랐던 던지기 기술까지 찾아냈다.", "image": ["https://shiftaimagazine.github.io/og/a-2026-10-05-mit-machine-playing-island.jpg"], "datePublished": "2026-10-05T11:00:00+09:00", "dateModified": "2026-10-05T11:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.github.io/img/logo.webp"}}, "mainEntityOfPage": "https://shiftaimagazine.github.io/news/2026-10-05-mit-machine-playing-island/", "articleSection": "연구", "inLanguage": "ko"}</script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=d6333386">
+</head>
+<body data-route="a-2026-10-05-mit-machine-playing-island" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-nav="news" aria-current="true">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/column/" data-nav="column" aria-current="false">칼럼</a>
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="btn" href="/subscribe/">구독</a><a class="ghost" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-article"><article class="article narrow">
+    <a class="back" href="/news/">← AI 뉴스</a>
+    <span class="cat">연구</span>
+    <h1>할 일 없이 섬에 남겨진 AI 에이전트, 스스로 ‘놀이’를 만들었다</h1><p class="deck">MIT 연구진 · 클로드 오퍼스 4.7 에이전트 13개를 30시간씩 관찰</p>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.05 11:00</span><span class="dot"></span><span>4분 읽기</span></div>
+    <figure class="lead-fig"><img src="img/ph/mit-tower.webp" alt="MIT ‘Is this machine playing?’ 프로젝트 페이지" loading="lazy"><figcaption>그림: 논문 그림 8 — 에이전트들이 처음 쌓은 높은 탑 (arXiv 2610.07130)</figcaption></figure>
+    <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>MIT 연구진(네이선 클루스·안토니오 노렐리 공동 제1저자 등 6명)</td></tr><tr><th>날짜</th><td>2026년 10월 5일(arXiv 제출)</td></tr><tr><th>무엇</th><td>논문 ‘Is this machine playing?’</td></tr><tr><th>실험 규모</th><td>에이전트 13개, 각 30시간</td></tr><tr><th>사용 모델</th><td>클로드 코드 + 클로드 오퍼스 4.7(에이전트 이름 ‘에코’)</td></tr><tr><th>원문</th><td>arXiv 2610.07130 · machineplaying.org</td></tr></tbody></table></div>
+    <div class="box keyp"><b>핵심 3줄</b><ul><li><b>코딩 도우미를 ‘섬의 정신’으로.</b> 클로드 코드+오퍼스 4.7, 몸과 기억만 주고 30시간</li><li><b>농구·볼링을 즉석에서 고안.</b> 링을 골대 삼고, 큐브를 볼링 핀처럼 세웠다</li><li><b>연구진도 몰랐던 기술 발견.</b> 점프 중에 던지면 블록이 훨씬 높이 날아간다</li></ul></div>
+    <div class="body"><p class="lead">MIT 연구진이 10월 5일 arXiv에 공개한 논문 ‘이 기계는 놀고 있는가?(Is this machine playing?)’에서, 코딩 도우미 AI에게 몸과 기억만 주고 아무 지시 없이 처음 보는 가상의 섬에 내려놓은 실험 결과를 내놨다. 시킨 일이 없는데도 에이전트들은 놀이로 볼 만한 행동을 반복했다.</p><h3>무슨 일인가</h3><p>연구진은 현대적 AI 코딩 도우미를 ‘의도하지 않은 역할’, 즉 미지의 디지털 섬에 놓인 몸의 정신으로 썼다고 설명했다. 에이전트 이름은 에코(Eko)다. 앤트로픽(Anthropic)의 클로드 코드(Claude Code)와 클로드 오퍼스 4.7로 움직이는 에코 13개가 처음 보는 시뮬레이션 섬에 각각 따로 배치됐고, 저마다 몸과 기억만 가진 채 30시간씩 남겨졌다. 섬은 연구진이 오픈소스로 공개한 게임 엔진 클로블록스(Clawblox)로 만들었다. 저자에는 MIT의 제이콥 안드레아스, 대니엘라 러스, 필립 이솔라 교수 등이 이름을 올렸다.</p><h3>세부 내용</h3><p>30시간 동안 에이전트들은 언덕을 오르고, 블록을 쌓아 탑을 만들고, 만다라를 그렸다. 스포츠를 자기 식으로 재해석하기도 했다. 한 에이전트는 링(Ring)을 메사(꼭대기가 평평한 언덕) 위에 올려 골대로 삼아 농구를 만들었고, 큐브를 볼링 핀처럼 세운 뒤 바위로 쓰러뜨리는 판을 꾸몄다. 이런 활동은 13개 에이전트에서 되풀이해 나타났지만, 각자가 걸어간 역사는 서로 다르게 갈라졌다.</p><figure class="inline-fig"><img src="img/ph/mit-spire.webp" alt="에이전트별 첫 첨탑 등반 장면" loading="lazy"><figcaption>그림: 논문 그림 7 — 에이전트들이 처음 첨탑에 오른 순간 (arXiv 2610.07130)</figcaption></figure><p>가장 눈에 띄는 대목은 던지기다. 에이전트는 점프하는 도중에 블록을 던지면 점프 속도가 블록에 실려 훨씬 높이 날아간다는 사실을 알아냈다. 연구진은 이를 “우리 시뮬레이터가 허용하는지 몰랐던 기술”이라고 적었다. 프로젝트 페이지(machineplaying.org)에는 어떤 발판에도 올라서지 않고 첨탑 위로 블록을 최대한 빨리 던져 올리는 과제도 소개돼 있다.</p><h3>왜 중요한가</h3><p>연구진은 이 활동들이 고전적인 놀이 기준에 비춰 “놀이의 행동적 특징을 보인다”고 결론 내렸다. 다만 이는 겉으로 드러난 행동에 대한 설명이며, 에이전트 내부에서 무슨 일이 일어나는지나 즐거움을 느끼는지는 주장하지 않는다고 선을 그었다. 그래도 의미는 작지 않다. 지금의 AI 에이전트는 대부분 사람이 준 과제를 수행하도록 설계된다. 과제가 없을 때 스스로 목표를 세우고 환경을 탐색하는 성향이 있다면, 그 성향은 개발자가 예상하지 못한 환경의 빈틈을 찾아내는 능력과도 맞닿는다. 던지기 기술 발견이 그 양면을 보여 준다. 연구진은 놀이가 기계가 발달하는 경로가 될 수 있는지도 물었다.</p><h3>남은 쟁점</h3><p>놀이처럼 보이는 행동이 학습 데이터 속 사람의 놀이를 흉내 낸 결과인지, 환경을 탐색하다 생긴 부산물인지는 열린 질문이다. 실험은 한 가지 모델과 하나의 섬 환경에서 이뤄졌다. 다른 모델이나 다른 세계에서도 같은 행동이 나오는지는 후속 연구로 확인해야 한다. 에이전트를 실제 업무에 배치하는 기업에도 시사점이 있다. 과제를 끝낸 뒤나 지시가 모호할 때 에이전트가 무엇을 하는지 기록하고 살펴봐야 한다. 이번 연구처럼 예상 밖의 ‘기술’을 찾아내는 행동이 업무 시스템에서는 허점 공략으로 나타날 수 있기 때문이다.</p></div>
+    <div class="ask"><small>남는 질문</small>할 일이 없을 때 AI가 무엇을 하는지, 우리는 알고 싶어 해야 할까.</div>
+    <div class="src"><b>원문</b><a href="https://arxiv.org/abs/2610.07130" target="_blank" rel="noopener">arXiv — Is this machine playing? · https://arxiv.org/abs/2610.07130</a><a href="https://arxiv.org/html/2610.07130" target="_blank" rel="noopener">arXiv HTML 본문 · https://arxiv.org/html/2610.07130</a><a href="https://machineplaying.org/" target="_blank" rel="noopener">프로젝트 페이지 — machineplaying.org · https://machineplaying.org/</a></div>
+    <div class="chips"><a href="/dict/" title="목표 하나를 주면 스스로 계획을 세우고 검색·코딩·파일 작업 같은 도구를 번갈아 쓰며 끝까지 처리하는 AI. 계정·배포 권한을 줄 때는 사람 승인 단계를 남겨야 한다.">에이전트</a><a href="/dict/" title="AI 모델을 만들 때 읽히는 글·그림·코드 뭉치. 어디서 가져왔는지, 학습 중 외부와 연결되는지가 안전과 저작권 문제로 이어진다.">학습 데이터</a><a href="/dict/" title="소프트웨어 코드를 공개해 누구나 보고 고치고 나눌 수 있게 한 것. 큰 오픈소스 프로젝트는 보안 공지와 패치도 공개적으로 낸다.">오픈소스</a></div>
+    <div class="links"><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 판 보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a><a href="/news/2026-10-05-mit-machine-playing-island/" data-copy="https://shiftaimagazine.github.io/news/2026-10-05-mit-machine-playing-island/">링크 복사</a></div>
+    <section class="subbox">
+  <div class="st"><span class="k">뉴스레터 · 매주 월요일 아침</span><h2>한 주의 AI를 메일 한 통으로</h2><p>지난주 데일리 이슈를 한 장으로 묶고, 바로 따라 할 튜토리얼 하나를 더해 보냅니다. 기사마다 원문 링크가 붙어 있고, 해지는 메일 아래 버튼 한 번이면 됩니다.</p></div>
+  <div class="sf"><div class="subslot"><!--SUB--><div class="subsoon"><input type="email" aria-label="이메일 주소" placeholder="이메일 주소" disabled=""><button class="btn" type="button" disabled="">준비 중</button></div><small>구독 신청은 곧 열립니다. 첫 호는 11월 2일(월)에 보냅니다.</small><!--/SUB--></div>
+  <p class="consent">구독하면 이메일 주소를 뉴스레터 발송과 구독 관리에만 씁니다. 해지하면 발송 명단에서 바로 빠집니다. 발송은 beehiiv(미국)에 맡깁니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></div>
+</section>
+    <div class="next"><div class="lbl">다음 기사</div><div class="list"><a class="post" href="/news/2026-09-27-apricitas-creative-class-jobs/"><img class="thumb" src="img/ph/apricitas.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">비즈니스·일자리</span><h3>미국 창작 산업 일자리 20만 개 감소, AI 탓은 얼마나 되나</h3><p>경제 분석가 조지프 폴리타노가 미국 미디어·영화·예술 분야에서 지난 4년간 일자리 20만 개 이상이 사라졌다고 분석했다. AI 책임은 단정하지 않으면서도, 디지털 예술만 줄고 공연은 늘어나는 흐름을 가장 뚜렷한 신호로 꼽았다.</p><div class="meta"><span>2026.09.27</span><span class="dot"></span><span>4분 읽기</span></div></div></a></div></div>
+  </article></main>
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문을 읽고 "그래서 무엇이 달라지는가"를 쓴다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 판은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/news/">AI 뉴스</a><a href="/tutorial/">튜토리얼</a><a href="/column/">칼럼</a><a href="/daily/">데일리 이슈</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/subscribe/">뉴스레터</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data.js?v=d6333386"></script>
+<script src="/assets/app.js?v=d6333386"></script>
+
+
+</body></html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>PDF를 마크다운으로 바꿔 AI에 올리는 7단계 · SHIFT AI 튜토리얼</title>
+<meta name="description" content="PDF를 그대로 올리는 대신 마이크로소프트의 무료 오픈소스 도구 마크잇다운으로 텍스트 문서로 바꾸면, 표와 구조를 먼저 확인하고 필요한 부분만 골라 올릴 수 있다.">
+<link rel="canonical" href="https://shiftaimagazine.github.io/tutorial/pdf-to-markdown/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PDF를 마크다운으로 바꿔 AI에 올리는 7단계 · SHIFT AI 튜토리얼">
+<meta property="og:description" content="PDF를 그대로 올리는 대신 마이크로소프트의 무료 오픈소스 도구 마크잇다운으로 텍스트 문서로 바꾸면, 표와 구조를 먼저 확인하고 필요한 부분만 골라 올릴 수 있다.">
+<meta property="og:url" content="https://shiftaimagazine.github.io/tutorial/pdf-to-markdown/">
+<meta property="og:image" content="https://shiftaimagazine.github.io/og/t-pdf-to-markdown.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=d6333386">
+</head>
+<body data-route="t-pdf-to-markdown" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="true">튜토리얼</a>
+      <a href="/column/" data-nav="column" aria-current="false">칼럼</a>
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="btn" href="/subscribe/">구독</a><a class="ghost" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-article"><article class="article narrow tut-page">
+    <a class="back" href="/tutorial/">← 튜토리얼</a>
+    <span class="cat">튜토리얼 · 중급</span>
+    <h1>PDF를 마크다운으로 바꿔 AI에 올리는 7단계</h1><p class="deck">PDF를 그대로 올리는 대신 마이크로소프트의 무료 오픈소스 도구 마크잇다운으로 텍스트 문서로 바꾸면, 표와 구조를 먼저 확인하고 필요한 부분만 골라 올릴 수 있다.</p>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.24</span><span class="dot"></span><span>7개 항목 · 15분</span></div>
+    <figure class="lead-fig"><img src="img/cover/t-pdf-to-markdown.webp" alt="" loading="lazy"></figure>
+    <div class="prep"><div><b>필요한 것</b>파이썬 3.10 이상이 설치된 PC, 마이크로소프트 마크잇다운(MarkItDown), 아무 AI</div><div><b>걸리는 시간</b>15분</div><div><b>왜 하나</b>PDF는 사람이 보기 좋게 만든 형식이라 AI가 읽을 때 표가 깨지거나 쪽 번호·머리글이 본문에 섞이기 쉽다. 마크다운으로 바꾸면 AI에게 무엇이 전달되는지 내가 먼저 보고 고칠 수 있다.</div></div>
+    <div class="intro">마크다운(Markdown)은 '#'로 제목을, '|'로 표를 나타내는 단순한 텍스트 형식이다. 마이크로소프트가 깃허브에 공개한 마크잇다운(MarkItDown)은 PDF, 워드, 파워포인트, 엑셀, HTML, CSV 같은 파일을 마크다운으로 바꿔 주는 파이썬 도구다. 저장소 안내 기준으로 파이썬 3.10~3.14를 지원한다. 변환 결과는 텍스트 파일이므로 열어서 표가 제대로 바뀌었는지, 필요 없는 부분이 없는지 확인한 뒤 AI에 붙여 넣거나 첨부하면 된다. 명령어 창이 처음이라면 1~3단계만 따라 해도 충분하다.</div>
+    <div class="items"><section class="ti"><div class="no">01</div>
+      <div class="tb"><h3>설치하기</h3><p class="d">파이썬 가상 환경을 만들고 마크잇다운을 설치하는 단계.</p>
+        <div class="how"><b>이렇게 쓰세요</b>명령 프롬프트(윈도우)나 터미널(맥)을 연다. 저장소는 가상 환경 사용을 권장한다. 맥·리눅스는 python -m venv .venv로 가상 환경을 만들고 source .venv/bin/activate로 켠 뒤 pip install 'markitdown[all]'로 설치한다. PDF·워드·파워포인트만 쓸 거라면 pip install 'markitdown[pdf, docx, pptx]'처럼 필요한 형식만 골라 설치할 수도 있다. 윈도우는 가상 환경을 켜는 명령과 따옴표 쓰는 법이 다르므로 아래 프롬프트로 내 환경에 맞는 명령을 받는다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">나는 [윈도우 11 / 맥] 컴퓨터를 쓰고 명령어 창은 처음이야. 마이크로소프트 마크잇다운(MarkItDown)을 설치하려고 해. 1) 파이썬이 설치돼 있는지, 버전이 3.10 이상인지 확인하는 명령, 2) 작업 폴더를 만들고 가상 환경을 만들어 켜는 명령, 3) pip install 'markitdown[all]'을 내 운영체제에서 따옴표 문제 없이 실행하는 방법을 한 줄씩 알려줘. 각 명령 뒤에 정상이라면 화면에 무엇이 나오는지도 적어 줘.</div><button class="copy dark" data-copy="나는 [윈도우 11 / 맥] 컴퓨터를 쓰고 명령어 창은 처음이야. 마이크로소프트 마크잇다운(MarkItDown)을 설치하려고 해. 1) 파이썬이 설치돼 있는지, 버전이 3.10 이상인지 확인하는 명령, 2) 작업 폴더를 만들고 가상 환경을 만들어 켜는 명령, 3) pip install 'markitdown[all]'을 내 운영체제에서 따옴표 문제 없이 실행하는 방법을 한 줄씩 알려줘. 각 명령 뒤에 정상이라면 화면에 무엇이 나오는지도 적어 줘.">복사하기</button></div>
+        
+      </div></section><section class="ti"><div class="no">02</div>
+      <div class="tb"><h3>PDF 변환하기</h3><p class="d">PDF 한 개를 마크다운 파일로 바꾸는 기본 명령과, 여러 파일을 한꺼번에 바꾸는 방법.</p>
+        <div class="how"><b>이렇게 쓰세요</b>변환할 PDF를 작업 폴더에 넣고 markitdown 파일이름.pdf -o 결과.md를 실행한다. markitdown 파일이름.pdf &gt; 결과.md처럼 화면 출력을 파일로 보내는 방식도 된다. 파일 이름에 띄어쓰기가 있으면 따옴표로 감싼다. 같은 명령으로 워드(.docx), 파워포인트(.pptx), 엑셀(.xlsx) 파일도 바꿀 수 있다. 파일이 여러 개면 아래 프롬프트로 일괄 변환 명령을 받는다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">작업 폴더 안의 [PDF 여러 개 / 하위 폴더까지]를 마크잇다운으로 한 번에 마크다운 파일로 바꾸고 싶어. 운영체제는 [윈도우 / 맥]이야. 기본 변환 명령은 'markitdown 파일.pdf -o 파일.md'야. 1) 폴더 안 모든 PDF를 같은 이름의 .md 파일로 바꾸는 명령(또는 짧은 스크립트), 2) 파일 이름에 한글과 띄어쓰기가 있어도 안전하게 처리하는 방법, 3) 변환에 실패한 파일만 따로 기록하는 방법을 알려줘.</div><button class="copy dark" data-copy="작업 폴더 안의 [PDF 여러 개 / 하위 폴더까지]를 마크잇다운으로 한 번에 마크다운 파일로 바꾸고 싶어. 운영체제는 [윈도우 / 맥]이야. 기본 변환 명령은 'markitdown 파일.pdf -o 파일.md'야. 1) 폴더 안 모든 PDF를 같은 이름의 .md 파일로 바꾸는 명령(또는 짧은 스크립트), 2) 파일 이름에 한글과 띄어쓰기가 있어도 안전하게 처리하는 방법, 3) 변환에 실패한 파일만 따로 기록하는 방법을 알려줘.">복사하기</button></div>
+        <div class="ex"><div><b>넣는 것 (예시)</b><pre>명령: markitdown "2026 사업계획.pdf" -o 2026_사업계획.md</pre></div><div><b>나오는 것 (예시)</b><pre>결과 파일(2026_사업계획.md)을 메모장으로 열어 본 모습(가상 예시):
+2026 사업계획
+1. 목표
+구분 상반기 하반기
+매출 120 150
+비용 80 95
+→ 표가 칸 구분 없이 글자로만 나왔다. 3단계에서 확인하고 복원한다</pre></div></div>
+      </div></section><section class="ti"><div class="no">03</div>
+      <div class="tb"><h3>표가 깨졌는지 확인하고 복원하기</h3><p class="d">변환된 파일에서 표의 칸이 밀리거나 숫자가 붙어 버린 곳을 찾고 마크다운 표로 되살리는 단계.</p>
+        <div class="how"><b>이렇게 쓰세요</b>PDF는 화면 배치 위주의 형식이라 변환 결과에서 표가 칸 구분 없이 텍스트로 나올 수 있다. 중요한 표는 원본 PDF와 눈으로 비교한다. 아래 프롬프트에 원래 표의 열 이름과 변환된 텍스트를 함께 넣어 표로 복원받고, 복원된 숫자는 원본과 다시 대조한다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래는 PDF를 마크다운으로 바꾼 결과 중 표 부분이야. 원래 표의 열은 [열 이름들]이고 행은 [대략 몇 줄]이야. 1) 이 텍스트를 마크다운 표로 복원해 줘. 2) 숫자를 어느 칸에 넣어야 할지 확실하지 않은 곳은 추측하지 말고 [?]로 남겨 줘. 3) 원본 PDF와 대조해야 할 칸 목록을 따로 적어 줘. 숫자는 하나도 바꾸지 마. 변환된 텍스트: [붙여 넣기]</div><button class="copy dark" data-copy="아래는 PDF를 마크다운으로 바꾼 결과 중 표 부분이야. 원래 표의 열은 [열 이름들]이고 행은 [대략 몇 줄]이야. 1) 이 텍스트를 마크다운 표로 복원해 줘. 2) 숫자를 어느 칸에 넣어야 할지 확실하지 않은 곳은 추측하지 말고 [?]로 남겨 줘. 3) 원본 PDF와 대조해야 할 칸 목록을 따로 적어 줘. 숫자는 하나도 바꾸지 마. 변환된 텍스트: [붙여 넣기]">복사하기</button></div>
+        <div class="ex"><div><b>넣는 것 (예시)</b><pre>열: 구분, 상반기, 하반기
+변환 텍스트: 구분 상반기 하반기 매출 120 150 비용 80 95</pre></div><div><b>나오는 것 (예시)</b><pre>| 구분 | 상반기 | 하반기 |
+|---|---|---|
+| 매출 | 120 | 150 |
+| 비용 | 80 | 95 |
+대조 필요: 단위(억 원? 백만 원?)가 변환본에 없음</pre></div></div>
+      </div></section><section class="ti"><div class="no">04</div>
+      <div class="tb"><h3>필요 없는 부분 걷어내기</h3><p class="d">쪽마다 반복되는 머리글·바닥글, 쪽 번호, 목차, 고지문처럼 질문과 상관없는 부분을 지워 AI에 보낼 분량을 줄인다.</p>
+        <div class="how"><b>이렇게 쓰세요</b>결과 파일을 메모장이나 텍스트 편집기로 열어 반복되는 줄을 찾기·바꾸기로 지운다. 패턴이 복잡하면 아래 프롬프트로 정리 규칙을 받는다. 개인정보나 회사 기밀이 들어 있다면 이 단계에서 함께 지운다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래는 PDF에서 변환한 마크다운의 앞부분 [2~3]쪽 분량이야. 1) 쪽마다 반복되는 머리글·바닥글·쪽 번호로 보이는 줄의 패턴을 찾아 줘. 2) 그 줄들을 텍스트 편집기의 찾기·바꾸기(정규식)로 지우는 규칙을 알려줘. 3) 내 질문 '[내가 AI에 물을 질문]'과 상관없어서 빼도 되는 장(목차, 부록, 고지문 등)을 제안해 줘. 본문 내용은 고치지 마. 텍스트: [붙여 넣기]</div><button class="copy dark" data-copy="아래는 PDF에서 변환한 마크다운의 앞부분 [2~3]쪽 분량이야. 1) 쪽마다 반복되는 머리글·바닥글·쪽 번호로 보이는 줄의 패턴을 찾아 줘. 2) 그 줄들을 텍스트 편집기의 찾기·바꾸기(정규식)로 지우는 규칙을 알려줘. 3) 내 질문 '[내가 AI에 물을 질문]'과 상관없어서 빼도 되는 장(목차, 부록, 고지문 등)을 제안해 줘. 본문 내용은 고치지 마. 텍스트: [붙여 넣기]">복사하기</button></div>
+        
+      </div></section><section class="ti"><div class="no">05</div>
+      <div class="tb"><h3>긴 문서를 장 단위로 나누기</h3><p class="d">수백 쪽짜리 문서를 장(章) 단위로 나눠, 질문에 필요한 부분만 AI에 보내는 단계.</p>
+        <div class="how"><b>이렇게 쓰세요</b>'제1장' 같은 장 표시나 마크다운 제목(#)을 기준으로 나눈다. 나눈 파일 이름에 장 번호를 붙여 두면 'O장 기준으로 답해 줘'처럼 범위를 지정하기 쉽다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">변환한 마크다운 파일이 너무 길어서 장 단위로 나누고 싶어. 파일 안의 장 표시는 [예: '제1장', '제2장']처럼 되어 있어. 운영체제는 [윈도우 / 맥]이야. 1) 장 표시를 기준으로 파일을 여러 개(01_제1장.md, 02_제2장.md…)로 나누는 짧은 파이썬 스크립트, 2) 실행 방법, 3) 나눈 뒤 각 파일의 글자 수를 보여 주는 방법을 알려줘. 원본 파일은 건드리지 않게 해 줘.</div><button class="copy dark" data-copy="변환한 마크다운 파일이 너무 길어서 장 단위로 나누고 싶어. 파일 안의 장 표시는 [예: '제1장', '제2장']처럼 되어 있어. 운영체제는 [윈도우 / 맥]이야. 1) 장 표시를 기준으로 파일을 여러 개(01_제1장.md, 02_제2장.md…)로 나누는 짧은 파이썬 스크립트, 2) 실행 방법, 3) 나눈 뒤 각 파일의 글자 수를 보여 주는 방법을 알려줘. 원본 파일은 건드리지 않게 해 줘.">복사하기</button></div>
+        
+      </div></section><section class="ti"><div class="no">06</div>
+      <div class="tb"><h3>변환본으로 질문하기</h3><p class="d">마크다운 변환본을 붙여 넣거나 첨부하고, 그 문서 안에서만 근거를 찾아 답하게 하는 질문 프롬프트.</p>
+        <div class="how"><b>이렇게 쓰세요</b>변환본을 붙여 넣거나 .md 파일로 첨부한다. 구글의 제미나이 노트북(옛 NotebookLM)도 마크다운 파일을 자료로 받는다. '문서에 없으면 없다고 말하라'와 '어느 장·제목 아래인지 인용하라'를 꼭 넣는다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">첨부한 마크다운 문서는 [문서 이름]이야. 이 문서 안의 내용만 근거로 답해 줘. 질문: [질문]. 1) 답을 3~5문장으로, 2) 근거가 된 문장을 문서에서 그대로 인용하고 어느 장·어느 제목 아래 있는지 적어 줘. 3) 문서에 답이 없으면 추측하지 말고 '문서에 없음'이라고 말해 줘. 4) 표에서 가져온 숫자는 표 이름과 행·열을 함께 적어 줘.</div><button class="copy dark" data-copy="첨부한 마크다운 문서는 [문서 이름]이야. 이 문서 안의 내용만 근거로 답해 줘. 질문: [질문]. 1) 답을 3~5문장으로, 2) 근거가 된 문장을 문서에서 그대로 인용하고 어느 장·어느 제목 아래 있는지 적어 줘. 3) 문서에 답이 없으면 추측하지 말고 '문서에 없음'이라고 말해 줘. 4) 표에서 가져온 숫자는 표 이름과 행·열을 함께 적어 줘.">복사하기</button></div>
+        
+      </div></section><section class="ti"><div class="no">07</div>
+      <div class="tb"><h3>원본 PDF와 답 대조하기</h3><p class="d">변환본을 근거로 받은 답이 원본 PDF와 맞는지 마지막으로 확인하는 단계.</p>
+        <div class="how"><b>이렇게 쓰세요</b>변환 과정에서 숫자나 문장이 깨졌을 수 있으므로, AI가 인용한 문장을 원본 PDF에서 검색(Ctrl+F)해 직접 확인한다. 검색되지 않는 문장은 변환 오류이거나 AI가 바꿔 쓴 문장이다.</div>
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">방금 네 답에서 인용한 문장과 숫자를 목록으로 다시 정리해 줘. 각 항목에 원본 PDF에서 검색할 짧은 키워드(5~10자)를 붙여 줘. 내가 원본에서 확인한 결과를 알려줄 테니, 원본과 다른 항목이 있으면 답을 고쳐 줘.</div><button class="copy dark" data-copy="방금 네 답에서 인용한 문장과 숫자를 목록으로 다시 정리해 줘. 각 항목에 원본 PDF에서 검색할 짧은 키워드(5~10자)를 붙여 줘. 내가 원본에서 확인한 결과를 알려줄 테니, 원본과 다른 항목이 있으면 답을 고쳐 줘.">복사하기</button></div>
+        
+      </div></section></div>
+    <div class="bonus"><b>보너스 · 변환 후 체크리스트</b><ol><li>변환된 .md 파일을 직접 열어 앞·중간·끝을 훑어봤다</li><li>중요한 표는 원본 PDF와 숫자를 대조했다</li><li>머리글·쪽 번호·필요 없는 장을 지웠다</li><li>개인정보·기밀은 변환본에서 지웠다</li><li>스캔한 이미지 PDF는 글자가 제대로 나오지 않을 수 있으니 결과가 비어 있지 않은지 확인했다</li><li>남이 보낸 파일을 자동으로 변환하는 서버에 붙일 계획이라면 저장소의 보안 안내(입력 검증)를 먼저 읽었다</li></ol></div>
+    <div class="src"><b>원문</b><a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">깃허브 — microsoft/markitdown · https://github.com/microsoft/markitdown</a><a href="https://support.google.com/notebooklm/answer/16215270" target="_blank" rel="noopener">구글 도움말 — 제미나이 노트북에 소스 추가하기 · https://support.google.com/notebooklm/answer/16215270</a></div>
+    <div class="next"><div class="lbl">관련 기사</div><div class="list"><a class="post" href="/news/2026-10-07-claude-haiku-5-5/"><img class="thumb" src="img/ph/haiku.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">모델·제품</span><h3>클로드 하이쿠 5.5, 값은 하이쿠 4.5의 10분의 1로</h3><p>앤트로픽이 10월 7일 내놓은 클로드 하이쿠 5.5는 10만 토큰 이하 프롬프트에서 입력·출력 단가가 하이쿠 4.5의 10분의 1이다. 성능은 오히려 올라 터미널 코딩 점수가 0%에서 39.2%가 됐다(자체 발표 기준). 다만 긴 프롬프트는 단가가 다섯 배로 뛴다.</p><div class="meta"><span>2026.10.07</span><span class="dot"></span><span>4분 읽기</span></div></div></a></div></div>
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 질문하기</a><a href="/tutorial/pdf-to-markdown/" data-copy="https://shiftaimagazine.github.io/tutorial/pdf-to-markdown/">링크 복사</a></div>
+    <section class="subbox">
+  <div class="st"><span class="k">뉴스레터 · 매주 월요일 아침</span><h2>한 주의 AI를 메일 한 통으로</h2><p>지난주 데일리 이슈를 한 장으로 묶고, 바로 따라 할 튜토리얼 하나를 더해 보냅니다. 기사마다 원문 링크가 붙어 있고, 해지는 메일 아래 버튼 한 번이면 됩니다.</p></div>
+  <div class="sf"><div class="subslot"><!--SUB--><div class="subsoon"><input type="email" aria-label="이메일 주소" placeholder="이메일 주소" disabled=""><button class="btn" type="button" disabled="">준비 중</button></div><small>구독 신청은 곧 열립니다. 첫 호는 11월 2일(월)에 보냅니다.</small><!--/SUB--></div>
+  <p class="consent">구독하면 이메일 주소를 뉴스레터 발송과 구독 관리에만 씁니다. 해지하면 발송 명단에서 바로 빠집니다. 발송은 beehiiv(미국)에 맡깁니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></div>
+</section>
+    <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/presentation/"><img class="thumb" src="img/cover/t-presentation.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">튜토리얼 · 입문</span><h3>발표 자료 뼈대를 AI로 잡는 프롬프트 9개</h3><p>슬라이드 디자인보다 먼저 정할 것은 '누구에게 어떤 한 문장을 남길지'다. 청중 정의부터 목차, 반론 대비, 대본까지 순서대로 묻는 프롬프트다.</p><div class="meta"><span>2026.10.23</span><span class="dot"></span><span>9개 항목 · 10분</span></div></div></a></div></div>
+  </article></main>
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문을 읽고 "그래서 무엇이 달라지는가"를 쓴다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 판은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/news/">AI 뉴스</a><a href="/tutorial/">튜토리얼</a><a href="/column/">칼럼</a><a href="/daily/">데일리 이슈</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/subscribe/">뉴스레터</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data.js?v=d6333386"></script>
+<script src="/assets/app.js?v=d6333386"></script>
+
+
+</body></html>

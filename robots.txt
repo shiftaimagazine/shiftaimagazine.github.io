@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shiftaimagazine.github.io/sitemap.xml

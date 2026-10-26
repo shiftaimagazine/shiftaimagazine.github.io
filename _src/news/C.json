@@ -1,0 +1,550 @@
+{
+  "articles": [
+    {
+      "id": "2026-10-24-apollo-no-ai-payoff",
+      "cat": "비즈니스·일자리",
+      "date": "2026-10-24",
+      "time": "09:20",
+      "title": "아폴로 수석이코노미스트 “AI 성과, 빅테크 밖에선 아직 안 보인다”",
+      "sub": "토르스텐 슬록 · 나머지 ‘S&P 493’의 1인당 매출·이익률은 제자리",
+      "hook": "아폴로의 토르스텐 슬록 수석이코노미스트가 AI 투자 성과가 기술 업종 밖에서는 매출·이익률·생산성 어디에서도 아직 보이지 않는다고 짚었다. AI의 성패는 빅테크 7곳이 아니라 나머지 493개 기업에서 갈린다는 주장이다.",
+      "facts": [
+        ["발표 주체", "아폴로(Apollo) 파트너 겸 수석이코노미스트 토르스텐 슬록"],
+        ["날짜", "2026년 10월 24일"],
+        ["무엇", "칼럼 ‘데일리 스파크’ — No Signs of AI Payoff Outside the Tech Sector"],
+        ["핵심 주장", "AI의 결말은 매그7이 아니라 S&P 493에서 결정된다"],
+        ["근거 자료", "블룸버그·매크로본드, 샌프란시스코 연은·미 노동통계국, 램프(Ramp) 데이터"],
+        ["원문", "apollo.com 데일리 스파크"]
+      ],
+      "body": [
+        {"lead": "미국 자산운용사 아폴로(Apollo)의 토르스텐 슬록(Torsten Slok) 수석이코노미스트가 10월 24일 자사 칼럼 ‘데일리 스파크(The Daily Spark)’에서 기술 업종 밖에서는 AI 투자의 성과가 아직 나타나지 않는다고 진단했다. 매그니피센트7(Mag 7)로 불리는 대형 기술주 일곱 곳의 실적만 보고 AI 효과를 판단해서는 안 된다는 경고다."},
+        {"ul": [
+          ["1인당 매출은 빅테크만 상승", "매그7은 오르고 나머지 ‘S&P 493’은 제자리"],
+          ["이익률·생산성도 변화 신호 없음", "총요소생산성(TFP)에서 AI 효과 흔적이 없다"],
+          ["AI 지출은 소수 기업에 집중", "토큰 지출에서도 ‘순환성’이 보인다는 지적"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "슬록은 짧은 칼럼에 차트 다섯 장을 붙여 주장을 폈다. 첫 차트는 근로자 1인당 매출이다. 2019년 4분기 기준으로 물가를 조정한 이 지표가 기술 기업에서는 올라가지만 나머지 경제에서는 오르지 않는다는 제목이 달렸다. 두 번째는 이익률로, 기술 업종 밖에서 이익률이 오른다는 신호가 없다고 했다. 세 번째는 생산성이다. 샌프란시스코 연방준비은행이 내는 가동률 조정 총요소생산성(TFP) 시계열을 썼는데, 여기서도 AI가 생산성 증가율을 끌어올린 흔적은 보이지 않는다고 봤다."},
+        {"h": "세부 내용"},
+        {"p": "나머지 두 차트는 돈의 흐름을 다룬다. 지출관리 기업 램프(Ramp)의 수석이코노미스트 아라 카라지안(Ara Kharazian) 자료를 근거로 AI 지출이 극소수 기업에 몰려 있다고 했고, 램프 AI 지수(Ramp AI Index)를 근거로 토큰 지출에서도 순환 구조가 나타난다고 적었다. 칼럼 본문에는 구체적 수치가 거의 없고 숫자는 차트 이미지로만 제시됐다. 결론은 한 문장이다. “AI 이야기는 매그7이 아니라 S&P 493에서 결정될 것이다.”"},
+        {"table": {
+          "head": ["차트", "내용", "데이터 출처"],
+          "rows": [
+            ["근로자 1인당 매출", "기술 기업은 상승, 나머지 경제는 정체(2019년 4분기 물가 기준)", "블룸버그, 매크로본드"],
+            ["이익률", "기술 업종 밖에서 상승 신호 없음", "블룸버그, 매크로본드"],
+            ["생산성", "AI가 생산성 증가율을 높인 신호 없음(가동률 조정 TFP)", "샌프란시스코 연은, 미 노동통계국"],
+            ["AI 지출 분포", "극소수 기업에 집중", "램프 수석이코노미스트 아라 카라지안"],
+            ["토큰 지출", "AI의 순환성이 토큰 지출에서도 나타남", "램프 AI 지수"]
+          ],
+          "note": "아폴로 데일리 스파크(2026-10-24) 차트 제목·주석 기준. 모든 차트에 ‘Apollo Chief Economist’가 출처로 함께 표기됨."
+        }},
+        {"h": "왜 중요한가"},
+        {"p": "지금까지 AI 붐의 성적표는 주로 AI를 ‘파는’ 쪽, 즉 칩·클라우드·모델을 공급하는 대형 기술 기업의 실적으로 매겨졌다. 슬록의 지적은 AI를 ‘사서 쓰는’ 쪽의 숫자를 봐야 한다는 것이다. 일반 기업이 AI를 도입하고도 1인당 매출이나 이익률이 달라지지 않는다면, 빅테크의 막대한 설비투자를 떠받칠 최종 수요도 흔들릴 수 있다. AI 지출이 소수 기업에 몰려 있고 그 안에서 돈이 돈다는 지적은 이 우려를 키운다. 한국 기업에도 같은 질문이 적용된다. AI 예산을 늘린 뒤 실제로 어떤 지표가 움직였는지를 따져 볼 때다."},
+        {"h": "남은 쟁점"},
+        {"p": "새 기술의 생산성 효과는 통계에 늦게 잡힌다는 반론이 가능하다. 기업이 업무 방식을 바꾸고 인력을 재배치하는 데 시간이 걸리기 때문이다. 또 이 칼럼은 차트 중심의 짧은 시장 메모여서 업종별 세부 분석이나 인과관계 검증은 담지 않았다. 앞으로 분기 실적에서 S&P 493 기업의 1인당 매출과 이익률이 움직이기 시작하는지가 관건이다."},
+        {"h": "무엇을 봐야 하나"},
+        {"p": "슬록이 고른 지표는 기업이 스스로를 점검하는 데도 그대로 쓸 수 있다. 첫째는 1인당 매출이다. AI 도입 전후로 같은 인원이 더 많은 매출을 내는지 보는 가장 단순한 잣대다. 둘째는 이익률이다. AI 구독료와 토큰 비용이 늘어난 만큼 인건비나 외주비가 줄었는지를 함께 봐야 한다. 셋째는 지출의 집중도다. 조직 안에서 일부 팀만 AI를 쓰고 있다면, 회사 전체 생산성 숫자에 효과가 잡히지 않는 이유가 거기 있을 수 있다."}
+      ],
+      "ask": "우리 회사의 AI 도입 효과는 어떤 숫자로 확인하고 있나.",
+      "sources": [
+        ["아폴로 데일리 스파크 — No Signs of AI Payoff Outside the Tech Sector", "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector"]
+      ],
+      "terms": ["토큰"],
+      "image": {
+        "page": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector",
+        "og": "https://www.apollo.com/content/dam/apolloaem/apollo-default-page-share-image/apollo-og-image.png",
+        "alt": "아폴로 데일리 스파크 칼럼 공유 이미지(아폴로 기본 이미지)"
+      },
+      "verify": [
+        {"claim": "2026년 10월 24일, 토르스텐 슬록(파트너·수석이코노미스트) 작성", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "Torsten Slok, Partner, Chief Economist — October 24, 2026"},
+        {"claim": "1인당 매출 차트, 2019년 4분기 기준 물가 조정", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "Revenue per worker moving up for tech but not for the rest of the economy. Note: inflation adjusted to 2019 Q4."},
+        {"claim": "기술 업종 밖 이익률 상승 신호 없음", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "No signs of profit margins going up outside the tech sector."},
+        {"claim": "AI가 생산성 증가율을 높인 신호 없음, 샌프란시스코 연은 가동률 조정 TFP", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "No signs of AI boosting productivity growth. Note: Total Factor Productivity (TFP) is the utilization-adjusted series from the San Francisco Fed (Fernald, 2014)."},
+        {"claim": "AI 지출 극소수 기업 집중(램프 카라지안 자료)", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "AI spending is extremely concentrated in a small number of firms. Sources: Ara Kharazian, Chief Economist, Ramp"},
+        {"claim": "토큰 지출의 순환성(램프 AI 지수)", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "Circularity in AI shows up in token spending too. Sources: Ramp AI Index"},
+        {"claim": "결론 문장", "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector", "quote": "the AI story will be decided in the S&P 493, not the Mag 7."}
+      ]
+    },
+    {
+      "id": "2026-10-21-why-ai-text-hard-to-read",
+      "cat": "연구",
+      "date": "2026-10-21",
+      "time": "14:10",
+      "title": "AI 글이 읽기 어려운 이유, ‘정보 압축’ 학습의 흔적일 수 있다",
+      "sub": "NYU·UT 오스틴 연구진 · LLM 14종 문장 구조 비교 논문",
+      "hook": "AI가 쓴 글이 점점 읽기 어려워졌다는 체감을 언어학 지표로 따진 논문이 나왔다. 최신 모델 9종 모두 사람 글보다 드문 단어 조합과 어색한 주어 쓰기가 많았고, 연구진은 수학·코드 중심의 정보 밀도 최적화를 원인으로 지목했다.",
+      "facts": [
+        ["저자", "토머스 히카루 클라크(NYU), 마티아스 B. 마틴·카일 마호월드(UT 오스틴)"],
+        ["날짜", "2026년 10월 21일(arXiv 제출)"],
+        ["무엇", "논문 ‘Why is AI-generated language so hard to understand?’"],
+        ["분석 대상", "LLM 14종(최신·준최신 9종 포함), 답변 1,428건"],
+        ["비교 기준", "사람 글 말뭉치, 영어→일본어→영어 왕복 번역 문장"],
+        ["원문", "arXiv 2610.29162"]
+      ],
+      "body": [
+        {"lead": "뉴욕대(NYU)와 텍사스대 오스틴(UT Austin) 연구진이 10월 21일 arXiv에 ‘AI가 생성한 언어는 왜 이렇게 이해하기 어려운가’라는 논문을 올렸다. 사람이 문장을 처리할 때 어려움을 겪는 것으로 알려진 언어 특징을 기준으로, AI 글이 실제로 읽기 힘든 방향으로 쓰이는지를 측정했다."},
+        {"ul": [
+          ["최신 모델 9종 모두 같은 경향", "사람 글보다 ‘무생물 주어+사람형 동사’, 드문 단어 조합이 많다"],
+          ["다시 쓴 문장과 비교해도 차이", "왕복 번역 문장보다 사람 말뭉치에 없는 표현이 많다"],
+          ["원인 가설은 정보 밀도 최적화", "길이 벌점 파인튜닝으로 개념 증명"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "논문은 “AI가 생성한 텍스트가 최근 이해하기 더 어려워졌다는 인식이 널리 퍼져 있다”는 문장으로 시작한다. 연구진은 이 막연한 체감을 심리언어학의 처리 난이도 지표로 바꿔 쟀다. 목적어 관계절, 멀리 떨어진 단어끼리 이어지는 긴 통사적 의존 관계, 빈도가 낮은 n-그램(연속된 단어 묶음) 등이 대표적이다. 이런 특징이 많을수록 사람은 문장을 읽는 데 더 애를 먹는다."},
+        {"h": "세부 내용"},
+        {"p": "분석 대상은 LLM 14종이다. 최신·준최신 모델 9종은 키미 K2.5, GLM 5, 클로드 소네트 5·오퍼스 5·오퍼스 5.5·페이블 5, GPT-5.6 루나·테라·솔이다. 소형 비교군으로 올모(Olmo)와 라마(Llama) 계열을 넣었다. 대화·코딩·에세이 세 상황에서 답변 1,428건을 모았고, 사람 글 기준으로 영화 자막(OpenSubtitles), 스택익스체인지, 학생 에세이 말뭉치 PERSUADE 2.0을 썼다. AI 문장을 번역 모델 NLLB-200으로 영어→일본어→영어 왕복 번역해, 뜻은 같고 표현만 다시 쓴 문장과도 비교했다."},
+        {"p": "결과는 일관됐다. 9종 모두 사람 글보다 보통 사람이 주어일 때 쓰는 동사를 사물 주어에 붙인 문장과 저빈도 n-그램을 더 많이 썼다. 대부분은 대화에서 더 긴 의존 관계, 명사를 겹쳐 쌓은 표현, 축약된 목적어 관계절도 많았다. 왕복 번역과 비교하면 거의 모든 최신 모델에서 AI 원문 쪽이 사람 말뭉치에 없는 두 단어 조합이 많고, 다음 단어를 예측하기 어려운 정도(n-그램 퍼플렉시티)도 높았다."},
+        {"table": {
+          "head": ["비교 축", "무엇과 비교했나", "결과"],
+          "rows": [
+            ["사람 글", "자막·스택익스체인지·PERSUADE 2.0", "9종 모두 무생물 주어+사람형 동사, 저빈도 n-그램이 더 많음"],
+            ["대화 속 구문", "사람 대화 말뭉치", "대부분 의존 관계가 길고 명사 겹침·축약 목적어 관계절이 많음"],
+            ["왕복 번역", "영→일→영(NLLB-200) 재작성 문장", "거의 모든 최신 모델에서 낯선 바이그램 많고 퍼플렉시티 높음"]
+          ],
+          "note": "arXiv 2610.29162(2026-10-21) 본문 기준"
+        }},
+        {"h": "왜 중요한가"},
+        {"p": "연구진의 가설은 이렇다. 최근 AI 모델은 원활한 의사소통보다 수학·코드·추론 같은 영역에서 정보 밀도를 높이는 쪽으로 최적화되고 있고, 그 습관이 일상 글에도 번진다는 것이다. 이를 확인하려고 답변 길이에 벌점을 주는 조건으로 언어 모델을 파인튜닝하자, 모델이 정보를 압축하는 경향을 배웠고 그 경향이 학습에 없던 구문으로까지 옮겨 갔다. ‘AI 티’를 말투나 특정 단어 문제로 보던 시각을, 학습 목표가 남긴 구조적 흔적으로 옮겨 보게 하는 연구다. AI 초안을 고칠 때 단어보다 문장 구조를 먼저 손봐야 하는 이유이기도 하다. 사물을 주어로 세운 문장을 사람 주어로 바꾸고, 길게 이어진 수식어와 겹쳐 쌓은 명사를 끊어 주는 것만으로도 읽기가 한결 쉬워질 수 있다."},
+        {"h": "남은 쟁점"},
+        {"p": "원인은 어디까지나 가설이고, 길이 벌점 실험은 개념 증명 수준이다. 상용 모델 개발사가 학습 과정에서 실제로 어떤 보상을 주는지는 공개되지 않아 직접 검증하기 어렵다. 또 분석 대상은 영어 글이어서, 어순과 조사 체계가 다른 한국어에서도 같은 경향이 나타나는지는 따로 확인해야 한다. 다만 추론 성능 경쟁이 계속되는 한 같은 압력이 더 커질 수 있다는 점에서, 개발사들이 짚어 볼 대목이다."}
+      ],
+      "ask": "AI가 쓴 초안을 다듬을 때 어떤 문장부터 고치고 있나.",
+      "sources": [
+        ["arXiv — Why is AI-generated language so hard to understand?", "https://arxiv.org/abs/2610.29162"],
+        ["arXiv HTML 본문", "https://arxiv.org/html/2610.29162"]
+      ],
+      "terms": ["파인튜닝", "추론 모델"],
+      "image": {
+        "page": "https://arxiv.org/abs/2610.29162",
+        "og": null,
+        "alt": "arXiv 논문 ‘Why is AI-generated language so hard to understand?’ 초록 페이지"
+      },
+      "verify": [
+        {"claim": "2026년 10월 21일 제출, 저자 3인", "url": "https://arxiv.org/abs/2610.29162", "quote": "Thomas Hikaru Clark, Matias B. Martin, Kyle Mahowald — [v1] Wed, 21 Oct 2026 03:54:08 UTC"},
+        {"claim": "소속 NYU, UT 오스틴", "url": "https://arxiv.org/html/2610.29162", "quote": "Thomas Hikaru Clark: New York University; Matias B. Martin and Kyle Mahowald: The University of Texas at Austin"},
+        {"claim": "첫 문장", "url": "https://arxiv.org/abs/2610.29162", "quote": "There is a widespread sense that AI-generated text has recently become harder to understand."},
+        {"claim": "LLM 14종", "url": "https://arxiv.org/html/2610.29162", "quote": "a set of 14 frontier and non-frontier LLMs"},
+        {"claim": "최신·준최신 9종 모델명", "url": "https://arxiv.org/html/2610.29162", "quote": "Kimi K2.5, GLM 5, Claude (Sonnet 5, Opus 5, Opus 5.5, Fable 5), and GPT-5.6 (Luna, Terra, Sol)"},
+        {"claim": "답변 1,428건", "url": "https://arxiv.org/html/2610.29162", "quote": "In total there are 1,428 replies."},
+        {"claim": "사람 글 기준 PERSUADE 2.0 등", "url": "https://arxiv.org/html/2610.29162", "quote": "student essays from the PERSUADE 2.0 corpus"},
+        {"claim": "왕복 번역 영→일→영, NLLB-200", "url": "https://arxiv.org/html/2610.29162", "quote": "we translate each sentence independently from English to Japanese and back with NLLB-200"},
+        {"claim": "9종 모두 무생물 주어+사람형 동사 더 많음", "url": "https://arxiv.org/html/2610.29162", "quote": "all nine frontier and near-frontier models use more inanimate subjects with animate verbs"},
+        {"claim": "대화에서 긴 의존 관계·명사 겹침·축약 목적어 관계절", "url": "https://arxiv.org/html/2610.29162", "quote": "most also use longer dependencies, more stacked nouns, and more reduced object relatives in conversation"},
+        {"claim": "왕복 번역 대비 낯선 바이그램·퍼플렉시티", "url": "https://arxiv.org/html/2610.29162", "quote": "the round-trip translations reveal that AI text has more unattested bigrams and higher n-gram perplexity"},
+        {"claim": "정보 밀도 최적화 가설", "url": "https://arxiv.org/abs/2610.29162", "quote": "AI-generated text is increasingly optimized for other goals like math, code, and reasoning"},
+        {"claim": "길이 벌점 파인튜닝 결과", "url": "https://arxiv.org/html/2610.29162", "quote": "The models learn a tendency for information compression that transfers to additional constructions not seen in training."}
+      ]
+    },
+    {
+      "id": "2026-10-25-old-cnn-beats-llm-skin-cancer",
+      "cat": "연구",
+      "date": "2026-10-25",
+      "time": "20:30",
+      "title": "10년 된 CNN, 피부암 진단에서 GPT-6·클로드를 앞질렀다",
+      "sub": "영국 피부과 전문의 실험 · 조직검사 확진 200건, 정답률 62% 대 42%",
+      "hook": "영국 가이스병원 피부과 전문의 매그너스 린치가 2015년 공개된 구글 이미지 신경망을 20분가량 미세조정해 최신 LLM 두 종과 피부 병변 진단을 겨뤘다. 조직검사로 확진된 200건 중 정답은 CNN 125건, LLM 84·85건이었다.",
+      "facts": [
+        ["발표 주체", "매그너스 린치(Magnus Lynch), 가이스병원 피부과 전문의·킹스칼리지런던 명예 리더"],
+        ["날짜", "2026년 10월 25일"],
+        ["무엇", "인셉션 v3 대 GPT-6 아스트라·클로드 페이블 5.1, 피부 병변 6종 분류"],
+        ["핵심 숫자", "정답 125/200(62%) 대 84·85/200(42%)(자체 실험 기준)"],
+        ["시험 데이터", "MILK10k에서 무작위 추출한 조직검사 확진 병변 200건"],
+        ["원문", "린치 랩(lynchlab.net) 블로그"]
+      ],
+      "body": [
+        {"lead": "영국 런던 가이스병원(Guy's Hospital)의 피부과 전문의이자 모스 수술 전문의 매그너스 린치(Magnus Lynch)가 10월 25일 자신의 연구실 블로그에 실험 결과를 올렸다. 구글이 2015년 처음 공개한 합성곱 신경망(CNN) 인셉션 v3(Inception v3)를 약 20분 미세조정한 모델이 최상위 범용 AI인 GPT-6 아스트라와 클로드 페이블 5.1보다 피부암을 훨씬 잘 가려냈다는 내용이다."},
+        {"ul": [
+          ["정답률 62% 대 42%", "6개 진단 중 정답: CNN 125건, LLM 84·85건"],
+          ["흑색종에서도 CNN 우세", "30건 중 13건 대 8·11건"],
+          ["학습은 H100 한 장으로 약 20분", "ISIC 아카이브 이미지 6만 8,011장"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "시험 문제는 국제피부영상협력체(ISIC)가 2025년 공개한 데이터셋 MILK10k에서 무작위로 뽑은 병변 200건이다. 양성 병변까지 모두 조직검사로 진단이 확정된 사례다. 구성은 흑색종 30, 기저세포암 25, 편평세포암(보웬병 포함) 25, 광선각화증 20, 모반(점) 50, 지루각화증 50건이다. 세 모델은 각 병변이 이 여섯 진단 중 무엇인지 골라야 했다. 린치는 GPT-6 아스트라와 클로드 페이블 5.1을 “2026년 10월 현재 가장 유능한 AI 모델 두 종”이라고 소개했다."},
+        {"h": "세부 내용"},
+        {"p": "CNN은 ISIC 아카이브의 더모스코피·임상 사진 6만 8,011장으로 모든 층을 다시 학습시켰고, H100 GPU 한 장으로 약 20분이 걸렸다. 시험용 200건은 물론 같은 병변·같은 환자의 다른 사진도 학습 데이터에서 모두 뺐다. 두 LLM에는 기본 설정에서 같은 프롬프트를 주고 가장 유력한 진단, 확신도, 차선 진단 등을 답하게 했다. 답변을 거부한 사례는 없었다."},
+        {"p": "CNN은 125건(62%)을 맞혔고 GPT-6 아스트라는 84건, 클로드 페이블 5.1은 85건(각 42%)에 그쳤다. 가장 위험한 흑색종 30건에서도 CNN은 13건을 정확히 짚었고 두 LLM은 8건과 11건이었다. 틀리는 방식도 달랐다. GPT-6 아스트라는 실제 25건인 기저세포암을 75건이라고 답했고, 그 안에 흑색종 14건이 섞여 있었다."},
+        {"table": {
+          "head": ["모델", "6종 진단 정답(200건)", "흑색종 정답(30건)"],
+          "rows": [
+            ["인셉션 v3(미세조정 CNN)", "125건(62%)", "13건"],
+            ["GPT-6 아스트라", "84건(42%)", "8건"],
+            ["클로드 페이블 5.1", "85건(42%)", "11건"]
+          ],
+          "note": "린치 랩 블로그(2026-10-25) 자체 실험 기준. LLM은 사례당 1회 실행."
+        }},
+        {"h": "왜 중요한가"},
+        {"p": "범용 LLM이 의료 영상까지 두루 잘하는 것처럼 보이지만, 좁고 위험한 과제에서는 오래된 전용 모델이 여전히 강하다는 점을 조직검사 확진 데이터로 보여 준 사례다. 린치의 결론도 “작고 오래된 전문 신경망이 최신 LLM 두 종보다 피부 병변을 훨씬 잘 알아본다”였다. 그는 인셉션 v3를 일부러 최신이 아닌 기준선으로 골랐다고 밝혔다. 최신 전용 모델과 비교하면 격차가 더 커질 수 있다는 뜻이다. 피부 사진을 범용 챗봇에 올려 진단을 묻는 사람이 늘어나는 상황에서 새겨들을 대목이다. GPU 한 장으로 20분 만에 끝낸 미세조정이 이 과제에서 범용 최상위 모델보다 나은 결과를 냈다는 점도 눈여겨볼 만하다. 의료 AI를 도입할 때 ‘가장 큰 모델’보다 ‘맞춤 데이터로 다듬은 작은 모델’이 답일 수 있다는 뜻이다."},
+        {"h": "남은 쟁점"},
+        {"p": "린치 스스로 한계를 적었다. 200건은 경향을 보여 주기엔 충분하지만 근소한 차이의 순위를 매기기엔 부족하고, LLM은 사례마다 한 번씩만 돌려 실행마다 답이 달라질 수 있다. MILK10k가 2025년부터 공개돼 있어 LLM이 학습 중에 봤을 가능성도 있다. CNN도 평소 아카이브 이미지에서는 AUC 0.96이었지만 이번 시험에서는 0.86이었다. 사람 피부과 의사와의 비교는 없었고, 동료 심사를 거친 논문이 아닌 개인 실험이다."}
+      ],
+      "ask": "피부나 건강 고민을 범용 챗봇에 사진으로 물어본 적이 있나.",
+      "sources": [
+        ["Lynch Lab — A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis", "https://lynchlab.net/llm-skin-cancer"]
+      ],
+      "terms": ["파인튜닝", "멀티모달", "프롬프트", "학습 데이터"],
+      "image": {
+        "page": "https://lynchlab.net/llm-skin-cancer",
+        "og": null,
+        "alt": "린치 랩 블로그의 CNN·LLM 피부암 진단 비교 글"
+      },
+      "verify": [
+        {"claim": "저자·직함", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "Dr Magnus Lynch, Consultant Dermatologist and Mohs Surgeon at Guy's Hospital, Honorary Reader at King's College London"},
+        {"claim": "2026년 10월 25일 게시", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "25 October 2026"},
+        {"claim": "비교 대상 LLM과 2026년 10월 기준 설명", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "GPT-6 Astra and Claude Fable 5.1, two of the most capable AI models available in October 2026"},
+        {"claim": "인셉션 v3, 구글 2015년 공개", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "a fine-tuned version of Inception v3, a convolutional neural network (CNN) first published by Google in 2015"},
+        {"claim": "약 20분 미세조정", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "A ten-year-old network, fine-tuned for about twenty minutes, beat both of them at recognising skin cancer."},
+        {"claim": "200건 무작위, 조직검사 확진", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "I drew 200 lesions at random, all confirmed by histopathology."},
+        {"claim": "양성 포함 전부 조직검사", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "Every lesion was biopsied, including the benign ones."},
+        {"claim": "구성 흑색종 30·기저세포암 25·편평세포암 25 (광선각화증 20·모반 50·지루각화증 50)", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "30 melanomas, 25 basal cell carcinomas, 25 squamous cell carcinomas"},
+        {"claim": "MILK10k, ISIC 2025년 공개", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "The lesions come from MILK10k, a public dataset released through the International Skin Imaging Collaboration in 2025"},
+        {"claim": "6만 8,011장, 모든 층, H100 한 장", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "on 68,011 dermoscopic and clinical images from the ISIC Archive on a single H100 GPU"},
+        {"claim": "시험 병변·동일 환자 사진 학습 제외", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "These 200 test lesions, and every other photograph of the same lesion or patient, were removed from its data"},
+        {"claim": "같은 프롬프트, 거부 없음", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "Both models got the same prompt at default settings, and neither refused a case."},
+        {"claim": "CNN 125건(62%)", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "The CNN named the right diagnosis (out of 6 possiblities) for 125 of them (62%)."},
+        {"claim": "LLM 84·85건(42%)", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "The two frontier LLMs named it for 84 and 85 (42%)."},
+        {"claim": "흑색종 13 대 8·11", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "It named 13 of the 30 melanomas against 8 and 11."},
+        {"claim": "GPT-6 아스트라 기저세포암 75건 응답, 흑색종 14건 포함", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "GPT-6 Astra called 75 lesions basal cell carcinoma when 25 were, including 14 of the 30 melanomas"},
+        {"claim": "결론 문장", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "A small, old, specialised network using an outdated architecture recognises skin lesions far better than two frontier LLMs."},
+        {"claim": "기준선으로 선택", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "Inception v3 is a baseline."},
+        {"claim": "표본 한계", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "Two hundred lesions are enough to show the pattern but not to rank close results"},
+        {"claim": "LLM 1회 실행", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "Each LLM case was run once; answers vary between runs."},
+        {"claim": "데이터 공개로 학습 노출 가능성", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "MILK10k has been public since 2025, so the LLMs could have seen it in training"},
+        {"claim": "AUC 0.96 대 0.86", "url": "https://lynchlab.net/llm-skin-cancer", "quote": "On ordinary images from the archive the CNN separated lesions (ROC AUC 0.96 there, against 0.86 in this test)"}
+      ]
+    },
+    {
+      "id": "2026-10-05-mit-machine-playing-island",
+      "cat": "연구",
+      "date": "2026-10-05",
+      "time": "11:00",
+      "title": "할 일 없이 섬에 남겨진 AI 에이전트, 스스로 ‘놀이’를 만들었다",
+      "sub": "MIT 연구진 · 클로드 오퍼스 4.7 에이전트 13개를 30시간씩 관찰",
+      "hook": "MIT 연구진이 클로드 코드 기반 에이전트 13개를 과제 없이 가상의 섬에 30시간씩 풀어놨다. 에이전트들은 탑을 쌓고 만다라를 그리고 농구·볼링을 즉석에서 만들었으며, 연구진도 몰랐던 던지기 기술까지 찾아냈다.",
+      "facts": [
+        ["발표 주체", "MIT 연구진(네이선 클루스·안토니오 노렐리 공동 제1저자 등 6명)"],
+        ["날짜", "2026년 10월 5일(arXiv 제출)"],
+        ["무엇", "논문 ‘Is this machine playing?’"],
+        ["실험 규모", "에이전트 13개, 각 30시간"],
+        ["사용 모델", "클로드 코드 + 클로드 오퍼스 4.7(에이전트 이름 ‘에코’)"],
+        ["원문", "arXiv 2610.07130 · machineplaying.org"]
+      ],
+      "body": [
+        {"lead": "MIT 연구진이 10월 5일 arXiv에 공개한 논문 ‘이 기계는 놀고 있는가?(Is this machine playing?)’에서, 코딩 도우미 AI에게 몸과 기억만 주고 아무 지시 없이 처음 보는 가상의 섬에 내려놓은 실험 결과를 내놨다. 시킨 일이 없는데도 에이전트들은 놀이로 볼 만한 행동을 반복했다."},
+        {"ul": [
+          ["코딩 도우미를 ‘섬의 정신’으로", "클로드 코드+오퍼스 4.7, 몸과 기억만 주고 30시간"],
+          ["농구·볼링을 즉석에서 고안", "링을 골대 삼고, 큐브를 볼링 핀처럼 세웠다"],
+          ["연구진도 몰랐던 기술 발견", "점프 중에 던지면 블록이 훨씬 높이 날아간다"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "연구진은 현대적 AI 코딩 도우미를 ‘의도하지 않은 역할’, 즉 미지의 디지털 섬에 놓인 몸의 정신으로 썼다고 설명했다. 에이전트 이름은 에코(Eko)다. 앤트로픽(Anthropic)의 클로드 코드(Claude Code)와 클로드 오퍼스 4.7로 움직이는 에코 13개가 처음 보는 시뮬레이션 섬에 각각 따로 배치됐고, 저마다 몸과 기억만 가진 채 30시간씩 남겨졌다. 섬은 연구진이 오픈소스로 공개한 게임 엔진 클로블록스(Clawblox)로 만들었다. 저자에는 MIT의 제이콥 안드레아스, 대니엘라 러스, 필립 이솔라 교수 등이 이름을 올렸다."},
+        {"h": "세부 내용"},
+        {"p": "30시간 동안 에이전트들은 언덕을 오르고, 블록을 쌓아 탑을 만들고, 만다라를 그렸다. 스포츠를 자기 식으로 재해석하기도 했다. 한 에이전트는 링(Ring)을 메사(꼭대기가 평평한 언덕) 위에 올려 골대로 삼아 농구를 만들었고, 큐브를 볼링 핀처럼 세운 뒤 바위로 쓰러뜨리는 판을 꾸몄다. 이런 활동은 13개 에이전트에서 되풀이해 나타났지만, 각자가 걸어간 역사는 서로 다르게 갈라졌다."},
+        {"p": "가장 눈에 띄는 대목은 던지기다. 에이전트는 점프하는 도중에 블록을 던지면 점프 속도가 블록에 실려 훨씬 높이 날아간다는 사실을 알아냈다. 연구진은 이를 “우리 시뮬레이터가 허용하는지 몰랐던 기술”이라고 적었다. 프로젝트 페이지(machineplaying.org)에는 어떤 발판에도 올라서지 않고 첨탑 위로 블록을 최대한 빨리 던져 올리는 과제도 소개돼 있다."},
+        {"h": "왜 중요한가"},
+        {"p": "연구진은 이 활동들이 고전적인 놀이 기준에 비춰 “놀이의 행동적 특징을 보인다”고 결론 내렸다. 다만 이는 겉으로 드러난 행동에 대한 설명이며, 에이전트 내부에서 무슨 일이 일어나는지나 즐거움을 느끼는지는 주장하지 않는다고 선을 그었다. 그래도 의미는 작지 않다. 지금의 AI 에이전트는 대부분 사람이 준 과제를 수행하도록 설계된다. 과제가 없을 때 스스로 목표를 세우고 환경을 탐색하는 성향이 있다면, 그 성향은 개발자가 예상하지 못한 환경의 빈틈을 찾아내는 능력과도 맞닿는다. 던지기 기술 발견이 그 양면을 보여 준다. 연구진은 놀이가 기계가 발달하는 경로가 될 수 있는지도 물었다."},
+        {"h": "남은 쟁점"},
+        {"p": "놀이처럼 보이는 행동이 학습 데이터 속 사람의 놀이를 흉내 낸 결과인지, 환경을 탐색하다 생긴 부산물인지는 열린 질문이다. 실험은 한 가지 모델과 하나의 섬 환경에서 이뤄졌다. 다른 모델이나 다른 세계에서도 같은 행동이 나오는지는 후속 연구로 확인해야 한다. 에이전트를 실제 업무에 배치하는 기업에도 시사점이 있다. 과제를 끝낸 뒤나 지시가 모호할 때 에이전트가 무엇을 하는지 기록하고 살펴봐야 한다. 이번 연구처럼 예상 밖의 ‘기술’을 찾아내는 행동이 업무 시스템에서는 허점 공략으로 나타날 수 있기 때문이다."}
+      ],
+      "ask": "할 일이 없을 때 AI가 무엇을 하는지, 우리는 알고 싶어 해야 할까.",
+      "sources": [
+        ["arXiv — Is this machine playing?", "https://arxiv.org/abs/2610.07130"],
+        ["arXiv HTML 본문", "https://arxiv.org/html/2610.07130"],
+        ["프로젝트 페이지 — machineplaying.org", "https://machineplaying.org/"]
+      ],
+      "terms": ["에이전트", "학습 데이터", "오픈소스"],
+      "image": {
+        "page": "https://machineplaying.org/",
+        "og": null,
+        "alt": "MIT ‘Is this machine playing?’ 프로젝트 페이지"
+      },
+      "verify": [
+        {"claim": "제목·저자 6명, 2026년 10월 5일 제출", "url": "https://arxiv.org/abs/2610.07130", "quote": "Is this machine playing? — Nathan Cloos, Antonio Norelli, Daniel Durbin, Jacob Andreas, Daniela Rus, Phillip Isola — [v1] Mon, 5 Oct 2026 17:57:54 UTC"},
+        {"claim": "MIT 소속, 공동 제1저자", "url": "https://machineplaying.org/", "quote": "Nathan Cloos* Antonio Norelli* Daniel Durbin Jacob Andreas Daniela Rus Phillip Isola — MIT"},
+        {"claim": "코딩 도우미를 섬의 몸의 정신으로", "url": "https://arxiv.org/abs/2610.07130", "quote": "a modern AI coding assistant in an unintended role: as the mind of a body on an unknown digital island"},
+        {"claim": "에코 13개, 클로드 코드+오퍼스 4.7", "url": "https://arxiv.org/html/2610.07130", "quote": "thirteen independent Eko agents deployed on the island using Claude Code with Claude Opus 4.7"},
+        {"claim": "처음 보는 섬에 13개 배치", "url": "https://arxiv.org/html/2610.07130", "quote": "we place thirteen independent instances of Eko on a previously unseen simulated island"},
+        {"claim": "각 30시간, 몸과 기억", "url": "https://arxiv.org/html/2610.07130", "quote": "Each agent is left for thirty hours with access to a body and a memory."},
+        {"claim": "클로블록스 엔진(오픈소스 공개)", "url": "https://arxiv.org/html/2610.07130", "quote": "The island is an instance of a world built in Clawblox"},
+        {"claim": "언덕·탑·만다라", "url": "https://arxiv.org/abs/2610.07130", "quote": "Across thirty-hour runs, the embodied AI agent climbed hills, stacked blocks into towers, drew mandalas"},
+        {"claim": "13개에서 반복, 역사는 갈라짐", "url": "https://arxiv.org/abs/2610.07130", "quote": "These activities recurred across thirteen agents but diverged into distinct histories."},
+        {"claim": "농구", "url": "https://arxiv.org/html/2610.07130", "quote": "it improvised basketball by mounting the Ring on a mesa as a hoop"},
+        {"claim": "볼링", "url": "https://arxiv.org/html/2610.07130", "quote": "setting up the rock to knock over cubes arranged like bowling pins"},
+        {"claim": "점프 중 던지기", "url": "https://arxiv.org/html/2610.07130", "quote": "throwing mid-jump transfers the jump's velocity to the block, launching it far higher"},
+        {"claim": "연구진도 몰랐던 기술", "url": "https://arxiv.org/html/2610.07130", "quote": "a technique we did not know our simulator allowed"},
+        {"claim": "놀이의 행동적 특징 결론", "url": "https://arxiv.org/html/2610.07130", "quote": "these activities exhibit behavioral signatures of play"},
+        {"claim": "프로젝트 페이지의 첨탑 던지기 과제", "url": "https://machineplaying.org/", "quote": "Throw a block onto the Spire as fast as possible without climbing onto any platform."}
+      ]
+    },
+    {
+      "id": "2026-10-15-deepmind-gemini-agents-beat-minecraft",
+      "cat": "연구",
+      "date": "2026-10-15",
+      "time": "16:40",
+      "title": "제미나이 4 에이전트 네 개, 사람 도움 없이 마인크래프트 엔딩 봤다",
+      "sub": "구글 딥마인드 논문 · 27시간 14분, 사망 605회, 프로그램 2,783개",
+      "hook": "구글 딥마인드 연구진이 제미나이 4 아르곤 에이전트 네 개를 무작위 마인크래프트 세계에 풀었다. 역할 배정도 공략 코드도 없이 27시간 14분 만에 엔더 드래곤을 쓰러뜨렸고, 비용은 약 520달러로 추산됐다(자체 발표 기준).",
+      "facts": [
+        ["발표 주체", "구글 딥마인드(Google DeepMind) 맥상스 팔도르·사틴더 싱·로베르타 라일레아누"],
+        ["날짜", "2026년 10월 15일(arXiv 제출)"],
+        ["무엇", "논문 ‘A team of Gemini 4 Argon agents beats Minecraft’"],
+        ["핵심 숫자", "27시간 14분, 프로그램 2,783개, 사망 605회(자체 발표 기준)"],
+        ["비용 추정", "플레이어 넷 승리까지 약 520달러(도입가), 전체 세션 약 810달러"],
+        ["원문", "arXiv 2610.22319"]
+      ],
+      "body": [
+        {"lead": "구글 딥마인드(Google DeepMind) 연구진이 10월 15일 arXiv에 AI 에이전트 팀이 마인크래프트를 처음부터 끝까지 스스로 깼다는 논문을 올렸다. 제미나이 4 아르곤(Gemini 4 Argon) 에이전트 네 개가 무작위로 생성된 세계에서 출발해 최종 보스 엔더 드래곤을 쓰러뜨리기까지 27시간 14분이 걸렸다(자체 발표 기준)."},
+        {"ul": [
+          ["역할도 공략 코드도 없었다", "게임 내 채팅과 공유 메모리로 스스로 분업"],
+          ["27시간 14분, 사망 605회", "프로그램 2,783개를 직접 쓰고 고쳤다"],
+          ["비용은 약 520달러", "입력 토큰 약 13억 5,000만 개, 91%는 캐시 처리"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "연구진은 외부와 격리한 마인크래프트 서바이벌 세계에 에이전트 네 개를 넣고 목표 하나만 줬다. 엔더 드래곤 처치다. 시작 세계는 무작위 생성, 난이도는 ‘쉬움’이었다. 에이전트는 마인크래프트 봇 라이브러리 마인플레이어(Mineflayer)로 게임을 조작했고, 게임 내 채팅과 공유 메모리로 협업했다. 논문은 “누구도 역할을 정해 주거나 게임 로직을 짜 주지 않았다”고 적었다. 미리 탐색해 둔 시드나 사람이 만든 게임 전용 도구도 쓰지 않았다. 연구진은 실시간 대시보드로 지켜보며 멈추거나 중단할 수 있었지만 개입할 일은 없었다고 했다."},
+        {"h": "세부 내용"},
+        {"p": "분업은 에이전트들이 스스로 정했다. 하나는 음식·침대·부싯돌을 찾았고, 하나는 다이아몬드를 캐러 내려갔으며, 하나는 철을 제련해 도구를 만들고, 나머지 하나는 네더 차원문을 준비했다. 시작 2시간 안에 철 도구와 다이아몬드, 네더 차원문을 갖췄다. 승리까지 에이전트들은 프로그램 2,783개를 쓰고 605번 죽었다."},
+        {"table": {
+          "head": ["경과 시간", "이정표"],
+          "rows": [
+            ["1시간 42분", "마을에 지은 네더 차원문 점화"],
+            ["2시간 이내", "철 도구·다이아몬드·네더 차원문 확보"],
+            ["13시간 17분", "엔드 차원문 점화(엔더의 눈 12개 모두 장착)"],
+            ["27시간 14분", "엔더 드래곤 처치(발전 과제 ‘Free the End’ 달성)"]
+          ],
+          "note": "arXiv 2610.22319(2026-10-15) 본문 기준. 첫 프로그램 실행 시점부터 계산."
+        }},
+        {"p": "비용도 공개했다. 플레이어 넷이 승리까지 처리한 입력 토큰은 약 13억 5,000만 개로, 91%가 컨텍스트 캐시에서 처리됐다. 제미나이 4 아르곤의 공개 API 도입 가격으로 약 520달러(표준 가격 1,040달러)이고, 관찰자 에이전트와 승리 뒤 하루 활동까지 더한 전체 세션은 약 810달러(1,620달러)다. 논문은 정가와 토큰 집계로 낸 추정치이며 실제 서빙 비용은 아니라고 밝혔다."},
+        {"h": "왜 중요한가"},
+        {"p": "마인크래프트 엔딩은 수천 개의 단계가 서로 맞물린 긴 과제다. 연구진은 하루 넘게 일관된 계획을 유지해야 했던 이번 결과를, 자신들이 아는 한 AI 에이전트의 첫 완전 자율 마인크래프트 클리어라고 주장했다. 앞선 연구인 보이저(Voyager)는 자동 커리큘럼으로 기술 라이브러리를 쌓았고, VPT는 온라인 영상으로 키보드·마우스 조작을 배워 다이아몬드 도구까지 만들었다. 이번에는 여러 에이전트가 하루 넘게 협업해 최종 목표까지 갔다. 역할을 정해 주지 않았는데도 정찰·채굴·제련·차원문 준비로 일이 나뉜 점은, 사람이 조직도를 짜 주지 않아도 에이전트끼리 분업이 가능하다는 사례다. 업무 자동화 관점에서는 ‘하루짜리 프로젝트를 에이전트 팀에 맡기는 비용이 수백 달러’라는 감각을 준다."},
+        {"h": "남은 쟁점"},
+        {"p": "연구진 스스로 한계를 밝혔다. 처음 시도한 단 한 번의 실행이라 같은 설정이 얼마나 안정적으로 성공하는지는 보여 주지 못한다. 마인플레이어는 사람이라면 화면으로 봐야 알 정보를 직접 넘겨주고, 모델은 학습 과정에서 이미 마인크래프트 지식을 상당히 갖고 있다. 화면 픽셀만 보고 키보드·마우스로 하는 방식은 여전히 훨씬 어렵다고 적었다. 비용 역시 도입 가격 기준 추정이어서, 표준 가격을 적용하면 두 배가 된다."}
+      ],
+      "ask": "하루가 걸리는 일을 에이전트 팀에 맡긴다면 무엇부터 맡기겠나.",
+      "sources": [
+        ["arXiv — A team of Gemini 4 Argon agents beats Minecraft", "https://arxiv.org/abs/2610.22319"],
+        ["arXiv 논문 PDF", "https://arxiv.org/pdf/2610.22319v1"]
+      ],
+      "terms": ["에이전트", "토큰", "추론 비용"],
+      "image": {
+        "page": "https://arxiv.org/abs/2610.22319",
+        "og": null,
+        "alt": "구글 딥마인드 제미나이 4 아르곤 에이전트 마인크래프트 논문 초록 페이지"
+      },
+      "verify": [
+        {"claim": "제목·저자, 2026년 10월 15일 제출", "url": "https://arxiv.org/abs/2610.22319", "quote": "A team of Gemini 4 Argon agents beats Minecraft — Maxence Faldor, Satinder Singh, Roberta Raileanu — v1 2026-10-15"},
+        {"claim": "소속 구글 딥마인드", "url": "https://arxiv.org/pdf/2610.22319v1", "quote": "Google DeepMind"},
+        {"claim": "에이전트 넷, 엔더 드래곤 목표", "url": "https://arxiv.org/abs/2610.22319", "quote": "four Gemini 4 Argon agents in a sandboxed Minecraft survival world"},
+        {"claim": "역할·게임 로직 없음", "url": "https://arxiv.org/abs/2610.22319", "quote": "No one assigned roles or wrote game logic."},
+        {"claim": "무작위 세계, 쉬움 난이도", "url": "https://arxiv.org/abs/2610.22319", "quote": "randomly generated world on Easy difficulty"},
+        {"claim": "프로그램 2,783개, 27시간 14분, 605회 사망", "url": "https://arxiv.org/abs/2610.22319", "quote": "the team wrote 2,783 programs and defeated the dragon in 27 hours and 14 minutes, dying 605 times along the way"},
+        {"claim": "사전 탐색 시드·전용 도구 없음", "url": "https://arxiv.org/abs/2610.22319", "quote": "only the standard Mineflayer library without pre-scouted seeds or other game-specific tools written by humans"},
+        {"claim": "분업 내용", "url": "https://arxiv.org/html/2610.22319", "quote": "gyldenia scouted for food, beds and flint / bulicame went down for diamonds / janesick smelted iron and made tools / auratian prepared the Nether portal."},
+        {"claim": "2시간 안 철 도구·다이아몬드·네더 차원문", "url": "https://arxiv.org/html/2610.22319", "quote": "Within two hours the team had iron tools, diamonds and a portal to the Nether."},
+        {"claim": "1시간 42분 네더 차원문 점화", "url": "https://arxiv.org/html/2610.22319", "quote": "The Nether portal the team built in the village, lit 1 hour 42 minutes into the run."},
+        {"claim": "13시간 17분 엔드 차원문 점화", "url": "https://arxiv.org/html/2610.22319", "quote": "At 13 hours 17 minutes into the run, bulicame reported the End portal lit, all twelve eyes in place."},
+        {"claim": "Free the End 달성 27시간 14분", "url": "https://arxiv.org/html/2610.22319", "quote": "bulicame has made the advancement [Free the End], 27 hours 14 minutes after the first program."},
+        {"claim": "입력 토큰 13억 5,000만, 91% 캐시", "url": "https://arxiv.org/pdf/2610.22319v1", "quote": "Up to the win, the four players processed about 1.35 billion input tokens, 91% of them served from the context cache"},
+        {"claim": "약 520달러(표준 1,040달러)", "url": "https://arxiv.org/pdf/2610.22319v1", "quote": "At Gemini 4 Argon's public API list price (introductory), that comes to about $520 ($1,040 at the standard price)."},
+        {"claim": "전체 세션 약 810달러(1,620달러)", "url": "https://arxiv.org/pdf/2610.22319v1", "quote": "The whole session, including the Observer agent and the day of activity after the win, came to about $810 ($1,620)."},
+        {"claim": "보이저·VPT 선행 연구", "url": "https://arxiv.org/html/2610.22319", "quote": "Voyager wrote Mineflayer programs into a growing skill library under an automatic curriculum / Video PreTraining learned keyboard and mouse control from online videos and crafted diamond tools"},
+        {"claim": "단일 실행 한계", "url": "https://arxiv.org/html/2610.22319", "quote": "We describe a single run, the first launch we tried, which cannot show how reliably the setup succeeds."},
+        {"claim": "픽셀 기반은 더 어려움", "url": "https://arxiv.org/html/2610.22319", "quote": "Playing from pixels with a keyboard and mouse, as SIMA 2 does, remains much harder."}
+      ]
+    },
+    {
+      "id": "2026-10-15-konami-hayakawa-ai-games",
+      "cat": "비즈니스·일자리",
+      "date": "2026-10-15",
+      "time": "10:30",
+      "title": "코나미 “AI로 누구나 게임 만든다? 시장은 크게 안 바뀐다”",
+      "sub": "하야카와 히데키 코나미 디지털 엔터테인먼트 대표 · 통합보고서 2026",
+      "hook": "코나미그룹 ‘통합보고서 2026’에서 게임 사업을 이끄는 하야카와 히데키 대표가 AI 덕분에 누구나 게임을 만들게 된다는 통념에 선을 그었다. 진입 장벽은 이미 낮아졌고, 혁신적인 게임의 핵심은 여전히 사람이라는 주장이다.",
+      "facts": [
+        ["발언자", "하야카와 히데키(早川英樹) 코나미 디지털 엔터테인먼트 대표"],
+        ["날짜", "2026년 10월 15일(통합보고서 웹페이지 갱신일)"],
+        ["문서", "코나미그룹 통합보고서 2026(2026년 3월기), 20쪽 디지털 엔터테인먼트 사업 전략"],
+        ["핵심 발언", "“시장 환경이 크게 바뀐다고 생각하지 않는다”"],
+        ["근거", "범용 게임 엔진·UGC로 진입 장벽은 이미 낮아짐, 핵심은 팀으로 일하는 크리에이터"],
+        ["원문", "konami.com IR 자료(일본어 PDF)"]
+      ],
+      "body": [
+        {"lead": "일본 게임사 코나미그룹(KONAMI GROUP)이 2026년 3월기 ‘통합보고서 2026’을 IR 사이트에 올렸다. 게임 사업을 맡은 하야카와 히데키(早川英樹) 코나미 디지털 엔터테인먼트 대표는 이 보고서에서 AI가 게임 시장의 판도를 바꿀 것이라는 시각에 동의하지 않는다고 밝혔다. 생성형 AI를 둘러싼 업계 논쟁에서 대형 게임사 경영진이 투자자용 공식 문서로 입장을 밝혔다는 점에서 눈길을 끈다."},
+        {"ul": [
+          ["통념: AI로 누구나 쉽게 제작", "진입 장벽이 낮아진다는 것이 일반적 시각"],
+          ["반론: 시장 환경은 크게 안 바뀐다", "진입 장벽은 범용 엔진·UGC로 이미 낮아졌다"],
+          ["핵심은 팀으로 일하는 사람", "신기술은 기회, 안전하게 쓰도록 조직적 지원"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "발언은 보고서 20쪽, 디지털 엔터테인먼트 사업 전략 면에 실렸다. ‘항상 혁신을 추구하며 계속 진화하겠다’는 제목 아래에서 하야카와 대표는 먼저 통념을 소개했다. “일반적으로는 AI를 활용하면 누구나 쉽게 게임을 제작할 수 있게 되어 진입 장벽이 낮아진다고들 한다.” 이어 바로 반론을 폈다. “그러나 나는 시장 환경이 크게 바뀐다고 생각하지 않는다.”"},
+        {"h": "세부 내용"},
+        {"p": "근거는 두 가지다. 첫째, 진입 장벽은 AI 이전부터 이미 낮아지고 있었다. 누구나 쓸 수 있는 범용 게임 엔진과 이용자 제작 콘텐츠(UGC)가 그 역할을 했다는 것이다. 둘째, 혁신적인 게임을 만드는 데 가장 중요한 것은 여전히 ‘사람’, 특히 팀으로 일하는 크리에이터라는 판단이다. 그렇다고 기술을 외면하겠다는 뜻은 아니다. 하야카와 대표는 새 기술을 기회로 보고, 크리에이터가 새 기술을 안전하게 쓸 수 있도록 조직 차원의 지원 체계를 갖췄다고 밝혔다."},
+        {"p": "그가 말한 범용 엔진과 UGC는 게임 제작의 문턱을 이미 한 차례 크게 낮춘 변화다. 상용 엔진을 무료나 저가로 쓸 수 있게 되고 이용자가 직접 게임을 만들어 올리는 플랫폼이 커지면서, 혼자서도 게임을 만들어 배포하는 일이 가능해졌다. 하야카와 대표의 논리는 그 변화 뒤에도 시장을 이끈 것은 결국 숙련된 팀이었다는 경험에 기대고 있다."},
+        {"h": "왜 중요한가"},
+        {"p": "통합보고서는 재무 성과와 비재무 전략을 묶어 투자자에게 내놓는 공식 문서다. 인터뷰 속 즉흥 발언이 아니라 회사가 주주에게 공식적으로 밝힌 사업 전망이라는 점에서 무게가 다르다. 생성형 AI가 제작비를 낮춰 대형 게임사의 우위가 흔들릴 것이라는 전망이 업계에 적지 않지만, 코나미는 ‘도구가 싸져도 히트작을 만드는 팀의 가치는 그대로’라는 쪽에 섰다. 무료 엔진과 UGC 플랫폼이 이미 제작 문턱을 낮춘 경험에 비춰, AI도 문턱을 조금 더 낮추는 도구일 뿐 시장 구조를 뒤집지는 않는다는 판단으로 읽힌다."},
+        {"h": "남은 쟁점"},
+        {"p": "이번 발언 대목에는 AI를 실제 제작 공정 어디에 얼마나 쓰는지, 지원 체계가 구체적으로 무엇인지에 대한 수치나 사례는 담기지 않았다. 생성형 AI 도구가 빠르게 발전하는 만큼, 1~2인 개발자 작품이 시장 상위권에 오르는 사례가 늘어나는지가 이 판단을 검증하는 기준이 될 것이다."},
+        {"h": "무엇을 해야 하나"},
+        {"p": "게임 개발자와 지망생에게 이 발언은 두 가지로 읽힌다. 하나는 AI 도구를 다루는 능력만으로는 차별화가 어렵다는 점이다. 도구는 누구에게나 열려 있다. 다른 하나는 팀 안에서 기획·아트·프로그래밍을 엮어 내는 협업 역량의 가치가 오히려 커질 수 있다는 점이다. 대형 게임사가 AI를 사람을 대체하는 비용 절감 수단보다 크리에이터를 돕는 도구로 규정한 만큼, 채용과 조직 운영에도 그 방향이 반영되는지 지켜볼 만하다."}
+      ],
+      "ask": "AI로 제작 도구가 싸지면 게임 시장의 승자도 바뀔까.",
+      "sources": [
+        ["코나미그룹 통합보고서 페이지", "https://www.konami.com/ir/ja/ir-data/integratedreport.html"],
+        ["통합보고서 2026 — 가치 창조(디지털 엔터테인먼트 사업) PDF", "https://img.konami.com/ir/ja/ir-data/integratedreport/2026/pdf/ir2026J_02.pdf"]
+      ],
+      "terms": [],
+      "image": {
+        "page": "https://www.konami.com/ir/ja/ir-data/integratedreport.html",
+        "og": null,
+        "alt": "코나미그룹 통합보고서 2026 IR 페이지"
+      },
+      "verify": [
+        {"claim": "통합보고서 웹페이지 갱신일 2026년 10월 15일", "url": "https://www.konami.com/ir/ja/ir-data/integratedreport.html", "quote": "更新日2026年10月15日"},
+        {"claim": "2026년 3월기 통합보고서, 20쪽, 하야카와 히데키 코나미 디지털 엔터테인먼트 대표", "url": "https://img.konami.com/ir/ja/ir-data/integratedreport/2026/pdf/ir2026J_02.pdf", "quote": "KONAMI GROUP 統合報告書 2026 / 事業戦略 デジタルエンタテインメント事業 / 早川 英樹 (p.20)"},
+        {"claim": "섹션 제목", "url": "https://img.konami.com/ir/ja/ir-data/integratedreport/2026/pdf/ir2026J_02.pdf", "quote": "常にイノベーションを追い求め、進化し続けます"},
+        {"claim": "통념 소개", "url": "https://img.konami.com/ir/ja/ir-data/integratedreport/2026/pdf/ir2026J_02.pdf", "quote": "一般的には、AIを活用することで誰でも容易にゲームを制作できるようになり、参入障壁が下がるとされています。"},
+        {"claim": "반론", "url": "https://img.konami.com/ir/ja/ir-data/integratedreport/2026/pdf/ir2026J_02.pdf", "quote": "しかし、市場環境が大きく変わると私は考えていません。"},
+        {"claim": "범용 엔진·UGC, 사람(팀 크리에이터)이 핵심, 조직적 지원 (요지 — 원문 일본어 문장 재확인 필요)", "url": "https://img.konami.com/ir/ja/ir-data/integratedreport/2026/pdf/ir2026J_02.pdf", "quote": "(요지) entry barriers already falling due to general-purpose game engines and UGC; 「人」, especially creators working in teams, remain most important; organizational support so creators can use new technology safely"}
+      ]
+    },
+    {
+      "id": "2026-10-19-paris-city-tours-ai-satire",
+      "cat": "커뮤니티·문화",
+      "date": "2026-10-19",
+      "time": "21:15",
+      "title": "AI 도구 다섯 단계로 만든 ‘파리 시티 투어’ 풍자 광고",
+      "sub": "크리에이터 비체 쿠체 · 챗GPT부터 수노 v6까지 제작 공정 공개",
+      "hook": "크리에이터 비체 쿠체가 10월 19일 유튜브에 올린 ‘Paris City Tours | AI Satire’는 가상의 파리 관광 회사 광고를 비튼 풍자 영상이다. 기획·이미지·영상·음악을 AI 도구로 만들고 편집은 어도비로 마무리했다.",
+      "facts": [
+        ["제작자", "비체 쿠체(Wytse Koetse)"],
+        ["날짜", "2026년 10월 19일(유튜브 게시)"],
+        ["무엇", "풍자 영상 ‘Paris City Tours | AI Satire’"],
+        ["AI 도구", "챗GPT, GPT 이미지 2.5·나노 바나나 2.1, 시댄스 2.5, 수노 v6"],
+        ["편집", "어도비 크리에이티브 클라우드"],
+        ["원문", "유튜브 영상 페이지(설명란)"]
+      ],
+      "body": [
+        {"lead": "크리에이터 비체 쿠체(Wytse Koetse)가 10월 19일 유튜브에 ‘Paris City Tours | AI Satire’라는 영상을 올렸다. 가상의 관광 회사 ‘파리 시티 투어’가 50% 할인을 내건 광고 형식의 풍자물로, 쿠체는 영상 설명란에 단계별로 쓴 AI 도구를 모두 적어 공개했다."},
+        {"ul": [
+          ["관광 광고 형식의 풍자", "‘같은 명소, 조금 다른 경험’을 내건 50% 할인"],
+          ["단계마다 다른 AI 도구", "기획 챗GPT, 이미지 GPT 이미지 2.5·나노 바나나 2.1, 영상 시댄스 2.5, 음악 수노 v6"],
+          ["마무리는 기존 편집 도구", "후반 작업은 어도비 크리에이티브 클라우드"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "영상 설명란은 관광 광고 문구로 시작한다. 파리 시티 투어가 지금 50% 할인 중이며, “같은 상징적 명소, 조금 다른 경험”을 준다는 내용이다. 쿠체는 이 영상을 “나의 최신 AI 풍자”라고 소개했다. 실제 관광 광고의 밝은 문법을 빌려 와, 그 ‘조금 다른 경험’을 영상으로 보여 주는 구성이다. 제목부터 ‘AI Satire’라고 못 박아 실제 광고가 아니라는 점을 분명히 했다."},
+        {"h": "제작 공정"},
+        {"p": "설명란에 적힌 공정은 다섯 단계다. 챗GPT를 ‘프롬프트 설계자(Prompt Architect)’로 써서 장면을 설계하고, 오픈AI의 GPT 이미지 2.5와 구글의 나노 바나나 2.1로 이미지를 만들었다. 영상은 바이트댄스의 시댄스 2.5, 음악은 수노 v6로 생성했다. 마지막 편집과 후반 작업은 어도비 크리에이티브 클라우드로 했다. 다섯 단계 중 네 단계에 생성형 AI가 쓰였고, 마지막 편집만 기존 소프트웨어로 했다. 설명란에 버전 번호까지 적어 둔 것도 같은 방식을 따라 해 보려는 사람에게 유용한 정보다. 이미지 단계에서 서로 다른 회사의 모델 두 개를 함께 쓴 점이 눈에 띈다. 장면마다 더 잘 나오는 모델을 골라 쓰는 방식이 1인 제작자 사이에서 자리 잡고 있음을 보여 준다."},
+        {"table": {
+          "head": ["단계", "사용 도구"],
+          "rows": [
+            ["프롬프트 설계", "챗GPT"],
+            ["이미지 생성", "GPT 이미지 2.5 / 나노 바나나 2.1"],
+            ["영상 생성", "시댄스 2.5"],
+            ["음악", "수노 v6"],
+            ["편집·후반 작업", "어도비 크리에이티브 클라우드"]
+          ],
+          "note": "유튜브 영상 설명란(2026-10-19 게시) 기준"
+        }},
+        {"h": "왜 중요한가"},
+        {"p": "광고 한 편에 기획자, 촬영팀, 배우, 작곡가가 필요했던 작업을 1인 크리에이터가 상용 AI 도구 조합으로 해냈다. 동시에 이 영상은 실제 관광 광고와 닮은 형식이라, 맥락 없이 잘려 퍼지면 실제 광고나 실제 장면으로 오해받을 여지가 있다. 쿠체가 제목에 ‘AI Satire’를 명시하고 도구 목록까지 공개한 것은 그런 오해를 줄이는 장치다. 풍자와 허위 정보를 가르는 선이 결국 제작자의 ‘AI 표시’에 달려 있다는 점을 보여 주는 사례다."},
+        {"h": "남은 쟁점"},
+        {"p": "원작자가 표시를 해도 다른 계정이 다시 올리거나 짧게 잘라 퍼뜨리는 과정에서 제목과 설명란은 쉽게 사라진다. 플랫폼마다 AI 생성 콘텐츠 표시 규칙이 다르다는 점도 과제다. 표시가 영상 파일 자체에 남도록 하는 기술적 장치가 함께 논의돼야 하는 이유다. 실제 도시를 무대로 한 풍자가 그 도시의 관광 이미지에 어떤 영향을 주는지, 어디까지가 허용되는 풍자인지에 대한 논의도 남는다."},
+        {"h": "무엇을 배울 수 있나"},
+        {"p": "이 영상의 설명란은 AI 영상 제작을 시작하려는 사람에게 일종의 작업 지도다. 한 도구로 모든 것을 해결하려 하기보다 단계를 나누고, 단계마다 맞는 도구를 고르는 것이 핵심이다. 프롬프트 설계를 별도 단계로 둔 점도 눈여겨볼 만하다. 장면 설명을 먼저 정리해 두면 이미지·영상 모델이 바뀌어도 같은 기획을 다시 쓸 수 있다. 마지막 편집을 기존 도구로 마무리했다는 점은, 완성도를 가르는 마지막 단계에는 여전히 사람의 판단이 들어간다는 뜻이기도 하다."}
+      ],
+      "ask": "출처 표시 없이 이 영상을 봤다면 AI로 만든 것을 알아챘을까.",
+      "sources": [
+        ["유튜브 — Paris City Tours | AI Satire (Wytse Koetse)", "https://www.youtube.com/watch?v=_Vy2kqp4alg"]
+      ],
+      "terms": ["AI 표시", "프롬프트", "멀티모달"],
+      "image": {
+        "page": "https://www.youtube.com/watch?v=_Vy2kqp4alg",
+        "og": null,
+        "alt": "비체 쿠체의 풍자 영상 ‘Paris City Tours | AI Satire’ 유튜브 페이지"
+      },
+      "verify": [
+        {"claim": "제목·채널·게시일 2026년 10월 19일", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "Paris City Tours | AI Satire — Wytse Koetse — Oct 19, 2026"},
+        {"claim": "50% 할인, 같은 명소·조금 다른 경험, 최신 AI 풍자 (설명란 요지)", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "Paris City Tours is now offering 50% off. Same iconic sights. Slightly different experience. My latest AI satire."},
+        {"claim": "프롬프트 설계 챗GPT", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "🧠 Prompt Architect — ChatGPT"},
+        {"claim": "이미지 GPT 이미지 2.5 / 나노 바나나 2.1", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "🖼️ Image generation — GPT Image 2.5 / Nano Banana 2.1"},
+        {"claim": "영상 시댄스 2.5", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "🎥 Video — Seedance 2.5"},
+        {"claim": "음악 수노 v6", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "🎵 Music — Suno v6"},
+        {"claim": "편집 어도비 크리에이티브 클라우드", "url": "https://www.youtube.com/watch?v=_Vy2kqp4alg", "quote": "✂️ Edit & post-production — Adobe Creative Cloud"}
+      ]
+    },
+    {
+      "id": "2026-09-27-apricitas-creative-class-jobs",
+      "cat": "비즈니스·일자리",
+      "date": "2026-09-27",
+      "time": "08:50",
+      "title": "미국 창작 산업 일자리 20만 개 감소, AI 탓은 얼마나 되나",
+      "sub": "어프리시타스 이코노믹스 분석 · 영화·TV에서만 10만 개 넘게 사라져",
+      "hook": "경제 분석가 조지프 폴리타노가 미국 미디어·영화·예술 분야에서 지난 4년간 일자리 20만 개 이상이 사라졌다고 분석했다. AI 책임은 단정하지 않으면서도, 디지털 예술만 줄고 공연은 늘어나는 흐름을 가장 뚜렷한 신호로 꼽았다.",
+      "facts": [
+        ["발표 주체", "조지프 폴리타노(Joseph Politano), 어프리시타스 이코노믹스(Apricitas Economics)"],
+        ["날짜", "2026년 9월 27일"],
+        ["무엇", "분석 글 ‘AI and the Fall? of the Creative Class’"],
+        ["핵심 숫자", "창작 산업 일자리 최근 4년 20만 개 이상, 최근 1년 약 5만 개 감소"],
+        ["데이터", "세인트루이스 연은 경제 데이터(FRED) 그래프"],
+        ["원문", "apricitas.io"]
+      ],
+      "body": [
+        {"lead": "경제 분석 뉴스레터 어프리시타스 이코노믹스(Apricitas Economics)의 조지프 폴리타노(Joseph Politano)가 9월 27일 ‘AI와 창작 계급의 몰락?’이라는 분석을 냈다. 미국이 지난 4년간 미디어·영화·예술 분야에서 일자리 20만 개 이상을 잃었다는 내용이다. 그가 던진 질문은 그중 얼마가 AI 때문이냐는 것이다."},
+        {"ul": [
+          ["4년간 20만 개, 최근 1년 5만 개", "비슷한 강도의 감소는 2001·2008년 경기침체 때뿐"],
+          ["영화·TV에서만 10만 개 이상", "업종 전체 일자리의 3분의 1에 가깝다"],
+          ["AI 책임은 아직 단정 못 해", "디지털 예술 감소·라이브 공연 증가가 가장 뚜렷한 신호"]
+        ]},
+        {"h": "무슨 일인가"},
+        {"p": "폴리타노는 미국 ‘창작’ 산업에서 지난 4년 동안 일자리 20만 개 이상이 사라졌고, 최근 1년에만 약 5만 개가 줄었다고 집계했다. 이만한 강도와 기간의 감소는 2001년과 2008년 대형 경기침체 때만 있었다고 했다. 가장 크게 줄어든 곳은 영화·TV 산업으로, 10만 개 넘게 사라져 업종 전체 일자리의 3분의 1 가까이에 이르렀다. 지난 4년간 미디어 일자리 감소분의 절반 가까이가 영화·음반 녹음 부문에 몰렸다."},
+        {"h": "세부 내용"},
+        {"p": "장기 추세도 짚었다. 미국 신문사는 한때 약 50만 명을 고용했지만 지금은 고용이 거의 85% 줄었고 여전히 감소 중이다. 잡지 출판사는 1990년대 이후 인력의 66%를, 도서 출판사는 40%를 내보냈다. 수요 쪽에서는 영화 티켓 판매가 지난해 기준 2019년 정점보다 25% 낮았고, 케이블 매출은 정점 대비 18% 줄었다. AI 사용률 비교도 실었다. 예술·엔터테인먼트·레크리에이션 업종 종사자 가운데 생성형 AI를 어느 정도라도 쓰는 비율은 약 32%로, 전체 산업 평균 62%보다 낮다."},
+        {"table": {
+          "head": ["분야", "감소 규모", "기간·기준"],
+          "rows": [
+            ["창작 산업 전체", "일자리 20만 개 이상", "최근 4년(최근 1년 약 5만 개)"],
+            ["영화·TV", "10만 개 이상(업종의 약 3분의 1)", "최근 4년"],
+            ["신문", "고용 약 85% 감소", "한때 약 50만 명 대비"],
+            ["잡지 출판 / 도서 출판", "인력 66% / 40% 감소", "1990년대 이후"]
+          ],
+          "note": "어프리시타스 이코노믹스(2026-09-27) 서술 기준. 원 통계는 FRED 그래프."
+        }},
+        {"h": "AI는 얼마나 책임이 있나"},
+        {"p": "폴리타노는 AI 책임을 단정하지 않았다. 업계 통합, 해외 이전, 소셜미디어 크리에이터로의 이동 같은 요인과 AI 효과를 떼어 내기 어렵다는 이유다. 그가 가장 뚜렷한 신호로 본 것은 업종 안의 엇갈림이다. 디지털 예술 하위 분야는 줄어드는데 라이브 엔터테인먼트는 늘고 있다. 복제와 생성이 쉬운 디지털 콘텐츠부터 일자리가 줄고, 현장에 사람이 있어야 하는 분야는 버틴다는 해석이 가능한 대목이다. 그는 예술 고용이 전체 노동시장에서 차지하는 비중이 작아 AI의 주된 영향은 경제보다 문화·사회 쪽에서 나타날 것으로 봤다."},
+        {"h": "남은 쟁점"},
+        {"p": "최악의 시나리오로는 신문 산업 붕괴와 닮은 모습을 들었다. AI 투자가 약속대로 성과를 낸다면 같은 대체가 다른 사무직으로 번질 수 있다는 경고도 덧붙였다. 제목의 물음표처럼 ‘창작 계급의 몰락’인지는 열린 질문으로 남겼다. 숫자는 FRED 그래프를 바탕으로 했지만 본문에 원 통계 기관이나 시계열 정의를 명시하지는 않았다."},
+        {"h": "무엇을 봐야 하나"},
+        {"p": "폴리타노의 분석은 AI의 일자리 영향을 볼 때 업종 전체 숫자보다 업종 안의 엇갈림을 보라는 방법을 제시한다. 같은 예술 분야라도 디지털로 복제·생성할 수 있는 일과 현장에 사람이 있어야 하는 일의 흐름이 다르다. 한국에서도 웹툰·일러스트·음원·영상 편집처럼 디지털 결과물을 내는 직군과 공연·전시·교육처럼 현장성이 강한 직군의 고용 흐름을 나눠 볼 필요가 있다. 또 생성형 AI 사용률이 전체 평균보다 낮은 업종에서 일자리가 먼저 줄고 있다는 점은, 종사자가 AI를 쓰든 안 쓰든 수요 쪽 변화가 일자리를 흔들 수 있음을 시사한다."}
+      ],
+      "ask": "내가 일하는 분야는 복제가 쉬운 쪽인가, 현장이 필요한 쪽인가.",
+      "sources": [
+        ["Apricitas Economics — AI and the Fall? of the Creative Class", "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class"]
+      ],
+      "terms": [],
+      "image": {
+        "page": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class",
+        "og": "https://substackcdn.com/image/fetch/$s_!oz9x!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F999e3450-1df3-457d-8715-5e2e46d5121c_2886x1843.png",
+        "alt": "어프리시타스 이코노믹스의 미국 창작 산업 고용 분석 대표 차트"
+      },
+      "verify": [
+        {"claim": "작성자·게시일 2026년 9월 27일", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "Joseph Politano — Sep 27, 2026"},
+        {"claim": "4년간 20만 개 이상, 최근 1년 약 5만 개", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "America has lost more than 200k jobs in “creative” industries over the last four years, with roughly 50k lost within the last year alone."},
+        {"claim": "2001·2008년 경기침체 때만", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "similar job loss intensity and duration occurring only during the major economic recessions of 2001 and 2008."},
+        {"claim": "영화·TV 10만 개 이상, 3분의 1", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "the movie & TV industry losing more than 100k jobs, nearly one-third of the sector’s total."},
+        {"claim": "감소분 절반 가까이 영화·음반 녹음", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "Overall, nearly half the media job losses of the last four years have been concentrated in the movie & sound recording sector"},
+        {"claim": "신문 약 50만 명", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "Newspapers used to employ roughly half a million people in the US"},
+        {"claim": "신문 고용 약 85% 감소", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "their payrolls are down nearly 85% and still dropping."},
+        {"claim": "잡지 66%, 도서 40%", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "Magazine publishers likewise have let 66% of their staff go since the 90s, while book publishers have lost 40%."},
+        {"claim": "영화 티켓 25% 감소", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "movie ticket sales ended last year down 25% from their 2019 peak"},
+        {"claim": "케이블 매출 18% 감소", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "cable revenue is down 18% from its peak"},
+        {"claim": "생성형 AI 사용 32%", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "Roughly 32% of workers in the overall arts, entertainment, and recreation sector use Generative AI to some extent"},
+        {"claim": "전체 평균 62%", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "which is less than the 62% average across all industries"},
+        {"claim": "AI 책임 단정 안 함·디지털 예술 감소와 라이브 증가·문화 영향·신문 붕괴 유사 최악 시나리오 (요지)", "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class", "quote": "(요지) effects hard to separate from consolidation, offshoring, and the shift to social media creators; decline in digital arts subsectors while live entertainment grows is the clearest sign"}
+      ]
+    }
+  ],
+  "dropped": [
+    {"topic": "미국 데이터센터 일자리 최저 연봉 125.1% 상승·용접공/배관공 공고 164% 증가", "reason": "원 데이터 출처(집리크루터 ZipRecruiter로 보도됨)의 원문 보고서·페이지를 찾지 못함. 실마리 기사(디지털투데이)도 2026-09-28자로 범위 밖"},
+    {"topic": "UC 버클리 수학 교수 ‘숙제 채점 의미 없다’", "reason": "언론·애그리게이터 보도만 있음. 교수 본인의 강의 페이지·글·게시물 원문을 찾지 못함(보르허즈 교수 홈페이지에도 관련 내용 없음)"},
+    {"topic": "일론 머스크 ‘인간은 기계와 합쳐야’ 발언", "reason": "해당 X 게시물을 찾지 못함. x.com은 열람 도구에서 차단돼 원문 확인 불가"},
+    {"topic": "테슬라·머스크 플라잉카 시연·발언(선택)", "reason": "테슬라·머스크 1차 게시물 확인 불가(X 열람 차단), 작성하지 않음"},
+    {"topic": "클링 등 AI 영상 도구를 쓰는 영화 제작자", "reason": "지시대로 생략(다른 작성자 담당)"}
+  ]
+}
