@@ -40,4 +40,4 @@ jobs:
           git reset -q node_modules 2>/dev/null || true
           if git diff --cached --quiet; then echo "바뀐 것 없음"; exit 0; fi
           git commit -m "사이트 다시 만들기 (자동)"
-          git push
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
