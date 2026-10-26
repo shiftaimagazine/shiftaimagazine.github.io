@@ -305,3 +305,9 @@ footer a:hover{color:var(--ink)}
 .tools .ghost{padding:7px 12px}
 .notfound{padding:80px 0 40px;display:grid;gap:12px}
 .notfound .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+/* 구독 상자는 다크 모드에서도 흰 카드(구독 폼 iframe 배경과 맞춤) */
+.subbox{background:#fff;color:#2b2c2f;border:1px solid #e6e6e3}
+.subbox h2{color:#111214}.subbox .st p,.subbox .consent,.subslot small{color:#6f7076}.subbox .k{color:#d4581f}.subbox .consent a{color:#111214}
+.subsoon input{background:#fff;color:#111214;border-color:#e6e6e3}.subsoon .btn{background:#111214;color:#fff}
+.subslot{min-height:150px}
