@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from assemble import load_articles, SRC, N
 
 OUT = os.path.dirname(SRC.rstrip('/')) + '/'
-UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 (+https://shiftaimagazine.github.io)'}
+UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 (+https://shiftaimagazine.com)'}
 W, H = 960, 540
 dom = lambda u: re.sub(r'^https?://(www\.)?', '', u).split('/')[0]
 

@@ -1,4 +1,4 @@
-const SITE = "https://shiftaimagazine.github.io";
+const SITE = "https://shiftaimagazine.com";
 const ROUTE = document.body.dataset.route || "home";
 const PRE = document.body.dataset.pre === "1";
 const P = r=>{ if(!r||r==="home") return "/"; const k=r.slice(0,2), v=r.slice(2);

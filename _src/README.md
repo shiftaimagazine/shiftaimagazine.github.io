@@ -1,6 +1,6 @@
 # SHIFT AI 매거진 사이트 원본
 
-공개 주소: https://shiftaimagazine.github.io (GitHub Pages, main 브랜치 루트)
+공개 주소: https://shiftaimagazine.com (2026-10-27부터, 포크번 도메인 → GitHub Pages main 브랜치 루트. 저장소 루트의 CNAME 파일이 도메인 설정. 예전 주소 shiftaimagazine.github.io 는 GitHub가 자동으로 새 주소로 넘김)
 `_src/` 는 밑줄로 시작해서 GitHub Pages(Jekyll)가 공개하지 않는다.
 
 ## 자동 흐름
