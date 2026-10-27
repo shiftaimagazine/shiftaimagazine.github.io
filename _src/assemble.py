@@ -2,7 +2,7 @@
 #   기사: news/A·B·C·E.json + news/daily/YYYY-MM-DD.json (각각 {"articles": [...]})
 #   대표 사진: news/photos.json {기사 id: {src, credit, alt}} — 새 기사는 fetch_images.py 가 채운다
 #   본문 사진: news/inline.json · 데일리 이슈: news/daily.json · 용어: news/terms.json · 쓰레드 링크: news/threads.json
-import json, os, glob, sys
+import json, os, glob, sys, re
 SRC = os.path.dirname(os.path.abspath(__file__)) + '/'
 N = SRC + 'news/'
 J = lambda n: json.load(open(N + n))
@@ -17,6 +17,22 @@ def load_articles():
     return arts
 
 REQ = ['id', 'date', 'time', 'cat', 'title', 'sub', 'hook', 'body', 'facts', 'sources', 'ask']
+# 습니다체 검사(2026-10-28 글부터): 따옴표 밖에서 '~다.'(한다체)로 끝나는 문장이 있으면 멈춘다
+STYLE_FROM = '2026-10-28'
+_PLAIN = re.compile(r'(?<!니)(?<!습)다(?=[.?!…]|\s*$)')
+_Q = {'“': '”', '‘': '’', '"': '"', "'": "'", '「': '」', '『': '』'}
+def plain_endings(s):
+    if not s: return []
+    spans, i = [], 0
+    while i < len(s):
+        if s[i] in _Q:
+            j = s.find(_Q[s[i]], i + 1)
+            if j > i: spans.append((i, j)); i = j + 1; continue
+        i += 1
+    return [s[max(0, m.start() - 20):m.end() + 1] for m in _PLAIN.finditer(s) if not any(a < m.start() < b for a, b in spans)]
+def style_check(where, texts):
+    bad = [x for t in texts for x in plain_endings(t)]
+    assert not bad, (where, '습니다체로 써야 합니다(한다체 문장 끝 발견, BRIEF.md 2장)', bad[:3])
 CATS = {'모델·제품', '보안·안전', '정책·저작권', '비즈니스·일자리', '연구', '커뮤니티·문화'}
 
 if __name__ == '__main__':
@@ -31,6 +47,8 @@ if __name__ == '__main__':
         assert a['cat'] in CATS, (a['id'], '분류 오류', a['cat'])
         if a['date'] >= '2026-10-28': assert a.get('try') and len(a['try']) <= 120, (a['id'], "'오늘 바로 해 볼 것'(try) 한 문장 필요(120자 이내)")
         assert all(len(s) == 2 and s[1].startswith('http') for s in a['sources']), (a['id'], 'sources 형식은 [[이름, 주소], ...]')
+        if a['date'] >= STYLE_FROM:
+            style_check(a['id'], [a['hook'], a.get('try'), a['ask']] + [b.get('lead') or b.get('p') for b in a['body']] + [x[1] for b in a['body'] for x in b.get('ul', [])])
         a.pop('verify', None); spec = a.pop('image', None) or {}
         p = photos.get(a['id'])
         if p and os.path.exists(os.path.dirname(SRC.rstrip('/')) + '/' + p['src']):
@@ -52,6 +70,7 @@ if __name__ == '__main__':
     DAILY.sort(key=lambda d: d['date'], reverse=True)
     for d in DAILY:
         for i in d['items']: assert i in byid, ('데일리 이슈에 없는 기사', d['date'], i)
+        if d['date'] >= STYLE_FROM: style_check('데일리 ' + d['date'], [d['summary']] + d.get('three', []))
         assert d.get('lead') in d['items'], ('lead 는 items 안에 있어야 함', d['date'])
     for d in DAILY:
         lead = next((x for x in out if x['id'] == d['lead']), None)
@@ -64,6 +83,7 @@ if __name__ == '__main__':
 
     old = J('old_tut.json'); tl = J('tutorial_links.json')
     cross = old['cross']; cross['thumb'] = 'img/cover/t-crosscheck-prompts.webp'; cross['rel'] = '2026-10-19-whatsapp-hidden-ai-instructions'
+    if cross['id'] in tl['TFIG']: cross['cover'], cross['coverCredit'] = tl['TFIG'][cross['id']]
     tuts = J('D_tutorials.json')['tutorials']
     for t in tuts:
         t['thumb'] = f"img/cover/{t['id']}.webp"; t['rel'] = tl['TREL'].get(t['id'])
@@ -79,7 +99,9 @@ if __name__ == '__main__':
         t.pop('_n')
         assert t.get('cat') in TUT_CATS, ('튜토리얼 분류(cat) 오류', t['id'], t.get('cat'))
     cols = J('columns.json')['columns']
-    for c in cols: assert c['rel'] in byid, c['rel']
+    for c in cols:
+        assert c['rel'] in byid, c['rel']
+        if c['date'] >= STYLE_FROM: style_check(c['id'], [c['deck']] + [b.get('lead') or b.get('p') for b in c['body']] + [x for b in c['body'] for x in b.get('pred', [])])
     cols = [c for _, c in sorted(enumerate(cols), key=lambda x: (x[1]['date'], x[1].get('time') or '', x[0]), reverse=True)]
     old['resources'].sort(key=lambda r: r['date'], reverse=True)
 

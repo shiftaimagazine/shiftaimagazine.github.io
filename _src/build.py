@@ -164,12 +164,12 @@ HOME_LD = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'SHIFT
             'sameAs': [IG, 'https://www.threads.com/@shift_ai_magazine', 'https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw']}]
 HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in HOME_LD)
 page('/', 'home', 'SHIFT AI — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진', '오늘 나온 AI 뉴스를 회사 발표·논문·공식 게시물 같은 원문부터 읽고 쉽게 정리합니다. 챗GPT·클로드·제미나이 등 인공지능 소식, AI 데일리 이슈, 따라 하는 AI 튜토리얼과 칼럼.', STATIC['home'], OG_SITE, 'website', HOME_EXTRA)
-LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 AI 뉴스와 인공지능 기사. 회사 발표·논문·공식 게시물 같은 원문을 읽고 쓰며, 모든 기사 끝에 원문 링크가 있다.'),
-         'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 항목마다 복사해 쓰는 프롬프트와 함께.'),
-         'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에. 제목 한 줄, 요점 세 줄, 소식 목록과 숫자.'),
-         'dict': ('AI 사전', '기사에 나오는 AI 용어를 한 줄로 풀고 관련 기사로 잇는다.'),
-         'tools': ('무료 AI 도구 — 설치·가입 없이 브라우저에서 바로', '개인정보 자동 가리기, AI 요금 계산기, 무료 실시간 크롬 번역처럼 돈 내고 쓰던 기능을 설치 없이 브라우저에서. 파일은 어디에도 보내지 않는다.'),
-         'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 읽고 "그래서 무엇이 달라지는가"를 쓰는 AI 매거진이다.'),
+LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 AI 뉴스와 인공지능 기사. 회사 발표·논문·공식 게시물 같은 원문을 읽고 쓰며, 모든 기사 끝에 원문 링크가 있습니다.'),
+         'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁을 모았습니다. 항목마다 복사해서 쓰는 프롬프트가 함께 있습니다.'),
+         'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에 모았습니다. 제목 한 줄과 요점 세 줄, 소식 목록과 숫자를 한 번에 봅니다.'),
+         'dict': ('AI 사전', '기사에 나오는 AI 용어를 짧게 풀고 관련 기사로 이어 줍니다.'),
+         'tools': ('무료 AI 도구 — 설치·가입 없이 브라우저에서 바로', '개인정보 자동 가리기, AI 요금 계산기, 무료 실시간 크롬 번역처럼 돈 내고 쓰던 기능을 설치 없이 브라우저에서 바로 씁니다. 넣은 파일은 어디에도 보내지 않습니다.'),
+         'about': ('소개', 'SHIFT AI는 AI 소식을 원문으로 확인하고, 그 소식으로 무엇이 달라지는지 정리하는 AI 매거진입니다.'),
          'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
 for r, (t, ds) in LISTS.items():
     page(f'/{r}/', r, f'{t} · SHIFT AI', ds, STATIC[r], OG_SITE)
@@ -237,7 +237,7 @@ for t in TOOLS:
           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
     extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
     page(t['href'], 'tool-' + t['id'], title, t['desc'], fix_links(view('tool-' + t['id'])), og, 'website', extra)
-page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾는다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
+page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----
 last = {'/': max(a['date'] for a in A)}

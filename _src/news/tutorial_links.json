@@ -19,6 +19,58 @@
   "t-meeting-interpreter": [
    "img/ph/meeting-interpreter.webp",
    "SHIFT AI 회의 통역창 첫 화면 · SHIFT AI 직접 캡처"
+  ],
+  "t-premortem": [
+   "img/ph/t-premortem.webp",
+   "체스 폰 · Wikimedia Commons · Dietmar Rabich (CC BY-SA 4.0)"
+  ],
+  "t-spreadsheet-formulas": [
+   "img/ph/t-spreadsheet-formulas.webp",
+   "노트북 화면의 스프레드시트 · Wikimedia Commons · MikeRun (CC BY-SA 4.0)"
+  ],
+  "t-email-replies": [
+   "img/ph/t-email-replies.webp",
+   "노트북으로 글을 쓰는 손 · Wikimedia Commons · Simon Hattinga Verschure (CC0)"
+  ],
+  "t-ai-tutor": [
+   "img/ph/t-ai-tutor.webp",
+   "공책에 필기하는 손 · Wikimedia Commons · Tookapic (CC0)"
+  ],
+  "t-pdf-to-markdown": [
+   "img/ph/t-pdf-to-markdown.webp",
+   "마크다운 기호 · Wikimedia Commons · Dustin Curtis (CC0)"
+  ],
+  "t-notebooklm": [
+   "img/ph/t-notebooklm.webp",
+   "쌓아 둔 책과 스탠드 · Wikimedia Commons · chuttersnap (CC0)"
+  ],
+  "t-privacy-settings": [
+   "img/ph/t-privacy-settings.webp",
+   "사슬에 채운 자물쇠 · Wikimedia Commons · Lacz02 (CC BY-SA 4.0)"
+  ],
+  "t-reels-script": [
+   "img/ph/t-reels-script.webp",
+   "손에 든 스마트폰 · Wikimedia Commons · NeONBRAND (CC0)"
+  ],
+  "t-verify-numbers": [
+   "img/ph/t-verify-numbers.webp",
+   "계산기 오류 표시 · Wikimedia Commons · Coyau (CC BY-SA 3.0)"
+  ],
+  "t-meeting-notes": [
+   "img/ph/t-meeting-notes.webp",
+   "회의실 원탁 · Wikimedia Commons · Tomer Gabel (CC BY-SA 2.0)"
+  ],
+  "t-presentation": [
+   "img/ph/t-presentation.webp",
+   "회의실 발표 · Wikimedia Commons · DERDAKI ILIAS (CC BY-SA 4.0)"
+  ],
+  "t-resume-review": [
+   "img/ph/t-resume-review.webp",
+   "입사 지원서 양식 · Wikimedia Commons · Donald Trung Quoc Don (CC BY-SA 4.0)"
+  ],
+  "t-crosscheck-prompts": [
+   "img/ph/t-crosscheck-prompts.webp",
+   "헤드셋을 쓴 상담원 · Wikimedia Commons · Wesley Farnsworth, 미 공군 (퍼블릭 도메인)"
   ]
  }
 }

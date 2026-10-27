@@ -94,8 +94,8 @@ function run(){
   $("rPrev").innerHTML = text ? prev : "";
   $("rPrev").hidden = !text || !spans.length;
   const parts = Object.entries(cnt).map(([k,v])=>`<b>${esc(k)}</b> ${v}`);
-  $("rSum").innerHTML = !text ? "글을 넣으면 찾은 개인정보가 여기에 표시된다." :
-    spans.length ? `찾아서 가린 것 ${spans.length}곳 · ${parts.join(" · ")}` : "찾은 개인정보가 없다. 이름·주소 같은 것은 '직접 가릴 말'에 넣어 보세요.";
+  $("rSum").innerHTML = !text ? "글을 넣으면 찾은 개인정보가 여기에 표시됩니다." :
+    spans.length ? `찾아서 가린 것 ${spans.length}곳 · ${parts.join(" · ")}` : "찾은 개인정보가 없습니다. 이름·주소 같은 것은 '직접 가릴 말'에 넣어 보세요.";
   $("rRestoreBox").hidden = mode!=="tag";
   counts(text);
   restore();
@@ -109,7 +109,7 @@ function counts(text){
 function restore(){
   const ai = $("rAi").value; if(!ai){ $("rBack").value=""; $("rBackInfo").textContent=""; return; }
   let n = 0; const back = ai.replace(/\[[^\[\]\s]{1,12}\d{1,4}\]/g, m=>{ if(lastMap.has(m)){ n++; return lastMap.get(m); } return m; });
-  $("rBack").value = back; $("rBackInfo").textContent = n ? `${n}곳을 원래 값으로 바꿨다` : "바꿀 이름표를 못 찾았다(위 1~3단계를 같은 탭에서 먼저 해 주세요)";
+  $("rBack").value = back; $("rBackInfo").textContent = n ? `${n}곳을 원래 값으로 바꿨습니다` : "바꿀 이름표를 찾지 못했습니다(위 1~3단계를 같은 탭에서 먼저 해 주세요)";
 }
 const later = ()=>{ clearTimeout(timer); timer = setTimeout(run, 120); };
 
@@ -127,12 +127,12 @@ $("rSample").onclick = ()=>{
 };
 $("rFile").addEventListener("change", async e=>{
   const f = e.target.files[0]; if(!f) return;
-  if(f.size > 5*1024*1024){ $("rInfo").textContent = "5MB 이하 파일만 열 수 있어요"; return; }
+  if(f.size > 5*1024*1024){ $("rInfo").textContent = "5MB 이하 파일만 열 수 있습니다"; return; }
   const buf = await f.arrayBuffer(); let text;
   try{ text = new TextDecoder("utf-8",{fatal:true}).decode(buf); }catch(_){ text = new TextDecoder("euc-kr").decode(buf); }
   $("rIn").value = text.replace(/^﻿/,""); $("rIn").dataset.name = f.name; $("rInfo").textContent = `${f.name} 열림`; run(); e.target.value = "";
 });
-const copy = (txt, btn)=>{ if(!txt) return; (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(()=>{ const o=btn.textContent; btn.textContent="복사했어요"; setTimeout(()=>btn.textContent=o,1400); }).catch(()=>{ const ta=document.createElement("textarea"); ta.value=txt; document.body.append(ta); ta.select(); try{document.execCommand("copy");}catch(_){} ta.remove(); }); };
+const copy = (txt, btn)=>{ if(!txt) return; (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(()=>{ const o=btn.textContent; btn.textContent="복사했습니다"; setTimeout(()=>btn.textContent=o,1400); }).catch(()=>{ const ta=document.createElement("textarea"); ta.value=txt; document.body.append(ta); ta.select(); try{document.execCommand("copy");}catch(_){} ta.remove(); }); };
 $("rCopy").onclick = e=>copy($("rOut").value, e.currentTarget);
 $("rBackCopy").onclick = e=>copy($("rBack").value, e.currentTarget);
 $("rDown").onclick = ()=>{
