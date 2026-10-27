@@ -1,0 +1,35 @@
+# 튜토리얼 사진: 위키미디어 공용에서 자유 이용 사진 찾기/받기(손으로 실행). 결과는 작업 결과물(artifact)로만 남고 저장소에는 커밋하지 않는다.
+name: commons-photos
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: 'search 또는 fetch', required: true, default: 'search'}
+      queries: {description: '{"키": ["검색어", ...]} (search)', required: false, default: '{}'}
+      picks: {description: '{"키": "File:..."} (fetch)', required: false, default: '{}'}
+      focus: {description: '세로 위치 FOCUS_키=0~1 줄바꿈 대신 ; 로', required: false, default: ''}
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pillow==11.0.0 requests==2.32.3
+      - name: 실행
+        env:
+          QUERIES: ${{ github.event.inputs.queries }}
+          PICKS: ${{ github.event.inputs.picks }}
+          FOCUS: ${{ github.event.inputs.focus }}
+        run: |
+          for kv in $(echo "$FOCUS" | tr ';' ' '); do export "$kv"; done
+          python3 .github/scripts/commons.py ${{ github.event.inputs.mode }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: commons-${{ github.event.inputs.mode }}
+          path: |
+            _cand/
+            _out/
+          if-no-files-found: warn
