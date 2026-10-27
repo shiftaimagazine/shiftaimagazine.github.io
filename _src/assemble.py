@@ -29,6 +29,7 @@ if __name__ == '__main__':
         a = dict(a); f = a.pop('_file')
         for k in REQ: assert k in a and a[k], (a['id'], '필수 항목 없음', k, f)
         assert a['cat'] in CATS, (a['id'], '분류 오류', a['cat'])
+        if a['date'] >= '2026-10-28': assert a.get('try') and len(a['try']) <= 120, (a['id'], "'오늘 바로 해 볼 것'(try) 한 문장 필요(120자 이내)")
         assert all(len(s) == 2 and s[1].startswith('http') for s in a['sources']), (a['id'], 'sources 형식은 [[이름, 주소], ...]')
         a.pop('verify', None); spec = a.pop('image', None) or {}
         p = photos.get(a['id'])

@@ -362,3 +362,10 @@ footer a:hover{color:var(--ink)}
 .sugg #sChips{display:flex;flex-wrap:wrap;gap:8px}
 .sugg button{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--ink)}
 .sugg button:hover{border-color:var(--ink)}
+
+/* 기사 맨 위 '오늘 바로 해 볼 것' */
+.trynow{display:flex;gap:10px 14px;align-items:baseline;flex-wrap:wrap;background:#FFF3EC;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;margin:14px 0 18px;font-size:15.5px;line-height:1.6;color:#2a1a12}
+.trynow b{font-size:13px;font-weight:800;color:var(--accent);white-space:nowrap}
+.trynow span{flex:1;min-width:220px}
+@media (prefers-color-scheme:dark){.trynow{background:#2a1d16;color:var(--ink)}}
+.box.notice{border-left:4px solid var(--accent);font-size:15px;line-height:1.7}.box.notice b{display:block;margin-bottom:4px}

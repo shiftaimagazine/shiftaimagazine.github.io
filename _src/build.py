@@ -99,6 +99,10 @@ VER = hashlib.sha1((data_js + app_js + css).encode()).hexdigest()[:8]
 
 VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exists(SRC + 'verify-meta.html') else ''
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">'
+# 방문 통계: GoatCounter(쿠키 없음, IP 저장 안 함). 개인정보처리방침 7일 전 공지 약속에 따라 시행일부터 센다. 미리 그리기(prerender)·로컬에서는 안 셈.
+GC_CODE, GC_START = 'shiftai', '2026-11-03T00:00:00+09:00'
+ANALYTICS = ('<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.github.io"||Date.now()<Date.parse("' + GC_START + '"))return;'
+             'var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://' + GC_CODE + '.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>\n') if GC_CODE else ''
 def kst(date, time='09:00'): return f'{date}T{time}:00+09:00'
 
 def page(path, route, title, desc, main, og, typ='website', extra='', robots='index,follow,max-image-preview:large'):
@@ -124,7 +128,7 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
 <meta name="robots" content="{robots}">
-{VERIFY}{extra}<link rel="icon" type="image/png" href="/favicon.png">
+{VERIFY}{extra}{ANALYTICS}<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
 {FONTS}

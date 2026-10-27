@@ -212,6 +212,7 @@ function renderArticle(a){
     <a class="back" href="/news/">← AI 뉴스</a>
     <span class="cat">${esc(a.cat)}</span>
     <h1>${esc(a.title)}</h1><p class="deck">${esc(a.sub)}</p>
+    ${a.try?`<div class="trynow"><b>오늘 바로 해 볼 것</b><span>${esc(a.try)}</span></div>`:""}
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
     ${fig(imgOf(a),"lead-fig")}
     ${factsHTML(a.facts)}

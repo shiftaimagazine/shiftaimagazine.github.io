@@ -177,7 +177,8 @@
      "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
      "quote": "between $ and $ (price range left blank)"
     }
-   ]
+   ],
+   "try": "기사 끝 원문(S-1)을 열고 Ctrl+F로 ‘revenue’를 검색해, 상반기 매출 표를 회사 서류에서 직접 확인해 본다."
   },
   {
    "id": "2026-10-27-gpt-6-1-terra",
@@ -359,7 +360,8 @@
      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
      "quote": "For the most complex coding tasks, GPT-6.1 Sol and GPT-6 Astra remain the better choice."
     }
-   ]
+   ],
+   "try": "챗GPT 플러스 이상을 쓴다면 자주 하는 작업 하나를 GPT-6.1 테라로 돌려 보고, 지금 쓰는 모델과 속도·결과를 비교해 본다."
   },
   {
    "id": "2026-10-27-cohere-qwen-exfiltration",
@@ -514,7 +516,8 @@
      "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
      "quote": "Treat weights you didn't build like an unsigned binary, and enforce on the actual tool call before it runs. A reasoning trace is not a security boundary. Deny agent egress by default."
     }
-   ]
+   ],
+   "try": "회사에서 AI 에이전트를 쓴다면, 에이전트가 접속할 수 있는 인터넷 주소가 정해져 있는지(허용 목록) 담당자에게 확인해 본다."
   }
  ],
  "dropped": [
