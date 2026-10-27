@@ -40,6 +40,7 @@ STATIC = {
     'dict': fix_links(view('dict')),
     'about': about,
     'privacy': view('privacy'),
+    'search': view('search'),
 }
 
 # ---- 공유 이미지(og) ----
@@ -100,7 +101,7 @@ VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exist
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">'
 def kst(date, time='09:00'): return f'{date}T{time}:00+09:00'
 
-def page(path, route, title, desc, main, og, typ='website', extra=''):
+def page(path, route, title, desc, main, og, typ='website', extra='', robots='index,follow,max-image-preview:large'):
     url = SITE + path
     doc = f'''<!doctype html>
 <html lang="ko">
@@ -122,7 +123,7 @@ def page(path, route, title, desc, main, og, typ='website', extra=''):
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="{robots}">
 {VERIFY}{extra}<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
@@ -148,7 +149,7 @@ def page(path, route, title, desc, main, og, typ='website', extra=''):
 PAGES = []
 TAG = 'AI 소식, 검색하지 말고 SHIFT 하세요'
 HOME_LD = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'SHIFT AI', 'alternateName': 'SHIFT AI 매거진', 'url': SITE + '/', 'inLanguage': 'ko',
-            'potentialAction': {'@type': 'SearchAction', 'target': SITE + '/news/?q={search_term_string}', 'query-input': 'required name=search_term_string'}},
+            'potentialAction': {'@type': 'SearchAction', 'target': SITE + '/search/?q={search_term_string}', 'query-input': 'required name=search_term_string'}},
            {'@context': 'https://schema.org', '@type': 'NewsMediaOrganization', 'name': 'SHIFT AI', 'url': SITE + '/', 'logo': SITE + '/img/brand/logo-800.png', 'email': 'shiftai.magazine@gmail.com',
             'sameAs': [IG, 'https://www.threads.com/@shift_ai_magazine', 'https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw']}]
 HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in HOME_LD)
@@ -213,6 +214,7 @@ nf = '''<main id="v-404"><div class="notfound narrow"><h1>찾는 페이지가 �
 <div class="acts"><a class="btn" href="/">첫 화면</a><a class="ghost" href="/news/">AI 뉴스</a><a class="ghost" href="/daily/">데일리 이슈</a></div></div></main>'''
 page('/404-tmp/', '404', '페이지를 찾을 수 없습니다 · SHIFT AI', 'SHIFT AI 매거진', nf, OG_SITE)
 PAGES.remove('/404-tmp/')
+page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾는다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----
 last = {'/': max(a['date'] for a in A)}
@@ -222,7 +224,7 @@ for c in C: last[f"/column/{c['id'][2:]}/"] = c['date']
 for d in DY: last[f"/daily/{d['date']}/"] = d['date']
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for p in PAGES:
-    if p == '/privacy/': continue
+    if p in ('/privacy/', '/search/'): continue
     sm.append(f'<url><loc>{SITE}{p}</loc>' + (f'<lastmod>{last[p]}</lastmod>' if p in last else f'<lastmod>{last["/"]}</lastmod>') + '</url>')
 sm.append('</urlset>')
 open(OUT + 'sitemap.xml', 'w').write('\n'.join(sm) + '\n')

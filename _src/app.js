@@ -57,7 +57,7 @@ function renderNews(){
   if(!$("#newsList")) return;
   const cnt = c=>FEED.filter(x=>x.cat===c).length;
   $("#catFilters").innerHTML = `<button aria-pressed="${catFilter==="all"}" data-c="all">전체 ${FEED.length}</button>`+[...CATS, COL].map(c=>`<button aria-pressed="${catFilter===c}" data-c="${esc(c)}">${esc(c)} ${cnt(c)}</button>`).join("");
-  const q = ($("#q").value||"").trim().toLowerCase();
+  const q = "";
   const list = FEED.filter(x=>(catFilter==="all"||x.cat===catFilter) && (!q || (x.o.title+(x.o.hook||x.o.deck||"")+(x.o.sub||"")+x.cat).toLowerCase().includes(q)));
   $("#newsList").innerHTML = list.length ? list.map(x=>x.k==="c"?colHTML(x.o):postHTML(x.o)).join("") : `<div class="empty">해당하는 기사가 없다.</div>`;
 }
@@ -75,8 +75,8 @@ function renderDict(){
   if($("#grp")) $("#grp").innerHTML = `<button aria-pressed="${grpFilter==="all"}" data-g="all">전체 ${TERMS.length}</button>` + GROUPS.map(g=>`<button aria-pressed="${grpFilter===g}" data-g="${esc(g)}">${esc(g)} ${TERMS.filter(t=>t.g===g).length}</button>`).join("");
   const have = new Set(TERMS.filter(t=>grpFilter==="all"||t.g===grpFilter).map(t=>t.i));
   $("#idx").innerHTML = `<button aria-pressed="${dictFilter==="all"}" data-i="all">전체</button>` + [...KO,...EN].map(c=>`<button aria-pressed="${dictFilter===c}" data-i="${c}" ${have.has(c)?"":"disabled"}>${c}</button>`).join("");
-  const q = ($("#q").value||"").trim().toLowerCase();
-  const list = TERMS_SORTED.filter(t=>(dictFilter==="all"||t.i===dictFilter) && (grpFilter==="all"||t.g===grpFilter) && (!q || (t.t+t.en+t.d).toLowerCase().includes(q)));
+  const q = norm($("#dq") ? $("#dq").value : "");
+  const list = TERMS_SORTED.filter(t=>(dictFilter==="all"||t.i===dictFilter) && (grpFilter==="all"||t.g===grpFilter) && (!q || norm(t.t+" "+t.en+" "+t.d).includes(q)));
   $("#terms").innerHTML = list.map(t=>`<div class="term"><dt>${esc(t.t)}<small>${esc(t.en)}</small>${t.g?`<span class="tg">${esc(t.g)}</span>`:""}</dt><dd>${esc(t.d)}${t.rel&&byId[t.rel]?`<br><a href="${P("a-"+t.rel)}">관련 기사: ${esc(byId[t.rel].title)}</a>`:""}</dd></div>`).join("");
   $("#dictEmpty").hidden = list.length>0;
 }
@@ -116,8 +116,75 @@ function renderAbout(){
     <div class="long"><small>매거진 판 · ${esc(f.title)}</small>${esc(last)}<div class="acts"><a href="${P("a-"+f.id)}">기사 전문 읽기</a><a href="${IG}" target="_blank" rel="noopener">30초 판은 인스타그램</a></div></div>`;
 }
 
-$("#searchForm").addEventListener("submit",e=>{e.preventDefault(); const q=$("#q").value.trim(); if(q && !["news","dict"].includes(ROUTE)) location.href="/news/?q="+encodeURIComponent(q);});
-$("#q").addEventListener("input",()=>{ renderNews(); renderDict(); });
+// ---- 검색: 위쪽 검색칸·휴대폰 검색 버튼 → /search/ (기사·칼럼·데일리·튜토리얼·AI 사전 한 번에) ----
+$("#searchForm").addEventListener("submit",e=>{e.preventDefault(); const q=$("#q").value.trim();
+  if(ROUTE==="search"){ $("#sq").value=q; renderSearch(true); return; } location.href="/search/"+(q?"?q="+encodeURIComponent(q):"");});
+const norm = s=>String(s??"").toLowerCase().replace(/\s+/g,"");
+const SKINDS = ["기사","칼럼","데일리 이슈","튜토리얼","AI 사전"];
+let SIDX = null;
+function buildIndex(){
+  const it = (k,o,date,title,meta,body)=>({k,o,date,title:norm(title),meta:norm(meta),body:norm(body)});
+  return [
+    ...ARTICLES.map(a=>it("기사",a,a.date+" "+(a.time||""),a.title,[a.sub,a.hook,a.cat,(a.terms||[]).join(" ")].join(" "),textOf(a.body)+" "+(a.facts||[]).flat().join(" "))),
+    ...COLUMNS.map(c=>it("칼럼",c,c.date,c.title,[c.deck,c.sub].join(" "),textOf(c.body))),
+    ...DAILY.map(d=>it("데일리 이슈",d,d.date,d.title,[d.summary,(d.three||[]).join(" "),korDate(d.date)].join(" "),dayItems(d).map(a=>a.title).join(" "))),
+    ...TUTORIALS.map(t=>it("튜토리얼",t,t.date,t.title,[t.deck,t.cat,t.tools].join(" "),[t.why,t.intro,...t.items.map(x=>[x.h,x.d,x.how,x.prompt].join(" "))].join(" "))),
+    ...TERMS.map(x=>it("AI 사전",x,"",x.t+" "+(x.en||""),x.d,"")),
+  ];
+}
+function searchAll(q){
+  const words = q.toLowerCase().split(/\s+/).map(norm).filter(Boolean); if(!words.length) return [];
+  SIDX = SIDX || buildIndex(); const whole = norm(q); const out = [];
+  for(const x of SIDX){
+    let score = 0, ok = true;
+    for(const w of words){ const s = x.title.includes(w)?10 : x.meta.includes(w)?4 : x.body.includes(w)?1 : 0; if(!s){ ok=false; break; } score += s; }
+    if(!ok && words.length>1 && (x.title+x.meta+x.body).includes(whole)){ ok = true; score = 2; }
+    if(ok){ if(x.title===whole) score += 20; out.push([score,x]); }
+  }
+  return out.sort((a,b)=>b[0]-a[0] || b[1].date.localeCompare(a[1].date)).map(p=>p[1]);
+}
+const termCard = t=>`<a class="sterm" href="/dict/?t=${encodeURIComponent(t.t)}"><b>${esc(t.t)}</b>${t.en?`<small>${esc(t.en)}</small>`:""}<span>${esc(t.d)}</span></a>`;
+function groupHTML(k, xs){
+  if(k==="AI 사전") return `<div class="sterms">${xs.map(x=>termCard(x.o)).join("")}</div>`;
+  if(k==="데일리 이슈") return `<div class="dlist">${xs.map(x=>drowHTML(x.o)).join("")}</div>`;
+  const f = k==="기사"?postHTML : k==="칼럼"?colHTML : tutHTML;
+  return `<div class="list">${xs.map(x=>f(x.o)).join("")}</div>`;
+}
+let sTab = "all";
+const SUGG = ["챗GPT","클로드","제미나이","오픈AI","앤트로픽","프롬프트","에이전트","개인정보","보안","이미지","회의","무료"];
+function renderSearch(push){
+  if(!$("#sResults")) return;
+  const q = ($("#sq").value||"").trim(); $("#q").value = q;
+  if(push){ try{ history.replaceState(null,"", q ? "/search/?q="+encodeURIComponent(q) : "/search/"); }catch(_){} }
+  document.title = (q ? `‘${q}’ 검색 결과 · ` : "검색 · ") + "SHIFT AI";
+  if($("#sChips") && !$("#sChips").dataset.done){ $("#sChips").innerHTML = SUGG.filter(s=>searchAll(s).length).map(s=>`<button type="button" data-sq="${esc(s)}">${esc(s)}</button>`).join(""); $("#sChips").dataset.done="1"; }
+  const all = q ? searchAll(q) : [];
+  const cnt = k=>all.filter(x=>x.k===k).length;
+  if(sTab!=="all" && !cnt(sTab)) sTab = "all";
+  $("#sTabs").innerHTML = q ? `<button aria-pressed="${sTab==="all"}" data-st="all">전체 ${all.length}</button>` + SKINDS.filter(cnt).map(k=>`<button aria-pressed="${sTab===k}" data-st="${k}">${k} ${cnt(k)}</button>`).join("") : "";
+  $("#sSugg").hidden = !!(q && all.length);
+  if(!q){ $("#sResults").innerHTML = ""; return; }
+  if(!all.length){ $("#sResults").innerHTML = `<div class="empty">‘${esc(q)}’에 맞는 글을 찾지 못했다. 다른 말로 찾아보거나 아래 추천 검색어를 눌러 보세요.</div>`; return; }
+  if(sTab==="all"){
+    $("#sResults").innerHTML = SKINDS.filter(cnt).map(k=>{ const xs = all.filter(x=>x.k===k);
+      return `<section class="sgroup"><div class="sec"><h2>${k} <small>${xs.length}</small></h2>${xs.length>4?`<button class="more" type="button" data-st="${k}">${k} ${xs.length}개 모두 보기</button>`:""}</div>${groupHTML(k, xs.slice(0,4))}</section>`; }).join("");
+  } else {
+    $("#sResults").innerHTML = groupHTML(sTab, all.filter(x=>x.k===sTab).slice(0,80));
+  }
+}
+if($("#sForm")){
+  $("#sForm").addEventListener("submit",e=>{ e.preventDefault(); $("#sq").blur(); renderSearch(true); });
+  let st; $("#sq").addEventListener("input",()=>{ clearTimeout(st); st=setTimeout(()=>renderSearch(true),150); });
+  $("#v-search").addEventListener("click",e=>{
+    const t=e.target.closest("[data-st]"); if(t){ sTab=t.dataset.st; renderSearch(); window.scrollTo({top:0}); return; }
+    const s=e.target.closest("[data-sq]"); if(s){ $("#sq").value=s.dataset.sq; sTab="all"; renderSearch(true); }
+  });
+}
+// AI 사전 자체 검색칸
+const dq0 = ROUTE==="dict" ? (new URLSearchParams(location.search).get("t") || new URLSearchParams(location.search).get("q")) : null;
+if($("#dq")){ if(dq0) $("#dq").value = dq0;
+  $("#dq").addEventListener("input",()=>{ dictFilter="all"; renderDict(); });
+  $("#dForm").addEventListener("submit",e=>{ e.preventDefault(); $("#dq").blur(); }); }
 
 function bodyHTML(body){
   return body.map(x=>{
@@ -233,6 +300,8 @@ const NAV = r=>r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsW
   if(h==="reel") return location.replace("/?from=reels");
   if(/^(a|t|c|d)-/.test(h) || ["news","tutorial","column","daily","dict","about","home"].includes(h)) location.replace(P(h)); })();
 const q0 = new URLSearchParams(location.search).get("q"); if(q0) $("#q").value = q0;
+if(q0 && ROUTE==="news") location.replace("/search/?q="+encodeURIComponent(q0));  // 예전 검색 주소
+if(ROUTE==="search" && $("#sq")) $("#sq").value = q0 || "";
 function init(){
   const r = ROUTE;
   if(!PRE){
@@ -242,7 +311,8 @@ function init(){
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);
     else if(r.startsWith("c-") && colById[r]) renderColumn(colById[r]);
     else if(r.startsWith("d-") && dayById[r]) renderDaily(dayById[r]);
-  } else if(q0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
+  } else if(q0 || dq0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
+  if($("#sResults")) renderSearch();
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
   document.querySelectorAll("[data-nav]").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===NAV(r) ? "true":"false"));
