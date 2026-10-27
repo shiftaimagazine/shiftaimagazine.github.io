@@ -13,6 +13,9 @@
 - 대표 사진 `news/photos.json`(자동 기록) · 실패 목록 `news/photos-missing.json` · 본문 사진 `news/inline.json`
 - 데일리 이슈 `news/daily.json`(최신이 맨 앞, lead 기사가 첫 화면 대표) · 용어 `news/terms.json` · 쓰레드 링크 `news/threads.json`
 - 튜토리얼 `news/D_tutorials.json`·`old_tut.json`·`tutorial_links.json` · 칼럼 `news/columns.json`
+- 튜토리얼마다 `cat`(업무 | AI 답 검증 | 보안·개인정보 | 공부·리서치 | 콘텐츠·커리어) 필수 — 튜토리얼 목록의 분류 버튼
+- 모든 목록은 최신순(날짜 → 같은 날은 나중에 넣은 글이 위). 기사 date 는 매거진에 올린 날짜(KST)
+- 글 주소를 바꾸면 `news/redirects.json` 에 {"/news/옛-id/": "/news/새-id/"} 를 넣는다(예전 주소가 새 주소로 넘어감)
 - 화면: `app.js`·`site.css`·`views/*.html`(팔로우 상자 `views/follow-box.html`) · 페이지 생성 `build.py` · 미리 그리기 `prerender.js`
 - 검색엔진 소유 확인 태그: `verify-meta.html`(모든 페이지 head 에 들어감)
 

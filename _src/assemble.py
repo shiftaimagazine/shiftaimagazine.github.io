@@ -68,12 +68,22 @@ if __name__ == '__main__':
         t['thumb'] = f"img/cover/{t['id']}.webp"; t['rel'] = tl['TREL'].get(t['id'])
         if t['id'] in tl['TFIG']: t['cover'], t['coverCredit'] = tl['TFIG'][t['id']]
         else: t.pop('cover', None)
-    tuts.sort(key=lambda t: t['date'], reverse=True)
-    TUTS = [cross] + tuts
+    # 튜토리얼 분류 (목록의 분류 버튼 순서)
+    TUT_CATS = ['업무', 'AI 답 검증', '보안·개인정보', '공부·리서치', '콘텐츠·커리어']
+    # 모든 목록은 최신순: 날짜가 같으면 나중에 넣은 글이 위
+    cross['_n'] = -1
+    for i, t in enumerate(tuts): t['_n'] = i
+    TUTS = sorted([cross] + tuts, key=lambda t: (t['date'], t['_n']), reverse=True)
+    for t in TUTS:
+        t.pop('_n')
+        assert t.get('cat') in TUT_CATS, ('튜토리얼 분류(cat) 오류', t['id'], t.get('cat'))
     cols = J('columns.json')['columns']
     for c in cols: assert c['rel'] in byid, c['rel']
+    cols = [c for _, c in sorted(enumerate(cols), key=lambda x: (x[1]['date'], x[1].get('time') or '', x[0]), reverse=True)]
+    old['resources'].sort(key=lambda r: r['date'], reverse=True)
 
-    DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS,
+    out.sort(key=lambda a: a['date'] + ' ' + (a.get('time') or ''), reverse=True)
+    DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS,
             'ABOUT_CARD': {'src': 'img/ph/about-card.webp', 'caption': '쓰레드·인스타그램 카드 (10월 26일 PHP2Shell 편)'}}
     os.makedirs(SRC + 'build', exist_ok=True)
     json.dump(DATA, open(SRC + 'build/data.json', 'w'), ensure_ascii=False)

@@ -28,7 +28,7 @@ const thumb = im=>`<img class="thumb" src="${im.src}" alt="" loading="lazy">`;
 const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
   <div class="b"><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div></div></a>`;
 const tutHTML = t=>`<a class="post" href="${P(t.id)}">${thumb({src:t.thumb})}
-  <div class="b"><span class="cat">튜토리얼 · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
+  <div class="b"><span class="cat">${esc(t.cat||"튜토리얼")} · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
 const colImg = c=>c.image||(c.rel&&byId[c.rel]?imgOf(byId[c.rel]):{src:"img/logo.webp"});
 const colHTML = c=>`<a class="post" href="${P(c.id)}">${thumb(colImg(c))}
   <div class="b"><span class="cat">칼럼</span><h3>${esc(c.title)}</h3><p>${esc(c.deck)}</p><div class="meta"><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div></div></a>`;
@@ -86,9 +86,19 @@ $("#grp") && $("#grp").addEventListener("click",e=>{const b=e.target.closest("bu
 const drowHTML = d=>{const its=dayItems(d); const lead=dayPhoto(d); const [y,m,dd]=d.date.split("-");
     return `<a class="drow" href="${P("d-"+d.date)}"><div class="dd">${m}.${dd}<small>${korDate(d.date).split(" ").pop()} · ${its.length}건</small></div>
       <div><h3>${esc(d.title)}</h3><ul>${(d.three||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>${lead?`<figure>${thumb(imgOf(lead))}</figure>`:"<span></span>"}</a>`;};
+// 튜토리얼 목록 = 분류 버튼 + 최신순 목록
+let tutFilter = (ROUTE==="tutorial" && new URLSearchParams(location.search).get("cat")) || "all";
+function renderTutList(){
+  if(!$("#tutGrid")) return;
+  if($("#tutFilters")) $("#tutFilters").innerHTML = `<button aria-pressed="${tutFilter==="all"}" data-tc="all">전체 ${TUTORIALS.length}</button>`+TUT_CATS.map(c=>`<button aria-pressed="${tutFilter===c}" data-tc="${esc(c)}">${esc(c)} ${TUTORIALS.filter(t=>t.cat===c).length}</button>`).join("");
+  const list = TUTORIALS.filter(t=>tutFilter==="all"||t.cat===tutFilter);
+  $("#tutGrid").innerHTML = list.length ? list.map(tutHTML).join("") : `<div class="empty">해당하는 튜토리얼이 없다.</div>`;
+}
+$("#tutFilters") && $("#tutFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-tc]"); if(!b) return; tutFilter=b.dataset.tc; renderTutList();
+  try{ history.replaceState(null,"", tutFilter==="all" ? "/tutorial/" : "/tutorial/?cat="+encodeURIComponent(tutFilter)); }catch(_){} });
 function renderLists(){
   if($("#colGrid")) $("#colGrid").innerHTML = COLUMNS.map(colHTML).join("");
-  if($("#tutGrid")) $("#tutGrid").innerHTML = TUTORIALS.map(tutHTML).join("");
+  renderTutList();
   if($("#resGrid")) $("#resGrid").innerHTML = RESOURCES.map(r=>`<div class="res"><a class="cv" href="${r.pdf}" target="_blank" rel="noopener"><img src="${r.cover}" alt="" loading="lazy"></a>
     <div class="b"><span class="cat">PDF 정리본 · ${r.pages}쪽</span><h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p><div class="meta"><span>${fmtDate(r.date)}</span></div>
     <div class="acts"><a class="btn" href="${r.pdf}" target="_blank" rel="noopener">PDF 열기</a>${r.tut?`<a class="ghost" href="${P(r.tut)}">웹에서 읽기</a>`:""}</div></div></div>`).join("");
@@ -174,7 +184,7 @@ function renderTutorial(t){
       </div></section>`).join("");
   $("#v-article").innerHTML = `<article class="article narrow tut-page">
     <a class="back" href="/tutorial/">← 튜토리얼</a>
-    <span class="cat">튜토리얼 · ${esc(t.level)}</span>
+    <span class="cat">튜토리얼 · ${esc(t.cat||"")} · ${esc(t.level)}</span>
     <h1>${esc(t.title)}</h1><p class="deck">${esc(t.deck)}</p>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span></div>
     ${t.pdf?`<div class="pdfbox"><div class="pages">${t.pdf.pages.map((p,k)=>`<img src="${p}" alt="정리본 ${k+1}쪽" loading="lazy">`).join("")}</div>
@@ -232,7 +242,7 @@ function init(){
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);
     else if(r.startsWith("c-") && colById[r]) renderColumn(colById[r]);
     else if(r.startsWith("d-") && dayById[r]) renderDaily(dayById[r]);
-  } else if(q0 || catFilter!=="all"){ renderNews(); renderDict(); }
+  } else if(q0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
   document.querySelectorAll("[data-nav]").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===NAV(r) ? "true":"false"));

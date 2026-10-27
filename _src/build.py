@@ -175,6 +175,17 @@ open(OUT + 'column/index.html', 'w').write(f'''<!doctype html>
 <meta http-equiv="refresh" content="0; url={_go}"><script>location.replace("{_go}")</script></head>
 <body><a href="{_go}">칼럼 보기</a></body></html>
 ''')
+# 주소가 바뀐 글: 예전 주소 → 새 주소 (_src/news/redirects.json {"/news/옛-id/": "/news/새-id/"})
+_rp = SRC + 'news/redirects.json'
+for _old, _new in (json.load(open(_rp)) if os.path.exists(_rp) else {}).items():
+    assert _old.startswith('/') and _old.endswith('/') and _new.startswith('/'), ('redirects 형식', _old, _new)
+    os.makedirs(OUT + _old.strip('/'), exist_ok=True)
+    open(OUT + _old.strip('/') + '/index.html', 'w').write(f'''<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>SHIFT AI</title>
+<link rel="canonical" href="{SITE}{_new}"><meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={_new}"><script>location.replace("{_new}")</script></head>
+<body><a href="{_new}">새 주소로 이동</a></body></html>
+''')
 for a in A:
     og = og_from(img_of(a), 'a-' + a['id'])
     ld = {'@context': 'https://schema.org', '@type': 'NewsArticle', 'headline': a['title'], 'description': a['hook'],

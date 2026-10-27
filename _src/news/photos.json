@@ -127,20 +127,20 @@
   "src": "img/ph/nodejs.webp",
   "credit": "이미지: Node.js"
  },
- "2026-10-26-cohere-qwen-exfiltration": {
-  "src": "img/ph/2026-10-26-cohere-qwen-exfiltration.webp",
+ "2026-10-27-cohere-qwen-exfiltration": {
+  "src": "img/ph/2026-10-27-cohere-qwen-exfiltration.webp",
   "credit": "이미지: Cohere",
   "alt": "코히어 블로그 대표 이미지",
   "auto": true
  },
- "2026-10-26-anthropic-s1-ipo": {
-  "src": "img/ph/2026-10-26-anthropic-s1-ipo.webp",
+ "2026-10-27-anthropic-s1-ipo": {
+  "src": "img/ph/2026-10-27-anthropic-s1-ipo.webp",
   "credit": "이미지: Anthropic",
   "alt": "앤트로픽 공식 대표 이미지",
   "auto": true
  },
- "2026-10-26-gpt-6-1-terra": {
-  "src": "img/ph/2026-10-26-gpt-6-1-terra.webp",
+ "2026-10-27-gpt-6-1-terra": {
+  "src": "img/ph/2026-10-27-gpt-6-1-terra.webp",
   "credit": "이미지: OpenAI",
   "alt": "오픈AI GPT-6.1 테라 공식 대표 이미지",
   "auto": true

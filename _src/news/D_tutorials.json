@@ -94,7 +94,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "숫자 하나에 출처·기준일·단위"
-   }
+   },
+   "cat": "AI 답 검증"
   },
   {
    "id": "t-email-replies",
@@ -192,7 +193,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "쓰기 싫은 메일, 첫 문장부터"
-   }
+   },
+   "cat": "업무"
   },
   {
    "id": "t-redact-before-upload",
@@ -302,7 +304,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "가리고, 묻고, 내 PC에서 되돌린다"
-   }
+   },
+   "cat": "보안·개인정보"
   },
   {
    "id": "t-resume-review",
@@ -394,7 +397,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "칭찬 말고 탈락 사유부터"
-   }
+   },
+   "cat": "콘텐츠·커리어"
   },
   {
    "id": "t-auto-update-site",
@@ -504,7 +508,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "PHP2Shell 이후 꼭 할 사이트 점검"
-   }
+   },
+   "cat": "보안·개인정보"
   },
   {
    "id": "t-meeting-notes",
@@ -596,7 +601,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "누가, 언제까지, 무엇을"
-   }
+   },
+   "cat": "업무"
   },
   {
    "id": "t-presentation",
@@ -688,7 +694,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "슬라이드보다 한 문장 먼저"
-   }
+   },
+   "cat": "업무"
   },
   {
    "id": "t-ai-tutor",
@@ -779,7 +786,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "답 대신 질문을 받는 공부법"
-   }
+   },
+   "cat": "공부·리서치"
   },
   {
    "id": "t-spreadsheet-formulas",
@@ -880,7 +888,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "함수 이름 몰라도 되는 수식 질문법"
-   }
+   },
+   "cat": "업무"
   },
   {
    "id": "t-pdf-to-markdown",
@@ -969,7 +978,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "PDF는 텍스트로 바꿔서 올린다"
-   }
+   },
+   "cat": "업무"
   },
   {
    "id": "t-reels-script",
@@ -1066,7 +1076,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "장면 6개, 첫 1.5초, 요청 하나"
-   }
+   },
+   "cat": "콘텐츠·커리어"
   },
   {
    "id": "t-privacy-settings",
@@ -1177,7 +1188,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "학습 끄기와, 꺼도 남는 것"
-   }
+   },
+   "cat": "보안·개인정보"
   },
   {
    "id": "t-premortem",
@@ -1269,7 +1281,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "실패했다고 가정하고 묻는다"
-   }
+   },
+   "cat": "AI 답 검증"
   },
   {
    "id": "t-notebooklm",
@@ -1380,7 +1393,8 @@
    "cover": {
     "tag": "SHIFT AI 무료 정리본",
     "line": "내 자료 안에서만 답하는 AI"
-   }
+   },
+   "cat": "공부·리서치"
   },
   {
    "id": "t-meeting-interpreter",
@@ -1515,7 +1529,8 @@
    "cover": {
     "tag": "무료 · 설치 없음",
     "line": "크롬만 있으면 실시간 한국어 자막 · 영어·중국어·일본어·프랑스어"
-   }
+   },
+   "cat": "업무"
   }
  ]
 }
