@@ -38,7 +38,7 @@ def make(t, photo, out):
     line = (t.get('cover') or {}).get('line') or t['title']
     f_line = F(FONT_B, 48)
     lines = wrap(d, line, f_line, W - 96)[:2]
-    meta = f"{len(t['items'])}개 항목 · {t['time']}"
+    meta = f"{'STEP' if t.get('kind') == 'steps' else '프롬프트'} {len(t['items'])}개 · {t['time']}"
     f_meta = F(FONT_M, 25)
     y = H - 50
     d.text((48, y), meta, font=f_meta, fill=(225, 225, 222), anchor='ls')
