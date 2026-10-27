@@ -1,0 +1,42 @@
+<main id="v-tool-ai-cost">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · AI 요금</span>
+  <h1>AI 요금 계산기</h1>
+  <p class="deck">챗GPT·클로드·제미나이 같은 AI를 API로 쓰면 한 달에 얼마가 나오는지, 회사별 공식 가격표로 계산해 원화로 비교한다.</p>
+  <div class="tbadges"><span>무료</span><span>공식 가격표 기준</span><span id="cAsof">가격 기준일 확인 중</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>어떻게 쓸지 고르기</h2>
+    <div class="chips" id="cPresets" role="group" aria-label="예시 상황"></div>
+    <div class="cgrid">
+      <label><span>한 번에 넣는 글 (질문·자료)</span><input id="cIn" type="number" min="0" step="100" inputmode="numeric"><em class="cu">글자</em></label>
+      <label><span>한 번에 받는 답</span><input id="cOut" type="number" min="0" step="100" inputmode="numeric"><em class="cu">글자</em></label>
+      <label><span>하루 몇 번</span><input id="cN" type="number" min="0" step="1" inputmode="numeric"><em>번</em></label>
+      <label><span>한 달 며칠</span><input id="cD" type="number" min="1" max="31" step="1" inputmode="numeric"><em>일</em></label>
+    </div>
+    <div class="trow">
+      <div class="seg mini" role="radiogroup" aria-label="길이 단위">
+        <label><input type="radio" name="cunit" value="char" checked><span><b>글자 수로</b></span></label>
+        <label><input type="radio" name="cunit" value="tok"><span><b>토큰 수로</b></span></label>
+      </div>
+      <label class="inl">한글 <input id="cRatio" type="number" min="0.3" max="5" step="0.1" value="1"> 글자 ≈ 1토큰</label>
+      <label class="inl">환율 1달러 = <input id="cFx" type="number" min="100" step="1"> 원</label>
+    </div>
+    <p class="hint" id="cRatioHint">토큰은 AI가 글을 세는 단위다. 한글은 모델마다 다르게 세서, 기본값은 넉넉하게 1글자 ≈ 1토큰으로 잡았다. 오픈AI 최신 토크나이저(o200k)로 SHIFT AI 기사 2만 8천 자를 세어 보니 한글 약 1.7자가 1토큰이었다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>한 달 요금 비교 <small id="cSumUse"></small></h2>
+    <div class="chips" id="cProv" role="group" aria-label="회사 거르기"></div>
+    <div class="ctable" id="cTable" aria-live="polite"></div>
+    <p class="hint warn">API 요금(쓴 만큼 내는 값)이다. 챗GPT 플러스·클로드 프로 같은 월 구독료와는 다르다. 세금, 이미지·음성·검색 같은 추가 기능 요금, 회사별 할인·무료 사용량은 넣지 않았다. 실제 결제 전에는 아래 공식 가격표를 확인한다.</p>
+  </section>
+
+  <div class="box">
+    <b>가격 출처 (회사 공식 가격표)</b>
+    <ul class="plain" id="cSrc"></ul>
+    <p id="cFxSrc"></p>
+  </div>
+</article>
+</main>

@@ -29,6 +29,8 @@ const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
   <div class="b"><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div></div></a>`;
 const tutHTML = t=>`<a class="post" href="${P(t.id)}">${thumb({src:t.thumb})}
   <div class="b"><span class="cat">${esc(t.cat||"튜토리얼")} · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
+const toolHTML = t=>`<a class="post" href="${t.href}">${thumb({src:t.thumb})}
+  <div class="b"><span class="cat">무료 도구 · ${esc(t.tag)}</span><h3>${esc(t.title)}</h3><p>${esc(t.desc)}</p><div class="meta"><span>설치·가입 없음</span><span class="dot"></span><span>브라우저에서 바로</span></div></div></a>`;
 const colImg = c=>c.image||(c.rel&&byId[c.rel]?imgOf(byId[c.rel]):{src:"img/logo.webp"});
 const colHTML = c=>`<a class="post" href="${P(c.id)}">${thumb(colImg(c))}
   <div class="b"><span class="cat">칼럼</span><h3>${esc(c.title)}</h3><p>${esc(c.deck)}</p><div class="meta"><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div></div></a>`;
@@ -44,6 +46,7 @@ function renderHome(){
   $("#homeNews").innerHTML = sorted.slice(0,6).map(postHTML).join("");
   $("#homeTuts").innerHTML = TUTORIALS.slice(0,3).map(tutHTML).join("");
   $("#homeCols").innerHTML = COLUMNS.slice(0,3).map(colHTML).join("");
+  if($("#homeTools")) $("#homeTools").innerHTML = TOOLS.slice(0,3).map(toolHTML).join("");
   $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="/dict/"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
   const rl = sorted.slice(0,3);
   $("#reelwelcome").innerHTML = `<b>릴스에서 오셨군요. 여기서는 끝까지 읽습니다.</b><p>방금 본 30초 영상의 긴 판과 오늘 기사가 아래에 있습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
@@ -99,6 +102,7 @@ $("#tutFilters") && $("#tutFilters").addEventListener("click",e=>{const b=e.targ
 function renderLists(){
   if($("#colGrid")) $("#colGrid").innerHTML = COLUMNS.map(colHTML).join("");
   renderTutList();
+  if($("#toolsGrid")) $("#toolsGrid").innerHTML = TOOLS.map(toolHTML).join("");
   if($("#resGrid")) $("#resGrid").innerHTML = RESOURCES.map(r=>`<div class="res"><a class="cv" href="${r.pdf}" target="_blank" rel="noopener"><img src="${r.cover}" alt="" loading="lazy"></a>
     <div class="b"><span class="cat">PDF 정리본 · ${r.pages}쪽</span><h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p><div class="meta"><span>${fmtDate(r.date)}</span></div>
     <div class="acts"><a class="btn" href="${r.pdf}" target="_blank" rel="noopener">PDF 열기</a>${r.tut?`<a class="ghost" href="${P(r.tut)}">웹에서 읽기</a>`:""}</div></div></div>`).join("");

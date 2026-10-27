@@ -1,0 +1,192 @@
+{
+ "asof": "2026-10-27",
+ "note": "표준 요금(실시간 호출) 기준, 100만 토큰당 달러. 일괄 처리(Batch) 할인·무료 사용량·세금 제외.",
+ "fx": {
+  "rate": 1324.3,
+  "date": "2026-10-26",
+  "source": "한국자금중개 미화 매매기준율",
+  "url": "https://kmbco.com/kor/rate/financial_rate.do"
+ },
+ "models": [
+  {
+   "provider": "OpenAI",
+   "name": "GPT-6 Astra",
+   "id": "gpt-6-astra",
+   "tier": "최상위",
+   "in": 10,
+   "cached": 1,
+   "out": 50,
+   "long": {
+    "over": 272000,
+    "in": 20,
+    "cached": 2,
+    "out": 75.0,
+    "note": "입력 27만 2천 토큰 초과"
+   },
+   "url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+   "provider": "OpenAI",
+   "name": "GPT-6.1 Sol",
+   "id": "gpt-6.1-sol",
+   "tier": "상위",
+   "in": 2,
+   "cached": 0.1,
+   "out": 10,
+   "long": {
+    "over": 272000,
+    "in": 4,
+    "cached": 0.2,
+    "out": 15.0,
+    "note": "입력 27만 2천 토큰 초과"
+   },
+   "url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+   "provider": "OpenAI",
+   "name": "GPT-6.1 Terra",
+   "id": "gpt-6.1-terra",
+   "tier": "중간",
+   "in": 1,
+   "cached": 0.05,
+   "out": 5,
+   "long": {
+    "over": 272000,
+    "in": 2,
+    "cached": 0.1,
+    "out": 7.5,
+    "note": "입력 27만 2천 토큰 초과"
+   },
+   "url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+   "provider": "OpenAI",
+   "name": "GPT-6 Luna",
+   "id": "gpt-6-luna",
+   "tier": "가벼움",
+   "in": 0.1,
+   "cached": 0.01,
+   "out": 0.5,
+   "long": {
+    "over": 272000,
+    "in": 0.2,
+    "cached": 0.02,
+    "out": 0.75,
+    "note": "입력 27만 2천 토큰 초과"
+   },
+   "url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+   "provider": "Anthropic",
+   "name": "Claude Fable 5.1",
+   "id": "claude-fable-5-1",
+   "tier": "최상위",
+   "in": 10,
+   "cached": 0.25,
+   "out": 50,
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+   "provider": "Anthropic",
+   "name": "Claude Opus 5.5",
+   "id": "claude-opus-5-5",
+   "tier": "상위",
+   "in": 4,
+   "cached": 0.2,
+   "out": 20,
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+   "provider": "Anthropic",
+   "name": "Claude Sonnet 5.5",
+   "id": "claude-sonnet-5-5",
+   "tier": "중간",
+   "in": 2,
+   "cached": 0.1,
+   "out": 10,
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+   "provider": "Anthropic",
+   "name": "Claude Haiku 5.5",
+   "id": "claude-haiku-5-5",
+   "tier": "가벼움",
+   "in": 0.1,
+   "cached": 0.01,
+   "out": 0.5,
+   "long": {
+    "over": 100000,
+    "in": 0.5,
+    "cached": 0.05,
+    "out": 2.5,
+    "note": "입력 10만 토큰 초과"
+   },
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+   "provider": "Google",
+   "name": "Gemini 4 Argon",
+   "id": "gemini-4-argon",
+   "tier": "최상위",
+   "in": 2,
+   "cached": 0.1,
+   "out": 10,
+   "changes": [
+    {
+     "from": "2026-12-01",
+     "in": 4,
+     "cached": 0.2,
+     "out": 20
+    }
+   ],
+   "url": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  {
+   "provider": "Google",
+   "name": "Gemini 3.8 Flash",
+   "id": "gemini-3.8-flash",
+   "tier": "중간",
+   "in": 0.75,
+   "cached": 0.075,
+   "out": 3.75,
+   "changes": [
+    {
+     "from": "2027-01-01",
+     "in": 1.5,
+     "cached": 0.15,
+     "out": 7.5
+    }
+   ],
+   "free": true,
+   "url": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  {
+   "provider": "Google",
+   "name": "Gemini 3.5 Flash-Lite",
+   "id": "gemini-3.5-flash-lite",
+   "tier": "가벼움",
+   "in": 0.3,
+   "cached": 0.03,
+   "out": 2.5,
+   "free": true,
+   "url": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  {
+   "provider": "xAI",
+   "name": "Grok 4.7",
+   "id": "grok-4.7",
+   "tier": "최상위",
+   "in": 2,
+   "cached": 0.5,
+   "out": 6,
+   "long": {
+    "over": 199999,
+    "in": 4,
+    "cached": 1,
+    "out": 12,
+    "note": "입력 20만 토큰 이상"
+   },
+   "url": "https://docs.x.ai/docs/models/grok-4.7"
+  }
+ ]
+}

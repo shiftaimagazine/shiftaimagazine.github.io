@@ -84,7 +84,18 @@ if __name__ == '__main__':
     old['resources'].sort(key=lambda r: r['date'], reverse=True)
 
     out.sort(key=lambda a: a['date'] + ' ' + (a.get('time') or ''), reverse=True)
-    DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS,
+    TOOLS = J('tools.json')
+    for t in TOOLS:
+        for k in ('id', 'title', 'desc', 'href', 'tag', 'date', 'thumb'): assert t.get(k), ('도구 항목 없음', t.get('id'), k)
+    TOOLS.sort(key=lambda t: t['date'], reverse=True)
+    # AI 요금 계산기 가격(공식 가격표에서 확인한 값만, 100만 토큰당 달러)
+    PR = J('ai_prices.json') if os.path.exists(N + 'ai_prices.json') else None
+    if PR:
+        assert PR.get('asof') and PR['fx'].get('rate') and PR['fx'].get('url'), 'ai_prices: asof·환율 출처 필요'
+        for m in PR['models']:
+            for k in ('provider', 'name', 'tier', 'url'): assert m.get(k), ('ai_prices 항목 없음', m.get('name'), k)
+            assert isinstance(m.get('in'), (int, float)) and isinstance(m.get('out'), (int, float)), ('ai_prices 가격', m['name'])
+    DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS,
             'ABOUT_CARD': {'src': 'img/ph/about-card.webp', 'caption': '쓰레드·인스타그램 카드 (10월 26일 PHP2Shell 편)'}}
     os.makedirs(SRC + 'build', exist_ok=True)
     json.dump(DATA, open(SRC + 'build/data.json', 'w'), ensure_ascii=False)

@@ -41,6 +41,7 @@ STATIC = {
     'about': about,
     'privacy': view('privacy'),
     'search': view('search'),
+    'tools': with_follow(fix_links(view('tools'))),
 }
 
 # ---- 공유 이미지(og) ----
@@ -95,6 +96,11 @@ css = open(SRC + 'site.css').read()
 open(OUT + 'assets/data.js', 'w').write(data_js)
 open(OUT + 'assets/app.js', 'w').write(app_js)
 open(OUT + 'assets/site.css', 'w').write(css)
+# 무료 도구 스크립트(_src/widgets/*.js → assets/)
+WIDGET_VER = {}
+for _f in sorted(os.listdir(SRC + 'widgets')) if os.path.isdir(SRC + 'widgets') else []:
+    if _f.endswith('.js'):
+        _w = open(SRC + 'widgets/' + _f).read(); open(OUT + 'assets/' + _f, 'w').write(_w); WIDGET_VER[_f] = hashlib.sha1(_w.encode()).hexdigest()[:8]
 VER = hashlib.sha1((data_js + app_js + css).encode()).hexdigest()[:8]
 
 VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exists(SRC + 'verify-meta.html') else ''
@@ -162,6 +168,7 @@ LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 
          'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 항목마다 복사해 쓰는 프롬프트와 함께.'),
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에. 제목 한 줄, 요점 세 줄, 소식 목록과 숫자.'),
          'dict': ('AI 사전', '기사에 나오는 AI 용어를 한 줄로 풀고 관련 기사로 잇는다.'),
+         'tools': ('무료 AI 도구 — 설치·가입 없이 브라우저에서 바로', '개인정보 자동 가리기, AI 요금 계산기, 무료 실시간 크롬 번역처럼 돈 내고 쓰던 기능을 설치 없이 브라우저에서. 파일은 어디에도 보내지 않는다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 읽고 "그래서 무엇이 달라지는가"를 쓰는 AI 매거진이다.'),
          'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
 for r, (t, ds) in LISTS.items():
@@ -218,6 +225,18 @@ nf = '''<main id="v-404"><div class="notfound narrow"><h1>찾는 페이지가 �
 <div class="acts"><a class="btn" href="/">첫 화면</a><a class="ghost" href="/news/">AI 뉴스</a><a class="ghost" href="/daily/">데일리 이슈</a></div></div></main>'''
 page('/404-tmp/', '404', '페이지를 찾을 수 없습니다 · SHIFT AI', 'SHIFT AI 매거진', nf, OG_SITE)
 PAGES.remove('/404-tmp/')
+# 무료 도구: 목록 + 도구마다 한 페이지(검색 노출용 설명·구조화 데이터)
+TOOLS = D.get('TOOLS', [])
+TOOL_PAGES = {'redact': ('개인정보 자동 가리기 — 주민번호·전화번호·카드번호 한 번에 가리고 AI에 올리기 (무료) · SHIFT AI', 'redact.js'),
+              'ai-cost': ('AI 요금 계산기 — 챗GPT·클로드·제미나이 API 한 달 비용 원화로 비교 (무료) · SHIFT AI', 'ai-cost.js')}
+for t in TOOLS:
+    if t['id'] not in TOOL_PAGES or not os.path.exists(SRC + f"views/tool-{t['id']}.html"): continue
+    title, js = TOOL_PAGES[t['id']]
+    og = og_from(t['thumb'], 'tool-' + t['id']) if os.path.exists(OUT + t['thumb']) else OG_SITE
+    ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': t['title'], 'url': SITE + t['href'], 'description': t['desc'], 'applicationCategory': 'UtilitiesApplication', 'operatingSystem': '웹 브라우저', 'inLanguage': 'ko', 'isAccessibleForFree': True,
+          'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
+    extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
+    page(t['href'], 'tool-' + t['id'], title, t['desc'], fix_links(view('tool-' + t['id'])), og, 'website', extra)
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾는다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----

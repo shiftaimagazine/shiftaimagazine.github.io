@@ -1,0 +1,31 @@
+[
+ {
+  "id": "redact",
+  "title": "개인정보 자동 가리기",
+  "desc": "글·엑셀 표 속 주민등록번호·전화번호·이메일·카드번호를 찾아 가린다. 이름표로 바꾸면 AI 답을 나중에 원래 값으로 되돌릴 수도 있다.",
+  "href": "/tools/redact/",
+  "tag": "개인정보",
+  "date": "2026-10-27",
+  "thumb": "img/tools/redact.webp",
+  "tut": "/tutorial/redact-before-upload/"
+ },
+ {
+  "id": "ai-cost",
+  "title": "AI 요금 계산기 (원화)",
+  "desc": "챗GPT·클로드·제미나이 등 주요 AI API를 쓰면 한 달에 얼마인지 원화로 바로 비교한다. 공식 가격표 기준.",
+  "href": "/tools/ai-cost/",
+  "tag": "AI 요금",
+  "date": "2026-10-27",
+  "thumb": "img/tools/ai-cost.webp"
+ },
+ {
+  "id": "interpreter",
+  "title": "무료 실시간 크롬 번역 (회의 통역창)",
+  "desc": "영어·중국어·일본어·프랑스어로 말하는 회의·영상을 한국어 자막으로 바로 바꿔 준다. 크롬만 있으면 된다.",
+  "href": "/tools/meeting-interpreter.html",
+  "tag": "번역·자막",
+  "date": "2026-10-27",
+  "thumb": "img/ph/meeting-interpreter.webp",
+  "tut": "/tutorial/meeting-interpreter/"
+ }
+]
