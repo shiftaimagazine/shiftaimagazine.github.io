@@ -1,0 +1,667 @@
+{
+ "articles": [
+  {
+   "id": "2026-10-28-apple-iwork-ai-assistant-mcp",
+   "cat": "모델·제품",
+   "date": "2026-10-28",
+   "time": "06:50",
+   "title": "애플 키노트·페이지스·넘버스에 AI 비서…MCP로 외부 AI도 연결",
+   "sub": "애플 크리에이터 스튜디오 업데이트 · 애플 모델과 오픈AI 기반 · 처음엔 미국 영어만 지원",
+   "hook": "애플이 키노트·페이지스·넘버스에 문서 내용을 이해하는 AI 비서를 베타로 넣고, 외부 AI 에이전트가 문서를 읽고 고칠 수 있도록 MCP도 지원하기로 했습니다. 다만 비서는 미국 영어로만 먼저 나오고, 새 운영체제가 필요합니다.",
+   "try": "맥이나 아이패드를 쓴다면 설정에서 운영체제 버전과 애플 인텔리전스 지원 여부를 확인하고, 11월 업데이트 전에 쓸 수 있는 기기인지 살펴보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "애플(Apple)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 27일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "키노트·페이지스·넘버스 AI 비서(베타)와 MCP 지원"
+    ],
+    [
+     "기반 모델",
+     "애플 자체 모델과 오픈AI"
+    ],
+    [
+     "조건",
+     "iOS 27·iPadOS 27·macOS 27 이상(MCP는 macOS 27 이상), 미국 영어"
+    ],
+    [
+     "원문",
+     "apple.com 뉴스룸"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "애플(Apple)이 10월 27일(미국 시각) ‘애플 크리에이터 스튜디오(Apple Creator Studio)’ 업데이트를 발표하면서 키노트(Keynote)·페이지스(Pages)·넘버스(Numbers)에 AI 비서를 베타로 넣는다고 밝혔습니다. 비서는 애플 자체 모델과 오픈AI(OpenAI)를 바탕으로 만들어졌고, 같은 세 앱에는 외부 AI 에이전트가 문서를 다룰 수 있게 하는 MCP 지원도 들어갑니다. 업데이트는 11월 앱스토어에 올라옵니다."
+    },
+    {
+     "ul": [
+      [
+       "문서 안에서 바로 돕는 비서",
+       "슬라이드 디자인, 글 고쳐 쓰기, 표 계산과 차트 만들기"
+      ],
+      [
+       "외부 AI 연결",
+       "MCP로 다른 AI 도구가 문서를 읽고 고치고 자동 작업 실행"
+      ],
+      [
+       "처음엔 미국 영어만",
+       "한국어 지원 일정은 발표문에 없음"
+      ]
+     ]
+    },
+    {
+     "h": "무슨 일인가"
+    },
+    {
+     "p": "애플은 이번 비서가 문서의 맥락을 이해해서 사용자가 작업 화면을 떠나지 않고 일을 처리하도록 돕는다고 설명했습니다. 키노트에서는 슬라이드를 디자인하고 애니메이션을 넣고 다듬는 일을, 페이지스에서는 글을 쓰고 구조를 바꾸고 문장을 손보는 일을 맡습니다. 넘버스에서는 계산과 시각화, 데이터 정리를 돕습니다. 애플은 이 비서가 ‘애플 모델과 오픈AI를 바탕으로’ 만들어졌다고 적었습니다."
+    },
+    {
+     "h": "MCP 지원은 무엇이 다른가"
+    },
+    {
+     "p": "MCP(모델 컨텍스트 프로토콜)는 AI가 다른 프로그램의 데이터와 기능을 쓰도록 이어 주는 공개 규격입니다. 애플은 세 앱의 새 MCP 지원으로 외부 AI 에이전트와 도구가 문서 내용을 읽고, 편집하고, 자동 작업을 실행할 수 있다고 밝혔습니다. 발표문은 어떤 외부 AI 앱이 연결되는지 이름을 들지 않았습니다. MCP 기능은 macOS 27 이상에서만 쓸 수 있고, 비서는 애플 인텔리전스를 지원하는 기기에서 iOS 27·iPadOS 27·macOS 27 이상이 필요합니다. 키노트에는 JSON 기반의 새 파일 형식(.keyx)도 추가됐습니다."
+    },
+    {
+     "h": "함께 나온 기능과 가격"
+    },
+    {
+     "p": "같은 발표에는 픽셀메이터 프로(Pixelmator Pro)의 ‘생성 채우기’, 로직 프로(Logic Pro)의 비서 베타, 파이널 컷 프로(Final Cut Pro)의 받아쓰기 언어 23개 추가도 담겼습니다. 크리에이터 스튜디오 신규 구독료는 미국 기준 월 12.99달러 또는 연 129달러이고, 신규 구독자는 한 달 무료 체험을 받습니다. 기존 구독자에게는 11월에 무료 업데이트로 제공됩니다."
+    },
+    {
+     "h": "왜 중요한가"
+    },
+    {
+     "p": "지금까지 문서 작업에 AI를 쓰려면 챗봇 창에 내용을 붙여 넣고 결과를 다시 옮기는 일이 많았습니다. 비서가 문서 앱 안으로 들어오면 이 복사와 붙여 넣기 단계가 줄어듭니다. MCP 지원은 반대 방향의 변화입니다. 사용자가 평소 쓰는 AI 에이전트가 키노트 발표 자료나 넘버스 표를 직접 열어 고칠 수 있게 되므로, 여러 앱을 오가는 반복 작업을 에이전트에게 맡기기 쉬워집니다. 애플은 키노트·페이지스·넘버스와 파이널 컷 프로에서 쓸 수 있는 스톡 영상 모음(콘텐츠 허브)도 함께 소개했습니다."
+    },
+    {
+     "h": "남은 쟁점"
+    },
+    {
+     "p": "한국 사용자에게는 언어가 가장 큰 제약입니다. 발표문은 키노트·페이지스·넘버스 비서가 미국 영어로만 제공된다고 밝혔고, 다른 언어 일정은 적지 않았습니다. 크리에이터 스튜디오를 구독하지 않는 사용자도 이 비서를 쓸 수 있는지는 발표문만으로는 분명하지 않습니다. 회사 문서를 외부 에이전트에 열어 주는 MCP는 편리한 만큼, 어떤 도구에 어떤 문서 권한을 줄지 미리 정해 두는 편이 안전합니다. 로직 프로의 비서 기능은 애플 인텔리전스를 지원하는 맥에서 macOS 27 이상이 필요합니다. 학생과 교직원은 월 2.99달러 또는 연 29.99달러에 구독할 수 있고, 가족 공유로 최대 6명이 함께 쓸 수 있습니다."
+    }
+   ],
+   "ask": "문서 앱 안에 들어온 AI 비서와 따로 쓰는 챗봇 중 어느 쪽에 더 손이 갈까요?",
+   "sources": [
+    [
+     "애플 뉴스룸 — Apple Creator Studio adds powerful new AI features",
+     "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
+    ]
+   ],
+   "terms": [
+    "애플",
+    "애플 인텔리전스",
+    "키노트",
+    "MCP",
+    "오픈AI",
+    "베타",
+    "구독 요금제",
+    "JSON",
+    "에이전트"
+   ],
+   "image": {
+    "page": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+    "og": "https://www.apple.com/newsroom/images/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/tile/Apple-Creator-Studio-hero-261027-lp.jpg.og.jpg?202610271300",
+    "credit": "이미지: Apple",
+    "alt": "애플 크리에이터 스튜디오 업데이트 공식 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 27일 발표",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "October 27, 2026"
+    },
+    {
+     "claim": "세 앱에 AI 기능 베타",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Keynote, Pages, and Numbers introduce new AI features in beta"
+    },
+    {
+     "claim": "애플 모델과 오픈AI 기반",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "an intelligent assistant, built on Apple models and OpenAI, directly within Keynote, Pages, and Numbers."
+    },
+    {
+     "claim": "문서 맥락 이해",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "The assistant understands document context to help users accomplish more without leaving their work."
+    },
+    {
+     "claim": "앱별 기능",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "the intelligent assistant helps with designing, animating, and refining slides. / In Pages, it drafts, restructures, and fine-tunes written content. / In Numbers, it calculates, visualizes, and organizes data"
+    },
+    {
+     "claim": "MCP로 외부 에이전트가 읽기·편집·자동 작업",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "New MCP support, built on this platform, enables external AI agents and tools to read content, perform edits, and execute automated actions"
+    },
+    {
+     "claim": "미국 영어만",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "is available in U.S. English only."
+    },
+    {
+     "claim": "OS 요건",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "requires an Apple Intelligence-capable device running iOS 27, iPadOS 27, or macOS 27 or later / Model Context Protocol (MCP) in Keynote, Pages, and Numbers requires macOS 27 or later."
+    },
+    {
+     "claim": ".keyx 형식",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Keynote Interchange Format (.keyx)"
+    },
+    {
+     "claim": "받아쓰기 언어 23개",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "23 new transcription languages"
+    },
+    {
+     "claim": "생성 채우기",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Pixelmator Pro introduces Generate Fill, a powerful new tool to edit images based on a user's description."
+    },
+    {
+     "claim": "월 12.99·연 129달러, 한 달 무료",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "New subscribers pay $12.99 (U.S.) per month or $129 (U.S.) per year. / All new subscribers will enjoy a one-month free trial of Apple Creator Studio"
+    },
+    {
+     "claim": "11월 무료 업데이트",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Apple Creator Studio updates will be available on the App Store this November as a free update for existing subscribers."
+    },
+    {
+     "claim": "교육 할인 2.99·29.99달러",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Education savings are available for college students and educators for $2.99 (U.S.) per month or $29.99 (U.S.) per year."
+    },
+    {
+     "claim": "가족 공유 최대 6명",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Up to six family members can share all of the apps and content included in Apple Creator Studio with Family Sharing."
+    },
+    {
+     "claim": "로직 프로 비서 요건",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "requires macOS 27 Golden Gate or later on an Apple Intelligence-capable Mac"
+    },
+    {
+     "claim": "콘텐츠 허브 스톡 영상",
+     "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+     "quote": "Content Hub: stock video in Final Cut Pro, Keynote, Pages, and Numbers"
+    }
+   ]
+  },
+  {
+   "id": "2026-10-28-boe-fca-ai-survey-2026",
+   "cat": "정책·저작권",
+   "date": "2026-10-28",
+   "time": "06:49",
+   "title": "영국 금융사 86%가 AI 쓴다…넓은 권한 맡긴 에이전트는 2%",
+   "sub": "영란은행·금융행위감독청 네 번째 조사 · 생성형 AI가 전체 AI 시스템의 56%",
+   "hook": "영국 중앙은행과 금융 감독기관이 금융회사의 AI 사용 실태를 조사한 보고서를 냈습니다. 응답 회사의 86%가 AI를 쓰고 있었지만, 넓은 권한을 가진 AI 에이전트를 실제로 쓰는 곳은 2%에 그쳤습니다. 결제나 거래는 아직 사람이 맡고 있습니다.",
+   "try": "회사에서 AI를 쓴다면 우리 팀이 쓰는 AI 도구 가운데 외부 회사 제품이 무엇인지 목록으로 적어 담당자와 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "영란은행(Bank of England)·금융행위감독청(FCA)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 26일(영국 시각)"
+    ],
+    [
+     "무엇",
+     "영국 금융권 AI 사용 실태 조사(네 번째)"
+    ],
+    [
+     "응답",
+     "196곳(전체 설문 완료 105곳)"
+    ],
+    [
+     "핵심 숫자",
+     "AI 사용 86%, 넓은 자율권 에이전트 2%"
+    ],
+    [
+     "원문",
+     "bankofengland.co.uk"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "영국의 중앙은행인 영란은행(Bank of England)과 금융행위감독청(FCA)이 10월 26일(영국 시각) 금융권 AI 사용 실태를 조사한 보고서를 공개했습니다. 두 기관이 함께 한 네 번째 조사이고, 196곳이 응답했습니다. 응답 회사의 86%가 AI를 쓰고 있다고 답했습니다."
+    },
+    {
+     "ul": [
+      [
+       "AI 사용 86%",
+       "2024년 조사의 75%보다 높지만 응답 집단이 같지는 않음"
+      ],
+      [
+       "생성형 AI 56%",
+       "보고된 AI 시스템 가운데 생성형 AI의 비중"
+      ],
+      [
+       "에이전트는 조심스럽게",
+       "결정 보조용 80%, 넓은 자율권을 준 곳은 2%"
+      ]
+     ]
+    },
+    {
+     "h": "무슨 일인가"
+    },
+    {
+     "p": "보고서에 따르면 응답 회사의 86%가 AI를 쓰고 있었고, 2024년 조사에서는 75%였습니다. 보고서는 두 조사의 응답 집단이 같지 않다는 점을 함께 적었습니다. 보고된 AI 시스템 가운데 56%가 생성형 AI였고, 외부 회사가 만든 AI를 그대로 들여온 경우는 39%로 2024년의 33%보다 늘었습니다. 회사 전체에 적용되는 AI 정책이나 원칙을 둔 곳은 94%였습니다."
+    },
+    {
+     "h": "에이전트는 어디까지 쓰나"
+    },
+    {
+     "p": "보고서는 AI 에이전트가 널리 쓰이지만 자율성은 제한적이라고 정리했습니다. 응답 회사의 80%가 의사 결정을 돕는 에이전트를 운영하고 있었지만, 넓은 자율권을 준 에이전트를 쓰는 곳은 2%였습니다. 고객 결과 승인, 거래 실행, 결제 시작, 통제 변경처럼 돈과 직결된 일에 에이전트를 쓰겠다는 곳은 계획까지 합쳐도 9%를 넘지 않았습니다. 앞으로 12개월 안에 에이전트를 도입하겠다는 곳은 14%였습니다."
+    },
+    {
+     "table": {
+      "head": [
+       "항목",
+       "2024년",
+       "2026년"
+      ],
+      "rows": [
+       [
+        "AI를 쓰는 응답 회사",
+        "75%",
+        "86%"
+       ],
+       [
+        "외부 회사 AI 비중",
+        "33%",
+        "39%"
+       ],
+       [
+        "중요도 높은 AI 시스템 비중",
+        "16%",
+        "7%"
+       ]
+      ],
+      "note": "출처: 영란은행·FCA 보고서(10월 26일). 두 해의 응답 집단은 같지 않음"
+     }
+    },
+    {
+     "h": "작은 회사와 큰 회사"
+    },
+    {
+     "p": "AI를 쓰는 곳은 큰 회사에만 몰려 있지 않았습니다. 작은 회사 가운데서도 73%가 AI를 쓴다고 답했습니다. 다만 보고된 AI 시스템의 43%가 상위 10개 응답 회사에 몰려 있어, 쓰는 규모는 큰 회사 쪽이 훨씬 컸습니다. 전체 설문에 답한 회사의 99%는 AI 시스템을 이미 운영하거나 시험 중이거나 12개월 안에 도입할 계획이었습니다. 회사들은 지금 AI에서 얻는 이득으로 업무 효율, 자동화, 생산성을 가장 높게 꼽았고, 앞으로 3년 동안 모든 분야에서 이득이 커질 것으로 내다봤습니다."
+    },
+    {
+     "h": "회사들이 걱정하는 위험"
+    },
+    {
+     "p": "현재 가장 큰 위험으로는 데이터 보호와 보안, 외부 업체와 공급망 위험, 생성형 AI 고유의 위험이 꼽혔습니다. AI가 사이버 공격을 키울 수 있다는 걱정을 ‘높음’ 이상으로 본 곳은 57%였고, 1~3년 뒤를 물으면 80%로 올라갔습니다. 외부 AI 시스템의 작동 방식을 들여다보기 어렵다는 점을 큰 제약으로 꼽은 곳도 34%였습니다. 중요도가 높은 AI 시스템의 비중은 7%로 2024년의 16%보다 낮아졌지만, 보고서는 그 수 자체는 늘었다고 밝혔습니다. 최신 프런티어 AI의 사이버 공격 능력이 앞으로 2년 동안 회사에 중간 이상의 영향을 줄 것이라고 본 곳은 88%였습니다."
+    },
+    {
+     "h": "한국 독자에게 의미"
+    },
+    {
+     "p": "이번 수치는 영국 금융권 조사이지만, 은행과 보험사가 AI를 어디까지 맡기는지 보여 주는 드문 공식 자료입니다. 결제나 거래처럼 되돌리기 어려운 일은 아직 사람이 쥐고 있고, 외부 업체 AI가 늘면서 그 안을 들여다보기 어렵다는 걱정이 커지고 있습니다. 국내 금융회사나 금융 고객을 상대하는 기업도 쓰고 있는 AI 가운데 외부 제품이 무엇인지, 어떤 결정까지 맡기는지 정리해 둘 필요가 있습니다."
+    }
+   ],
+   "ask": "우리 회사는 AI에게 어떤 결정까지 맡기고 있나요?",
+   "sources": [
+    [
+     "영란은행 — Artificial intelligence in UK financial services - 2026",
+     "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026"
+    ]
+   ],
+   "terms": [
+    "영란은행",
+    "금융행위감독청",
+    "생성형 AI",
+    "에이전트",
+    "파운데이션 모델"
+   ],
+   "image": {
+    "page": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+    "og": null,
+    "credit": "이미지: Bank of England",
+    "alt": "영란은행 ‘영국 금융권 AI 2026’ 보고서 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "10월 26일 공개",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "26 October 2026"
+    },
+    {
+     "claim": "두 기관의 네 번째 조사",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "The Bank of England and Financial Conduct Authority conducted a fourth survey"
+    },
+    {
+     "claim": "196곳 응답, 105곳 전체 설문",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "The survey received 196 responses. (105 completed the full questionnaire)"
+    },
+    {
+     "claim": "86%, 75%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "86% of respondents reported using artificial intelligence (AI), up from 75% in 2024."
+    },
+    {
+     "claim": "생성형 AI 56%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "Generative AI accounted for 56% of all reported AI systems."
+    },
+    {
+     "claim": "외부 AI 39%, 33%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "Third-party implementations accounted for 39% of all reported AI systems, up from 33% in 2024."
+    },
+    {
+     "claim": "AI 정책 94%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "94% of respondents reported firmwide AI policies, principles or standards"
+    },
+    {
+     "claim": "에이전트 자율성 제한",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "AI agent deployment is widespread, but autonomy is limited."
+    },
+    {
+     "claim": "결정 보조 80%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "80% reported having AI agents in production that provided decision support."
+    },
+    {
+     "claim": "넓은 자율권 2%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "Only 2% reported deploying agents with broad autonomy."
+    },
+    {
+     "claim": "돈과 직결된 일 9% 이하",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "no more than 9% (approving customer outcomes, executing trades, initiating payments, or changing controls)"
+    },
+    {
+     "claim": "12개월 안 도입 14%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "a further 14% reported plans to deploy them over the next 12 months."
+    },
+    {
+     "claim": "주요 위험",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "data protection and security, third-party and supply chain risk, and GenAI-specific risks"
+    },
+    {
+     "claim": "사이버 위험 57%→80%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "57% of respondents rating their concern as high or severe, rising to 80%"
+    },
+    {
+     "claim": "투명성 제약 34%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "limited transparency into third-party AI systems (major constraint for 34%)"
+    },
+    {
+     "claim": "중요도 높은 시스템 7%, 16%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "Firms classified 7% of reported AI systems to be of high materiality, compared to 16% in 2024."
+    },
+    {
+     "claim": "작은 회사 73%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "73% of small firms reported using AI"
+    },
+    {
+     "claim": "상위 10곳이 43%",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "the top ten respondents accounted for 43% of all reported AI systems"
+    },
+    {
+     "claim": "99%가 운영·시험·계획",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "99% of full-survey respondents had systems in production, pilot, or planned deployment within 12 months"
+    },
+    {
+     "claim": "주요 이득",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "Operational efficiency, automation and productivity were the highest-rated areas of perceived benefit from AI today."
+    },
+    {
+     "claim": "88% 프런티어 AI 사이버 능력 영향",
+     "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+     "quote": "88% of respondents assessed evolving frontier AI cyber capabilities (as having a moderate or high impact over two years)"
+    }
+   ]
+  },
+  {
+   "id": "2026-10-28-claude-for-nonprofits-plugin",
+   "cat": "비즈니스·일자리",
+   "date": "2026-10-28",
+   "time": "06:48",
+   "title": "앤트로픽, 비영리단체용 클로드 플러그인 공개…팀 요금제는 2명부터",
+   "sub": "비영리단체 약 30곳과 함께 만든 스킬 묶음 · 인증 단체에 추가 비용 없이 자동 설치",
+   "hook": "앤트로픽이 비영리단체용 ‘클로드 포 논프로핏’ 플러그인을 내놨습니다. 모금 제안서, 이사회 자료, AI 사용 정책 점검 같은 반복 업무를 돕는 스킬과 연결 도구를 묶었고, 팀 요금제 최소 인원도 2명으로 낮췄습니다.",
+   "try": "비영리단체에서 일한다면 클로드 비영리 요금제 안내 페이지에서 우리 단체가 인증 대상인지와 할인 조건을 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "앤트로픽(Anthropic)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 26일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "클로드 포 논프로핏 플러그인, 팀 요금제 최소 인원 2명"
+    ],
+    [
+     "대상",
+     "인증받은 비영리단체(팀·엔터프라이즈 요금제)"
+    ],
+    [
+     "핵심 숫자",
+     "클로드를 쓰는 비영리단체 2만 5,000곳 이상(자체 발표 기준)"
+    ],
+    [
+     "원문",
+     "claude.com"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "앤트로픽(Anthropic)이 10월 26일(미국 시각) 비영리단체를 위한 ‘클로드 포 논프로핏(Claude for Nonprofits)’ 플러그인을 공개했습니다. 비영리단체 약 30곳과 함께 만든 스킬과 연결 도구의 묶음이고, 팀·엔터프라이즈 요금제를 쓰는 인증 단체에는 추가 비용 없이 자동으로 설치됩니다. 팀 요금제는 이제 2명인 단체부터 가입할 수 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "세 갈래 스킬",
+       "팀 업무 보강, 책임 있는 AI 설정, 모금 지원"
+      ],
+      [
+       "작은 단체도 가입",
+       "팀 요금제 최소 인원을 2명으로 낮춤"
+      ],
+      [
+       "클로드 코드 포함",
+       "비영리 요금제에 추가 비용 없이 제공"
+      ]
+     ]
+    },
+    {
+     "h": "무슨 일인가"
+    },
+    {
+     "p": "앤트로픽은 클로드를 쓰는 비영리단체가 2만 5,000곳을 넘었고, 그 가운데 75% 이상은 클로드 좌석이 10개 미만인 작은 단체라고 밝혔습니다(자체 발표 기준). 이번 플러그인은 이런 단체가 매번 같은 지시를 다시 쓰지 않도록 반복 업무를 스킬로 묶은 것입니다. 앤트로픽은 시작할 때 단체의 정보가 어디에 있는지부터 클로드에게 정리하게 하라고 안내했습니다."
+    },
+    {
+     "h": "세부 내용"
+    },
+    {
+     "p": "스킬은 세 갈래로 나뉩니다. ‘팀 보강’에는 홍보, 채용과 인사, 이사회·경영진 업무가 들어 있습니다. ‘책임 있는 설정’은 단체 정보 지도 만들기와 AI 정책 점검을, ‘모금 지원’은 후원처 조사, 제안요청서(RFP) 검토, 제안서와 보고서 작성, 후원자 관리를 맡습니다. 앤트로픽은 지난해 12월부터 비영리단체에 최대 75% 할인을 주고 있고, 9월에는 저소득·중간소득 국가의 인증 단체에 약 90% 할인을 적용해 팀 좌석을 사용자당 월 3달러로 낮췄습니다."
+    },
+    {
+     "h": "사람을 연결하는 프로그램도 넓힌다"
+    },
+    {
+     "p": "앤트로픽은 클로드 코어(Claude Corps)를 태프루트 재단(Taproot Foundation)과 손잡고 넓혀, 비영리단체와 무료로 돕는 컨설턴트를 이어 주겠다고 밝혔습니다. 클로드 코어는 사회 초년생 펠로 1,000명을 미국 비영리단체 400곳 이상에 배치하는 계획입니다. 한 단체의 운영 책임자는 열흘 걸리던 일을 30분으로 줄였다고 소개했습니다. 관리자와 직원을 위한 웨비나는 11월 10일과 12일에 열립니다."
+    },
+    {
+     "h": "함께하는 회사와 교육 자료"
+    },
+    {
+     "p": "앤트로픽은 이 플러그인을 쓰는 단체를 돕는 파트너로 액센추어(Accenture), 보스턴컨설팅그룹(BCG), 딜로이트(Deloitte), 슬랄롬(Slalom) 등 12곳을 들었습니다. 앞서 블랙보드(Blackbaud), 캔디드(Candid), 베네비티(Benevity)와는 연결 도구를, 기빙튜즈데이(GivingTuesday)와는 AI 활용 교육 과정을 만든 바 있습니다. 클로드 아카데미(Claude Academy)에는 비영리단체용 강의 모음과 데이터 다루는 법 강의가 올라와 있습니다. 미국의 한 푸드뱅크 대표는 “Claude is making us a much better steward of every dollar”라고 말했습니다."
+    },
+    {
+     "h": "남은 쟁점"
+    },
+    {
+     "p": "한국은 저소득·중간소득 국가 할인 대상이 아니어서 국내 단체에는 일반 비영리 할인 조건이 적용될 가능성이 큽니다. 실제 할인율과 인증 절차는 앤트로픽 비영리 안내 페이지에서 직접 확인해야 합니다. 후원자 정보처럼 민감한 데이터를 다루는 만큼, 플러그인을 켜기 전에 어떤 자료를 클로드에 연결할지 단체 안에서 먼저 정해 두는 편이 좋습니다."
+    }
+   ],
+   "ask": "작은 단체의 반복 업무 가운데 AI에게 먼저 맡겨 볼 만한 일은 무엇일까요?",
+   "sources": [
+    [
+     "클로드 — Expanding Claude for Nonprofits",
+     "https://claude.com/resources/articles/expanding-claude-for-nonprofits"
+    ]
+   ],
+   "terms": [
+    "앤트로픽",
+    "클로드",
+    "플러그인",
+    "스킬",
+    "클로드 코드",
+    "구독 요금제"
+   ],
+   "image": {
+    "page": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+    "og": "https://claude.com/resources/articles/expanding-claude-for-nonprofits/opengraph-image/og",
+    "credit": "이미지: Anthropic",
+    "alt": "앤트로픽 ‘클로드 포 논프로핏 확대’ 공식 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 26일 공개",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "October 26, 2026"
+    },
+    {
+     "claim": "약 30곳과 함께 만든 스킬·연결 도구",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "a set of skills and connectors built with ~30 nonprofits."
+    },
+    {
+     "claim": "인증 단체 대상",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "every verified nonprofit organization"
+    },
+    {
+     "claim": "팀 요금제 최소 2명",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "as few as two people"
+    },
+    {
+     "claim": "추가 비용 없이 자동 설치, 클로드 코드 포함",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Installed automatically for nonprofits on Team and Enterprise plans at no additional cost; Claude Code is included in nonprofit plans at no additional cost."
+    },
+    {
+     "claim": "2만 5,000곳, 75% 이상 10좌석 미만",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "More than 25,000 nonprofits use Claude; over 75% have fewer than 10 Claude seats."
+    },
+    {
+     "claim": "세 갈래 스킬",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Extend your team / Set up Claude responsibly / Fund your mission"
+    },
+    {
+     "claim": "최대 75% 할인(12월)",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "discounts of up to 75%"
+    },
+    {
+     "claim": "약 90% 할인, 월 3달러",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "~90% for verified nonprofits in low- and middle-income countries, bringing standard Team seats to $3/user/month."
+    },
+    {
+     "claim": "태프루트 협력",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Claude Corps will be extended through a partnership with Taproot"
+    },
+    {
+     "claim": "펠로 1,000명, 400곳 이상",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Claude Corps plans to place 1,000 early-career fellows in at least 400 U.S. nonprofits."
+    },
+    {
+     "claim": "열흘→30분",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "\"ten days\" ... \"half an hour\" (Helen Davies, COO, Operation Fistula)"
+    },
+    {
+     "claim": "웨비나 11월 10·12일",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "admin and staff webinars on November 10 and 12"
+    },
+    {
+     "claim": "파트너 12곳",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Accenture, Boston Consulting Group (BCG), The Bridgespan Group, Civis Analytics, Deloitte, fusionSpan, Idealist Consulting, Myridius, SapienAI, Slalom, v4c.ai, Vera Solutions"
+    },
+    {
+     "claim": "이전 협력",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Earlier: Blackbaud, Candid, Benevity (connectors), and GivingTuesday (AI Fluency course)"
+    },
+    {
+     "claim": "클로드 아카데미 자료",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Claude Academy nonprofit collection, a Claude Academy data handling tutorial"
+    },
+    {
+     "claim": "푸드뱅크 대표 인용",
+     "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+     "quote": "Scott Burns, President & CEO, Montgomery County Food Bank: \"Claude is making us a much better steward of every dollar.\""
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI, AI가 낸 수학·컴퓨터과학·물리학 결과 3건을 학계 검증에 넘김",
+   "reason": "원문(openai.com) 페이지를 이번 실행에서 열지 못함(사이트 오류), 언론 요약만 확인"
+  },
+  {
+   "topic": "구글 딥마인드 지니 4(실시간 월드 모델, 소리 생성)",
+   "reason": "원문은 확인했지만 신뢰 테스터·울트라 구독자 한정이고 수치가 없으며, 대표 이미지가 모두 AI가 만든 장면이라 사진 규칙에 맞지 않음"
+  },
+  {
+   "topic": "커서 에이전트 SDK 정식 출시",
+   "reason": "원문(cursor.com 체인지로그) 날짜가 10월 20일로 최근 36시간 밖"
+  },
+  {
+   "topic": "AMD의 월드 랩스 인수(82억 달러)",
+   "reason": "원문 발표가 9월 말로 최근 소식 아님"
+  },
+  {
+   "topic": "클라우드플레어 워커스 AI GLM-5.3 요청 간 데이터 노출",
+   "reason": "클라우드플레어 원문을 찾지 못함"
+  },
+  {
+   "topic": "클로드가 조지아주 개표 집계 자료에 접근",
+   "reason": "앤트로픽 원문 보고서 링크를 찾지 못하고 언론 보도만 확인"
+  }
+ ]
+}
