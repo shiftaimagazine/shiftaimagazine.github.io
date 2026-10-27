@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=1b76ec11">
+<link rel="stylesheet" href="/assets/site.css?v=3d38da1b">
 </head>
 <body data-route="t-presentation" data-pre="1">
 <div class="wrap">
@@ -57,65 +57,124 @@
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · 업무 · 입문</span>
     <h1>발표 자료 뼈대를 AI로 잡는 프롬프트 9개</h1><p class="deck">슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻는 프롬프트입니다.</p>
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.23</span><span class="dot"></span><span>9개 항목 · 10분</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.23</span><span class="dot"></span><span>읽는 데 8분</span><span class="dot"></span><span>프롬프트 9개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=ChatGPT">ChatGPT</a><a href="/tutorial/?tool=Claude">Claude</a><a href="/tutorial/?tool=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4">제미나이</a></div>
     <figure class="lead-fig"><img src="img/ph/t-presentation.webp" alt="" loading="lazy"><figcaption>회의실 발표 · Wikimedia Commons · DERDAKI ILIAS (CC BY-SA 4.0)</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에 담긴 것</b><span>프롬프트 9개 · 따라 하는 데 10분</span></div>
+      <ol><li><a href="#s1"><span>프롬프트 1</span>청중 정의</a></li><li><a href="#s2"><span>프롬프트 2</span>한 문장 메시지 정하기</a></li><li><a href="#s3"><span>프롬프트 3</span>슬라이드 목차 짜기</a></li><li><a href="#s4"><span>프롬프트 4</span>데이터를 어떤 그래프로 보여 줄지</a></li><li><a href="#s5"><span>프롬프트 5</span>반론·질문 대비</a></li><li><a href="#s6"><span>프롬프트 6</span>슬라이드별 발표 대본</a></li><li><a href="#s7"><span>프롬프트 7</span>5분·1분 버전으로 줄이기</a></li><li><a href="#s8"><span>프롬프트 8</span>리허설 피드백</a></li><li><a href="#s9"><span>프롬프트 9</span>슬라이드 문구 줄이기</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>'청중 정의' 프롬프트로 이 발표에서 누가 결정을 내리는지부터 정리합니다.</li><li>청중이 기억할 한 문장과 요청할 행동 하나를 고른 뒤 목차를 짭니다.</li><li>슬라이드 제목은 주장 문장으로 쓰고, 숫자는 내 자료에 있는 것만 넣습니다.</li></ol></div>
     
     <div class="prep"><div><b>필요한 것</b>ChatGPT·클로드·제미나이 아무 AI</div><div><b>걸리는 시간</b>10분</div><div><b>왜 필요한가요</b>AI에게 '발표 자료 만들어 줘'라고 하면 그럴듯하지만 아무에게나 할 수 있는 슬라이드가 나옵니다. 청중과 메시지를 먼저 정해 두면 목차와 데이터, 대본이 한 방향으로 정리됩니다.</div></div>
     <div class="intro">발표가 실패하는 이유는 대개 슬라이드가 못생겨서라기보다, 청중이 '그래서 뭘 하라는 거지'를 모른 채 발표가 끝나서입니다. 아래 프롬프트는 디자인 도구를 열기 전에 ① 청중을 정의하고, ② 한 문장 메시지를 정하고, ③ 그 문장을 증명하는 목차를 짜고, ④ 반론에 대비하고, ⑤ 시간에 맞춘 대본을 쓰는 순서로 뼈대를 세웁니다. 각 단계의 결과를 다음 프롬프트에 붙여 넣으며 이어 가면 됩니다. 슬라이드에 들어갈 숫자는 AI가 만들지 않게 하고, 내가 가진 자료만 쓰게 합니다.</div>
-    <div class="items"><section class="ti"><div class="no">01</div>
-      <div class="tb"><h3>청중 정의</h3><p class="d">발표를 듣는 사람이 누구이고, 무엇을 이미 알고, 무엇을 걱정하는지 정리하는 첫 단계입니다.</p>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">프롬프트 1</span>청중 정의</h3>
+        <p class="d">발표를 듣는 사람이 누구이고, 무엇을 이미 알고, 무엇을 걱정하는지 정리하는 첫 단계입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>청중의 직급·부서·사전 지식을 아는 만큼 적습니다. 실제로 결정을 내리는 사람이 누구인지가 가장 중요합니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">나는 [발표 주제]를 [청중, 예: 본부장 1명과 팀장 5명] 앞에서 [시간]분 동안 발표해. 1) 청중이 이 주제에 대해 이미 아는 것과 모르는 것, 2) 청중이 가장 걱정하거나 궁금해할 것 3가지, 3) 이 발표에서 실제로 결정을 내리는 사람과 그 사람이 중요하게 볼 기준을 추정해 줘. 추정한 부분은 '가정'이라고 표시하고, 내가 미리 확인해야 할 질문도 같이 줘.</div><button class="copy dark" data-copy="나는 [발표 주제]를 [청중, 예: 본부장 1명과 팀장 5명] 앞에서 [시간]분 동안 발표해. 1) 청중이 이 주제에 대해 이미 아는 것과 모르는 것, 2) 청중이 가장 걱정하거나 궁금해할 것 3가지, 3) 이 발표에서 실제로 결정을 내리는 사람과 그 사람이 중요하게 볼 기준을 추정해 줘. 추정한 부분은 '가정'이라고 표시하고, 내가 미리 확인해야 할 질문도 같이 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">02</div>
-      <div class="tb"><h3>한 문장 메시지 정하기</h3><p class="d">발표가 끝난 뒤 청중이 기억할 단 한 문장과, 청중에게 요청할 행동 하나를 정합니다.</p>
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">프롬프트 2</span>한 문장 메시지 정하기</h3>
+        <p class="d">발표가 끝난 뒤 청중이 기억할 단 한 문장과, 청중에게 요청할 행동 하나를 정합니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>앞 단계 결과를 함께 붙여 넣습니다. 후보 중 하나를 골라 이후 모든 단계에 그대로 씁니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[청중 정의 결과 붙여 넣기]. 이 청중에게 [발표 주제]를 발표할 때, 발표가 끝나고 청중이 기억해야 할 메시지를 한 문장(30자 안팎) 후보 5개로 만들어 줘. 후보마다 1) 청중에게 요청할 행동(승인, 예산, 협조 등) 하나, 2) 그 문장이 약한 이유를 적어 줘. 마지막에 가장 강한 후보 하나를 추천하고 이유를 말해 줘.</div><button class="copy dark" data-copy="[청중 정의 결과 붙여 넣기]. 이 청중에게 [발표 주제]를 발표할 때, 발표가 끝나고 청중이 기억해야 할 메시지를 한 문장(30자 안팎) 후보 5개로 만들어 줘. 후보마다 1) 청중에게 요청할 행동(승인, 예산, 협조 등) 하나, 2) 그 문장이 약한 이유를 적어 줘. 마지막에 가장 강한 후보 하나를 추천하고 이유를 말해 줘.">복사하기</button></div>
         <div class="ex"><div><b>넣는 것 (예시)</b><pre>주제: 사내 메신저 교체 / 청중: 경영진</pre></div><div><b>나오는 것 (예시)</b><pre>약한 문장: '새 메신저는 기능이 많습니다'(무엇을 하라는지 없음)
 강한 문장: '메신저를 바꾸면 연간 비용이 줄고, 이번 달에 정해야 내년 계약에 반영됩니다'
 요청 행동: 11월 계약 승인 (비용 숫자는 내 자료로 채운다)</pre></div></div>
-      </div></section><section class="ti"><div class="no">03</div>
-      <div class="tb"><h3>슬라이드 목차 짜기</h3><p class="d">한 문장 메시지를 증명하는 순서로 슬라이드 목차를 세우는 프롬프트입니다.</p>
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">프롬프트 3</span>슬라이드 목차 짜기</h3>
+        <p class="d">한 문장 메시지를 증명하는 순서로 슬라이드 목차를 세우는 프롬프트입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>발표 시간에 맞춰 장수를 정합니다. 슬라이드 제목은 '시장 현황' 같은 주제 이름 대신 주장을 담은 문장으로 쓰게 합니다. 그래야 제목만 이어 읽어도 발표 전체가 이해됩니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">메시지: '[한 문장 메시지]', 청중: [청중], 발표 시간: [10]분. 이 메시지를 증명하는 슬라이드 목차를 [10]장 안쪽으로 짜 줘. 각 슬라이드는 '제목(주장 한 문장) | 이 장에서 보여 줄 근거 | 내가 준비할 자료' 표로 만들어 줘. 제목은 '시장 현황'처럼 주제 이름이 아니라 '시장은 커지는데 우리 점유율은 줄었다'처럼 주장 문장으로 써 줘. 근거가 될 숫자는 지어내지 말고 '내가 준비할 자료' 칸에 어떤 숫자가 필요한지만 적어 줘.</div><button class="copy dark" data-copy="메시지: '[한 문장 메시지]', 청중: [청중], 발표 시간: [10]분. 이 메시지를 증명하는 슬라이드 목차를 [10]장 안쪽으로 짜 줘. 각 슬라이드는 '제목(주장 한 문장) | 이 장에서 보여 줄 근거 | 내가 준비할 자료' 표로 만들어 줘. 제목은 '시장 현황'처럼 주제 이름이 아니라 '시장은 커지는데 우리 점유율은 줄었다'처럼 주장 문장으로 써 줘. 근거가 될 숫자는 지어내지 말고 '내가 준비할 자료' 칸에 어떤 숫자가 필요한지만 적어 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">04</div>
-      <div class="tb"><h3>데이터를 어떤 그래프로 보여 줄지</h3><p class="d">가진 숫자를 표, 막대, 선 그래프 중 무엇으로 보여 줄지와 한 장에서 강조할 숫자를 고릅니다.</p>
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">프롬프트 4</span>데이터를 어떤 그래프로 보여 줄지</h3>
+        <p class="d">가진 숫자를 표, 막대, 선 그래프 중 무엇으로 보여 줄지와 한 장에서 강조할 숫자를 고릅니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>실제 데이터 표를 붙여 넣습니다. 한 슬라이드에서 강조할 숫자는 하나로 줄이는 것이 원칙입니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래 데이터를 '[슬라이드 제목]' 슬라이드에 넣으려고 해. 1) 이 주장을 가장 잘 보여 주는 그래프 종류와 이유, 2) 강조할 숫자 하나와 강조 방법(색, 주석), 3) 빼도 되는 숫자, 4) 그래프 아래에 넣을 한 줄 해석을 제안해 줘. 데이터에 없는 숫자는 쓰지 마. 데이터: [표 붙여 넣기]</div><button class="copy dark" data-copy="아래 데이터를 '[슬라이드 제목]' 슬라이드에 넣으려고 해. 1) 이 주장을 가장 잘 보여 주는 그래프 종류와 이유, 2) 강조할 숫자 하나와 강조 방법(색, 주석), 3) 빼도 되는 숫자, 4) 그래프 아래에 넣을 한 줄 해석을 제안해 줘. 데이터에 없는 숫자는 쓰지 마. 데이터: [표 붙여 넣기]">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">05</div>
-      <div class="tb"><h3>반론·질문 대비</h3><p class="d">청중이 던질 날카로운 질문과 반론을 미리 뽑고 답변을 준비합니다.</p>
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">프롬프트 5</span>반론·질문 대비</h3>
+        <p class="d">청중이 던질 날카로운 질문과 반론을 미리 뽑고 답변을 준비합니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>가장 까다로운 참석자를 구체적으로 적을수록 질문이 날카로워집니다. 답이 약한 질문은 슬라이드에 미리 넣어 두는 것도 방법입니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래 목차로 [청중]에게 발표해. 1) 청중이 할 법한 질문·반론을 곤란한 순서대로 8개 뽑아 줘. 특히 [까다로운 참석자, 예: 비용에 민감한 재무팀장] 입장의 질문을 꼭 넣어 줘. 2) 각 질문에 30초 안에 할 수 있는 답변 초안, 3) 답변에 필요한데 내가 아직 준비하지 않은 자료를 적어 줘. 4) 아예 슬라이드에 넣어 먼저 답하는 게 나은 질문을 골라 줘. 목차: [목차 붙여 넣기]</div><button class="copy dark" data-copy="아래 목차로 [청중]에게 발표해. 1) 청중이 할 법한 질문·반론을 곤란한 순서대로 8개 뽑아 줘. 특히 [까다로운 참석자, 예: 비용에 민감한 재무팀장] 입장의 질문을 꼭 넣어 줘. 2) 각 질문에 30초 안에 할 수 있는 답변 초안, 3) 답변에 필요한데 내가 아직 준비하지 않은 자료를 적어 줘. 4) 아예 슬라이드에 넣어 먼저 답하는 게 나은 질문을 골라 줘. 목차: [목차 붙여 넣기]">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">06</div>
-      <div class="tb"><h3>슬라이드별 발표 대본</h3><p class="d">슬라이드마다 말할 내용을 시간에 맞춰 쓰는 대본 프롬프트입니다.</p>
+      </div></section><section class="ti" id="s6"><div class="tb">
+        <h3><span class="sn">프롬프트 6</span>슬라이드별 발표 대본</h3>
+        <p class="d">슬라이드마다 말할 내용을 시간에 맞춰 쓰는 대본 프롬프트입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>말하는 속도는 사람마다 다르므로 대본을 받은 뒤 소리 내 읽으며 시간을 잽니다. 대본은 슬라이드 글자를 그대로 읽지 않는 형태로 요청해야 합니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래 목차로 [10]분 발표 대본을 써 줘. 1) 슬라이드마다 목표 시간(초)과 대본을 붙이고, 2) 슬라이드에 적힌 글을 그대로 읽지 말고 보충 설명과 예시로 써 줘. 3) 첫 30초는 청중이 왜 들어야 하는지로 시작하고, 4) 마지막은 요청할 행동 하나로 끝내 줘. 5) 장과 장 사이의 연결 문장도 넣어 줘. 말투는 [회의실 보고 / 강연 / 사내 공유]에 맞춰 줘. 목차: [붙여 넣기]</div><button class="copy dark" data-copy="아래 목차로 [10]분 발표 대본을 써 줘. 1) 슬라이드마다 목표 시간(초)과 대본을 붙이고, 2) 슬라이드에 적힌 글을 그대로 읽지 말고 보충 설명과 예시로 써 줘. 3) 첫 30초는 청중이 왜 들어야 하는지로 시작하고, 4) 마지막은 요청할 행동 하나로 끝내 줘. 5) 장과 장 사이의 연결 문장도 넣어 줘. 말투는 [회의실 보고 / 강연 / 사내 공유]에 맞춰 줘. 목차: [붙여 넣기]">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">07</div>
-      <div class="tb"><h3>5분·1분 버전으로 줄이기</h3><p class="d">발표 시간이 갑자기 줄었을 때 무엇을 빼고 무엇을 남길지 정하는 프롬프트입니다.</p>
+      </div></section><section class="ti" id="s7"><div class="tb">
+        <h3><span class="sn">프롬프트 7</span>5분·1분 버전으로 줄이기</h3>
+        <p class="d">발표 시간이 갑자기 줄었을 때 무엇을 빼고 무엇을 남길지 정하는 프롬프트입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>시간이 줄어도 한 문장 메시지와 요청 행동은 남겨야 합니다. 복도에서 결정권자를 만났을 때 쓸 1분 버전도 같이 만들어 둡니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[10]분짜리 발표를 [5]분 버전과 1분 버전으로 줄여 줘. 메시지 '[한 문장 메시지]'와 요청 행동은 꼭 남기고, 1) 5분 버전에서 남길 슬라이드와 뺄 슬라이드를 이유와 함께, 2) 1분 버전은 슬라이드 없이 말로만 하는 대본으로 써 줘. 대본: [붙여 넣기]</div><button class="copy dark" data-copy="[10]분짜리 발표를 [5]분 버전과 1분 버전으로 줄여 줘. 메시지 '[한 문장 메시지]'와 요청 행동은 꼭 남기고, 1) 5분 버전에서 남길 슬라이드와 뺄 슬라이드를 이유와 함께, 2) 1분 버전은 슬라이드 없이 말로만 하는 대본으로 써 줘. 대본: [붙여 넣기]">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">08</div>
-      <div class="tb"><h3>리허설 피드백</h3><p class="d">대본이나 리허설 녹취를 넣고 청중 입장에서 지루하거나 헷갈리는 지점을 찾습니다.</p>
+      </div></section><section class="ti" id="s8"><div class="tb">
+        <h3><span class="sn">프롬프트 8</span>리허설 피드백</h3>
+        <p class="d">대본이나 리허설 녹취를 넣고 청중 입장에서 지루하거나 헷갈리는 지점을 찾습니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>리허설을 녹음해 받아쓰기한 내용을 넣으면 '음', '그러니까' 같은 습관어와 늘어지는 구간까지 잡아냅니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래는 내 발표 리허설 녹취(또는 대본)야. 청중은 [청중]이야. 1) 청중이 집중을 잃을 것 같은 구간, 2) 전문 용어나 줄임말을 설명 없이 쓴 곳, 3) 같은 말을 반복한 곳, 4) 습관어('음', '그러니까', '약간')가 많은 곳, 5) 메시지와 상관없는 이야기를 찾아 줘. 고칠 곳은 원래 문장과 고친 문장을 나란히 보여 줘. 녹취: [붙여 넣기]</div><button class="copy dark" data-copy="아래는 내 발표 리허설 녹취(또는 대본)야. 청중은 [청중]이야. 1) 청중이 집중을 잃을 것 같은 구간, 2) 전문 용어나 줄임말을 설명 없이 쓴 곳, 3) 같은 말을 반복한 곳, 4) 습관어('음', '그러니까', '약간')가 많은 곳, 5) 메시지와 상관없는 이야기를 찾아 줘. 고칠 곳은 원래 문장과 고친 문장을 나란히 보여 줘. 녹취: [붙여 넣기]">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">09</div>
-      <div class="tb"><h3>슬라이드 문구 줄이기</h3><p class="d">슬라이드 한 장에 빽빽하게 들어간 글을 줄이고, 빠진 내용은 대본으로 옮깁니다.</p>
+      </div></section><section class="ti" id="s9"><div class="tb">
+        <h3><span class="sn">프롬프트 9</span>슬라이드 문구 줄이기</h3>
+        <p class="d">슬라이드 한 장에 빽빽하게 들어간 글을 줄이고, 빠진 내용은 대본으로 옮깁니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>슬라이드 글을 복사해 넣습니다. 화면에 남길 것과 말로 할 것을 나누는 것이 목적입니다. 숫자는 바꾸지 말라고 꼭 적습니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래는 슬라이드 한 장의 글이야. 1) 화면에 남길 것은 제목 한 줄과 핵심 3줄 이하로 줄여 줘(줄당 20자 안팎). 2) 줄이면서 빠진 내용은 발표자가 말로 할 대본으로 옮겨 줘. 3) 숫자는 바꾸지 말고 그대로 써 줘. 슬라이드 글: [붙여 넣기]</div><button class="copy dark" data-copy="아래는 슬라이드 한 장의 글이야. 1) 화면에 남길 것은 제목 한 줄과 핵심 3줄 이하로 줄여 줘(줄당 20자 안팎). 2) 줄이면서 빠진 내용은 발표자가 말로 할 대본으로 옮겨 줘. 3) 숫자는 바꾸지 말고 그대로 써 줘. 슬라이드 글: [붙여 넣기]">복사하기</button></div>
         <div class="ex"><div><b>넣는 것 (예시)</b><pre>본 프로젝트는 고객 만족도 향상과 운영 비용 절감, 그리고 내부 업무 효율화를 목표로 하며 총 3단계로 추진될 예정임</pre></div><div><b>나오는 것 (예시)</b><pre>제목: 목표는 세 가지
 · 고객 만족도 높이기
@@ -124,6 +183,7 @@
 대본으로 옮김: '이 세 가지를 3단계로 나눠 추진합니다.'</pre></div></div>
       </div></section></div>
     <div class="bonus"><b>보너스 · 발표 전날 체크리스트</b><ol><li>청중이 기억할 한 문장과 요청할 행동이 하나씩 정해져 있습니다</li><li>모든 슬라이드 제목이 주장 문장입니다</li><li>슬라이드 속 숫자는 모두 내 자료에서 확인했습니다(AI가 만든 숫자 없음)</li><li>가장 곤란한 질문 3개의 답을 소리 내 연습했습니다</li><li>실제로 시간을 재며 리허설했습니다</li><li>시간이 반으로 줄어도 할 수 있는 5분 버전이 있습니다</li></ol></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>AI가 추정한 청중의 관심사와 결정 기준은 가정이므로, 발표 전에 실제 참석자나 주최자에게 확인해야 합니다.</li><li>AI는 그럴듯한 숫자와 사례를 만들어 넣을 수 있으니 슬라이드 속 숫자는 모두 내 자료와 대조해야 합니다.</li><li>대본의 시간 배분은 말하는 속도에 따라 달라지므로 소리 내어 읽으며 직접 재 봐야 합니다.</li></ul></div>
     
     
     <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 질문하기</a><a href="/tutorial/presentation/" data-copy="https://shiftaimagazine.com/tutorial/presentation/">링크 복사</a></div>
@@ -136,7 +196,7 @@
   </div>
 </section>
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/meeting-notes/"><img class="thumb" src="img/cover/t-meeting-notes.webp" alt="" loading="lazy">
-  <div class="b"><span class="cat">업무 · 입문</span><h3>회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</h3><p>녹취록을 요약만 하면 '좋은 회의였다'로 끝나기 쉽습니다. 결정사항과 담당자, 마감, 미결 사항으로 나눠 정리해야 다음 날 일이 움직입니다.</p><div class="meta"><span>2026.10.22</span><span class="dot"></span><span>9개 항목 · 10분</span></div></div></a></div></div>
+  <div class="b"><span class="cat">업무 · 입문</span><h3>회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</h3><p>녹취록을 요약만 하면 '좋은 회의였다'로 끝나기 쉽습니다. 결정사항과 담당자, 마감, 미결 사항으로 나눠 정리해야 다음 날 일이 움직입니다.</p><div class="meta"><span>2026.10.22</span><span class="dot"></span><span>프롬프트 9개</span><span class="dot"></span><span>읽는 데 9분</span></div></div></a></div></div>
   </article></main>
 <footer>
   <div class="fl">
@@ -149,8 +209,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=1b76ec11"></script>
-<script src="/assets/app.js?v=1b76ec11"></script>
+<script src="/assets/data.js?v=3d38da1b"></script>
+<script src="/assets/app.js?v=3d38da1b"></script>
 
 
 </body></html>

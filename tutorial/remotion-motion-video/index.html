@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>편집 프로그램 없이 코드로 만드는 15초 쇼츠: 리모션과 클로드 코드 7단계 · SHIFT AI 튜토리얼</title>
+<meta name="description" content="리모션(Remotion)은 리액트(React) 코드로 영상을 만드는 프레임워크입니다. 장면 코드를 Claude Code에게 맡기는 방법을 공식 문서 기준으로 정리하고, Claude Code에게 줄 프롬프트와 같은 조건으로 편집부가 직접 쓴 코드로 도형과 한국어 글자만 담은 릴스·쇼츠용 1080×1920 MP4를 렌더링해 확인했습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tutorial/remotion-motion-video/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="편집 프로그램 없이 코드로 만드는 15초 쇼츠: 리모션과 클로드 코드 7단계 · SHIFT AI 튜토리얼">
+<meta property="og:description" content="리모션(Remotion)은 리액트(React) 코드로 영상을 만드는 프레임워크입니다. 장면 코드를 Claude Code에게 맡기는 방법을 공식 문서 기준으로 정리하고, Claude Code에게 줄 프롬프트와 같은 조건으로 편집부가 직접 쓴 코드로 도형과 한국어 글자만 담은 릴스·쇼츠용 1080×1920 MP4를 렌더링해 확인했습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tutorial/remotion-motion-video/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/t-remotion-motion-video.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=3d38da1b">
+</head>
+<body data-route="t-remotion-motion-video" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="true">튜토리얼</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-article"><article class="article narrow tut-page">
+    <a class="back" href="/tutorial/">← 튜토리얼</a>
+    <span class="cat">튜토리얼 · 영상·이미지 · 중급</span>
+    <h1>편집 프로그램 없이 코드로 만드는 15초 쇼츠: 리모션과 클로드 코드 7단계</h1><p class="deck">리모션(Remotion)은 리액트(React) 코드로 영상을 만드는 프레임워크입니다. 장면 코드를 Claude Code에게 맡기는 방법을 공식 문서 기준으로 정리하고, Claude Code에게 줄 프롬프트와 같은 조건으로 편집부가 직접 쓴 코드로 도형과 한국어 글자만 담은 릴스·쇼츠용 1080×1920 MP4를 렌더링해 확인했습니다.</p>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.27</span><span class="dot"></span><span>읽는 데 20분</span><span class="dot"></span><span>STEP 7개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=Claude%20Code">Claude Code</a><a href="/tutorial/?tool=Remotion">Remotion</a></div>
+    <figure class="lead-fig"><img src="img/ph/t-remotion-motion-video.webp" alt="" loading="lazy"><figcaption>리모션 스튜디오에서 연 15초 세로 영상 · SHIFT AI 직접 캡처(2026-10-27)</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에 담긴 것</b><span>STEP 7개 · 따라 하는 데 40분</span></div>
+      <ol><li><a href="#s1"><span>STEP 1</span>프로젝트 만들기</a></li><li><a href="#s2"><span>STEP 2</span>Claude Code에 리모션 스킬 붙이기</a></li><li><a href="#s3"><span>STEP 3</span>세로 화면 규격 정하기</a></li><li><a href="#s4"><span>STEP 4</span>Claude Code에게 장면 맡기기</a></li><li><a href="#s5"><span>STEP 5</span>스튜디오에서 미리 보고 고치기</a></li><li><a href="#s6"><span>STEP 6</span>MP4로 렌더링하기</a></li><li><a href="#s7"><span>STEP 7</span>결과 확인하고 썸네일 뽑기</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>터미널에서 npx create-video@latest --yes --blank my-video로 프로젝트를 만들고, 그 폴더에서 npx remotion skills add로 공식 스킬을 넣습니다.</li><li>Claude Code에게 1080×1920, 30fps, 450프레임(15초) 규격과 장면별 문구를 알려 주고, 움직임은 useCurrentFrame()을 기준으로 interpolate()와 spring()으로만 만들라고 합니다.</li><li>npm run dev로 스튜디오에서 확인한 뒤 npx remotion render Shorts out/shorts.mp4로 뽑습니다. 비영리 단체가 아닌 회사나 팀에서 쓰고 전체 인원(파트타임·외주 포함)이 4명 이상이면 유료 회사 라이선스가 필요합니다.</li></ol><div class="ql"><a href="https://www.remotion.dev/docs/" target="_blank" rel="noopener">리모션 공식 문서 · 설치 ↗</a><a href="https://www.remotion.dev/docs/ai/coding-agents" target="_blank" rel="noopener">리모션 공식 문서 · 코딩 에이전트로 영상 만들기 ↗</a><a href="https://github.com/remotion-dev/remotion/blob/main/LICENSE.md" target="_blank" rel="noopener">리모션 라이선스 (GitHub) ↗</a></div></div>
+    <details class="master"><summary><b>통째로 맡기는 프롬프트</b><span>Claude Code에 붙여 넣으면 이 글의 단계를 대신 진행합니다</span></summary><div class="pr"><div class="pt">역할: 너는 리모션(Remotion)으로 숏폼 모션 그래픽을 만드는 영상 개발자야.
+맥락: 릴스·쇼츠에 올릴 15초 세로 영상을 코드로 만들고 싶어. 나는 코딩이 처음이고, 이미지나 영상 소스 없이 도형·색·한국어 글자만 쓸 거야.
+입력: 제목 '[제목]', 항목 3개 '[항목 1]', '[항목 2]', '[항목 3]', 끝 문구 '[끝 문구]', 주요 색 [색 2~3개]
+작업: 1) node -v로 Node.js 버전을 확인하고 npx create-video@latest --yes --blank my-video로 프로젝트를 만든다. 2) my-video 폴더에서 npx remotion skills add로 공식 스킬을 설치하고, 이후 작업은 그 스킬을 참고한다. 3) id가 Shorts이고 width 1080, height 1920, fps 30, durationInFrames 450인 컴포지션을 만들고, 장면 3개(0~4초, 4~9초, 9~15초)를 &lt;Sequence&gt;로 나눠 넣는다. 4) npm run dev로 스튜디오를 켜고 접속 주소를 알려 준다. 5) 내가 확인했다고 하면 npx remotion render Shorts out/shorts.mp4로 렌더링한다.
+제약: 움직임은 useCurrentFrame()·interpolate()·spring()으로만 만들고 CSS transition·@keyframes·setTimeout은 쓰지 않는다. 외부 이미지·영상·음악 파일은 넣지 않는다. 명령을 실행하기 전에 무엇을 하는 명령인지 한 줄로 설명한다. 렌더링용 브라우저 다운로드가 실패하면 임의로 우회하지 말고 오류 내용을 그대로 보여 준다.
+출력: 만들거나 바꾼 파일 목록, 장면별 시작·끝 프레임 표, 렌더링한 파일 경로와 크기.
+검증: npx tsc --noEmit으로 타입 오류가 없는지 확인하고, npx remotion compositions 결과에 Shorts가 1080x1920, 450프레임(15.00 sec)으로 나오는지 보여 준다.</div><button class="copy dark" data-copy="역할: 너는 리모션(Remotion)으로 숏폼 모션 그래픽을 만드는 영상 개발자야.
+맥락: 릴스·쇼츠에 올릴 15초 세로 영상을 코드로 만들고 싶어. 나는 코딩이 처음이고, 이미지나 영상 소스 없이 도형·색·한국어 글자만 쓸 거야.
+입력: 제목 '[제목]', 항목 3개 '[항목 1]', '[항목 2]', '[항목 3]', 끝 문구 '[끝 문구]', 주요 색 [색 2~3개]
+작업: 1) node -v로 Node.js 버전을 확인하고 npx create-video@latest --yes --blank my-video로 프로젝트를 만든다. 2) my-video 폴더에서 npx remotion skills add로 공식 스킬을 설치하고, 이후 작업은 그 스킬을 참고한다. 3) id가 Shorts이고 width 1080, height 1920, fps 30, durationInFrames 450인 컴포지션을 만들고, 장면 3개(0~4초, 4~9초, 9~15초)를 &lt;Sequence&gt;로 나눠 넣는다. 4) npm run dev로 스튜디오를 켜고 접속 주소를 알려 준다. 5) 내가 확인했다고 하면 npx remotion render Shorts out/shorts.mp4로 렌더링한다.
+제약: 움직임은 useCurrentFrame()·interpolate()·spring()으로만 만들고 CSS transition·@keyframes·setTimeout은 쓰지 않는다. 외부 이미지·영상·음악 파일은 넣지 않는다. 명령을 실행하기 전에 무엇을 하는 명령인지 한 줄로 설명한다. 렌더링용 브라우저 다운로드가 실패하면 임의로 우회하지 말고 오류 내용을 그대로 보여 준다.
+출력: 만들거나 바꾼 파일 목록, 장면별 시작·끝 프레임 표, 렌더링한 파일 경로와 크기.
+검증: npx tsc --noEmit으로 타입 오류가 없는지 확인하고, npx remotion compositions 결과에 Shorts가 1080x1920, 450프레임(15.00 sec)으로 나오는지 보여 준다.">복사하기</button></div></details>
+    <div class="prep"><div><b>필요한 것</b>Node.js가 설치된 PC(맥은 macOS 15 이상), 터미널, Claude Code 같은 코딩 에이전트(대부분 유료 구독)</div><div><b>걸리는 시간</b>40분</div><div><b>왜 필요한가요</b>편집 프로그램에서 글자 위치와 타이밍을 손으로 맞추면 문구 하나만 바뀌어도 처음부터 다시 손봐야 합니다. 리모션은 영상이 코드로 남아서, 문구나 색, 길이를 말로 고쳐 달라고 한 뒤 같은 규격으로 다시 뽑을 수 있습니다.</div></div>
+    <div class="intro">리모션에서는 영상 한 편을 컴포지션(Composition)이라는 리액트 컴포넌트로 만듭니다. 지금이 몇 번째 프레임인지에 따라 화면에 무엇이 보일지 코드가 정하고, 리모션이 브라우저로 프레임을 한 장씩 그려 MP4로 묶습니다. 코드를 직접 쓸 줄 몰라도 괜찮습니다. 리모션 공식 문서는 Claude Code 같은 코딩 에이전트로 영상을 만드는 방법을 따로 안내하고, 에이전트가 참고할 공식 스킬(Agent Skills)도 배포합니다. 이 글은 2026년 10월 27일에 리모션 4.0.539로 프로젝트를 만들고 스킬을 설치한 뒤, 스튜디오에서 미리 보고 15초짜리 MP4를 렌더링한 과정을 적었습니다. Claude Code는 편집부가 실행하지 않았고, 데모 장면 코드는 4단계 프롬프트와 같은 조건으로 편집부가 직접 썼습니다. AI로 만든 이미지나 영상 소스는 쓰지 않고 도형, 색, 한국어 글자만 썼습니다.</div>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">STEP 1</span>프로젝트 만들기<small>5분</small></h3>
+        <p class="d">이 단계에서는 공식 명령 한 줄로 빈 리모션 프로젝트를 만듭니다.</p>
+        
+        <div class="how">먼저 Node.js가 설치돼 있어야 합니다. 터미널에서 영상 프로젝트를 둘 폴더로 이동한 뒤 아래 명령을 실행하면 my-video 폴더에 빈(blank) 템플릿 프로젝트가 생기고 필요한 패키지까지 설치됩니다. npx가 create-video 패키지를 내려받아도 되는지 물으면 y를 누릅니다. 공식 문서 기준으로 맥은 macOS 15(Sequoia) 이상, 리눅스는 glibc 2.35 이상이 필요하고 알파인 리눅스와 NixOS는 지원하지 않습니다.</div>
+        <p class="tp">공식 문서의 최소 요구 사항은 Node 16(또는 Bun 1.0.3)이지만, 직접 만들어 본 빈 템플릿 프로젝트의 package.json에는 리모션 4.0.539와 함께 Node.js 버전 조건이 '^20.19.0 || ^22.13.0 || &gt;=24'로 적혀 있었습니다. 이 템플릿으로 시작한다면 이 조건에 맞는 Node.js를 씁니다. 옵션 없이 npx create-video@latest를 실행하면 템플릿과 스킬 설치 여부를 고르는 마법사가 열립니다. 패키지 관리자는 실행한 명령에 따라 정해지므로, 다른 관리자를 쓰려면 pnpm create video, yarn create video, bun create video로 실행합니다.</p>
+        <div class="term2"><b>용어 · 빈 템플릿(blank)</b>장면이 하나도 없는 시작용 프로젝트입니다. 비어 있는 컴포지션 하나만 들어 있습니다.</div>
+        <div class="code"><div class="cl"><span>터미널</span><button class="copy" data-copy="npx create-video@latest --yes --blank my-video
+cd my-video">복사</button></div><pre>npx create-video@latest --yes --blank my-video
+cd my-video</pre><p class="ok"><b>확인</b>설치가 끝나면 'Copied to my-video.'와 함께 다음에 실행할 명령(cd my-video, npm run dev)이 안내됩니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">STEP 2</span>Claude Code에 리모션 스킬 붙이기<small>5분</small></h3>
+        <p class="d">이 단계에서는 Claude Code가 리모션 코드를 쓸 때 참고할 공식 스킬을 프로젝트에 넣습니다.</p>
+        
+        <div class="how">프로젝트 폴더에서 npx remotion skills add를 실행합니다. 스킬은 리모션 팀이 관리하는 작업 지침 묶음으로, 프로젝트의 .agents/skills 폴더에 설치되고 Claude Code가 읽도록 .claude/skills 폴더에 연결(심볼릭 링크)됩니다. 직접 실행해 보니 remotion-create, remotion-markup, remotion-studio, remotion-render를 비롯해 12개가 설치됐습니다. 설치가 끝나면 새 터미널 창을 열어 같은 폴더에서 claude를 실행하고 Claude Code를 시작합니다.</div>
+        <p class="tp">Claude Code 플러그인으로 설치하는 방법도 있습니다. 공식 문서는 터미널에서 리모션 마켓플레이스를 추가하고 플러그인을 설치한 뒤 Claude Code를 다시 시작하라고 안내합니다. 플러그인에도 같은 스킬이 들어 있어서, 영상을 만들 폴더에서 Claude Code 새 세션을 열고 /remotion:remotion-create 뒤에 원하는 영상을 적으면 프로젝트 만들기부터 맡길 수 있습니다. 편집부는 Claude Code를 실행하지 않아서 이 플러그인 설치와 /remotion:remotion-create 호출은 해 보지 못했습니다. npx remotion skills add로 스킬 설치가 끝날 때 화면에는 스킬이 에이전트 권한 그대로 실행되니 쓰기 전에 살펴보라는 안내가 나옵니다.</p>
+        
+        <div class="code"><div class="cl"><span>터미널 (my-video 폴더에서)</span><button class="copy" data-copy="npx remotion skills add">복사</button></div><pre>npx remotion skills add</pre><p class="ok"><b>확인</b>설치된 스킬 목록(./.agents/skills/remotion-...)마다 'symlinked: Claude Code'가 표시되고 'Done!'으로 끝납니다</p></div><div class="code"><div class="cl"><span>플러그인으로 설치할 때 (공식 문서의 명령, 이 글에서는 실행하지 않음)</span><button class="copy" data-copy="claude plugin marketplace add remotion-dev/claude-code-plugin
+claude plugin install remotion@remotion">복사</button></div><pre>claude plugin marketplace add remotion-dev/claude-code-plugin
+claude plugin install remotion@remotion</pre><p class="ok"><b>확인</b>공식 문서 기준으로, 설치한 뒤 Claude Code를 다시 시작합니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">STEP 3</span>세로 화면 규격 정하기<small>3분</small></h3>
+        <p class="d">이 단계에서는 릴스·쇼츠용 세로 화면 크기와 영상 길이를 컴포지션에 적습니다.</p>
+        <figure class="tfig"><img src="img/ph/t-remotion-motion-video-1.webp" alt="리모션 스튜디오에서 세로 컴포지션 미리 보기와 크기·프레임 속도·길이 정보가 보이는 화면" loading="lazy"><figcaption>1080×1920 세로 컴포지션의 2초 지점과 오른쪽 Metadata 패널 · SHIFT AI 직접 캡처(2026-10-27)</figcaption></figure>
+        <div class="how">리모션에서 영상의 크기와 길이는 &lt;Composition&gt;의 width, height, fps, durationInFrames 값으로 정합니다. 세로 9:16 화면은 width 1080, height 1920으로 두고, 15초를 30fps로 만들려면 durationInFrames는 15×30인 450입니다. id는 렌더링할 때 부르는 이름이라 영문, 숫자, 하이픈(-)만 쓸 수 있습니다. Claude Code에게 맡길 때도 이 네 값은 숫자로 정확히 알려 주는 편이 좋습니다.</div>
+        
+        <div class="term2"><b>용어 · 프레임(frame)</b>영상을 이루는 그림 한 장입니다. 30fps는 1초에 30장을 보여 준다는 뜻입니다.</div><div class="term2"><b>용어 · 컴포지션(Composition)</b>렌더링할 수 있는 영상 하나를 등록하는 리모션 컴포넌트입니다. 스튜디오 왼쪽 목록에 id 이름으로 나옵니다.</div>
+        <div class="code"><div class="cl"><span>src/Composition.tsx (등록 부분)</span><button class="copy" data-copy="&lt;Composition
+  id=&quot;Shorts&quot;
+  component={ShortsTitle}
+  durationInFrames={450}
+  fps={30}
+  width={1080}
+  height={1920}
+/&gt;">복사</button></div><pre>&lt;Composition
+  id="Shorts"
+  component={ShortsTitle}
+  durationInFrames={450}
+  fps={30}
+  width={1080}
+  height={1920}
+/&gt;</pre><p class="ok"><b>확인</b>스튜디오 오른쪽 Composition 패널에 Dimensions 1080 1920, Frame rate 30fps, Duration 00:15.00이 보입니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">STEP 4</span>Claude Code에게 장면 맡기기<small>10분</small></h3>
+        <p class="d">이 단계에서는 장면 구성과 문구, 지켜야 할 규칙을 한 번에 적어 Claude Code에게 코드를 맡깁니다.</p>
+        
+        <div class="how">장면마다 몇 초부터 몇 초까지 무엇이 나오는지, 들어갈 한국어 문구와 색을 구체적으로 적습니다. 리모션은 프레임을 한 장씩 따로 그리기 때문에 CSS 애니메이션(transition, @keyframes)이나 setTimeout으로 움직임을 만들면 렌더링할 때 깜빡이거나 빈 화면이 나올 수 있습니다. 공식 문서는 모든 움직임을 useCurrentFrame()으로 얻은 프레임 번호에서 계산하라고 안내하고, 그 예로 interpolate()를 보여 줍니다. 이 규칙도 프롬프트에 넣습니다.</div>
+        <p class="tp">편집부는 Claude Code를 실행하지 않았고, 이 글의 데모는 아래 프롬프트와 같은 조건으로 편집부가 직접 쓴 코드로 만들었습니다. Claude Code가 이 프롬프트로 같은 결과를 내는지는 확인하지 못했습니다. 코드에는 리모션 기본 기능인 Sequence, interpolate, spring, useCurrentFrame만 썼습니다. 한글 글꼴은 컴퓨터마다 설치된 것이 달라서, 데모는 작업 환경(리눅스)에 있던 Noto Sans CJK 글꼴로 렌더링됐습니다. 어느 컴퓨터에서나 같은 글꼴로 뽑으려면 공식 문서가 안내하는 @remotion/google-fonts 패키지로 글꼴을 불러오는 방법이 있습니다. 패키지에는 Noto Sans KR과 'korean' 서브셋이 들어 있지만, 렌더링할 때 글꼴 파일을 fonts.gstatic.com에서 받아 오므로 인터넷이 막힌 곳에서는 쓸 수 없고, 편집부도 이 방법으로 렌더링해 보지는 못했습니다. 인터넷 없이 쓰려면 글꼴 파일을 public/ 폴더에 넣고 @remotion/fonts의 loadFont()로 불러옵니다.</p>
+        
+        
+        <div class="vs"><div class="no"><b>이렇게 말고</b>멋있는 15초 쇼츠 영상 만들어 줘</div><div class="yes"><b>이렇게</b>1080×1920, 30fps, 450프레임. 0~4초는 원이 커지며 제목 '영상도 코드로 만듭니다', 4~9초는 카드 3장이 차례로 등장, 9~15초는 숫자 카운트와 끝 카드. 움직임은 useCurrentFrame()을 기준으로 interpolate()와 spring()으로만 만들어 줘</div></div>
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">리모션 스킬을 참고해서 src/Composition.tsx에 릴스·쇼츠용 세로 영상을 만들어 줘.
+- 규격: 1080×1920, 30fps, 15초(durationInFrames 450), 컴포지션 id는 Shorts
+- 장면 1(0~4초): 짙은 남색 배경에 주황색 원이 튀어나오듯 커지고, 아래에서 제목 '[제목 문구]'가 올라옴
+- 장면 2(4~9초): '[항목 1]', '[항목 2]', '[항목 3]' 카드 3장이 왼쪽에서 0.4초 간격으로 들어옴
+- 장면 3(9~15초): 숫자가 0에서 [숫자]까지 올라가고, 마지막에 '[끝 문구]'와 밑줄이 나옴
+- 이미지·영상 파일은 쓰지 말고 도형, 색, 글자만 써 줘
+- 움직임은 useCurrentFrame()과 interpolate(), spring()으로만 만들고 CSS transition·@keyframes·setTimeout은 쓰지 마
+- 장면은 &lt;Sequence&gt;로 나누고, 초를 프레임으로 바꿀 때는 useVideoConfig()의 fps를 써 줘
+- 한국어 글꼴은 '[글꼴 이름]'을 쓰고, 없으면 시스템 한글 글꼴로 대체되게 해 줘
+끝나면 npx tsc --noEmit으로 타입 오류가 없는지 확인하고, 바꾼 파일과 장면별 시작 프레임을 알려 줘.</div><button class="copy dark" data-copy="리모션 스킬을 참고해서 src/Composition.tsx에 릴스·쇼츠용 세로 영상을 만들어 줘.
+- 규격: 1080×1920, 30fps, 15초(durationInFrames 450), 컴포지션 id는 Shorts
+- 장면 1(0~4초): 짙은 남색 배경에 주황색 원이 튀어나오듯 커지고, 아래에서 제목 '[제목 문구]'가 올라옴
+- 장면 2(4~9초): '[항목 1]', '[항목 2]', '[항목 3]' 카드 3장이 왼쪽에서 0.4초 간격으로 들어옴
+- 장면 3(9~15초): 숫자가 0에서 [숫자]까지 올라가고, 마지막에 '[끝 문구]'와 밑줄이 나옴
+- 이미지·영상 파일은 쓰지 말고 도형, 색, 글자만 써 줘
+- 움직임은 useCurrentFrame()과 interpolate(), spring()으로만 만들고 CSS transition·@keyframes·setTimeout은 쓰지 마
+- 장면은 &lt;Sequence&gt;로 나누고, 초를 프레임으로 바꿀 때는 useVideoConfig()의 fps를 써 줘
+- 한국어 글꼴은 '[글꼴 이름]'을 쓰고, 없으면 시스템 한글 글꼴로 대체되게 해 줘
+끝나면 npx tsc --noEmit으로 타입 오류가 없는지 확인하고, 바꾼 파일과 장면별 시작 프레임을 알려 줘.">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">STEP 5</span>스튜디오에서 미리 보고 고치기<small>5분</small></h3>
+        <p class="d">이 단계에서는 리모션 스튜디오를 열어 장면과 타이밍을 브라우저에서 확인합니다.</p>
+        <figure class="tfig"><img src="img/ph/t-remotion-motion-video-2.webp" alt="리모션 스튜디오에서 장면 2의 카드 세 장과 아래쪽 타임라인이 보이는 화면" loading="lazy"><figcaption>리모션 스튜디오에서 6초 지점(장면 2)을 연 화면, 아래 타임라인에 장면 세 개가 막대로 보입니다 · SHIFT AI 직접 캡처(2026-10-27)</figcaption></figure>
+        <div class="how">프로젝트 폴더에서 npm run dev를 실행하면 리모션 스튜디오가 켜지고 브라우저가 열립니다. 왼쪽에는 컴포지션 목록, 가운데에는 미리 보기, 아래에는 &lt;Sequence&gt;마다 막대가 그려진 타임라인이 있어 장면이 몇 초에 바뀌는지 바로 보입니다. 타임라인을 눌러 원하는 시점으로 옮겨 가며 확인하고, 고칠 곳은 Claude Code에게 '장면 2에서 카드가 들어오는 간격을 0.2초로 줄여 줘'처럼 시점을 짚어 말합니다.</div>
+        <p class="tp">스튜디오 창을 닫아 버렸다면 npm run dev가 켜져 있는 터미널에서 s 키를 누르면 다시 열린다고 공식 문서가 안내합니다. 확인이 끝나면 그 터미널에서 Ctrl+C를 눌러 스튜디오를 끕니다.</p>
+        
+        <div class="code"><div class="cl"><span>터미널 (my-video 폴더에서)</span><button class="copy" data-copy="npm run dev">복사</button></div><pre>npm run dev</pre><p class="ok"><b>확인</b>'Server ready - Local: http://localhost:3000'처럼 접속 주소가 나오고, 'Built in ...ms'가 뜬 뒤 스튜디오를 쓸 수 있습니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s6"><div class="tb">
+        <h3><span class="sn">STEP 6</span>MP4로 렌더링하기<small>5분</small></h3>
+        <p class="d">이 단계에서는 완성한 컴포지션을 H.264 코덱의 MP4 파일로 내보냅니다.</p>
+        <figure class="tfig"><img src="img/ph/t-remotion-motion-video-3.webp" alt="리모션 스튜디오의 렌더 설정 창, 코덱 H.264와 저장 이름 out/Shorts.mp4가 보임" loading="lazy"><figcaption>스튜디오의 Render 버튼을 눌러 연 렌더 설정 창, 코덱 H.264와 프레임 범위 0~449, 저장 이름 out/Shorts.mp4가 보입니다 · SHIFT AI 직접 캡처(2026-10-27)</figcaption></figure>
+        <div class="how">터미널에서 npx remotion render 뒤에 컴포지션 id와 저장할 경로를 적습니다. 경로를 빼면 out 폴더에 저장되고, id까지 빼면 어떤 컴포지션을 렌더링할지 고르는 목록이 나옵니다. 스튜디오에서는 미리 보기 아래 도구 줄 오른쪽의 Render 버튼을 누르고 설정을 확인한 뒤 Render video를 누르면 되고, 진행 상황은 오른쪽 Jobs 탭에 나옵니다. 기본 코덱은 H.264이고, 공식 문서는 대부분의 경우 H.264가 잘 맞는다고 안내합니다.</div>
+        <p class="tp">리모션은 렌더링에 쓸 크롬 헤드리스 셸(Chrome Headless Shell)을 프로젝트의 node_modules 안에 자동으로 내려받습니다. 회사망처럼 다운로드가 막힌 곳에서는 여기서 멈출 수 있는데, 이미 설치된 크롬이나 크로미움 경로를 --browser-executable 옵션으로 알려 주면 그 브라우저로 렌더링합니다. 이 글의 작업 환경도 다운로드가 막혀 있어서, 미리 설치된 크로미움 헤드리스 셸 경로를 지정해 렌더링했습니다. 리눅스라면 공식 문서의 리눅스 의존성 목록에 있는 라이브러리도 설치해야 합니다.</p>
+        
+        <div class="code"><div class="cl"><span>터미널 (my-video 폴더에서)</span><button class="copy" data-copy="npx remotion render Shorts out/shorts.mp4">복사</button></div><pre>npx remotion render Shorts out/shorts.mp4</pre><p class="ok"><b>확인</b>'Rendered 450/450'과 'Encoded 450/450'이 지나간 뒤 out/shorts.mp4 경로와 파일 크기가 나옵니다. 처음 렌더링할 때는 크롬 헤드리스 셸을 먼저 내려받습니다(편집부 데모는 아래 --browser-executable 명령으로 렌더링했고, 620.2 kB, 작업 환경에서 약 1분이었습니다)</p></div><div class="code"><div class="cl"><span>브라우저 다운로드가 막혔을 때</span><button class="copy" data-copy="npx remotion render Shorts out/shorts.mp4 --browser-executable=[크롬 실행 파일 경로]">복사</button></div><pre>npx remotion render Shorts out/shorts.mp4 --browser-executable=[크롬 실행 파일 경로]</pre><p class="ok"><b>확인</b>새로 내려받지 않고 지정한 크롬으로 렌더링합니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s7"><div class="tb">
+        <h3><span class="sn">STEP 7</span>결과 확인하고 썸네일 뽑기<small>5분</small></h3>
+        <p class="d">이 단계에서는 렌더링한 MP4를 처음부터 끝까지 재생해 보고, 표지로 쓸 장면을 이미지 한 장으로 저장합니다.</p>
+        <figure class="tfig"><img src="img/ph/t-remotion-motion-video-4.webp" alt="렌더링한 15초 MP4에서 뽑은 네 장면, 원과 제목, 카드 세 장, 15초 숫자와 SHIFT AI 끝 카드" loading="lazy"><figcaption>렌더링한 MP4에서 2초, 6초, 11.5초, 14.5초 지점 프레임을 뽑아 나란히 붙인 것 · SHIFT AI 직접 캡처(2026-10-27)</figcaption></figure>
+        <div class="how">MP4를 열어 글자가 화면 밖으로 잘리지 않는지, 장면이 바뀌는 순간 빈 화면이 끼지 않는지 확인합니다. 특정 장면을 PNG로 저장하려면 npx remotion still에 --frame 옵션으로 프레임 번호를 넣습니다. 프레임 번호는 0부터 시작하고, 옵션을 빼면 0번 프레임, -1을 넣으면 마지막 프레임이 저장됩니다. 30fps 영상에서 2초 지점은 60번 프레임입니다.</div>
+        <p class="tp">같은 틀에 문구만 바꿔 여러 편을 만들 계획이라면 Claude Code에게 문구를 컴포지션의 defaultProps로 빼 달라고 합니다. 공식 문서에 따르면 스튜디오가 defaultProps 값을 보고 입력 칸을 만들어 주므로, 코드를 열지 않고 문구를 바꿔 볼 수 있습니다.</p>
+        
+        <div class="code"><div class="cl"><span>터미널 (my-video 폴더에서)</span><button class="copy" data-copy="npx remotion still Shorts out/thumb.png --frame=60">복사</button></div><pre>npx remotion still Shorts out/thumb.png --frame=60</pre><p class="ok"><b>확인</b>'Rendered 1/1'이 나오고 1080×1920 크기의 out/thumb.png가 저장됩니다</p></div>
+        
+        
+        
+        
+      </div></section></div>
+    <div class="bonus"><b>보너스 · 렌더링 전 체크리스트</b><ol><li>스튜디오 오른쪽 패널에서 1080×1920, 30fps, 00:15.00인지 확인했습니다</li><li>움직임에 CSS transition, @keyframes, setTimeout을 쓰지 않았습니다</li><li>한글 글꼴이 내 컴퓨터에 있는지, 다른 컴퓨터에서 렌더링해도 같은 글꼴이 나오는지 확인했습니다</li><li>Claude Code가 설치한 스킬과 실행한 명령을 한 번 훑어봤습니다</li><li>회사 업무라면 회사 전체 인원을 확인하고 회사 라이선스가 필요한지 봤습니다</li></ol></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>리모션은 개인, 전체 인원 3명 이하의 회사나 팀, 비영리 단체, 상업적으로 쓰기 전 평가 단계에서만 무료입니다. 인원은 리모션을 쓰는 사람만이 아니라 모든 인력(파트타임·외주 포함)을 세고, 같은 리모션 프로젝트를 함께 운영하는 협력사가 있으면 그 인원도 합칩니다. 그래서 20명 회사에서 한 명만 써도 회사 라이선스(Company License)가 필요합니다. 무료 라이선스로도 상업적으로 쓸 수 있고 기능 차이는 없습니다.</li><li>2026년 10월 27일 공식 FAQ 기준으로 회사 라이선스 중 영상 제작용 'Remotion for Creators'는 리모션 코드를 직접 또는 코딩 에이전트로 쓰는 사람 1명당 월 25달러입니다. 렌더링 명령이나 API를 코드로 자동 호출하는 파이프라인은 'Remotion for Automators'에 해당해 렌더 1회당 0.01달러(월 최소 100달러)입니다. 가격과 조건은 바뀔 수 있고, 리모션 5.0에서 라이선스가 조금 바뀐다고 예고돼 있습니다.</li><li>Claude Code는 편집부가 직접 실행하지 않았습니다. 데모 영상은 4단계 프롬프트와 같은 조건으로 편집부가 쓴 코드로 렌더링한 것이고, 2단계의 Claude Code 플러그인 설치 명령과 /remotion:remotion-create 호출도 공식 문서에서 옮겼을 뿐 실행해 보지 않았습니다. Claude Code를 비롯한 코딩 에이전트는 대부분 유료 구독이 필요하다고 공식 문서가 안내합니다. 에이전트가 쓴 코드는 스튜디오에서 처음부터 끝까지 재생해 직접 확인해야 합니다.</li><li>맥은 macOS 15 이상만 지원하고, 리눅스는 glibc 2.35 이상과 추가 라이브러리가 필요하며 알파인 리눅스와 NixOS는 지원하지 않습니다.</li></ul></div>
+    <div class="src"><b>공식 자료</b><a href="https://www.remotion.dev/docs/" target="_blank" rel="noopener">리모션 공식 문서 · Creating a new project · https://www.remotion.dev/docs/</a><a href="https://www.remotion.dev/docs/ai/coding-agents" target="_blank" rel="noopener">리모션 공식 문서 · Prompting videos with coding agents · https://www.remotion.dev/docs/ai/coding-agents</a><a href="https://www.remotion.dev/docs/ai/skills" target="_blank" rel="noopener">리모션 공식 문서 · Agent Skills · https://www.remotion.dev/docs/ai/skills</a><a href="https://www.remotion.dev/docs/cli/skills" target="_blank" rel="noopener">리모션 공식 문서 · npx remotion skills · https://www.remotion.dev/docs/cli/skills</a><a href="https://www.remotion.dev/docs/ai/claude-code-plugin" target="_blank" rel="noopener">리모션 공식 문서 · Claude Code plugin · https://www.remotion.dev/docs/ai/claude-code-plugin</a><a href="https://www.remotion.dev/docs/composition" target="_blank" rel="noopener">리모션 공식 문서 · &lt;Composition&gt; · https://www.remotion.dev/docs/composition</a><a href="https://www.remotion.dev/docs/troubleshooting/css-animations" target="_blank" rel="noopener">리모션 공식 문서 · Don't use CSS animations in Remotion · https://www.remotion.dev/docs/troubleshooting/css-animations</a><a href="https://www.remotion.dev/docs/fonts" target="_blank" rel="noopener">리모션 공식 문서 · Using fonts · https://www.remotion.dev/docs/fonts</a><a href="https://www.remotion.dev/docs/render" target="_blank" rel="noopener">리모션 공식 문서 · Render your video · https://www.remotion.dev/docs/render</a><a href="https://www.remotion.dev/docs/cli/still" target="_blank" rel="noopener">리모션 공식 문서 · npx remotion still · https://www.remotion.dev/docs/cli/still</a><a href="https://www.remotion.dev/docs/options/browser-executable" target="_blank" rel="noopener">리모션 공식 문서 · Browser executable · https://www.remotion.dev/docs/options/browser-executable</a><a href="https://www.remotion.dev/docs/license/faq" target="_blank" rel="noopener">리모션 공식 문서 · License FAQ · https://www.remotion.dev/docs/license/faq</a><a href="https://github.com/remotion-dev/remotion/blob/main/LICENSE.md" target="_blank" rel="noopener">GitHub · remotion-dev/remotion LICENSE.md · https://github.com/remotion-dev/remotion/blob/main/LICENSE.md</a><a href="https://github.com/remotion-dev/skills" target="_blank" rel="noopener">GitHub · remotion-dev/skills · https://github.com/remotion-dev/skills</a></div>
+    
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 질문하기</a><a href="/tutorial/remotion-motion-video/" data-copy="https://shiftaimagazine.com/tutorial/remotion-motion-video/">링크 복사</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 짧은 글과 토론은 쓰레드에 올립니다. 새 소식은 그쪽에 가장 먼저 올라옵니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>쓰레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/claude-code-skills-mcp/"><img class="thumb" src="img/cover/t-claude-code-skills-mcp.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">스킬·MCP · 입문</span><h3>클로드 코드에 스킬·MCP 붙이는 법, 설치부터 떼기까지 8단계</h3><p>스킬은 Claude에게 일하는 방법을 알려 주는 SKILL.md 폴더이고, MCP 서버는 Claude Code를 바깥 도구와 이어 주는 프로그램입니다. 앤트로픽 공식 스킬 저장소와 마이크로소프트 Playwright MCP를 예로 들어, 공식 문서에 적힌 명령으로 설치하고 확인하고 지우는 순서를 정리했습니다.</p><div class="meta"><span>2026.10.27</span><span class="dot"></span><span>STEP 8개</span><span class="dot"></span><span>읽는 데 19분</span></div></div></a></div></div>
+  </article></main>
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문을 확인하고, 그 소식으로 무엇이 달라지는지 씁니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/tools/">무료 도구</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data.js?v=3d38da1b"></script>
+<script src="/assets/app.js?v=3d38da1b"></script>
+
+
+</body></html>

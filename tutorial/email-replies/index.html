@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=1b76ec11">
+<link rel="stylesheet" href="/assets/site.css?v=3d38da1b">
 </head>
 <body data-route="t-email-replies" data-pre="1">
 <div class="wrap">
@@ -57,77 +57,143 @@
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · 업무 · 입문</span>
     <h1>곤란한 메일 답장, 초안부터 잡는 프롬프트 10개</h1><p class="deck">거절, 일정 조율, 사과, 독촉, 가격 협상처럼 쓰기 싫은 메일은 첫 문장부터 막힙니다. 상황별로 바로 붙여 넣어 쓸 수 있는 초안 프롬프트를 모았습니다.</p>
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.20</span><span class="dot"></span><span>10개 항목 · 5분</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.20</span><span class="dot"></span><span>읽는 데 9분</span><span class="dot"></span><span>프롬프트 10개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=ChatGPT">ChatGPT</a><a href="/tutorial/?tool=Claude">Claude</a><a href="/tutorial/?tool=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4">제미나이</a></div>
     <figure class="lead-fig"><img src="img/ph/t-email-replies.webp" alt="" loading="lazy"><figcaption>노트북으로 글을 쓰는 손 · Wikimedia Commons · Simon Hattinga Verschure (CC0)</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에 담긴 것</b><span>프롬프트 10개 · 따라 하는 데 5분</span></div>
+      <ol><li><a href="#s1"><span>프롬프트 1</span>정중하게 거절하기</a></li><li><a href="#s2"><span>프롬프트 2</span>일정 조율</a></li><li><a href="#s3"><span>프롬프트 3</span>실수 사과하기</a></li><li><a href="#s4"><span>프롬프트 4</span>답 없는 상대에게 다시 요청하기</a></li><li><a href="#s5"><span>프롬프트 5</span>가격을 깎아 달라는 요청에 답하기</a></li><li><a href="#s6"><span>프롬프트 6</span>내가 가격·조건을 협상할 때</a></li><li><a href="#s7"><span>프롬프트 7</span>범위 밖 요청에 선 긋기</a></li><li><a href="#s8"><span>프롬프트 8</span>구체적인 감사 메일</a></li><li><a href="#s9"><span>프롬프트 9</span>화난 고객·상대에게 답하기</a></li><li><a href="#s10"><span>프롬프트 10</span>보내기 전, 받는 사람 입장에서 읽기</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>상대와의 관계, 원하는 결과, 양보할 수 없는 조건을 먼저 한 줄씩 적습니다.</li><li>상황에 맞는 프롬프트를 골라 [ ]를 채우고 초안을 받습니다.</li><li>보내기 전에 '받는 사람 입장에서 읽기' 프롬프트로 한 번 더 점검합니다.</li></ol></div>
     
     <div class="prep"><div><b>필요한 것</b>ChatGPT·클로드·제미나이 아무 AI</div><div><b>걸리는 시간</b>5분</div><div><b>왜 필요한가요</b>어려운 메일은 내용보다 말투와 순서 때문에 오래 걸립니다. 상황, 관계, 원하는 결과를 정해 주면 AI가 초안을 몇 가지 버전으로 내놓으니, 그중에서 고르고 다듬기만 하면 됩니다.</div></div>
     <div class="intro">메일 답장이 어려운 건 대개 상대와의 관계를 지키면서 원하는 걸 분명히 말해야 할 때입니다. AI에게 '정중하게 써 줘'라고만 요청하면 길고 흐릿한 메일이 나옵니다. 대신 ① 누구에게(관계), ② 무엇을 원하는지(결과), ③ 무엇은 양보할 수 없는지(조건)를 적으면 쓸 만한 초안이 나옵니다. 상대 메일을 붙여 넣을 때는 이름, 연락처, 계약 금액 같은 민감한 정보를 [ ]로 바꿔 넣습니다. 보내기 전에는 날짜·금액 같은 사실을 꼭 직접 확인해야 합니다.</div>
-    <div class="items"><section class="ti"><div class="no">01</div>
-      <div class="tb"><h3>정중하게 거절하기</h3><p class="d">부탁·제안·추가 업무를 거절하면서 관계는 남기는 메일입니다.</p>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">프롬프트 1</span>정중하게 거절하기</h3>
+        <p class="d">부탁·제안·추가 업무를 거절하면서 관계는 남기는 메일입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>거절 이유는 길게 쓰지 않는 편이 좋습니다. 대안을 줄 수 있으면 [대안]에 적고, 없으면 '없음'이라고 적습니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[상대와의 관계, 예: 협력사 담당자]가 [요청 내용]을 부탁했는데 [거절 이유] 때문에 거절해야 해. 1) 첫 문장에 결론(거절)을 분명히 말하고, 2) 이유는 한 문장으로, 3) 가능하면 [대안]을 제안하고, 4) 다음에 협업할 여지를 남기는 메일을 써 줘. 길이는 5문장 안쪽, 사과를 반복하지 마. 말투가 다른 버전 2개(단호/부드러움)로 줘.</div><button class="copy dark" data-copy="[상대와의 관계, 예: 협력사 담당자]가 [요청 내용]을 부탁했는데 [거절 이유] 때문에 거절해야 해. 1) 첫 문장에 결론(거절)을 분명히 말하고, 2) 이유는 한 문장으로, 3) 가능하면 [대안]을 제안하고, 4) 다음에 협업할 여지를 남기는 메일을 써 줘. 길이는 5문장 안쪽, 사과를 반복하지 마. 말투가 다른 버전 2개(단호/부드러움)로 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">02</div>
-      <div class="tb"><h3>일정 조율</h3><p class="d">회의·마감 일정을 바꾸거나 맞출 때 오가는 메일을 한 번에 끝내는 초안입니다.</p>
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">프롬프트 2</span>일정 조율</h3>
+        <p class="d">회의·마감 일정을 바꾸거나 맞출 때 오가는 메일을 한 번에 끝내는 초안입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>가능한 시간 후보를 2~3개 구체적으로 적어야 답장이 한 번에 끝납니다. 날짜와 요일이 맞는지는 보내기 전에 달력으로 확인합니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[상대]와 [회의/마감] 일정을 조율해야 해. 원래 일정은 [날짜·시간]이었는데 [사유]로 바꾸고 싶어. 1) 바꾸는 이유를 짧게, 2) 가능한 시간 후보 [2~3개]를 날짜·요일·시간으로, 3) 모두 안 되면 상대가 편한 시간을 받는 방법까지 담은 메일을 써 줘. 상대가 한 줄로 답할 수 있게 마지막 문장을 만들어 줘.</div><button class="copy dark" data-copy="[상대]와 [회의/마감] 일정을 조율해야 해. 원래 일정은 [날짜·시간]이었는데 [사유]로 바꾸고 싶어. 1) 바꾸는 이유를 짧게, 2) 가능한 시간 후보 [2~3개]를 날짜·요일·시간으로, 3) 모두 안 되면 상대가 편한 시간을 받는 방법까지 담은 메일을 써 줘. 상대가 한 줄로 답할 수 있게 마지막 문장을 만들어 줘.">복사하기</button></div>
         <div class="ex"><div><b>넣는 것 (예시)</b><pre>상대: 거래처 홍길동 과장 / 원래: 10월 28일(수) 오후 2시 / 사유: 내부 보고 일정과 겹침 / 후보: 29일 오전, 30일 오후</pre></div><div><b>나오는 것 (예시)</b><pre>제목: 10월 28일 미팅 일정 변경 요청드립니다
 홍길동 과장님, 28일(수) 오후 2시 미팅이 내부 보고 일정과 겹쳐 부득이하게 옮기고자 합니다. 아래 중 편하신 시간을 알려 주시면 맞추겠습니다.
 ① 10월 29일(목) 오전 10시 ② 10월 30일(금) 오후 3시
 두 시간 모두 어려우시면 가능하신 시간을 알려 주세요.</pre></div></div>
-      </div></section><section class="ti"><div class="no">03</div>
-      <div class="tb"><h3>실수 사과하기</h3><p class="d">내 실수를 인정하고, 무엇을 고쳤는지와 재발 방지를 담은 사과 메일입니다.</p>
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">프롬프트 3</span>실수 사과하기</h3>
+        <p class="d">내 실수를 인정하고, 무엇을 고쳤는지와 재발 방지를 담은 사과 메일입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>무엇이 잘못됐는지 사실 그대로 적습니다. AI가 책임을 흐리는 표현('오해가 있었다')을 넣으면 고쳐 달라고 다시 요청합니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">내가 [실수 내용, 예: 견적서 금액을 잘못 보냄]을 했고, 상대는 [상대가 겪은 불편]을 겪었어. 1) 무엇이 잘못됐는지 구체적으로 인정하고, 2) 이미 한 조치와 앞으로 할 조치를 날짜와 함께, 3) 같은 일이 없게 바꾼 점을 담은 사과 메일을 써 줘. '오해', '착오가 있었던 것 같다'처럼 책임을 흐리는 말은 쓰지 마. 변명은 한 문장도 넣지 마.</div><button class="copy dark" data-copy="내가 [실수 내용, 예: 견적서 금액을 잘못 보냄]을 했고, 상대는 [상대가 겪은 불편]을 겪었어. 1) 무엇이 잘못됐는지 구체적으로 인정하고, 2) 이미 한 조치와 앞으로 할 조치를 날짜와 함께, 3) 같은 일이 없게 바꾼 점을 담은 사과 메일을 써 줘. '오해', '착오가 있었던 것 같다'처럼 책임을 흐리는 말은 쓰지 마. 변명은 한 문장도 넣지 마.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">04</div>
-      <div class="tb"><h3>답 없는 상대에게 다시 요청하기</h3><p class="d">회신이 없는 상대에게 부담은 줄이고 마감은 분명히 하는 리마인드 메일입니다.</p>
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">프롬프트 4</span>답 없는 상대에게 다시 요청하기</h3>
+        <p class="d">회신이 없는 상대에게 부담은 줄이고 마감은 분명히 하는 리마인드 메일입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>몇 번째 연락인지에 따라 말투를 달리합니다. 상대가 할 일을 한 문장으로 줄여 주면 답이 빨리 옵니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[날짜]에 [상대]에게 [요청 내용]을 보냈는데 아직 답이 없어. 이번이 [2]번째 연락이야. 우리 쪽 마감은 [날짜]이고, 그때까지 답이 없으면 [영향, 예: 일정이 일주일 밀림]. 1) 앞 메일을 다시 찾지 않아도 되게 요청을 한 문장으로 요약하고, 2) 마감과 영향은 분명히 하되 탓하는 느낌 없이, 3) 상대가 '예/아니오'로 답할 수 있는 질문으로 끝나는 메일을 써 줘. 3번째 연락용으로 조금 더 단호한 버전도 함께 줘.</div><button class="copy dark" data-copy="[날짜]에 [상대]에게 [요청 내용]을 보냈는데 아직 답이 없어. 이번이 [2]번째 연락이야. 우리 쪽 마감은 [날짜]이고, 그때까지 답이 없으면 [영향, 예: 일정이 일주일 밀림]. 1) 앞 메일을 다시 찾지 않아도 되게 요청을 한 문장으로 요약하고, 2) 마감과 영향은 분명히 하되 탓하는 느낌 없이, 3) 상대가 '예/아니오'로 답할 수 있는 질문으로 끝나는 메일을 써 줘. 3번째 연락용으로 조금 더 단호한 버전도 함께 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">05</div>
-      <div class="tb"><h3>가격을 깎아 달라는 요청에 답하기</h3><p class="d">고객이나 거래처의 할인 요청에 가격은 지키거나, 조건을 바꿔 양보하는 답장입니다.</p>
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">프롬프트 5</span>가격을 깎아 달라는 요청에 답하기</h3>
+        <p class="d">고객이나 거래처의 할인 요청에 가격은 지키거나, 조건을 바꿔 양보하는 답장입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>양보할 수 있는 최저선과 맞바꿀 조건(계약 기간, 결제 시점, 범위 축소)을 [ ]에 적습니다. 최저선은 메일에 드러나지 않게 하라고 AI에게 분명히 적습니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">고객이 [상품/서비스] 가격을 [요청 할인율/금액]만큼 깎아 달라고 했어. 원래 가격은 [가격], 내가 양보할 수 있는 최저선은 [금액]이고 이건 메일에 쓰면 안 돼. 맞바꿀 수 있는 조건은 [예: 계약 1년, 선결제, 작업 범위 축소]야. 1) 가격을 그대로 지키는 버전, 2) 조건을 바꾸는 대신 일부 양보하는 버전 두 가지로 메일을 써 줘. 두 버전 모두 가격이 왜 이 수준인지 한두 문장으로 설명해 줘.</div><button class="copy dark" data-copy="고객이 [상품/서비스] 가격을 [요청 할인율/금액]만큼 깎아 달라고 했어. 원래 가격은 [가격], 내가 양보할 수 있는 최저선은 [금액]이고 이건 메일에 쓰면 안 돼. 맞바꿀 수 있는 조건은 [예: 계약 1년, 선결제, 작업 범위 축소]야. 1) 가격을 그대로 지키는 버전, 2) 조건을 바꾸는 대신 일부 양보하는 버전 두 가지로 메일을 써 줘. 두 버전 모두 가격이 왜 이 수준인지 한두 문장으로 설명해 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">06</div>
-      <div class="tb"><h3>내가 가격·조건을 협상할 때</h3><p class="d">견적을 받은 쪽에서 가격이나 조건 조정을 요청하는 메일입니다.</p>
+      </div></section><section class="ti" id="s6"><div class="tb">
+        <h3><span class="sn">프롬프트 6</span>내가 가격·조건을 협상할 때</h3>
+        <p class="d">견적을 받은 쪽에서 가격이나 조건 조정을 요청하는 메일입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>근거(예산, 다른 견적, 물량)를 하나 이상 넣어야 요청에 힘이 생깁니다. 다른 업체 견적을 언급할 때 업체명까지 밝힐 필요는 없습니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[업체]에서 [품목/서비스] 견적 [금액]을 받았어. 우리 예산은 [금액]이고, 근거는 [예: 연간 계약 가능, 다른 견적이 더 낮음, 물량 증가 예정]이야. 1) 관계를 해치지 않으면서 가격 조정을 요청하고, 2) 가격이 어렵다면 대신 받을 수 있는 조건(납기, 추가 서비스, 결제 조건)을 제안하고, 3) 답변 기한을 정하는 메일을 써 줘. 공격적으로 들릴 수 있는 표현이 있으면 따로 표시해 줘.</div><button class="copy dark" data-copy="[업체]에서 [품목/서비스] 견적 [금액]을 받았어. 우리 예산은 [금액]이고, 근거는 [예: 연간 계약 가능, 다른 견적이 더 낮음, 물량 증가 예정]이야. 1) 관계를 해치지 않으면서 가격 조정을 요청하고, 2) 가격이 어렵다면 대신 받을 수 있는 조건(납기, 추가 서비스, 결제 조건)을 제안하고, 3) 답변 기한을 정하는 메일을 써 줘. 공격적으로 들릴 수 있는 표현이 있으면 따로 표시해 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">07</div>
-      <div class="tb"><h3>범위 밖 요청에 선 긋기</h3><p class="d">계약 범위를 넘는 추가 요청에 거절 대신 '별도 비용·일정'으로 안내하는 메일입니다.</p>
+      </div></section><section class="ti" id="s7"><div class="tb">
+        <h3><span class="sn">프롬프트 7</span>범위 밖 요청에 선 긋기</h3>
+        <p class="d">계약 범위를 넘는 추가 요청에 거절 대신 '별도 비용·일정'으로 안내하는 메일입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>원래 합의한 범위를 [ ]에 적어 두면 AI가 그 기준으로 선을 긋습니다. 금액을 아직 모르면 '견적 별도'로 둡니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">프로젝트 원래 범위는 [합의한 범위]야. 그런데 상대가 [추가 요청]을 '간단한 거니까' 해 달라고 했어. 1) 요청 자체는 반갑게 받되, 2) 원래 범위 밖이라는 점을 사실로 설명하고, 3) 진행하려면 추가 비용 [금액 또는 '견적 별도']와 일정 [기간]이 필요하다고 안내하고, 4) 진행 여부를 묻는 메일을 써 줘. 상대가 기분 나쁘지 않게, 그러나 무료로 해 주겠다는 여지는 남기지 마.</div><button class="copy dark" data-copy="프로젝트 원래 범위는 [합의한 범위]야. 그런데 상대가 [추가 요청]을 '간단한 거니까' 해 달라고 했어. 1) 요청 자체는 반갑게 받되, 2) 원래 범위 밖이라는 점을 사실로 설명하고, 3) 진행하려면 추가 비용 [금액 또는 '견적 별도']와 일정 [기간]이 필요하다고 안내하고, 4) 진행 여부를 묻는 메일을 써 줘. 상대가 기분 나쁘지 않게, 그러나 무료로 해 주겠다는 여지는 남기지 마.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">08</div>
-      <div class="tb"><h3>구체적인 감사 메일</h3><p class="d">형식적인 '감사합니다' 대신 무엇이 어떻게 도움이 됐는지 전하는 메일입니다.</p>
+      </div></section><section class="ti" id="s8"><div class="tb">
+        <h3><span class="sn">프롬프트 8</span>구체적인 감사 메일</h3>
+        <p class="d">형식적인 '감사합니다' 대신 무엇이 어떻게 도움이 됐는지 전하는 메일입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>상대가 한 일과 그 덕분에 생긴 결과를 한 가지씩 적습니다. 짧을수록 진심으로 읽힙니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">[상대]가 [도와준 일]을 해 줬고, 덕분에 [결과, 예: 마감을 이틀 앞당김]. 1) 무엇이 고마운지 구체적으로, 2) 그 결과가 우리에게 어떤 의미였는지, 3) 다음에 내가 도울 수 있는 것을 한 문장으로 담은 감사 메일을 4문장 안에서 써 줘. 과장된 칭찬 표현은 빼 줘. 상대의 상사를 참조에 넣을 때 쓸 버전도 하나 더 줘.</div><button class="copy dark" data-copy="[상대]가 [도와준 일]을 해 줬고, 덕분에 [결과, 예: 마감을 이틀 앞당김]. 1) 무엇이 고마운지 구체적으로, 2) 그 결과가 우리에게 어떤 의미였는지, 3) 다음에 내가 도울 수 있는 것을 한 문장으로 담은 감사 메일을 4문장 안에서 써 줘. 과장된 칭찬 표현은 빼 줘. 상대의 상사를 참조에 넣을 때 쓸 버전도 하나 더 줘.">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">09</div>
-      <div class="tb"><h3>화난 고객·상대에게 답하기</h3><p class="d">항의 메일에 감정은 받아 주고 사실과 해결책으로 답하는 초안입니다.</p>
+      </div></section><section class="ti" id="s9"><div class="tb">
+        <h3><span class="sn">프롬프트 9</span>화난 고객·상대에게 답하기</h3>
+        <p class="d">항의 메일에 감정은 받아 주고 사실과 해결책으로 답하는 초안입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>상대 메일 원문을 붙여 넣되 이름·주문번호는 [ ]로 바꿉니다. 우리가 해 줄 수 있는 것과 없는 것을 먼저 정해 넣어야 AI가 지킬 수 없는 약속을 쓰지 않습니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래는 화가 난 [고객/거래처]의 메일이야. 우리가 해 줄 수 있는 건 [가능한 조치], 해 줄 수 없는 건 [불가능한 것과 이유]야. 1) 상대가 화난 핵심 이유를 한 줄로 요약해 줘. 2) 그 이유를 인정하는 문장으로 시작하고, 3) 사실관계와 우리가 할 조치를 날짜와 함께 적고, 4) 해 줄 수 없는 부분은 이유와 함께 분명히 말하는 답장을 써 줘. 같은 사과를 반복하지 말고, 상대의 말을 반박하는 표현은 빼 줘. 상대 메일: [원문]</div><button class="copy dark" data-copy="아래는 화가 난 [고객/거래처]의 메일이야. 우리가 해 줄 수 있는 건 [가능한 조치], 해 줄 수 없는 건 [불가능한 것과 이유]야. 1) 상대가 화난 핵심 이유를 한 줄로 요약해 줘. 2) 그 이유를 인정하는 문장으로 시작하고, 3) 사실관계와 우리가 할 조치를 날짜와 함께 적고, 4) 해 줄 수 없는 부분은 이유와 함께 분명히 말하는 답장을 써 줘. 같은 사과를 반복하지 말고, 상대의 말을 반박하는 표현은 빼 줘. 상대 메일: [원문]">복사하기</button></div>
         
-      </div></section><section class="ti"><div class="no">10</div>
-      <div class="tb"><h3>보내기 전, 받는 사람 입장에서 읽기</h3><p class="d">내가 쓴 초안을 상대 입장에서 읽게 해, 오해할 문장과 빠진 정보를 찾는 마지막 점검입니다.</p>
+      </div></section><section class="ti" id="s10"><div class="tb">
+        <h3><span class="sn">프롬프트 10</span>보내기 전, 받는 사람 입장에서 읽기</h3>
+        <p class="d">내가 쓴 초안을 상대 입장에서 읽게 해, 오해할 문장과 빠진 정보를 찾는 마지막 점검입니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>AI가 쓴 초안이든 내가 쓴 메일이든 보내기 직전에 씁니다. 상대의 직급과 성향을 적으면 더 정확합니다.</div>
+        
+        
+        
+        
+        
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">아래 메일을 받는 사람은 [상대의 관계·직급·성향, 예: 꼼꼼하고 바쁜 거래처 팀장]이야. 그 사람 입장에서 읽고 1) 무례하거나 차갑게 느껴질 수 있는 문장, 2) 뜻이 두 가지로 읽히는 문장, 3) 답장하려면 다시 물어야 할 빠진 정보(날짜, 금액, 첨부), 4) 첫 두 줄만 읽어도 요점이 보이는지를 점검해 줘. 고칠 문장은 원래 문장과 고친 문장을 나란히 보여 줘. 메일: [초안]</div><button class="copy dark" data-copy="아래 메일을 받는 사람은 [상대의 관계·직급·성향, 예: 꼼꼼하고 바쁜 거래처 팀장]이야. 그 사람 입장에서 읽고 1) 무례하거나 차갑게 느껴질 수 있는 문장, 2) 뜻이 두 가지로 읽히는 문장, 3) 답장하려면 다시 물어야 할 빠진 정보(날짜, 금액, 첨부), 4) 첫 두 줄만 읽어도 요점이 보이는지를 점검해 줘. 고칠 문장은 원래 문장과 고친 문장을 나란히 보여 줘. 메일: [초안]">복사하기</button></div>
         <div class="ex"><div><b>넣는 것 (예시)</b><pre>초안: 지난번에 말씀드린 건 아직 확인 안 하신 것 같아 다시 보냅니다.</pre></div><div><b>나오는 것 (예시)</b><pre>차갑게 읽힐 수 있음: '확인 안 하신 것 같아'
 → 고친 문장: '10월 20일에 보내 드린 견적 건, 확인하시기 편하도록 다시 첨부드립니다.'</pre></div></div>
       </div></section></div>
     <div class="bonus"><b>보너스 · 보내기 전 체크리스트</b><ol><li>첫 두 줄에 요점(무엇을 원하는지)이 있습니다</li><li>날짜·요일·금액·첨부 파일을 직접 확인했습니다</li><li>받는 사람·참조·숨은 참조가 맞습니다</li><li>상대 이름과 직함 표기가 정확합니다</li><li>AI가 넣은 과한 인사말과 반복된 사과를 지웠습니다</li><li>감정이 올라온 메일은 바로 보내지 않고 한 번 쉬었다가 다시 읽었습니다</li></ol></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>상대 메일을 붙여 넣으면 그 내용이 AI 서비스로 넘어가므로 이름, 연락처, 계약 금액은 [ ]로 바꿔 넣어야 합니다.</li><li>AI는 날짜·요일·금액을 틀리게 쓰거나 지킬 수 없는 약속을 넣을 수 있어, 보내기 전에 사람이 직접 확인해야 합니다.</li><li>AI 초안은 상대와 주고받은 지난 대화나 사내 사정을 모르므로, 말투와 내용이 상황에 맞는지는 직접 판단해야 합니다.</li></ul></div>
     
     
     <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 질문하기</a><a href="/tutorial/email-replies/" data-copy="https://shiftaimagazine.com/tutorial/email-replies/">링크 복사</a></div>
@@ -140,7 +206,7 @@
   </div>
 </section>
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/verify-numbers/"><img class="thumb" src="img/cover/t-verify-numbers.webp" alt="" loading="lazy">
-  <div class="b"><span class="cat">AI 답 검증 · 입문</span><h3>AI가 말한 숫자·날짜·가격, 원문으로 확인하는 프롬프트 9개</h3><p>AI 답변에 나오는 숫자는 그럴듯해서 더 위험합니다. 출처 붙이기부터 단위·기준일·자체 발표 구분까지, 숫자를 믿기 전에 던질 질문을 모았습니다.</p><div class="meta"><span>2026.10.20</span><span class="dot"></span><span>9개 항목 · 5분</span></div></div></a></div></div>
+  <div class="b"><span class="cat">AI 답 검증 · 입문</span><h3>AI가 말한 숫자·날짜·가격, 원문으로 확인하는 프롬프트 9개</h3><p>AI 답변에 나오는 숫자는 그럴듯해서 더 위험합니다. 출처 붙이기부터 단위·기준일·자체 발표 구분까지, 숫자를 믿기 전에 던질 질문을 모았습니다.</p><div class="meta"><span>2026.10.20</span><span class="dot"></span><span>프롬프트 9개</span><span class="dot"></span><span>읽는 데 8분</span></div></div></a></div></div>
   </article></main>
 <footer>
   <div class="fl">
@@ -153,8 +219,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=1b76ec11"></script>
-<script src="/assets/app.js?v=1b76ec11"></script>
+<script src="/assets/data.js?v=3d38da1b"></script>
+<script src="/assets/app.js?v=3d38da1b"></script>
 
 
 </body></html>

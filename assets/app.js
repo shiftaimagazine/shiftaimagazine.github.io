@@ -27,8 +27,13 @@ const thumb = im=>`<img class="thumb" src="${im.src}" alt="" loading="lazy">`;
 
 const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
   <div class="b"><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div></div></a>`;
+// 튜토리얼: 읽는 시간(글자 수 기준)과 단위(STEP / 프롬프트)
+const tutText = t=>[t.deck,t.why,t.intro,...(t.quick?t.quick.lines:[]),...t.items.flatMap(x=>[x.h,x.d,x.how,...(x.more||[]),x.prompt,...(x.term||[]).flat(),...(x.code||[]).map(c=>c.cmd+" "+(c.ok||"")),x.bad,x.good]),...(t.bonus?t.bonus.items:[]),...(t.limits||[])].filter(Boolean).join(" ");
+const tutRead = t=>Math.max(1,Math.round(tutText(t).replace(/\s/g,"").length/350));
+const tutUnit = t=>t.kind==="steps" ? `STEP ${t.items.length}개` : `프롬프트 ${t.items.length}개`;
+const tutLabel = (t,k)=>t.kind==="steps" ? `STEP ${k+1}` : `프롬프트 ${k+1}`;
 const tutHTML = t=>`<a class="post" href="${P(t.id)}">${thumb({src:t.thumb})}
-  <div class="b"><span class="cat">${esc(t.cat||"튜토리얼")} · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
+  <div class="b"><span class="cat">${esc(t.cat||"튜토리얼")} · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${tutUnit(t)}</span><span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
 const toolHTML = t=>`<a class="post" href="${t.href}">${thumb({src:t.thumb})}
   <div class="b"><span class="cat">무료 도구 · ${esc(t.tag)}</span><h3>${esc(t.title)}</h3><p>${esc(t.desc)}</p><div class="meta"><span>설치·가입 없음</span><span class="dot"></span><span>브라우저에서 바로</span></div></div></a>`;
 const colImg = c=>c.image||(c.rel&&byId[c.rel]?imgOf(byId[c.rel]):{src:"img/logo.webp"});
@@ -89,20 +94,31 @@ $("#grp") && $("#grp").addEventListener("click",e=>{const b=e.target.closest("bu
 const drowHTML = d=>{const its=dayItems(d); const lead=dayPhoto(d); const [y,m,dd]=d.date.split("-");
     return `<a class="drow" href="${P("d-"+d.date)}"><div class="dd">${m}.${dd}<small>${korDate(d.date).split(" ").pop()} · ${its.length}건</small></div>
       <div><h3>${esc(d.title)}</h3><ul>${(d.three||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>${lead?`<figure>${thumb(imgOf(lead))}</figure>`:"<span></span>"}</a>`;};
-// 튜토리얼 목록 = 분류 버튼 + 최신순 목록
-let tutFilter = (ROUTE==="tutorial" && new URLSearchParams(location.search).get("cat")) || "all";
+// 튜토리얼 목록 = 검색칸 + 도구 버튼 + 주제 버튼 + 최신순 목록 (주소: /tutorial/?cat=주제&tool=도구&q=검색어)
+const _tq = new URLSearchParams(ROUTE==="tutorial" ? location.search : "");
+let tutFilter = _tq.get("cat") || "all", tutTool = _tq.get("tool") || "all", tutQ = _tq.get("q") || "";
+const TOOL_TAG = "무료 도구";  // 주제 줄 맨 앞: 무료 도구만 모아 보기
+const TUT_TOOLS = (()=>{ const c={}; TUTORIALS.forEach(t=>(t.tool||[]).forEach(x=>c[x]=(c[x]||0)+1)); return Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([k,n])=>[k,n]); })();
+const tutMatch = (t,q)=>{ if(!q) return true; const n=s=>String(s||"").toLowerCase().replace(/\s/g,""); const h=n([t.title,t.deck,t.cat,(t.tool||[]).join(" "),tutText(t)].join(" ")); return n(q).split(/[,]/).every(w=>!w||h.includes(w)); };
 function renderTutList(){
   if(!$("#tutGrid")) return;
-  const TOOL_TAG = "무료 도구";  // 튜토리얼 목록에서 무료 도구만 모아 보기
-  if($("#tutFilters")) $("#tutFilters").innerHTML = `<button aria-pressed="${tutFilter==="all"}" data-tc="all">전체 ${TUTORIALS.length}</button>`
+  if($("#tutTools")) $("#tutTools").innerHTML = `<span class="flbl">도구</span><button aria-pressed="${tutTool==="all"}" data-tt="all">전체</button>`
+    +TUT_TOOLS.map(([k,n])=>`<button aria-pressed="${tutTool===k}" data-tt="${esc(k)}">${esc(k)} ${n}</button>`).join("");
+  if($("#tutFilters")) $("#tutFilters").innerHTML = `<span class="flbl">주제</span><button aria-pressed="${tutFilter==="all"}" data-tc="all">전체</button>`
     +`<button class="tooltag" aria-pressed="${tutFilter===TOOL_TAG}" data-tc="${TOOL_TAG}">${TOOL_TAG} ${TOOLS.length}</button>`
-    +TUT_CATS.map(c=>`<button aria-pressed="${tutFilter===c}" data-tc="${esc(c)}">${esc(c)} ${TUTORIALS.filter(t=>t.cat===c).length}</button>`).join("");
-  if(tutFilter===TOOL_TAG){ $("#tutGrid").innerHTML = TOOLS.map(toolHTML).join(""); return; }
-  const list = TUTORIALS.filter(t=>tutFilter==="all"||t.cat===tutFilter);
-  $("#tutGrid").innerHTML = list.length ? list.map(tutHTML).join("") : `<div class="empty">해당하는 글이 없습니다.</div>`;
+    +TUT_CATS.filter(c=>TUTORIALS.some(t=>t.cat===c)).map(c=>`<button aria-pressed="${tutFilter===c}" data-tc="${esc(c)}">${esc(c)} ${TUTORIALS.filter(t=>t.cat===c).length}</button>`).join("");
+  if($("#tutQ") && $("#tutQ").value!==tutQ) $("#tutQ").value = tutQ;
+  let html, n;
+  if(tutFilter===TOOL_TAG){ const ts=TOOLS.filter(t=>!tutQ||[t.title,t.desc,t.tag].join(" ").includes(tutQ)); html=ts.map(toolHTML).join(""); n=ts.length; }
+  else { const list = TUTORIALS.filter(t=>(tutFilter==="all"||t.cat===tutFilter)&&(tutTool==="all"||(t.tool||[]).includes(tutTool))&&tutMatch(t,tutQ)); html=list.map(tutHTML).join(""); n=list.length; }
+  $("#tutGrid").innerHTML = n ? html : `<div class="empty">조건에 맞는 글이 없습니다. 검색어나 버튼을 바꿔 보세요.</div>`;
+  if($("#tutCount")) $("#tutCount").textContent = `${n}편`;
 }
-$("#tutFilters") && $("#tutFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-tc]"); if(!b) return; tutFilter=b.dataset.tc; renderTutList();
-  try{ history.replaceState(null,"", tutFilter==="all" ? "/tutorial/" : "/tutorial/?cat="+encodeURIComponent(tutFilter)); }catch(_){} });
+function tutURL(){ const q=new URLSearchParams(); if(tutFilter!=="all") q.set("cat",tutFilter); if(tutTool!=="all") q.set("tool",tutTool); if(tutQ) q.set("q",tutQ);
+  try{ history.replaceState(null,"", "/tutorial/"+(q.toString()?"?"+q:"")); }catch(_){} }
+$("#tutFilters") && $("#tutFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-tc]"); if(!b) return; tutFilter=b.dataset.tc; renderTutList(); tutURL(); });
+$("#tutTools") && $("#tutTools").addEventListener("click",e=>{const b=e.target.closest("button[data-tt]"); if(!b) return; tutTool=b.dataset.tt; if(tutFilter===TOOL_TAG) tutFilter="all"; renderTutList(); tutURL(); });
+$("#tutQ") && $("#tutQ").addEventListener("input",e=>{ tutQ=e.target.value.trim(); renderTutList(); tutURL(); });
 function renderLists(){
   if($("#colGrid")) $("#colGrid").innerHTML = COLUMNS.map(colHTML).join("");
   renderTutList();
@@ -251,26 +267,45 @@ function renderColumn(c){
 }
 function renderTutorial(t){
   const i = TUTORIALS.findIndex(x=>x.id===t.id); const nx = TUTORIALS[(i+1)%TUTORIALS.length]; const rel = t.rel && byId[t.rel];
-  const items = t.items.map((it,k)=>`<section class="ti"><div class="no">${String(k+1).padStart(2,"0")}</div>
-      <div class="tb"><h3>${esc(it.h)}</h3><p class="d">${esc(it.d)}</p>
+  const steps = t.kind==="steps";
+  const code = c=>`<div class="code"><div class="cl"><span>${esc(c.label||"터미널")}</span><button class="copy" data-copy="${esc(c.cmd)}">복사</button></div><pre>${esc(c.cmd)}</pre>${c.ok?`<p class="ok"><b>확인</b>${esc(c.ok)}</p>`:""}</div>`;
+  const items = t.items.map((it,k)=>`<section class="ti" id="s${k+1}"><div class="tb">
+        <h3><span class="sn">${tutLabel(t,k)}</span>${esc(it.h)}${it.time?`<small>${esc(it.time)}</small>`:""}</h3>
+        <p class="d">${esc(it.d)}</p>
         ${it.img?`<figure class="tfig"><img src="${it.img.src}" alt="${esc(it.img.alt||it.h)}" loading="lazy">${it.img.cap?`<figcaption>${esc(it.img.cap)}</figcaption>`:""}</figure>`:""}
-        ${it.how?`<div class="how"><b>이렇게 쓰세요</b>${esc(it.how)}</div>`:""}
+        ${it.how?`<div class="how">${steps?"":"<b>이렇게 쓰세요</b>"}${esc(it.how)}</div>`:""}
+        ${(it.more||[]).map(p=>`<p class="tp">${esc(p)}</p>`).join("")}
+        ${(it.term||[]).map(([w,x])=>`<div class="term2"><b>용어 · ${esc(w)}</b>${esc(x)}</div>`).join("")}
+        ${(it.code||[]).map(code).join("")}
+        ${it.bad||it.good?`<div class="vs">${it.bad?`<div class="no"><b>이렇게 말고</b>${esc(it.bad.replace(/^❌\s*/,""))}</div>`:""}${it.good?`<div class="yes"><b>이렇게</b>${esc(it.good.replace(/^✅\s*/,""))}</div>`:""}</div>`:""}
+        ${it.table?`<div class="tbl"><table class="dtable"><thead><tr>${it.table.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${it.table.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`:""}
         ${it.prompt?`<div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">${esc(it.prompt)}</div><button class="copy dark" data-copy="${esc(it.prompt)}">복사하기</button></div>`:""}
         ${it.example?`<div class="ex"><div><b>넣는 것 (예시)</b><pre>${esc(it.example.in)}</pre></div><div><b>나오는 것 (예시)</b><pre>${esc(it.example.out)}</pre></div></div>`:""}
       </div></section>`).join("");
+  const toc = `<div class="tinside"><div class="th"><b>이 글에 담긴 것</b><span>${tutUnit(t)} · 따라 하는 데 ${esc(t.time)}</span></div>
+      <ol>${t.items.map((it,k)=>`<li><a href="#s${k+1}"><span>${tutLabel(t,k)}</span>${esc(it.h)}</a></li>`).join("")}</ol></div>`;
+  const quick = t.quick&&t.quick.lines&&t.quick.lines.length ? `<div class="quick"><b>바쁘면 이것만</b><ol>${t.quick.lines.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>${(t.quick.links||[]).length?`<div class="ql">${t.quick.links.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join("")}</div>`:""}</div>` : "";
+  const master = t.master&&t.master.prompt ? `<details class="master"><summary><b>통째로 맡기는 프롬프트</b><span>${esc(t.master.tool||"AI")}에 붙여 넣으면 이 글의 단계를 대신 진행합니다</span></summary><div class="pr"><div class="pt">${esc(t.master.prompt)}</div><button class="copy dark" data-copy="${esc(t.master.prompt)}">복사하기</button></div></details>` : "";
+  const limits = t.limits&&t.limits.length ? `<div class="limits"><b>솔직히 한계</b><ul>${t.limits.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
+  const srcs = t.sources&&t.sources.length ? `<div class="src"><b>공식 자료</b>${t.sources.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)} · ${esc(u)}</a>`).join("")}</div>` : "";
   $("#v-article").innerHTML = `<article class="article narrow tut-page">
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · ${esc(t.cat||"")} · ${esc(t.level)}</span>
     <h1>${esc(t.title)}</h1><p class="deck">${esc(t.deck)}</p>
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span><span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span><span class="dot"></span><span>${tutUnit(t)}</span></div>
+    ${(t.tool||[]).length?`<div class="ttags">${t.tool.map(x=>`<a href="/tutorial/?tool=${encodeURIComponent(x)}">${esc(x)}</a>`).join("")}</div>`:""}
     ${t.pdf?`<div class="pdfbox"><div class="pages">${t.pdf.pages.map((p,k)=>`<img src="${p}" alt="정리본 ${k+1}쪽" loading="lazy">`).join("")}</div>
       <div class="pdfmeta"><div><b>PDF 정리본 · ${t.pdf.count}쪽</b>이 글을 그대로 담은 PDF입니다. 저장해 두고 필요할 때 꺼내 보세요.</div><a class="btn" href="${t.pdf.url}" target="_blank" rel="noopener">PDF 열기</a></div></div>`:fig({src:t.cover||t.thumb, credit:t.coverCredit||""},"lead-fig")}
     ${t.app?`<div class="appbox"><div><b>${esc(t.app.label)}</b>${esc(t.app.note)}</div><a class="btn" href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a></div>`:""}
+    ${toc}
+    ${quick}
+    ${master}
     <div class="prep"><div><b>필요한 것</b>${esc(t.tools)}</div><div><b>걸리는 시간</b>${esc(t.time)}</div><div><b>왜 필요한가요</b>${esc(t.why)}</div></div>
     ${t.intro?`<div class="intro">${esc(t.intro)}</div>`:""}
     <div class="items">${items}</div>
     ${t.bonus?`<div class="bonus"><b>보너스 · ${esc(t.bonus.title)}</b><ol>${t.bonus.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
-    ${srcHTML(t.sources)}
+    ${limits}
+    ${srcs}
     ${rel?`<div class="next"><div class="lbl">관련 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
     <div class="links">${t.app?`<a href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a>`:""}${t.pdf?`<a href="${t.pdf.url}" target="_blank" rel="noopener">PDF 정리본 열기</a>`:""}<a href="${TH}" target="_blank" rel="noopener">쓰레드에서 질문하기</a>${linkCopy(t.id,"링크 복사")}</div>
     ${FOLLOWBOX}
