@@ -34,3 +34,4 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
 - 위쪽 메뉴 순서 = 첫 화면 순서: 데일리 이슈 · AI 뉴스(칼럼 포함) · 튜토리얼 · AI 사전 · 소개
 - 말투(10/27~): 사이트 모든 글·화면 문구는 **습니다체**(질문은 ~나요?/~ㄹ까요?). 따옴표 안 인용·복사용 프롬프트(items.prompt)·예시(example)는 그대로. AI 티 나는 표현 금지 목록은 news/BRIEF.md 2장. assemble.py 가 2026-10-28 이후 기사·데일리·칼럼에서 한다체 문장 끝을 찾으면 멈춘다.
 - 튜토리얼 목록: 분류 버튼 맨 앞에 '무료 도구'(tools.json 목록을 보여 줌, /tutorial/?cat=무료 도구). 썸네일은 실제 사진(위키미디어 공용, 출처는 news/tutorial_links.json TFIG) 위에 'SHIFT AI 튜토리얼'과 cover.line 을 얹은 것 — `python3 _src/tut_thumbs.py [튜토리얼 id…]` 로 다시 만든다. 새 사진 찾기·받기는 손으로 돌리는 Actions `commons-photos`(결과는 commons-tmp 가지).
+- 튜토리얼 형식(10/27~): 목록은 검색칸·'도구' 줄(tool 태그)·'주제' 줄(cat, 무료 도구 포함), 카드에 'STEP N개/프롬프트 N개 · 읽는 데 N분'. 글은 이 글에 담긴 것(목차) → 바쁘면 이것만(quick) → 통째로 맡기는 프롬프트(master) → STEP(time·d·how·more·term·code·bad/good·table) → 솔직히 한계(limits) → 공식 자료(sources). 쓰는 법은 news/TUTORIAL_GUIDE.md.
