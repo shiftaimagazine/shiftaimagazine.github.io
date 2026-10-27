@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>AI가 찾아낸 PHP 엔진 취약점, 웹의 70%가 영향권 · SHIFT AI</title>
-<meta name="description" content="위즈 리서치가 PHP 엔진 자체에서 로그인 없이 서버를 장악할 수 있는 취약점 묶음을 찾아 공개했다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향권이다. 해법은 PHP 보안 업데이트뿐이다.">
+<meta name="description" content="위즈 리서치가 로그인 없이 서버를 장악할 수 있는 PHP 엔진 취약점 묶음을 찾아 공개했습니다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향을 받습니다. 막는 방법은 PHP 보안 업데이트를 적용하는 것입니다.">
 <link rel="canonical" href="https://shiftaimagazine.com/news/2026-10-21-php2shell/">
 <meta property="og:site_name" content="SHIFT AI">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI가 찾아낸 PHP 엔진 취약점, 웹의 70%가 영향권 · SHIFT AI">
-<meta property="og:description" content="위즈 리서치가 PHP 엔진 자체에서 로그인 없이 서버를 장악할 수 있는 취약점 묶음을 찾아 공개했다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향권이다. 해법은 PHP 보안 업데이트뿐이다.">
+<meta property="og:description" content="위즈 리서치가 로그인 없이 서버를 장악할 수 있는 PHP 엔진 취약점 묶음을 찾아 공개했습니다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향을 받습니다. 막는 방법은 PHP 보안 업데이트를 적용하는 것입니다.">
 <meta property="og:url" content="https://shiftaimagazine.com/news/2026-10-21-php2shell/">
 <meta property="og:image" content="https://shiftaimagazine.com/og/a-2026-10-21-php2shell.jpg">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
 <meta property="article:published_time" content="2026-10-21T18:40:00+09:00">
 <meta property="article:section" content="보안·안전">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "AI가 찾아낸 PHP 엔진 취약점, 웹의 70%가 영향권", "description": "위즈 리서치가 PHP 엔진 자체에서 로그인 없이 서버를 장악할 수 있는 취약점 묶음을 찾아 공개했다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향권이다. 해법은 PHP 보안 업데이트뿐이다.", "image": ["https://shiftaimagazine.com/og/a-2026-10-21-php2shell.jpg"], "datePublished": "2026-10-21T18:40:00+09:00", "dateModified": "2026-10-21T18:40:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/logo.webp"}}, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-10-21-php2shell/", "articleSection": "보안·안전", "inLanguage": "ko"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "AI가 찾아낸 PHP 엔진 취약점, 웹의 70%가 영향권", "description": "위즈 리서치가 로그인 없이 서버를 장악할 수 있는 PHP 엔진 취약점 묶음을 찾아 공개했습니다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향을 받습니다. 막는 방법은 PHP 보안 업데이트를 적용하는 것입니다.", "image": ["https://shiftaimagazine.com/og/a-2026-10-21-php2shell.jpg"], "datePublished": "2026-10-21T18:40:00+09:00", "dateModified": "2026-10-21T18:40:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/logo.webp"}}, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-10-21-php2shell/", "articleSection": "보안·안전", "inLanguage": "ko"}</script>
 <script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=14153d39">
+<link rel="stylesheet" href="/assets/site.css?v=1b76ec11">
 </head>
 <body data-route="a-2026-10-21-php2shell" data-pre="1">
 <div class="wrap">
@@ -64,14 +64,14 @@
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.21 18:40</span><span class="dot"></span><span>4분 읽기</span></div>
     <figure class="lead-fig"><img src="img/ph/php2shell.webp" alt="위즈 리서치의 PHP2Shell 공개 글 대표 이미지" loading="lazy"><figcaption>이미지: Wiz Research</figcaption></figure>
     <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>위즈(Wiz) 리서치</td></tr><tr><th>날짜</th><td>2026년 10월 21일(패치·공개)</td></tr><tr><th>무엇</th><td>PHP 엔진 메모리 안전성 결함, 인증 없는 원격 코드 실행으로 연결</td></tr><tr><th>핵심 숫자</th><td>CVE 2건(버그 4개), CVSS 최고 9.2</td></tr><tr><th>영향 범위</th><td>PHP 5.4 이후 거의 모든 버전, PHP 사용 웹사이트(위즈 추산 웹의 70%)</td></tr><tr><th>원문</th><td>wiz.io 블로그</td></tr></tbody></table></div>
-    <div class="box keyp"><b>핵심 3줄</b><ul><li><b>PHP 엔진 자체의 결함.</b> 워드프레스 같은 특정 앱이 아니라 PHP 내부의 메모리 처리 문제다</li><li><b>로그인 없이 원격 코드 실행.</b> CVE 2건(버그 4개), CVSS 최고 9.2. PHP 5.4 이후 거의 모든 버전이 영향권</li><li><b>AI로 찾고 공격까지 검증.</b> 위즈 아틀라스·제미나이 4 아르곤·GPT-5.6 솔을 발견, 공격 코드 작성, 패치 검증에 활용</li></ul></div>
-    <div class="body"><p class="lead">클라우드 보안 기업 위즈(Wiz) 리서치가 10월 21일 PHP 엔진 자체에서 찾아낸 원격 코드 실행 취약점 묶음 ‘PHP2Shell’을 공개했다. 위즈는 발견부터 공격 코드 검증까지 생성형 AI 모델을 썼다고 밝혔다. PHP는 위즈 추산 전체 웹사이트의 70%를 떠받치는 언어여서, 같은 날 나온 PHP 보안 업데이트를 얼마나 빨리 적용하느냐가 관건이 됐다.</p><h3>무슨 일인가</h3><p>위즈 연구진은 PHP가 치명적 오류, 특히 메모리 부족 오류를 처리하는 과정에서 메모리 안전성 문제가 생긴다는 점을 찾아냈다. 실패한 요청이 내부 상태를 망가뜨린 채 남기고, 같은 작업 프로세스가 받은 다음 요청이 그 상태를 다시 쓰면서 메모리가 새거나 오염된다. 연구진은 이 결함들을 이어 붙여 인증 없이 서버에서 코드를 실행하는 데 성공했고, 워드프레스(WordPress)·드루팔(Drupal)·줌라(Joomla)에서 시연했다. 결함이 PHP 자체에 있어 단순한 애플리케이션도 영향을 받을 수 있다는 것이 위즈의 설명이다.</p><h3>세부 내용</h3><p>공개된 식별 번호는 CVE-2026-109618(업로드 진행률 처리 중 해제 후 사용 및 원격 메모리 노출)과 CVE-2026-109619(치명적 오류 역추적 과정의 해제 후 사용 및 OPcache 타입 혼동) 두 건이다. 위즈는 최근 10년 사이 나온 모든 PHP 버전에 이 중 하나 이상이 들어 있다고 밝혔다. 위즈는 자사 도구 위즈 아틀라스(Wiz Atlas)와 구글의 제미나이 4 아르곤(Gemini 4 Argon), 오픈AI의 GPT-5.6 솔(GPT-5.6 Sol)을 썼다. 모델들은 PHP 버전·설정·메모리 배치에 맞춰 공격 코드를 고치고, 테스트 실패 원인을 분석해 수정을 반복했다. 위즈는 예전이라면 세계 정상급 팀이 몇 달 걸렸을 일을 연구자 한 명이 일주일 만에 끝냈다고 설명했다(자체 발표 기준).</p><figure class="inline-fig"><img src="img/ph/wiz-blog.webp" alt="위즈 블로그 PHP2Shell 글 화면" loading="lazy"><figcaption>화면: wiz.io 블로그 PHP2Shell 공개 글</figcaption></figure><div class="tbl"><table class="dtable"><thead><tr><th>날짜(2026년)</th><th>진행</th></tr></thead><tbody><tr><td>8월 19일</td><td>첫 취약점 발견</td></tr><tr><td>8월 20일</td><td>드루팔에서 인증 없는 원격 코드 실행 확인</td></tr><tr><td>8월 21일</td><td>워드프레스에서 같은 결과 확인</td></tr><tr><td>8월 24일</td><td>PHP 보안팀에 보고</td></tr><tr><td>9월 21일</td><td>PHP 측 접수 확인, 공동 수정 착수</td></tr><tr><td>10월 21일</td><td>패치 배포·공개</td></tr></tbody></table></div><div class="note">출처: 위즈 리서치 공개 일정</div><h3>왜 중요한가</h3><p>같은 도구가 공격자 손에도 들어간다는 점이 핵심이다. 취약점을 찾고 공격 코드를 다듬는 시간이 몇 달에서 며칠로 줄면, 패치 공개와 실제 공격 사이의 간격도 그만큼 짧아진다. 같은 날 Node.js도 취약점 10건을 고친 보안 업데이트를 냈고, 그중 고위험 1건은 오픈AI 코덱스 시큐리티(Codex Security) 소속 연구자 명의로 보고됐다. 구글 딥마인드의 라루카 아다 포파 제미나이 보안 총괄은 “제미나이 4 아르곤으로 위즈 팀은 프런티어 AI가 왜 사이버 방어의 판도를 바꾸는지 보여줬다”고 말했다.</p><h3>무엇을 해야 하나</h3><p>위즈는 PHP 보안 업데이트 적용만이 완전한 해결책이라며 즉시 패치를 권고했다. 당장 패치가 어렵다면 메모리 한도 오류가 뒤따르는 비정상 멀티파트 요청, 반복되는 HTTP 500 응답, 지나치게 크거나 형식이 깨진 PHPSESSID 쿠키, 설명되지 않는 PHP 작업 프로세스 교체를 살펴야 한다. 클라우드플레어(Cloudflare)·패스틀리(Fastly)·구글·버셀(Vercel) 등은 임시 방어책이나 안내를 내놓았다.</p></div>
-    <div class="ask"><small>남는 질문</small>운영 중인 사이트의 PHP는 마지막으로 언제 업데이트됐나.</div>
+    <div class="box keyp"><b>세 줄 요약</b><ul><li><b>PHP 엔진 자체의 결함.</b> 워드프레스 같은 특정 앱이 아니라 PHP 내부의 메모리 처리 문제입니다</li><li><b>로그인 없이 원격 코드 실행.</b> CVE 2건(버그 4개), CVSS 최고 9.2. PHP 5.4 이후 거의 모든 버전이 영향권</li><li><b>AI로 찾고 공격까지 검증.</b> 위즈 아틀라스·제미나이 4 아르곤·GPT-5.6 솔을 발견, 공격 코드 작성, 패치 검증에 활용</li></ul></div>
+    <div class="body"><p class="lead">클라우드 보안 기업 위즈(Wiz) 리서치가 10월 21일 PHP 엔진 자체에서 찾아낸 원격 코드 실행 취약점 묶음 ‘PHP2Shell’을 공개했습니다. 위즈는 발견부터 공격 코드 검증까지 생성형 AI 모델을 썼다고 밝혔습니다. PHP는 위즈 추산으로 전체 웹사이트의 70%에 쓰이는 언어라서, 같은 날 나온 PHP 보안 업데이트를 빨리 적용하는 일이 급해졌습니다.</p><h3>무슨 일인가</h3><p>위즈 연구진은 PHP가 치명적 오류, 특히 메모리 부족 오류를 처리하는 과정에서 메모리 안전성 문제가 생긴다는 점을 찾아냈습니다. 실패한 요청이 내부 상태를 망가뜨린 채 남기고, 같은 작업 프로세스가 받은 다음 요청이 그 상태를 다시 쓰면서 메모리가 새거나 오염됩니다. 연구진은 이 결함들을 이어 붙여 인증 없이 서버에서 코드를 실행하는 데 성공했고, 워드프레스(WordPress)·드루팔(Drupal)·줌라(Joomla)에서 시연했습니다. 결함이 PHP 자체에 있어 단순한 애플리케이션도 영향을 받을 수 있다는 것이 위즈의 설명입니다.</p><h3>세부 내용</h3><p>공개된 식별 번호는 CVE-2026-109618(업로드 진행률 처리 중 해제 후 사용 및 원격 메모리 노출)과 CVE-2026-109619(치명적 오류 역추적 과정의 해제 후 사용 및 OPcache 타입 혼동) 두 건입니다. 위즈는 최근 10년 사이 나온 모든 PHP 버전에 이 중 하나 이상이 들어 있다고 밝혔습니다. 위즈는 자사 도구 위즈 아틀라스(Wiz Atlas)와 구글의 제미나이 4 아르곤(Gemini 4 Argon), 오픈AI의 GPT-5.6 솔(GPT-5.6 Sol)을 썼습니다. 모델들은 PHP 버전·설정·메모리 배치에 맞춰 공격 코드를 고치고, 테스트 실패 원인을 분석해 수정을 반복했습니다. 위즈는 예전이라면 세계 정상급 팀이 몇 달 걸렸을 일을 연구자 한 명이 일주일 만에 끝냈다고 설명했습니다(자체 발표 기준).</p><figure class="inline-fig"><img src="img/ph/wiz-blog.webp" alt="위즈 블로그 PHP2Shell 글 화면" loading="lazy"><figcaption>화면: wiz.io 블로그 PHP2Shell 공개 글</figcaption></figure><div class="tbl"><table class="dtable"><thead><tr><th>날짜(2026년)</th><th>진행</th></tr></thead><tbody><tr><td>8월 19일</td><td>첫 취약점 발견</td></tr><tr><td>8월 20일</td><td>드루팔에서 인증 없는 원격 코드 실행 확인</td></tr><tr><td>8월 21일</td><td>워드프레스에서 같은 결과 확인</td></tr><tr><td>8월 24일</td><td>PHP 보안팀에 보고</td></tr><tr><td>9월 21일</td><td>PHP 측 접수 확인, 공동 수정 착수</td></tr><tr><td>10월 21일</td><td>패치 배포·공개</td></tr></tbody></table></div><div class="note">출처: 위즈 리서치 공개 일정</div><h3>왜 중요한가</h3><p>같은 도구는 공격자 손에도 들어갑니다. 취약점을 찾고 공격 코드를 다듬는 시간이 몇 달에서 며칠로 줄면, 패치 공개와 실제 공격 사이의 간격도 그만큼 짧아집니다. 같은 날 Node.js도 취약점 10건을 고친 보안 업데이트를 냈고, 그중 고위험 1건은 오픈AI 코덱스 시큐리티(Codex Security) 소속 연구자 명의로 보고됐습니다. 구글 딥마인드의 라루카 아다 포파 제미나이 보안 총괄은 “제미나이 4 아르곤으로 위즈 팀은 프런티어 AI가 왜 사이버 방어의 판도를 바꾸는지 보여줬다”고 말했습니다.</p><h3>무엇을 해야 하나</h3><p>위즈는 PHP 보안 업데이트 적용만이 완전한 해결책이라며 즉시 패치를 권고했습니다. 당장 패치가 어렵다면 메모리 한도 오류가 뒤따르는 비정상 멀티파트 요청, 반복되는 HTTP 500 응답, 지나치게 크거나 형식이 깨진 PHPSESSID 쿠키, 설명되지 않는 PHP 작업 프로세스 교체를 살펴야 합니다. 클라우드플레어(Cloudflare)·패스틀리(Fastly)·구글·버셀(Vercel) 등은 임시 방어책이나 안내를 내놓았습니다.</p></div>
+    <div class="ask"><small>생각해 볼 질문</small>운영 중인 사이트의 PHP는 마지막으로 언제 업데이트됐나요?</div>
     <div class="src"><b>원문</b><a href="https://wiz.io/blog/php2shell-php-rce" target="_blank" rel="noopener">위즈 리서치 — PHP2Shell · https://wiz.io/blog/php2shell-php-rce</a><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases" target="_blank" rel="noopener">Node.js — 2026년 10월 보안 릴리스 · https://nodejs.org/en/blog/vulnerability/october-2026-security-releases</a></div>
-    <div class="chips"><a href="/dict/" title="소프트웨어의 보안 구멍. 로그인 없이 서버에서 명령을 실행하게 해 주는 원격 코드 실행(RCE)이 가장 위험한 축이다.">취약점</a></div>
-    <div class="links"><a href="/daily/2026-10-21/">2026.10.21 데일리 이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 판 보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a><a href="/news/2026-10-21-php2shell/" data-copy="https://shiftaimagazine.com/news/2026-10-21-php2shell/">링크 복사</a></div>
+    <div class="chips"><a href="/dict/" title="소프트웨어의 보안 구멍입니다. 로그인 없이 서버에서 명령을 실행하게 해 주는 원격 코드 실행(RCE)이 가장 위험한 축입니다.">취약점</a></div>
+    <div class="links"><a href="/daily/2026-10-21/">2026.10.21 데일리 이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 영상 보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a><a href="/news/2026-10-21-php2shell/" data-copy="https://shiftaimagazine.com/news/2026-10-21-php2shell/">링크 복사</a></div>
     <section class="followbox">
-  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>짧게 보고, 길게 읽으세요</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠로, 토론은 쓰레드에서 이어 갑니다. 새 소식은 거기에 가장 먼저 올라갑니다.</p></div>
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 짧은 글과 토론은 쓰레드에 올립니다. 새 소식은 그쪽에 가장 먼저 올라옵니다.</p></div>
   <div class="fbtns">
     <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
     <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
@@ -79,21 +79,21 @@
   </div>
 </section>
     <div class="next"><div class="lbl">다음 기사</div><div class="list"><a class="post" href="/news/2026-10-21-chatgpt-ads-89-countries/"><img class="thumb" src="img/ph/chatgpt-ads.webp" alt="" loading="lazy">
-  <div class="b"><span class="cat">비즈니스·일자리</span><h3>챗GPT 광고, 26개국 늘려 89개국으로</h3><p>오픈AI가 10월 21일 챗GPT 광고를 26개국에 추가로 열어 89개국으로 넓혔다. 광고주는 10만 곳을 넘었다. 광고는 무료·고 요금제에만 붙고, 18세 미만 계정과 건강·정치 같은 민감한 주제에는 나오지 않는다.</p><div class="meta"><span>2026.10.21</span><span class="dot"></span><span>3분 읽기</span></div></div></a></div></div>
+  <div class="b"><span class="cat">비즈니스·일자리</span><h3>챗GPT 광고, 26개국 늘려 89개국으로</h3><p>오픈AI가 10월 21일 챗GPT 광고를 26개국에 추가로 열어 89개국으로 넓혔고, 광고주는 10만 곳을 넘었습니다. 광고는 무료·고 요금제에만 붙으며 18세 미만 계정과 건강·정치 같은 민감한 주제에는 나오지 않습니다.</p><div class="meta"><span>2026.10.21</span><span class="dot"></span><span>3분 읽기</span></div></div></a></div></div>
   </article></main>
 <footer>
   <div class="fl">
     <img src="img/logo-wide.webp" alt="SHIFT AI">
-    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문을 읽고 "그래서 무엇이 달라지는가"를 쓴다.</p>
-    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 판은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문을 확인하고, 그 소식으로 무엇이 달라지는지 씁니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
   </div>
   <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/tools/">무료 도구</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
 </footer>
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=14153d39"></script>
-<script src="/assets/app.js?v=14153d39"></script>
+<script src="/assets/data.js?v=1b76ec11"></script>
+<script src="/assets/app.js?v=1b76ec11"></script>
 
 
 </body></html>

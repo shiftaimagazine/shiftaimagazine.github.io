@@ -68,6 +68,6 @@ function calc(){
 $("cFx").value = P.fx.rate;
 $("cAsof").textContent = `가격 기준일 ${P.asof}`;
 $("cSrc").innerHTML = [...new Map(P.models.map(m=>[m.url, m.provider])).entries()].map(([u,p])=>`<li>${esc(p)} — <a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//,""))}</a></li>`).join("");
-$("cFxSrc").innerHTML = `환율 기본값: ${P.fx.rate.toLocaleString("ko-KR")}원 (${esc(P.fx.date)}, <a href="${esc(P.fx.url)}" target="_blank" rel="noopener">${esc(P.fx.source)}</a>). 위 칸에서 바꿀 수 있다.`;
+$("cFxSrc").innerHTML = `환율 기본값: ${P.fx.rate.toLocaleString("ko-KR")}원 (${esc(P.fx.date)}, <a href="${esc(P.fx.url)}" target="_blank" rel="noopener">${esc(P.fx.source)}</a>). 위 칸에서 바꿀 수 있습니다.`;
 units(); setPreset(preset);
 })();

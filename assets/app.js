@@ -49,7 +49,7 @@ function renderHome(){
   if($("#homeTools")) $("#homeTools").innerHTML = TOOLS.slice(0,3).map(toolHTML).join("");
   $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="/dict/"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
   const rl = sorted.slice(0,3);
-  $("#reelwelcome").innerHTML = `<b>릴스에서 오셨군요. 여기서는 끝까지 읽습니다.</b><p>방금 본 30초 영상의 긴 판과 오늘 기사가 아래에 있습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
+  $("#reelwelcome").innerHTML = `<b>릴스에서 오셨군요! 반갑습니다. 저희는 SHIFT AI 매거진입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
 }
 
 // AI 뉴스 목록 = 기사 + 칼럼(분류 "칼럼")
@@ -62,7 +62,7 @@ function renderNews(){
   $("#catFilters").innerHTML = `<button aria-pressed="${catFilter==="all"}" data-c="all">전체 ${FEED.length}</button>`+[...CATS, COL].map(c=>`<button aria-pressed="${catFilter===c}" data-c="${esc(c)}">${esc(c)} ${cnt(c)}</button>`).join("");
   const q = "";
   const list = FEED.filter(x=>(catFilter==="all"||x.cat===catFilter) && (!q || (x.o.title+(x.o.hook||x.o.deck||"")+(x.o.sub||"")+x.cat).toLowerCase().includes(q)));
-  $("#newsList").innerHTML = list.length ? list.map(x=>x.k==="c"?colHTML(x.o):postHTML(x.o)).join("") : `<div class="empty">해당하는 기사가 없다.</div>`;
+  $("#newsList").innerHTML = list.length ? list.map(x=>x.k==="c"?colHTML(x.o):postHTML(x.o)).join("") : `<div class="empty">해당하는 기사가 없습니다.</div>`;
 }
 $("#catFilters") && $("#catFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-c]"); if(!b) return; catFilter=b.dataset.c; renderNews();
   try{ history.replaceState(null,"", catFilter==="all" ? "/news/" : "/news/?cat="+encodeURIComponent(catFilter)); }catch(_){} });
@@ -93,9 +93,13 @@ const drowHTML = d=>{const its=dayItems(d); const lead=dayPhoto(d); const [y,m,d
 let tutFilter = (ROUTE==="tutorial" && new URLSearchParams(location.search).get("cat")) || "all";
 function renderTutList(){
   if(!$("#tutGrid")) return;
-  if($("#tutFilters")) $("#tutFilters").innerHTML = `<button aria-pressed="${tutFilter==="all"}" data-tc="all">전체 ${TUTORIALS.length}</button>`+TUT_CATS.map(c=>`<button aria-pressed="${tutFilter===c}" data-tc="${esc(c)}">${esc(c)} ${TUTORIALS.filter(t=>t.cat===c).length}</button>`).join("");
+  const TOOL_TAG = "무료 도구";  // 튜토리얼 목록에서 무료 도구만 모아 보기
+  if($("#tutFilters")) $("#tutFilters").innerHTML = `<button aria-pressed="${tutFilter==="all"}" data-tc="all">전체 ${TUTORIALS.length}</button>`
+    +`<button class="tooltag" aria-pressed="${tutFilter===TOOL_TAG}" data-tc="${TOOL_TAG}">${TOOL_TAG} ${TOOLS.length}</button>`
+    +TUT_CATS.map(c=>`<button aria-pressed="${tutFilter===c}" data-tc="${esc(c)}">${esc(c)} ${TUTORIALS.filter(t=>t.cat===c).length}</button>`).join("");
+  if(tutFilter===TOOL_TAG){ $("#tutGrid").innerHTML = TOOLS.map(toolHTML).join(""); return; }
   const list = TUTORIALS.filter(t=>tutFilter==="all"||t.cat===tutFilter);
-  $("#tutGrid").innerHTML = list.length ? list.map(tutHTML).join("") : `<div class="empty">해당하는 튜토리얼이 없다.</div>`;
+  $("#tutGrid").innerHTML = list.length ? list.map(tutHTML).join("") : `<div class="empty">해당하는 글이 없습니다.</div>`;
 }
 $("#tutFilters") && $("#tutFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-tc]"); if(!b) return; tutFilter=b.dataset.tc; renderTutList();
   try{ history.replaceState(null,"", tutFilter==="all" ? "/tutorial/" : "/tutorial/?cat="+encodeURIComponent(tutFilter)); }catch(_){} });
@@ -117,7 +121,7 @@ function renderAbout(){
   const f = ARTICLES.find(a=>a.featured) || sorted[0];
   const last = (f.body.filter(x=>x.p).slice(-1)[0]||{}).p||f.hook;
   $("#two").innerHTML = `<figure><img src="${ABOUT_CARD.src}" alt="쓰레드·인스타그램 카드 예시"><figcaption>${esc(ABOUT_CARD.caption)}</figcaption></figure>
-    <div class="long"><small>매거진 판 · ${esc(f.title)}</small>${esc(last)}<div class="acts"><a href="${P("a-"+f.id)}">기사 전문 읽기</a><a href="${IG}" target="_blank" rel="noopener">30초 판은 인스타그램</a></div></div>`;
+    <div class="long"><small>매거진 기사 · ${esc(f.title)}</small>${esc(last)}<div class="acts"><a href="${P("a-"+f.id)}">기사 전문 읽기</a><a href="${IG}" target="_blank" rel="noopener">30초 영상은 인스타그램에서</a></div></div>`;
 }
 
 // ---- 검색: 위쪽 검색칸·휴대폰 검색 버튼 → /search/ (기사·칼럼·데일리·튜토리얼·AI 사전 한 번에) ----
@@ -168,7 +172,7 @@ function renderSearch(push){
   $("#sTabs").innerHTML = q ? `<button aria-pressed="${sTab==="all"}" data-st="all">전체 ${all.length}</button>` + SKINDS.filter(cnt).map(k=>`<button aria-pressed="${sTab===k}" data-st="${k}">${k} ${cnt(k)}</button>`).join("") : "";
   $("#sSugg").hidden = !!(q && all.length);
   if(!q){ $("#sResults").innerHTML = ""; return; }
-  if(!all.length){ $("#sResults").innerHTML = `<div class="empty">‘${esc(q)}’에 맞는 글을 찾지 못했다. 다른 말로 찾아보거나 아래 추천 검색어를 눌러 보세요.</div>`; return; }
+  if(!all.length){ $("#sResults").innerHTML = `<div class="empty">‘${esc(q)}’에 맞는 글을 찾지 못했습니다. 다른 말로 찾아보거나 아래 추천 검색어를 눌러 보세요.</div>`; return; }
   if(sTab==="all"){
     $("#sResults").innerHTML = SKINDS.filter(cnt).map(k=>{ const xs = all.filter(x=>x.k===k);
       return `<section class="sgroup"><div class="sec"><h2>${k} <small>${xs.length}</small></h2>${xs.length>4?`<button class="more" type="button" data-st="${k}">${k} ${xs.length}개 모두 보기</button>`:""}</div>${groupHTML(k, xs.slice(0,4))}</section>`; }).join("");
@@ -220,12 +224,12 @@ function renderArticle(a){
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
     ${fig(imgOf(a),"lead-fig")}
     ${factsHTML(a.facts)}
-    ${ul?`<div class="box keyp"><b>핵심 3줄</b><ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul></div>`:""}
+    ${ul?`<div class="box keyp"><b>세 줄 요약</b><ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul></div>`:""}
     <div class="body">${bodyHTML(rest)}</div>
-    <div class="ask"><small>남는 질문</small>${esc(a.ask)}</div>
+    <div class="ask"><small>생각해 볼 질문</small>${esc(a.ask)}</div>
     ${srcHTML(a.sources)}
     ${tl.length?`<div class="chips">${tl.map(t=>`<a href="/dict/" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
-    <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 판 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
+    <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
   </article>`;
@@ -260,9 +264,9 @@ function renderTutorial(t){
     <h1>${esc(t.title)}</h1><p class="deck">${esc(t.deck)}</p>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${t.items.length}개 항목 · ${esc(t.time)}</span></div>
     ${t.pdf?`<div class="pdfbox"><div class="pages">${t.pdf.pages.map((p,k)=>`<img src="${p}" alt="정리본 ${k+1}쪽" loading="lazy">`).join("")}</div>
-      <div class="pdfmeta"><div><b>PDF 정리본 · ${t.pdf.count}쪽</b>이 글을 그대로 담은 PDF. 저장해 두고 꺼내 쓰면 된다.</div><a class="btn" href="${t.pdf.url}" target="_blank" rel="noopener">PDF 열기</a></div></div>`:fig({src:t.cover||t.thumb, credit:t.coverCredit||""},"lead-fig")}
+      <div class="pdfmeta"><div><b>PDF 정리본 · ${t.pdf.count}쪽</b>이 글을 그대로 담은 PDF입니다. 저장해 두고 필요할 때 꺼내 보세요.</div><a class="btn" href="${t.pdf.url}" target="_blank" rel="noopener">PDF 열기</a></div></div>`:fig({src:t.cover||t.thumb, credit:t.coverCredit||""},"lead-fig")}
     ${t.app?`<div class="appbox"><div><b>${esc(t.app.label)}</b>${esc(t.app.note)}</div><a class="btn" href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a></div>`:""}
-    <div class="prep"><div><b>필요한 것</b>${esc(t.tools)}</div><div><b>걸리는 시간</b>${esc(t.time)}</div><div><b>왜 하나</b>${esc(t.why)}</div></div>
+    <div class="prep"><div><b>필요한 것</b>${esc(t.tools)}</div><div><b>걸리는 시간</b>${esc(t.time)}</div><div><b>왜 필요한가요</b>${esc(t.why)}</div></div>
     ${t.intro?`<div class="intro">${esc(t.intro)}</div>`:""}
     <div class="items">${items}</div>
     ${t.bonus?`<div class="bonus"><b>보너스 · ${esc(t.bonus.title)}</b><ol>${t.bonus.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
