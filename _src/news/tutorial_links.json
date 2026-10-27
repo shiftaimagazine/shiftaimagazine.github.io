@@ -71,6 +71,18 @@
   "t-crosscheck-prompts": [
    "img/ph/t-crosscheck-prompts.webp",
    "헤드셋을 쓴 상담원 · Wikimedia Commons · Wesley Farnsworth, 미 공군 (퍼블릭 도메인)"
+  ],
+  "t-claude-code-save-usage": [
+   "img/ph/t-claude-code-save-usage.webp",
+   "사막의 모래시계 · Wikimedia Commons · Argenis Rodriguez (CC BY 3.0)"
+  ],
+  "t-claude-code-skills-mcp": [
+   "img/ph/t-claude-code-skills-mcp.webp",
+   "멀티탭과 플러그 · Wikimedia Commons · Leon Brooks (퍼블릭 도메인)"
+  ],
+  "t-remotion-motion-video": [
+   "img/ph/t-remotion-motion-video.webp",
+   "리모션 스튜디오에서 연 15초 세로 영상 · SHIFT AI 직접 캡처(2026-10-27)"
   ]
  }
 }
