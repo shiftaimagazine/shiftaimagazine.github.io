@@ -156,5 +156,11 @@
   "credit": "이미지: Anthropic",
   "alt": "앤트로픽 ‘클로드 포 논프로핏 확대’ 공식 대표 이미지",
   "auto": true
+ },
+ "2026-10-28-boe-fca-ai-survey-2026": {
+  "src": "img/ph/2026-10-28-boe-fca-ai-survey-2026.webp",
+  "credit": "화면: fca.org.uk",
+  "alt": "영국 금융행위감독청의 ‘영국 금융권 AI’ 자료 화면",
+  "auto": true
  }
 }
