@@ -115,7 +115,13 @@
   "cover": {
    "tag": "SHIFT AI 무료 정리본",
    "line": "AI 상담원 답, 믿기 전에 확인하기"
-  }
+  },
+  "tool": [
+   "ChatGPT",
+   "Claude",
+   "제미나이"
+  ],
+  "kind": "prompts"
  },
  "resources": [
   {

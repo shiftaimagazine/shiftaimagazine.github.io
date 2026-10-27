@@ -195,10 +195,11 @@ figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 @media (max-width:600px){.prep{grid-template-columns:1fr}}
 .tut-page .intro{background:var(--bg2);border-radius:12px;padding:18px 22px;font-size:16px;line-height:1.8;margin:0 0 34px;color:var(--ink)}
 .tut-page .items{display:grid;gap:36px}
-.tut-page .ti{display:grid;grid-template-columns:64px 1fr;gap:12px}
-.tut-page .ti .no{font-size:34px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.03em;padding-top:2px}
+.tut-page .ti{display:block;scroll-margin-top:80px}
 .tut-page .ti .tb{display:grid;gap:12px;min-width:0}
-.tut-page .ti h3{font-size:22px;line-height:1.3}
+.tut-page .ti h3{font-size:22px;line-height:1.35;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.tut-page .ti h3 .sn{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;white-space:nowrap}
+.tut-page .ti h3 small{font-size:13px;font-weight:600;color:var(--sub)}
 .tut-page .ti .d{margin:-4px 0 0;font-size:16px;color:var(--text);line-height:1.75}
 .tut-page .how{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:15.5px;line-height:1.7;color:var(--ink)}
 .tut-page .how b{display:block;font-size:12.5px;color:var(--sub);margin-bottom:4px}
@@ -210,7 +211,7 @@ figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 .tut-page .ex > div{background:var(--bg2);border-radius:10px;padding:12px 14px;min-width:0}
 .tut-page .ex b{display:block;font-size:12px;color:var(--sub);margin-bottom:6px}
 .tut-page .ex pre{margin:0;font:13px/1.6 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink)}
-@media (max-width:600px){.tut-page .ti{grid-template-columns:44px 1fr}.tut-page .ti .no{font-size:26px}.tut-page .ex{grid-template-columns:1fr}}
+@media (max-width:600px){.tut-page .ex{grid-template-columns:1fr}.tut-page .vs{grid-template-columns:1fr}}
 .tut-page .bonus{margin-top:40px;border:2px solid var(--accent);border-radius:12px;padding:18px 22px}
 .tut-page .bonus > b{display:block;color:var(--accent);font-size:15px;margin-bottom:8px}
 .tut-page .bonus ol{margin:0;padding-left:22px;font-size:16px;line-height:1.75;display:grid;gap:4px;color:var(--ink)}
@@ -431,3 +432,57 @@ footer a:hover{color:var(--ink)}
 .crow .cm b{font-size:16px}
 .crow .cm i{display:block;height:5px;border-radius:3px;background:var(--accent);opacity:.75;margin-top:5px}
 @media (max-width:640px){.crow{grid-template-columns:1fr 1fr}.crow .cp{display:none}.crow.chead span:nth-child(2){display:none}}
+
+/* 튜토리얼 목록: 검색·도구·주제 (10/27) */
+.tfind{display:flex;align-items:center;gap:12px;margin:18px 0 4px}
+.tfind input{flex:1;max-width:420px;font:inherit;font-size:15px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--bg);color:var(--ink)}
+.tfind input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.tcount{font-size:13.5px;color:var(--sub)}
+.filters .flbl{font-size:12.5px;font-weight:700;color:var(--sub);align-self:center;margin-right:2px;min-width:30px}
+#tutTools{margin-top:10px}
+#tutFilters{margin-top:6px}
+/* 튜토리얼 글 */
+.tut-page .ttags{display:flex;flex-wrap:wrap;gap:6px;margin:-6px 0 18px}
+.tut-page .ttags a{font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--bg2);color:var(--ink);text-decoration:none}
+.tut-page .ttags a:hover{background:var(--line)}
+.tut-page .tinside{border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 18px}
+.tut-page .tinside .th{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;margin-bottom:8px}
+.tut-page .tinside .th b{font-size:15px}
+.tut-page .tinside .th span{font-size:13px;color:var(--sub)}
+.tut-page .tinside ol{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tut-page .tinside li a{display:flex;gap:8px;padding:5px 0;font-size:14.5px;color:var(--ink);text-decoration:none;line-height:1.45}
+.tut-page .tinside li a span{flex:none;font-size:12px;font-weight:800;color:var(--accent);min-width:62px;padding-top:2px}
+.tut-page .tinside li a:hover{text-decoration:underline;text-underline-offset:3px}
+@media (min-width:720px){.tut-page .tinside ol{grid-template-columns:1fr 1fr;column-gap:24px}}
+.tut-page .quick{background:#FFF3EC;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 20px;margin:0 0 18px}
+.tut-page .quick > b{display:block;font-size:13px;font-weight:800;color:var(--accent);margin-bottom:6px}
+.tut-page .quick ol{margin:0;padding-left:20px;display:grid;gap:4px;font-size:15.5px;line-height:1.65;color:var(--ink)}
+.tut-page .quick .ql{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px}
+.tut-page .quick .ql a{font-size:14px;font-weight:700;color:var(--accent)}
+@media (prefers-color-scheme:dark){.tut-page .quick{background:#2a1d16}}
+.tut-page details.master{border:1px solid var(--line);border-radius:12px;margin:0 0 26px;overflow:hidden}
+.tut-page details.master summary{cursor:pointer;list-style:none;padding:14px 20px;display:grid;gap:2px}
+.tut-page details.master summary::-webkit-details-marker{display:none}
+.tut-page details.master summary b{font-size:15px}
+.tut-page details.master summary b::after{content:" 펼치기 ▾";font-size:12.5px;font-weight:600;color:var(--sub)}
+.tut-page details.master[open] summary b::after{content:" 접기 ▴"}
+.tut-page details.master summary span{font-size:13.5px;color:var(--sub)}
+.tut-page details.master .pr{border-radius:0}
+.tut-page .tp{margin:0;font-size:16px;line-height:1.8;color:var(--text)}
+.tut-page .term2{border-left:3px solid var(--line-strong);padding:4px 0 4px 14px;font-size:15px;line-height:1.7;color:var(--text)}
+.tut-page .term2 b{display:block;font-size:12.5px;color:var(--ink);margin-bottom:2px}
+.tut-page .code{background:#161616;color:#f1f1ee;border-radius:12px;overflow:hidden}
+.tut-page .code .cl{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 0 16px;font-size:12px;opacity:.8}
+.tut-page .code .cl .copy{margin:0;background:transparent;color:#f1f1ee;border-color:rgba(255,255,255,.35);padding:3px 9px;font-size:12px}
+.tut-page .code pre{margin:0;padding:10px 16px 14px;font:14px/1.6 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.tut-page .code .ok{margin:0;padding:10px 16px 12px;border-top:1px solid rgba(255,255,255,.12);font-size:14px;line-height:1.6;color:#d9f2e1}
+.tut-page .code .ok b{font-size:12px;margin-right:8px;color:#8fe0a8}
+.tut-page .vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tut-page .vs > div{border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.65}
+.tut-page .vs b{display:block;font-size:12.5px;margin-bottom:4px}
+.tut-page .vs .no{background:#FDECEC;color:#5c1c1c}.tut-page .vs .no b{color:#b42318}
+.tut-page .vs .yes{background:#E8F5EC;color:#173d26}.tut-page .vs .yes b{color:#1d7a43}
+@media (prefers-color-scheme:dark){.tut-page .vs .no{background:#341a1a;color:#f3d0d0}.tut-page .vs .yes{background:#16301f;color:#cdeed8}}
+.tut-page .limits{margin-top:30px;background:var(--bg2);border-radius:12px;padding:16px 22px}
+.tut-page .limits > b{display:block;font-size:15px;margin-bottom:6px}
+.tut-page .limits ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:15.5px;line-height:1.7;color:var(--text)}

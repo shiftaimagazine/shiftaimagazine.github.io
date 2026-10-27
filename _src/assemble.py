@@ -90,7 +90,7 @@ if __name__ == '__main__':
         if t['id'] in tl['TFIG']: t['cover'], t['coverCredit'] = tl['TFIG'][t['id']]
         else: t.pop('cover', None)
     # 튜토리얼 분류 (목록의 분류 버튼 순서)
-    TUT_CATS = ['업무', 'AI 답 검증', '보안·개인정보', '공부·리서치', '콘텐츠·커리어']
+    TUT_CATS = ['업무', '자동화', '스킬·MCP', '비용 절약', '영상·이미지', 'AI 답 검증', '보안·개인정보', '공부·리서치', '콘텐츠·커리어']
     # 모든 목록은 최신순: 날짜가 같으면 나중에 넣은 글이 위
     cross['_n'] = -1
     for i, t in enumerate(tuts): t['_n'] = i
@@ -98,6 +98,11 @@ if __name__ == '__main__':
     for t in TUTS:
         t.pop('_n')
         assert t.get('cat') in TUT_CATS, ('튜토리얼 분류(cat) 오류', t['id'], t.get('cat'))
+        assert isinstance(t.get('tool'), list) and t['tool'] and all(isinstance(x, str) and x for x in t['tool']), ('튜토리얼 도구(tool) 목록 필요', t['id'])
+        assert t.get('kind') in ('steps', 'prompts'), ('튜토리얼 kind 는 steps 또는 prompts', t['id'])
+        for it in t['items']:
+            for c in it.get('code', []): assert c.get('cmd'), ('code.cmd 없음', t['id'], it['h'])
+        if t['date'] >= STYLE_FROM: style_check(t['id'], [t['deck'], t['why'], t.get('intro')] + [x for it in t['items'] for x in [it.get('d'), it.get('how')] + it.get('more', [])] + t.get('limits', []))
     cols = J('columns.json')['columns']
     for c in cols:
         assert c['rel'] in byid, c['rel']
