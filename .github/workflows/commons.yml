@@ -1,4 +1,4 @@
-# 튜토리얼 사진: 위키미디어 공용에서 자유 이용 사진 찾기/받기(손으로 실행). 결과는 작업 결과물(artifact)로만 남고 저장소에는 커밋하지 않는다.
+# 튜토리얼 사진: 위키미디어 공용에서 자유 이용 사진 찾기/받기(손으로 실행). 결과는 commons-tmp 가지(branch)에만 올린다(main·사이트에는 영향 없음).
 name: commons-photos
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
       picks: {description: '{"키": "File:..."} (fetch)', required: false, default: '{}'}
       focus: {description: '세로 위치 FOCUS_키=0~1 줄바꿈 대신 ; 로', required: false, default: ''}
 permissions:
-  contents: read
+  contents: write
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -26,10 +26,10 @@ jobs:
         run: |
           for kv in $(echo "$FOCUS" | tr ';' ' '); do export "$kv"; done
           python3 .github/scripts/commons.py ${{ github.event.inputs.mode }}
-      - uses: actions/upload-artifact@v4
-        with:
-          name: commons-${{ github.event.inputs.mode }}
-          path: |
-            _cand/
-            _out/
-          if-no-files-found: warn
+      - name: 결과를 commons-tmp 가지에 올리기
+        run: |
+          mkdir -p /tmp/res && cp -r _cand _out /tmp/res/ 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan commons-tmp && git rm -rfq . && rm -rf ./* .github 2>/dev/null; cp -r /tmp/res/* . 2>/dev/null || true
+          git add -A && git commit -qm "commons ${{ github.event.inputs.mode }} 결과" && git push -qf origin commons-tmp
