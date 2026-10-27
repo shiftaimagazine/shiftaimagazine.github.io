@@ -39,7 +39,14 @@ def fetch(picks):
     for key, title in picks.items():
         p = info({'titles': title, 'iiurlwidth': 1920})[0]; m = meta(p)
         src = m['thumb'] or m['url']
-        im = Image.open(io.BytesIO(requests.get(src, headers=UA, timeout=60).content)).convert('RGB')
+        im = Image.open(io.BytesIO(requests.get(src, headers=UA, timeout=60).content))
+        if im.mode in ('RGBA', 'LA', 'P'):  # 투명 배경(로고)은 흰 바탕에 올린다
+            im = im.convert('RGBA'); bg = Image.new('RGBA', im.size, (255, 255, 255, 255)); bg.alpha_composite(im); im = bg
+        im = im.convert('RGB')
+        if os.environ.get('CONTAIN_' + key.replace('-', '_')):  # 로고: 자르지 않고 가운데 배치
+            c = Image.new('RGB', (960, 540), (245, 245, 242)); im.thumbnail((620, 360), Image.LANCZOS)
+            c.paste(im, ((960 - im.width) // 2, (540 - im.height) // 2)); c.save(f'_out/{key}.webp', quality=86, method=6)
+            cred[key] = m; print(key, m['title'], m['license'], m['artist']); continue
         s = max(960 / im.width, 540 / im.height); im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
         fy = float(os.environ.get('FOCUS_' + key.replace('-', '_'), '0.5'))
         x = (im.width - 960) // 2; y = int((im.height - 540) * fy)
