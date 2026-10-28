@@ -538,7 +538,9 @@ def verify_gates(before_txt, after_txt, workdir, tag='x'):
                        capture_output=True, text=True, encoding='utf-8')
     txt = r.stdout
     try:
-        js = json.loads(txt[txt.index('{'):])
+        # 사람이 읽는 줄 뒤에 붙는 JSON 블록만 읽습니다(본문에 {{ }} 가 있어도 헷갈리지 않게)
+        i = 0 if txt.startswith('{') else txt.rindex('\n{\n') + 1
+        js = json.loads(txt[i:])
     except ValueError:
         return {'exit': r.returncode, 'raw': (txt or r.stderr)[-400:]}
     js['exit'] = r.returncode
