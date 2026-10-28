@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개 · SHIFT AI 튜토리얼</title>
-<meta name="description" content="함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계부터 오류 해석, 피벗 설계까지 다룹니다.">
+<meta name="description" content="함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계에서 시작해 오류 해석과 피벗 설계까지 차례로 다룹니다.">
 <link rel="canonical" href="https://shiftaimagazine.com/tutorial/spreadsheet-formulas/">
 <meta property="og:site_name" content="SHIFT AI">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개 · SHIFT AI 튜토리얼">
-<meta property="og:description" content="함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계부터 오류 해석, 피벗 설계까지 다룹니다.">
+<meta property="og:description" content="함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계에서 시작해 오류 해석과 피벗 설계까지 차례로 다룹니다.">
 <meta property="og:url" content="https://shiftaimagazine.com/tutorial/spreadsheet-formulas/">
 <meta property="og:image" content="https://shiftaimagazine.com/og/t-spreadsheet-formulas.jpg">
 <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=3986ef8f">
+<link rel="stylesheet" href="/assets/site.css?v=f49c9d44">
 </head>
 <body data-route="t-spreadsheet-formulas" data-pre="1">
 <div class="wrap">
@@ -56,7 +56,7 @@
 <main id="v-article"><article class="article narrow tut-page">
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · 업무 · 중급</span>
-    <h1>엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개</h1><p class="deck">함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계부터 오류 해석, 피벗 설계까지 다룹니다.</p>
+    <h1>엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개</h1><p class="deck">함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계에서 시작해 오류 해석과 피벗 설계까지 차례로 다룹니다.</p>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.24</span><span class="dot"></span><span>읽는 데 9분</span><span class="dot"></span><span>프롬프트 9개</span></div>
     <div class="ttags"><a href="/tutorial/?tool=ChatGPT">ChatGPT</a><a href="/tutorial/?tool=Claude">Claude</a><a href="/tutorial/?tool=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4">제미나이</a><a href="/tutorial/?tool=%EC%97%91%EC%85%80%C2%B7%EC%8B%9C%ED%8A%B8">엑셀·시트</a></div>
     <figure class="lead-fig"><img src="img/ph/t-spreadsheet-formulas.webp" alt="" loading="lazy"><figcaption>노트북 화면의 스프레드시트 · Wikimedia Commons · MikeRun (CC BY-SA 4.0)</figcaption></figure>
@@ -65,13 +65,13 @@
       <ol><li><a href="#s1"><span>프롬프트 1</span>내 표를 설명하는 기본 틀</a></li><li><a href="#s2"><span>프롬프트 2</span>조건 맞는 것만 합계·개수</a></li><li><a href="#s3"><span>프롬프트 3</span>중복 찾기</a></li><li><a href="#s4"><span>프롬프트 4</span>날짜 계산</a></li><li><a href="#s5"><span>프롬프트 5</span>다른 표에서 값 찾아오기</a></li><li><a href="#s6"><span>프롬프트 6</span>오류 메시지 해석</a></li><li><a href="#s7"><span>프롬프트 7</span>남이 만든 긴 수식 풀어 읽기</a></li><li><a href="#s8"><span>프롬프트 8</span>피벗 테이블 설계</a></li><li><a href="#s9"><span>프롬프트 9</span>엑셀 ↔ 구글 시트로 옮길 때 깨지는 수식</a></li></ol></div>
     <div class="quick"><b>바쁘면 이것만</b><ol><li>프로그램 버전, 열 구성, 예시 3줄을 '내 표를 설명하는 기본 틀'에 채웁니다.</li><li>예시 데이터는 실제 고객·직원 값 대신 비슷한 가짜 값으로 바꿔 넣습니다.</li><li>받은 수식은 손으로 계산할 수 있는 몇 줄에서 먼저 맞춰 본 뒤 씁니다.</li></ol><div class="ql"><a href="https://support.microsoft.com/en-us/office/datedif-function-25dba1a4-2812-480b-84dd-8b32a451b35c" target="_blank" rel="noopener">마이크로소프트 지원 · DATEDIF 함수 ↗</a></div></div>
     
-    <div class="prep"><div><b>필요한 것</b>엑셀 또는 구글 시트 + ChatGPT·클로드·제미나이 아무 AI</div><div><b>걸리는 시간</b>10분</div><div><b>왜 필요한가요</b>수식 질문에서 AI가 틀리는 가장 큰 이유는 내 표가 어떻게 생겼는지 모르기 때문입니다. 열 위치와 예시 데이터를 함께 주면 고치지 않고 바로 쓸 수 있는 수식이 나옵니다.</div></div>
-    <div class="intro">'매출 합계 수식 알려줘'라고만 물으면 A1:A10 같은 예시 수식이 나오고, 내 표에 맞게 고치다가 다시 막히기 쉽습니다. AI에게는 ① 어떤 프로그램인지(엑셀 버전, 구글 시트), ② 어느 열에 무엇이 있는지, ③ 첫 몇 줄의 예시 데이터, ④ 원하는 결과를 함께 알려 줘야 합니다. 예시 데이터는 실제 값 대신 비슷한 가짜 값으로 바꿔 넣어도 충분합니다. 받은 수식은 손으로 계산할 수 있는 몇 줄에서 먼저 맞는지 확인한 뒤 전체에 적용합니다.</div>
+    <div class="prep"><div><b>필요한 것</b>엑셀 또는 구글 시트 + ChatGPT·클로드·제미나이 아무 AI</div><div><b>걸리는 시간</b>10분</div><div><b>왜 필요한가요</b>AI가 수식 질문에서 가장 많이 틀리는 까닭은 내 표가 어떻게 생겼는지 모르기 때문입니다. 열 위치와 예시 데이터를 함께 주면 고치지 않고 바로 쓸 수 있는 수식이 나옵니다.</div></div>
+    <div class="intro">'매출 합계 수식 알려줘'라고만 물으면 A1:A10 같은 예시 수식이 나오고 내 표에 맞게 고치다가 다시 막히기 쉽습니다. AI에게는 ① 어떤 프로그램인지(엑셀 버전, 구글 시트), ② 어느 열에 무엇이 있는지, ③ 첫 몇 줄의 예시 데이터, ④ 원하는 결과를 함께 알려 줘야 합니다. 예시 데이터는 실제 값 대신 비슷한 가짜 값으로 바꿔 넣어도 충분합니다. 받은 수식은 손으로 계산할 수 있는 몇 줄에서 먼저 맞는지 확인한 뒤 전체에 적용합니다.</div>
     <div class="items"><section class="ti" id="s1"><div class="tb">
         <h3><span class="sn">프롬프트 1</span>내 표를 설명하는 기본 틀</h3>
-        <p class="d">모든 수식 질문 앞에 붙이는 '내 표 설명' 프롬프트입니다. 이것만 잘 써도 수식이 한 번에 맞습니다.</p>
+        <p class="d">'내 표 설명'은 모든 수식 질문 앞에 붙입니다. 이것만 잘 써도 수식이 한 번에 맞습니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>머리글 줄과 예시 3줄을 복사해 넣습니다. 데이터가 몇 행까지인지, 빈칸이 있는지도 적습니다. 프로그램과 버전을 적어야 내 환경에서 안 되는 함수를 피할 수 있습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>머리글 줄과 예시 3줄을 복사해 넣고 데이터가 몇 행까지인지, 빈칸이 있는지도 함께 적습니다. 프로그램과 버전을 적어 두면 내 환경에서 안 되는 함수를 피할 수 있습니다.</div>
         
         
         
@@ -81,9 +81,9 @@
         
       </div></section><section class="ti" id="s2"><div class="tb">
         <h3><span class="sn">프롬프트 2</span>조건 맞는 것만 합계·개수</h3>
-        <p class="d">'서울 지역 10월 매출 합계'처럼 조건이 여러 개인 합계와 개수를 구하는 수식입니다.</p>
+        <p class="d">'서울 지역 10월 매출 합계'처럼 조건이 여러 개인 합계와 개수를 구합니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>조건을 문장으로 하나씩 나열합니다. 날짜 조건은 '&gt;='&amp;DATE(2026,10,1)처럼 DATE 함수로 넣으면 엑셀과 구글 시트 모두에서 안정적으로 동작합니다. 날짜에 시간이 섞여 있을 수 있으면 끝 조건을 '다음 달 1일 미만'으로 잡습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>조건을 문장으로 하나씩 나열합니다. 날짜 조건은 '&gt;='&amp;DATE(2026,10,1)처럼 DATE 함수로 넣으면 엑셀과 구글 시트 모두에서 안정적으로 동작하고 날짜에 시간이 섞여 있을 수 있으면 끝 조건은 '다음 달 1일 미만'으로 잡습니다.</div>
         
         
         
@@ -95,9 +95,9 @@
 G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
       </div></section><section class="ti" id="s3"><div class="tb">
         <h3><span class="sn">프롬프트 3</span>중복 찾기</h3>
-        <p class="d">같은 이메일·주문번호가 두 번 이상 들어간 행을 표시하거나 세는 수식입니다.</p>
+        <p class="d">같은 이메일·주문번호가 두 번 이상 들어간 행을 표시하거나 셉니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>처음 나온 것은 두고 두 번째부터 표시할지, 중복된 모든 행을 표시할지 먼저 정합니다. 같은 조건을 조건부 서식에 넣으면 색으로 바로 보입니다. 앞뒤 공백 때문에 같은 값이 다르게 인식되는 경우가 많으니 함께 묻습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>처음 나온 것은 두고 두 번째부터 표시할지, 중복된 모든 행을 표시할지 먼저 정합니다. 같은 조건을 조건부 서식에 넣으면 색으로 바로 보입니다. 같은 값이 앞뒤 공백 때문에 다르게 인식되는 경우도 많으니 함께 묻습니다.</div>
         
         
         
@@ -110,9 +110,9 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
 =IF(COUNTIF($A$2:$A$1000,A2)&gt;1,"중복","")</pre></div></div>
       </div></section><section class="ti" id="s4"><div class="tb">
         <h3><span class="sn">프롬프트 4</span>날짜 계산</h3>
-        <p class="d">근속 기간, 마감까지 남은 영업일, 3개월 뒤 날짜처럼 자주 쓰는 날짜 계산 수식입니다.</p>
+        <p class="d">근속 기간, 마감까지 남은 영업일, 3개월 뒤 날짜처럼 자주 쓰는 날짜를 계산합니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>주말 외에 공휴일도 빼려면 공휴일 날짜 목록을 별도 범위에 적어 두고 그 범위를 알려줍니다. 마이크로소프트 도움말에 따르면 DATEDIF는 시작일이 종료일보다 늦으면 #NUM! 오류를 내고, 'MD' 단위는 부정확한 결과를 낼 수 있어 권장하지 않습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>주말 말고 공휴일까지 빼려면 공휴일 날짜 목록을 별도 범위에 적어 두고 그 범위를 알려줍니다. 마이크로소프트 도움말에 따르면 DATEDIF는 시작일이 종료일보다 늦으면 #NUM! 오류를 내고 'MD' 단위는 부정확한 결과를 낼 수 있어 권장하지 않습니다.</div>
         
         
         
@@ -124,9 +124,9 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
 3개월 뒤: =EDATE(B2,3) (결과 셀 서식을 날짜로)</pre></div></div>
       </div></section><section class="ti" id="s5"><div class="tb">
         <h3><span class="sn">프롬프트 5</span>다른 표에서 값 찾아오기</h3>
-        <p class="d">사번으로 이름을, 상품코드로 가격을 다른 시트에서 불러오는 조회 수식입니다.</p>
+        <p class="d">사번으로 이름을, 상품코드로 가격을 다른 시트에서 불러옵니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>XLOOKUP은 엑셀 365·2021 이후 버전과 구글 시트에서 쓸 수 있습니다. 버전을 모르면 VLOOKUP 버전도 함께 달라고 합니다. 찾는 값이 없을 때 보여 줄 문구를 정해 두면 빈칸과 오류를 구분하기 쉽습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>XLOOKUP은 엑셀 365·2021 이후 버전과 구글 시트에서 쓸 수 있습니다. 버전을 모르면 VLOOKUP 버전도 함께 달라고 합니다. 찾는 값이 없을 때 보여 줄 문구도 정해 두면 빈칸과 오류가 쉽게 구분됩니다.</div>
         
         
         
@@ -136,9 +136,9 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
         
       </div></section><section class="ti" id="s6"><div class="tb">
         <h3><span class="sn">프롬프트 6</span>오류 메시지 해석</h3>
-        <p class="d">#N/A, #VALUE!, #REF!, #DIV/0!, #NAME? 같은 오류가 왜 났는지와 고치는 방법을 묻는 프롬프트입니다.</p>
+        <p class="d">#N/A, #VALUE!, #REF!, #DIV/0!, #NAME? 같은 오류가 왜 났는지, 어떻게 고치는지 묻습니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>오류가 난 수식을 그대로 복사하고, 참조하는 셀에 실제로 무엇이 들어 있는지 함께 적습니다. 수식만 보내면 AI는 원인을 추측만 합니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>수식만 보내면 AI는 원인을 추측만 합니다. 오류가 난 수식을 그대로 복사하고 참조하는 셀에 실제로 무엇이 들어 있는지 함께 적습니다.</div>
         
         
         
@@ -148,9 +148,9 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
         
       </div></section><section class="ti" id="s7"><div class="tb">
         <h3><span class="sn">프롬프트 7</span>남이 만든 긴 수식 풀어 읽기</h3>
-        <p class="d">전임자가 남긴 길고 복잡한 수식이 무엇을 계산하는지 한 단계씩 풀어 보는 프롬프트입니다.</p>
+        <p class="d">전임자가 남긴 길고 복잡한 수식이 무엇을 계산하는지 한 단계씩 풀어 봅니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>수식과 함께 그 수식이 있는 표의 열 구성을 알려줍니다. 고치기 전에 먼저 이해하는 용도로 씁니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>고치기 전에 먼저 이해하는 용도라서 수식과 함께 그 수식이 있는 표의 열 구성을 알려줍니다.</div>
         
         
         
@@ -160,9 +160,9 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
         
       </div></section><section class="ti" id="s8"><div class="tb">
         <h3><span class="sn">프롬프트 8</span>피벗 테이블 설계</h3>
-        <p class="d">보고 싶은 표를 말하면 피벗 테이블의 행·열·값·필터 배치를 설계해 주는 프롬프트입니다.</p>
+        <p class="d">보고 싶은 표를 말하면 AI가 피벗 테이블의 행·열·값·필터 배치를 설계해 줍니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>피벗을 만들기 전에 원본 데이터가 '한 행에 한 건' 형태인지부터 확인합니다. 병합된 셀이나 중간 합계 행이 있으면 먼저 정리합니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>피벗을 만들기 전에 원본 데이터가 '한 행에 한 건' 형태인지부터 보고 병합된 셀이나 중간 합계 행이 있으면 먼저 정리합니다.</div>
         
         
         
@@ -172,9 +172,9 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
         
       </div></section><section class="ti" id="s9"><div class="tb">
         <h3><span class="sn">프롬프트 9</span>엑셀 ↔ 구글 시트로 옮길 때 깨지는 수식</h3>
-        <p class="d">엑셀 파일을 구글 시트로, 또는 반대로 옮겼을 때 동작하지 않는 함수를 찾고 바꾸는 프롬프트입니다.</p>
+        <p class="d">엑셀 파일을 구글 시트로, 또는 반대로 옮겼을 때 동작하지 않는 함수를 찾아 바꿉니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>두 프로그램은 대부분의 함수가 같지만 일부 함수와 여러 칸에 결과를 펼치는 수식의 동작이 다를 수 있습니다. 깨진 수식을 모아 한 번에 넣습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>두 프로그램은 대부분의 함수가 같지만 일부 함수와 여러 칸에 결과를 펼치는 수식은 동작이 다를 수도 있습니다. 깨진 수식은 모아서 한 번에 넣습니다.</div>
         
         
         
@@ -184,7 +184,7 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
         
       </div></section></div>
     <div class="bonus"><b>보너스 · 수식 적용 전 체크리스트</b><ol><li>손으로 계산할 수 있는 3~5줄에서 수식 결과를 먼저 맞춰 봤습니다</li><li>고정해야 하는 범위에 $를 붙였습니다(예: $A$2:$A$1000)</li><li>날짜·숫자가 텍스트로 들어간 셀이 없는지 확인했습니다</li><li>원본 파일을 복사해 두고 사본에서 작업했습니다</li><li>실제 고객·직원 데이터 대신 가짜 예시 값으로 질문했습니다</li><li>IFERROR로 오류를 가리기 전에 원인을 확인했습니다</li></ol></div>
-    <div class="limits"><b>솔직히 한계</b><ul><li>AI가 내 엑셀 버전에서 쓸 수 없는 함수를 내놓을 수 있으니, 버전을 꼭 적고 결과를 직접 확인해야 합니다.</li><li>날짜나 숫자가 텍스트로 들어간 셀, 앞뒤 공백 같은 데이터 문제는 수식만 봐서는 드러나지 않아 원본을 직접 살펴봐야 합니다.</li><li>엑셀과 구글 시트는 일부 함수의 동작이 달라서, 한쪽에서 맞던 수식도 옮긴 뒤에는 다시 확인해야 합니다.</li></ul></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>AI가 내 엑셀 버전에서 쓸 수 없는 함수를 내놓을 수 있으니 버전을 꼭 적고 결과를 직접 확인해야 합니다.</li><li>날짜나 숫자가 텍스트로 들어간 셀, 앞뒤 공백 같은 데이터 문제는 원본을 직접 살펴봐야 합니다. 수식만 봐서는 드러나지 않습니다.</li><li>한쪽에서 맞던 수식도 옮긴 뒤에는 다시 확인해야 합니다. 엑셀과 구글 시트는 일부 함수의 동작이 다릅니다.</li></ul></div>
     <div class="src"><b>공식 자료</b><a href="https://support.microsoft.com/en-us/office/datedif-function-25dba1a4-2812-480b-84dd-8b32a451b35c" target="_blank" rel="noopener">마이크로소프트 지원 — DATEDIF 함수 · https://support.microsoft.com/en-us/office/datedif-function-25dba1a4-2812-480b-84dd-8b32a451b35c</a></div>
     
     <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/spreadsheet-formulas/" data-copy="https://shiftaimagazine.com/tutorial/spreadsheet-formulas/">링크 복사</a></div>
@@ -197,7 +197,7 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
   </div>
 </section>
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/ai-tutor/"><img class="thumb" src="img/cover/t-ai-tutor.webp" alt="" loading="lazy">
-  <div class="b"><span class="cat">공부·리서치 · 입문</span><h3>AI를 과외 선생님으로 쓰는 공부 프롬프트 9개</h3><p>답을 바로 받는 대신 질문을 받고, 틀린 문제를 모아 다시 풀게 하면 AI는 꽤 괜찮은 과외 선생님이 됩니다. 수준 진단부터 시험 직전 요약까지 다룹니다.</p><div class="meta"><span>2026.10.23</span><span class="dot"></span><span>프롬프트 9개</span><span class="dot"></span><span>읽는 데 8분</span></div></div></a></div></div>
+  <div class="b"><span class="cat">공부·리서치 · 입문</span><h3>AI를 과외 선생님으로 쓰는 공부 프롬프트 9개</h3><p>답을 바로 받는 대신 질문을 받고 틀린 문제를 모아 다시 풀게 하면 AI는 꽤 괜찮은 과외 선생님이 됩니다. 수준 진단부터 시험 직전 요약까지 다룹니다.</p><div class="meta"><span>2026.10.23</span><span class="dot"></span><span>프롬프트 9개</span><span class="dot"></span><span>읽는 데 7분</span></div></div></a></div></div>
   </article></main>
 <footer>
   <div class="fl">
@@ -210,8 +210,8 @@ G1 셀로 바꾸려면 "서울" 자리에 G1</pre></div></div>
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=3986ef8f"></script>
-<script src="/assets/app.js?v=3986ef8f"></script>
+<script src="/assets/data.js?v=f49c9d44"></script>
+<script src="/assets/app.js?v=f49c9d44"></script>
 
 
 </body></html>

@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>발표 자료 뼈대를 AI로 잡는 프롬프트 9개 · SHIFT AI 튜토리얼</title>
-<meta name="description" content="슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻는 프롬프트입니다.">
+<meta name="description" content="슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 프롬프트는 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻습니다.">
 <link rel="canonical" href="https://shiftaimagazine.com/tutorial/presentation/">
 <meta property="og:site_name" content="SHIFT AI">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="발표 자료 뼈대를 AI로 잡는 프롬프트 9개 · SHIFT AI 튜토리얼">
-<meta property="og:description" content="슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻는 프롬프트입니다.">
+<meta property="og:description" content="슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 프롬프트는 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻습니다.">
 <meta property="og:url" content="https://shiftaimagazine.com/tutorial/presentation/">
 <meta property="og:image" content="https://shiftaimagazine.com/og/t-presentation.jpg">
 <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=3986ef8f">
+<link rel="stylesheet" href="/assets/site.css?v=f49c9d44">
 </head>
 <body data-route="t-presentation" data-pre="1">
 <div class="wrap">
@@ -56,7 +56,7 @@
 <main id="v-article"><article class="article narrow tut-page">
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · 업무 · 입문</span>
-    <h1>발표 자료 뼈대를 AI로 잡는 프롬프트 9개</h1><p class="deck">슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻는 프롬프트입니다.</p>
+    <h1>발표 자료 뼈대를 AI로 잡는 프롬프트 9개</h1><p class="deck">슬라이드 디자인보다 먼저 '누구에게 어떤 한 문장을 남길지'를 정해야 합니다. 프롬프트는 청중 정의부터 목차와 반론 대비, 대본까지 순서대로 묻습니다.</p>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.23</span><span class="dot"></span><span>읽는 데 8분</span><span class="dot"></span><span>프롬프트 9개</span></div>
     <div class="ttags"><a href="/tutorial/?tool=ChatGPT">ChatGPT</a><a href="/tutorial/?tool=Claude">Claude</a><a href="/tutorial/?tool=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4">제미나이</a></div>
     <figure class="lead-fig"><img src="img/ph/t-presentation.webp" alt="" loading="lazy"><figcaption>회의실 발표 · Wikimedia Commons · DERDAKI ILIAS (CC BY-SA 4.0)</figcaption></figure>
@@ -66,10 +66,10 @@
     <div class="quick"><b>바쁘면 이것만</b><ol><li>'청중 정의' 프롬프트로 이 발표에서 누가 결정을 내리는지부터 정리합니다.</li><li>청중이 기억할 한 문장과 요청할 행동 하나를 고른 뒤 목차를 짭니다.</li><li>슬라이드 제목은 주장 문장으로 쓰고, 숫자는 내 자료에 있는 것만 넣습니다.</li></ol></div>
     
     <div class="prep"><div><b>필요한 것</b>ChatGPT·클로드·제미나이 아무 AI</div><div><b>걸리는 시간</b>10분</div><div><b>왜 필요한가요</b>AI에게 '발표 자료 만들어 줘'라고 하면 그럴듯하지만 아무에게나 할 수 있는 슬라이드가 나옵니다. 청중과 메시지를 먼저 정해 두면 목차와 데이터, 대본이 한 방향으로 정리됩니다.</div></div>
-    <div class="intro">발표가 실패하는 이유는 대개 슬라이드가 못생겨서라기보다, 청중이 '그래서 뭘 하라는 거지'를 모른 채 발표가 끝나서입니다. 아래 프롬프트는 디자인 도구를 열기 전에 ① 청중을 정의하고, ② 한 문장 메시지를 정하고, ③ 그 문장을 증명하는 목차를 짜고, ④ 반론에 대비하고, ⑤ 시간에 맞춘 대본을 쓰는 순서로 뼈대를 세웁니다. 각 단계의 결과를 다음 프롬프트에 붙여 넣으며 이어 가면 됩니다. 슬라이드에 들어갈 숫자는 AI가 만들지 않게 하고, 내가 가진 자료만 쓰게 합니다.</div>
+    <div class="intro">발표는 대개 슬라이드가 못생겨서라기보다 청중이 '그래서 뭘 하라는 거지'를 모른 채 끝나서 실패합니다. 아래 프롬프트는 디자인 도구를 열기 전에 ① 청중을 정의하고 ② 한 문장 메시지를 정하고 ③ 그 문장을 증명하는 목차를 짜고 ④ 반론에 대비하고 ⑤ 시간에 맞춘 대본을 쓰는 순서로 뼈대를 세웁니다. 각 단계의 결과를 다음 프롬프트에 붙여 넣으며 이어 가면 됩니다. 슬라이드에 들어갈 숫자는 AI가 만들지 않게 하고 내 자료에 있는 것만 쓰게 합니다.</div>
     <div class="items"><section class="ti" id="s1"><div class="tb">
         <h3><span class="sn">프롬프트 1</span>청중 정의</h3>
-        <p class="d">발표를 듣는 사람이 누구이고, 무엇을 이미 알고, 무엇을 걱정하는지 정리하는 첫 단계입니다.</p>
+        <p class="d">발표를 듣는 사람이 누구이며 무엇을 이미 알고 무엇을 걱정하는지부터 정리합니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>청중의 직급·부서·사전 지식을 아는 만큼 적습니다. 실제로 결정을 내리는 사람이 누구인지가 가장 중요합니다.</div>
         
@@ -81,7 +81,7 @@
         
       </div></section><section class="ti" id="s2"><div class="tb">
         <h3><span class="sn">프롬프트 2</span>한 문장 메시지 정하기</h3>
-        <p class="d">발표가 끝난 뒤 청중이 기억할 단 한 문장과, 청중에게 요청할 행동 하나를 정합니다.</p>
+        <p class="d">발표가 끝난 뒤 청중이 기억할 단 한 문장과 청중에게 요청할 행동 하나를 정합니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>앞 단계 결과를 함께 붙여 넣습니다. 후보 중 하나를 골라 이후 모든 단계에 그대로 씁니다.</div>
         
@@ -95,7 +95,7 @@
 요청 행동: 11월 계약 승인 (비용 숫자는 내 자료로 채운다)</pre></div></div>
       </div></section><section class="ti" id="s3"><div class="tb">
         <h3><span class="sn">프롬프트 3</span>슬라이드 목차 짜기</h3>
-        <p class="d">한 문장 메시지를 증명하는 순서로 슬라이드 목차를 세우는 프롬프트입니다.</p>
+        <p class="d">슬라이드 목차는 한 문장 메시지를 증명하는 순서로 세웁니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>발표 시간에 맞춰 장수를 정합니다. 슬라이드 제목은 '시장 현황' 같은 주제 이름 대신 주장을 담은 문장으로 쓰게 합니다. 그래야 제목만 이어 읽어도 발표 전체가 이해됩니다.</div>
         
@@ -107,9 +107,9 @@
         
       </div></section><section class="ti" id="s4"><div class="tb">
         <h3><span class="sn">프롬프트 4</span>데이터를 어떤 그래프로 보여 줄지</h3>
-        <p class="d">가진 숫자를 표, 막대, 선 그래프 중 무엇으로 보여 줄지와 한 장에서 강조할 숫자를 고릅니다.</p>
+        <p class="d">준비한 숫자를 표, 막대, 선 그래프 중 무엇으로 보여 줄지 정하고 한 장에서 강조할 숫자도 고릅니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>실제 데이터 표를 붙여 넣습니다. 한 슬라이드에서 강조할 숫자는 하나로 줄이는 것이 원칙입니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>실제 데이터 표를 붙여 넣습니다. 한 슬라이드에서 강조하는 숫자는 하나로 줄입니다.</div>
         
         
         
@@ -121,7 +121,7 @@
         <h3><span class="sn">프롬프트 5</span>반론·질문 대비</h3>
         <p class="d">청중이 던질 날카로운 질문과 반론을 미리 뽑고 답변을 준비합니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>가장 까다로운 참석자를 구체적으로 적을수록 질문이 날카로워집니다. 답이 약한 질문은 슬라이드에 미리 넣어 두는 것도 방법입니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>가장 까다로운 참석자를 구체적으로 적을수록 질문이 날카로워집니다. 답이 약한 질문은 슬라이드에 미리 넣어 두어도 됩니다.</div>
         
         
         
@@ -131,9 +131,9 @@
         
       </div></section><section class="ti" id="s6"><div class="tb">
         <h3><span class="sn">프롬프트 6</span>슬라이드별 발표 대본</h3>
-        <p class="d">슬라이드마다 말할 내용을 시간에 맞춰 쓰는 대본 프롬프트입니다.</p>
+        <p class="d">슬라이드마다 말할 내용을 시간에 맞춰 대본으로 씁니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>말하는 속도는 사람마다 다르므로 대본을 받은 뒤 소리 내 읽으며 시간을 잽니다. 대본은 슬라이드 글자를 그대로 읽지 않는 형태로 요청해야 합니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>대본은 슬라이드 글자를 그대로 읽지 않는 형태로 요청해야 합니다. 말하는 속도는 사람마다 다르므로 대본을 받은 뒤 소리 내 읽으며 시간을 잽니다.</div>
         
         
         
@@ -143,7 +143,7 @@
         
       </div></section><section class="ti" id="s7"><div class="tb">
         <h3><span class="sn">프롬프트 7</span>5분·1분 버전으로 줄이기</h3>
-        <p class="d">발표 시간이 갑자기 줄었을 때 무엇을 빼고 무엇을 남길지 정하는 프롬프트입니다.</p>
+        <p class="d">발표 시간이 갑자기 줄었을 때 무엇을 빼고 무엇을 남길지 정합니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>시간이 줄어도 한 문장 메시지와 요청 행동은 남겨야 합니다. 복도에서 결정권자를 만났을 때 쓸 1분 버전도 같이 만들어 둡니다.</div>
         
@@ -167,9 +167,9 @@
         
       </div></section><section class="ti" id="s9"><div class="tb">
         <h3><span class="sn">프롬프트 9</span>슬라이드 문구 줄이기</h3>
-        <p class="d">슬라이드 한 장에 빽빽하게 들어간 글을 줄이고, 빠진 내용은 대본으로 옮깁니다.</p>
+        <p class="d">슬라이드 한 장에 빽빽하게 들어간 글을 줄이고 빠진 내용은 대본으로 옮깁니다.</p>
         
-        <div class="how"><b>이렇게 쓰세요</b>슬라이드 글을 복사해 넣습니다. 화면에 남길 것과 말로 할 것을 나누는 것이 목적입니다. 숫자는 바꾸지 말라고 꼭 적습니다.</div>
+        <div class="how"><b>이렇게 쓰세요</b>슬라이드 글을 복사해 넣고 화면에 남길 것과 말로 할 것을 나눠 달라고 합니다. 숫자는 바꾸지 말라고 꼭 적습니다.</div>
         
         
         
@@ -183,7 +183,7 @@
 대본으로 옮김: '이 세 가지를 3단계로 나눠 추진합니다.'</pre></div></div>
       </div></section></div>
     <div class="bonus"><b>보너스 · 발표 전날 체크리스트</b><ol><li>청중이 기억할 한 문장과 요청할 행동이 하나씩 정해져 있습니다</li><li>모든 슬라이드 제목이 주장 문장입니다</li><li>슬라이드 속 숫자는 모두 내 자료에서 확인했습니다(AI가 만든 숫자 없음)</li><li>가장 곤란한 질문 3개의 답을 소리 내 연습했습니다</li><li>실제로 시간을 재며 리허설했습니다</li><li>시간이 반으로 줄어도 할 수 있는 5분 버전이 있습니다</li></ol></div>
-    <div class="limits"><b>솔직히 한계</b><ul><li>AI가 추정한 청중의 관심사와 결정 기준은 가정이므로, 발표 전에 실제 참석자나 주최자에게 확인해야 합니다.</li><li>AI는 그럴듯한 숫자와 사례를 만들어 넣을 수 있으니 슬라이드 속 숫자는 모두 내 자료와 대조해야 합니다.</li><li>대본의 시간 배분은 말하는 속도에 따라 달라지므로 소리 내어 읽으며 직접 재 봐야 합니다.</li></ul></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>AI가 추정한 청중의 관심사와 결정 기준은 가정이므로 발표 전에 실제 참석자나 주최자에게 확인해야 합니다.</li><li>슬라이드 속 숫자는 모두 내 자료와 대조해야 합니다. AI는 그럴듯한 숫자와 사례를 만들어 넣을 수 있습니다.</li><li>대본의 시간 배분은 소리 내어 읽으며 직접 재 봐야 합니다. 말하는 속도에 따라 달라지기 때문입니다.</li></ul></div>
     
     
     <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/presentation/" data-copy="https://shiftaimagazine.com/tutorial/presentation/">링크 복사</a></div>
@@ -196,7 +196,7 @@
   </div>
 </section>
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/meeting-notes/"><img class="thumb" src="img/cover/t-meeting-notes.webp" alt="" loading="lazy">
-  <div class="b"><span class="cat">업무 · 입문</span><h3>회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</h3><p>녹취록을 요약만 하면 '좋은 회의였다'로 끝나기 쉽습니다. 결정사항과 담당자, 마감, 미결 사항으로 나눠 정리해야 다음 날 일이 움직입니다.</p><div class="meta"><span>2026.10.22</span><span class="dot"></span><span>프롬프트 9개</span><span class="dot"></span><span>읽는 데 9분</span></div></div></a></div></div>
+  <div class="b"><span class="cat">업무 · 입문</span><h3>회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</h3><p>녹취록을 요약만 하면 '좋은 회의였다'로 끝나기 쉽습니다. 결정사항과 담당자, 마감, 미결 사항으로 나눠 정리해야 다음 날 일이 움직입니다.</p><div class="meta"><span>2026.10.22</span><span class="dot"></span><span>프롬프트 9개</span><span class="dot"></span><span>읽는 데 8분</span></div></div></a></div></div>
   </article></main>
 <footer>
   <div class="fl">
@@ -209,8 +209,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=3986ef8f"></script>
-<script src="/assets/app.js?v=3986ef8f"></script>
+<script src="/assets/data.js?v=f49c9d44"></script>
+<script src="/assets/app.js?v=f49c9d44"></script>
 
 
 </body></html>
