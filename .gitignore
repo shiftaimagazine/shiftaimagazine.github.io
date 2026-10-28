@@ -2,3 +2,4 @@ _src/build/
 __pycache__/
 *.pyc
 node_modules/
+_workspace/

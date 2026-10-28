@@ -4,7 +4,7 @@
 `_src/` 는 밑줄로 시작해서 GitHub Pages(Jekyll)가 공개하지 않는다.
 
 ## 자동 흐름
-1. 매일 예약 작업(Claude)이 `_src/news/daily/YYYY-MM-DD.json` 에 기사를, `_src/news/daily.json` 맨 앞에 그날 데일리 이슈를 넣고 푸시
+1. 매일 예약 작업(Claude)이 `_src/news/daily/YYYY-MM-DD.json` 에 기사를, `_src/news/daily.json` 맨 앞에 그날 데일리 이슈를 넣고, `_src/humanize/` 의 다듬기 단계(사람이 쓴 글처럼, 10/29~)를 거친 뒤 푸시
 2. `.github/workflows/build.yml` 이 돈다: `fetch_images.py`(새 기사 사진: og → 원문 og:image → 원문 화면 캡처) → `build.sh` → 결과 커밋
 3. GitHub Pages 가 그 커밋을 배포(1분 안팎)
 
@@ -35,3 +35,4 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
 - 말투(10/27~): 사이트 모든 글·화면 문구는 **습니다체**(질문은 ~나요?/~ㄹ까요?). 따옴표 안 인용·복사용 프롬프트(items.prompt)·예시(example)는 그대로. AI 티 나는 표현 금지 목록은 news/BRIEF.md 2장. assemble.py 가 2026-10-28 이후 기사·데일리·칼럼에서 한다체 문장 끝을 찾으면 멈춘다.
 - 튜토리얼 목록: 분류 버튼 맨 앞에 '무료 도구'(tools.json 목록을 보여 줌, /tutorial/?cat=무료 도구). 썸네일은 실제 사진(위키미디어 공용, 출처는 news/tutorial_links.json TFIG) 위에 'SHIFT AI 튜토리얼'과 cover.line 을 얹은 것 — `python3 _src/tut_thumbs.py [튜토리얼 id…]` 로 다시 만든다. 새 사진 찾기·받기는 손으로 돌리는 Actions `commons-photos`(결과는 commons-tmp 가지).
 - 튜토리얼 형식(10/27~): 목록은 검색칸·'도구' 줄(tool 태그)·'주제' 줄(cat, 무료 도구 포함), 카드에 'STEP N개/프롬프트 N개 · 읽는 데 N분'. 글은 이 글에 담긴 것(목차) → 바쁘면 이것만(quick) → 통째로 맡기는 프롬프트(master) → STEP(time·d·how·more·term·code·bad/good·table) → 솔직히 한계(limits) → 공식 자료(sources). 쓰는 법은 news/TUTORIAL_GUIDE.md.
+- 사람이 쓴 글처럼(10/29~): `_src/humanize/HUMANIZE.md`(다듬기 규칙) · `shift_humanize.py`(점검 scan · 내보내기 export · 되돌려 넣기 apply) · `vendor/`(PC 에 설치한 humanize-korean 2.3.2·humanizer-kr 0.1.10 원본 사본, MIT). assemble.py 는 2026-10-29 이후 기사에서 AI 티 S1(정해진 소제목 틀 3개 이상, 핵심은·시사합니다·대시 등)이 남으면 멈춘다(GitHub Actions 에서는 경고만). 작업 파일은 저장소 루트 `_workspace/`(커밋 안 함).

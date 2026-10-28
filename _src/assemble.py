@@ -80,6 +80,15 @@ if __name__ == '__main__':
         assert not t.get('rel') or t['rel'] in byid, ('용어 rel 오류', t['t'])
         assert t.get('g') in GROUPS, ('용어 분야(g) 오류', t['t'], t.get('g'))
     assert len({t['t'] for t in TERMS}) == len(TERMS), '중복 용어'
+    # 사람이 쓴 글처럼(2026-10-29~): 새 기사는 AI 티 점검기(_src/humanize/shift_humanize.py)의 '반드시 고칠 것'(S1)이 0건이어야 합니다.
+    # 고치는 법은 _src/humanize/HUMANIZE.md. GitHub Actions 빌드에서는 경고만 하고 멈추지 않습니다(사이트 배포가 막히지 않게).
+    sys.path.insert(0, SRC + 'humanize')
+    import shift_humanize
+    _bad = shift_humanize.gate()
+    if _bad and os.environ.get('GITHUB_ACTIONS'):
+        print('경고: AI 티 S1', len(_bad), '건 —', _bad[:3])
+    else:
+        assert not _bad, ('AI 티 점검(S1) — shift_humanize.py export/apply 로 고친 뒤 다시 돌리세요(HUMANIZE.md)', _bad[:6])
 
     old = J('old_tut.json'); tl = J('tutorial_links.json')
     cross = old['cross']; cross['thumb'] = 'img/cover/t-crosscheck-prompts.webp'; cross['rel'] = '2026-10-19-whatsapp-hidden-ai-instructions'
