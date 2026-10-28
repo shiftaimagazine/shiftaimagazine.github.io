@@ -54,7 +54,7 @@ function renderHome(){
   if($("#homeTools")) $("#homeTools").innerHTML = TOOLS.slice(0,3).map(toolHTML).join("");
   $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="/dict/"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
   const rl = sorted.slice(0,3);
-  $("#reelwelcome").innerHTML = `<b>릴스에서 오셨군요! 반갑습니다. 저희는 SHIFT AI 매거진입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
+  $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT AI 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
 }
 
 // AI 뉴스 목록 = 기사 + 칼럼(분류 "칼럼")
@@ -136,7 +136,7 @@ function renderAbout(){
   $("#stats").innerHTML = n.map(([k,v,h])=>`<a class="stat" href="${h}"><b>${k}</b><span>${v}</span></a>`).join("");
   const f = ARTICLES.find(a=>a.featured) || sorted[0];
   const last = (f.body.filter(x=>x.p).slice(-1)[0]||{}).p||f.hook;
-  $("#two").innerHTML = `<figure><img src="${ABOUT_CARD.src}" alt="쓰레드·인스타그램 카드 예시"><figcaption>${esc(ABOUT_CARD.caption)}</figcaption></figure>
+  $("#two").innerHTML = `<figure><img src="${ABOUT_CARD.src}" alt="스레드·인스타그램 카드 예시"><figcaption>${esc(ABOUT_CARD.caption)}</figcaption></figure>
     <div class="long"><small>매거진 기사 · ${esc(f.title)}</small>${esc(last)}<div class="acts"><a href="${P("a-"+f.id)}">기사 전문 읽기</a><a href="${IG}" target="_blank" rel="noopener">30초 영상은 인스타그램에서</a></div></div>`;
 }
 
@@ -245,7 +245,7 @@ function renderArticle(a){
     <div class="ask"><small>생각해 볼 질문</small>${esc(a.ask)}</div>
     ${srcHTML(a.sources)}
     ${tl.length?`<div class="chips">${tl.map(t=>`<a href="/dict/" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
-    <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">쓰레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
+    <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">스레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
   </article>`;
@@ -260,7 +260,7 @@ function renderColumn(c){
     ${fig(colImg(c),"lead-fig")}
     <div class="body">${bodyHTML(c.body)}</div>
     ${rel?`<div class="next"><div class="lbl">바탕이 된 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
-    <div class="links"><a href="${TH}" target="_blank" rel="noopener">쓰레드에서 반론 남기기</a>${linkCopy(c.id,"링크 복사")}</div>
+    <div class="links"><a href="${TH}" target="_blank" rel="noopener">스레드에서 반론 남기기</a>${linkCopy(c.id,"링크 복사")}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 칼럼</div><div class="list">${colHTML(nx)}</div></div>
   </article>`;
@@ -307,7 +307,7 @@ function renderTutorial(t){
     ${limits}
     ${srcs}
     ${rel?`<div class="next"><div class="lbl">관련 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
-    <div class="links">${t.app?`<a href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a>`:""}${t.pdf?`<a href="${t.pdf.url}" target="_blank" rel="noopener">PDF 정리본 열기</a>`:""}<a href="${TH}" target="_blank" rel="noopener">쓰레드에서 질문하기</a>${linkCopy(t.id,"링크 복사")}</div>
+    <div class="links">${t.app?`<a href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a>`:""}${t.pdf?`<a href="${t.pdf.url}" target="_blank" rel="noopener">PDF 정리본 열기</a>`:""}<a href="${TH}" target="_blank" rel="noopener">스레드에서 질문하기</a>${linkCopy(t.id,"링크 복사")}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list">${tutHTML(nx)}</div></div>
   </article>`;

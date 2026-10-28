@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=20518fa5">
+<link rel="stylesheet" href="/assets/site.css?v=b8dbac18">
 </head>
 <body data-route="t-n8n-first-automation" data-pre="1">
 <div class="wrap">
@@ -180,13 +180,13 @@
     <div class="limits"><b>솔직히 한계</b><ul><li>내 PC에 설치한 n8n은 PC와 n8n이 켜져 있을 때만 예약 작업을 합니다. Schedule Trigger의 Settings 탭에 'If Execution Is Missed' 옵션이 있지만, 기본값은 놓친 실행을 건너뛰는 'Don't Run Missed Executions'입니다. 이 값을 'Run the Most Recent Missed Execution'으로 바꾸면, 놓친 시각 가운데 가장 최근 한 번을 n8n이 다시 켜졌을 때 실행합니다. 문서에 따르면 이 옵션은 2.45.0부터 기본으로 켜진 durable scheduler에서만 작동합니다.</li><li>RSS Read는 실행할 때마다 피드에 있는 글을 처음부터 다시 읽고, 전에 받은 글을 거르지 않습니다. 피드에 새 글이 없으면 같은 글이 다시 요약되어 옵니다. 새 글이 올라올 때만 돌리고 싶다면 RSS Feed Trigger 노드를 쓰는 방법이 있습니다. 또 이 글의 워크플로는 RSS 주소 하나만 읽습니다.</li><li>공식 문서는 npm·npx 설치가 n8n 3.0부터 되지 않는다고 예고했고, 실제로 2.45.4를 npm으로 실행하면 앞으로는 공식 Docker 이미지로만 실행할 수 있게 된다는 경고가 나옵니다. 오래 쓸 생각이라면 Docker 기반 한 줄 설치나 클라우드를 고려합니다.</li><li>AI 요약은 원문에 없는 내용을 지어낼 수 있으므로 중요한 소식은 링크를 열어 원문을 확인합니다. 모델 API 사용료는 각 제공사 요금표를 따릅니다. 클라우드 Gateway credits도 요청마다 잔액에서 차감되고, 잔액이 떨어지면 AI 노드가 멈춥니다.</li><li>가격과 체험 조건은 2026년 10월 27일 가격 페이지와 공식 문서 기준이며 바뀔 수 있습니다. 라이선스는 회사 내부 업무와 개인·비상업 용도의 사용을 허용합니다. n8n 자체를 고객에게 열어 고객이 자기 계정을 연결하고 워크플로를 만들게 하는 서비스처럼 이 범위를 벗어나는 용도에는 n8n과 별도 상업 계약이 필요합니다.</li></ul></div>
     <div class="src"><b>공식 자료</b><a href="https://docs.n8n.io/choose-how-to-use-n8n" target="_blank" rel="noopener">n8n 문서 · Choose how to use n8n · https://docs.n8n.io/choose-how-to-use-n8n</a><a href="https://docs.n8n.io/hosting/installation/npm/" target="_blank" rel="noopener">n8n 문서 · Install with npm · https://docs.n8n.io/hosting/installation/npm/</a><a href="https://docs.n8n.io/deploy/host-n8n/install-options/one-line-setup" target="_blank" rel="noopener">n8n 문서 · One-line setup · https://docs.n8n.io/deploy/host-n8n/install-options/one-line-setup</a><a href="https://docs.n8n.io/deploy/use-n8n-cloud/start-your-free-trial" target="_blank" rel="noopener">n8n 문서 · Try free then choose a plan · https://docs.n8n.io/deploy/use-n8n-cloud/start-your-free-trial</a><a href="https://docs.n8n.io/build-your-first-workflow" target="_blank" rel="noopener">n8n 문서 · Build your first workflow · https://docs.n8n.io/build-your-first-workflow</a><a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger" target="_blank" rel="noopener">n8n 문서 · Schedule Trigger · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger</a><a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread" target="_blank" rel="noopener">n8n 문서 · RSS Read · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread</a><a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.limit" target="_blank" rel="noopener">n8n 문서 · Limit · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.limit</a><a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.aggregate" target="_blank" rel="noopener">n8n 문서 · Aggregate · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.aggregate</a><a href="https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm" target="_blank" rel="noopener">n8n 문서 · Basic LLM Chain · https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm</a><a href="https://docs.n8n.io/deploy/use-n8n-cloud/gateway-credits" target="_blank" rel="noopener">n8n 문서 · Gateway credits · https://docs.n8n.io/deploy/use-n8n-cloud/gateway-credits</a><a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail" target="_blank" rel="noopener">n8n 문서 · Send Email · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail</a><a href="https://docs.n8n.io/integrations/builtin/credentials/send-email/gmail" target="_blank" rel="noopener">n8n 문서 · Gmail Send Email credentials · https://docs.n8n.io/integrations/builtin/credentials/send-email/gmail</a><a href="https://docs.n8n.io/build/understand-workflows/save-and-publish-workflows" target="_blank" rel="noopener">n8n 문서 · Save and publish workflows · https://docs.n8n.io/build/understand-workflows/save-and-publish-workflows</a><a href="https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization" target="_blank" rel="noopener">n8n 문서 · Timezone and localization · https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization</a><a href="https://docs.n8n.io/n8n-community-license" target="_blank" rel="noopener">n8n 문서 · Community license · https://docs.n8n.io/n8n-community-license</a><a href="https://n8n.io/pricing/" target="_blank" rel="noopener">n8n 가격 페이지 · https://n8n.io/pricing/</a><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">GitHub · n8n-io/n8n · https://github.com/n8n-io/n8n</a></div>
     
-    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">쓰레드에서 질문하기</a><a href="/tutorial/n8n-first-automation/" data-copy="https://shiftaimagazine.com/tutorial/n8n-first-automation/">링크 복사</a></div>
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/n8n-first-automation/" data-copy="https://shiftaimagazine.com/tutorial/n8n-first-automation/">링크 복사</a></div>
     <section class="followbox">
-  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 짧은 글과 토론은 쓰레드에 올립니다. 새 소식은 그쪽에 가장 먼저 올라옵니다.</p></div>
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
   <div class="fbtns">
     <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
     <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
-    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>쓰레드</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
   </div>
 </section>
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/remotion-motion-video/"><img class="thumb" src="img/cover/t-remotion-motion-video.webp" alt="" loading="lazy">
@@ -195,7 +195,7 @@
 <footer>
   <div class="fl">
     <img src="img/logo-wide.webp" alt="SHIFT AI">
-    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문을 확인하고, 그 소식으로 무엇이 달라지는지 씁니다.</p>
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
     <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
   </div>
   <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/tools/">무료 도구</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
@@ -203,8 +203,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=20518fa5"></script>
-<script src="/assets/app.js?v=20518fa5"></script>
+<script src="/assets/data.js?v=b8dbac18"></script>
+<script src="/assets/app.js?v=b8dbac18"></script>
 
 
 </body></html>
