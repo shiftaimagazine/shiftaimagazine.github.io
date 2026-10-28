@@ -327,11 +327,11 @@
     "파운데이션 모델"
    ],
    "image": {
-    "page": "https://www.fca.org.uk/publications/research-notes/ai-uk-financial-services",
+    "page": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
     "og": null,
-    "credit": "화면: 영국 금융행위감독청(FCA)",
-    "alt": "영국 금융행위감독청의 ‘영국 금융권 AI’ 자료 화면",
-    "mode": "screenshot"
+    "credit": "이미지: Bank of England",
+    "alt": "영란은행 ‘영국 금융권 AI 2026’ 보고서 대표 이미지",
+    "mode": null
    },
    "verify": [
     {

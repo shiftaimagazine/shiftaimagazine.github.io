@@ -355,11 +355,11 @@
     "앱"
    ],
    "image": {
-    "page": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
-    "og": "https://about.fb.com/wp-content/uploads/2026/10/Muse-16x9-SG.png?w=1200",
+    "page": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+    "og": null,
     "credit": "이미지: Meta",
-    "alt": "메타 뮤즈 싱가포르 출시 공식 이미지",
-    "mode": null
+    "alt": "메타 뉴스룸 뮤즈 소개 페이지 화면",
+    "mode": "screenshot"
    },
    "verify": [
     {
