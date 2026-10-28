@@ -1,0 +1,627 @@
+{
+ "articles": [
+  {
+   "id": "2026-10-29-liquid-ai-lfm3",
+   "cat": "모델·제품",
+   "date": "2026-10-29",
+   "time": "06:58",
+   "title": "리퀴드 AI ‘LFM3’ 공개…약 1GB에 들어가는 소형 오픈 모델 6종",
+   "sub": "텍스트·이미지·음성·옴니·의사결정 모델 · 허깅페이스에 가중치 공개",
+   "hook": "리퀴드 AI가 10월 27일 소형 모델 묶음 LFM3를 공개했습니다. 17억~22억 파라미터 모델 6종이 텍스트와 이미지, 음성을 나눠 맡고, 텍스트 모델은 4비트로 줄이면 약 1GB에 들어가 기기 안에서 돌리는 쓰임새를 겨냥했습니다.",
+   "try": "허깅페이스의 LFM3-VL-2B 모델 카드를 열어 한국어를 포함한 지원 언어 16개와 라이선스, 실행 방법을 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "리퀴드 AI(Liquid AI)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 27일"
+    ],
+    [
+     "무엇",
+     "소형 오픈 웨이트 모델 6종(LFM3)"
+    ],
+    [
+     "크기",
+     "17억~22억 파라미터(d1 두 종은 2B급)"
+    ],
+    [
+     "핵심 숫자",
+     "텍스트 모델 4비트 약 1GB, 문맥 256K 토큰(자체 발표 기준)"
+    ],
+    [
+     "원문",
+     "liquid.ai 블로그, 허깅페이스 모델 카드"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "리퀴드 AI(Liquid AI)가 10월 27일 소형 모델 묶음 LFM3를 공개했습니다. 텍스트, 이미지·영상, 음성, 이 셋을 함께 다루는 옴니, 의사결정용 모델까지 6종이고 모두 같은 기반 모델 LFM3-1.7B-Base에서 갈라져 나왔습니다. 가중치는 허깅페이스에 올라왔습니다."
+    },
+    {
+     "ul": [
+      [
+       "2B 안팎 모델 6종",
+       "텍스트·VL·오디오·옴니와 의사결정용 d1 두 종"
+      ],
+      [
+       "작은 메모리",
+       "텍스트 모델 4비트 약 1GB, 128K 문맥 KV 캐시 1.6GB"
+      ],
+      [
+       "한국어",
+       "VL 모델 지원 언어 16개에 포함, 텍스트 모델 목록에는 없음"
+      ]
+     ]
+    },
+    {
+     "h": "같은 뿌리에서 나온 여섯 모델"
+    },
+    {
+     "p": "텍스트 모델 LFM3-1.7B는 22조 개 토큰으로 사전 학습했고 한 번에 256K 토큰까지 읽습니다. 이미지와 영상을 보는 LFM3-VL-2B는 19억, 말을 듣고 말하는 LFM3-Audio-2B는 20억, 세 가지를 함께 다루는 LFM3-Omni-2B는 22억 파라미터입니다. 의사결정 모델로 묶인 d1-2B와 d1-Omni-2B 가운데 d1-Omni-2B는 음성까지 입력으로 받고 43개 언어의 말소리를 구별합니다."
+    },
+    {
+     "h": "기기 안에서 돌리기 위한 숫자들"
+    },
+    {
+     "p": "텍스트 모델은 4비트로 줄이면 약 1GB에 들어갑니다. 회사가 세 기기에서 잰 해독 속도는 다음으로 빠른 모델보다 1.8~2.8배 빨랐습니다(자체 발표 기준). 128K 토큰 문맥을 다 채울 때 필요한 KV 캐시는 1.6GB로 큐원3.5-4B의 4.3GB, 미니CPM5-2B의 5.6GB보다 작고 음성 모델이 첫 토큰을 내기까지는 짧게는 50밀리초가 걸립니다. 실행 도구 목록에는 llama.cpp, MLX, vLLM, 올라마(Ollama), LM 스튜디오가 들어 있습니다."
+    },
+    {
+     "h": "점수는 회사가 직접 잰 것입니다"
+    },
+    {
+     "p": "LFM3-1.7B는 도구 호출 평가 BFCL V4에서 71.39점을 받았고 큐원3.5-9B는 62.83점이었습니다(자체 발표 기준). 웹에서 일을 처리하는 WebArena-Verified에서도 38.42점으로 큐원3.5-9B의 28.94점보다 높았습니다. 이전 세대 LFM2.5-2.6B보다 파라미터를 35% 적게 쓰면서도 성능은 앞선다고 회사는 설명했습니다. LFM3-VL-2B는 시각 평가 62개의 평균이 71.4점으로 젬마 4 12B의 71.7점과 비슷했습니다. 의사결정 모델 d1-2B는 회사 평가인 디시전 벤치에서 85.2점을 받아 이전 모델 d1-3B(83.6점)를 넘었습니다."
+    },
+    {
+     "table": {
+      "head": [
+       "모델",
+       "파라미터",
+       "회사가 밝힌 점수"
+      ],
+      "rows": [
+       [
+        "LFM3-1.7B",
+        "1.7B",
+        "BFCL V4 71.39, IFEval 96.66"
+       ],
+       [
+        "LFM3-VL-2B",
+        "1.9B",
+        "시각 평가 62개 평균 71.4"
+       ],
+       [
+        "LFM3-Audio-2B",
+        "2B",
+        "영어 음성 인식 WER 6.2"
+       ],
+       [
+        "LFM3-Omni-2B",
+        "2.2B",
+        "Daily-Omni 70.1"
+       ]
+      ],
+      "note": "리퀴드 AI 블로그(2026년 10월 27일), 자체 발표 기준"
+     }
+    },
+    {
+     "h": "서버와 미세 조정 도구까지 함께 나왔습니다"
+    },
+    {
+     "p": "가중치 말고도 리퀴드 AI 플레이그라운드와 API, 실시간 추론 파이프라인 RIPL로 모델을 쓸 수 있습니다. 출시 협력사로는 AMD, Arm, 인텔(OpenVINO), 엔비디아, 퀄컴, 오픈라우터(OpenRouter), 버셀(Vercel), 앰버렐라(Ambarella)가 이름을 올렸습니다. 엔비디아 B300 서버에서 동시 요청 1,024개를 받으면 텍스트 모델은 하루 약 36억 토큰을 처리하고 VL 모델은 초당 1만 2,000토큰 넘게 처리합니다(자체 발표 기준). 모든 모델은 GPU 한 장으로 미세 조정할 수 있고 회사는 풍력 발전기 예제에서 SFT와 GRPO를, 로봇 예제에서 랭크 32 LoRA를 썼습니다."
+    },
+    {
+     "h": "한국어와 라이선스는 모델마다 다릅니다"
+    },
+    {
+     "p": "VL 모델 카드는 지원 언어 16개에 한국어를 넣었지만 텍스트 모델의 지원 언어 목록에는 한국어가 없습니다. 오디오 모델은 18개 언어를 지원한다고 적었는데 목록은 공개하지 않았습니다. 라이선스는 ‘LFM Open License v1.0’이고 모델 카드에는 상업적 이용 조건이 따로 적혀 있지 않습니다. llama.cpp의 VL 모델 지원은 아직 검토 중이며 영상 입력은 되지 않습니다."
+    }
+   ],
+   "ask": "노트북이나 휴대폰에서 직접 돌려 보고 싶은 AI 작업이 있나요?",
+   "sources": [
+    [
+     "리퀴드 AI — Introducing LFM3: Every Modality for Specialized Intelligence",
+     "https://www.liquid.ai/blog/lfm3"
+    ],
+    [
+     "허깅페이스 — LiquidAI/LFM3-VL-2B 모델 카드",
+     "https://huggingface.co/LiquidAI/LFM3-VL-2B"
+    ]
+   ],
+   "terms": [
+    "리퀴드 AI",
+    "오픈 웨이트",
+    "파라미터",
+    "양자화",
+    "멀티모달",
+    "온디바이스 AI",
+    "허깅페이스",
+    "벤치마크",
+    "KV 캐시",
+    "라이선스"
+   ],
+   "image": {
+    "page": "https://www.liquid.ai/blog/lfm3",
+    "og": null,
+    "credit": "이미지: Liquid AI",
+    "alt": "리퀴드 AI LFM3 발표 페이지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 27일 공개",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "October 27, 2026"
+    },
+    {
+     "claim": "6종, LFM3-1.7B-Base에서 갈라짐",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "LFM3-1.7B, LFM3-VL-2B, LFM3-Audio-2B, LFM3-Omni-2B, d1-2B, d1-Omni-2B — all branched from LFM3-1.7B-Base"
+    },
+    {
+     "claim": "22조 토큰, 256K",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "Built on a new hybrid architecture and 22T tokens of pre-training (256K context window)"
+    },
+    {
+     "claim": "VL 1.9B, Audio 2B, Omni 2.2B",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "LFM3-VL-2B 1.9B / LFM3-Audio-2B 2B / LFM3-Omni-2B 2.2B"
+    },
+    {
+     "claim": "d1-Omni 43개 언어",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "d1-Omni-2B identifies 43 spoken languages (92.5% on FLEURS)"
+    },
+    {
+     "claim": "4비트 약 1GB",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "the text model fits in about 1 GB at 4-bit precision"
+    },
+    {
+     "claim": "1.8~2.8배",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "1.8 to 2.8 times faster than the next one"
+    },
+    {
+     "claim": "KV 캐시 1.6GB / 4.3GB / 5.6GB",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "128K context needs 1.6 GB of KV cache vs 4.3 GB (Qwen3.5-4B) and 5.6 GB (MiniCPM5-2B)"
+    },
+    {
+     "claim": "첫 토큰 50ms",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "as low as 50 ms"
+    },
+    {
+     "claim": "BFCL V4 71.39 vs 62.83, IFEval 96.66",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "BFCL V4 71.39 (Qwen3.5-9B: 62.83); IFEval 96.66"
+    },
+    {
+     "claim": "35% 적은 파라미터",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "outperforms LFM2.5-2.6B while using 35% fewer parameters"
+    },
+    {
+     "claim": "시각 평가 62개 평균 71.4, 젬마 4 12B 71.7",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "Across 62 vision benchmarks ... average 71.4 (Gemma 4 12B: 71.7)"
+    },
+    {
+     "claim": "WER 6.2, Daily-Omni 70.1",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "English ASR WER 6.2; Daily-Omni 70.1"
+    },
+    {
+     "claim": "오디오 18개 언어",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "now supports 18 languages"
+    },
+    {
+     "claim": "VL 16개 언어에 한국어",
+     "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
+     "quote": "Japanese, Korean, Portuguese, Spanish"
+    },
+    {
+     "claim": "라이선스",
+     "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
+     "quote": "LFM Open License v1.0"
+    },
+    {
+     "claim": "llama.cpp 검토 중, 영상 미지원",
+     "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
+     "quote": "Support for LFM3-VL in llama.cpp is in review"
+    },
+    {
+     "claim": "WebArena-Verified 38.42 vs 28.94",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "WebArena-Verified 38.42 (Qwen3.5-9B: 28.94)"
+    },
+    {
+     "claim": "d1-2B 85.2 vs d1-3B 83.6",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "Decision Bench 85.2 (d1-3B: 83.6)"
+    },
+    {
+     "claim": "플레이그라운드·API·RIPL, 협력사",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "Liquid AI Playground, Liquid AI API, and Liquid Real-time Inference Pipeline (RIPL) ... Ambarella, AMD, Arm, Intel (OpenVINO), NVIDIA, OpenRouter, Qualcomm, Vercel"
+    },
+    {
+     "claim": "B300 1,024개 동시 요청 하루 약 36억 토큰, VL 초당 1만 2,000토큰 이상",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "about 3.6 billion tokens per day at 1,024 concurrent requests ... over 12,000 tokens per second"
+    },
+    {
+     "claim": "GPU 한 장 미세 조정, SFT·GRPO, 랭크 32 LoRA",
+     "url": "https://www.liquid.ai/blog/lfm3",
+     "quote": "Every model can be fine-tuned on a single GPU ... SFT and GRPO (wind-turbine demo) ... rank-32 LoRA (robotics demo)"
+    }
+   ]
+  },
+  {
+   "id": "2026-10-29-meta-muse-singapore",
+   "cat": "비즈니스·일자리",
+   "date": "2026-10-29",
+   "time": "06:57",
+   "title": "메타 AI 에이전트 ‘뮤즈’ 싱가포르 출시…쇼피·그랩·싱가포르항공과 연결",
+   "sub": "가격 비교부터 장보기·여행 예약까지 · 비밀번호와 결제 수단은 에이전트에게 감춰",
+   "hook": "메타가 10월 27일 개인 AI 에이전트 ‘뮤즈’를 싱가포르에 내놨습니다. 쇼피·라자다에서 가격을 비교하고 그랩으로 장을 보고 싱가포르항공·아고다로 여행을 예약하는 현지 연결 기능이 붙었고 기본 사용은 무료입니다.",
+   "try": "메타 뉴스룸의 뮤즈 싱가포르 발표문에서 연결 서비스 목록과 민감한 작업 전 확인 절차를 읽고, 내가 쓰는 AI 비서의 권한 설정과 비교해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "메타(Meta)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 27일(싱가포르 출시)"
+    ],
+    [
+     "무엇",
+     "개인 AI 에이전트 뮤즈(Muse) 싱가포르 출시"
+    ],
+    [
+     "쓸 수 있는 곳",
+     "iOS·안드로이드 앱, muse.ai(AI 안경은 예정)"
+    ],
+    [
+     "연결 서비스",
+     "쇼피·라자다·그랩·싱가포르항공 등 현지 8곳"
+    ],
+    [
+     "원문",
+     "about.fb.com(메타 뉴스룸)"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "메타(Meta)가 10월 27일 개인 AI 에이전트 ‘뮤즈(Muse)’를 싱가포르에서 내놨습니다. 9월 8일 미국에서 먼저 나온 서비스인데 이번에는 현지 쇼핑·배달·여행 서비스와 이어지는 기능을 함께 넣었습니다. iOS와 안드로이드 앱, muse.ai에서 쓸 수 있고 AI 안경 지원은 곧 나옵니다."
+    },
+    {
+     "ul": [
+      [
+       "현지 서비스 8곳과 연결",
+       "쇼피·라자다·그랩·싱가포르항공·아고다·숍백·클룩·트립닷컴"
+      ],
+      [
+       "메일·일정도 연결",
+       "지메일·구글 캘린더·인스타그램"
+      ],
+      [
+       "무료로 시작",
+       "많이 쓰는 사람을 위한 구독 요금제는 따로"
+      ]
+     ]
+    },
+    {
+     "h": "장보기부터 항공권까지 맡기는 일"
+    },
+    {
+     "p": "메타는 뮤즈를 질문에 답하는 데서 그치지 않고 일을 실제로 해내는 에이전트로 소개했습니다. 할 일과 프로젝트를 관리하고 오래 걸리는 목표를 실행 계획으로 바꾸는 것이 기본 기능이고 싱가포르판에는 현지 서비스 연결이 더해졌습니다. 뮤즈는 쇼피(Shopee)나 라자다(Lazada)에서 물건을 사기 전에 제품을 조사하고 가격을 비교합니다. 그랩마트(GrabMart)와 그랩 다인아웃(Grab Dine Out)으로는 장보기와 외식 계획을, 싱가포르항공과 아고다(Agoda), 클룩(Klook), 트립닷컴(Trip.com)으로는 여행과 표 예매와 예약을 돕습니다. 숍백(ShopBack)을 붙이면 여행·쇼핑 캐시백과 매장 식사 할인도 챙깁니다. 지메일과 구글 캘린더, 인스타그램을 이으면 메일과 일정, 저장해 둔 게시물까지 다룹니다. 연결 기능은 차례로 열리고 일부는 나중에 나옵니다."
+    },
+    {
+     "h": "비밀번호와 결제 수단은 에이전트가 보지 못합니다"
+    },
+    {
+     "p": "뮤즈는 ‘뮤즈 시큐어 VM(Muse Secure VM)’이라는 클라우드 컴퓨터에서 돌아갑니다. 연결한 서비스의 데이터와 로그인 정보는 이 안에 보관되지만 비밀번호와 결제 수단은 에이전트의 눈에 띄지 않게 따로 둡니다. 9월 미국 발표문을 보면 같은 가상 머신에서 센티널(Sentinel)이라는 별도 에이전트가 함께 돌아가고 센티널이 허락하지 않은 일은 인터넷으로 나가지 않습니다. 메일을 보내거나 물건을 사는 것처럼 민감한 작업 앞에서는 사용자에게 먼저 묻습니다. 메타는 9월 발표에서 올해 안에 ‘뮤즈 컨피덴셜 VM(Muse Confidential VM)’도 내놓겠다고 예고했습니다."
+    },
+    {
+     "h": "요금제 가격과 한국 일정은 빠졌습니다"
+    },
+    {
+     "p": "뮤즈를 움직이는 모델은 메타가 ‘가장 뛰어난 모델’로 소개한 뮤즈 스파크(Muse Spark)입니다. 웬만한 기능은 무료이고 더 많이 쓰려는 사람을 위한 구독 요금제가 있다고 했는데, 요금제 이름과 가격은 두 발표문 어디에도 없습니다. 메타 싱가포르의 니콜 탄(Nicole Tan) 총괄은 “Muse is your personal agent, built to help make everyday life easier.”라고 말했고 협력 브랜드를 두고는 싱가포르와 이 지역에서 잘 알려진 곳들이라고 소개했습니다. 사용 연령과 지원 언어, 한국 출시 일정도 발표문에 나오지 않습니다."
+    }
+   ],
+   "ask": "AI 에이전트에게 장보기나 여행 예약을 맡긴다면 어디까지 권한을 줄 수 있을까요?",
+   "sources": [
+    [
+     "메타 — Muse Is Now Available in Singapore",
+     "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/"
+    ],
+    [
+     "메타 — Introducing Muse: The World’s First Personal AI Agent Built for Everyone",
+     "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+    ]
+   ],
+   "terms": [
+    "뮤즈",
+    "메타",
+    "에이전트",
+    "클라우드",
+    "구독 요금제",
+    "앱"
+   ],
+   "image": {
+    "page": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+    "og": "https://about.fb.com/wp-content/uploads/2026/10/Muse-16x9-SG.png?w=1200",
+    "credit": "이미지: Meta",
+    "alt": "메타 뮤즈 싱가포르 출시 공식 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 27일 싱가포르 출시, iOS·안드로이드·muse.ai, AI 안경 예정",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "available from October 27, 2026 on iOS, Android, and muse.ai ... coming soon to AI glasses"
+    },
+    {
+     "claim": "9월 8일 미국 출시",
+     "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+     "quote": "rolling out in the US on iOS, Android, and muse.ai, and coming soon to AI glasses (September 8, 2026)"
+    },
+    {
+     "claim": "현지 8곳 연결",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "Shopee, Grab, Singapore Airlines, Agoda, ShopBack, Klook, Trip.com, and Lazada"
+    },
+    {
+     "claim": "지메일·캘린더·인스타그램",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "Gmail, Google Calendar, and Instagram"
+    },
+    {
+     "claim": "연결 기능 차례로",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "Connector features roll out progressively, and some launch later."
+    },
+    {
+     "claim": "비밀번호·결제 수단 감춤",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "keeping passwords and payment methods out of the agent's view"
+    },
+    {
+     "claim": "센티널",
+     "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+     "quote": "A separate Sentinel agent runs on the same machine, and nothing Muse does reaches the internet unless the Sentinel approves it."
+    },
+    {
+     "claim": "민감한 작업 전 확인",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "checks with users before sensitive actions, such as sending email or making a purchase"
+    },
+    {
+     "claim": "뮤즈 스파크",
+     "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+     "quote": "Meta's most capable model to date"
+    },
+    {
+     "claim": "무료+구독",
+     "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+     "quote": "It's free for most of what people need, with subscription plans for people who want to do more."
+    },
+    {
+     "claim": "니콜 탄 인용",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "Muse is your personal agent, built to help make everyday life easier."
+    },
+    {
+     "claim": "일을 실제로 해내는 에이전트, 목표를 실행 계획으로",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "It doesn't just answer questions, it actually does the work."
+    },
+    {
+     "claim": "올해 안 컨피덴셜 VM",
+     "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+     "quote": "Muse Confidential VM is coming later this year"
+    },
+    {
+     "claim": "싱가포르와 이 지역",
+     "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+     "quote": "iconic in Singapore and the region"
+    }
+   ]
+  },
+  {
+   "id": "2026-10-29-google-sleep-continual-learning",
+   "cat": "연구",
+   "date": "2026-10-29",
+   "time": "06:56",
+   "title": "구글 리서치, LLM에 ‘수면 단계’ 넣어 새 지식 잊지 않게 하는 방법 공개",
+   "sub": "깨어 있는 단계와 잠자는 단계를 반복 · 기억 정리와 ‘꿈꾸기’로 망각 줄여",
+   "hook": "구글 리서치가 10월 27일 언어 모델이 배포된 뒤에도 새 사실을 익히면서 예전 지식을 덜 잊게 하는 ‘수면’ 방식을 소개했습니다. 깨어 있을 때 받은 정보를 잠자는 동안 모델 파라미터로 옮기고 스스로 만든 연습 데이터로 복습합니다.",
+   "try": "구글 리서치 블로그에서 ‘수면’ 방식의 기억 정리와 꿈꾸기 단계 설명을 읽고, arXiv 논문 2606.03979의 실험 결과 표도 찾아보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "구글 리서치(Google Research)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 27일(블로그)"
+    ],
+    [
+     "무엇",
+     "지속 학습을 위한 ‘수면’ 프레임워크"
+    ],
+    [
+     "논문",
+     "Language Models Need Sleep(arXiv 2606.03979)"
+    ],
+    [
+     "핵심 숫자",
+     "BABILong 1,000만 토큰까지 거의 완벽(자체 발표 기준)"
+    ],
+    [
+     "원문",
+     "research.google 블로그, arXiv"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글 리서치(Google Research)가 10월 27일 블로그에서 대형 언어 모델(LLM)을 주기적으로 ‘재우는’ 학습 방식을 소개했습니다. 쓰이는 동안 받은 정보를 쉬는 시간에 정리하게 해서 새 사실을 익히고도 예전 지식을 덜 잊게 하려는 연구입니다. 논문은 구글 리서치의 알리 베흐루즈(Ali Behrouz), 아델 자바만드(Adel Javanmard), 바합 미르로크니(Vahab Mirrokni)와 코넬대의 파르누시 하셰미(Farnoosh Hashemi)가 함께 썼고 한 버전은 2025년 9월부터 오픈리뷰(OpenReview)에 공개돼 있었습니다."
+    },
+    {
+     "ul": [
+      [
+       "깨어 있을 때",
+       "입력을 처리하며 단기 기억에 임시 저장"
+      ],
+      [
+       "잠잘 때",
+       "기억 정리와 ‘꿈꾸기’ 두 단계"
+      ],
+      [
+       "실험 결과",
+       "BABILong 1,000만 토큰까지 거의 완벽(자체 발표 기준)"
+      ]
+     ]
+    },
+    {
+     "h": "깨어 있는 동안 쌓고 자는 동안 옮깁니다"
+    },
+    {
+     "p": "모델은 깨어 있는 단계에서 입력을 받아 처리하고 그때 얻은 정보를 단기 기억에 잠시 담습니다. 잠자는 단계로 넘어가면 새 입력을 받지 않고 내부 계산을 기억 정리와 자기 개선에 씁니다. 연구진이 노린 것은 금방 사라지는 문맥 속 정보를 오래가는 장기 파라미터로 옮기는 일입니다."
+    },
+    {
+     "h": "기억 정리와 꿈꾸기"
+    },
+    {
+     "p": "잠은 두 단계로 나뉩니다. 기억 정리 단계에서는 혼합 전문가(MoE) 구조의 용량을 늘린 다음 작은 모델의 지식을 더 큰 신경망으로 옮기는 증류에 강화학습 기반 모방 학습을 더합니다. 이 과정에는 구글이 앞서 발표한 호프(Hope) 구조와 일반화 지식 증류 방법이 쓰입니다. 정리가 끝나면 자주 바뀌는 임시 파라미터를 초기화하는데 연구진은 이를 ‘시냅스 가지치기’라고 부릅니다. 꿈꾸기 단계에서는 전문가를 무작위로 골라 합성 데이터를 만들고 기울기 기반 선택으로 걸러 낸 다음 지도 미세 조정과 강화학습으로 다듬습니다."
+    },
+    {
+     "h": "만주어·칼라망어 번역과 수학 문제로 시험했습니다"
+    },
+    {
+     "p": "실험은 다섯 갈래로 짜였습니다. 처음 보는 언어를 배우는 번역, 새 분류를 차례로 더하는 학습, 긴 문맥 평가 BABILong, SQuAD와 이어서 사전 학습(CPT)으로 재는 사실 지식, 수학 추론입니다. 비교 대상에는 SEAL과 GRPO, 정책 기반 자기 증류(OPSD)도 들어갔습니다. 번역 실험에서는 모델에게 처음 보는 만주어와 칼라망어를 차례로 가르쳤습니다. 문맥 안 학습(ICL), 카트리지(Cartridges), 지도 미세 조정(SFT)은 앞서 배운 것을 크게 잊었지만 수면 방식은 성능이 거의 떨어지지 않았습니다(자체 발표 기준). BABILong에서는 1,000만 토큰까지 거의 완벽한 성능을 보여 GPT-4와 타이탄스(Titans)를 앞섰습니다. 사실 지식 평가에서는 단일 과제 48.9%, 이어서 사전 학습 46.2%가 나왔고 AIME 24·25와 HMMT 25를 쓴 수학 추론 평가에서는 79.2%, 69.0%, 46.1%를 기록했습니다."
+    },
+    {
+     "h": "코드와 계산 비용은 아직 나오지 않았습니다"
+    },
+    {
+     "p": "블로그 글에 연결된 것은 논문과 구글 리서치 깃허브 첫 화면뿐이고 코드 공개 여부는 적혀 있지 않습니다. 잠자는 단계에 계산이 얼마나 드는지와 이 방식이 실제 서비스 모델에 언제 쓰일지도 글에는 없습니다."
+    }
+   ],
+   "ask": "AI가 대화에서 배운 내용을 계속 기억한다면 어떤 점이 편해지고 어떤 점이 걱정될까요?",
+   "sources": [
+    [
+     "구글 리서치 — The sleep framework: A new way for LLMs to retain knowledge in continual learning",
+     "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/"
+    ],
+    [
+     "arXiv — Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories",
+     "https://arxiv.org/abs/2606.03979"
+    ]
+   ],
+   "terms": [
+    "지속 학습",
+    "LLM",
+    "구글",
+    "혼합 전문가(MoE)",
+    "증류",
+    "강화학습",
+    "파라미터",
+    "파인튜닝",
+    "벤치마크"
+   ],
+   "image": {
+    "page": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+    "og": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
+    "credit": "이미지: Google Research",
+    "alt": "구글 리서치 ‘수면 프레임워크’ 블로그 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 27일 블로그",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "October 27, 2026"
+    },
+    {
+     "claim": "깨어 있는 단계",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "The model actively receives, processes, and interacts with inputs"
+    },
+    {
+     "claim": "잠자는 단계",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "The model pauses processing new inputs and redirects its internal computations toward memory consolidation"
+    },
+    {
+     "claim": "2025년 9월 오픈리뷰",
+     "url": "https://arxiv.org/abs/2606.03979",
+     "quote": "a version of this work has been publicly available from September 2025 on OpenReview"
+    },
+    {
+     "claim": "저자",
+     "url": "https://arxiv.org/abs/2606.03979",
+     "quote": "Ali Behrouz, Farnoosh Hashemi, Adel Javanmard, Vahab Mirrokni"
+    },
+    {
+     "claim": "만주어·칼라망어, ICL·Cartridges·SFT 망각",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "Manchu and Kalamang ... ICL, Cartridges, and SFT suffered severe forgetting"
+    },
+    {
+     "claim": "BABILong 1,000만 토큰, GPT-4·Titans 앞섬",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "near-perfect scaling up to 10M tokens"
+    },
+    {
+     "claim": "48.9%, 46.2%",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "achieved 48.9% on single-task and 46.2% on CPT evaluations"
+    },
+    {
+     "claim": "79.2%, 69.0%, 46.1%",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "sleep-enhanced base-model achieved accuracy scores of 79.2%, 69.0%, and 46.1%, respectively"
+    },
+    {
+     "claim": "호프 구조, 일반화 지식 증류",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "the Hope architecture, and Generalized Knowledge Distillation combined with RL-based imitation learning"
+    },
+    {
+     "claim": "실험 갈래, 비교 대상",
+     "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+     "quote": "Class-incremental learning ... SQuAD and continued pre-training (CPT) ... Self-Adapting Language Models (SEAL), GPT-4, Titans, GRPO, and on-policy self-distillation (OPSD)"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "파이어폭스 159 스마트 윈도우 ‘페이지 지켜보기’(가격 하락·재입고 알림)",
+   "reason": "원문(파이어폭스 릴리스 노트)은 확인했지만 스마트 윈도우가 미국·캐나다·프랑스 베타 한정이라 한국 독자가 쓸 수 없고, 오늘 모델·제품 분류(LFM3)와 겹침"
+  },
+  {
+   "topic": "오페라, 브라우저에서 로컬 AI를 쓰게 하는 새 웹 표준 제안",
+   "reason": "오페라 원문을 찾지 못하고 언론 보도만 확인"
+  },
+  {
+   "topic": "델라웨어주 AI 에이전트가 회사를 운영하는 ‘AI 컴퍼니’ 법안",
+   "reason": "원문 제안이 7~9월에 나온 것으로 최근 36시간 소식이 아니고, 이번 실행에서 주 정부 원문을 찾지 못함"
+  },
+  {
+   "topic": "뱅크오브아메리카, AI 비서에 은행 비밀번호를 주지 말라고 안내",
+   "reason": "은행 공식 원문을 찾지 못하고 언론 보도만 확인"
+  },
+  {
+   "topic": "앤트로픽 상장 신청서 후속 분석(지배 구조·위험 요인)",
+   "reason": "10월 27일 기사(S-1 상장 신청)와 같은 원문이라 중복"
+  }
+ ]
+}
