@@ -89,7 +89,7 @@ def tutorial_segments(t):
     for j, x in enumerate(t.get('limits', []) or []):
         seg.append((f'limits.{j}', x, 'prose'))
     for j, x in enumerate((t.get('quick') or {}).get('lines', []) or []):
-        seg.append((f'quick.{j}', x, 'list'))
+        seg.append((f'quick.lines.{j}', x, 'list'))
     return [s for s in seg if isinstance(s[1], str) and s[1]]
 
 
@@ -113,11 +113,11 @@ def load_docs(kinds=('news',)):
             docs.append({'kind': '칼럼', 'id': c['id'], 'date': c['date'], 'title': c['title'],
                          'file': 'news/columns.json', 'seg': column_segments(c), 'obj': c})
     if 'tutorial' in kinds:
-        tuts = json.load(open(os.path.join(NEWS, 'D_tutorials.json'), encoding='utf-8'))['tutorials']
-        tuts = tuts + [json.load(open(os.path.join(NEWS, 'old_tut.json'), encoding='utf-8'))['cross']]
-        for t in tuts:
+        tuts = [(t, 'news/D_tutorials.json') for t in json.load(open(os.path.join(NEWS, 'D_tutorials.json'), encoding='utf-8'))['tutorials']]
+        tuts.append((json.load(open(os.path.join(NEWS, 'old_tut.json'), encoding='utf-8'))['cross'], 'news/old_tut.json'))
+        for t, f in tuts:
             docs.append({'kind': '튜토리얼', 'id': t['id'], 'date': t['date'], 'title': t['title'],
-                         'file': 'news/D_tutorials.json', 'seg': tutorial_segments(t), 'obj': t})
+                         'file': f, 'seg': tutorial_segments(t), 'obj': t})
     if 'daily' in kinds:
         for d in json.load(open(os.path.join(NEWS, 'daily.json'), encoding='utf-8')):
             docs.append({'kind': '데일리', 'id': 'daily-' + d['date'], 'date': d['date'], 'title': d['title'],
@@ -197,7 +197,7 @@ rule('D-9', '"결국"', 'S1', r'(?:^|\s)결국(?=[\s,])',
      '"결국"을 빼고 원인과 결과를 구체적으로 잇습니다(BRIEF 금지어).')
 rule('J-3', '대시(—)로 잇기', 'S1', r'[—–―]',
      '대시 대신 쉼표나 괄호를 쓰거나 두 문장으로 나눕니다.')
-rule('COLON', '콜론(:)으로 잇기', 'S1', r'(?<!예)(?<!참고)(?<!주의)(?<![A-Za-z])[가-힣)]\s*:\s+[가-힣]',
+rule('COLON', '콜론(:)으로 잇기', 'S1', r'[가-힣)](?<!예)(?<!참고)(?<!주의)(?<!보기)\s*:\s+[가-힣]',
      '콜론 대신 서술어로 이어 씁니다. "가격: 월 20달러" → "가격은 월 20달러입니다".')
 rule('HYPE', '과장 광고 문구', 'S1', r'(?:혁신적|획기적|게임\s*체인저|판도를\s*(?:바꾸|뒤집|흔)|새로운\s*지평|패러다임|압도적|차원이\s*다른|전례\s*없는|역대급|파격적|대격변|지각\s*변동|혁명적)',
      '형용사로 띄우지 말고 숫자·사례 같은 근거를 씁니다. 근거가 없으면 문구를 뺍니다.')
@@ -443,39 +443,58 @@ def _set(obj, key, val):
 EDITABLE = ('prose', 'list', 'head')
 
 
-def export(date):
-    path = os.path.join(NEWS, 'daily', f'{date}.json')
-    data = json.load(open(path, encoding='utf-8'))
-    os.makedirs(os.path.join(WS, date), exist_ok=True)
-    out = []
-    for a in data['articles']:
-        doc = {'kind': '기사', 'id': a['id'], 'date': a['date'], 'title': a['title'], 'file': path, 'seg': news_segments(a)}
+SEGFN = {'기사': news_segments, '칼럼': column_segments, '튜토리얼': tutorial_segments, '데일리': daily_segments}
+KIND_TIPS = {
+    '기사': '# 종류: 기사(습니다체 뉴스). 소제목(body.N.h)은 그 기사 내용으로. 의의 선언·교훈 결말·같은 사실 반복을 덜어냅니다.',
+    '칼럼': '# 종류: 칼럼(편집장 1인칭 "저는" 글). 1인칭 목소리와 주장은 그대로 두고, "A가 아니라 B" 대조 틀(C-8)·분열문(D-8)·리드 요약 반복(C-4)을 덜어냅니다.',
+    '튜토리얼': '# 종류: 튜토리얼(따라 하는 안내). items.N.d 는 단계 목적 한 줄 칸이라 남기되 매번 같은 틀("이 단계에서는 ~", "~하는 프롬프트입니다")로 시작하지 않게 바꿉니다. 끝 단락의 "~해야 합니다" 반복(I-4)과 같은 주의 반복을 줄입니다. 명령어·프롬프트 칸은 여기 없습니다(건드리지 않음).',
+    '데일리': '# 종류: 데일리 이슈(제목·요약 한 문장·세 줄). 짧게, 숫자는 그대로.',
+}
+
+
+def export_docs(batch, docs):
+    """docs 마다 _workspace/humanize/<batch>/<id>.before.txt·after.txt 를 만들고 manifest.json 에 위치를 적습니다."""
+    wd = os.path.join(WS, batch)
+    os.makedirs(wd, exist_ok=True)
+    manifest, out = {}, []
+    for doc in docs:
         res = scan_doc(doc)
         flagged = {}
         for f in res['findings']:
             for h in f['hits']:
                 if h['seg']:
                     flagged.setdefault(h['seg'], set()).add(f['rule'])
-        lines = [f'# {a["id"]}  등급 {res["grade"]} (S1 {res["S1"]} · S2 {res["S2"]})',
+        lines = [f'# {doc["id"]}  등급 {res["grade"]} (S1 {res["S1"]} · S2 {res["S2"]})',
                  '# 규칙: 한 줄 = 한 칸. [[칸 이름]] 표시는 그대로 두고 그 뒤 문장만 고칩니다. 줄을 지우거나 합치지 않습니다.',
-                 '# 숫자·날짜·고유명사·영문·따옴표 안 문장은 한 글자도 바꾸지 않습니다. 걸린 규칙은 ## 줄에 적혀 있습니다.', '']
+                 '# 숫자·날짜·고유명사·영문·따옴표 안 문장은 한 글자도 바꾸지 않습니다. 걸린 규칙은 ## 줄에 적혀 있습니다.',
+                 KIND_TIPS.get(doc['kind'], ''), '']
+        if any(f['rule'] == 'TPL' for f in res['findings']):
+            lines.insert(4, '## TPL 정해진 소제목 틀 — body.N.h 줄의 소제목을 그 기사 내용으로 바꿉니다')
         for k, t, role in doc['seg']:
             if role not in EDITABLE:
                 continue
             if k in flagged:
                 lines.append('## ' + ', '.join(f'{r} {RULES[r]["name"] if r in RULES else ""}'.strip() for r in sorted(flagged[k])))
             lines.append(f'[[{k}]] {t}')
-        if any(f['rule'] == 'TPL' for f in res['findings']):
-            lines.insert(3, '## TPL 정해진 소제목 틀 — body.N.h 줄의 소제목을 그 기사 내용으로 바꿉니다')
-        before = os.path.join(WS, date, f'{a["id"]}.before.txt')
+        before = os.path.join(wd, f'{doc["id"]}.before.txt')
         open(before, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
-        after = os.path.join(WS, date, f'{a["id"]}.after.txt')
+        after = os.path.join(wd, f'{doc["id"]}.after.txt')
         if not os.path.exists(after):
             open(after, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
-        out.append((a['id'], res['grade'], res['S1'], res['S2'], after))
+        manifest[doc['id']] = {'kind': doc['kind'], 'file': doc['file']}
+        out.append((doc['id'], res['grade'], res['S1'], res['S2'], after))
+    mp = os.path.join(wd, 'manifest.json')
+    old = json.load(open(mp, encoding='utf-8')) if os.path.exists(mp) else {}
+    old.update(manifest)
+    json.dump(old, open(mp, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     for x in out:
         print(f'{x[0]}  등급 {x[1]} (S1 {x[2]} · S2 {x[3]})  → 고칠 파일 {os.path.relpath(x[4], os.path.dirname(SRC))}')
     return out
+
+
+def export(date):
+    docs = [d for d in load_docs(('news',)) if d['file'] == f'news/daily/{date}.json']
+    return export_docs(date, docs)
 
 
 _NUM = re.compile(r'\d[\d,.]*')
@@ -526,77 +545,124 @@ def verify_gates(before_txt, after_txt, workdir):
     return js
 
 
-def apply(date, dry=False):
-    """after.txt 를 기사 JSON 에 넣습니다. 사실 보존·변경률·습니다체·의미 게이트를 통과한 기사만 반영합니다."""
-    path = os.path.join(NEWS, 'daily', f'{date}.json')
-    data = json.load(open(path, encoding='utf-8'))
-    report, ok_all = [], True
+def _find(data, kind, did):
+    if kind == '기사':
+        return next(x for x in data['articles'] if x['id'] == did)
+    if kind == '칼럼':
+        return next(x for x in data['columns'] if x['id'] == did)
+    if kind == '튜토리얼':
+        if 'tutorials' in data:
+            return next(x for x in data['tutorials'] if x['id'] == did)
+        return data['cross']
+    if kind == '데일리':
+        return next(x for x in data if 'daily-' + x['date'] == did)
+    raise KeyError(kind)
+
+
+def _style(text):
+    """원래 파일과 같은 들여쓰기·끝 줄바꿈으로 다시 쓰기 위해 형식을 알아냅니다."""
+    data = json.loads(text)
+    for ind in (1, 2, None):
+        for nl in ('\n', ''):
+            if json.dumps(data, ensure_ascii=False, indent=ind) + nl == text:
+                return ind, nl
+    return 1, '\n'
+
+
+def check_pair(doc_kind, before, after, roles, workdir, plain_endings):
+    errs, warns = [], []
+    if set(before) != set(after):
+        errs.append(f'칸이 달라졌습니다(줄을 지우거나 합치지 마세요): 빠짐 {sorted(set(before) - set(after))[:3]} / 생김 {sorted(set(after) - set(before))[:3]}')
+    for k in before:
+        if k in after and not after[k]:
+            errs.append(f'{k}: 빈 칸')
+    nb, lb, qb = keep_sets(before.values())
+    na, la, qa = keep_sets(after.values())
+    if nb - na:
+        errs.append(f'숫자가 사라졌습니다: {sorted(nb - na)[:6]}')
+    if na - nb:
+        errs.append(f'원문에 없던 숫자가 생겼습니다: {sorted(na - nb)[:6]}')
+    if lb - la:
+        errs.append(f'영문·이름이 사라졌습니다: {sorted(lb - la)[:6]}')
+    if la - lb:
+        errs.append(f'원문에 없던 영문이 생겼습니다: {sorted(la - lb)[:6]}')
+    if qb - qa:
+        errs.append(f'따옴표 안 문장이 바뀌었습니다: {[q[:30] for q in sorted(qb - qa)][:3]}')
+    tot_b = sum(len(x) for x in before.values()) or 1
+    tot_changed = sum(int(round(len(before[k]) * (1 - difflib.SequenceMatcher(None, before[k], after.get(k, '')).ratio())))
+                      for k in before if before[k] != after.get(k, before[k]))
+    rate = tot_changed / tot_b
+    if rate >= 0.5:
+        errs.append(f'변경률 {rate:.0%} — 50% 이상은 과윤문이라 반영하지 않습니다')
+    if plain_endings:
+        plain = [s for k, x in after.items() if roles.get(k) == 'prose' for s in plain_endings(x)]
+        if plain:
+            errs.append(f'한다체 문장 끝(습니다체로): {plain[:2]}')
+    vg = verify_gates(_prose_text({k: v for k, v in before.items() if roles.get(k) == 'prose'}),
+                      _prose_text({k: v for k, v in after.items() if roles.get(k) == 'prose'}), workdir)
+    if vg:
+        if vg.get('exit') == 2:
+            errs.append('verify_gates: 문자율 50% 이상(중단)')
+        if vg.get('golden'):
+            errs.append(f"verify_gates golden: {vg['golden'][:3]}")
+        lost = (vg.get('modality') or {}).get('lost_pairs') or []
+        if lost:
+            warns.append(f'서법이 바뀐 문장 {len(lost)}개(당위·추측이 단정으로) — 원래 강도로 되돌리기: {str(lost[0])[:120]}')
+    if rate >= 0.3:
+        warns.append('변경률 30% 넘음: 뜻이 바뀐 곳이 없는지 다시 읽어 보세요')
+    c11 = RULES['C-11']['rx']
+    cb = sum(len(c11.findall(mask_quotes(x))) for x in before.values())
+    ca = sum(len(c11.findall(mask_quotes(x))) for x in after.values())
+    if ca > cb:
+        warns.append(f'연결어미 뒤 쉼표가 늘었습니다({cb}→{ca}) — 고친 문장에서 새 쉼표를 지우세요')
+    return errs, warns, rate, vg
+
+
+def apply_batch(batch, dry=False):
+    """_workspace/humanize/<batch>/ 의 after.txt 를 원래 JSON 파일에 넣습니다. 검사를 통과한 글만 반영합니다."""
+    wd = os.path.join(WS, batch)
+    mp = os.path.join(wd, 'manifest.json')
+    if not os.path.exists(mp):
+        print('manifest.json 이 없습니다 — 먼저 export 를 돌립니다')
+        return False
+    manifest = json.load(open(mp, encoding='utf-8'))
     sys.path.insert(0, SRC)
     try:
         from assemble import plain_endings
     except Exception:
         plain_endings = None
-    for a in data['articles']:
-        bp = os.path.join(WS, date, f'{a["id"]}.before.txt')
-        ap = os.path.join(WS, date, f'{a["id"]}.after.txt')
+    files = {}
+    report, ok_all = [], True
+    for did, m in manifest.items():
+        path = os.path.join(SRC, m['file'])
+        if path not in files:
+            txt = open(path, encoding='utf-8').read()
+            files[path] = {'data': json.loads(txt), 'style': _style(txt), 'changed': False}
+        obj = _find(files[path]['data'], m['kind'], did)
+        bp, ap = os.path.join(wd, f'{did}.before.txt'), os.path.join(wd, f'{did}.after.txt')
         if not os.path.exists(ap) or not os.path.exists(bp):
-            report.append(f'{a["id"]}: before/after 파일 없음 — 먼저 export 를 돌립니다')
+            report.append(f'{did}: before/after 파일 없음')
             ok_all = False
             continue
         before, after = _read_lines(bp), _read_lines(ap)
-        errs, warns = [], []
-        if set(before) != set(after):
-            errs.append(f'칸이 달라졌습니다(줄을 지우거나 합치지 마세요): 빠짐 {sorted(set(before) - set(after))[:3]} / 생김 {sorted(set(after) - set(before))[:3]}')
-        for k in before:
-            if k in after and not after[k]:
-                errs.append(f'{k}: 빈 칸')
-        nb, lb, qb = keep_sets(before.values())
-        na, la, qa = keep_sets(after.values())
-        if nb - na:
-            errs.append(f'숫자가 사라졌습니다: {sorted(nb - na)[:6]}')
-        if na - nb:
-            errs.append(f'원문에 없던 숫자가 생겼습니다: {sorted(na - nb)[:6]}')
-        if lb - la:
-            errs.append(f'영문·이름이 사라졌습니다: {sorted(lb - la)[:6]}')
-        if la - lb:
-            errs.append(f'원문에 없던 영문이 생겼습니다: {sorted(la - lb)[:6]}')
-        if qb - qa:
-            errs.append(f'따옴표 안 문장이 바뀌었습니다: {[q[:30] for q in sorted(qb - qa)][:3]}')
-        tot_b = sum(len(x) for x in before.values()) or 1
-        tot_changed = sum(int(round(len(before[k]) * (1 - difflib.SequenceMatcher(None, before[k], after.get(k, '')).ratio())))
-                          for k in before if before[k] != after.get(k, before[k]))
-        rate = tot_changed / tot_b
-        if rate >= 0.5:
-            errs.append(f'변경률 {rate:.0%} — 50% 이상은 과윤문이라 반영하지 않습니다')
-        if plain_endings:
-            plain = [s for k, x in after.items() if not k.endswith('.h') and '.ul.' not in k and k not in ('title', 'sub') for s in plain_endings(x)]
-            if plain:
-                errs.append(f'한다체 문장 끝(습니다체로): {plain[:2]}')
-        vg = verify_gates(_prose_text(before), _prose_text(after), os.path.join(WS, date))
-        if vg:
-            if vg.get('exit') == 2:
-                errs.append('verify_gates: 문자율 50% 이상(중단)')
-            if vg.get('golden'):
-                errs.append(f"verify_gates golden: {vg['golden'][:3]}")
-            lost = (vg.get('modality') or {}).get('lost_pairs') or []
-            if lost:
-                warns.append(f'서법이 바뀐 문장 {len(lost)}개(당위·추측이 단정으로) — 원래 강도로 되돌리기: {str(lost[0])[:120]}')
-        new = json.loads(json.dumps(a, ensure_ascii=False))
+        seg = SEGFN[m['kind']](obj)
+        roles = {k: r for k, _, r in seg}
+        cur = {k: t for k, t, r in seg if r in EDITABLE}
+        if before == after:
+            report.append(f'{did}: 바뀐 것 없음')
+            continue
+        errs, warns, rate, vg = check_pair(m['kind'], before, after, roles, wd, plain_endings)
+        new = json.loads(json.dumps(obj, ensure_ascii=False))
         for k, x in after.items():
             if k in before:
                 _set(new, k, x)
-        res_b = scan_doc({'kind': '기사', 'id': a['id'], 'date': a['date'], 'title': a['title'], 'file': path, 'seg': news_segments(a)})
-        res_a = scan_doc({'kind': '기사', 'id': a['id'], 'date': a['date'], 'title': new['title'], 'file': path, 'seg': news_segments(new)})
-        line = f'{a["id"]}: 등급 {res_b["grade"]}→{res_a["grade"]} (S1 {res_b["S1"]}→{res_a["S1"]} · S2 {res_b["S2"]}→{res_a["S2"]}) 변경률 {rate:.0%}'
-        if vg and vg.get('change_rate'):
-            line += f" · verify_gates {vg['gate']['verdict'] if vg.get('gate') else ''}"
-        if rate >= 0.3:
-            warns.append('변경률 30% 넘음: 뜻이 바뀐 곳이 없는지 다시 읽어 보세요')
-        c11 = RULES['C-11']['rx']
-        cb = sum(len(c11.findall(mask_quotes(x))) for x in before.values())
-        ca = sum(len(c11.findall(mask_quotes(x))) for x in after.values())
-        if ca > cb:
-            warns.append(f'연결어미 뒤 쉼표가 늘었습니다({cb}→{ca}) — 고친 문장에서 새 쉼표를 지우세요')
+        mk = lambda o: {'kind': m['kind'], 'id': did, 'date': o.get('date', ''), 'title': o.get('title', ''), 'file': m['file'], 'seg': SEGFN[m['kind']](o)}
+        res_b, res_a = scan_doc(mk(obj)), scan_doc(mk(new))
+        line = f'{did}: 등급 {res_b["grade"]}→{res_a["grade"]} (S1 {res_b["S1"]}→{res_a["S1"]} · S2 {res_b["S2"]}→{res_a["S2"]}) 변경률 {rate:.0%}'
+        if vg and vg.get('gate'):
+            line += f" · verify_gates {vg['gate']['verdict']}"
+        if any(cur.get(k) not in (before.get(k), after.get(k)) for k in before):
+            errs.append('export 뒤에 JSON 원본이 바뀌었습니다 — export 를 다시 돌린 뒤 고칩니다')
         if errs:
             ok_all = False
             report.append(line + '\n   반영 안 함:\n   - ' + '\n   - '.join(errs[:8]))
@@ -608,14 +674,22 @@ def apply(date, dry=False):
         for w in warns:
             line += '\n   경고: ' + w
         if not dry:
-            a.clear()
-            a.update(new)
+            obj.clear()
+            obj.update(new)
+            files[path]['changed'] = True
         report.append(line)
     if not dry:
-        open(path, 'w', encoding='utf-8').write(json.dumps(data, ensure_ascii=False, indent=1))
+        for path, f in files.items():
+            if f['changed']:
+                ind, nl = f['style']
+                open(path, 'w', encoding='utf-8').write(json.dumps(f['data'], ensure_ascii=False, indent=ind) + nl)
     print('\n'.join(report))
     print('결과:', '통과' if ok_all else '고칠 것이 남았습니다')
     return ok_all
+
+
+def apply(date, dry=False):
+    return apply_batch(date, dry)
 
 
 # ---------------------------------------------------------------------------
@@ -658,10 +732,15 @@ def main(argv=None):
     s.add_argument('--from', dest='dfrom', help='이 날짜 이후 기사만')
     s.add_argument('--json', help='결과 JSON 저장 경로')
     s.add_argument('--detail', action='store_true')
-    e = sub.add_parser('export')
-    e.add_argument('--date', required=True)
+    e = sub.add_parser('export', help='--date D(그날 기사) 또는 --batch 이름 + --kinds/--ids/--file 로 고를 글')
+    e.add_argument('--date')
+    e.add_argument('--batch')
+    e.add_argument('--kinds', default='news', help='news,column,tutorial,daily 중 쉼표로')
+    e.add_argument('--ids', help='쉼표로 구분한 글 id')
+    e.add_argument('--file', help='예: news/A.json')
     p = sub.add_parser('apply')
-    p.add_argument('--date', required=True)
+    p.add_argument('--date')
+    p.add_argument('--batch')
     p.add_argument('--dry', action='store_true')
     g = sub.add_parser('gate')
     g.add_argument('--from', dest='dfrom', default=GATE_FROM)
@@ -678,10 +757,22 @@ def main(argv=None):
         print_report(res, detail=a.detail or bool(a.date))
         return 0
     if a.cmd == 'export':
-        export(a.date)
+        if a.date and not a.batch:
+            export(a.date)
+            return 0
+        kmap = {'news': 'news', 'column': 'column', 'tutorial': 'tutorial', 'daily': 'daily'}
+        docs = load_docs(tuple(kmap[k] for k in a.kinds.split(',')))
+        if a.ids:
+            want = set(a.ids.split(','))
+            docs = [d for d in docs if d['id'] in want]
+        if a.file:
+            docs = [d for d in docs if d['file'] == a.file]
+        if a.date:
+            docs = [d for d in docs if d['date'] == a.date]
+        export_docs(a.batch or a.date, docs)
         return 0
     if a.cmd == 'apply':
-        return 0 if apply(a.date, dry=a.dry) else 1
+        return 0 if apply_batch(a.batch or a.date, dry=a.dry) else 1
     if a.cmd == 'gate':
         bad = gate(a.dfrom)
         print('\n'.join(bad) if bad else 'S1 0건')
