@@ -96,3 +96,16 @@ humanize-korean 의 실측에 따르면 글을 쓴 같은 대화가 스스로 �
 - 전달 동사(REPORT) — "애플은 이번 비서가 문서의 맥락을 이해해서 사용자가 작업 화면을 떠나지 않고 일을 처리하도록 돕는다고 설명했습니다." → "이번 비서는 문서의 맥락을 이해해서 사용자가 작업 화면을 떠나지 않고 일을 처리하도록 돕습니다."
 - 두 문장 잇기(E-1·REPORT) — "애플은 세 앱의 새 MCP 지원으로 … 실행할 수 있다고 밝혔습니다. 발표문은 어떤 외부 AI 앱이 연결되는지 이름을 들지 않았습니다." → "세 앱에 MCP가 들어오면 외부 AI 에이전트와 도구가 문서 내용을 읽고 편집하고 자동 작업까지 실행할 수 있게 되지만, 어떤 외부 AI 앱이 연결되는지는 발표문에 이름이 나오지 않습니다."
 - 쉼표(C-11) — "연 129달러이고, 신규 구독자는" → "연 129달러이고 신규 구독자는"
+
+## 8. 칼럼·튜토리얼·데일리 이슈·지난 기사 다듬기
+
+매일 기사 말고 다른 글도 같은 도구로 다듬습니다.
+
+```
+python3 _src/humanize/shift_humanize.py export --batch 이름 --kinds news,column,tutorial,daily [--ids 글id,...] [--file news/A.json]
+#  → _workspace/humanize/이름/<id>.after.txt 고치기 (여러 사람이 나눠 고칠 때는 apply --dry --ids 내글 로 자기 글만 확인)
+python3 _src/humanize/shift_humanize.py apply --batch 이름        # 원래 파일(A·B·C·E.json, columns.json, D_tutorials.json, old_tut.json, daily.json)에 반영
+```
+
+- 칼럼은 편집장 1인칭과 전망(pred) 뜻을 지키고, 대조 틀(C-8)·분열문(D-8)·리드 요약 반복(C-4)을 덜어냅니다.
+- 튜토리얼은 명령어·프롬프트·예시 칸을 건드리지 않습니다(내보내지도 않습니다). 단계 첫 줄(d)은 목적 한 줄로 남기되 매번 같은 틀로 시작하지 않게 합니다.

@@ -526,12 +526,12 @@ def _prose_text(segs):
     return '\n\n'.join(t for k, t in segs.items() if not k.endswith('.h'))
 
 
-def verify_gates(before_txt, after_txt, workdir):
+def verify_gates(before_txt, after_txt, workdir, tag='x'):
     """humanize-korean 의 verify_gates.py(문자율·대구·수치·서법 5축)를 기사 하나에 돌립니다."""
     if not os.path.exists(VG):
         return None
     import subprocess
-    b, a = os.path.join(workdir, '_vg_before.txt'), os.path.join(workdir, '_vg_after.txt')
+    b, a = os.path.join(workdir, f'_vg_{tag}_before.txt'), os.path.join(workdir, f'_vg_{tag}_after.txt')
     open(b, 'w', encoding='utf-8').write(before_txt)
     open(a, 'w', encoding='utf-8').write(after_txt)
     r = subprocess.run([sys.executable, '-I', VG, '--before', b, '--after', a, '--genre', 'report', '--json'],
@@ -569,7 +569,7 @@ def _style(text):
     return 1, '\n'
 
 
-def check_pair(doc_kind, before, after, roles, workdir, plain_endings):
+def check_pair(doc_kind, before, after, roles, workdir, plain_endings, tag='x'):
     errs, warns = [], []
     if set(before) != set(after):
         errs.append(f'칸이 달라졌습니다(줄을 지우거나 합치지 마세요): 빠짐 {sorted(set(before) - set(after))[:3]} / 생김 {sorted(set(after) - set(before))[:3]}')
@@ -599,7 +599,7 @@ def check_pair(doc_kind, before, after, roles, workdir, plain_endings):
         if plain:
             errs.append(f'한다체 문장 끝(습니다체로): {plain[:2]}')
     vg = verify_gates(_prose_text({k: v for k, v in before.items() if roles.get(k) == 'prose'}),
-                      _prose_text({k: v for k, v in after.items() if roles.get(k) == 'prose'}), workdir)
+                      _prose_text({k: v for k, v in after.items() if roles.get(k) == 'prose'}), workdir, tag)
     if vg:
         if vg.get('exit') == 2:
             errs.append('verify_gates: 문자율 50% 이상(중단)')
@@ -618,7 +618,7 @@ def check_pair(doc_kind, before, after, roles, workdir, plain_endings):
     return errs, warns, rate, vg
 
 
-def apply_batch(batch, dry=False):
+def apply_batch(batch, dry=False, ids=None):
     """_workspace/humanize/<batch>/ 의 after.txt 를 원래 JSON 파일에 넣습니다. 검사를 통과한 글만 반영합니다."""
     wd = os.path.join(WS, batch)
     mp = os.path.join(wd, 'manifest.json')
@@ -634,6 +634,8 @@ def apply_batch(batch, dry=False):
     files = {}
     report, ok_all = [], True
     for did, m in manifest.items():
+        if ids and did not in ids:
+            continue
         path = os.path.join(SRC, m['file'])
         if path not in files:
             txt = open(path, encoding='utf-8').read()
@@ -651,7 +653,7 @@ def apply_batch(batch, dry=False):
         if before == after:
             report.append(f'{did}: 바뀐 것 없음')
             continue
-        errs, warns, rate, vg = check_pair(m['kind'], before, after, roles, wd, plain_endings)
+        errs, warns, rate, vg = check_pair(m['kind'], before, after, roles, wd, plain_endings, did)
         new = json.loads(json.dumps(obj, ensure_ascii=False))
         for k, x in after.items():
             if k in before:
@@ -742,6 +744,7 @@ def main(argv=None):
     p.add_argument('--date')
     p.add_argument('--batch')
     p.add_argument('--dry', action='store_true')
+    p.add_argument('--ids', help='이 글만(쉼표로 구분) — 여러 사람이 나눠 고칠 때 자기 글만 확인')
     g = sub.add_parser('gate')
     g.add_argument('--from', dest='dfrom', default=GATE_FROM)
     a = ap.parse_args(argv)
@@ -772,7 +775,7 @@ def main(argv=None):
         export_docs(a.batch or a.date, docs)
         return 0
     if a.cmd == 'apply':
-        return 0 if apply_batch(a.batch or a.date, dry=a.dry) else 1
+        return 0 if apply_batch(a.batch or a.date, dry=a.dry, ids=set(a.ids.split(',')) if a.ids else None) else 1
     if a.cmd == 'gate':
         bad = gate(a.dfrom)
         print('\n'.join(bad) if bad else 'S1 0건')
