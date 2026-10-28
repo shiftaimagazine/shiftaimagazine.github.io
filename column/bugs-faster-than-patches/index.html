@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=e1a06dc8">
+<link rel="stylesheet" href="/assets/site.css?v=3986ef8f">
 </head>
 <body data-route="c-bugs-faster-than-patches" data-pre="1">
 <div class="wrap">
@@ -59,7 +59,7 @@
     <h1>버그를 찾는 속도가 고치는 속도를 앞지르는 해</h1><p class="deck">10월 21일 하루에 PHP와 Node.js의 보안 공지가 함께 나왔고, 두 곳 모두 결함을 찾는 데 AI의 도움을 받았습니다. 찾는 일은 자동화됐지만 고치는 일은 아직 사람의 속도로 움직입니다. 이 간극이 2027년 보안의 중심 문제가 될 것입니다.</p>
     <div class="meta"><span>SHIFT AI 편집장</span><span class="dot"></span><span>2026.10.26</span><span class="dot"></span><span>2분 읽기</span></div>
     <figure class="lead-fig"><img src="img/ph/php2shell.webp" alt="위즈 리서치의 PHP2Shell 공개 글 대표 이미지" loading="lazy"><figcaption>이미지: Wiz Research</figcaption></figure>
-    <div class="body"><p class="lead">10월 21일 위즈(Wiz) 리서치는 PHP 엔진에서 인증 없이 원격 코드 실행으로 이어지는 결함을 공개했습니다. 결함은 CVE 2건, 버그 4개이고 CVSS는 최고 9.2입니다. 위즈는 결함을 찾고 공격 코드를 쓰고 패치를 검증하는 데 자사 도구와 제미나이·GPT 계열 모델을 썼다고 밝혔습니다. 같은 날 Node.js 프로젝트도 취약점 10건을 고친 보안 릴리스를 냈는데, 그중 고위험 1건은 오픈AI의 코덱스 시큐리티가 보고한 것입니다. 저는 이 하루가 우연이라고 보지 않습니다.</p><h3>왜 이렇게 보나</h3><p>두 공지에는 공통점이 하나 더 있습니다. Node.js가 고친 10건 가운데 3건은 이전 패치가 불완전해서 다시 나온 문제였습니다. 고치는 일은 여전히 사람이 코드를 읽고, 테스트하고, 배포 일정을 잡는 속도로 움직입니다. 반면 찾는 쪽에서는 모델이 쉬지 않고 돌아갑니다. PHP처럼 웹의 상당 부분이 쓰는 엔진에서 이런 결함이 나오면 '다음이 어디냐'보다 '얼마나 자주냐'를 묻게 됩니다.</p><div class="pred"><div class="ph2">편집장의 전망</div><ol><li>2027년 4월까지, PHP2Shell처럼 널리 쓰이는 런타임·엔진 수준의 치명적 취약점(CVSS 9 이상)이 AI 도구로 발견됐다고 밝힌 공개 사례가 두 건 이상 더 나옵니다.</li><li>주요 오픈소스 프로젝트의 보안 공지에 'AI 도구로 발견' 표기가 흔해져, 보안 업계가 이를 별도 통계로 집계하기 시작합니다.</li><li>호스팅 업체들이 런타임 자동 업데이트를 기본값으로 바꾸는 흐름이 빨라집니다.</li></ol></div><h3>틀릴 수 있는 지점</h3><p>AI가 찾은 버그가 늘어나는 만큼 AI로 패치를 검증하는 도구도 함께 좋아질 수 있습니다. 위즈도 패치 검증에 모델을 썼습니다. 고치는 쪽의 자동화가 예상보다 빨리 따라오면 간극은 생각만큼 벌어지지 않습니다. 그래도 간극이 쉽게 줄지 않으리라 보는 이유는 배포가 운영자 손에 달려 있기 때문입니다.</p></div>
+    <div class="body"><p class="lead">10월 21일 위즈(Wiz) 리서치는 PHP 엔진에서 인증 없이 원격 코드 실행으로 이어지는 결함 묶음 ‘PHP2Shell’을 공개했습니다. 결함은 CVE 2건, 버그 4개이고 CVSS는 최고 9.2입니다. 위즈는 결함을 찾고 공격 코드를 쓰고 패치를 검증하는 데 자사 도구와 제미나이·GPT 계열 모델을 썼다고 밝혔습니다. 같은 날 Node.js 프로젝트도 취약점 10건을 고친 보안 릴리스를 냈는데, 그중 고위험 1건은 오픈AI의 코덱스 시큐리티가 보고한 것입니다. 저는 이 하루가 우연이라고 보지 않습니다.</p><h3>왜 이렇게 보나</h3><p>두 공지에는 공통점이 하나 더 있습니다. Node.js가 고친 10건 가운데 3건은 이전 패치가 불완전해서 다시 나온 문제였습니다. 고치는 일은 여전히 사람이 코드를 읽고, 테스트하고, 배포 일정을 잡는 속도로 움직입니다. 반면 찾는 쪽에서는 모델이 쉬지 않고 돌아갑니다. PHP처럼 웹의 상당 부분이 쓰는 엔진에서 이런 결함이 나오면 '다음이 어디냐'보다 '얼마나 자주냐'를 묻게 됩니다.</p><div class="pred"><div class="ph2">편집장의 전망</div><ol><li>2027년 4월까지, PHP2Shell처럼 널리 쓰이는 런타임·엔진 수준의 치명적 취약점(CVSS 9 이상)이 AI 도구로 발견됐다고 밝힌 공개 사례가 두 건 이상 더 나옵니다.</li><li>주요 오픈소스 프로젝트의 보안 공지에 'AI 도구로 발견' 표기가 흔해져, 보안 업계가 이를 별도 통계로 집계하기 시작합니다.</li><li>호스팅 업체들이 런타임 자동 업데이트를 기본값으로 바꾸는 흐름이 빨라집니다.</li></ol></div><h3>틀릴 수 있는 지점</h3><p>AI가 찾은 버그가 늘어나는 만큼 AI로 패치를 검증하는 도구도 함께 좋아질 수 있습니다. 위즈도 패치 검증에 모델을 썼습니다. 고치는 쪽의 자동화가 예상보다 빨리 따라오면 간극은 생각만큼 벌어지지 않습니다. 그래도 간극이 쉽게 줄지 않으리라 보는 이유는 배포가 운영자 손에 달려 있기 때문입니다.</p></div>
     <div class="next"><div class="lbl">바탕이 된 기사</div><div class="list"><a class="post" href="/news/2026-10-21-php2shell/"><img class="thumb" src="img/ph/php2shell.webp" alt="" loading="lazy">
   <div class="b"><span class="cat">보안·안전</span><h3>AI가 찾아낸 PHP 엔진 취약점, 웹의 70%가 영향권</h3><p>위즈 리서치가 로그인 없이 서버를 장악할 수 있는 PHP 엔진 취약점 묶음을 찾아 공개했습니다. 발견부터 공격 코드 검증까지 AI 모델을 썼고, PHP 5.4 이후 거의 모든 버전이 영향을 받습니다. 막는 방법은 PHP 보안 업데이트를 적용하는 것입니다.</p><div class="meta"><span>2026.10.21</span><span class="dot"></span><span>4분 읽기</span></div></div></a></div></div>
     <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 반론 남기기</a><a href="/column/bugs-faster-than-patches/" data-copy="https://shiftaimagazine.com/column/bugs-faster-than-patches/">링크 복사</a></div>
@@ -72,7 +72,7 @@
   </div>
 </section>
     <div class="next"><div class="lbl">다음 칼럼</div><div class="list"><a class="post" href="/column/ai-payoff-outside-tech/"><img class="thumb" src="img/ph/apollo-margin.webp" alt="" loading="lazy">
-  <div class="b"><span class="cat">칼럼</span><h3>AI 투자의 성적표, 빅테크 밖에서는 아직 백지다</h3><p>아폴로의 토르스텐 슬록은 매그7 밖에서는 AI 성과가 보이지 않는다고 썼고, 같은 주 오라클은 파트너들에게 4년간 10억 달러를 쓰겠다고 했습니다. 지금 돈은 AI를 '쓰게 만드는 일'로 몰리고 있습니다. 내년 상반기까지는 S&amp;P 493의 생산성 지표에서 뚜렷한 AI 효과가 보이지 않을 것입니다.</p><div class="meta"><span>2026.10.25</span><span class="dot"></span><span>2분 읽기</span></div></div></a></div></div>
+  <div class="b"><span class="cat">칼럼</span><h3>AI 투자의 성적표, 빅테크 밖에서는 아직 백지다</h3><p>아폴로의 토르스텐 슬록은 매그7(미국 대형 기술주 7곳) 밖에서는 AI 성과가 보이지 않는다고 썼고, 같은 주 오라클은 파트너들에게 4년간 10억 달러를 쓰겠다고 했습니다. 지금 돈은 AI를 '쓰게 만드는 일'로 몰리고 있습니다. 내년 상반기까지는 S&amp;P 493의 생산성 지표에서 뚜렷한 AI 효과가 보이지 않을 것입니다.</p><div class="meta"><span>2026.10.25</span><span class="dot"></span><span>2분 읽기</span></div></div></a></div></div>
   </article></main>
 <footer>
   <div class="fl">
@@ -85,8 +85,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=e1a06dc8"></script>
-<script src="/assets/app.js?v=e1a06dc8"></script>
+<script src="/assets/data.js?v=3986ef8f"></script>
+<script src="/assets/app.js?v=3986ef8f"></script>
 
 
 </body></html>
