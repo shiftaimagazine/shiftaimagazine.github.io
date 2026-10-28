@@ -162,5 +162,23 @@
   "credit": "화면: fca.org.uk",
   "alt": "영국 금융행위감독청의 ‘영국 금융권 AI’ 자료 화면",
   "auto": true
+ },
+ "2026-10-29-liquid-ai-lfm3": {
+  "src": "img/ph/2026-10-29-liquid-ai-lfm3.webp",
+  "credit": "이미지: Liquid AI",
+  "alt": "리퀴드 AI LFM3 발표 페이지",
+  "auto": true
+ },
+ "2026-10-29-meta-muse-singapore": {
+  "src": "img/ph/2026-10-29-meta-muse-singapore.webp",
+  "credit": "이미지: Meta",
+  "alt": "메타 뮤즈 싱가포르 출시 공식 이미지",
+  "auto": true
+ },
+ "2026-10-29-google-sleep-continual-learning": {
+  "src": "img/ph/2026-10-29-google-sleep-continual-learning.webp",
+  "credit": "이미지: Google Research",
+  "alt": "구글 리서치 ‘수면 프레임워크’ 블로그 대표 이미지",
+  "auto": true
  }
 }
