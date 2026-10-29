@@ -131,6 +131,38 @@ if __name__ == '__main__':
         for m in PR['models']:
             for k in ('provider', 'name', 'tier', 'url'): assert m.get(k), ('ai_prices 항목 없음', m.get('name'), k)
             assert isinstance(m.get('in'), (int, float)) and isinstance(m.get('out'), (int, float)), ('ai_prices 가격', m['name'])
+    # AI 사전 용어 페이지(/dict/<s>/, 10/29~): 주소 s 와 관련 기사(arts)·튜토리얼(tuts)
+    #  주소: 용어 t 가 영문이면 t, 아니면 en 에서 만든다(영문 소문자·숫자·하이픈). terms.json 에 "s" 를 직접 적으면 그 값.
+    #  en 을 고치면 주소가 바뀌니, 이미 있는 용어는 en 대신 "s" 를 적어 주소를 고정한다.
+    #  관련 기사: 기사 terms 에 들어 있거나 rel 인 기사 + (제품·회사 용어는) 제목·요약에 이름이 나오는 기사. 최신순 최대 20건.
+    def _slug(t):
+        if t.get('s'): return t['s']
+        src = t['t'] if re.fullmatch(r'[A-Za-z0-9 .·\-]+', t['t']) else (t.get('en') or '')
+        return re.sub(r'[^a-z0-9]+', '-', src.lower()).strip('-')
+    _seen = {}
+    import hashlib
+    for t in TERMS:   # 빌드가 멈추지 않게: 주소를 못 만들면 term-<해시>, 겹치면 뒤에 -2 (가능하면 terms.json 에 "s" 를 적어 고정)
+        sl = _slug(t)
+        if not re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', sl or ''): sl = 'term-' + hashlib.md5(t['t'].encode()).hexdigest()[:8]; print('알림: 용어 주소 자동', t['t'], sl)
+        base, k = sl, 2
+        while sl in _seen: sl = f'{base}-{k}'; k += 1
+        if sl != base: print('알림: 용어 주소 겹침', t['t'], _seen[base], '→', sl)
+        t['s'] = sl; _seen[sl] = t['t']
+    def _named(t, text):
+        names = [t['t']] + ([t['en']] if t.get('en') and len(t['en']) >= 4 and re.fullmatch(r'[A-Za-z0-9 .\-]+', t['en']) else [])
+        for n in names:
+            for m in re.finditer(re.escape(n), text, re.I if n.isascii() else 0):
+                after = text[m.end():m.end() + 4]
+                if n.isascii() and re.match(r'[A-Za-z0-9]', after): continue      # Meta → Metadata 같은 것 제외
+                if after.startswith('리케이션'): continue                          # 애플 → 애플리케이션 제외
+                return True
+        return False
+    for t in TERMS:
+        arts = [a['id'] for a in out if t['t'] in (a.get('terms') or []) or a['id'] == t.get('rel')
+                or (t['g'] == '제품·회사' and _named(t, a['title'] + ' ' + a['hook']))]
+        t['arts'] = arts[:20]
+        t['tuts'] = [x['id'] for x in TUTS if any(n and n.lower() == k.lower() for k in x['tool'] for n in (t['t'], t.get('en')))
+                     or (t['g'] == '제품·회사' and _named(t, x['title']))][:6]
     DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS,
             'ABOUT_CARD': {'src': 'img/ph/about-card.webp', 'caption': '쓰레드·인스타그램 카드 (10월 26일 PHP2Shell 편)'}}
     os.makedirs(SRC + 'build', exist_ok=True)

@@ -22,7 +22,8 @@
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
 <meta property="article:published_time" content="2026-10-21T19:20:00+09:00">
 <meta property="article:section" content="보안·안전">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Node.js 취약점 10건 패치, 고위험 1건은 오픈AI 코덱스가 찾았다", "description": "Node.js가 10월 21일 22·24·26 세 버전군에 보안 업데이트를 내고 취약점 10건을 고쳤습니다. 고위험 4건 가운데 원격 코드 실행까지 이어질 수 있는 Brotli 압축 해제 결함은 오픈AI 코덱스 시큐리티 연구자 명의로 보고됐습니다.", "image": ["https://shiftaimagazine.com/og/a-2026-10-21-nodejs-security-release.jpg"], "datePublished": "2026-10-21T19:20:00+09:00", "dateModified": "2026-10-21T19:20:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/logo.webp"}}, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-10-21-nodejs-security-release/", "articleSection": "보안·안전", "inLanguage": "ko"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Node.js 취약점 10건 패치, 고위험 1건은 오픈AI 코덱스가 찾았다", "description": "Node.js가 10월 21일 22·24·26 세 버전군에 보안 업데이트를 내고 취약점 10건을 고쳤습니다. 고위험 4건 가운데 원격 코드 실행까지 이어질 수 있는 Brotli 압축 해제 결함은 오픈AI 코덱스 시큐리티 연구자 명의로 보고됐습니다.", "image": ["https://shiftaimagazine.com/og/a-2026-10-21-nodejs-security-release.jpg"], "datePublished": "2026-10-21T19:20:00+09:00", "dateModified": "2026-10-21T19:20:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-10-21-nodejs-security-release/", "articleSection": "보안·안전", "inLanguage": "ko", "keywords": "취약점", "isBasedOn": ["https://nodejs.org/en/blog/vulnerability/october-2026-security-releases", "https://wiz.io/blog/php2shell-php-rce"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 뉴스", "item": "https://shiftaimagazine.com/news/"}, {"@type": "ListItem", "position": 3, "name": "Node.js 취약점 10건 패치, 고위험 1건은 오픈AI 코덱스가 찾았다", "item": "https://shiftaimagazine.com/news/2026-10-21-nodejs-security-release/"}]}</script>
 <script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=f49c9d44">
+<link rel="stylesheet" href="/assets/site.css?v=20408674">
 </head>
 <body data-route="a-2026-10-21-nodejs-security-release" data-pre="1">
 <div class="wrap">
@@ -68,7 +69,7 @@
     <div class="body"><p class="lead">서버용 자바스크립트 런타임 Node.js가 10월 21일 22.x·24.x·26.x 세 버전군에 보안 업데이트를 동시에 배포해 취약점 10건을 고쳤고 그중 4건을 고위험으로 분류했습니다. 원격 코드 실행까지 이어질 수 있는 Brotli 압축 해제 결함은 오픈AI 코덱스 시큐리티(Codex Security) 소속 연구자 명의로 보고됐습니다.</p><h3>지원이 끝난 버전은 매번 영향을 받습니다</h3><p>Node.js는 웹 서비스 백엔드와 개발 도구에 널리 쓰이는 실행 환경입니다. 이번 릴리스에서 가장 높은 심각도는 ‘높음(HIGH)’입니다. Node.js는 공지에서 지원이 끝난(EOL) 버전은 보안 릴리스가 나올 때마다 항상 영향을 받는다고 못박았습니다. 구버전을 계속 쓰는 서비스라면 지원 버전으로 올려야 합니다. c-ares, OpenSSL, SQLite, Undici 같은 의존 라이브러리와 기본 인증서 묶음도 함께 갱신됐고 인증서 쪽에는 eMudhra 중간 인증기관 침해 건이 반영됐습니다.</p><h3>이름과 주소를 잘못 읽던 결함들</h3><p>고위험 4건 중 3건은 이름·주소 해석 문제입니다. CVE-2026-105482에서는 호스트 이름에 널(NUL) 바이트가 섞이면 DNS 조회 함수가 이름을 조용히 잘랐습니다. 그래서 공격자 도메인 뒤에 널 바이트와 신뢰 도메인을 붙여 조회해도 공격자 도메인의 기록이 오류 없이 돌아왔습니다. CVE-2026-105483은 전각 숫자로 쓴 IP를 IP로 인식하지 못해 DNS 이름이 적힌 인증서가 IP 주소 접속을 인증해 주는 문제입니다. CVE-2026-106069에서는 URL 해석기가 ‘0127.0.0.1’ 같은 앞자리 0 표기를 8진수로, 운영체제는 10진수로 읽는 바람에 다른 IP용 인증서가 통과될 수 있었습니다. 남은 CVE-2026-111497은 조작된 Brotli 데이터를 풀 때 메모리 범위 밖 쓰기가 일어나 충돌, 메모리 노출, 원격 코드 실행으로 이어질 수 있습니다.</p><div class="tbl"><table class="dtable"><thead><tr><th>CVE</th><th>심각도</th><th>요지</th></tr></thead><tbody><tr><td>CVE-2026-105482</td><td>높음</td><td>널 바이트 포함 호스트 이름을 DNS 함수가 잘라 처리</td></tr><tr><td>CVE-2026-105483</td><td>높음</td><td>전각 숫자 IP를 IP로 인식 못 해 인증서 검증 우회</td></tr><tr><td>CVE-2026-106069</td><td>높음</td><td>앞자리 0 IPv4 표기를 8진수·10진수로 다르게 해석</td></tr><tr><td>CVE-2026-111497</td><td>높음</td><td>Brotli 디코더 범위 밖 쓰기, 원격 코드 실행 가능</td></tr></tbody></table></div><div class="note">출처: Node.js 2026년 10월 21일 보안 릴리스 공지</div><p>중간·낮음 등급에서는 keep-alive 소켓이 요청을 보내기도 전에 도착한 응답을 받아들이던 문제가 고쳐졌습니다. 스냅샷과 단일 실행 파일(SEA)에 난수 캐시가 저장돼 crypto.randomUUID() 등이 같은 값을 되풀이하던 문제와 권한 모델의 와일드카드 규칙이 의도보다 넓게 허용하던 문제도 들어 있습니다.</p><h3>AI가 찾은 결함과 다시 검증할 빈틈</h3><p>보고자 명단에는 AI 보안 도구 이름이 직접 올라 있습니다. Brotli 결함은 ‘OpenAI Codex Security - Khai Tran and Sylvie Mayer’ 명의로 보고됐고 다른 보고에 AI가 쓰였는지는 공지에 나오지 않습니다. 같은 날 위즈도 AI로 찾은 PHP 엔진 취약점을 공개했습니다. 하루 사이에 웹의 핵심 런타임 두 개가 대형 보안 업데이트를 냈습니다. 패치를 빨리 내는 것 못지않게 다시 검증하는 일도 중요합니다. 이번 10건 중 4건은 앞선 수정에 남아 있던 빈틈이었습니다.</p></div>
     <div class="ask"><small>생각해 볼 질문</small>우리 서비스의 Node.js는 지원 중인 버전인가요?</div>
     <div class="src"><b>원문</b><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases" target="_blank" rel="noopener">Node.js — 2026년 10월 보안 릴리스 · https://nodejs.org/en/blog/vulnerability/october-2026-security-releases</a><a href="https://wiz.io/blog/php2shell-php-rce" target="_blank" rel="noopener">위즈 리서치 — PHP2Shell · https://wiz.io/blog/php2shell-php-rce</a></div>
-    <div class="chips"><a href="/dict/" title="소프트웨어의 보안 구멍입니다. 로그인 없이 서버에서 명령을 실행하게 해 주는 원격 코드 실행(RCE)이 가장 위험한 축입니다.">취약점</a></div>
+    <div class="chips"><a href="/dict/vulnerability/" title="소프트웨어의 보안 구멍입니다. 로그인 없이 서버에서 명령을 실행하게 해 주는 원격 코드 실행(RCE)이 가장 위험한 축입니다.">취약점</a></div>
     <div class="links"><a href="/daily/2026-10-21/">2026.10.21 데일리 이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 영상 보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 의견 남기기</a><a href="/news/2026-10-21-nodejs-security-release/" data-copy="https://shiftaimagazine.com/news/2026-10-21-nodejs-security-release/">링크 복사</a></div>
     <section class="followbox">
   <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
@@ -92,8 +93,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=f49c9d44"></script>
-<script src="/assets/app.js?v=f49c9d44"></script>
+<script src="/assets/data.js?v=20408674"></script>
+<script src="/assets/app.js?v=20408674"></script>
 
 
 </body></html>

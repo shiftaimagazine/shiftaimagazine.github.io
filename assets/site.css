@@ -486,3 +486,12 @@ footer a:hover{color:var(--ink)}
 .tut-page .limits{margin-top:30px;background:var(--bg2);border-radius:12px;padding:16px 22px}
 .tut-page .limits > b{display:block;font-size:15px;margin-bottom:6px}
 .tut-page .limits ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:15.5px;line-height:1.7;color:var(--text)}
+/* AI 사전 용어 페이지 (/dict/<s>/) */
+.term-page h1 small{display:block;font-size:17px;font-weight:600;color:var(--sub);margin-top:6px;letter-spacing:0}
+.term-page .tdef{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0 8px;background:var(--bg2)}
+.term-page .tdef b{display:block;font-size:13px;color:var(--sub);margin-bottom:6px}
+.term-page .tdef p{margin:0;font-size:17.5px;line-height:1.8;color:var(--ink)}
+.term-page .sec h2 small{font-size:14px;color:var(--sub);font-weight:600;margin-left:6px}
+.term-page .sec{margin-top:36px}
+.term dt a{color:inherit;text-decoration:none}
+.term dt a:hover{text-decoration:underline;text-underline-offset:3px}

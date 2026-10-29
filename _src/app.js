@@ -2,7 +2,7 @@ const SITE = "https://shiftaimagazine.com";
 const ROUTE = document.body.dataset.route || "home";
 const PRE = document.body.dataset.pre === "1";
 const P = r=>{ if(!r||r==="home") return "/"; const k=r.slice(0,2), v=r.slice(2);
-  if(k==="a-") return "/news/"+v+"/"; if(k==="t-") return "/tutorial/"+v+"/"; if(k==="c-") return "/column/"+v+"/"; if(k==="d-") return "/daily/"+v+"/";
+  if(k==="a-") return "/news/"+v+"/"; if(k==="t-") return "/tutorial/"+v+"/"; if(k==="c-") return "/column/"+v+"/"; if(k==="d-") return "/daily/"+v+"/"; if(k==="w-") return "/dict/"+v+"/";
   return "/"+r+"/"; };
 
 const IG="https://www.instagram.com/shift_ai_magazine/", TH="https://www.threads.com/@shift_ai_magazine";
@@ -16,6 +16,8 @@ const colById = Object.fromEntries(COLUMNS.map(c=>[c.id,c]));
 const tutById = Object.fromEntries(TUTORIALS.map(t=>[t.id,t]));
 const dayById = Object.fromEntries(DAILY.map(d=>["d-"+d.date,d]));
 const termByName = Object.fromEntries(TERMS.map(t=>[t.t,t]));
+const termBySlug = Object.fromEntries(TERMS.map(t=>["w-"+t.s,t]));
+const TP = t=>"/dict/"+t.s+"/";
 const sorted = [...ARTICLES].sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
 const dailySorted = [...DAILY].sort((a,b)=>b.date.localeCompare(a.date));
 const CATS = [...new Set(ARTICLES.map(a=>a.cat))];
@@ -52,7 +54,7 @@ function renderHome(){
   $("#homeTuts").innerHTML = TUTORIALS.slice(0,3).map(tutHTML).join("");
   $("#homeCols").innerHTML = COLUMNS.slice(0,3).map(colHTML).join("");
   if($("#homeTools")) $("#homeTools").innerHTML = TOOLS.slice(0,3).map(toolHTML).join("");
-  $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="/dict/"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
+  $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="${TP(t)}"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
   const rl = sorted.slice(0,3);
   $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT AI 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
 }
@@ -85,7 +87,7 @@ function renderDict(){
   $("#idx").innerHTML = `<button aria-pressed="${dictFilter==="all"}" data-i="all">전체</button>` + [...KO,...EN].map(c=>`<button aria-pressed="${dictFilter===c}" data-i="${c}" ${have.has(c)?"":"disabled"}>${c}</button>`).join("");
   const q = norm($("#dq") ? $("#dq").value : "");
   const list = TERMS_SORTED.filter(t=>(dictFilter==="all"||t.i===dictFilter) && (grpFilter==="all"||t.g===grpFilter) && (!q || norm(t.t+" "+t.en+" "+t.d).includes(q)));
-  $("#terms").innerHTML = list.map(t=>`<div class="term"><dt>${esc(t.t)}<small>${esc(t.en)}</small>${t.g?`<span class="tg">${esc(t.g)}</span>`:""}</dt><dd>${esc(t.d)}${t.rel&&byId[t.rel]?`<br><a href="${P("a-"+t.rel)}">관련 기사: ${esc(byId[t.rel].title)}</a>`:""}</dd></div>`).join("");
+  $("#terms").innerHTML = list.map(t=>`<div class="term"><dt><a href="${TP(t)}">${esc(t.t)}</a><small>${esc(t.en)}</small>${t.g?`<span class="tg">${esc(t.g)}</span>`:""}</dt><dd>${esc(t.d)}${t.rel&&byId[t.rel]?`<br><a href="${P("a-"+t.rel)}">관련 기사: ${esc(byId[t.rel].title)}</a>`:""}</dd></div>`).join("");
   $("#dictEmpty").hidden = list.length>0;
 }
 $("#idx") && $("#idx").addEventListener("click",e=>{const b=e.target.closest("button[data-i]"); if(!b||b.disabled) return; dictFilter=b.dataset.i; renderDict();});
@@ -167,7 +169,7 @@ function searchAll(q){
   }
   return out.sort((a,b)=>b[0]-a[0] || b[1].date.localeCompare(a[1].date)).map(p=>p[1]);
 }
-const termCard = t=>`<a class="sterm" href="/dict/?t=${encodeURIComponent(t.t)}"><b>${esc(t.t)}</b>${t.en?`<small>${esc(t.en)}</small>`:""}<span>${esc(t.d)}</span></a>`;
+const termCard = t=>`<a class="sterm" href="${TP(t)}"><b>${esc(t.t)}</b>${t.en?`<small>${esc(t.en)}</small>`:""}<span>${esc(t.d)}</span></a>`;
 function groupHTML(k, xs){
   if(k==="AI 사전") return `<div class="sterms">${xs.map(x=>termCard(x.o)).join("")}</div>`;
   if(k==="데일리 이슈") return `<div class="dlist">${xs.map(x=>drowHTML(x.o)).join("")}</div>`;
@@ -244,7 +246,7 @@ function renderArticle(a){
     <div class="body">${bodyHTML(rest)}</div>
     <div class="ask"><small>생각해 볼 질문</small>${esc(a.ask)}</div>
     ${srcHTML(a.sources)}
-    ${tl.length?`<div class="chips">${tl.map(t=>`<a href="/dict/" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
+    ${tl.length?`<div class="chips">${tl.map(t=>`<a href="${TP(t)}" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
     <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">스레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
@@ -330,6 +332,25 @@ function renderDaily(d){
   </article>`;
 }
 
+// AI 사전 용어 한 개 = 한 페이지(/dict/<s>/): 뜻 + 관련 기사·튜토리얼 + 함께 보면 좋은 용어
+const termCo = t=>{ const mine=new Set(t.arts); const sc=TERMS.filter(x=>x!==t).map(x=>[x, x.arts.filter(i=>mine.has(i)).length*3 + (x.g===t.g?1:0)]);
+  return sc.filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1] || a[0].t.localeCompare(b[0].t,"ko")).slice(0,8).map(([x])=>x); };
+function renderTerm(t){
+  const arts=t.arts.map(i=>byId[i]).filter(Boolean), tuts=t.tuts.map(i=>tutById[i]).filter(Boolean), co=termCo(t);
+  const brand = t.g==="제품·회사";
+  $("#v-article").innerHTML = `<article class="article narrow term-page">
+    <a class="back" href="/dict/">← AI 사전</a>
+    <span class="cat">AI 사전 · ${esc(t.g)}</span>
+    <h1>${esc(t.t)}${t.en&&t.en!==t.t?`<small>${esc(t.en)}</small>`:""}</h1>
+    <div class="tdef"><b>${brand?"한 줄 소개":"뜻"}</b><p>${esc(t.d)}</p></div>
+    ${arts.length?`<div class="sec"><h2>${esc(t.t)} ${brand?"최신 소식":"관련 기사"} <small>${arts.length}건</small></h2></div><div class="list">${arts.map(postHTML).join("")}</div>`:""}
+    ${tuts.length?`<div class="sec"><h2>${esc(t.t)} 튜토리얼</h2></div><div class="list">${tuts.map(tutHTML).join("")}</div>`:""}
+    ${co.length?`<div class="sec"><h2>함께 보면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
+    <div class="links"><a href="/dict/">AI 사전 전체 ${TERMS.length}개</a><a href="/search/?q=${encodeURIComponent(t.t)}">‘${esc(t.t)}’ 검색</a>${linkCopy("w-"+t.s,"링크 복사")}</div>
+    ${FOLLOWBOX}
+  </article>`;
+}
+
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-copy]"); if(!b) return; e.preventDefault();
   const txt=b.dataset.copy; const done=()=>toast("복사했습니다");
@@ -338,7 +359,7 @@ document.addEventListener("click",e=>{
 });
 let toastT; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),1600);}
 
-const NAV = r=>r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"news":r.startsWith("d-")?"daily":r;
+const NAV = r=>r.startsWith("w-")?"dict":r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"news":r.startsWith("d-")?"daily":r;
 // 옛 해시 주소(#a-… 등)로 들어오면 새 주소로 보낸다
 (function(){ const h=location.hash.slice(1); if(!h) return;
   if(h==="reel") return location.replace("/?from=reels");
@@ -355,6 +376,7 @@ function init(){
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);
     else if(r.startsWith("c-") && colById[r]) renderColumn(colById[r]);
     else if(r.startsWith("d-") && dayById[r]) renderDaily(dayById[r]);
+    else if(r.startsWith("w-") && termBySlug[r]) renderTerm(termBySlug[r]);
   } else if(q0 || dq0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
   if($("#sResults")) renderSearch();
   const from = new URLSearchParams(location.search).get("from");

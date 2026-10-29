@@ -36,3 +36,8 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
 - 튜토리얼 목록: 분류 버튼 맨 앞에 '무료 도구'(tools.json 목록을 보여 줌, /tutorial/?cat=무료 도구). 썸네일은 실제 사진(위키미디어 공용, 출처는 news/tutorial_links.json TFIG) 위에 'SHIFT AI 튜토리얼'과 cover.line 을 얹은 것 — `python3 _src/tut_thumbs.py [튜토리얼 id…]` 로 다시 만든다. 새 사진 찾기·받기는 손으로 돌리는 Actions `commons-photos`(결과는 commons-tmp 가지).
 - 튜토리얼 형식(10/27~): 목록은 검색칸·'도구' 줄(tool 태그)·'주제' 줄(cat, 무료 도구 포함), 카드에 'STEP N개/프롬프트 N개 · 읽는 데 N분'. 글은 이 글에 담긴 것(목차) → 바쁘면 이것만(quick) → 통째로 맡기는 프롬프트(master) → STEP(time·d·how·more·term·code·bad/good·table) → 솔직히 한계(limits) → 공식 자료(sources). 쓰는 법은 news/TUTORIAL_GUIDE.md.
 - 사람이 쓴 글처럼(10/29~): `_src/humanize/HUMANIZE.md`(다듬기 규칙) · `shift_humanize.py`(점검 scan · 내보내기 export · 되돌려 넣기 apply) · `vendor/`(PC 에 설치한 humanize-korean 2.3.2·humanizer-kr 0.1.10 원본 사본, MIT). assemble.py 는 2026-10-29 이후 기사에서 AI 티 S1(정해진 소제목 틀 3개 이상, 핵심은·시사합니다·대시 등)이 남으면 멈춘다(GitHub Actions 에서는 경고만). 작업 파일은 저장소 루트 `_workspace/`(커밋 안 함).
+- 검색 노출(10/29~):
+  - AI 사전 용어마다 페이지 `/dict/<s>/`(assemble.py 가 주소 `s`·관련 기사 `arts`·튜토리얼 `tuts` 를 붙임, 화면은 app.js renderTerm, 경로 이름 `w-<s>`). 제품·회사 용어는 제목·요약에 이름이 나온 기사까지 모아 '최신 소식' 모음 페이지가 된다. 기사 용어 칩·사전 목록·첫 화면·검색 결과가 이 페이지로 이어진다.
+  - 구조화 데이터: 기사 NewsArticle · 튜토리얼 TechArticle · 칼럼 OpinionNewsArticle · 데일리 CollectionPage(ItemList) · 용어 DefinedTerm · 사전 DefinedTermSet · 소개 AboutPage, 모든 페이지 BreadcrumbList. 브랜드 다른 이름(시프트 AI 등)은 build.py BRAND_ALT.
+  - `news-sitemap.xml`(구글 뉴스, 최근 48시간 기사, 빌드마다 새로) · `llms.txt`(AI 검색용 안내) · robots.txt 에 사이트맵 2개.
+  - IndexNow: 키 파일 `/<INDEXNOW_KEY>.txt`(build.py). build-site 가 끝나면 `.github/workflows/indexnow.yml` 이 배포를 기다렸다가 `_src/indexnow.py` 로 사이트맵에서 새로 생기거나 lastmod 가 바뀐 주소를 api.indexnow.org(빙 등)·네이버 서치어드바이저에 알린다. 전체를 다시 알리려면 Actions 에서 indexnow 를 손으로 돌리고 all=yes.
