@@ -219,6 +219,7 @@ function bodyHTML(body){
     if(x.h) return `<h3>${esc(x.h)}</h3>`;
     if(x.ul) return `<ul>${x.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`;
     if(x.q) return `<div class="q">${esc(x.q)}<br><button class="copy" data-copy="${esc(x.q)}">복사하기</button></div>`;
+    if(x.link) return `<a class="linkbox" href="${esc(x.link.u)}"><span class="lk">${esc(x.link.k||"함께 보기")}</span><b>${esc(x.link.t)}</b>${x.link.d?`<span class="ld">${esc(x.link.d)}</span>`:""}</a>`;
     if(x.pred) return `<div class="pred"><div class="ph2">편집장의 전망</div><ol>${x.pred.map(p=>`<li>${esc(p)}</li>`).join("")}</ol></div>`;
     if(x.table) return `<div class="tbl"><table class="dtable"><thead><tr>${x.table.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${x.table.note?`<div class="note">${esc(x.table.note)}</div>`:""}`;
     if(x.img) return fig(x.img,"inline-fig");
