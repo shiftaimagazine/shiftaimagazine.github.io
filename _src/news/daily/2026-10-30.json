@@ -1,0 +1,611 @@
+{
+ "articles": [
+  {
+   "id": "2026-10-30-gemini-4-carbon",
+   "cat": "보안·안전",
+   "date": "2026-10-30",
+   "time": "06:45",
+   "title": "제미나이 4 카본 공개…사이버 방어 담당자에게 먼저, 일반 출시는 아직",
+   "sub": "구글 새 최상위 모델 · SEC-bench Pro 88.2% · 입력 100만 토큰당 2달러",
+   "hook": "구글이 10월 28일 새 최상위 모델 제미나이 4 카본(Gemini 4 Carbon)을 발표했습니다. 취약점을 찾고 고치는 보안 평가에서 높은 점수를 냈고, 이번 주에는 일부 사이버 방어 담당자에게만 먼저 열립니다.",
+   "try": "제미나이 4 카본 발표문에 걸린 페어윈드 프로그램 페이지를 열어 누가 먼저 쓸 수 있는지, 신청 방법이 있는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "구글(구글 딥마인드)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 28일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "최상위 AI 모델 제미나이 4 카본"
+    ],
+    [
+     "핵심 숫자",
+     "SEC-bench Pro 88.2%, ExploitGym 54.8%, CWE-bench 71.0%(자체 발표 기준)"
+    ],
+    [
+     "이용",
+     "일부 사이버 방어 담당자부터, 일반 출시일 미정"
+    ],
+    [
+     "원문",
+     "구글 공식 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글이 10월 28일(미국 시각) 새 최상위 모델 제미나이 4 카본(Gemini 4 Carbon)을 발표했습니다. 2주 전에 나온 제미나이 4 아르곤의 다음 모델이고, 구글은 사이버 보안과 오래 걸리는 작업에서 가장 강한 모델이라고 소개했습니다. 이번 주에는 일부 사이버 방어 담당자만 쓸 수 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "취약점을 찾고 고치는 점수",
+       "SEC-bench Pro 88.2%, CWE-bench 71.0%(자체 발표 기준)"
+      ],
+      [
+       "먼저 쓰는 곳",
+       "일부 사이버 방어 담당자, 이어서 페어윈드 프로그램 협력사"
+      ],
+      [
+       "가격",
+       "입력 100만 토큰당 2달러, 출력 10달러(도입가)"
+      ]
+     ]
+    },
+    {
+     "h": "취약점을 찾고, 공격해 보고, 고치는 평가"
+    },
+    {
+     "p": "구글이 앞세운 숫자는 보안 평가입니다. 실제 소프트웨어에서 취약점을 찾는 SEC-bench Pro에서 88.2%, 찾은 취약점으로 공격이 되는지 확인하는 ExploitGym에서 54.8%, 결함을 고치는 코드를 쓰는 CWE-bench에서 71.0%를 받았습니다(자체 발표 기준). 크롬 팀은 품질 좋은 패치를 만드는 작업에서 카본이 다른 회사의 대형 최상위 모델보다 10배 넘게 나았다고 전했습니다. 안전한 코드를 만드는 성공률도 구글 내부 평가에서 아르곤의 2배를 넘었습니다."
+    },
+    {
+     "h": "이번 주에는 일부 방어 담당자만 씁니다"
+    },
+    {
+     "p": "구글은 출시 속도를 조절하면서 미국 정부의 자발적인 출시 전 모델 시험 절차에 참여하고 있다고 밝혔습니다. 이번 주부터 일부 사이버 방어 담당자가 먼저 쓰고 페어윈드 프로그램(Fairwind Program)으로 믿을 만한 협력사를 차례로 늘립니다. 개발자와 기업, 일반 소비자에게 언제 열리는지는 날짜가 나오지 않았습니다. 발표문에는 출시 지역이나 한국어에 관한 내용도 없습니다."
+    },
+    {
+     "h": "가격은 아르곤 도입가와 같습니다"
+    },
+    {
+     "p": "카본은 아르곤과 같은 도입가로 나옵니다. 입력 100만 토큰당 2달러, 출력 100만 토큰당 10달러이고 캐시된 입력은 입력 가격에서 95%를 깎아 줍니다. 도입 기간이 끝나면 입력 4달러, 출력 20달러가 적용되는데 그 기간이 언제 끝나는지는 적혀 있지 않습니다."
+    },
+    {
+     "h": "공격과 편법에 버틴 기록"
+    },
+    {
+     "p": "그레이 스완(Gray Swan)의 간접 프롬프트 인젝션 평가에서 아르곤의 공격 성공률은 0.7%였고 카본은 0.0%로 평가한 공격을 모두 막았습니다(안전장치 없이 평가, 자체 발표 기준). 터미널벤치 4.0에서 편법으로 문제를 푼 비율도 0.0%였고 편법을 시도한 비율은 0.4%였습니다. 종합 지표인 아티피셜 애널리시스 지능 지수 v5.0에서는 59점으로 1위에 올랐습니다. 구글 내부 개발 환경에서는 심각도가 높은 정렬 이탈 경고가 80% 가까이 줄었습니다."
+    }
+   ],
+   "ask": "보안 점검을 AI 모델에 맡기는 일, 어디까지 믿을 수 있을까요?",
+   "sources": [
+    [
+     "구글 — Gemini 4 Carbon: our next frontier model",
+     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+    ]
+   ],
+   "terms": [
+    "제미나이 4 카본",
+    "제미나이",
+    "구글 딥마인드",
+    "취약점",
+    "패치",
+    "프롬프트 인젝션",
+    "벤치마크",
+    "토큰",
+    "정렬"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_carbon_102726_social_share.width-1300.png",
+    "credit": "이미지: Google",
+    "alt": "구글 제미나이 4 카본 발표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 28일 발표",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Oct 28, 2026"
+    },
+    {
+     "claim": "아르곤 2주 전 출시",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "was launched two weeks ago"
+    },
+    {
+     "claim": "사이버 보안·장기 작업 최강",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Gemini 4 Carbon, our strongest model with state-of-the-art cybersecurity and long horizon capabilities."
+    },
+    {
+     "claim": "SEC-bench Pro 88.2%, ExploitGym 54.8%, CWE-bench 71.0%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "landing a firm lead in SEC-bench Pro (88.2%) for finding vulnerabilities, ExploitGym (54.8%) for exploitation, and CWE-bench (71.0%) for patching."
+    },
+    {
+     "claim": "크롬 팀 10배",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "the Chrome team has reported that Carbon performed more than 10X better than another lab's large frontier model when generating high quality patches."
+    },
+    {
+     "claim": "안전한 코드 2배",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "On internal benchmarks, Carbon achieves more than 2x uplift in success rate for generating secure code over Argon."
+    },
+    {
+     "claim": "미국 정부 시험, 일부 방어 담당자, 페어윈드",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "actively engaged in the U.S. government's voluntary process for pre-release model testing. Starting this week, we will make Carbon available to a subset of cyber defenders and will gradually phase access to additional trusted partners through our Fairwind Program"
+    },
+    {
+     "claim": "가격 2달러·10달러·캐시 95%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Gemini 4 Carbon will launch at the same introductory price as Argon at $2 per million input tokens and $10 per million output tokens, with cached input tokens priced at 95% off input token price."
+    },
+    {
+     "claim": "도입 기간 후 4달러·20달러",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "After the introductory period expires, the price of $4 per 1M input tokens and $20 per 1M output tokens will apply."
+    },
+    {
+     "claim": "그레이 스완 0.7%→0.0%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Argon previously led the Gray Swan's Indirect Prompt Injection (IPI) Benchmark in prompt injection resistance with a very low 0.7% attack success rate, Carbon achieves 0.0%"
+    },
+    {
+     "claim": "안전장치 없이 평가",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Carbon excels across key external benchmarks (evaluated without guardrails)."
+    },
+    {
+     "claim": "터미널벤치 4.0 0.0%·0.4%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Carbon reduced successful cheating on Terminal-Bench 4.0 to 0.0%, with attempts to cheat dropping to 0.4%"
+    },
+    {
+     "claim": "AA 지수 v5.0 59점 1위",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "Carbon ranks #1 on the recently updated v5.0 of Artificial Analysis Intelligence Index at 59."
+    },
+    {
+     "claim": "정렬 이탈 경고 80% 가까이 감소",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+     "quote": "high-severity misalignment alerts dropped by almost 80%."
+    }
+   ]
+  },
+  {
+   "id": "2026-10-30-nvidia-nemotron-transcribe",
+   "cat": "연구",
+   "date": "2026-10-30",
+   "time": "06:44",
+   "title": "엔비디아 Nemotron 3.5 Transcribe 공개…한국어 포함 40개 언어 받아쓰기",
+   "sub": "오픈 웨이트 음성 모델 · 1시간 녹음, 화자 8명까지 구분 · 학습 라벨 Granary v2도 공개",
+   "hook": "엔비디아가 10월 28일 음성 받아쓰기 모델 Nemotron 3.5 Transcribe를 허깅페이스에 공개했습니다. 한국어를 포함한 40개 언어를 받아쓰고 1시간 녹음에서 화자를 8명까지 나누며, 지시문으로 출력 형식을 바꿀 수 있습니다.",
+   "try": "허깅페이스의 Nemotron 3.5 Transcribe 데모에 개인정보가 없는 짧은 한국어 녹음을 올려 지금 쓰는 받아쓰기 도구와 결과를 비교해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "엔비디아(NVIDIA)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 28일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "받아쓰기·번역·화자 구분 오픈 웨이트 음성 모델"
+    ],
+    [
+     "핵심 숫자",
+     "40개 언어, 1시간 녹음, 화자 최대 8명"
+    ],
+    [
+     "라이선스",
+     "OpenMDW-1.1(상업적 이용 가능)"
+    ],
+    [
+     "원문",
+     "허깅페이스 블로그·모델 카드·데이터셋 카드"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "엔비디아(NVIDIA)가 10월 28일(미국 시각) 음성 모델 Nemotron 3.5 Transcribe를 허깅페이스와 모델스코프에 공개했습니다. 녹음된 말의 받아쓰기와 화자 구분, 번역, 녹음 내용에 관한 질문 답변을 모델 하나가 맡습니다. 학습에 쓴 음성 라벨 데이터 Granary v2도 함께 나왔습니다."
+    },
+    {
+     "ul": [
+      [
+       "40개 언어 받아쓰기",
+       "한국어는 품질 등급 ‘Leading’"
+      ],
+      [
+       "1시간 녹음, 화자 8명",
+       "녹음 파일용이고 실시간 스트리밍용은 아님"
+      ],
+      [
+       "Granary v2",
+       "48개 언어, 음성 463,062시간 분량 라벨"
+      ]
+     ]
+    },
+    {
+     "h": "한국어는 가장 높은 등급에 들어 있습니다"
+    },
+    {
+     "p": "모델 카드의 언어 표에서 한국어는 받아쓰기, 영어와 오가는 번역, 여러 화자 받아쓰기, 언어가 섞인 말 받아쓰기에 모두 표시돼 있고 품질 등급은 가장 높은 ‘Leading’입니다. 받아쓰기는 40개 언어, 영어와 오가는 번역은 31개 언어, 화자 구분은 13개 언어에서 됩니다. 녹음 내용 이해와 말로 하는 지시 따르기는 영어로만 평가했다고 모델 카드에 적혀 있습니다."
+    },
+    {
+     "h": "지시문 한 줄로 결과물이 달라집니다"
+    },
+    {
+     "p": "같은 회의 녹음이라도 “Transcribe this recording and label each speaker.”라고 지시하면 화자를 붙인 받아쓰기가, “What decisions were made in this meeting?”이라고 물으면 회의에서 정한 일이 나옵니다. 잘 틀리는 전문 용어는 지시문에 후보로 적어 줄 수 있습니다. 엔비디아가 든 의료 녹음 사례에서는 지시문에 영어와 라틴 문자를 적어 준 것만으로 단어 오류율이 30.8%에서 23.8%로 내려갔고 미세 조정까지 하자 11.8%가 됐습니다(자체 발표 기준). 이 미세 조정에는 GB300 GPU 한 장으로 약 14시간이 걸렸습니다."
+    },
+    {
+     "h": "오픈 모델 비교에서 받은 점수"
+    },
+    {
+     "p": "영어 받아쓰기 평가의 평균 단어 오류율은 5.33%로 오픈 웨이트 모델 가운데 1위였습니다. 7개 언어 평균은 4.62%, 긴 녹음 평균은 10.98%로 비교한 오픈 모델 중 가장 낮았고 21개 언어 화자 구분 평가에서도 오류율 18.26%로 시스템 14개 가운데 가장 낮았습니다(자체 발표 기준). 전체 파라미터는 300억 개지만 토큰마다 쓰는 것은 약 40억 개입니다. 엔비디아 블랙웰 서버 GPU 한 장으로 100시간 분량 녹음을 3분 안에 처리했는데, 이 측정에는 NVFP4 양자화 버전을 썼습니다."
+    },
+    {
+     "h": "상업적 이용과 학습 데이터"
+    },
+    {
+     "p": "모델은 OpenMDW-1.1 라이선스로 공개됐고 모델 카드는 상업적·비상업적 용도 모두에 쓸 수 있다고 적었습니다. 함께 나온 Granary v2는 16개 말뭉치의 음성 463,062시간에 붙인 받아쓰기·번역 라벨로, 1판의 25개 언어에서 48개 언어로 늘었고 한국어도 들어 있습니다. 저장소에는 라벨 목록만 있고 음성 파일은 들어 있지 않습니다. 모델은 녹음 파일을 처리하는 용도여서 실시간 스트리밍 받아쓰기는 지원하지 않습니다."
+    }
+   ],
+   "ask": "회의 녹음을 받아쓸 때 가장 자주 틀리는 부분은 무엇인가요?",
+   "sources": [
+    [
+     "허깅페이스 블로그(엔비디아) — NVIDIA Nemotron 3.5 Transcribe and Granary v2",
+     "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+    ],
+    [
+     "허깅페이스 — NVIDIA-Nemotron-3.5-Transcribe-30B-A4B 모델 카드",
+     "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"
+    ],
+    [
+     "허깅페이스 — nvidia/Granary-v2 데이터셋 카드",
+     "https://huggingface.co/datasets/nvidia/Granary-v2"
+    ]
+   ],
+   "terms": [
+    "네모트론",
+    "화자 분리",
+    "단어 오류율(WER)",
+    "엔비디아",
+    "음성 인식",
+    "오픈 웨이트",
+    "허깅페이스",
+    "파인튜닝",
+    "데이터셋",
+    "모델 카드",
+    "라이선스",
+    "양자화"
+   ],
+   "image": {
+    "page": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+    "og": "https://cdn-uploads.huggingface.co/production/uploads/68127936de624fb6f57d9989/3vFxCEUXz_xJVrTBr4hNr.jpeg",
+    "credit": "이미지: NVIDIA",
+    "alt": "엔비디아 Nemotron 3.5 Transcribe 소개 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 28일 공개",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "Published October 28, 2026."
+    },
+    {
+     "claim": "허깅페이스·모델스코프 공개, 오픈 웨이트",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "NVIDIA Nemotron 3.5 Transcribe is an open-weight, promptable model that turns recorded speech into useful text, now available on Hugging Face and ModelScope."
+    },
+    {
+     "claim": "40개 언어, 번역 31개, 화자 13개, 1시간, 화자 8명",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "it transcribes 40 languages, translates 31 of them to or from English, and attributes speakers in 13. It handles recordings up to an hour long and labels up to eight speakers."
+    },
+    {
+     "claim": "한국어 Leading",
+     "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+     "quote": "Korean | ✓ | ✓ | ✓ | ✓ | Leading"
+    },
+    {
+     "claim": "이해·지시 따르기는 영어로만 평가",
+     "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+     "quote": "Audio understanding, reasoning, and spoken instruction following were evaluated only in English and may not work reliably in other languages."
+    },
+    {
+     "claim": "지시문 예시",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "“Transcribe this recording and label each speaker.” … “What decisions were made in this meeting?”"
+    },
+    {
+     "claim": "30.8%→23.8%",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "naming English and the Latin alphabet in the prompt cut full-benchmark WER from 30.8% to 23.8%."
+    },
+    {
+     "claim": "미세 조정 11.8%",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "fine-tuning … to 11.8%, about 62% fewer transcription errors than the model out of the box."
+    },
+    {
+     "claim": "GB300 약 14시간",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "The full adaptation, from text generation through evaluation, took about 14 GPU-hours on one NVIDIA GB300."
+    },
+    {
+     "claim": "영어 5.33%",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "English: first among open-weight models at 5.33% average WER"
+    },
+    {
+     "claim": "7개 언어 4.62%",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "Multilingual: 4.62% mean WER across seven languages, the lowest among evaluated open-weight models"
+    },
+    {
+     "claim": "긴 녹음 10.98%",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "Long-form: 10.98% mean WER, also the lowest in that comparison."
+    },
+    {
+     "claim": "화자 구분 18.26%, 21개 언어, 14개 시스템",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "it has the lowest diarization error rate of the 14 systems tested … 18.26% across 21 languages"
+    },
+    {
+     "claim": "300억 중 약 40억 활성",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "only about 4B of its 30B parameters are active per token."
+    },
+    {
+     "claim": "100시간 3분, NVFP4",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "Transcribe processed 100 hours of audio in under three minutes on one NVIDIA RTX PRO 6000 Blackwell Server Edition GPU, using the forthcoming NVFP4 quantized version."
+    },
+    {
+     "claim": "OpenMDW-1.1, 상업적 이용",
+     "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+     "quote": "License: openmdw-1.1 … This model is ready for commercial or non-commercial use."
+    },
+    {
+     "claim": "463,062시간, 48개 언어, 16개 말뭉치, 1판 25개 언어",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "The public manifest covers 463,062 hours across 48 languages and 16 source corpora, up from 25 languages in Granary v1."
+    },
+    {
+     "claim": "음성 파일 미포함",
+     "url": "https://huggingface.co/datasets/nvidia/Granary-v2",
+     "quote": "This repository ships manifests only — no audio travels with it."
+    },
+    {
+     "claim": "실시간 스트리밍 아님",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+     "quote": "Transcribe is built for recorded audio, not live streaming."
+    }
+   ]
+  },
+  {
+   "id": "2026-10-30-microsoft-copilot-harness-foundry",
+   "cat": "모델·제품",
+   "date": "2026-10-30",
+   "time": "06:43",
+   "title": "마이크로소프트 코파일럿 하네스, 파운드리에서 미리 보기…12월부터 과금",
+   "sub": "깃허브 코파일럿 뒤에서 돌던 에이전트 실행 틀 · 20개 넘는 모델 · 12월 1일부터 사용량 요금",
+   "hook": "마이크로소프트가 10월 28일 깃허브 코파일럿 앱과 CLI, VS Code에서 쓰던 에이전트 실행 틀 ‘코파일럿 하네스’를 파운드리 에이전트 서비스에 공개 미리 보기로 열었습니다. 20개 넘는 모델을 고를 수 있고 12월 1일부터 사용량에 따라 요금을 받습니다.",
+   "try": "깃허브 코파일럿을 쓴다면 copilot-sdk 저장소 README에서 우리 팀 언어의 설치 명령과 BYOK 안내를 찾아 지금 환경에 맞는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "마이크로소프트(파운드리·깃허브)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 28일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "에이전트 실행 틀 코파일럿 하네스, 파운드리 공개 미리 보기"
+    ],
+    [
+     "모델",
+     "20개 넘는 최상위 모델과 BYOK"
+    ],
+    [
+     "요금",
+     "12월 1일부터 사용량 과금(그 전 하네스 실행은 무료)"
+    ],
+    [
+     "원문",
+     "마이크로소프트 공식 블로그, 파운드리 개발자 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "마이크로소프트(Microsoft)가 10월 28일(미국 시각) 마이크로소프트 코파일럿 하네스(Microsoft Copilot harness)를 기업 개발자에게 열었습니다. 하네스는 AI 모델 바깥에서 지시와 맥락, 실행 환경, 통제 장치를 대 주는 층으로, 깃허브 엔지니어링 팀이 만들어 회사 전체가 쓰고 있습니다. 이번에는 마이크로소프트 파운드리(Microsoft Foundry)의 에이전트 서비스에서 공개 미리 보기로 나왔습니다."
+    },
+    {
+     "ul": [
+      [
+       "이미 쓰이던 엔진",
+       "코파일럿 코드, 코파일럿 스튜디오, 깃허브 코파일럿 앱, CLI, VS Code"
+      ],
+      [
+       "모델 선택",
+       "20개 넘는 최상위 모델과 BYOK"
+      ],
+      [
+       "요금",
+       "12월 1일부터 vCPU 시간당 0.0994달러, GiB 시간당 0.0118달러"
+      ]
+     ]
+    },
+    {
+     "h": "에이전트 반복과 샌드박스는 마이크로소프트가 맡습니다"
+    },
+    {
+     "p": "하네스를 쓰면 에이전트가 판단하고 도구를 부르고 다시 판단하는 반복 과정과 코드를 돌리는 샌드박스를 마이크로소프트가 운영합니다. 개발자는 지시문과 스킬, 도구, 쓸 모델을 정합니다. 미리 보기에는 다시 쓸 수 있는 스킬, 파운드리 도구와 MCP 도구 연결(인증과 승인은 직접 설정), 파일·코드 실행과 하위 에이전트, 소스 관리에 넣을 수 있는 에이전트 정의가 들어 있습니다. 이 하네스는 지금도 코파일럿 코드와 코파일럿 스튜디오, 깃허브 코파일럿 앱, CLI, VS Code에서 돌고 있습니다."
+    },
+    {
+     "h": "모델은 20개 넘게 고를 수 있습니다"
+    },
+    {
+     "p": "하네스는 20개 넘는 최상위 모델과 직접 가져온 API 키(BYOK)를 지원하고, 작업에 맞는 모델로 일을 나눠 보내는 기능도 있습니다. 모델을 바꿔도 하네스나 나머지 기술 구성은 그대로 쓸 수 있다는 것이 회사 설명입니다. 발표문에는 어떤 모델이 들어가는지 이름이 나오지 않습니다. 같은 엔진을 앱에 넣을 수 있는 깃허브 코파일럿 SDK는 파이썬, 타입스크립트, Go, .NET, 자바, 러스트용이 MIT 라이선스로 나와 있습니다."
+    },
+    {
+     "h": "12월 1일 전까지 하네스 실행은 무료입니다"
+    },
+    {
+     "p": "파운드리의 하네스 요금은 12월 1일부터 쓴 만큼 받습니다. 그 전까지 하네스 실행 자체는 무료지만 모델 추론과 따로 요금이 붙는 도구·서비스는 원래대로 청구됩니다. 12월 1일부터 샌드박스 컴퓨팅은 vCPU 시간당 0.0994달러, 메모리는 GiB 시간당 0.0118달러이고 지역과 계약에 따라 달라질 수 있습니다."
+    },
+    {
+     "h": "미리 보기에서 아직 안 되는 것"
+    },
+    {
+     "p": "미리 보기 기간에는 에이전트를 만들 때 하네스를 골라야 하고 만든 뒤에는 바꿀 수 없습니다. 기존 에이전트는 바뀌지 않으며 실행 환경의 CPU와 메모리, 대기 설정은 파운드리가 관리합니다. 자기 프레임워크를 들고 오는 호스팅 에이전트에는 작업이 끊기면 원래 입력으로 다시 시작하는 기능이 이번에 정식 출시됐습니다. 지원 지역과 모델 목록은 마이크로소프트 문서 페이지에 따로 정리돼 있습니다."
+    }
+   ],
+   "ask": "회사에서 에이전트를 만든다면 모델을 직접 고르는 쪽과 자동으로 맡기는 쪽 중 어느 쪽이 편할까요?",
+   "sources": [
+    [
+     "마이크로소프트 공식 블로그 — Introducing the Microsoft Copilot harness",
+     "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/"
+    ],
+    [
+     "마이크로소프트 파운드리 블로그 — Introducing the Microsoft Copilot harness in Foundry Agent Service",
+     "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/"
+    ],
+    [
+     "깃허브 — github/copilot-sdk",
+     "https://github.com/github/copilot-sdk"
+    ]
+   ],
+   "terms": [
+    "에이전트 하네스",
+    "마이크로소프트",
+    "에이전트",
+    "코파일럿",
+    "깃허브",
+    "SDK",
+    "MCP",
+    "샌드박스",
+    "스킬",
+    "CLI",
+    "API 키"
+   ],
+   "image": {
+    "page": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+    "og": "https://blogs.microsoft.com/wp-content/uploads/2026/10/OMB-CoreAI-Hero-Final-10_28-1024x576.png",
+    "credit": "이미지: Microsoft",
+    "alt": "마이크로소프트 코파일럿 하네스 발표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 28일",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "Oct 28, 2026"
+    },
+    {
+     "claim": "하네스 정의",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "It’s the orchestration layer that gives an agent the right instructions, context, execution environment, and controls to accomplish meaningful work."
+    },
+    {
+     "claim": "깃허브 팀이 만들어 회사 전체 채택",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "the GitHub engineering team built a best-in-class, truly multi-model harness, which we’ve adopted company-wide."
+    },
+    {
+     "claim": "쓰이는 제품",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "The Microsoft Copilot harness powers Copilot Code, Copilot Studio, the GitHub Copilot app, the CLI, VS Code, and more."
+    },
+    {
+     "claim": "파운드리 공개 미리 보기",
+     "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+     "quote": "Today, we’re introducing the Microsoft Copilot harness in Foundry Agent Service in public preview."
+    },
+    {
+     "claim": "MS가 반복·샌드박스 운영",
+     "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+     "quote": "Microsoft runs the agent loop and sandbox; you bring the knowledge, procedures, and tools that make the agent yours."
+    },
+    {
+     "claim": "20개 넘는 모델과 BYOK",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "with 20+ frontier models plus bring your own key, so you can use the right model for the right job."
+    },
+    {
+     "claim": "모델 라우팅",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "lean on us to intelligently route work to the right model or models based on the task."
+    },
+    {
+     "claim": "하네스 교체 없이 모델 선택",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+     "quote": "You get the right model for the job without switching the harness or the rest of your tech stack."
+    },
+    {
+     "claim": "SDK 언어",
+     "url": "https://github.com/github/copilot-sdk",
+     "quote": "Embed Copilot's agentic workflows in your application with the GitHub Copilot SDK for Python, TypeScript, Go, .NET, Java, and Rust."
+    },
+    {
+     "claim": "SDK MIT",
+     "url": "https://github.com/github/copilot-sdk",
+     "quote": "MIT license"
+    },
+    {
+     "claim": "12월 1일 과금, 그 전 무료",
+     "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+     "quote": "Billing for the Copilot harness in Foundry Agent Service begins December 1, 2026, with consumption-based pricing. Harness runtime usage is free before December 1; model inference and separately billed tools and connected services remain subject to their applicable charges."
+    },
+    {
+     "claim": "0.0994·0.0118달러",
+     "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+     "quote": "Starting December 1, sandbox compute and memory are billed at USD $0.0994 per vCPU-hour and $0.0118 per GiB-hour, respectively. Prices may vary by region and agreement."
+    },
+    {
+     "claim": "미리 보기 제한",
+     "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+     "quote": "Existing agents are unchanged, switching the harness after creation isn’t supported yet, and Foundry manages the execution environment’s CPU, memory, and idle settings."
+    },
+    {
+     "claim": "호스팅 에이전트 재시작 정식 출시",
+     "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+     "quote": "We’re also announcing general availability of long-running resilience for hosted agents. … Foundry detects interruptions and restarts the work with its original input."
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI ‘The future of the firm’ 글",
+   "reason": "원문 페이지가 열리지 않아 내용을 확인하지 못함"
+  },
+  {
+   "topic": "크롬 자동 완성이 지메일 정보를 가져와 양식 채우기",
+   "reason": "구글 공식 발표 원문을 찾지 못함(언론 보도만 확인)"
+  },
+  {
+   "topic": "앤트로픽, 기업 AI 지출 효과를 보여 주는 도구",
+   "reason": "앤트로픽 공식 발표 원문을 찾지 못함(언론 보도만 확인)"
+  },
+  {
+   "topic": "앤트로픽, 1인 신약 개발사 인수",
+   "reason": "국내 언론 보도만 있고 원문을 찾지 못함"
+  },
+  {
+   "topic": "한국 금융권 사이버 공격",
+   "reason": "언론 보도만 있고 기관 원문을 찾지 못함"
+  }
+ ]
+}
