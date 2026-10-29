@@ -4,7 +4,7 @@
 `_src/` 는 밑줄로 시작해서 GitHub Pages(Jekyll)가 공개하지 않는다.
 
 ## 자동 흐름
-1. 매일 예약 작업(Claude)이 `_src/news/daily/YYYY-MM-DD.json` 에 기사를, `_src/news/daily.json` 맨 앞에 그날 데일리 이슈를 넣고, `_src/humanize/` 의 다듬기 단계(사람이 쓴 글처럼, 10/29~)를 거친 뒤 푸시
+1. 매일 예약 작업(Claude)이 `_src/news/daily/YYYY-MM-DD.json` 에 기사를, `_src/news/daily.json` 맨 앞에 그날 데일리 이슈를 넣고, `_src/humanize/` 의 다듬기 단계(사람이 쓴 글처럼, 10/29~ — 점검기가 C·D 등급이거나 S1 이 있다고 본 기사만 편집 에이전트가 다듬음)를 거친 뒤 푸시
 2. `.github/workflows/build.yml` 이 돈다: `fetch_images.py`(새 기사 사진: og → 원문 og:image → 원문 화면 캡처) → `build.sh` → 결과 커밋
 3. GitHub Pages 가 그 커밋을 배포(1분 안팎)
 

@@ -10,11 +10,15 @@
 ## 1. 순서 (저장소 루트에서)
 
 ```
-python3 _src/humanize/shift_humanize.py export --date D     # 기사마다 _workspace/humanize/D/<id>.after.txt 생성
-#  → 아래 2~5장 규칙으로 <id>.after.txt 의 문장을 고칩니다(새 에이전트에게 맡기는 것을 권장, 6장)
+python3 _src/humanize/shift_humanize.py export --date D     # 다듬을 기사만 _workspace/humanize/D/<id>.after.txt 생성
+#  → 마지막 줄이 "다듬을 기사: 없음"이면 여기서 끝(편집 에이전트를 띄우지 않음)
+#  → "다듬을 기사: N편"이면 아래 2~5장 규칙으로 그 after.txt 들만 고칩니다(새 에이전트에게 맡기는 것을 권장, 6장)
 python3 _src/humanize/shift_humanize.py apply --date D      # 사실 보존 검사 통과분만 _src/news/daily/D.json 에 반영
 python3 _src/humanize/shift_humanize.py scan --date D       # 남은 것 확인(S1 0건이어야 assemble.py 통과)
 ```
+
+- **다듬을 기사 고르기(2026-10-29 사용자 결정, 크레딧 절약)**: export 는 먼저 점검기로 기사마다 등급을 매기고, **C·D 등급이거나 S1(3장, 반드시 고칠 것)이 하나라도 있는 기사만** 내보냅니다. A·B 이고 S1 0건인 기사는 "다듬기 생략"으로 표시하고 손대지 않습니다. 그날 기사가 전부 A·B 면 편집 에이전트를 띄우지 않고 apply 도 바로 "결과: 통과"입니다. 점검 결과와 상관없이 전부 다듬고 싶을 때만 `export --date D --every`.
+- 내보낸 기사를 손대지 않은 채 apply 하면, S1 이 남아 있을 때 "고칠 것이 남았습니다"로 막힙니다.
 
 - after.txt 는 한 줄이 기사 JSON 의 한 칸입니다. `[[body.3.p]]` 같은 표시는 그대로 두고 뒤의 문장만 고칩니다. 줄을 지우거나 합치거나 새로 만들지 않습니다.
 - `##` 줄은 점검기가 그 칸에서 찾은 규칙입니다. 걸리지 않은 칸도 3·4장 기준으로 손볼 수 있습니다.
@@ -84,7 +88,7 @@ StoryScope 연구(arXiv 2604.03136)는 문체를 다듬어도 **글 짜는 방�
 
 ## 6. 누가 다듬나
 
-humanize-korean 의 실측에 따르면 글을 쓴 같은 대화가 스스로 고치면 매끄러운 구조 티를 잘 못 봅니다. 그래서 **Agent 도구로 새 에이전트(general-purpose)를 하나 띄워** 다듬게 하는 것을 기본으로 합니다. 에이전트에게 줄 지시(그대로 복사):
+humanize-korean 의 실측에 따르면 글을 쓴 같은 대화가 스스로 고치면 매끄러운 구조 티를 잘 못 봅니다. 그래서 **export 가 "다듬을 기사: N편"을 낸 날에만 Agent 도구로 새 에이전트(general-purpose)를 하나 띄워** 다듬게 합니다("다듬을 기사: 없음"이면 띄우지 않습니다). 에이전트에게 줄 지시(그대로 복사):
 
 > 저장소 `_src/humanize/HUMANIZE.md` 를 처음부터 끝까지 읽고, `_workspace/humanize/<D>/` 의 `*.after.txt` 파일들을 그 규칙대로 고쳐 주세요. 3장(S1)은 모두 고치고, 4장(S2)과 5장은 `##` 표시가 있는 칸 위주로 고칩니다. 원문과 비교할 때는 같은 폴더의 `*.before.txt` 를 보고, 사실 확인이 필요하면 `_src/news/daily/<D>.json` 의 verify·sources 를 봅니다. 파일은 after.txt 만 고치고 다른 파일은 건드리지 않습니다. 끝나면 기사마다 고친 곳 수와 바꾼 소제목을 한 줄로 알려 주세요.
 

@@ -492,9 +492,29 @@ def export_docs(batch, docs):
     return out
 
 
-def export(date):
+def needs_edit(res):
+    """편집 에이전트가 필요한 글: 등급 C·D 이거나 S1(반드시 고칠 것)이 하나라도 있는 글 (2026-10-29 사용자 결정, 크레딧 절약)."""
+    return res['grade'] in ('C', 'D') or res['S1'] > 0
+
+
+def export(date, everything=False):
+    """그날 기사 중 다듬을 기사만 내보냅니다. everything=True 면 점검 결과와 상관없이 전부."""
     docs = [d for d in load_docs(('news',)) if d['file'] == f'news/daily/{date}.json']
-    return export_docs(date, docs)
+    if not everything:
+        keep = []
+        for d in docs:
+            r = scan_doc(d)
+            if needs_edit(r):
+                keep.append(d)
+            else:
+                print(f'{d["id"]}  등급 {r["grade"]} (S1 {r["S1"]} · S2 {r["S2"]})  → 다듬기 생략(A·B 이고 S1 0건)')
+        docs = keep
+    out = export_docs(date, docs)
+    if out:
+        print(f'다듬을 기사: {len(out)}편 — {",".join(x[0] for x in out)}  (편집 에이전트에게 이 after.txt 들만 맡깁니다)')
+    else:
+        print('다듬을 기사: 없음 — 편집 에이전트를 띄우지 않습니다(apply 는 바로 "결과: 통과")')
+    return out
 
 
 _NUM = re.compile(r'\d[\d,.]*')
@@ -628,6 +648,10 @@ def apply_batch(batch, dry=False, ids=None):
         print('manifest.json 이 없습니다 — 먼저 export 를 돌립니다')
         return False
     manifest = json.load(open(mp, encoding='utf-8'))
+    if not manifest:
+        print('다듬을 글이 없습니다(점검 통과로 export 가 아무것도 내보내지 않음)')
+        print('결과: 통과')
+        return True
     sys.path.insert(0, SRC)
     try:
         from assemble import plain_endings
@@ -652,15 +676,20 @@ def apply_batch(batch, dry=False, ids=None):
         seg = SEGFN[m['kind']](obj)
         roles = {k: r for k, _, r in seg}
         cur = {k: t for k, t, r in seg if r in EDITABLE}
+        mk = lambda o: {'kind': m['kind'], 'id': did, 'date': o.get('date', ''), 'title': o.get('title', ''), 'file': m['file'], 'seg': SEGFN[m['kind']](o)}
         if before == after:
-            report.append(f'{did}: 바뀐 것 없음')
+            r0 = scan_doc(mk(obj))
+            if r0['S1']:
+                ok_all = False
+                report.append(f'{did}: 바뀐 것 없음 — 그런데 아직 남은 S1 {r0["S1"]}건(after.txt 를 고쳐야 합니다)')
+            else:
+                report.append(f'{did}: 바뀐 것 없음')
             continue
         errs, warns, rate, vg = check_pair(m['kind'], before, after, roles, wd, plain_endings, did)
         new = json.loads(json.dumps(obj, ensure_ascii=False))
         for k, x in after.items():
             if k in before:
                 _set(new, k, x)
-        mk = lambda o: {'kind': m['kind'], 'id': did, 'date': o.get('date', ''), 'title': o.get('title', ''), 'file': m['file'], 'seg': SEGFN[m['kind']](o)}
         res_b, res_a = scan_doc(mk(obj)), scan_doc(mk(new))
         line = f'{did}: 등급 {res_b["grade"]}→{res_a["grade"]} (S1 {res_b["S1"]}→{res_a["S1"]} · S2 {res_b["S2"]}→{res_a["S2"]}) 변경률 {rate:.0%}'
         if vg and vg.get('gate'):
@@ -742,6 +771,7 @@ def main(argv=None):
     e.add_argument('--kinds', default='news', help='news,column,tutorial,daily 중 쉼표로')
     e.add_argument('--ids', help='쉼표로 구분한 글 id')
     e.add_argument('--file', help='예: news/A.json')
+    e.add_argument('--every', action='store_true', help='--date 와 함께: 점검 결과와 상관없이 그날 기사 전부(기본은 C·D 등급이거나 S1 이 있는 기사만)')
     p = sub.add_parser('apply')
     p.add_argument('--date')
     p.add_argument('--batch')
@@ -763,7 +793,7 @@ def main(argv=None):
         return 0
     if a.cmd == 'export':
         if a.date and not a.batch:
-            export(a.date)
+            export(a.date, everything=a.every)
             return 0
         kmap = {'news': 'news', 'column': 'column', 'tutorial': 'tutorial', 'daily': 'daily'}
         docs = load_docs(tuple(kmap[k] for k in a.kinds.split(',')))
