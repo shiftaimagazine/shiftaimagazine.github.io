@@ -180,5 +180,23 @@
   "credit": "화면: about.fb.com",
   "alt": "메타 뉴스룸 뮤즈 소개 페이지 화면",
   "auto": true
+ },
+ "2026-10-30-gemini-4-carbon": {
+  "src": "img/ph/2026-10-30-gemini-4-carbon.webp",
+  "credit": "이미지: Google",
+  "alt": "구글 제미나이 4 카본 발표 이미지",
+  "auto": true
+ },
+ "2026-10-30-nvidia-nemotron-transcribe": {
+  "src": "img/ph/2026-10-30-nvidia-nemotron-transcribe.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 Nemotron 3.5 Transcribe 소개 이미지",
+  "auto": true
+ },
+ "2026-10-30-microsoft-copilot-harness-foundry": {
+  "src": "img/ph/2026-10-30-microsoft-copilot-harness-foundry.webp",
+  "credit": "이미지: Microsoft",
+  "alt": "마이크로소프트 코파일럿 하네스 발표 이미지",
+  "auto": true
  }
 }
