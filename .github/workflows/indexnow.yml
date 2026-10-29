@@ -37,7 +37,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.all }}" = "yes" ]; then
             python3 _src/indexnow.py --all
           elif [ "${{ github.event_name }}" = "workflow_run" ]; then
-            python3 _src/indexnow.py "${{ github.event.workflow_run.head_sha }}"
+            python3 _src/indexnow.py "${{ github.event.workflow_run.head_sha }}~1"
           else
             python3 _src/indexnow.py HEAD~1
           fi
