@@ -116,6 +116,9 @@ if __name__ == '__main__':
     for c in cols:
         assert c['rel'] in byid, c['rel']
         if c['date'] >= STYLE_FROM: style_check(c['id'], [c['deck']] + [b.get('lead') or b.get('p') for b in c['body']] + [x for b in c['body'] for x in b.get('pred', [])])
+    for c in cols:   # 칼럼 본문 링크 상자 {"link": {"k": 작은 제목, "t": 제목, "u": 사이트 안 주소, "d": 설명}}
+        for b in c['body']:
+            if 'link' in b: assert b['link'].get('t') and str(b['link'].get('u', '')).startswith('/'), ('칼럼 link 는 사이트 안 주소(/로 시작)만', c['id'])
     cols = [c for _, c in sorted(enumerate(cols), key=lambda x: (x[1]['date'], x[1].get('time') or '', x[0]), reverse=True)]
     old['resources'].sort(key=lambda r: r['date'], reverse=True)
 
