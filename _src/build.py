@@ -298,7 +298,9 @@ for p in PAGES:
     sm.append(f'<url><loc>{SITE}{p}</loc>' + (f'<lastmod>{last[p]}</lastmod>' if p in last else f'<lastmod>{last["/"]}</lastmod>') + '</url>')
 sm.append('</urlset>')
 open(OUT + 'sitemap.xml', 'w').write('\n'.join(sm) + '\n')
-open(OUT + 'robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {SITE}/news-sitemap.xml\n')
+# 다음(Daum) 웹마스터도구 소유 확인 줄(10/29 사용자가 발급, 지우면 인증이 풀림)
+DAUM_VERIFY = '#DaumWebMasterTool:6dc606a8387b0de59eded7151dcfeb0c85e1bc4536f5959dca7e3047ede34d5b:/muGpe/rLcLTp+f7AlrcFg=='
+open(OUT + 'robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {SITE}/news-sitemap.xml\n\n{DAUM_VERIFY}\n')
 # 구글 뉴스 사이트맵: 최근 48시간 안에 올린 기사(빌드할 때마다 다시 만든다)
 _now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
 _pub = lambda a: datetime.datetime.fromisoformat(kst(a['date'], a.get('time') or '09:00'))

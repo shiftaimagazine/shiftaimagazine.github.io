@@ -3,3 +3,5 @@ Allow: /
 
 Sitemap: https://shiftaimagazine.com/sitemap.xml
 Sitemap: https://shiftaimagazine.com/news-sitemap.xml
+
+#DaumWebMasterTool:6dc606a8387b0de59eded7151dcfeb0c85e1bc4536f5959dca7e3047ede34d5b:/muGpe/rLcLTp+f7AlrcFg==
