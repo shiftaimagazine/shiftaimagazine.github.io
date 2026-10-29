@@ -212,6 +212,29 @@ if($("#dq")){ if(dq0) $("#dq").value = dq0;
   $("#dq").addEventListener("input",()=>{ dictFilter="all"; renderDict(); });
   $("#dForm").addEventListener("submit",e=>{ e.preventDefault(); $("#dq").blur(); }); }
 
+// 본문 시각 자료(10/29~): 막대(bars)·기능 표(matrix)·서비스 카드(cards)·연표(steps). 그림 파일이 아니라 HTML 이라 검색엔진이 글자를 읽고 어두운 화면에도 맞습니다.
+//  색은 항목(회사)마다 정해진 순서로 고정(.s1~.s4), 숫자·글자는 글자색. 쓰는 법은 news/VISUAL_GUIDE.md
+const vizHead = (t,sub)=>t?`<div class="vz-h"><b>${esc(t)}</b>${sub?`<span>${esc(sub)}</span>`:""}</div>`:"";
+const vizNote = n=>n?`<div class="note">${esc(n)}</div>`:"";
+function vizBars(v){  // {t, sub, rows:[[그룹, 항목, 값(숫자), 보이는 값]], unit, note}
+  const groups=v.groups||[...new Set(v.rows.map(r=>r[0]))], max=Math.max(...v.rows.map(r=>r[2]));  // groups 로 색 순서를 정할 수 있음
+  return `<figure class="viz vz-bars">${vizHead(v.t,v.sub)}
+    ${groups.length>1?`<div class="vz-legend">${groups.map((g,i)=>`<span><i class="s${i%4+1}"></i>${esc(g)}</span>`).join("")}</div>`:""}
+    <div class="vz-rows">${v.rows.map(([g,l,val,txt])=>`<div class="vz-row" title="${esc(g+" "+l+" · "+txt)}"><span class="vz-l">${esc(g)} <b>${esc(l)}</b></span><span class="vz-track"><i class="s${groups.indexOf(g)%4+1}" style="width:${Math.max(2,val/max*100).toFixed(1)}%"></i></span><span class="vz-v">${esc(txt)}</span></div>`).join("")}</div>
+    ${vizNote(v.note)}</figure>`;
+}
+const MX = {o:["<i class=\"mk mk-o\"></i>","무료로 됨"],p:["<i class=\"mk mk-p\"></i>","무료는 조금만"],x:["<i class=\"mk mk-x\"></i>","유료부터"],"-":["–","기능 없음"],"?":["?","공식 자료로 확인 못 함"]};  // 표시는 CSS 로 그림(글꼴마다 기호 크기가 달라서)
+function vizMatrix(v){  // {t, sub, head:[...], rows:[[기능, o|p|x|-|?, ...]], note}
+  const used=[...new Set(v.rows.flatMap(r=>r.slice(1)))].filter(k=>MX[k]);
+  return `<figure class="viz vz-matrix">${vizHead(v.t,v.sub)}<div class="tbl"><table class="dtable mx"><thead><tr>${v.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${v.rows.map(r=>`<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map(k=>`<td class="mx-${k==="-"?"n":k==="?"?"q":k}"><span aria-hidden="true">${MX[k]?MX[k][0]:esc(k)}</span><span class="sr">${MX[k]?MX[k][1]:esc(k)}</span></td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="vz-key">${used.map(k=>`<span><b class="mx-${k==="-"?"n":k==="?"?"q":k}">${MX[k][0]}</b>${MX[k][1]}</span>`).join("")}</div>${vizNote(v.note)}</figure>`;
+}
+function vizCards(v){  // {t, sub, items:[{n:이름, d:설명, b:요금제 표시, g:묶음}], note}
+  return `<figure class="viz vz-cards">${vizHead(v.t,v.sub)}<div class="vz-grid">${v.items.map(it=>`<div class="vz-card">${it.g?`<span class="vz-g">${esc(it.g)}</span>`:""}<b>${esc(it.n)}</b><p>${esc(it.d)}</p>${it.b?`<span class="vz-b">${esc(it.b)}</span>`:""}</div>`).join("")}</div>${vizNote(v.note)}</figure>`;
+}
+function vizSteps(v){  // {t, sub, items:[[날짜, 내용]], note}
+  return `<figure class="viz vz-steps">${vizHead(v.t,v.sub)}<ol>${v.items.map(([d,x])=>`<li><time>${esc(d)}</time><span>${esc(x)}</span></li>`).join("")}</ol>${vizNote(v.note)}</figure>`;
+}
 function bodyHTML(body){
   return body.map(x=>{
     if(x.lead) return `<p class="lead">${esc(x.lead)}</p>`;
@@ -219,6 +242,10 @@ function bodyHTML(body){
     if(x.h) return `<h3>${esc(x.h)}</h3>`;
     if(x.ul) return `<ul>${x.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`;
     if(x.q) return `<div class="q">${esc(x.q)}<br><button class="copy" data-copy="${esc(x.q)}">복사하기</button></div>`;
+    if(x.bars) return vizBars(x.bars);
+    if(x.matrix) return vizMatrix(x.matrix);
+    if(x.cards) return vizCards(x.cards);
+    if(x.steps) return vizSteps(x.steps);
     if(x.link) return `<a class="linkbox" href="${esc(x.link.u)}"><span class="lk">${esc(x.link.k||"함께 보기")}</span><b>${esc(x.link.t)}</b>${x.link.d?`<span class="ld">${esc(x.link.d)}</span>`:""}</a>`;
     if(x.pred) return `<div class="pred"><div class="ph2">편집장의 전망</div><ol>${x.pred.map(p=>`<li>${esc(p)}</li>`).join("")}</ol></div>`;
     if(x.table) return `<div class="tbl"><table class="dtable"><thead><tr>${x.table.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${x.table.note?`<div class="note">${esc(x.table.note)}</div>`:""}`;

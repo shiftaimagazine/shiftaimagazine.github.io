@@ -41,3 +41,4 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
   - 구조화 데이터: 기사 NewsArticle · 튜토리얼 TechArticle · 칼럼 OpinionNewsArticle · 데일리 CollectionPage(ItemList) · 용어 DefinedTerm · 사전 DefinedTermSet · 소개 AboutPage, 모든 페이지 BreadcrumbList. 브랜드 다른 이름(시프트 AI 등)은 build.py BRAND_ALT.
   - `news-sitemap.xml`(구글 뉴스, 최근 48시간 기사, 빌드마다 새로) · `llms.txt`(AI 검색용 안내) · robots.txt 에 사이트맵 2개.
   - IndexNow: 키 파일 `/<INDEXNOW_KEY>.txt`(build.py). build-site 가 끝나면 `.github/workflows/indexnow.yml` 이 배포를 기다렸다가 `_src/indexnow.py` 로 사이트맵에서 새로 생기거나 lastmod 가 바뀐 주소를 api.indexnow.org(빙 등)·네이버 서치어드바이저에 알린다. 전체를 다시 알리려면 Actions 에서 indexnow 를 손으로 돌리고 all=yes.
+- 이미지·시각 자료(10/29~): 규칙은 `news/VISUAL_GUIDE.md`. 칼럼 본문 블록 `bars`·`matrix`·`cards`·`steps`·`link`(app.js viz*, site.css .viz). 표지 인포그래픽은 `news/covers.json` → `python3 _src/covers.py <id>`(covers.js 가 Playwright 로 그림 → img/cover/<id>.webp). assemble.py 는 사이트 로고 대표 이미지, 대표 이미지 없는 칼럼(image·rel 둘 다 없음), 출처 없는 칼럼 이미지를 막는다.

@@ -5,6 +5,7 @@
 import json, os, glob, sys, re
 SRC = os.path.dirname(os.path.abspath(__file__)) + '/'
 N = SRC + 'news/'
+OUT = os.path.dirname(SRC.rstrip('/')) + '/'
 J = lambda n: json.load(open(N + n))
 
 def load_articles():
@@ -116,6 +117,17 @@ if __name__ == '__main__':
     for c in cols:
         assert c.get('rel') is None or c['rel'] in byid, ('칼럼 rel 오류(없으면 null)', c['id'], c.get('rel'))
         if c['date'] >= STYLE_FROM: style_check(c['id'], [c['deck']] + [b.get('lead') or b.get('p') for b in c['body']] + [x for b in c['body'] for x in b.get('pred', [])])
+    # 대표 이미지 규칙(10/29 사용자 지적, news/VISUAL_GUIDE.md): 글마다 그 글 주제의 이미지가 있어야 한다.
+    #  칼럼은 image(직접 지정, 파일이 있어야 함) 또는 rel(바탕이 된 기사 — 정말 그 기사를 바탕으로 쓴 칼럼일 때만)이 필요하고, 사이트 로고는 대표 이미지로 쓰지 않는다.
+    for c in cols:
+        im = (c.get('image') or {}).get('src')
+        assert im or c.get('rel'), ('칼럼 대표 이미지 없음 — image 를 지정하거나(표지 인포그래픽: covers.py) 바탕이 된 기사가 있을 때만 rel', c['id'])
+        if im:
+            assert os.path.exists(OUT + im), ('칼럼 대표 이미지 파일 없음', c['id'], im)
+            assert 'logo' not in im, ('사이트 로고는 대표 이미지로 쓰지 않습니다', c['id'])
+            assert (c['image'].get('credit') or '').strip(), ('칼럼 대표 이미지 출처(credit) 필요', c['id'])
+    for a in out:
+        assert 'logo' not in ((a.get('image') or {}).get('src') or ''), ('사이트 로고는 기사 대표 이미지로 쓰지 않습니다', a['id'])
     for c in cols:   # 칼럼 본문 링크 상자 {"link": {"k": 작은 제목, "t": 제목, "u": 사이트 안 주소, "d": 설명}}
         for b in c['body']:
             if 'link' in b: assert b['link'].get('t') and str(b['link'].get('u', '')).startswith('/'), ('칼럼 link 는 사이트 안 주소(/로 시작)만', c['id'])
