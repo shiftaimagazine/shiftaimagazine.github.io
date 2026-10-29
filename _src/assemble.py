@@ -114,7 +114,7 @@ if __name__ == '__main__':
         if t['date'] >= STYLE_FROM: style_check(t['id'], [t['deck'], t['why'], t.get('intro')] + [x for it in t['items'] for x in [it.get('d'), it.get('how')] + it.get('more', [])] + t.get('limits', []))
     cols = J('columns.json')['columns']
     for c in cols:
-        assert c['rel'] in byid, c['rel']
+        assert c.get('rel') is None or c['rel'] in byid, ('칼럼 rel 오류(없으면 null)', c['id'], c.get('rel'))
         if c['date'] >= STYLE_FROM: style_check(c['id'], [c['deck']] + [b.get('lead') or b.get('p') for b in c['body']] + [x for b in c['body'] for x in b.get('pred', [])])
     for c in cols:   # 칼럼 본문 링크 상자 {"link": {"k": 작은 제목, "t": 제목, "u": 사이트 안 주소, "d": 설명}}
         for b in c['body']:
