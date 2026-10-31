@@ -198,5 +198,23 @@
   "credit": "이미지: Microsoft",
   "alt": "마이크로소프트 코파일럿 하네스 발표 이미지",
   "auto": true
+ },
+ "2026-10-31-mistral-large-4-open-weights": {
+  "src": "img/ph/2026-10-31-mistral-large-4-open-weights.webp",
+  "credit": "이미지: Mistral AI",
+  "alt": "미스트랄 라지 4 발표 표지 이미지",
+  "auto": true
+ },
+ "2026-10-31-cohere-canada-commitment": {
+  "src": "img/ph/2026-10-31-cohere-canada-commitment.webp",
+  "credit": "이미지: Cohere",
+  "alt": "코히어 캐나다 투자 발표 이미지",
+  "auto": true
+ },
+ "2026-10-31-anthropic-ai-for-science-expansion": {
+  "src": "img/ph/2026-10-31-anthropic-ai-for-science-expansion.webp",
+  "credit": "화면: anthropic.com",
+  "alt": "앤트로픽 AI for Science 확대 발표 화면",
+  "auto": true
  }
 }
