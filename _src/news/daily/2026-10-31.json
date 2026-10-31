@@ -1,0 +1,525 @@
+{
+ "articles": [
+  {
+   "id": "2026-10-31-mistral-large-4-open-weights",
+   "cat": "모델·제품",
+   "date": "2026-10-31",
+   "time": "16:45",
+   "title": "미스트랄 라지 4 가중치 공개…1조 파라미터 모델을 누구나 내려받습니다",
+   "sub": "오픈 웨이트 · 100만 토큰 문맥 · API 입력 100만 토큰당 0.70달러",
+   "hook": "미스트랄 라지 4(Mistral Large 4)의 가중치가 허깅페이스에 올라왔습니다. 10월 6일 미리 보기로 나온 1조 파라미터 멀티모달 모델을 이제 직접 내려받아 자기 서버에서 돌리거나 API로 쓸 수 있습니다.",
+   "try": "오픈라우터나 미스트랄 스튜디오에서 미스트랄 라지 4를 골라 평소 맡기던 한국어 업무 글 하나를 넣고, 지금 쓰는 모델과 답을 나란히 비교해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "미스트랄 AI(Mistral AI)"
+    ],
+    [
+     "날짜",
+     "미리 보기 2026년 10월 6일, 가중치 공개 10월 말(유럽 시각)"
+    ],
+    [
+     "무엇",
+     "1조 파라미터 멀티모달 모델의 오픈 웨이트 공개"
+    ],
+    [
+     "핵심 숫자",
+     "활성 파라미터 520억, 문맥 100만 토큰, 160개 이상 언어"
+    ],
+    [
+     "API 가격",
+     "100만 토큰당 입력 0.70달러, 출력 2.10달러"
+    ],
+    [
+     "원문",
+     "미스트랄 블로그 2편, 허깅페이스 모델 카드"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "미스트랄 AI(Mistral AI)가 대표 모델 미스트랄 라지 4의 가중치를 허깅페이스에 공개했습니다. 10월 6일 API 미리 보기로 먼저 내놓으면서 이달 말에 가중치를 풀겠다고 한 약속을 지킨 것입니다. 파라미터가 1조 개인 멀티모달 모델이고 상업적으로도 쓸 수 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "내려받아 직접 실행",
+       "허깅페이스 가중치, vLLM·SGLang 지원"
+      ],
+      [
+       "API는 입력 0.70달러",
+       "100만 토큰 기준, 출력 2.10달러"
+      ],
+      [
+       "코딩·보안 점수 공개",
+       "터미널벤치 4.0 41% 등(자체 발표 기준)"
+      ]
+     ]
+    },
+    {
+     "h": "1조 개 가운데 한 번에 쓰는 것은 520억 개"
+    },
+    {
+     "p": "미스트랄 라지 4는 전문가 여러 개 가운데 일부만 골라 쓰는 혼합 전문가(MoE) 구조입니다. 전체 파라미터는 약 1조 개이고 토큰 하나를 처리할 때 움직이는 파라미터는 약 520억 개입니다. 모델 카드에 따르면 문맥 창은 100만 토큰이고 160개가 넘는 언어를 학습했는데, 언어 목록에 한국어가 들어 있는지는 원문에 나오지 않습니다. 학습에는 유럽에 있는 미스트랄 자체 데이터센터의 엔비디아 그레이스 블랙웰 GPU 3,800개가 쓰였습니다."
+    },
+    {
+     "h": "가격과 쓰는 곳"
+    },
+    {
+     "p": "API 값은 100만 토큰당 입력 0.70달러, 캐시된 입력 0.07달러, 출력 2.10달러로 정해졌습니다. 미스트랄 스튜디오와 미스트랄 API, 오픈라우터(OpenRouter)에서 바로 쓸 수 있고 마이크로소프트 파운드리와 엔비디아 NIM 컨테이너로도 나왔습니다. 직접 돌리려면 허깅페이스에서 가중치를 받아 vLLM이나 SGLang으로 띄우면 되며, 모델 카드의 실행 예시는 GPU 8장을 기준으로 합니다."
+    },
+    {
+     "h": "미리 보기 때보다 오른 코딩 점수"
+    },
+    {
+     "p": "미스트랄은 미리 보기 이후 추가 학습으로 점수가 올랐다고 밝혔습니다. 터미널벤치 4.0 점수는 미리 보기보다 13%포인트 오른 41%이고 아티피셜 애널리시스 코딩 에이전트 지수는 48%입니다(자체 발표 기준). 코딩 에이전트 지수에서는 공개 가중치 모델 1위인 GLM-5.3과 비슷한 점수를 내면서 작업당 토큰을 평균 47% 덜 썼다고 합니다. 악의적인 사이버 공격 요청을 거절한 비율은 평균 96.6%로 나왔습니다."
+    },
+    {
+     "h": "서비스로 되파는 회사는 별도 계약"
+    },
+    {
+     "p": "라이선스는 MIT 라이선스를 고친 미스트랄 생태계 오픈 웨이트 라이선스입니다. 쓰고 고치고 미세 조정해서 상업적으로 팔 수 있지만, 모델을 서비스 형태(Model-as-a-Service)로 파는 회사는 미스트랄과 따로 상업 라이선스를 맺어야 합니다. 미스트랄이 예고한 기술 보고서는 아직 나오지 않았습니다."
+    }
+   ],
+   "ask": "1조 파라미터 모델을 직접 띄울 수 있다면 어떤 업무부터 맡겨 볼까요?",
+   "sources": [
+    [
+     "미스트랄 AI — Mistral Large 4 공개 가중치",
+     "https://mistral.ai/news/mistral-large-4-oss/"
+    ],
+    [
+     "미스트랄 AI — Mistral Large 4 미리 보기",
+     "https://mistral.ai/news/mistral-large-4/"
+    ],
+    [
+     "허깅페이스 — Mistral-Large-4-1T-A52B 모델 카드",
+     "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    ]
+   ],
+   "terms": [
+    "미스트랄",
+    "오픈 웨이트",
+    "파라미터",
+    "혼합 전문가(MoE)",
+    "가중치",
+    "컨텍스트 윈도우",
+    "허깅페이스",
+    "GPU",
+    "라이선스",
+    "벤치마크",
+    "오픈라우터",
+    "API",
+    "멀티모달"
+   ],
+   "image": {
+    "page": "https://mistral.ai/news/mistral-large-4-oss/",
+    "og": "https://mistral.ai/cms-media/api/media/file/cover-mistral-sovereign%20copie.webp",
+    "credit": "이미지: Mistral AI",
+    "alt": "미스트랄 라지 4 발표 표지 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 6일 미리 보기, 이달 말 가중치",
+     "url": "https://mistral.ai/news/mistral-large-4/",
+     "quote": "October 6, 2026 ... You can try the preview API today on Mistral Studio. Weights drop end of this month."
+    },
+    {
+     "claim": "1조 파라미터, 활성 520억",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "quote": "~1T total / ~52B active parameters: granular Mixture-of-Experts with 128 routed experts (4 active per token) and 1 shared expert."
+    },
+    {
+     "claim": "문맥 100만 토큰",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "quote": "1M context length, for long-context workloads."
+    },
+    {
+     "claim": "160개 이상 언어",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "quote": "It is natively fluent in 160+ languages, including every official language of the European Union."
+    },
+    {
+     "claim": "GPU 3,800개",
+     "url": "https://mistral.ai/news/mistral-large-4/",
+     "quote": "ML4 was trained from scratch on 3,800 NVIDIA Grace Blackwell GPUs in Mistral's own datacenters in Europe."
+    },
+    {
+     "claim": "API 가격 0.70/0.07/2.10달러",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "Starting today, Mistral Large 4 is priced at $0.70 input / M, $0.07 cached input / M, and $2.10 output / M tokens."
+    },
+    {
+     "claim": "쓰는 곳",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "Get started in Mistral Studio, through the Mistral API, or on OpenRouter. For full control, download the open weights from Hugging Face and deploy on your own infrastructure with vLLM or SGLang."
+    },
+    {
+     "claim": "파운드리·NIM",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "Mistral Large 4 is available through Microsoft Foundry ... also available through NVIDIA-hosted endpoints, as an optimized NVIDIA NIM container"
+    },
+    {
+     "claim": "GPU 8장 실행 예시",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "quote": "Then run it on 8 GPUs with torchrun"
+    },
+    {
+     "claim": "터미널벤치 4.0 41%, 13%포인트",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "On Terminal-Bench 4.0, Mistral Large 4 improved by 13 percentage points to 41% compared to its public preview"
+    },
+    {
+     "claim": "코딩 에이전트 지수 48%, 토큰 47% 적게",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "On the Artificial Analysis Coding Agent Index, Mistral Large 4 scores 48%, effectively tied with the leading open-weight model, GLM-5.3, while using 47% fewer tokens per task on average."
+    },
+    {
+     "claim": "거절률 96.6%",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "achieving an average refusal rate of 96.6% on malicious cyber requests, the highest we measure among open models."
+    },
+    {
+     "claim": "라이선스 조건",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "The model is free to use, modify, fine-tune, and commercialize, with a single condition: businesses that operate a Model-as-a-Service offering must obtain a separate commercial license from Mistral"
+    },
+    {
+     "claim": "기술 보고서 예정",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "quote": "technical report coming soon"
+    }
+   ]
+  },
+  {
+   "id": "2026-10-31-cohere-canada-commitment",
+   "cat": "비즈니스·일자리",
+   "date": "2026-10-31",
+   "time": "16:44",
+   "title": "코히어, 캐나다에 40억 캐나다달러 투자…2031년까지 일자리 1,500개",
+   "sub": "연구·AI 인프라 투자 · 기술직 약 1,000개 · 유급 학생 자리 250개",
+   "hook": "캐나다 AI 회사 코히어(Cohere)가 2031년까지 캐나다 연구개발과 AI 인프라에 40억 캐나다달러 넘게 쓰고 국내 인력을 1,500명 넘게 늘리겠다고 10월 30일 발표했습니다.",
+   "try": "코히어 블로그의 발표 원문을 열어 2031년까지 늘린다는 인력 계획과 대학 협력 목록을 직접 읽어 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "코히어(Cohere)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 30일(캐나다 시각)"
+    ],
+    [
+     "무엇",
+     "캐나다 연구개발·AI 인프라 투자와 인력 확대 계획"
+    ],
+    [
+     "핵심 숫자",
+     "40억 캐나다달러 이상, 일자리 1,500개 이상(2031년까지)"
+    ],
+    [
+     "대상·지역",
+     "캐나다 여러 주, 토론토대·워털루대 협력"
+    ],
+    [
+     "원문",
+     "코히어 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "기업용 AI 모델을 만드는 캐나다 회사 코히어(Cohere)가 2024년부터 2031년까지 캐나다 연구개발과 AI 인프라에 40억 캐나다달러가 넘는 돈을 쓰겠다고 10월 30일(캐나다 시각) 밝혔습니다. 같은 기간 캐나다 인력은 1,500명 넘게 늘릴 계획입니다."
+    },
+    {
+     "ul": [
+      [
+       "40억 캐나다달러 이상",
+       "2024~2031년 연구개발·AI 인프라"
+      ],
+      [
+       "일자리 1,500개 이상",
+       "그중 약 1,000개는 기술직"
+      ],
+      [
+       "학생 자리 250개 이상",
+       "2029년까지 유급으로"
+      ]
+     ]
+    },
+    {
+     "h": "늘어나는 자리의 3분의 2가 기술직"
+    },
+    {
+     "p": "새로 생기는 1,500개 넘는 자리 가운데 적어도 1,000개는 AI 연구, 엔지니어링, 제품 개발 같은 기술 분야입니다. 2029년까지는 돈을 받는 학생 자리도 250개 넘게 만듭니다. 코히어는 토론토대, 워털루대와 손잡고 대학·연구기관 협력망을 넓히며 앰아이(Amii), 벡터 연구소, 밀라(Mila)와의 기존 관계도 이어 갑니다."
+    },
+    {
+     "h": "이미 진행 중인 GPU 클라우드 계약"
+    },
+    {
+     "p": "투자는 새로 시작하는 것이 아니고 2024년에 시작한 계획의 연장선입니다. 이미 진행 중인 사업으로는 캐나다 통신사 벨(Bell)의 AI 패브릭과 맺은 3억 900만 캐나다달러 규모 GPU 클라우드 계약이 있습니다. 돈은 인재, 연구, 컴퓨팅 인프라, 상용화에 나눠 쓰이고 투자 지역은 여러 주에 걸칩니다."
+    },
+    {
+     "h": "캐나다 기업의 AI 사용률 12%"
+    },
+    {
+     "p": "발표문은 캐나다 정부의 국가 AI 전략을 배경으로 들었습니다. 이 전략은 2031년까지 국내총생산을 3% 늘리고 AI 관련 일자리를 최대 25만 개 만드는 것을 목표로 잡았습니다. 2025년에 AI로 상품이나 서비스를 만든다고 답한 캐나다 기업은 12%에 그쳤다고 코히어는 적었습니다. 지역별 투자 금액과 연도별 채용 숫자는 발표문에 나오지 않습니다."
+    }
+   ],
+   "ask": "AI 회사가 일자리 숫자를 약속할 때 무엇을 보면 실제로 지켜졌는지 알 수 있을까요?",
+   "sources": [
+    [
+     "코히어 — Cohere advances C$4 billion commitment",
+     "https://cohere.com/blog/cohere-canada-commitment"
+    ]
+   ],
+   "terms": [
+    "코히어",
+    "데이터센터",
+    "GPU",
+    "클라우드",
+    "스타트업",
+    "파운데이션 모델"
+   ],
+   "image": {
+    "page": "https://cohere.com/blog/cohere-canada-commitment",
+    "og": "https://cdn.sanity.io/images/rjtqmwfu/web3-prod/6f3e91a2db90382d96ee92b134a8b86b62d94417-3840x2160.png?rect=0,72,3840,2016&w=1200&h=630&q=80&fit=crop&auto=format",
+    "credit": "이미지: Cohere",
+    "alt": "코히어 캐나다 투자 발표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 30일 발표",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "Oct 30, 2026"
+    },
+    {
+     "claim": "40억 캐나다달러, 2024~2031년",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "Invest more than C$4 billion in research and development and AI infrastructure in Canada ... between 2024 and 2031, spanning multiple provinces"
+    },
+    {
+     "claim": "일자리 1,500개, 기술직 약 1,000개",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "Grow its Canada-based workforce by more than 1,500 roles by 2031 ... including approximately 1,000 highly skilled technical positions"
+    },
+    {
+     "claim": "적어도 1,000개 기술 분야",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "At least 1,000 of these roles are expected to focus on AI research, engineering, product development and other advanced technical disciplines"
+    },
+    {
+     "claim": "학생 자리 250개, 2029년",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "more than 250 paid student roles by 2029"
+    },
+    {
+     "claim": "벨 AI 패브릭 3억 900만 캐나다달러",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "A landmark C$309 million GPU cloud partnership with Bell AI Fabric"
+    },
+    {
+     "claim": "2024년 시작",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "started in 2024"
+    },
+    {
+     "claim": "GDP 3%, 일자리 25만 개, 2031년",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "increase GDP by 3% and create up to 250,000 AI-related jobs by 2031"
+    },
+    {
+     "claim": "2025년 기업 12%",
+     "url": "https://cohere.com/blog/cohere-canada-commitment",
+     "quote": "In 2025, just 12% of Canadian businesses reported using AI to produce goods or deliver services."
+    }
+   ]
+  },
+  {
+   "id": "2026-10-31-anthropic-ai-for-science-expansion",
+   "cat": "연구",
+   "date": "2026-10-31",
+   "time": "16:43",
+   "title": "앤트로픽 AI for Science, 과학 재단·연구소 20곳으로 클로드 지원 확대",
+   "sub": "미국 국립과학재단·웰컴 생어 연구소 등 · 실험 장비용 MHS 표준은 미리 보기",
+   "hook": "앤트로픽이 과학 연구 지원 프로그램 AI for Science를 넓혀 과학 재단, 연구소, 연구 프로젝트 20곳에 클로드 크레딧을 나눈다고 10월 28일(미국 시각) 발표했습니다.",
+   "try": "연구 기관에 소속되어 있다면 앤트로픽 AI for Science 신청서 항목을 열어 보고 내 연구가 지원 조건에 맞는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "앤트로픽(Anthropic)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 28일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "AI for Science 프로그램 확대, 협력 기관 20곳 공개"
+    ],
+    [
+     "대상",
+     "과학 재단·학회 6곳, 연구소 6곳, 연구 프로젝트 6곳 등"
+    ],
+    [
+     "지원 내용",
+     "클로드 크레딧(금액 비공개)"
+    ],
+    [
+     "원문",
+     "앤트로픽 뉴스"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "앤트로픽(Anthropic)이 2025년 5월 시작한 과학 연구 지원 프로그램 AI for Science의 대상을 넓혔습니다. 10월 28일(미국 시각) 공개한 협력 기관은 세계 과학 재단과 연구소, 연구 프로젝트를 합쳐 20곳입니다. 이들은 클로드 크레딧을 받아 연구자에게 나눠 주거나 기관 안에서 씁니다."
+    },
+    {
+     "ul": [
+      [
+       "재단이 연구자에게 배분",
+       "슬론 재단·시몬스 재단·미국 국립과학재단 등"
+      ],
+      [
+       "연구소는 기관 안에서 사용",
+       "웰컴 생어 연구소·프랜시스 크릭 연구소·EMBL 등"
+      ],
+      [
+       "프로젝트에 직접 지원",
+       "gnomAD·FlyWire·Tau Ceti 등"
+      ]
+     ]
+    },
+    {
+     "h": "돈을 나누는 재단과 직접 쓰는 연구소"
+    },
+    {
+     "p": "지원은 세 갈래로 나뉩니다. 앨프리드 P. 슬론 재단, 시몬스 재단, 슈미트 사이언시스, 미국 국립과학재단, 미국화학회의 CAS 같은 재단·학회는 받은 크레딧을 자기 연구자들에게 배분합니다. 우주망원경과학연구소, 웰컴 생어 연구소, 프랜시스 크릭 연구소, 임피리얼 칼리지 런던 생명과학과, EMBL, 글래드스턴 연구소는 기관 안에서 직접 씁니다. 크레딧 금액은 어느 기관에 대해서도 공개되지 않았습니다."
+    },
+    {
+     "h": "유전체 기준 자료부터 수학 증명까지"
+    },
+    {
+     "p": "세 번째 갈래는 특정 연구 프로젝트입니다. 브로드 연구소의 gnomAD는 80만 명이 넘는 사람의 DNA 자료를 모아 인간 유전 변이의 공개 기준 자료를 만듭니다. Tau Ceti는 컴퓨터가 모든 증명을 검사할 수 있는 언어인 린(Lean)으로 수학 라이브러리를 자동 형식화하는 공동체 프로젝트입니다. 프린스턴대 FlyWire, 컬럼비아대 LEAP, 존스홉킨스대 AstroPath도 크레딧을 받습니다. 앨런 연구소는 뇌·세포·면역계 공개 데이터를 분석할 AI 에이전트 팀을 꾸리고 있으며, 몇 달 걸리던 수작업 분석을 몇 시간으로 줄이는 것이 목표입니다."
+    },
+    {
+     "h": "실험 장비를 다루는 MHS 표준"
+    },
+    {
+     "p": "앤트로픽은 HHMI 재닐리아 연구 캠퍼스와 함께 AI 에이전트가 실험 장비를 안전하게 다루게 하는 공통 규격 모델 하드웨어 표준(MHS)도 만들었습니다. MHS는 8월 27일 연구용 미리 보기로 열렸고 지금은 대기자 명단으로 참여 신청을 받습니다. 앤트로픽은 장비를 들여와 연결하는 데 보통 몇 주에서 몇 달이 걸리던 일을 MHS가 몇 시간이나 몇 분으로 줄인다고 설명했습니다. 오픈소스로 공개하는 날짜는 아직 정해지지 않았습니다."
+    }
+   ],
+   "ask": "연구실 장비를 AI 에이전트가 직접 다룬다면 어떤 확인 절차가 먼저 필요할까요?",
+   "sources": [
+    [
+     "앤트로픽 — AI for Science expands to foundations and institutions",
+     "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions"
+    ],
+    [
+     "앤트로픽 — AI for Science 프로그램 안내",
+     "https://www.anthropic.com/news/ai-for-science-program"
+    ],
+    [
+     "앤트로픽 — Model Hardware Standard 연구용 미리 보기",
+     "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+    ]
+   ],
+   "terms": [
+    "앤트로픽",
+    "클로드",
+    "크레딧",
+    "에이전트",
+    "데이터셋",
+    "오픈 표준",
+    "오픈소스",
+    "모델 하드웨어 표준(MHS)",
+    "린(Lean)"
+   ],
+   "image": {
+    "page": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+    "og": null,
+    "credit": "이미지: Anthropic",
+    "alt": "앤트로픽 AI for Science 확대 발표 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "10월 28일 발표",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "Oct 28, 2026"
+    },
+    {
+     "claim": "20곳",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "We're highlighting 20 scientific foundations, institutions, and research groups from around the world that we've partnered with in an expansion of our AI for Science program"
+    },
+    {
+     "claim": "2025년 5월 시작",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "We started the AI for Science program in May 2025 with the belief that AI could significantly speed up scientific progress."
+    },
+    {
+     "claim": "재단·학회 6곳, 연구소 6곳, 프로젝트 6곳",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "We're sharing Claude credits with the following organizations ... providing Claude credits directly to specific research initiatives"
+    },
+    {
+     "claim": "gnomAD 80만 명",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "gnomAD... pools DNA data from over 800,000 people into an open reference of human genetic variation"
+    },
+    {
+     "claim": "Tau Ceti 린",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "This open, community-driven project is building a shared autoformalized library of mathematics in Lean, a language that lets computers check every proof."
+    },
+    {
+     "claim": "앨런 연구소 몇 달→몇 시간",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "The institute is building teams of AI agents to analyze that data, turning months of manual analysis into hours."
+    },
+    {
+     "claim": "MHS 재닐리아와 개발",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+     "quote": "we partnered with HHMI Janelia Research Campus to develop the Model Hardware Standard (MHS), a shared specification that lets AI agents safely operate lab instruments. MHS is currently in research preview."
+    },
+    {
+     "claim": "MHS 8월 27일 미리 보기",
+     "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+     "quote": "Aug 27, 2026"
+    },
+    {
+     "claim": "몇 주~몇 달 → 몇 시간·몇 분",
+     "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+     "quote": "It typically takes a lab or manufacturing facility weeks, if not months, to set up and integrate their hardware. ... MHS reduces this integration work to hours or minutes."
+    },
+    {
+     "claim": "대기자 명단",
+     "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+     "quote": "We're inviting stakeholders across industries to join the waitlist for our research preview of MHS."
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI 프런티어 모델 정렬 실패 감지 체계",
+   "reason": "openai.com 원문을 열지 못함"
+  },
+  {
+   "topic": "오픈AI 모델 스펙 개정(다섯 가지 가치)",
+   "reason": "발표 글을 열지 못하고 스펙 원문도 일부만 확인됨"
+  },
+  {
+   "topic": "캐나다 정부의 코히어 지분 투자(최대 16억 캐나다달러)",
+   "reason": "정부·코히어 공식 원문을 찾지 못함(언론 보도만 있음). 코히어 자체 투자 발표로 대신 씀"
+  },
+  {
+   "topic": "알파벳·마이크로소프트 3분기 실적",
+   "reason": "AI 소식 비중이 작고 분류가 겹침"
+  },
+  {
+   "topic": "일레븐랩스 효과음 v3",
+   "reason": "모델·제품 분류가 미스트랄 기사와 겹침"
+  }
+ ]
+}
