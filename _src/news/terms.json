@@ -1334,5 +1334,45 @@
   "g": "개발",
   "d": "수학 증명을 컴퓨터가 한 단계씩 검사할 수 있게 적는 프로그래밍 언어입니다. 사람이 쓴 증명이 맞는지 기계로 확인할 때 씁니다.",
   "rel": "2026-10-31-anthropic-ai-for-science-expansion"
+ },
+ {
+  "t": "SSH",
+  "en": "SSH",
+  "i": "S",
+  "g": "보안·개인정보",
+  "d": "다른 컴퓨터에 암호화된 통로로 접속해 명령을 내리는 방법입니다. 허락된 공개 키를 authorized_keys 파일에 적어 두면 비밀번호 없이 접속할 수 있습니다.",
+  "rel": "2026-11-01-cursor-claude-code-extension-backdoor"
+ },
+ {
+  "t": "TPU",
+  "en": "Tensor Processing Unit",
+  "i": "T",
+  "g": "인프라",
+  "d": "구글이 AI 모델 학습과 실행에 쓰려고 직접 설계한 전용 칩입니다. 구글 클라우드와 구글 서비스의 AI 연산에 쓰입니다.",
+  "rel": "2026-11-01-google-suncatcher-first-response"
+ },
+ {
+  "t": "젬마",
+  "en": "Gemma",
+  "i": "ㅈ",
+  "g": "제품·회사",
+  "d": "구글이 누구나 내려받아 쓸 수 있게 공개한 오픈 모델 시리즈입니다. 2026년 10월에는 젬마 4가 궤도 위 위성의 TPU에서 실행됐습니다.",
+  "rel": "2026-11-01-google-suncatcher-first-response"
+ },
+ {
+  "t": "robots.txt",
+  "en": "robots.txt",
+  "i": "R",
+  "g": "개발",
+  "d": "웹사이트 맨 위 폴더에 두는 글 파일로, 검색 엔진 같은 크롤러에게 어느 경로를 가져가도 되는지 알려 줍니다. 규칙은 RFC 9309로 정리되어 있습니다.",
+  "rel": "2026-11-01-ietf-ai-training-robots-txt"
+ },
+ {
+  "t": "IETF",
+  "en": "Internet Engineering Task Force",
+  "i": "I",
+  "g": "비즈니스·정책",
+  "d": "HTTP 같은 인터넷 기술 표준을 만드는 국제 표준 기구입니다. 누구나 초안을 낼 수 있고 작업반 논의를 거쳐 RFC라는 표준 문서가 됩니다.",
+  "rel": "2026-11-01-ietf-ai-training-robots-txt"
  }
 ]

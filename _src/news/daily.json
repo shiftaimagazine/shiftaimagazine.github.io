@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-11-01",
+  "lead": "2026-11-01-cursor-claude-code-extension-backdoor",
+  "title": "클로드 코드 확장 변조, 우주 TPU 첫 응답, AI 학습 거부 표시 초안",
+  "summary": "커서 마켓플레이스에 클로드 코드 확장 변조판이 올라왔다가 내려갔고 구글 선캐처 위성은 궤도 위 TPU로 첫 AI 응답을 보냈으며, robots.txt로 AI 학습 선호를 적는 IETF 초안도 나왔습니다.",
+  "three": [
+   "클로드 코드 확장 2.1.312·2.1.313 변조판, 약 11시간 배포",
+   "구글 선캐처 위성, 10월 1일 발사 후 젬마 4로 첫 하이쿠",
+   "IETF 초안 __usage_ai-training, 2027년 5월 3일 만료"
+  ],
+  "items": [
+   "2026-11-01-cursor-claude-code-extension-backdoor",
+   "2026-11-01-google-suncatcher-first-response",
+   "2026-11-01-ietf-ai-training-robots-txt"
+  ]
+ },
+ {
   "date": "2026-10-31",
   "lead": "2026-10-31-mistral-large-4-open-weights",
   "title": "미스트랄 라지 4 가중치 공개, 코히어 캐나다 투자, 앤트로픽 과학 지원",
