@@ -216,5 +216,23 @@
   "credit": "화면: anthropic.com",
   "alt": "앤트로픽 AI for Science 확대 발표 화면",
   "auto": true
+ },
+ "2026-11-01-cursor-claude-code-extension-backdoor": {
+  "src": "img/ph/2026-11-01-cursor-claude-code-extension-backdoor.webp",
+  "credit": "화면: cursor.com",
+  "alt": "커서 블로그의 클로드 코드 확장 보안 공지 화면",
+  "auto": true
+ },
+ "2026-11-01-google-suncatcher-first-response": {
+  "src": "img/ph/2026-11-01-google-suncatcher-first-response.webp",
+  "credit": "이미지: Google",
+  "alt": "구글 프로젝트 선캐처 시험 위성 영상 장면",
+  "auto": true
+ },
+ "2026-11-01-ietf-ai-training-robots-txt": {
+  "src": "img/ph/2026-11-01-ietf-ai-training-robots-txt.webp",
+  "credit": "화면: datatracker.ietf.org",
+  "alt": "IETF 데이터트래커의 AI 학습 선호 표시 초안 화면",
+  "auto": true
  }
 }
