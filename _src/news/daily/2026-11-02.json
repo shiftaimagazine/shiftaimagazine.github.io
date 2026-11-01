@@ -1,0 +1,493 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-02-deepseek-dsh-superagent",
+   "cat": "모델·제품",
+   "date": "2026-11-02",
+   "time": "06:45",
+   "title": "딥시크 dsh-superagent 공개…깃허브 저장소 하나를 맡는 코딩 에이전트",
+   "sub": "MIT 라이선스 연구용 시제품 · 깃허브와 페이수 요청에 응답",
+   "hook": "딥시크(DeepSeek)가 코딩 에이전트 시제품 dsh-superagent를 깃허브에 MIT 라이선스로 공개했습니다. 저장소 하나를 맡아 허락받은 사람의 요청을 받으면 작업 항목을 열고 풀 리퀘스트로 답하는 구조이며, 딥시크는 공식 제품이 아닌 연구용 코드라고 적었습니다.",
+   "try": "깃허브에서 deepseek-ai/dsh-superagent-prototype 저장소의 설계 문서 000-philosophy.md를 열어 에이전트가 언제 움직이고 언제 멈추는지 규칙을 읽어 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "딥시크(DeepSeek)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 1일 깃허브 저장소 공개 확인(저장소에 공개일 표기 없음)"
+    ],
+    [
+     "무엇",
+     "코딩 에이전트 연구 시제품 dsh-superagent"
+    ],
+    [
+     "연결",
+     "깃허브, 페이수(선택)"
+    ],
+    [
+     "라이선스",
+     "MIT"
+    ],
+    [
+     "원문",
+     "깃허브 deepseek-ai/dsh-superagent-prototype"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "중국 AI 회사 딥시크(DeepSeek)가 주말 사이 코딩 에이전트 시제품 dsh-superagent를 깃허브에 공개했습니다. 저장소 하나를 맡아 팀원이 부탁한 일을 스스로 처리하고 결과를 풀 리퀘스트 같은 형태로 돌려주는 에이전트입니다. 라이선스가 MIT라서 누구나 코드를 내려받아 고쳐 쓸 수 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "깃허브 저장소 하나를 전담",
+       "요청이 오면 작업 항목을 열고 전용 세션에서 작업"
+      ],
+      [
+       "깃허브와 페이수(Feishu)에 응답",
+       "결과는 요청이 온 원래 대화로"
+      ],
+      [
+       "공식 제품이 아닌 연구용 시제품",
+       "MIT 라이선스, 내부 버전과 다름"
+      ]
+     ]
+    },
+    {
+     "h": "부탁을 받으면 작업 항목부터 엽니다"
+    },
+    {
+     "p": "README에 따르면 dsh-superagent는 딥시크 하네스(DeepSeek Harness)에 얹는 묶음 형태의 능동형 코딩 에이전트입니다. 깃허브를 지켜보고 설정하면 협업 도구 페이수(Feishu)의 대화도 함께 봅니다. 허락받은 사람이 일을 맡기면 작업 항목을 하나 열고 자기 전용 세션과 폴더에서 일한 다음 처음 요청이 온 대화에 풀 리퀘스트 같은 결과로 답합니다. 사람이 손대야 하는 일은 웹 패널에 따로 모여 보입니다."
+    },
+    {
+     "h": "팀의 주의를 아끼도록 정한 규칙"
+    },
+    {
+     "p": "함께 공개된 설계 문서는 사람의 주의는 가능한 한 적게 쓰고 가치는 가능한 한 많이 내는 것을 첫 원칙으로 적었습니다. 에이전트는 누군가 직접 부탁했거나 팀이 써 둔 규칙이 허락할 때만 움직이고, 요청으로 인정되는 것도 에이전트를 직접 부르면서 팀이 허락한 사람이 보낸 경우뿐입니다. 아무도 부탁하지 않은 일을 하려면 팀이 쓴 규칙이 있어야 합니다. 그런 일도 처음에는 에이전트가 무엇을 했을지 기록만 남기는 방식으로 시작합니다. 말을 거는 때는 사람이 움직여야 하거나 결과를 쓸 수 있을 때로 정해 두었습니다."
+    },
+    {
+     "h": "공식 제품이 아닌 연구용 코드"
+    },
+    {
+     "p": "딥시크는 README 맨 위에 참고용 연구 시제품이며 딥시크의 공식 제품이 아니라고 적었습니다. 팀의 일상 개발에서 자라난 코드이고 상당 부분을 코딩 에이전트가 만들었기 때문에 버그가 남아 있을 수 있고 코드 스타일도 고르지 않을 수 있습니다. 공개판은 내부 버전이나 글 〈Exploring Super-agent Design〉에서 설명한 구현과 같지 않습니다. 그 글에 나온 설계 일부는 아직 구현되지 않은 앞으로의 방향입니다. 어떤 모델을 쓰는지와 성능 수치는 저장소에 나오지 않습니다."
+    },
+    {
+     "h": "설치는 코딩 에이전트와 함께"
+    },
+    {
+     "p": "설정 단계가 많아서 딥시크는 사용자가 쓰는 코딩 에이전트에게 SETUP.md를 읽고 함께 설치하자고 요청하는 방법을 안내합니다. 손으로 배포하려면 배포 문서를 따로 따르면 됩니다. 저장소는 pnpm 기반으로 짜여 있고 pnpm check 명령 하나로 타입 검사와 테스트, 빌드를 함께 돌립니다. README에는 설계 글의 원문 주소가 아직 걸려 있지 않습니다."
+    }
+   ],
+   "ask": "팀 저장소에 코딩 에이전트를 들인다면 어떤 일까지 맡길 수 있을까요?",
+   "sources": [
+    [
+     "딥시크 — dsh-superagent-prototype (GitHub README)",
+     "https://github.com/deepseek-ai/dsh-superagent-prototype"
+    ],
+    [
+     "딥시크 — docs/000-philosophy.md",
+     "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md"
+    ]
+   ],
+   "terms": [
+    "딥시크",
+    "에이전트",
+    "오픈소스",
+    "깃허브",
+    "라이선스",
+    "페이수"
+   ],
+   "image": {
+    "page": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+    "og": "https://opengraph.githubassets.com/3cf0754aabf77f6e34b66a6ccd54ddfb1637b65cce99180a731fa3647b24f4e3/deepseek-ai/dsh-superagent-prototype",
+    "credit": "이미지: GitHub(deepseek-ai)",
+    "alt": "딥시크 dsh-superagent-prototype 깃허브 저장소 카드",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "MIT 라이선스",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "quote": "[MIT](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/LICENSE)"
+    },
+    {
+     "claim": "공식 제품이 아닌 연구 시제품",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "quote": "Research prototype for reference only, not an official DeepSeek product."
+    },
+    {
+     "claim": "깃허브와 페이수",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "quote": "dsh-superagent is a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness. It listens to GitHub and, optionally, Feishu."
+    },
+    {
+     "claim": "작업 항목·풀 리퀘스트·웹 패널",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "quote": "When someone allowed asks the agent for work, it opens a work item, works on it in its own agent session and directory, and answers in the original conversation, for example with a pull request. A web panel shows what needs a person."
+    },
+    {
+     "claim": "내부 버전과 다름, 일부 설계 미구현",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "quote": "We have adapted it for publication, so it is not identical to our internal version or the implementation described in Exploring Super-agent Design: Towards a More Autonomous Agent System. Some designs discussed in the article are directions for future development and are not implemented in this prototype."
+    },
+    {
+     "claim": "첫 원칙·움직이는 조건",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md",
+     "quote": "Take as little human attention as possible, and give as much value as possible. ... It acts only when asked, or when a written rule allows it. ... Work nobody asked for needs a rule the team wrote, and starts in a mode that only records what the agent would have done."
+    },
+    {
+     "claim": "SETUP.md·pnpm check",
+     "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "quote": "Read SETUP.md in this repository and set up dsh-superagent with me. ... pnpm check runs the typecheck, the tests and the build."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-02-talos-volta-infostealer-llm",
+   "cat": "보안·안전",
+   "date": "2026-11-02",
+   "time": "06:44",
+   "title": "인포스틸러 VOLTA, 훔친 정보로 LLM이 피해자 가치 평가…시스코 탈로스 분석",
+   "sub": "윈도우 대상 정보 탈취 악성코드 · 오픈라우터로 모델 세 개를 차례로 호출",
+   "hook": "시스코 탈로스(Cisco Talos)가 윈도우 정보 탈취 악성코드 VOLTA를 분석했습니다. 비밀번호와 세션, 암호화폐 지갑을 훔친 뒤 오픈라우터로 LLM을 불러 피해자의 자산 가치와 보안 습관을 평가한 보고서를 만드는 악성코드입니다.",
+   "try": "브라우저에 저장된 비밀번호와 결제 카드 목록을 열어 쓰지 않는 항목을 지우고, 주요 계정에 2단계 인증이 켜져 있는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "시스코 탈로스(Cisco Talos), 작성 Ryan Fetterman"
+    ],
+    [
+     "날짜",
+     "2026년 10월 31일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "LLM 피해자 평가 단계가 붙은 인포스틸러 VOLTA"
+    ],
+    [
+     "대상",
+     "윈도우(PE32+ x86-64)"
+    ],
+    [
+     "호출 모델",
+     "claude-opus-4.6 → kimi-k2 → gemini-2.5-flash(오픈라우터 경유)"
+    ],
+    [
+     "원문",
+     "탈로스 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "시스코 탈로스(Cisco Talos)가 10월 31일(미국 시각) 윈도우용 정보 탈취 악성코드 VOLTA의 분석 보고서를 냈습니다. VOLTA는 계정 정보와 세션, 암호화폐 지갑을 훔친 뒤 그 자료를 LLM에 보내 피해자가 표적으로 얼마나 쓸모 있는지 평가하게 합니다. 탈로스는 이 단계에서 모델이 공격자의 선별 분석가 역할을 맡는다고 설명했습니다."
+    },
+    {
+     "ul": [
+      [
+       "브라우저부터 게임 계정까지 수집",
+       "크롬 계열 브라우저, 디스코드, 텔레그램, 스팀 등"
+      ],
+      [
+       "AI 평가 단계",
+       "오픈라우터로 최대 3개 모델을 차례로 호출"
+      ],
+      [
+       "실행 뒤 스스로 삭제",
+       "표본 첫 발견 2026년 10월 11일(UTC)"
+      ]
+     ]
+    },
+    {
+     "h": "카드 끝 네 자리부터 집 주소까지"
+    },
+    {
+     "p": "VOLTA가 가져가는 범위는 넓습니다. 크롬 계열 브라우저에 저장된 비밀번호와 쿠키, 결제 카드를 훑고 파이어폭스, 썬더버드, 아웃룩 프로필과 슬랙, 스팀, 배틀넷, 디스코드, 텔레그램, 로블록스 계정, 마이크로소프트 OAuth 토큰도 챙깁니다. 컴퓨터에 저장된 와이파이 비밀번호는 모두 평문으로 빼냅니다. 암호화폐 지갑은 복사로 끝내지 않고 안에 든 크래커로 잠금까지 풀어 봅니다. 훔친 지메일 세션으로는 아마존, 도어대시, 우버이츠 같은 곳의 영수증을 찾아 실제 집 주소를 확인합니다. 모은 자료는 위치와 집 주소, 직장, 추정 출생 연도, 카드 끝 네 자리 등을 담은 신상 보고서로 정리됩니다."
+    },
+    {
+     "h": "모델이 거절하면 다음 모델로"
+    },
+    {
+     "p": "신상 보고서가 만들어지면 VOLTA는 오픈라우터(OpenRouter) API로 LLM을 부릅니다. 기본 모델은 anthropic/claude-opus-4.6이고 응답에 “I can't” 같은 거절 문구가 보이면 moonshotai/kimi-k2, google/gemini-2.5-flash 순서로 넘어가 최대 세 모델까지 시도합니다. 시스템 프롬프트는 모델에게 표적 평가서를 쓰는 포렌식 정보 분석가 역할을 줍니다. 결과물에는 돈으로 바꿀 수 있는 자산을 등급별로 늘어놓은 WHAT THEY'RE WORTH 항목과 피해자의 보안 습관을 평가한 THEIR OPSEC 항목이 들어갑니다. API 키가 없으면 AI 단계를 건너뛰고 나머지만 실행합니다."
+    },
+    {
+     "h": "주문받아 찍어 내는 빌더 구조"
+    },
+    {
+     "p": "VOLTA에는 빌드할 때 값을 채워 넣는 슬롯 여섯 개가 있습니다. 탈로스는 이를 근거로 제작자가 접근권을 팔고 구매자가 자기 값을 넣으면 주문마다 다른 실행 파일을 만들어 주는 방식으로 봅니다. 관찰된 통신 대상은 모두 제3자 서비스였고 공격자가 직접 운영하는 서버는 없었습니다. 처음에 어떤 경로로 퍼지는지는 보고서에 나오지 않습니다."
+    },
+    {
+     "h": "탈로스가 제시한 방어와 사후 조치"
+    },
+    {
+     "p": "탈로스는 어떤 프로세스가 크롬을 --headless 옵션으로 띄울 수 있는지 앱 제어 정책으로 제한하면 VOLTA가 쓰는 크롬 암호 해제 경로를 막을 수 있다고 적었습니다. 이미 감염됐다면 %APPDATA% 아래 volta_debug.txt 파일을 보존해 무엇이 수집됐는지와 LLM 호출이 성공했는지를 확인합니다. 그다음 토큰을 폐기하고 비밀번호를 바꾸고 시드 문구를 평문으로 저장해 둔 지갑은 완전히 털린 것으로 보고 외부망과 분리된 기기에서 시드를 만든 새 지갑으로 자금을 옮기라고 탈로스는 권합니다. 보고서 끝에는 확인된 표본의 SHA-256 해시와 실행 파일 이름 두 개가 실려 있습니다."
+    }
+   ],
+   "ask": "브라우저에 결제 카드를 저장해 두고 있나요?",
+   "sources": [
+    [
+     "시스코 탈로스 — Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer",
+     "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/"
+    ]
+   ],
+   "terms": [
+    "인포스틸러",
+    "오픈라우터",
+    "시스템 프롬프트",
+    "API 키",
+    "클로드",
+    "키미",
+    "제미나이"
+   ],
+   "image": {
+    "page": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+    "og": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/VOLTA.jpg",
+    "credit": "이미지: Cisco Talos",
+    "alt": "시스코 탈로스 VOLTA 분석 보고서 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "10월 31일 게시, 윈도우 인포스틸러",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "a self-deleting Windows infostealer that augments its post-theft workflow with an LLM-powered victim-profiling stage. (published 2026-10-31)"
+    },
+    {
+     "claim": "선별 분석가 역할",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "The model is the operator's triage analyst; it turns a raw credential log into a prioritized and citation-backed dossier"
+    },
+    {
+     "claim": "브라우저 비밀번호·쿠키·결제 카드",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "browser credentials, cookies, and saved payment cards across Chromium-based browsers"
+    },
+    {
+     "claim": "와이파이 비밀번호 평문",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "Every saved Wi-Fi password on the machine is pulled via a direct call to WlanGetProfileList and dumped to plaintext."
+    },
+    {
+     "claim": "지갑 크래킹",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "VOLTA doesn't just copy cryptocurrency wallets, but runs an embedded cracker against the vault inline"
+    },
+    {
+     "claim": "카드 끝 네 자리 등 신상 보고서",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "geolocation and home address, employer and employer domain, inferred birth year, card last-4 digits, Slack workspaces"
+    },
+    {
+     "claim": "모델 순서, 최대 3개",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "Default model anthropic/claude-opus-4.6, falling back to moonshotai/kimi-k2 then google/gemini-2.5-flash; refusal phrases such as \"I can't\" move it to the next model, up to three models."
+    },
+    {
+     "claim": "슬롯 6개, 빌더 판매",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "VOLTA uses a template with six swappable slots, filled in at build time. ... The author sells access, the customer provides their values, and the builder compiles a custom binary for each order."
+    },
+    {
+     "claim": "공격자 소유 인프라 없음",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "All the observed endpoints for this malware are third-party controlled. There is no actor-owned infrastructure."
+    },
+    {
+     "claim": "첫 발견 2026-10-11, PE32+",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "Type: PE32+ x86-64 ... First seen (UTC): 2026-10-11 12:46"
+    },
+    {
+     "claim": "--headless 제한, volta_debug.txt",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "restricting which processes may launch Chrome with --headless would block the ABE decryption path entirely ... APPDATA%\\volta_debug.txt"
+    },
+    {
+     "claim": "표본 해시·파일 이름",
+     "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+     "quote": "SHA256: 57ef4242666d78c50df145b34023df564f0fad38812d6a580e66433d427e2279 ... 9BY0tjwOc3ut.exe / yLP9m5J3i2Aw.exe"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-02-naacp-xai-clean-air-act-ruling",
+   "cat": "정책·저작권",
+   "date": "2026-11-02",
+   "time": "06:43",
+   "title": "xAI 데이터센터 가스 터빈 소송 계속…미 법원, xAI 기각 신청 받아들이지 않아",
+   "sub": "미시시피 북부 연방지법 · '임시' 터빈도 대기오염방지법 허가 대상",
+   "hook": "xAI가 콜로서스 2 데이터센터 전력용 가스 터빈 소송을 끝내 달라며 낸 기각 신청을 미국 미시시피 북부 연방지방법원이 10월 30일 받아들이지 않았습니다. NAACP가 대기오염방지법(Clean Air Act)에 따라 낸 소송은 그대로 이어집니다.",
+   "try": "SELC 보도자료를 열어 xAI 가스 터빈이 해마다 내보낼 수 있다는 질소산화물·미세 입자·포름알데히드 양을 직접 확인해 보세요.",
+   "facts": [
+    [
+     "법원",
+     "미국 미시시피 북부 연방지방법원"
+    ],
+    [
+     "날짜",
+     "2026년 10월 30일(미국 시각) 결정"
+    ],
+    [
+     "사건",
+     "NAACP의 xAI 상대 대기오염방지법 시민 소송"
+    ],
+    [
+     "쟁점",
+     "콜로서스 2 데이터센터 전력용 무허가 가스 터빈"
+    ],
+    [
+     "다음 단계",
+     "예비 금지명령 신청 판단 남음"
+    ],
+    [
+     "원문",
+     "SELC·NAACP 보도자료"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "미국 미시시피 북부 연방지방법원이 10월 30일(미국 시각) 일론 머스크의 AI 회사 xAI가 낸 소송 기각 신청을 받아들이지 않았습니다. 미국 흑인 인권 단체 NAACP는 xAI가 미시시피주 사우스헤이번에서 데이터센터 콜로서스 2에 전력을 대려고 허가 없이 가스 터빈을 돌린다며 대기오염방지법(Clean Air Act)에 따라 소송을 냈습니다. 원고 측 대리인인 남부환경법센터(SELC)가 같은 날 결정 내용을 알렸습니다."
+    },
+    {
+     "ul": [
+      [
+       "xAI 기각 신청 거부",
+       "10월 30일, 미시시피 북부 연방지법"
+      ],
+      [
+       "임시 터빈도 허가 대상",
+       "발전 설비는 '이동 오염원'이 아니라고 판단"
+      ],
+      [
+       "예비 금지명령은 아직",
+       "법원 판단과 일정 미정"
+      ]
+     ]
+    },
+    {
+     "h": "xAI가 내세운 두 가지 주장"
+    },
+    {
+     "p": "xAI는 시민이 직접 내는 소송이 헌법에 어긋나고 자사 터빈은 허가가 필요 없다는 논리로 기각을 요청했습니다. 법원은 두 주장을 모두 받아들이지 않았습니다. 시민 소송 원고는 자기 이름으로 자기 피해를 바로잡으려 소송을 내므로 연방 정부의 행정권을 행사하는 것이 아니라는 판단입니다. 발전 설비가 연방 규정상 '이동 오염원'이 아니어서 대기오염방지법의 허가 요건에서 빠지지 않는다는 판단도 함께 나왔습니다. SELC는 이번 결정으로 이른바 '임시' 터빈을 포함한 메탄가스 터빈도 대기오염방지법 적용 대상이며 대기 배출 허가가 필요하다는 점이 확인됐다고 설명했습니다."
+    },
+    {
+     "h": "터빈이 해마다 내보낼 수 있는 양"
+    },
+    {
+     "p": "SELC 자료를 보면 이 터빈들은 해마다 스모그를 만드는 질소산화물을 5,000톤 넘게, 미세 입자상 물질 400톤과 포름알데히드 47톤을 배출할 수 있습니다. 이번 보도자료는 터빈 수를 수십 대로만 적었습니다. 지난 6월 SELC 블로그에는 미국 법무부도 xAI가 사우스헤이번에서 허가 없는 가스 터빈 59대를 돌린다는 사실은 다투지 않는다는 내용이 실렸습니다. SELC는 사우스 멤피스와 미시시피 북부 주민을 이번 결정으로 가장 직접 영향을 받는 지역으로 꼽았습니다."
+    },
+    {
+     "h": "법무부의 개입도 막혔습니다"
+    },
+    {
+     "p": "이 소송에는 미국 법무부도 끼어들었습니다. 정부가 시민 소송을 혼자 끝낼 수 있다는 법무부 주장도 같은 법원이 10월 19일 받아들이지 않았고, NAACP가 전한 결정문에는 대기오염방지법 어디에서도 미국 정부가 시민 소송을 일방적으로 끝낼 권리를 읽어 낼 수 없다는 취지의 문장이 있습니다. 연방 제5순회항소법원은 지방법원 절차를 멈춰 달라는 법무부 요청을 거부했습니다. NAACP가 함께 낸 예비 금지명령 신청은 아직 법원 판단이 나오지 않았고 일정도 공개되지 않았습니다. xAI의 공식 입장은 확인되지 않았습니다."
+    }
+   ],
+   "ask": "AI 데이터센터에 붙는 발전 설비도 일반 발전소와 같은 기준으로 허가를 받아야 할까요?",
+   "sources": [
+    [
+     "SELC — Court tosses request to block Clean Air Act lawsuit against Musk's xAI",
+     "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/"
+    ],
+    [
+     "NAACP — Judge throws out US DOJ attempt to toss NAACP case against Elon Musk's xAI",
+     "https://naacp.org/articles/judge-throws-out-us-doj-attempt-toss-naacp-case-against-elon-musks-xai"
+    ],
+    [
+     "SELC — Trump administration attempts massive power grab in defense of xAI",
+     "https://www.selc.org/news/trump-administration-attempts-massive-power-grab-in-defense-of-xai/"
+    ]
+   ],
+   "terms": [
+    "xAI",
+    "대기오염방지법",
+    "데이터센터",
+    "그록"
+   ],
+   "image": {
+    "page": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+    "og": null,
+    "credit": "이미지: SELC",
+    "alt": "남부환경법센터(SELC) 보도자료 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "10월 30일 xAI 기각 신청 거부",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "On Friday, the U.S. District Court for the Northern District of Mississippi denied xAI's motion to dismiss a Clean Air Act lawsuit brought against the company by the NAACP. (October 30, 2026)"
+    },
+    {
+     "claim": "시민 소송은 행정권 행사 아님",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "because citizen suit plaintiffs sue on their own behalf, in their own name, and seek penalties that redress harm to themselves, they are not exercising the federal government's executive power."
+    },
+    {
+     "claim": "이동 오염원 아님",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "because the Plant is not a 'mobile source' according to the federal regulations…the Plant was not (and is not) exempted from permitting requirements under the Clean Air Act."
+    },
+    {
+     "claim": "임시 터빈도 허가 필요",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "methane gas turbines, even so-called 'temporary' turbines, are subject to the Clean Air Act and require air permits."
+    },
+    {
+     "claim": "5,000톤·400톤·47톤",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "These gas turbines can emit more than 5,000 tons of smog-forming nitrogen oxides (NOx), 400 tons of fine particulate matter, and 47 tons of formaldehyde each year."
+    },
+    {
+     "claim": "수십 대, 콜로서스 2",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "dozens of unpermitted gas turbines ... its Colossus 2 data center"
+    },
+    {
+     "claim": "59대(6월)",
+     "url": "https://www.selc.org/news/trump-administration-attempts-massive-power-grab-in-defense-of-xai/",
+     "quote": "DOJ does not dispute that xAI is operating 59 unpermitted gas turbines in Southaven, Mississippi."
+    },
+    {
+     "claim": "사우스 멤피스·미시시피 북부",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "This decision is a victory for communities across the nation, but especially for those in South Memphis and North Mississippi."
+    },
+    {
+     "claim": "10월 19일 법무부 기각 요청 거부",
+     "url": "https://naacp.org/articles/judge-throws-out-us-doj-attempt-toss-naacp-case-against-elon-musks-xai",
+     "quote": "the U.S. District Court for the Northern District of Mississippi denied the U.S. Department of Justice's attempt to dismiss NAACP's Clean Air Act lawsuit."
+    },
+    {
+     "claim": "정부의 일방적 종료 권리 없음",
+     "url": "https://naacp.org/articles/judge-throws-out-us-doj-attempt-toss-naacp-case-against-elon-musks-xai",
+     "quote": "no 'fairly possible' interpretation of the Clean Air Act that would give the United States the right to unilaterally dismiss a citizen suit."
+    },
+    {
+     "claim": "제5순회항소법원 정지 요청 거부",
+     "url": "https://naacp.org/articles/judge-throws-out-us-doj-attempt-toss-naacp-case-against-elon-musks-xai",
+     "quote": "the Fifth Circuit denied DOJ's motion for a stay of district court proceedings"
+    },
+    {
+     "claim": "예비 금지명령 판단 전",
+     "url": "https://www.selc.org/press-release/court-tosses-request-to-block-clean-air-act-lawsuit-against-musks-xai/",
+     "quote": "The Court has yet to rule on NAACP's motion for a preliminary injunction."
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "앤트로픽, 클로드 코드가 기존 게임을 베껴 만들지 않도록 프롬프트 수정",
+   "reason": "앤트로픽 공식 페이지·문서에서 원문을 찾지 못함(게임 매체 보도와 직원 X 글 인용만 있음), 10월 27일 변경이라 36시간 범위 밖"
+  },
+  {
+   "topic": "AI 에이전트가 살아 있는 쥐 뇌에 약물을 주입한 실험",
+   "reason": "언론 보도만 확인, 논문·연구기관 원문을 찾지 못함"
+  },
+  {
+   "topic": "애플 인텔리전스 iOS 27.3으로 중국 출시",
+   "reason": "10월 30일 소식으로 36시간 범위 밖, 애플 공식 원문 미확인"
+  }
+ ]
+}

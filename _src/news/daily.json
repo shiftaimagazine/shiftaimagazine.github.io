@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-11-02",
+  "lead": "2026-11-02-deepseek-dsh-superagent",
+  "title": "딥시크 코딩 에이전트 공개, LLM 쓰는 인포스틸러, xAI 터빈 소송",
+  "summary": "주말 소식까지 묶었습니다. 딥시크가 코딩 에이전트 시제품을 MIT 라이선스로 공개했고 시스코 탈로스는 LLM으로 피해자 가치를 매기는 인포스틸러를 분석했으며, 미국 법원은 xAI 데이터센터 가스 터빈 소송의 기각 신청을 받아들이지 않았습니다.",
+  "three": [
+   "딥시크 dsh-superagent, 깃허브 저장소 1개 전담하는 MIT 시제품",
+   "VOLTA, 오픈라우터로 최대 3개 모델 불러 피해자 평가",
+   "xAI 터빈, 질소산화물 연 5,000톤 넘게 배출 가능(SELC)"
+  ],
+  "items": [
+   "2026-11-02-deepseek-dsh-superagent",
+   "2026-11-02-talos-volta-infostealer-llm",
+   "2026-11-02-naacp-xai-clean-air-act-ruling"
+  ]
+ },
+ {
   "date": "2026-11-01",
   "lead": "2026-11-01-cursor-claude-code-extension-backdoor",
   "title": "클로드 코드 확장 변조, 우주 TPU 첫 응답, AI 학습 거부 표시 초안",
