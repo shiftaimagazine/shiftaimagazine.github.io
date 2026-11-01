@@ -1,0 +1,45 @@
+<main id="v-tool-ai-tell">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 글쓰기</span>
+  <h1>AI 티 검사기</h1>
+  <p class="deck">글을 붙여 넣으면 AI가 자주 쓰는 표현과 문장 버릇을 찾아 표시하고, 어떻게 고치면 되는지 알려 줍니다. 보고서, 블로그 글, SNS 글, 자기소개서 모두 넣을 수 있습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>글은 브라우저 안에서만 검사 · 어디에도 보내지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>검사할 글 넣기 <small id="aCount"></small></h2>
+    <div class="trow">
+      <button class="ghost" type="button" id="aSample">예시 글 넣어 보기</button>
+      <button class="ghost" type="button" id="aClear">지우기</button>
+      <button class="btn" type="button" id="aRun">검사하기</button>
+    </div>
+    <label class="sr" for="aIn">검사할 글</label>
+    <textarea id="aIn" rows="10" placeholder="여기에 글을 붙여 넣으세요. 넣는 대로 바로 검사합니다."></textarea>
+  </section>
+
+  <section class="tstep" id="aRes" hidden>
+    <h2><i>2</i>검사 결과</h2>
+    <div class="alevel" id="aLevel"></div>
+    <p class="hint">색칠된 곳을 누르면 아래에서 이유와 고치는 법을 볼 수 있습니다. <span class="akey lv1">꼭 고칠 것</span> <span class="akey lv2">많으면 고칠 것</span></p>
+    <div class="amarked" id="aMarked"></div>
+    <div class="alist" id="aList"></div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>AI에게 고쳐 달라고 하기</h2>
+    <p class="hint">찾은 곳과 고치는 법을 담은 프롬프트를 만들어 복사합니다. 챗GPT·클로드·제미나이에 붙여 넣으면 사실과 숫자는 그대로 두고 표시된 곳 위주로 고쳐 줍니다.</p>
+    <div class="trow"><button class="btn" type="button" id="aPrompt">고쳐 달라는 프롬프트 복사</button></div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>이 도구는 'AI가 썼다, 사람이 썼다'를 판정하지 않습니다. 사람 글에도 나오는 표현이고, 여러 버릇이 한 글에 몰려 있을 때 AI가 쓴 것처럼 읽힙니다.</li>
+      <li>찾는 것: '핵심은·결국·~인 셈입니다' 같은 정리 문구, 'A가 아니라 B' 대구 반복, 대시(—), 과장 형용사, 번역투, 챗봇 말투와 마크다운 잔재, 명사로 끊는 문장, 짧은 문장이 줄줄이 이어지는 리듬, 같은 끝맺음 반복, 교훈으로 닫는 마지막 문장, 섞인 말투 등 40여 가지입니다.</li>
+      <li>규칙은 SHIFT AI가 매일 기사를 다듬을 때 쓰는 점검 규칙을 일반 글에 맞게 옮긴 것입니다. 그 규칙의 일부는 오픈소스 <a href="https://github.com/epoko77-ai/im-not-ai" target="_blank" rel="noopener">humanize-korean</a>(MIT)과 <a href="https://github.com/hjongc/humanizer-kr" target="_blank" rel="noopener">humanizer-kr</a>(MIT)의 분류를 따랐습니다.</li>
+      <li>따옴표 안의 인용은 검사하지 않습니다. 자기소개서나 회사 문서를 넣어도 글은 이 페이지 밖으로 나가지 않습니다.</li>
+    </ul>
+    <p>함께 쓰면 좋은 도구: <a href="/tools/prompt/">프롬프트 만들기</a></p>
+  </div>
+</article>
+</main>

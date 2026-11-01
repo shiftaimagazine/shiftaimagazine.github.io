@@ -544,3 +544,74 @@ footer a:hover{color:var(--ink)}
 .mk-x{background:transparent}
 .vz-key .mk{width:12px;height:12px;border-width:2px;vertical-align:-1px}
 .mx tbody th{border-bottom:1px solid var(--line);font-size:14px}
+
+/* 무료 도구: 사진 속 글자 뽑기 (11/2) */
+.odrop{display:grid;gap:6px;place-items:center;text-align:center;border:2px dashed var(--line);border-radius:14px;padding:30px 18px;cursor:pointer;background:var(--bg2);transition:border-color .15s,background .15s}
+.odrop:hover,.odrop:focus,.odrop.on{border-color:var(--accent);outline:none}
+.odrop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.odrop b{font-size:16px;color:var(--ink)}
+.odrop span{font-size:13.5px;color:var(--sub);line-height:1.6}
+kbd{font:12px/1 var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:2px 5px;background:var(--bg);color:var(--ink)}
+.othumbs{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 0}
+.othumbs:empty{display:none}
+.othumbs figure{position:relative;margin:0;width:132px}
+.othumbs img{display:block;width:132px;height:96px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:#fff}
+.othumbs figcaption{font-size:12px;color:var(--sub);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.othumbs button{position:absolute;top:4px;right:4px;width:24px;height:24px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;font-size:15px;line-height:1;cursor:pointer}
+.ochecks{display:grid;gap:6px;margin:12px 0 4px;font-size:14.5px;color:var(--ink)}
+.ochecks label{display:flex;gap:8px;align-items:baseline;cursor:pointer}
+.ochecks input{accent-color:var(--accent)}
+.ochecks small{color:var(--sub);font-size:12.5px}
+.obar{height:6px;background:var(--bg2);border-radius:99px;overflow:hidden;margin:6px 0 8px}
+.obar i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+.olow{font-size:13.5px;line-height:1.9;color:var(--sub);margin-top:10px}
+.olow b{color:var(--ink);margin-right:4px}
+.olow span{display:inline-block;font-family:var(--mono);background:#FFF3EC;color:#7a2e0e;border-radius:5px;padding:0 6px;margin:0 4px 4px 0}
+@media (prefers-color-scheme:dark){.olow span{background:#2a1d16;color:#f6c7ae}}
+
+/* 무료 도구: AI 티 검사기 (11/2) */
+.alevel{display:grid;gap:4px;border-radius:12px;padding:14px 18px;margin:4px 0 12px;border-left:5px solid var(--line);background:var(--bg2)}
+.alevel b{font-size:19px;color:var(--ink)}
+.alevel span{font-size:14px;color:var(--text);line-height:1.6}
+.alevel.good{border-left-color:#1d7a43}.alevel.fair{border-left-color:#c9a227}.alevel.warn{border-left-color:var(--accent)}.alevel.bad{border-left-color:#b42318}
+.akey{display:inline-block;font-size:12.5px;font-weight:700;border-radius:5px;padding:1px 7px;margin-left:4px}
+.amarked{white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.9;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;max-height:520px;overflow-y:auto}
+.amarked mark,.alist mark,.akey{color:inherit}
+mark.lv1,.akey.lv1{background:#FDE2DC;box-shadow:inset 0 -2px 0 #d4581f}
+mark.lv2,.akey.lv2{background:#FFF3C4;box-shadow:inset 0 -2px 0 #c9a227}
+.amarked mark{cursor:pointer;border-radius:3px;padding:0 1px}
+@media (prefers-color-scheme:dark){mark.lv1,.akey.lv1{background:#4a2418}mark.lv2,.akey.lv2{background:#3d3412}}
+.alist{display:grid;gap:8px;margin-top:14px}
+.alist details{border:1px solid var(--line);border-radius:10px;padding:10px 14px;transition:background .3s}
+.alist details.flash{background:var(--bg2)}
+.alist summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;list-style:none}
+.alist summary::-webkit-details-marker{display:none}
+.alist summary b{font-size:15.5px;color:var(--ink)}
+.alist summary em{font-style:normal;font-size:13px;color:var(--sub)}
+.alist .sv{font-size:11.5px;font-weight:800;border-radius:5px;padding:1px 7px}
+.alist .lv1 .sv{background:#FDE2DC;color:#9a3412}.alist .lv2 .sv{background:#FFF3C4;color:#7a5d00}
+@media (prefers-color-scheme:dark){.alist .lv1 .sv{background:#4a2418;color:#f6c7ae}.alist .lv2 .sv{background:#3d3412;color:#f3df96}}
+.alist .fx{margin:8px 0 4px;font-size:15px;line-height:1.7;color:var(--ink)}
+.alist .why{margin:0 0 6px;font-size:13.5px;color:var(--sub);line-height:1.6}
+.alist .ex{display:grid;gap:4px}
+.alist q{display:block;font-size:14px;line-height:1.7;color:var(--text);quotes:none}
+.alist .none{font-size:15px;color:var(--text)}
+
+/* 무료 도구: 프롬프트 만들기 (11/2) */
+.pfields{display:grid;gap:12px}
+.pf{display:grid;gap:6px}
+.pf > span{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}
+.pf b{font-size:15px;color:var(--ink)}
+.pf small{font-size:13px;color:var(--sub)}
+.pf em{font-style:normal;font-size:11.5px;font-weight:800;color:#fff;background:var(--accent);border-radius:5px;padding:1px 6px}
+.pf textarea{font-family:inherit;font-size:15px;line-height:1.6;min-height:52px;resize:vertical}
+.pf.need textarea{border-color:var(--accent)}
+.pmore{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.pmore > b{font-size:14px;color:var(--ink)}
+.padvice{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:4px;font-size:14px;line-height:1.6}
+.padvice li{padding-left:22px;position:relative;color:var(--text)}
+.padvice li::before{position:absolute;left:0;top:0;font-weight:800}
+.padvice li.ok::before{content:"✓";color:#1d7a43}
+.padvice li.mid::before{content:"△";color:#b07d00}
+.padvice li.no::before{content:"!";color:#b42318}
+#pOut{font-size:14.5px}

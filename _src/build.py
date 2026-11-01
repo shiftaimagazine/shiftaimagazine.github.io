@@ -274,7 +274,10 @@ PAGES.remove('/404-tmp/')
 # 무료 도구: 목록 + 도구마다 한 페이지(검색 노출용 설명·구조화 데이터)
 TOOLS = D.get('TOOLS', [])
 TOOL_PAGES = {'redact': ('개인정보 자동 가리기 — 주민번호·전화번호·카드번호 한 번에 가리고 AI에 올리기 (무료) · SHIFT AI', 'redact.js'),
-              'ai-cost': ('AI 요금 계산기 — 챗GPT·클로드·제미나이 API 한 달 비용 원화로 비교 (무료) · SHIFT AI', 'ai-cost.js')}
+              'ai-cost': ('AI 요금 계산기 — 챗GPT·클로드·제미나이 API 한 달 비용 원화로 비교 (무료) · SHIFT AI', 'ai-cost.js'),
+              'ocr': ('사진 속 글자 뽑기 — 캡처·문서 사진 한국어 글자 인식(OCR) 무료, 사진은 내 PC에서만 · SHIFT AI', 'ocr.js'),
+              'ai-tell': ('AI 티 검사기 — AI가 쓴 것 같은 표현·문장 버릇 찾아 고치기 (무료) · SHIFT AI', 'ai-tell.js'),
+              'prompt': ('프롬프트 만들기 — 7칸만 채우면 완성되는 챗GPT·클로드·제미나이 프롬프트 (무료) · SHIFT AI', 'prompt.js')}
 for t in TOOLS:
     if t['id'] not in TOOL_PAGES or not os.path.exists(SRC + f"views/tool-{t['id']}.html"): continue
     title, js = TOOL_PAGES[t['id']]
