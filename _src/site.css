@@ -962,3 +962,8 @@ mark.lv2,.akey.lv2{background:#FFF3C4;box-shadow:inset 0 -2px 0 #c9a227}
   .tcard,.dcard{padding:18px 16px}
   .tbadges span{border-radius:12px;text-wrap:balance}
 }
+
+/* 휴대폰이 PC 화면(데스크톱 사이트)으로 연 경우 알림(11/3~). --z = 화면 확대 비율(app.js가 넣음)이라 줄어든 화면에서도 읽힌다 */
+.pdnote{--z:1;position:relative;z-index:6;display:flex;gap:calc(12px*var(--z));align-items:center;background:var(--brand);color:#0a0a0a;font-size:calc(15px*var(--z));line-height:1.5;padding:calc(12px*var(--z)) calc(16px*var(--z));margin-left:calc(-1*var(--gl));margin-right:calc(-1*var(--gr))}
+.pdnote p{margin:0;flex:1;word-break:keep-all}
+.pdnote button{flex:none;font-size:inherit;font-weight:700;border:0;border-radius:calc(8px*var(--z));background:#0a0a0a;color:#fff;padding:calc(8px*var(--z)) calc(14px*var(--z));cursor:pointer}
