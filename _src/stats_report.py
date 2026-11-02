@@ -82,7 +82,8 @@ try:
     if MORE: say('(경로가 100개를 넘어 상위 100개만 셌습니다: ' + ', '.join(MORE) + ')')
     sizes = api('/stats/sizes', **rng(cur)).get('stats') or []
     st = sum(s.get('count', 0) for s in sizes) or 1
-    say('== 화면 크기: ' + ' · '.join(f'{s.get("name") or "?"} {s.get("count", 0) * 100 / st:.0f}%' for s in sizes))
+    SZ = {'phone': '휴대폰', 'largephone': '큰 휴대폰·작은 태블릿', 'tablet': '태블릿·작은 노트북', 'desktop': '컴퓨터', 'desktophd': '큰 모니터', 'unknown': '알 수 없음'}
+    say('== 화면 크기: ' + ' · '.join(f'{SZ.get(s.get("id") or "", s.get("name") or s.get("id") or "?")} {s.get("count", 0) * 100 / st:.0f}%' for s in sizes if s.get('count')))
 except Exception as e:
     say(f'통계를 읽지 못했습니다: {e}')
 open(OUT, 'w').write('\n'.join(lines) + '\n')
