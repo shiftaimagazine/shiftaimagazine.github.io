@@ -23,7 +23,7 @@ for f, w in [('news/alternatives.json', '/tools/free-alternatives/'), ('news/ai_
 def check(u):
     try:
         r = requests.head(u, headers=UA, timeout=20, allow_redirects=True)
-        if r.status_code in (403, 405, 400, 501) or r.status_code >= 500:  # HEAD 를 막는 사이트는 GET 으로 다시
+        if r.status_code in (400, 403, 404, 405, 410, 501) or r.status_code >= 500:  # HEAD 를 막거나 HEAD 에만 404 를 주는 사이트는 GET 으로 다시
             r = requests.get(u, headers=UA, timeout=25, allow_redirects=True, stream=True); r.close()
         return u, r.status_code, ''
     except requests.exceptions.ConnectionError as e:

@@ -464,11 +464,12 @@ for pr in VS['pairs']:
             f'    <p>이 비교는 {ck} 각 사 공식 요금 페이지 기준입니다. 네 회사 모두 올해 한 번 이상 요금제를 바꿨고 무료 한도는 숫자 없이 수시로 조정됩니다. 결제하기 전에 각 사 요금 페이지에서 원화 금액과 세금 포함 여부를 한 번 더 확인하세요.</p>\n'
             f'    <ul class="plain"><li><a href="{VS["column"]}">챗GPT·클로드·제미나이·그록 요금제 비교 (네 서비스 한 번에)</a></li><li><a href="{X["fam"]}">{esc(xn)} 서비스 한 번에 정리</a></li><li><a href="{Y["fam"]}">{esc(yn)} 서비스 한 번에 정리</a></li><li><a href="/dict/{X["dict"]}/">{esc(xn)} 최신 소식</a> · <a href="/dict/{Y["dict"]}/">{esc(yn)} 최신 소식</a></li></ul>\n'
             f'  </div>\n'
+            f'  {upd_box(u)}'
             f'  <nav class="trel" aria-label="다른 비교"><h2>다른 비교</h2><div class="trel-tools">{oth}</div></nav>\n'
             f'</article></main>')
     title = f"{xn} vs {yn} 비교 — 요금·무료로 되는 것·맞는 사람 ({int(VS['checked'][5:7])}월 기준) · SHIFT AI"
     ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': f"{xn} vs {yn} 비교", 'description': pr['deck'], 'image': [f'{SITE}/{_vsog}'],
-          'datePublished': kst('2026-11-02'), 'dateModified': kst('2026-11-02'), 'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko',
+          'datePublished': kst('2026-11-02'), 'dateModified': modd(u, '2026-11-02'), 'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko',
           'about': [{'@type': 'SoftwareApplication', 'name': xn, 'applicationCategory': 'AI 챗봇'}, {'@type': 'SoftwareApplication', 'name': yn, 'applicationCategory': 'AI 챗봇'}]}
     fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub(r'href="/', f'href="{SITE}/', a)}} for q, a in qa]}
     page(u, 'vs-' + pr['id'], title, pr['deck'], main, _vsog, 'article', LD(ld, crumbs(('AI 서비스 비교', '/vs/'), (f"{xn} vs {yn}", u)), fq))
