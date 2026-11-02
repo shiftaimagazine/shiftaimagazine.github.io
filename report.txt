@@ -1,0 +1,77 @@
+링크 점검: 바깥 링크 290개 · 끊김 1 · 확인 필요 35
+
+== 끊김 (고쳐야 함)
+404  https://kdenlive.org/en/about/
+    쓰는 곳: /tools/free-alternatives/
+
+== 확인 필요 (봇을 막는 사이트일 수 있음 — 브라우저로 열어 확인)
+403  https://chatgpt.com/download
+    쓰는 곳: /tools/free-alternatives/
+403  https://chatgpt.com/ko-KR/pricing/
+    쓰는 곳: /tools/free-alternatives/
+403  https://chatgpt.com/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://help.openai.com/en/articles/20001047-ads-in-chatgpt
+    쓰는 곳: /news/2026-10-21-chatgpt-ads-89-countries/
+403  https://help.openai.com/en/articles/7730893-data-controls-faq
+    쓰는 곳: /tutorial/privacy-settings/, /tutorial/redact-before-upload/
+403  https://help.openai.com/en/articles/8914046-temporary-chat-faq
+    쓰는 곳: /tutorial/privacy-settings/
+403  https://ideogram.ai/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://inkscape.org/
+    쓰는 곳: /tools/free-alternatives/
+403  https://inkscape.org/about/
+    쓰는 곳: /tools/free-alternatives/
+403  https://inkscape.org/learn/faq/
+    쓰는 곳: /tools/free-alternatives/
+403  https://openai.com/index/chatgpt-ads-expands-26-new-countries/
+    쓰는 곳: /news/2026-10-21-chatgpt-ads-89-countries/
+403  https://openai.com/index/decisions-api
+    쓰는 곳: /news/2026-10-22-openai-decisions-api/
+403  https://openai.com/index/introducing-gpt-6-1-terra/
+    쓰는 곳: /news/2026-10-27-gpt-6-1-terra/
+403  https://openai.com/index/low-resource-programming-languages
+    쓰는 곳: /news/2026-10-19-openai-low-resource-languages/
+403  https://openai.com/index/openai-models-google-cloud
+    쓰는 곳: /news/2026-10-21-openai-models-google-cloud/
+403  https://openai.com/index/pacing-model-development-cyber-capabilities/
+    쓰는 곳: /news/2026-10-23-openai-offline-training/
+403  https://openai.com/index/securing-our-frontier-model-training-environment/
+    쓰는 곳: /news/2026-10-23-openai-offline-training/
+연결 실패  https://privacy.kisa.or.kr
+    쓰는 곳: /tutorial/crosscheck-prompts/
+403  https://www.adobe.com/express/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/acrobat/acrobat-pro.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/express/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/aftereffects.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/audition.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/illustrator.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/photoshop-lightroom.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/photoshop.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/premiere.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/products/firefly/plans.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/download/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/draw/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/pro/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/newsroom/news/canva-craft/
+    쓰는 곳: /news/2026-10-22-canva-craft/
+403  https://www.midjourney.com/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm
+    쓰는 곳: /news/2026-10-27-anthropic-s1-ipo/
