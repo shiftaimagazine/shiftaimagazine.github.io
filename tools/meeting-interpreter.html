@@ -107,16 +107,16 @@ h1{font-size:1.02rem;margin:0 auto 0 0;font-weight:700;letter-spacing:-.01em;dis
 
   <main class="feed" id="feed" aria-live="polite">
     <section class="guide" id="guide">
-      <h2>영어·중국어·일본어·프랑스어를 한국어 자막으로 바꿔 드려요</h2>
-      <p>Zoom, 유튜브, 강의 등 컴퓨터에서 나는 외국어를 받아 적고 바로 번역해요. 설치나 가입 없이 무료예요.</p>
+      <h2>영어·중국어·일본어·프랑스어를 한국어 자막으로 바꿔 드립니다</h2>
+      <p>Zoom, 유튜브, 강의 등 컴퓨터에서 나는 외국어를 받아 적고 바로 번역합니다. 설치나 가입 없이 무료입니다.</p>
       <ol class="steps">
-        <li><span class="n">1</span><div>위쪽 <b>들리는 말</b>에서 언어를 고르고 <b>듣기 시작</b>을 눌러요.</div></li>
-        <li><span class="n">2</span><div>뜨는 창에서 <b>전체 화면</b> 탭을 누르고 화면을 골라요.</div></li>
-        <li><span class="n">3</span><div>창 아래쪽 <b>시스템 오디오도 공유</b>를 켜고 <b>공유</b>를 눌러요. 이걸 켜야 소리가 들어와요.
+        <li><span class="n">1</span><div>위쪽 <b>들리는 말</b>에서 언어를 고르고 <b>듣기 시작</b>을 누릅니다.</div></li>
+        <li><span class="n">2</span><div>뜨는 창에서 <b>전체 화면</b> 탭을 누르고 화면을 고릅니다.</div></li>
+        <li><span class="n">3</span><div>창 아래쪽 <b>시스템 오디오도 공유</b>를 켜고 <b>공유</b>를 누릅니다. 이걸 켜야 소리가 들어옵니다.
           <div class="mock" aria-hidden="true"><span class="toggle"></span>시스템 오디오도 공유</div></div></li>
-        <li><span class="n">4</span><div>말소리가 들리면 자막이 떠요. <b>떠 있는 자막</b>을 누르면 다른 창 위에 작은 자막 창을 띄울 수 있어요.</div></li>
+        <li><span class="n">4</span><div>말소리가 들리면 자막이 뜹니다. <b>떠 있는 자막</b>을 누르면 다른 창 위에 작은 자막 창을 띄울 수 있습니다.</div></li>
       </ol>
-      <p class="req" id="req">윈도우 PC의 최신 크롬에서 열어 주세요. 처음 한 번은 번역 파일을 내려받느라 몇 초 걸릴 수 있어요. 받아 적기는 크롬 음성 인식(구글 서버)으로, 번역은 내 컴퓨터 안에서 처리돼요.</p>
+      <p class="req" id="req">윈도우 PC의 최신 크롬에서 열어 주세요. 처음 한 번은 번역 파일을 내려받느라 몇 초 걸릴 수 있습니다. 받아 적기는 크롬 음성 인식(구글 서버)으로, 번역은 내 컴퓨터 안에서 처리됩니다.</p>
     </section>
     <div id="lines"></div>
     <div class="interim" id="interim" hidden><span class="ko" id="iKo"></span><span class="en" id="iEn"></span></div>
@@ -139,10 +139,10 @@ function status(on,t){ $("status").dataset.on=String(on); $("statusText").textCo
 var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 var chromeVer=(function(){ var m=navigator.userAgent.match(/Chrome\/(\d+)/); return m?+m[1]:0; })();
 function envProblem(){
-  if(!SR||!navigator.mediaDevices||!navigator.mediaDevices.getDisplayMedia) return "크롬에서 열어 주세요. 이 브라우저는 소리 받아 적기를 지원하지 않아요.";
-  if(/Android|iPhone|iPad/i.test(navigator.userAgent)) return "휴대폰에서는 쓸 수 없어요. PC의 크롬에서 열어 주세요.";
-  if(chromeVer && chromeVer<138) return "크롬이 오래된 버전("+chromeVer+")이에요. 주소창에 chrome://settings/help 를 입력해 업데이트한 뒤 다시 열어 주세요.";
-  if(!("Translator" in self)) return "이 크롬에서는 내장 번역을 쓸 수 없어요. 크롬을 최신 버전으로 업데이트해 주세요.";
+  if(!SR||!navigator.mediaDevices||!navigator.mediaDevices.getDisplayMedia) return "크롬에서 열어 주세요. 이 브라우저는 소리 받아 적기를 지원하지 않습니다.";
+  if(/Android|iPhone|iPad/i.test(navigator.userAgent)) return "휴대폰에서는 쓸 수 없습니다. PC의 크롬에서 열어 주세요.";
+  if(chromeVer && chromeVer<138) return "크롬이 오래된 버전("+chromeVer+")입니다. 주소창에 chrome://settings/help 를 입력해 업데이트한 뒤 다시 열어 주세요.";
+  if(!("Translator" in self)) return "이 크롬에서는 내장 번역을 쓸 수 없습니다. 크롬을 최신 버전으로 업데이트해 주세요.";
   return "";
 }
 var problem=envProblem();
@@ -175,7 +175,7 @@ function getTranslator(){
   trLoading[l]=self.Translator.create({ sourceLanguage:l, targetLanguage:"ko", monitor:function(m){
     m.addEventListener("downloadprogress", function(e){ status(running, LANGS[l].name+" 번역 준비 중 "+Math.round((e.loaded||0)*100)+"%"); });
   }}).then(function(t){ translators[l]=t; if(running) status(true,"듣는 중"); return t; })
-    .catch(function(){ trLoading[l]=null; msg(LANGS[l].name+" 번역 기능을 준비하지 못했어요. 인터넷 연결을 확인하고 크롬을 업데이트한 뒤 다시 시도해 주세요."); return null; });
+    .catch(function(){ trLoading[l]=null; msg(LANGS[l].name+" 번역 기능을 준비하지 못했습니다. 인터넷 연결을 확인하고 크롬을 업데이트한 뒤 다시 시도해 주세요."); return null; });
   return trLoading[l];
 }
 
@@ -285,14 +285,14 @@ function startRec(){
   };
   r.onerror=function(e){
     if(e.error==="no-speech"||e.error==="aborted") return;
-    if(e.error==="network"){ fails++; if(fails>2) msg("음성 인식 서버에 연결이 안 돼요. 인터넷 연결을 확인해 주세요. 계속 다시 시도하고 있어요."); }
-    else if(e.error==="not-allowed"||e.error==="service-not-allowed"){ msg("크롬이 음성 인식을 막았어요. 크롬에서 이 파일을 열었는지 확인해 주세요."); stop(); }
-    else if(e.error==="language-not-supported"){ msg(LANGS[lang].name+" 음성 인식을 쓸 수 없어요. 크롬을 업데이트해 주세요."); stop(); }
+    if(e.error==="network"){ fails++; if(fails>2) msg("음성 인식 서버에 연결되지 않습니다. 인터넷 연결을 확인해 주세요. 계속 다시 시도하고 있습니다."); }
+    else if(e.error==="not-allowed"||e.error==="service-not-allowed"){ msg("크롬이 음성 인식을 막았습니다. 크롬에서 이 파일을 열었는지 확인해 주세요."); stop(); }
+    else if(e.error==="language-not-supported"){ msg(LANGS[lang].name+" 음성 인식을 쓸 수 없습니다. 크롬을 업데이트해 주세요."); stop(); }
   };
   r.onend=function(){ if(running){ clearTimeout(restartT); restartT=setTimeout(startRec, fails?1000:120); } };
   rec=r;
   try{ r.start(track); }
-  catch(err){ msg("이 크롬은 공유한 소리를 받아 적지 못해요. 크롬을 최신 버전으로 업데이트해 주세요 (주소창에 chrome://settings/help)."); stop(); }
+  catch(err){ msg("이 크롬은 공유한 소리를 받아 적지 못합니다. 크롬을 최신 버전으로 업데이트해 주세요 (주소창에 chrome://settings/help)."); stop(); }
 }
 function start(){
   problem=envProblem();
@@ -305,7 +305,7 @@ function start(){
     systemAudio:"include", selfBrowserSurface:"exclude", monitorTypeSurfaces:"include", surfaceSwitching:"include"
   }).then(function(s){
     var a=s.getAudioTracks()[0];
-    if(!a){ s.getTracks().forEach(function(t){ t.stop(); }); msg("소리가 공유되지 않았어요. 다시 듣기 시작을 누르고, 공유 창 아래쪽 '시스템 오디오도 공유'를 켜 주세요."); return; }
+    if(!a){ s.getTracks().forEach(function(t){ t.stop(); }); msg("소리가 공유되지 않았습니다. 다시 듣기 시작을 누르고, 공유 창 아래쪽 '시스템 오디오도 공유'를 켜 주세요."); return; }
     stream=s; track=a; running=true; fails=0;
     s.getVideoTracks().forEach(function(v){ v.enabled=false; v.addEventListener("ended", stop); });
     a.addEventListener("ended", stop);
@@ -313,8 +313,8 @@ function start(){
     status(true, translators[lang]?"듣는 중":"번역 준비 중");
     startRec();
   }).catch(function(e){
-    if(e&&e.name==="NotAllowedError") msg("공유를 취소했어요. 다시 듣기 시작을 눌러 주세요.", true);
-    else msg("화면 공유를 시작하지 못했어요. 크롬을 최신 버전으로 업데이트해 주세요.");
+    if(e&&e.name==="NotAllowedError") msg("공유를 취소했습니다. 다시 듣기 시작을 눌러 주세요.", true);
+    else msg("화면 공유를 시작하지 못했습니다. 크롬을 최신 버전으로 업데이트해 주세요.");
   });
 }
 function stop(){
@@ -344,7 +344,7 @@ $("pipBtn").onclick=function(){
     w.addEventListener("pagehide", function(){ pipWin=null; $("pipBtn").textContent="떠 있는 자막"; });
     $("pipBtn").textContent="떠 있는 자막 닫기";
     pip();
-  }).catch(function(){ msg("떠 있는 자막 창을 열지 못했어요."); });
+  }).catch(function(){ msg("떠 있는 자막 창을 열지 못했습니다."); });
 };
 function pip(){
   if(!pipWin) return;
@@ -354,7 +354,7 @@ function pip(){
     var a=d.createElement("div"); a.className="k"; a.style.fontSize=k; a.textContent=ko||"…";
     var c=d.createElement("div"); c.className="e"; c.style.fontSize=e; c.textContent=en; r.append(a,c); b.append(r); }
   var last=lines.slice(interimText?-1:-2);
-  if(!last.length&&!interimText){ var w=d.createElement("div"); w.className="w"; w.textContent=running?LANGS[lang].name+"가 들리면 여기에 떠요":"본 창에서 듣기 시작을 눌러 주세요"; b.append(w); return; }
+  if(!last.length&&!interimText){ var w=d.createElement("div"); w.className="w"; w.textContent=running?LANGS[lang].name+"가 들리면 여기에 뜹니다":"본 창에서 듣기 시작을 눌러 주세요"; b.append(w); return; }
   last.forEach(function(l){ row(l.ko,l.en); });
   if(interimText) row($("iKo").textContent, interimText, "i");
 }

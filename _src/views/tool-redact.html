@@ -3,7 +3,7 @@
   <a class="back" href="/tools/">← 무료 도구</a>
   <span class="cat">무료 도구 · 개인정보</span>
   <h1>개인정보 자동 가리기</h1>
-  <p class="deck">글이나 엑셀 표를 붙여 넣으면 주민등록번호·전화번호·이메일·카드번호 같은 개인정보를 찾아서 가립니다. 회사 자료를 AI에 올리기 전에 한 번 돌려 보세요.</p>
+  <p class="deck">글이나 엑셀 표를 붙여 넣으면 주민등록번호·전화번호·이메일·카드번호 같은 개인정보를 찾아 자동으로 가립니다(마스킹). 회사 자료를 AI에 올리기 전에 한 번 돌려 보세요.</p>
   <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>내 브라우저 안에서만 처리 · 어디에도 보내지 않음</span></div>
 
   <section class="tstep">
@@ -38,7 +38,7 @@
     <div class="rsum" id="rSum" aria-live="polite">글을 넣으면 찾은 개인정보가 여기에 표시됩니다.</div>
     <div class="rprev" id="rPrev" aria-label="찾은 곳 미리 보기"></div>
     <label class="sr" for="rOut">가린 결과</label>
-    <textarea id="rOut" rows="9" spellcheck="false" readonly placeholder="가린 결과가 여기에 나온다"></textarea>
+    <textarea id="rOut" rows="9" spellcheck="false" readonly placeholder="가린 결과가 여기에 나옵니다"></textarea>
     <div class="trow">
       <button class="btn" type="button" id="rCopy">결과 복사</button>
       <button class="ghost" type="button" id="rDown">파일로 저장</button>
@@ -68,5 +68,13 @@
     </ul>
     <p>함께 읽기: <a href="/tutorial/redact-before-upload/">회사 엑셀, 개인정보 가리고 AI에 올리는 3단계와 프롬프트 9개</a></p>
   </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>어떤 개인정보를 찾아 가리나요?</summary><p>주민등록번호·외국인등록번호, 전화번호, 이메일, 카드번호, 계좌번호, 사업자등록번호, 여권번호, 운전면허번호, IP 주소를 찾습니다. 이름·회사명·주소처럼 모양이 정해지지 않은 정보는 '직접 가릴 말'에 넣어야 가려집니다.</p></details>
+    <details><summary>넣은 글이 서버로 가나요?</summary><p>가지 않습니다. 찾고 가리는 일은 모두 브라우저 안에서 하고, 글은 어디에도 보내지 않습니다.</p></details>
+    <details><summary>엑셀 파일도 되나요?</summary><p>.xlsx 파일을 바로 열지는 못합니다. 엑셀에서 표를 복사해 붙여 넣으면 칸이 유지된 채로 가려지고, 결과를 다시 엑셀에 붙여 넣으면 됩니다. .csv·.tsv·.txt 파일은 '파일 열기'로 바로 엽니다.</p></details>
+    <details><summary>가린 값을 원래대로 되돌릴 수 있나요?</summary><p>'이름표로 바꾸기'를 고르면 됩니다. AI 답에 [전화번호1] 같은 이름표가 남아 있으면 4번 칸에 붙여 넣어 원래 값으로 바꿉니다. 이름표와 원래 값의 짝은 이 탭에만 있어서 창을 닫으면 사라집니다.</p></details>
+    <details><summary>자동으로 빠짐없이 찾아 주나요?</summary><p>빠짐없이 찾는다고 장담할 수 없습니다. 정해진 모양에서 벗어난 번호는 놓칠 수 있으니, AI에 올리기 전에 결과를 한 번 더 눈으로 확인하세요.</p></details>
+  </section>
 </article>
 </main>

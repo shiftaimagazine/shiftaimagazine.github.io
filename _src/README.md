@@ -28,7 +28,7 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
 ## 규칙
 - 언론사 기사는 출처로 안 씀. AI 생성 이미지 안 씀. 사진마다 출처 표기.
 - 주소: /news/<기사 id>/, /tutorial/<id에서 t- 뺀 것>/, /column/<id에서 c- 뺀 것>/, /daily/<날짜>/
-- 무료 도구: 목록 `news/tools.json`(첫 화면·/tools/), 화면 `views/tool-<id>.html`, 동작 `widgets/<id>.js`(→ assets/), 페이지 제목은 build.py TOOL_PAGES. 개인정보 가리기(/tools/redact/)·AI 요금 계산기(/tools/ai-cost/, 가격 `news/ai_prices.json` — 공식 가격표에서 확인한 값만, 기준일·환율 출처 필수, 예정된 인상은 changes)
+- 무료 도구: 목록 `news/tools.json`(첫 화면·/tools/), 화면 `views/tool-<id>.html`, 동작 `widgets/<id>.js`(→ assets/), 페이지 제목·검색 설명·다른 이름·기능 목록은 build.py TOOL_SEO(11/2~, 사람들이 검색하는 이름: 이미지 텍스트 추출·개인정보 마스킹·프롬프트 생성기 …). 자주 묻는 질문은 화면의 `<section class="tfaq">` 에 쓰면 build.py 가 읽어 FAQPage 로도 낸다. 페이지 끝 '함께 보면 좋은 글'은 tools.json rel(사이트 안 주소 또는 'dict:용어'), '다른 무료 도구'는 자동. 사이트맵 날짜는 tools.json mod(없으면 date). 썸네일·공유 이미지는 실제 도구 화면을 찍어 노란 바탕 카드로 얹은 것 — tools.json cover{t, line}(\n 줄바꿈 가능)을 고치고 `python3 _src/tool_thumbs.py [id…]`(빌드 뒤, 저장소 루트). 회의 통역창은 소개 페이지 /tools/interpreter/ 와 실제 창 /tools/meeting-interpreter.html(noindex) 둘. 개인정보 가리기(/tools/redact/)·AI 요금 계산기(/tools/ai-cost/, 가격 `news/ai_prices.json` — 공식 가격표에서 확인한 값만, 기준일·환율 출처 필수, 예정된 인상은 changes)
 - 검색: /search/?q=검색어 (기사·칼럼·데일리 이슈·튜토리얼·AI 사전 한 번에, 브라우저 안에서 data.js 로 찾음, 색인 제외). 위쪽 검색칸·휴대폰 검색 버튼이 이리로 온다. 예전 /news/?q= 는 여기로 넘김. AI 사전은 자체 검색칸(/dict/?t=용어)
 - 뉴스레터는 없앰(10/26). 대신 인스타그램·유튜브·쓰레드 팔로우 상자. 개인정보처리방침은 views/privacy.html
 - 위쪽 메뉴 순서 = 첫 화면 순서: 데일리 이슈 · AI 뉴스(칼럼 포함) · 튜토리얼 · AI 사전 · 소개

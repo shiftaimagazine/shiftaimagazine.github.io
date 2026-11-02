@@ -387,7 +387,7 @@ document.addEventListener("click",e=>{
 });
 let toastT; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),1600);}
 
-const NAV = r=>r.startsWith("w-")?"dict":r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"news":r.startsWith("d-")?"daily":r;
+const NAV = r=>r.startsWith("tool-")?"tools":r.startsWith("w-")?"dict":r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"news":r.startsWith("d-")?"daily":r;
 // 옛 해시 주소(#a-… 등)로 들어오면 새 주소로 보낸다
 (function(){ const h=location.hash.slice(1); if(!h) return;
   if(h==="reel") return location.replace("/?from=reels");

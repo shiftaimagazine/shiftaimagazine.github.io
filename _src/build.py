@@ -178,7 +178,7 @@ LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 
          'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.'),
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에 모았습니다. 제목 한 줄과 요점 세 줄, 소식 목록과 숫자를 한 번에 봅니다.'),
          'dict': ('AI 사전 — AI 용어 뜻 쉽게 풀이', f'AI 용어 {len(TERMS)}개의 뜻을 쉬운 말로 풀었습니다. 에이전트·RAG·MCP·토큰 같은 AI 용어부터 API·GPU 같은 IT 용어, 클로드·챗GPT·제미나이 같은 제품 이름까지 관련 기사와 함께 봅니다.'),
-         'tools': ('무료 AI 도구 — 설치·가입 없이 브라우저에서 바로', '개인정보 자동 가리기, AI 요금 계산기, 무료 실시간 크롬 번역처럼 돈 내고 쓰던 기능을 설치 없이 브라우저에서 바로 씁니다. 넣은 파일은 어디에도 보내지 않습니다.'),
+         'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", '이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 확인하고 써 볼 만한지 판정하는 AI 매거진입니다.'),
          'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
 LIST_NAME = {'news': 'AI 뉴스', 'tutorial': '튜토리얼', 'daily': '데일리 이슈', 'dict': 'AI 사전', 'tools': '무료 도구', 'about': '소개', 'privacy': '개인정보처리방침'}
@@ -187,6 +187,8 @@ for r, (t, ds) in LISTS.items():
     xs = [crumbs((LIST_NAME[r], f'/{r}/'))]
     if r == 'dict': xs.append({'@context': 'https://schema.org', **TERMSET, 'description': ds,
                                'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': x['t'], 'url': f"{SITE}/dict/{x['s']}/"} for x in TERMS]})
+    if r == 'tools': xs.append({'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'SHIFT AI 무료 AI 도구',
+                                'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + x['href'], 'name': x['title']} for i, x in enumerate(D.get('TOOLS', []))]})
     if r == 'about': xs.append({'@context': 'https://schema.org', '@type': 'AboutPage', 'name': 'SHIFT AI 소개', 'url': SITE + '/about/', 'about': {k: v for k, v in PUBLISHER.items()}})
     page(f'/{r}/', r, f'{t} · SHIFT AI', ds, STATIC[r], OG_SITE, 'website', LD(*xs))
 
@@ -273,19 +275,74 @@ page('/404-tmp/', '404', '페이지를 찾을 수 없습니다 · SHIFT AI', 'SH
 PAGES.remove('/404-tmp/')
 # 무료 도구: 목록 + 도구마다 한 페이지(검색 노출용 설명·구조화 데이터)
 TOOLS = D.get('TOOLS', [])
-TOOL_PAGES = {'redact': ('개인정보 자동 가리기 — 주민번호·전화번호·카드번호 한 번에 가리고 AI에 올리기 (무료) · SHIFT AI', 'redact.js'),
-              'ai-cost': ('AI 요금 계산기 — 챗GPT·클로드·제미나이 API 한 달 비용 원화로 비교 (무료) · SHIFT AI', 'ai-cost.js'),
-              'ocr': ('사진 속 글자 뽑기 — 캡처·문서 사진 한국어 글자 인식(OCR) 무료, 사진은 내 PC에서만 · SHIFT AI', 'ocr.js'),
-              'ai-tell': ('AI 티 검사기 — AI가 쓴 것 같은 표현·문장 버릇 찾아 고치기 (무료) · SHIFT AI', 'ai-tell.js'),
-              'prompt': ('프롬프트 만들기 — 7칸만 채우면 완성되는 챗GPT·클로드·제미나이 프롬프트 (무료) · SHIFT AI', 'prompt.js')}
+# 검색 노출(11/2): 도구마다 사람들이 실제로 검색하는 이름(이미지 텍스트 추출, 개인정보 마스킹, 프롬프트 생성기 …)을 제목·설명·다른 이름에 넣는다.
+#  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
+_NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
+TOOL_SEO = {
+    'ocr': dict(js='ocr.js', title='이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR)',
+                desc='사진이나 화면 캡처 속 글자를 복사할 수 있는 텍스트로 바꿉니다. 한국어와 영어를 함께 읽는 무료 OCR이고 가입·설치 없이 브라우저에서 바로 씁니다. 사진은 서버로 올리지 않고 내 컴퓨터 안에서만 읽습니다.',
+                alt=['이미지 텍스트 추출', '사진 글자 추출', '한국어 OCR', '이미지 글자 인식'],
+                feat=['한국어·영어 글자 인식(OCR)', '화면 캡처 바로 붙여 넣기', '한 번에 사진 12장까지', '확신도가 낮은 글자 따로 표시', '텍스트 파일로 저장', 'AI에 정리 맡기는 프롬프트 복사']),
+    'ai-tell': dict(js='ai-tell.js', title='AI 티 검사기 — 챗GPT가 쓴 티 나는 표현·문장 찾아 고치기(무료)',
+                desc="글을 붙여 넣으면 '핵심은', 'A가 아니라 B' 같은 AI 글 버릇 40여 가지를 찾아 색으로 표시하고 고치는 법을 알려 줍니다. 자기소개서·보고서·블로그 글에 쓸 수 있고, 글은 어디에도 보내지 않습니다.",
+                alt=['AI 글 티 검사', 'GPT 티 검사기', 'AI 문체 검사'],
+                feat=['AI 글 버릇 40여 가지 검사', '표시한 곳마다 이유와 고치는 법', '꼭 고칠 것·많으면 고칠 것 두 단계 표시', 'AI에게 고쳐 달라는 프롬프트 복사']),
+    'prompt': dict(js='prompt.js', title='프롬프트 생성기 무료 — 7칸 채우면 완성되는 챗GPT·클로드·제미나이 프롬프트',
+                desc='역할·맥락·자료·할 일·조건·답 형식·확인 방법 일곱 칸을 채우면 챗GPT·클로드·제미나이에 바로 붙여 넣을 프롬프트를 만들어 줍니다. 메일 답장·회의록·요약·이력서 검토 등 상황 예시 10가지와 XML 태그형도 있습니다.',
+                alt=['프롬프트 생성기', '챗GPT 프롬프트 만들기', '프롬프트 템플릿'],
+                feat=['역할·맥락·자료·할 일·조건·답 형식·확인 일곱 칸', '상황 예시 10가지', '기본형·XML 태그형', '함께 넣을 부탁 고르기', '이 브라우저에 임시 저장']),
+    'redact': dict(js='redact.js', title='개인정보 마스킹 무료 — 주민번호·전화번호·카드번호 자동 가리기',
+                desc='글이나 엑셀 표 속 주민등록번호·전화번호·이메일·카드번호·계좌번호를 찾아 [전화번호1]처럼 가립니다. AI 답을 원래 값으로 되돌릴 수 있고, 모든 처리는 브라우저 안에서만 합니다. 회사 자료를 AI에 올리기 전에 쓰세요.',
+                alt=['개인정보 마스킹', '개인정보 비식별화 도구', '주민번호 가리기'],
+                feat=['주민등록번호·외국인등록번호·전화번호·이메일·카드번호·계좌번호·사업자등록번호·여권번호·운전면허번호·IP 주소 찾기', '이름표·●·일부만 가리기 세 가지 방식', '직접 가릴 말 넣기', 'AI 답을 원래 값으로 되돌리기', '엑셀 표 붙여 넣기']),
+    'ai-cost': dict(js='ai-cost.js', title='AI API 요금 계산기 — 챗GPT·클로드·제미나이 한 달 비용 원화 비교',
+                desc=f'챗GPT(오픈AI)·클로드·제미나이·그록 API를 쓰면 한 달에 얼마가 드는지 회사별 공식 가격표로 계산해 원화로 비교합니다. 모델 {_NPR}개, 글자 수나 토큰 수와 하루 사용 횟수만 넣으면 됩니다.',
+                alt=['AI API 가격 계산기', '챗GPT API 요금 계산기', '토큰 비용 계산기'],
+                feat=[f'오픈AI·앤트로픽·구글·xAI API 모델 {_NPR}개 비교', '글자 수 또는 토큰 수로 입력', '원화 환산(환율 직접 바꾸기)', '회사별 공식 가격표 링크']),
+    'interpreter': dict(js=None, title='실시간 번역 자막 무료 — 영어 회의·유튜브를 한국어 자막으로(크롬)', os='PC 크롬 138 이상',
+                desc='Zoom 회의, 유튜브, 해외 강의에서 들리는 영어·중국어·일본어·프랑스어를 한국어 자막으로 바로 바꿔 줍니다. PC 크롬만 있으면 설치·가입 없이 무료로 쓰고, 다른 창 위에 떠 있는 자막 창도 띄울 수 있습니다.',
+                alt=['회의 통역창', '실시간 번역 자막', '크롬 실시간 번역'],
+                feat=['영어·중국어·일본어·프랑스어를 한국어 자막으로', '원문 함께 표시', '떠 있는 자막 창', '글자 크기 조절']),
+}
+_tutBy = {f"/tutorial/{t['id'][2:]}/": t['title'] for t in T}
+_colBy = {f"/column/{c['id'][2:]}/": c['title'] for c in C}
+_termBy = {x['t']: x for x in TERMS}
+def rel_item(r):  # tools.json rel: 사이트 안 주소(/tutorial/·/column/·/tools/) 또는 'dict:용어'
+    if r.startswith('dict:'):
+        x = _termBy[r[5:]]; return f"/dict/{x['s']}/", f"{x['t']} 뜻", 'AI 사전'
+    if r in _tutBy: return r, _tutBy[r], '튜토리얼'
+    if r in _colBy: return r, _colBy[r], '칼럼'
+    o = next(x for x in TOOLS if x['href'] == r); return r, o['title'], '무료 도구'
+def faq_of(v):
+    m = re.search(r'<section class="tfaq".*?</section>', v, re.S)
+    if not m: return None
+    qa = re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>', m.group(0), re.S)
+    ab = lambda h: html.unescape(re.sub(r'href="/', f'href="{SITE}/', h))
+    return {'@context': 'https://schema.org', '@type': 'FAQPage',
+            'mainEntity': [{'@type': 'Question', 'name': html.unescape(re.sub('<[^>]+>', '', q)), 'acceptedAnswer': {'@type': 'Answer', 'text': ab(a)}} for q, a in qa]}
 for t in TOOLS:
-    if t['id'] not in TOOL_PAGES or not os.path.exists(SRC + f"views/tool-{t['id']}.html"): continue
-    title, js = TOOL_PAGES[t['id']]
+    sv = SRC + f"views/tool-{t['id']}.html"
+    if t['id'] not in TOOL_SEO or not os.path.exists(sv): continue
+    S = TOOL_SEO[t['id']]; js = S['js']
     og = og_from(t['thumb'], 'tool-' + t['id']) if os.path.exists(OUT + t['thumb']) else OG_SITE
-    ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': t['title'], 'url': SITE + t['href'], 'description': t['desc'], 'applicationCategory': 'UtilitiesApplication', 'operatingSystem': '웹 브라우저', 'inLanguage': 'ko', 'isAccessibleForFree': True,
+    ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': t['title'], 'alternateName': S['alt'], 'url': SITE + t['href'], 'description': S['desc'],
+          'image': f'{SITE}/{og}', 'screenshot': f"{SITE}/{t['thumb']}", 'applicationCategory': 'UtilitiesApplication', 'operatingSystem': S.get('os', '웹 브라우저'),
+          'browserRequirements': S.get('os', 'JavaScript를 켠 최신 브라우저'), 'featureList': S['feat'], 'inLanguage': 'ko', 'isAccessibleForFree': True,
+          'datePublished': t['date'], 'dateModified': t.get('mod') or t['date'],
           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
-    extra = LD(ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))) + f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
-    page(t['href'], 'tool-' + t['id'], title, t['desc'], fix_links(view('tool-' + t['id'])), og, 'website', extra)
+    v = fix_links(view('tool-' + t['id']))
+    # 페이지 끝: 함께 보면 좋은 글 + 다른 무료 도구(사이트 안 링크)
+    rels = [rel_item(r) for r in t.get('rel', [])]
+    others = [o for o in TOOLS if o['id'] != t['id']]
+    nav = ('<nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">\n'
+           + (('  <h2>함께 보면 좋은 글</h2>\n  <ul class="plain">' + ''.join(f'<li><a href="{u}">{esc(n)}</a> <span>{k}</span></li>' for u, n, k in rels) + '</ul>\n') if rels else '')
+           + '  <h2>다른 무료 도구</h2>\n  <div class="trel-tools">' + ''.join(f'<a href="{o["href"]}"><b>{esc(o["title"])}</b><span>{esc(o["desc"])}</span></a>' for o in others) + '</div>\n</nav>\n')
+    assert v.count('</article>') == 1, t['id']
+    v = v.replace('</article>', nav + '</article>')
+    fq = faq_of(v)
+    extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
+    if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
+    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra)
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----
@@ -295,6 +352,8 @@ for t in T: last[f"/tutorial/{t['id'][2:]}/"] = t['date']
 for c in C: last[f"/column/{c['id'][2:]}/"] = c['date']
 for d in DY: last[f"/daily/{d['date']}/"] = d['date']
 last.update(termLast)
+for t in TOOLS: last[t['href']] = t.get('mod') or t['date']
+if TOOLS: last['/tools/'] = max(t.get('mod') or t['date'] for t in TOOLS)
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for p in PAGES:
     if p in ('/privacy/', '/search/'): continue
