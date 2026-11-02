@@ -1,0 +1,46 @@
+SHIFT AI 구글 검색 성과  2026-10-03 ~ 2026-10-30 (28일) · 비교: 2026-09-05 ~ 2026-10-02 · 속성 sc-domain:shiftaimagazine.com
+== 전체: 클릭 2 (전 0, 새로) · 노출 67 (전 0, 새로) · 클릭률 3.0% · 평균 순위 10.3
+
+== 검색어 상위 30 (노출순: 노출 · 클릭 · 클릭률 · 평균 순위)
+       3 ·    0 ·  0.0% ·   7.0  타이니피쉬
+       2 ·    0 ·  0.0% ·  60.5  diffusion model
+       2 ·    0 ·  0.0% ·  10.0  llama 뜻
+       2 ·    0 ·  0.0% ·  10.5  pbc 뜻
+       1 ·    0 ·  0.0% ·  43.0  자기소개서 프롬프트
+       1 ·    0 ·  0.0% ·  81.0  지원자 이력서 평가
+
+== 기회 검색어 (노출 20회 이상, 순위 5~20위, 클릭률 3% 미만 → 제목·설명·내용을 보강하면 클릭이 늘 수 있는 것)
+  (아직 없음)
+
+== 페이지 상위 30 (노출순: 노출 · 클릭 · 지난 28일 대비 노출)
+      11 ·    2 ·     새로  /
+       8 ·    0 ·     새로  /news/2026-10-19-tinyfish-students/
+       7 ·    0 ·     새로  /about/
+       5 ·    0 ·     새로  /news/
+       5 ·    0 ·     새로  /tools/ai-cost/
+       5 ·    0 ·     새로  /tutorial/remotion-motion-video/
+       4 ·    0 ·     새로  /news/2026-10-21-nodejs-security-release/
+       4 ·    0 ·     새로  /tutorial/notebooklm/
+       3 ·    0 ·     새로  /news/2026-10-27-cohere-qwen-exfiltration/
+       2 ·    0 ·     새로  /dict/diffusion-model/
+       2 ·    0 ·     새로  /dict/llama/
+       2 ·    0 ·     새로  /dict/public-benefit-corporation/
+       2 ·    0 ·     새로  /news/2026-10-09-nikon-small-world-in-motion-ai/
+       2 ·    0 ·     새로  /news/2026-10-21-why-ai-text-hard-to-read/
+       2 ·    0 ·     새로  /tools/
+       2 ·    0 ·     새로  /tutorial/resume-review/
+       1 ·    0 ·     새로  /dict/leaderboard/
+       1 ·    0 ·     새로  /news/2026-10-16-google-privacy-personal-intelligence/
+       1 ·    0 ·     새로  /news/2026-10-21-naver-d2sf-traceweave/
+       1 ·    0 ·     새로  /news/2026-10-21-php2shell/
+       1 ·    0 ·     새로  /news/2026-10-22-anthropic-agent-skills-aaif/
+       1 ·    0 ·     새로  /news/2026-10-22-canva-craft/
+       1 ·    0 ·     새로  /news/2026-10-26-text-message-ai-assistants/
+       1 ·    0 ·     새로  /news/2026-10-27-anthropic-s1-ipo/
+       1 ·    0 ·     새로  /news/2026-10-27-gpt-6-1-terra/
+       1 ·    0 ·     새로  /news/2026-10-28-claude-for-nonprofits-plugin/
+       1 ·    0 ·     새로  /tutorial/
+       1 ·    0 ·     새로  /tutorial/presentation/
+       1 ·    0 ·     새로  /tutorial/reels-script/
+
+== 기기: desktop 클릭 2/노출 51 · mobile 클릭 0/노출 16
