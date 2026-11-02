@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=84617d83">
+<link rel="stylesheet" href="/assets/site.css?v=5b0f8e24">
 </head>
 <body data-route="a-2026-10-30-nvidia-nemotron-transcribe" data-pre="1">
 <div class="wrap">
@@ -64,7 +64,7 @@
     <h1>엔비디아 Nemotron 3.5 Transcribe 공개…한국어 포함 40개 언어 받아쓰기</h1><p class="deck">오픈 웨이트 음성 모델 · 1시간 녹음, 화자 8명까지 구분 · 학습 라벨 Granary v2도 공개</p>
     <div class="trynow"><b>오늘 바로 해 볼 것</b><span>허깅페이스의 Nemotron 3.5 Transcribe 데모에 개인정보가 없는 짧은 한국어 녹음을 올려 지금 쓰는 받아쓰기 도구와 결과를 비교해 보세요.</span></div>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.30 06:44</span><span class="dot"></span><span>3분 읽기</span></div>
-    <figure class="lead-fig"><img src="img/ph/2026-10-30-nvidia-nemotron-transcribe.webp" alt="엔비디아 Nemotron 3.5 Transcribe 소개 이미지" loading="lazy"><figcaption>이미지: NVIDIA</figcaption></figure>
+    <figure class="lead-fig"><img src="img/ph/2026-10-30-nvidia-nemotron-transcribe.webp" alt="엔비디아 Nemotron 3.5 Transcribe 소개 이미지" fetchpriority="high"><figcaption>이미지: NVIDIA</figcaption></figure>
     <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>엔비디아(NVIDIA)</td></tr><tr><th>날짜</th><td>2026년 10월 28일(미국 시각)</td></tr><tr><th>무엇</th><td>받아쓰기·번역·화자 구분 오픈 웨이트 음성 모델</td></tr><tr><th>핵심 숫자</th><td>40개 언어, 1시간 녹음, 화자 최대 8명</td></tr><tr><th>라이선스</th><td>OpenMDW-1.1(상업적 이용 가능)</td></tr><tr><th>원문</th><td>허깅페이스 블로그·모델 카드·데이터셋 카드</td></tr></tbody></table></div>
     <div class="box keyp"><b>세 줄 요약</b><ul><li><b>40개 언어 받아쓰기.</b> 한국어는 품질 등급 ‘Leading’</li><li><b>1시간 녹음, 화자 8명.</b> 녹음 파일용이고 실시간 스트리밍용은 아님</li><li><b>Granary v2.</b> 48개 언어, 음성 463,062시간 분량 라벨</li></ul></div>
     <div class="body"><p class="lead">엔비디아(NVIDIA)가 10월 28일(미국 시각) 음성 모델 Nemotron 3.5 Transcribe를 허깅페이스와 모델스코프에 공개했습니다. 녹음된 말의 받아쓰기와 화자 구분, 번역, 녹음 내용에 관한 질문 답변을 모델 하나가 맡습니다. 학습에 쓴 음성 라벨 데이터 Granary v2도 함께 나왔습니다.</p><h3>한국어는 가장 높은 등급에 들어 있습니다</h3><p>모델 카드의 언어 표에서 한국어는 받아쓰기, 영어와 오가는 번역, 여러 화자 받아쓰기, 언어가 섞인 말 받아쓰기에 모두 표시돼 있고 품질 등급은 가장 높은 ‘Leading’입니다. 받아쓰기는 40개 언어, 영어와 오가는 번역은 31개 언어, 화자 구분은 13개 언어에서 됩니다. 녹음 내용 이해와 말로 하는 지시 따르기는 영어로만 평가했다고 모델 카드에 적혀 있습니다.</p><h3>지시문 한 줄로 결과물이 달라집니다</h3><p>같은 회의 녹음이라도 “Transcribe this recording and label each speaker.”라고 지시하면 화자를 붙인 받아쓰기가, “What decisions were made in this meeting?”이라고 물으면 회의에서 정한 일이 나옵니다. 잘 틀리는 전문 용어는 지시문에 후보로 적어 줄 수 있습니다. 엔비디아가 든 의료 녹음 사례에서는 지시문에 영어와 라틴 문자를 적어 준 것만으로 단어 오류율이 30.8%에서 23.8%로 내려갔고 미세 조정까지 하자 11.8%가 됐습니다(자체 발표 기준). 이 미세 조정에는 GB300 GPU 한 장으로 약 14시간이 걸렸습니다.</p><h3>오픈 모델 비교에서 받은 점수</h3><p>영어 받아쓰기 평가의 평균 단어 오류율은 5.33%로 오픈 웨이트 모델 가운데 1위였습니다. 7개 언어 평균은 4.62%, 긴 녹음 평균은 10.98%로 비교한 오픈 모델 중 가장 낮았고 21개 언어 화자 구분 평가에서도 오류율 18.26%로 시스템 14개 가운데 가장 낮았습니다(자체 발표 기준). 전체 파라미터는 300억 개지만 토큰마다 쓰는 것은 약 40억 개입니다. 엔비디아 블랙웰 서버 GPU 한 장으로 100시간 분량 녹음을 3분 안에 처리했는데, 이 측정에는 NVFP4 양자화 버전을 썼습니다.</p><h3>상업적 이용과 학습 데이터</h3><p>모델은 OpenMDW-1.1 라이선스로 공개됐고 모델 카드는 상업적·비상업적 용도 모두에 쓸 수 있다고 적었습니다. 함께 나온 Granary v2는 16개 말뭉치의 음성 463,062시간에 붙인 받아쓰기·번역 라벨로, 1판의 25개 언어에서 48개 언어로 늘었고 한국어도 들어 있습니다. 저장소에는 라벨 목록만 있고 음성 파일은 들어 있지 않습니다. 모델은 녹음 파일을 처리하는 용도여서 실시간 스트리밍 받아쓰기는 지원하지 않습니다.</p></div>
@@ -94,8 +94,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=84617d83"></script>
-<script src="/assets/app.js?v=84617d83"></script>
+<script src="/assets/data.js?v=5b0f8e24"></script>
+<script src="/assets/app.js?v=5b0f8e24"></script>
 
 
 </body></html>

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=84617d83">
+<link rel="stylesheet" href="/assets/site.css?v=5b0f8e24">
 </head>
 <body data-route="a-2026-10-29-google-sleep-continual-learning" data-pre="1">
 <div class="wrap">
@@ -64,7 +64,7 @@
     <h1>구글 리서치, LLM에 ‘수면 단계’ 넣어 새 지식 잊지 않게 하는 방법 공개</h1><p class="deck">깨어 있는 단계와 잠자는 단계를 반복 · 기억 정리와 ‘꿈꾸기’로 망각 줄여</p>
     <div class="trynow"><b>오늘 바로 해 볼 것</b><span>구글 리서치 블로그에서 ‘수면’ 방식의 기억 정리와 꿈꾸기 단계 설명을 읽고, arXiv 논문 2606.03979의 실험 결과 표도 찾아보세요.</span></div>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.29 06:56</span><span class="dot"></span><span>3분 읽기</span></div>
-    <figure class="lead-fig"><img src="img/ph/2026-10-29-google-sleep-continual-learning.webp" alt="구글 리서치 ‘수면 프레임워크’ 블로그 대표 이미지" loading="lazy"><figcaption>이미지: Google Research</figcaption></figure>
+    <figure class="lead-fig"><img src="img/ph/2026-10-29-google-sleep-continual-learning.webp" alt="구글 리서치 ‘수면 프레임워크’ 블로그 대표 이미지" fetchpriority="high"><figcaption>이미지: Google Research</figcaption></figure>
     <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>구글 리서치(Google Research)</td></tr><tr><th>날짜</th><td>2026년 10월 27일(블로그)</td></tr><tr><th>무엇</th><td>지속 학습을 위한 ‘수면’ 프레임워크</td></tr><tr><th>논문</th><td>Language Models Need Sleep(arXiv 2606.03979)</td></tr><tr><th>핵심 숫자</th><td>BABILong 1,000만 토큰까지 거의 완벽(자체 발표 기준)</td></tr><tr><th>원문</th><td>research.google 블로그, arXiv</td></tr></tbody></table></div>
     <div class="box keyp"><b>세 줄 요약</b><ul><li><b>깨어 있을 때.</b> 입력을 처리하며 단기 기억에 임시 저장</li><li><b>잠잘 때.</b> 기억 정리와 ‘꿈꾸기’ 두 단계</li><li><b>실험 결과.</b> BABILong 1,000만 토큰까지 거의 완벽(자체 발표 기준)</li></ul></div>
     <div class="body"><p class="lead">구글 리서치(Google Research)가 10월 27일 블로그에서 대형 언어 모델(LLM)을 주기적으로 ‘재우는’ 학습 방식을 소개했습니다. 쓰이는 동안 받은 정보를 쉬는 시간에 정리하게 해서 새 사실을 익히고도 예전 지식을 덜 잊게 하려는 연구입니다. 논문은 구글 리서치의 알리 베흐루즈(Ali Behrouz), 아델 자바만드(Adel Javanmard), 바합 미르로크니(Vahab Mirrokni)와 코넬대의 파르누시 하셰미(Farnoosh Hashemi)가 함께 썼고 한 버전은 2025년 9월부터 오픈리뷰(OpenReview)에 공개돼 있었습니다.</p><h3>깨어 있는 동안 쌓고 자는 동안 옮깁니다</h3><p>모델은 깨어 있는 단계에서 입력을 받아 처리하고 그때 얻은 정보를 단기 기억에 잠시 담습니다. 잠자는 단계로 넘어가면 새 입력을 받지 않고 내부 계산을 기억 정리와 자기 개선에 씁니다. 연구진이 노린 것은 금방 사라지는 문맥 속 정보를 오래가는 장기 파라미터로 옮기는 일입니다.</p><h3>기억 정리와 꿈꾸기</h3><p>잠은 두 단계로 나뉩니다. 기억 정리 단계에서는 혼합 전문가(MoE) 구조의 용량을 늘린 다음 작은 모델의 지식을 더 큰 신경망으로 옮기는 증류에 강화학습 기반 모방 학습을 더합니다. 이 과정에는 구글이 앞서 발표한 호프(Hope) 구조와 일반화 지식 증류 방법이 쓰입니다. 정리가 끝나면 자주 바뀌는 임시 파라미터를 초기화하는데 연구진은 이를 ‘시냅스 가지치기’라고 부릅니다. 꿈꾸기 단계에서는 전문가를 무작위로 골라 합성 데이터를 만들고 기울기 기반 선택으로 걸러 낸 다음 지도 미세 조정과 강화학습으로 다듬습니다.</p><h3>만주어·칼라망어 번역과 수학 문제로 시험했습니다</h3><p>실험은 다섯 갈래로 짜였습니다. 처음 보는 언어를 배우는 번역, 새 분류를 차례로 더하는 학습, 긴 문맥 평가 BABILong, SQuAD와 이어서 사전 학습(CPT)으로 재는 사실 지식, 수학 추론입니다. 비교 대상에는 SEAL과 GRPO, 정책 기반 자기 증류(OPSD)도 들어갔습니다. 번역 실험에서는 모델에게 처음 보는 만주어와 칼라망어를 차례로 가르쳤습니다. 문맥 안 학습(ICL), 카트리지(Cartridges), 지도 미세 조정(SFT)은 앞서 배운 것을 크게 잊었지만 수면 방식은 성능이 거의 떨어지지 않았습니다(자체 발표 기준). BABILong에서는 1,000만 토큰까지 거의 완벽한 성능을 보여 GPT-4와 타이탄스(Titans)를 앞섰습니다. 사실 지식 평가에서는 단일 과제 48.9%, 이어서 사전 학습 46.2%가 나왔고 AIME 24·25와 HMMT 25를 쓴 수학 추론 평가에서는 79.2%, 69.0%, 46.1%를 기록했습니다.</p><h3>코드와 계산 비용은 아직 나오지 않았습니다</h3><p>블로그 글에 연결된 것은 논문과 구글 리서치 깃허브 첫 화면뿐이고 코드 공개 여부는 적혀 있지 않습니다. 잠자는 단계에 계산이 얼마나 드는지와 이 방식이 실제 서비스 모델에 언제 쓰일지도 글에는 없습니다.</p></div>
@@ -94,8 +94,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=84617d83"></script>
-<script src="/assets/app.js?v=84617d83"></script>
+<script src="/assets/data.js?v=5b0f8e24"></script>
+<script src="/assets/app.js?v=5b0f8e24"></script>
 
 
 </body></html>
