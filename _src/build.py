@@ -114,12 +114,13 @@ css = open(SRC + 'site.css').read()
 
 # 휴대폰 글자 크기(11/3~): 컴퓨터 화면은 그대로 두고, 폭 640px 이하에서만 글자를 한 단계씩 키운다.
 # 기준: 보그 코리아 모바일(본문 16px·줄 간격 1.62, 목록 제목 16px, 날짜 12~14px), 구글 뉴스 모바일(제목 16px, 출처·시간 12px).
-# 우리 쪽은 그보다 같거나 조금 크게, 가장 작은 글자도 12.5px 아래로 내려가지 않게 한다.
+# 우리 쪽은 그보다 크게(2차, 11/3: 큰 휴대폰에서도 작다는 의견), 가장 작은 글자도 13.5px 아래로 내려가지 않게 한다.
 # site.css 의 font-size 규칙을 같은 선택자·같은 순서로 다시 적어 덧붙이므로, 새 규칙을 써도 자동으로 따라간다.
-MOBILE_MAP = {10.5: 11, 11: 12.5, 11.5: 12.5, 12: 13, 12.5: 13.5, 13: 14, 13.5: 14.5, 14: 15.5, 14.5: 16, 15: 16, 15.5: 16.5,
-              16: 17, 16.5: 17.5, 17: 17.5, 17.5: 18, 18: 18.5, 18.5: 19}
-# 길게 읽는 본문은 한 단계 더: 기사 본문 18px, 튜토리얼 설명 17px
-MOBILE_FIX = {'.tcard b': 17, '.article .body': 18, '.tut-page .how': 17, '.tut-page .pr .pt': 17, '.tut-page .quick ol': 17, '.tut-page .limits ul': 17}
+MOBILE_MAP = {10.5: 12, 11: 13.5, 11.5: 13.5, 12: 14, 12.5: 14.5, 13: 15, 13.5: 15.5, 14: 16, 14.5: 16.5, 15: 17, 15.5: 17,
+              16: 17.5, 16.5: 18, 17: 18.5, 17.5: 19, 18: 19.5, 18.5: 20, 19: 20.5, 20: 21.5, 21: 22.5, 22: 23.5, 23: 24.5,
+              24: 25.5, 26: 27, 27: 28, 28: 29}  # 11/3 2차: S26 울트라에서도 작다는 의견으로 한 단계 더 키움
+# 길게 읽는 본문은 한 단계 더: 기사 본문 19px, 튜토리얼 설명 18px
+MOBILE_FIX = {'.tcard b': 18, '.article .body': 19, '.tut-page .how': 18, '.tut-page .pr .pt': 18, '.tut-page .quick ol': 18, '.tut-page .limits ul': 18}
 MOBILE_SKIP = re.compile(r'\.annc \.nb|\.tglyph|kbd|\.chev|\.fword|\.hero h1|\.hstats b|\.hsearch kbd|\.sicon|\.cover|\.og-')
 def mobile_type(src):
     out, cur, buf = [], None, []
@@ -142,6 +143,7 @@ def mobile_type(src):
             if not m or MOBILE_SKIP.search(head): continue
             v = float(m.group(1)); nv = MOBILE_FIX.get(head, MOBILE_MAP.get(v))
             if nv is None or nv == v: continue
+            if re.search(r'(?<![-\w])(height|width):\s*\d+px', body): nv = min(nv, v + 1)  # 지름이 정해진 동그라미·작은 칸은 1px만
             # 휴대폰(폭 360~640)에 걸리는 조건만: 조건 없음, max-width, 색·동작 설정. min-width·print 는 건너뜀
             w = 640
             if cond:
