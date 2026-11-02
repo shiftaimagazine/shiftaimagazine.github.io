@@ -1,0 +1,63 @@
+# 검색엔진 입장에서 사이트를 점검한다(손으로 실행). 결과는 seo-check-tmp 가지의 report.txt.
+# 주소 넘김(http·www·github.io·끝 슬래시), 없는 주소 404, 구글봇·네이버(Yeti)·빙봇으로 받았을 때 상태,
+# robots·사이트맵·RSS, 구글 PageSpeed Insights(휴대폰) 검색 노출·속도 점수.
+name: seo-check
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 점검
+        run: |
+          S=https://shiftaimagazine.com
+          {
+          echo "== 주소 넘김·상태 (코드 → 넘어가는 주소)"
+          for u in http://shiftaimagazine.com/ http://www.shiftaimagazine.com/tools/ https://www.shiftaimagazine.com/ https://shiftaimagazine.github.io/tools/ $S/tools/ocr $S/no-such-page-xyz/ $S/ $S/robots.txt $S/sitemap.xml $S/news-sitemap.xml $S/feed.xml $S/llms.txt; do
+            echo "$u -> $(curl -s -o /dev/null -m 20 -w '%{http_code} %{redirect_url}' "$u")"
+          done
+          echo
+          echo "== 검색 로봇으로 받기 (코드 · 바이트 · 제목)"
+          for ua in "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "Mozilla/5.0 (compatible; Yeti/1.1; +https://naver.me/spd)" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "Mozilla/5.0 (compatible; Daum/4.1; +https://cs.daum.net/faq/15/4118.html?faqId=28966)"; do
+            for p in / /tools/ocr/ /dict/rag/ /tutorial/; do
+              h=$(curl -s -m 20 -A "$ua" "$S$p" -w '\n%{http_code}')
+              echo "$(echo "$ua" | grep -o '[A-Za-z]*bot/[0-9.]*\|Yeti/[0-9.]*\|Daum/[0-9.]*') $p -> $(echo "$h" | tail -1) $(echo "$h" | wc -c) $(echo "$h" | grep -o '<title>[^<]*' | head -1 | cut -c8-60)"
+            done
+          done
+          echo
+          echo "== robots.txt"; curl -s -m 20 $S/robots.txt
+          echo; echo "== 사이트맵 주소 수: $(curl -s -m 20 $S/sitemap.xml | grep -o '<loc>' | wc -l) · 뉴스 사이트맵: $(curl -s -m 20 $S/news-sitemap.xml | grep -o '<loc>' | wc -l) · RSS 글: $(curl -s -m 20 $S/feed.xml | grep -o '<item>' | wc -l)"
+          echo; echo "== 응답 머리(첫 화면)"; curl -sI -m 20 $S/ | grep -i 'server\|cache-control\|content-type\|strict-transport\|x-robots' || true
+          echo
+          echo "== PageSpeed Insights (휴대폰)"
+          for p in / /tools/ocr/ /news/; do
+            r=$(curl -s -m 120 "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=$S$p&strategy=mobile&category=SEO&category=PERFORMANCE&category=ACCESSIBILITY&category=BEST_PRACTICES")
+            echo "-- $p"
+            echo "$r" | python3 -c '
+          import json,sys
+          try: d=json.load(sys.stdin)
+          except Exception as e: print("읽기 실패", e); sys.exit()
+          if "error" in d: print("오류", d["error"].get("message","")[:200]); sys.exit()
+          lr=d["lighthouseResult"]; c=lr["categories"]
+          print("점수", {k: round((v.get("score") or 0)*100) for k,v in c.items()})
+          a=lr["audits"]
+          for k in ["largest-contentful-paint","cumulative-layout-shift","total-blocking-time","first-contentful-paint","speed-index"]:
+              if k in a: print(" ", k, a[k].get("displayValue"))
+          for cat in ["seo","performance","accessibility","best-practices"]:
+              for ref in c.get(cat,{}).get("auditRefs",[]):
+                  au=a.get(ref["id"],{})
+                  if au.get("score") is not None and au["score"]<0.9 and au.get("scoreDisplayMode") not in ("notApplicable","manual","informative"):
+                      print("  고칠 곳[%s] %s: %s" % (cat, ref["id"], (au.get("displayValue") or au.get("title",""))[:120]))
+          '
+          done
+          } > report.txt 2>&1
+          cat report.txt
+      - name: 결과 올리기
+        run: |
+          git init -q out && cd out && git checkout -q -b seo-check-tmp
+          cp ../report.txt . && git add report.txt
+          git -c user.name=seo-check -c user.email=actions@users.noreply.github.com commit -qm "seo-check $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" seo-check-tmp

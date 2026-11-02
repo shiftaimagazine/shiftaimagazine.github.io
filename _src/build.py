@@ -251,7 +251,9 @@ for d in DY:
     ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f"{name} — {d['title']}", 'description': d.get('summary') or ' / '.join(d['three']),
           'url': SITE + u, 'datePublished': kst(d['date'], '07:00'), 'image': [f'{SITE}/{og}'], 'inLanguage': 'ko', 'publisher': PUBLISHER,
           'mainEntity': {'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/news/{a['id']}/", 'name': a['title']} for i, a in enumerate(its)]}}
-    page(u, 'd-' + d['date'], f"{name} — {d['title']} · SHIFT AI", d.get('summary') or ' / '.join(d['three']), ART, og, 'article',
+    ddesc = d.get('summary') or ' / '.join(d['three'])
+    if len(ddesc) < 90: ddesc += ' 이날 소식: ' + ' · '.join(a['title'] for a in its[:3])
+    page(u, 'd-' + d['date'], f"{name} — {d['title']} · SHIFT AI", ddesc[:300], ART, og, 'article',
          LD(ld, crumbs(('데일리 이슈', '/daily/'), (name, u))))
 # AI 사전 용어마다 한 페이지(/dict/<s>/, 10/29~): "RAG 뜻" 같은 검색, 회사·제품 이름은 관련 소식 모음
 TERM_START = '2026-10-29'
@@ -260,7 +262,7 @@ for t in TERMS:
     u = f"/dict/{t['s']}/"; arts = [byId[i] for i in t['arts'] if i in byId]; brand = t['g'] == '제품·회사'
     en = f"({t['en']})" if t.get('en') and t['en'] != t['t'] else ''
     title = (f"{t['t']}{en} — 뜻과 최신 소식" if brand and arts else f"{t['t']}{en} 뜻 — 쉽게 풀이한 AI 용어") + ' · SHIFT AI 사전'
-    desc = t['d'] + (f" 관련 기사 {len(arts)}건을 함께 모았습니다." if arts else '')
+    desc = (f"{t['t']}{en}: " if brand else f"{t['t']}{en} 뜻: ") + t['d'] + (f" 관련 기사 {len(arts)}건을 함께 모았습니다." if arts else ' SHIFT AI 사전에서 쉬운 말로 풀었습니다.')
     ld = {'@context': 'https://schema.org', '@type': 'DefinedTerm', 'name': t['t'], 'description': t['d'], 'url': SITE + u, 'inDefinedTermSet': TERMSET, 'inLanguage': 'ko'}
     if t.get('en') and t['en'] != t['t']: ld['alternateName'] = t['en']
     if arts: ld['subjectOf'] = [{'@type': 'NewsArticle', 'headline': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for a in arts[:10]]
@@ -354,10 +356,19 @@ for d in DY: last[f"/daily/{d['date']}/"] = d['date']
 last.update(termLast)
 for t in TOOLS: last[t['href']] = t.get('mod') or t['date']
 if TOOLS: last['/tools/'] = max(t.get('mod') or t['date'] for t in TOOLS)
-sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+# 대표 이미지(구글 이미지 검색): 기사·튜토리얼·칼럼·데일리·무료 도구. 사이트 로고는 넣지 않는다.
+PIMG = {}
+for a in A: PIMG[f"/news/{a['id']}/"] = img_of(a)
+for t in T: PIMG[f"/tutorial/{t['id'][2:]}/"] = t['thumb']
+for c in C: PIMG[f"/column/{c['id'][2:]}/"] = col_img(c)
+for d in DY: PIMG[f"/daily/{d['date']}/"] = day_img(d)
+for t in TOOLS: PIMG[t['href']] = t['thumb']
+sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
 for p in PAGES:
     if p in ('/privacy/', '/search/'): continue
-    sm.append(f'<url><loc>{SITE}{p}</loc>' + (f'<lastmod>{last[p]}</lastmod>' if p in last else f'<lastmod>{last["/"]}</lastmod>') + '</url>')
+    im = PIMG.get(p)
+    im = f'<image:image><image:loc>{SITE}/{esc(im)}</image:loc></image:image>' if im and 'logo' not in im and os.path.exists(OUT + im) else ''
+    sm.append(f'<url><loc>{SITE}{p}</loc>' + (f'<lastmod>{last[p]}</lastmod>' if p in last else f'<lastmod>{last["/"]}</lastmod>') + im + '</url>')
 sm.append('</urlset>')
 open(OUT + 'sitemap.xml', 'w').write('\n'.join(sm) + '\n')
 # 다음(Daum) 웹마스터도구 소유 확인 줄(10/29 사용자가 발급, 지우면 인증이 풀림)
@@ -387,10 +398,14 @@ open(OUT + 'llms.txt', 'w').write('\n'.join(_ll) + '\n')
 def rfc822(date, time):
     dt = datetime.datetime.strptime(f'{date} {time}', '%Y-%m-%d %H:%M')
     return dt.strftime('%a, %d %b %Y %H:%M:00 +0900')
+feed = ([(a['date'], a.get('time') or '09:00', a['title'], f"/news/{a['id']}/", a['cat'], a['hook']) for a in A]
+        + [(t['date'], '09:00', t['title'], f"/tutorial/{t['id'][2:]}/", '튜토리얼', t['deck']) for t in T]
+        + [(c['date'], '09:00', c['title'], f"/column/{c['id'][2:]}/", '칼럼', c['deck']) for c in C]
+        + [(d['date'], '07:00', f"{int(d['date'][5:7])}월 {int(d['date'][8:])}일 AI 데일리 뉴스 — {d['title']}", f"/daily/{d['date']}/", '데일리 이슈', d.get('summary') or ' / '.join(d['three'])) for d in DY])
 items = []
-for a in sorted(A, key=lambda a: a['date'] + (a.get('time') or ''), reverse=True)[:40]:
-    u = f"{SITE}/news/{a['id']}/"
-    items.append(f"<item><title>{esc(a['title'])}</title><link>{u}</link><guid>{u}</guid><pubDate>{rfc822(a['date'], a.get('time') or '09:00')}</pubDate><category>{esc(a['cat'])}</category><description>{esc(a['hook'])}</description></item>")
+for dt, tm, ti, u, cat, ds in sorted(feed, key=lambda x: x[0] + x[1], reverse=True)[:60]:
+    u = SITE + u
+    items.append(f"<item><title>{esc(ti)}</title><link>{u}</link><guid>{u}</guid><pubDate>{rfc822(dt, tm)}</pubDate><category>{esc(cat)}</category><description>{esc(ds)}</description></item>")
 rss = (f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>SHIFT AI 매거진</title><link>{SITE}/</link>'
        f'<description>{esc(TAG)}</description><language>ko</language>' + ''.join(items) + '</channel></rss>\n')
 open(OUT + 'feed.xml', 'w').write(rss)
