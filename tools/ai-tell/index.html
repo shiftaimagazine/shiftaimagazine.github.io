@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>AI 티 검사기 — 챗GPT가 쓴 티 나는 표현·문장 찾아 고치기(무료) · SHIFT AI</title>
@@ -24,14 +26,14 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "AI 티 검사기", "item": "https://shiftaimagazine.com/tools/ai-tell/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI가 쓴 글인지 판정해 주나요?", "acceptedAnswer": {"@type": "Answer", "text": "판정하지 않습니다. AI가 자주 쓰는 표현과 문장 버릇이 글에 얼마나 몰려 있는지 보여 줄 뿐입니다. 사람이 쓴 글에도 같은 표현이 나오므로 누가 썼는지 가리는 근거로 쓰면 안 됩니다."}}, {"@type": "Question", "name": "넣은 글이 어딘가로 전송되나요?", "acceptedAnswer": {"@type": "Answer", "text": "전송되지 않습니다. 검사는 이 페이지 안에서 끝나고, 자기소개서나 회사 문서를 넣어도 글은 브라우저 밖으로 나가지 않습니다."}}, {"@type": "Question", "name": "어떤 표현을 찾나요?", "acceptedAnswer": {"@type": "Answer", "text": "'핵심은', '결국', '~인 셈입니다' 같은 정리 문구, 'A가 아니라 B' 대구 반복, 대시(—), 과장 형용사, 번역투, 챗봇 말투, 마크다운 잔재, 명사로 끊는 문장, 같은 끝맺음 반복, 교훈으로 닫는 마지막 문장 등 40여 가지입니다. 따옴표 안의 인용은 검사하지 않습니다."}}, {"@type": "Question", "name": "표시된 곳을 모두 고쳐야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "'꼭 고칠 것'은 AI 글에서 유독 자주 보이는 표현이고, '많으면 고칠 것'은 사람도 흔히 쓰지만 한 글에 여러 번 겹치면 티가 나는 표현입니다. 색칠된 곳을 눌러 이유를 읽고, 글의 뜻에 맞게 고치면 됩니다."}}, {"@type": "Question", "name": "고치는 일도 AI에게 맡길 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "'고쳐 달라는 프롬프트 복사'를 눌러 챗GPT·클로드·제미나이에 붙여 넣으면 됩니다. 프롬프트에는 찾은 곳과 고치는 법, 사실과 숫자는 그대로 두라는 부탁이 함께 들어갑니다."}}, {"@type": "Question", "name": "영어 글도 검사할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "한국어 글을 기준으로 만든 규칙이라 영어 글은 제대로 검사하지 못합니다."}}]}</script>
 <script defer="" src="/assets/ai-tell.js?v=a60948ea"></script>
-<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
+<script defer="" src="/assets/stats.js"></script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=6fd8c1d9">
+<link rel="stylesheet" href="/assets/site.css?v=210eaac3">
 </head>
 <body data-route="tool-ai-tell" data-pre="1">
 <div class="wrap">
@@ -131,8 +133,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=6fd8c1d9"></script>
-<script src="/assets/app.js?v=6fd8c1d9"></script>
+<script src="/assets/data.js?v=210eaac3"></script>
+<script src="/assets/app.js?v=210eaac3"></script>
 
 
 </body></html>

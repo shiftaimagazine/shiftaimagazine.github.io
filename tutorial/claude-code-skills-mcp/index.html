@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>클로드 코드에 스킬·MCP 붙이는 법, 설치부터 떼기까지 8단계 · SHIFT AI 튜토리얼</title>
@@ -23,14 +25,14 @@
 <meta property="article:published_time" content="2026-10-27T09:00:00+09:00">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "클로드 코드에 스킬·MCP 붙이는 법, 설치부터 떼기까지 8단계", "description": "스킬은 Claude에게 일하는 방법을 알려 주는 SKILL.md 폴더이고 MCP 서버는 Claude Code를 바깥 도구와 이어 주는 프로그램입니다. 앤트로픽 공식 스킬 저장소와 마이크로소프트 Playwright MCP를 예로 들어 공식 문서에 적힌 명령으로 설치하고 확인하고 지우는 순서를 정리했습니다.", "image": ["https://shiftaimagazine.com/og/t-claude-code-skills-mcp.jpg"], "datePublished": "2026-10-27T09:00:00+09:00", "dateModified": "2026-10-27T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/tutorial/claude-code-skills-mcp/", "articleSection": "튜토리얼 · 스킬·MCP", "keywords": "Claude Code", "inLanguage": "ko", "proficiencyLevel": "입문", "citation": ["https://code.claude.com/docs/en/skills", "https://code.claude.com/docs/en/mcp", "https://code.claude.com/docs/en/discover-plugins", "https://github.com/anthropics/skills", "https://github.com/microsoft/playwright-mcp", "https://modelcontextprotocol.io/docs/getting-started/intro"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "튜토리얼", "item": "https://shiftaimagazine.com/tutorial/"}, {"@type": "ListItem", "position": 3, "name": "클로드 코드에 스킬·MCP 붙이는 법, 설치부터 떼기까지 8단계", "item": "https://shiftaimagazine.com/tutorial/claude-code-skills-mcp/"}]}</script>
-<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
+<script defer="" src="/assets/stats.js"></script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=6fd8c1d9">
+<link rel="stylesheet" href="/assets/site.css?v=210eaac3">
 </head>
 <body data-route="t-claude-code-skills-mcp" data-pre="1">
 <div class="wrap">
@@ -214,8 +216,8 @@ ls ~/.claude/skills/frontend-design</pre><p class="ok"><b>확인</b>마지막 �
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=6fd8c1d9"></script>
-<script src="/assets/app.js?v=6fd8c1d9"></script>
+<script src="/assets/data.js?v=210eaac3"></script>
+<script src="/assets/app.js?v=210eaac3"></script>
 
 
 </body></html>

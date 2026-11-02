@@ -76,9 +76,17 @@ function maskOf(s, mode, numbering){
   return numbering.byKey.get(key);
 }
 
-let timer;
+// 찾기 전에 바로잡기(11/2 보안 점검): PDF·한글·메신저에서 복사한 글의 전각 숫자(０１０), 보이지 않는 문자(폭 없는 공백 등),
+// 여러 가지 대시(–, —, −)는 사람 눈과 AI 에는 똑같이 읽히지만 찾기 규칙을 빠져나간다. 그래서 먼저 보통 글자로 바꾼다.
+const ZW = /[\u200B-\u200D\u2060\uFEFF\u00AD]/g, DASH = /[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, SP = /[\u00A0\u2000-\u200A\u202F\u205F\u3000]/g, FW = /[\uFF01-\uFF5E]/g;
+function tidyText(t){
+  let n = 0; const c = re=>x=>{ n++; return re; };
+  t = t.replace(ZW, c("")).replace(DASH, c("-")).replace(SP, c(" ")).replace(FW, ch=>{ n++; return String.fromCharCode(ch.charCodeAt(0)-0xFEE0); });
+  return [t, n];
+}
+let timer, fixedN = 0;
 function run(){
-  const text = $("rIn").value; const mode = (document.querySelector('input[name=rmode]:checked')||{}).value||"tag";
+  const [text, nfix] = tidyText($("rIn").value); fixedN = nfix; const mode = (document.querySelector('input[name=rmode]:checked')||{}).value||"tag";
   const spans = find(text); const numbering = {count:{}, byKey:new Map()};
   let out = "", prev = "", p = 0; const cnt = {};
   lastMap = new Map();
@@ -95,7 +103,8 @@ function run(){
   $("rPrev").hidden = !text || !spans.length;
   const parts = Object.entries(cnt).map(([k,v])=>`<b>${esc(k)}</b> ${v}`);
   $("rSum").innerHTML = !text ? "글을 넣으면 찾은 개인정보가 여기에 표시됩니다." :
-    spans.length ? `찾아서 가린 것 ${spans.length}곳 · ${parts.join(" · ")}` : "찾은 개인정보가 없습니다. 이름·주소 같은 것은 '직접 가릴 말'에 넣어 보세요.";
+    (spans.length ? `찾아서 가린 것 ${spans.length}곳 · ${parts.join(" · ")}` : "찾은 개인정보가 없습니다. 이름·주소 같은 것은 '직접 가릴 말'에 넣어 보세요.")
+    + (fixedN ? ` <span class="rfix">전각 숫자·보이지 않는 문자·특수 대시 ${fixedN}개를 보통 글자로 바꾼 뒤 찾았습니다(결과에도 바뀐 글자로 들어갑니다).</span>` : "");
   $("rRestoreBox").hidden = mode!=="tag";
   counts(text);
   restore();
@@ -108,8 +117,14 @@ function counts(text){
 }
 function restore(){
   const ai = $("rAi").value; if(!ai){ $("rBack").value=""; $("rBackInfo").textContent=""; return; }
-  let n = 0; const back = ai.replace(/\[[^\[\]\s]{1,12}\d{1,4}\]/g, m=>{ if(lastMap.has(m)){ n++; return lastMap.get(m); } return m; });
-  $("rBack").value = back; $("rBackInfo").textContent = n ? `${n}곳을 원래 값으로 바꿨습니다` : "바꿀 이름표를 찾지 못했습니다(위 1~3단계를 같은 탭에서 먼저 해 주세요)";
+  let n = 0; const back = ai.replace(/\[[^\[\]\s]{1,12}\d{1,4}\]/g, m=>{ if(lastMap.has(m)){ n++; return lastMap.get(m); } return m; });  // 한 번에 훑어 바꾼다(바꾼 값을 다시 바꾸지 않음)
+  // AI 답이 이름표를 링크 주소나 엑셀 수식 안에 넣었으면, 되돌린 뒤 붙여 넣는 순간 원래 값이 바깥 서버로 나갈 수 있다(간접 프롬프트 주입)
+  const TAG = "\\[[^\\[\\]\\s]{1,12}\\d{1,4}\\]";
+  const risky = [...ai.matchAll(new RegExp(`(?:https?:\\/\\/|www\\.)[^\\s<>"')]*${TAG}|\\]\\([^)\\s]*${TAG}|(?:^|[\\t\\n,])\\s*[=+@][^\\t\\n]*${TAG}`, "g"))].filter(x=>{ const t=x[0].match(new RegExp(TAG,"g"))||[]; return t.some(k=>lastMap.has(k)); }).length;
+  $("rBack").value = back;
+  $("rBackInfo").textContent = (n ? `${n}곳을 원래 값으로 바꿨습니다` : "바꿀 이름표를 찾지 못했습니다(위 1~3단계를 같은 탭에서 먼저 해 주세요)")
+    + (risky ? ` · 주의: 이름표가 링크 주소나 수식(=, +, @로 시작하는 칸) 안에 ${risky}곳 들어 있습니다. 붙여 넣으면 원래 값이 바깥으로 나갈 수 있으니 그 부분을 지우고 쓰세요.` : "");
+  $("rBackInfo").classList.toggle("warn", !!risky);
 }
 const later = ()=>{ clearTimeout(timer); timer = setTimeout(run, 120); };
 
@@ -117,6 +132,8 @@ $("rTypes").innerHTML = TYPES.map(t=>`<button type="button" data-k="${t.k}" aria
 $("rTypes").addEventListener("click", e=>{ const b=e.target.closest("button[data-k]"); if(!b) return; state[b.dataset.k]=!state[b.dataset.k]; b.setAttribute("aria-pressed", state[b.dataset.k]); run(); });
 $("rIn").addEventListener("input", later); $("rWords").addEventListener("input", later); $("rAi").addEventListener("input", restore);
 document.querySelectorAll('input[name=rmode]').forEach(r=>r.addEventListener("change", run));
+window.addEventListener("pagehide", ()=>{ ["rIn","rOut","rAi","rBack","rWords"].forEach(id=>{ $(id).value=""; }); $("rPrev").innerHTML=""; lastMap = new Map(); });
+window.addEventListener("pageshow", e=>{ if(e.persisted) run(); });
 $("rClear").onclick = ()=>{ $("rIn").value=""; $("rInfo").textContent=""; run(); $("rIn").focus(); };
 $("rSample").onclick = ()=>{
   $("rIn").value = ["(가짜 예시) 고객 문의 정리","이름\t연락처\t이메일\t메모",

@@ -48,10 +48,11 @@ const upcoming = m=>(m.changes||[]).find(c=>TODAY < c.from);
 const md = d=>{ const [,mm,dd]=d.split("-"); return `${+mm}월 ${+dd}일`; };
 function calc(){
   const tok = document.querySelector('input[name=cunit]:checked').value==="tok";
-  const ratio = Math.max(0.3, +$("cRatio").value||1), fx = +$("cFx").value||P.fx.rate;
-  const inTok = tok ? (+$("cIn").value||0) : (+$("cIn").value||0)/ratio;
-  const outTok = tok ? (+$("cOut").value||0) : (+$("cOut").value||0)/ratio;
-  const n = Math.max(0, +$("cN").value||0), d = Math.max(1, Math.min(31, +$("cD").value||1));
+  const num = (id, lo, hi, d)=>{ const v = +$(id).value; return Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d; };  // 음수·무한대·지나치게 큰 값은 범위 안으로
+  const ratio = num("cRatio", 0.3, 5, 1), fx = num("cFx", 1, 100000, P.fx.rate) || P.fx.rate;
+  const inTok = num("cIn", 0, 1e9, 0) / (tok ? 1 : ratio);
+  const outTok = num("cOut", 0, 1e9, 0) / (tok ? 1 : ratio);
+  const n = num("cN", 0, 1e6, 0), d = Math.round(num("cD", 1, 31, 1));
   const rows = P.models.filter(m=>provFilter==="all"||m.provider===provFilter).map(m=>{
     const t = tierPrice(m, inTok); const one = (inTok*t.in + outTok*t.out)/1e6; const month = one*n*d;
     return {m, one, month, t};

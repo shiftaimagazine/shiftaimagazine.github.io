@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>개인정보 마스킹 무료 — 주민번호·전화번호·카드번호 자동 가리기 · SHIFT AI</title>
@@ -23,15 +25,15 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "개인정보 자동 가리기", "alternateName": ["개인정보 마스킹", "개인정보 비식별화 도구", "주민번호 가리기"], "url": "https://shiftaimagazine.com/tools/redact/", "description": "글이나 엑셀 표 속 주민등록번호·전화번호·이메일·카드번호·계좌번호를 찾아 [전화번호1]처럼 가립니다. AI 답을 원래 값으로 되돌릴 수 있고, 모든 처리는 브라우저 안에서만 합니다. 회사 자료를 AI에 올리기 전에 쓰세요.", "image": "https://shiftaimagazine.com/og/tool-redact.jpg", "screenshot": "https://shiftaimagazine.com/img/tools/redact.webp", "applicationCategory": "UtilitiesApplication", "operatingSystem": "웹 브라우저", "browserRequirements": "JavaScript를 켠 최신 브라우저", "featureList": ["주민등록번호·외국인등록번호·전화번호·이메일·카드번호·계좌번호·사업자등록번호·여권번호·운전면허번호·IP 주소 찾기", "이름표·●·일부만 가리기 세 가지 방식", "직접 가릴 말 넣기", "AI 답을 원래 값으로 되돌리기", "엑셀 표 붙여 넣기"], "inLanguage": "ko", "isAccessibleForFree": true, "datePublished": "2026-10-27", "dateModified": "2026-11-02", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "개인정보 자동 가리기", "item": "https://shiftaimagazine.com/tools/redact/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "어떤 개인정보를 찾아 가리나요?", "acceptedAnswer": {"@type": "Answer", "text": "주민등록번호·외국인등록번호, 전화번호, 이메일, 카드번호, 계좌번호, 사업자등록번호, 여권번호, 운전면허번호, IP 주소를 찾습니다. 이름·회사명·주소처럼 모양이 정해지지 않은 정보는 '직접 가릴 말'에 넣어야 가려집니다."}}, {"@type": "Question", "name": "넣은 글이 서버로 가나요?", "acceptedAnswer": {"@type": "Answer", "text": "가지 않습니다. 찾고 가리는 일은 모두 브라우저 안에서 하고, 글은 어디에도 보내지 않습니다."}}, {"@type": "Question", "name": "엑셀 파일도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": ".xlsx 파일을 바로 열지는 못합니다. 엑셀에서 표를 복사해 붙여 넣으면 칸이 유지된 채로 가려지고, 결과를 다시 엑셀에 붙여 넣으면 됩니다. .csv·.tsv·.txt 파일은 '파일 열기'로 바로 엽니다."}}, {"@type": "Question", "name": "가린 값을 원래대로 되돌릴 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "'이름표로 바꾸기'를 고르면 됩니다. AI 답에 [전화번호1] 같은 이름표가 남아 있으면 4번 칸에 붙여 넣어 원래 값으로 바꿉니다. 이름표와 원래 값의 짝은 이 탭에만 있어서 창을 닫으면 사라집니다."}}, {"@type": "Question", "name": "자동으로 빠짐없이 찾아 주나요?", "acceptedAnswer": {"@type": "Answer", "text": "빠짐없이 찾는다고 장담할 수 없습니다. 정해진 모양에서 벗어난 번호는 놓칠 수 있으니, AI에 올리기 전에 결과를 한 번 더 눈으로 확인하세요."}}]}</script>
-<script defer="" src="/assets/redact.js?v=3ca76a4b"></script>
-<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
+<script defer="" src="/assets/redact.js?v=0a463a4f"></script>
+<script defer="" src="/assets/stats.js"></script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=6fd8c1d9">
+<link rel="stylesheet" href="/assets/site.css?v=210eaac3">
 </head>
 <body data-route="tool-redact" data-pre="1">
 <div class="wrap">
@@ -157,8 +159,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=6fd8c1d9"></script>
-<script src="/assets/app.js?v=6fd8c1d9"></script>
+<script src="/assets/data.js?v=210eaac3"></script>
+<script src="/assets/app.js?v=210eaac3"></script>
 
 
 </body></html>

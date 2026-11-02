@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR) · SHIFT AI</title>
@@ -24,14 +26,14 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "사진 속 글자 뽑기 (한국어 OCR)", "item": "https://shiftaimagazine.com/tools/ocr/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "무료인가요? 가입해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "무료이고 가입이나 설치가 필요 없습니다. 페이지를 열고 사진을 넣으면 바로 읽고, 한 번에 12장까지 넣을 수 있습니다."}}, {"@type": "Question", "name": "사진이 서버로 올라가나요?", "acceptedAnswer": {"@type": "Answer", "text": "올라가지 않습니다. 글자 인식 엔진(tesseract.js)과 한국어·영어 언어 데이터만 SHIFT AI 서버에서 받아 오고, 사진은 브라우저 안에서 읽습니다."}}, {"@type": "Question", "name": "어떤 사진을 잘 읽나요?", "acceptedAnswer": {"@type": "Answer", "text": "화면 캡처, 인쇄된 문서, 반듯하게 찍은 책·명함·안내문을 잘 읽습니다. 손글씨, 세로쓰기, 기울어지거나 흐린 사진은 틀리는 글자가 많습니다. 글씨가 작다면 '작은 글씨 키워서 읽기'를 켠 채 다시 읽어 보세요."}}, {"@type": "Question", "name": "아이폰 사진(HEIC)이나 PDF도 넣을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "HEIC 사진은 넣으면 브라우저 안에서 JPG로 바꾼 뒤 읽습니다(사진만 따로 바꾸려면 <a href=\"https://shiftaimagazine.com/tools/heic-to-jpg/\">HEIC → JPG 변환</a>). PDF 파일은 바로 넣을 수 없습니다. 글자가 들어 있는 PDF라면 사진으로 읽기보다 PDF에서 글자를 바로 꺼내는 쪽이 정확합니다. 방법은 <a href=\"https://shiftaimagazine.com/tutorial/pdf-to-markdown/\">PDF를 마크다운으로 바꿔 AI에 올리는 7단계</a>에 정리했습니다."}}, {"@type": "Question", "name": "표도 그대로 뽑히나요?", "acceptedAnswer": {"@type": "Answer", "text": "표는 칸 구분이 사라지고 글자만 남습니다. 결과 아래 'AI에 정리 맡기는 프롬프트로 복사'를 눌러 챗GPT·클로드·제미나이에 붙여 넣으면 표로 다시 만들어 달라고 부탁할 수 있습니다."}}, {"@type": "Question", "name": "처음 읽을 때는 왜 오래 걸리나요?", "acceptedAnswer": {"@type": "Answer", "text": "처음 한 번은 글자 인식 데이터를 내려받기 때문입니다. 그다음부터는 브라우저에 저장해 둔 데이터를 써서 더 빨리 시작합니다."}}]}</script>
 <script defer="" src="/assets/ocr.js?v=2325f756"></script>
-<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
+<script defer="" src="/assets/stats.js"></script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=6fd8c1d9">
+<link rel="stylesheet" href="/assets/site.css?v=210eaac3">
 </head>
 <body data-route="tool-ocr" data-pre="1">
 <div class="wrap">
@@ -151,8 +153,8 @@
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=6fd8c1d9"></script>
-<script src="/assets/app.js?v=6fd8c1d9"></script>
+<script src="/assets/data.js?v=210eaac3"></script>
+<script src="/assets/app.js?v=210eaac3"></script>
 
 
 </body></html>

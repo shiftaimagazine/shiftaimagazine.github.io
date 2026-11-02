@@ -739,3 +739,8 @@ mark.lv2,.akey.lv2{background:#FFF3C4;box-shadow:inset 0 -2px 0 #c9a227}
 .fac dt{color:var(--sub)}
 .fac dd{margin:0;color:var(--text)}
 .fac .ghost{align-self:flex-start;margin-top:auto;padding:6px 12px;font-size:13px}
+
+/* 개인정보 가리기: 바로잡은 글자 안내·되돌리기 경고 (보안 점검 11/2) */
+.rsum .rfix{display:block;font-size:13px;color:var(--sub);margin-top:4px}
+#rBackInfo.warn{color:#b42318;font-weight:700}
+@media (prefers-color-scheme:dark){#rBackInfo.warn{color:#ff9086}}
