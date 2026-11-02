@@ -6,7 +6,7 @@ import json, re, subprocess, sys, urllib.request
 SITE, HOST = 'https://shiftaimagazine.com', 'shiftaimagazine.com'
 KEY = re.search(r"INDEXNOW_KEY = '([0-9a-f]+)'", open('_src/build.py').read()).group(1)
 ENDPOINTS = ['https://api.indexnow.org/indexnow', 'https://searchadvisor.naver.com/indexnow']
-URL_RE = re.compile(r'<url><loc>([^<]+)</loc>(?:<lastmod>([^<]+)</lastmod>)?</url>')
+URL_RE = re.compile(r'<url><loc>([^<]+)</loc>(?:<lastmod>([^<]+)</lastmod>)?(?:<image:image>.*?</image:image>)*</url>')  # 대표 이미지(image:image)가 붙은 줄도 읽는다(11/2)
 
 def entries(xml): return dict(URL_RE.findall(xml))
 
