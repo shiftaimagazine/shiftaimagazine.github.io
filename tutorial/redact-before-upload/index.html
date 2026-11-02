@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=4efa0077"></script>
+<script src="/assets/theme.js?v=d87247c4"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=4efa0077">
+<link rel="stylesheet" href="/assets/site.css?v=d87247c4">
 </head>
 <body data-route="t-redact-before-upload" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 2개, AI 구독료 계산기와 PDF 글자 뽑기가 나왔습니다</span><span class="go">써 보기 →</span></a>
@@ -104,7 +104,7 @@
 고객_001 | 서울 | 430,000
 (대응표 '홍길동=고객_001, 김영희=고객_002'는 내 PC에만 보관)</pre></div></div>
       </div></section><section class="ti" id="s3"><div class="tb">
-        <h3><span class="sn">프롬프트 3</span>주민번호·계좌·전화번호는 가리지 말고 지운다</h3>
+        <h3><span class="sn">프롬프트 3</span>주민번호⁠·계좌⁠·전화번호는 가리지 말고 지운다</h3>
         <p class="d">분석에 쓰이지 않는 고유식별정보와 금융정보는 열째로 삭제합니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>주민등록번호, 계좌번호, 카드번호, 전화번호, 상세 주소 열은 작업용 사본에서 열 전체를 삭제합니다. 열을 숨기거나 글자색을 흰색으로 바꾸는 것은 가린 것이 아닙니다. 나이나 지역이 필요하면 '30대', '서울 강남구'처럼 줄인 열을 새로 만들고 원래 열은 지웁니다. 그다음 아래 프롬프트로 남은 위험을 한 번 더 확인합니다.</div>
@@ -116,7 +116,7 @@
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">내가 AI에 올리려는 표의 열 이름과 첫 3줄 예시야(이미 가린 상태): [열 이름 + 가린 예시 3줄]. 1) 아직 개인을 특정할 수 있는 정보가 남아 있는지 확인해 줘. 2) 생년월일·주소·직급처럼 여러 열을 합치면 누군지 알 수 있는 경우가 있는지 알려줘. 3) 더 줄이거나 지워야 할 열을 우선순위대로 적어 줘.</div><button class="copy dark" data-copy="내가 AI에 올리려는 표의 열 이름과 첫 3줄 예시야(이미 가린 상태): [열 이름 + 가린 예시 3줄]. 1) 아직 개인을 특정할 수 있는 정보가 남아 있는지 확인해 줘. 2) 생년월일·주소·직급처럼 여러 열을 합치면 누군지 알 수 있는 경우가 있는지 알려줘. 3) 더 줄이거나 지워야 할 열을 우선순위대로 적어 줘.">복사하기</button></div>
         
       </div></section><section class="ti" id="s4"><div class="tb">
-        <h3><span class="sn">프롬프트 4</span>비고·메모 열 속 이름과 연락처 찾기</h3>
+        <h3><span class="sn">프롬프트 4</span>비고⁠·메모 열 속 이름과 연락처 찾기</h3>
         <p class="d">정리된 열은 다 가렸는데 '비고'나 '상담 내용' 같은 자유 기재 칸에 이름과 연락처가 섞여 있다면 그 부분을 잡아냅니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>자유 기재 열은 AI에 보내기 전에 엑셀의 찾기(Ctrl+F)로 '010', '@', '님', '씨' 같은 글자를 먼저 검색해 봅니다. 내용이 많으면 아래 프롬프트로 수식이나 조건부 서식 규칙을 받아 내 PC에서 직접 걸러 냅니다. 자유 기재 본문을 AI에 붙여 넣어 검사시키면 그 순간 이미 올린 것이 되므로 규칙만 묻습니다.</div>
@@ -128,7 +128,7 @@
         <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">엑셀 [열 이름, 예: F열 '상담 메모']에 사람 이름, 휴대폰 번호, 이메일 주소가 섞여 있을 수 있어. 데이터는 보여 줄 수 없으니 방법만 알려줘. 1) 휴대폰 번호(010-1234-5678, 01012345678 형태)나 이메일 주소가 들어 있는 셀을 표시하는 수식 또는 조건부 서식 규칙을 만들어 줘. 내 프로그램은 [엑셀 365 / 구글 시트]야. 2) '○○님', '○○ 고객'처럼 이름이 들어 있을 가능성이 높은 패턴을 찾는 방법도 알려줘. 3) 찾은 셀을 한 번에 '[삭제됨]'으로 바꾸는 방법까지 알려줘.</div><button class="copy dark" data-copy="엑셀 [열 이름, 예: F열 '상담 메모']에 사람 이름, 휴대폰 번호, 이메일 주소가 섞여 있을 수 있어. 데이터는 보여 줄 수 없으니 방법만 알려줘. 1) 휴대폰 번호(010-1234-5678, 01012345678 형태)나 이메일 주소가 들어 있는 셀을 표시하는 수식 또는 조건부 서식 규칙을 만들어 줘. 내 프로그램은 [엑셀 365 / 구글 시트]야. 2) '○○님', '○○ 고객'처럼 이름이 들어 있을 가능성이 높은 패턴을 찾는 방법도 알려줘. 3) 찾은 셀을 한 번에 '[삭제됨]'으로 바꾸는 방법까지 알려줘.">복사하기</button></div>
         
       </div></section><section class="ti" id="s5"><div class="tb">
-        <h3><span class="sn">프롬프트 5</span>파일 속 숨은 정보 지우기: 메모·숨긴 시트·작성자 정보</h3>
+        <h3><span class="sn">프롬프트 5</span>파일 속 숨은 정보 지우기: 메모⁠·숨긴 시트⁠·작성자 정보</h3>
         <p class="d">화면에 안 보이는 메모, 숨긴 시트·행·열, 문서 속성의 작성자 이름도 파일과 함께 올라갑니다. 올리기 전에 지웁니다.</p>
         
         <div class="how"><b>이렇게 쓰세요</b>윈도우용 엑셀에서는 파일 &gt; 정보 &gt; 문제 확인 &gt; 문서 검사(Inspect Document)를 실행해 검사할 항목을 고르고 '검사'를 누른 뒤, 찾아낸 항목 옆의 '모두 제거'로 지웁니다. 마이크로소프트는 문서 검사가 지운 데이터는 되돌리지 못할 수 있으니 반드시 사본에서 실행하라고 안내합니다. 시트 탭을 마우스 오른쪽 버튼으로 눌러 숨긴 시트가 있는지도 직접 확인합니다. 필요한 범위만 새 파일에 '값으로 붙여 넣기'해서 그 파일만 올리면 가장 확실합니다.</div>
@@ -223,8 +223,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=4efa0077"></script>
-<script src="/assets/app.js?v=4efa0077"></script>
+<script src="/assets/data-lite.js?v=d87247c4"></script>
+<script src="/assets/app.js?v=d87247c4"></script>
 
 
 </body></html>

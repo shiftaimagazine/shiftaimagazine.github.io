@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=4efa0077"></script>
+<script src="/assets/theme.js?v=d87247c4"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=4efa0077">
+<link rel="stylesheet" href="/assets/site.css?v=d87247c4">
 </head>
 <body data-route="t-auto-update-site" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 2개, AI 구독료 계산기와 PDF 글자 뽑기가 나왔습니다</span><span class="go">써 보기 →</span></a>
@@ -61,7 +61,7 @@
 <main id="v-article"><article class="article narrow tut-page">
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · 보안·개인정보 · 중급</span>
-    <h1>워드프레스·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는 9단계</h1><p class="deck">PHP 엔진 자체의 원격 코드 실행 취약점(PHP2Shell)이 공개된 만큼, 작은 사이트도 업데이트 설정을 한 번은 점검해 둬야 합니다. 워드프레스 공식 문서에 나온 설정법과 AI에게 물어볼 프롬프트를 함께 정리했습니다.</p>
+    <h1>워드프레스⁠·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는 9단계</h1><p class="deck">PHP 엔진 자체의 원격 코드 실행 취약점(PHP2Shell)이 공개된 만큼, 작은 사이트도 업데이트 설정을 한 번은 점검해 둬야 합니다. 워드프레스 공식 문서에 나온 설정법과 AI에게 물어볼 프롬프트를 함께 정리했습니다.</p>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.10.22</span><span class="dot"></span><span>읽는 데 12분</span><span class="dot"></span><span>STEP 9개</span></div>
     <div class="ttags"><a href="/tutorial/?tool=ChatGPT">ChatGPT</a><a href="/tutorial/?tool=Claude">Claude</a><a href="/tutorial/?tool=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4">제미나이</a></div>
     <figure class="lead-fig"><img src="img/ph/elephpant.webp" alt="" fetchpriority="high"><figcaption>PHP 마스코트 엘레펀트 · Wikimedia Commons · Atomic Taco (CC BY-SA 2.0)</figcaption></figure>
@@ -73,7 +73,7 @@
     <div class="prep"><div><b>필요한 것</b>워드프레스 관리자 계정, 호스팅 관리 화면, ChatGPT·클로드·제미나이 아무 AI</div><div><b>걸리는 시간</b>15분</div><div><b>왜 필요한가요</b>위즈(Wiz)가 10월 21일 공개한 PHP2Shell은 로그인 없이 원격으로 코드를 실행할 수 있는 PHP 자체의 결함입니다. 위즈는 워드프레스·드루팔·줌라에서 공격을 시연했지만 결함은 이 앱들 아래에서 돌아가는 PHP에 있다고 밝혔습니다. 그래서 앱만 업데이트해서는 문제가 해결되지 않습니다.</div></div>
     <div class="intro">위즈 리서치가 2026년 10월 21일 PHP2Shell 취약점 두 건을 공개하자 PHP 프로젝트는 같은 날 PHP 8.5.12, 8.4.27, 8.3.36, 8.2.35를 내고 모든 사용자에게 즉시 업데이트를 권고했습니다. 위즈는 전 세계 웹사이트의 70%가 PHP로 돌아간다고 밝혔습니다(위즈 발표 기준). 개인 블로그나 작은 쇼핑몰은 대개 호스팅 업체가 PHP를 관리하지만 PHP 버전 선택과 워드프레스·플러그인·테마 업데이트는 운영자가 직접 챙겨야 하는 경우가 많습니다. 아래에 이번에 한 번 해 두면 다음 취약점이 나와도 덜 바빠지는 설정과 점검 순서를 정리했습니다.</div>
     <div class="items"><section class="ti" id="s1"><div class="tb">
-        <h3><span class="sn">STEP 1</span>호스팅 공지·보안 메일을 AI에게 읽히기</h3>
+        <h3><span class="sn">STEP 1</span>호스팅 공지⁠·보안 메일을 AI에게 읽히기</h3>
         <p class="d">호스팅 업체가 보낸 PHP 보안 공지를 붙여 넣으면 AI가 업체가 할 일과 내가 할 일을 나눠 줍니다.</p>
         
         <div class="how">공지 전문을 복사해 붙여 넣되 계정 아이디, 서버 주소 같은 정보는 지우고 넣습니다. AI 답은 정리용으로만 쓰고 최종 판단은 공지 원문과 업체 고객센터 답을 보고 내립니다.</div>
@@ -219,8 +219,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=4efa0077"></script>
-<script src="/assets/app.js?v=4efa0077"></script>
+<script src="/assets/data-lite.js?v=d87247c4"></script>
+<script src="/assets/app.js?v=d87247c4"></script>
 
 
 </body></html>

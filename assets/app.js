@@ -69,7 +69,7 @@ function renderHome2(d){
   $("#homeTuts").innerHTML = TUTORIALS.map(tcardHTML).join("");
   const tl = TOOLS.slice(0,5);
   $("#toolsMore").innerHTML = `<span class="sr">무료 도구 </span>${TOOLS.length}개 전체 보기`;
-  $("#homeTools").innerHTML = `<div class="tex-list">${tl.map((t,i)=>`<a class="trow${i?"":" on"}" href="${t.href}" data-i="${i}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="tr-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span><span class="chev" aria-hidden="true">›</span></a>`).join("")}</div>
+  $("#homeTools").innerHTML = `<div class="tex-list">${tl.map((t,i)=>`<a class="xrow${i?"":" on"}" href="${t.href}" data-i="${i}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="tr-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span><span class="chev" aria-hidden="true">›</span></a>`).join("")}</div>
     <div class="tex-panel" aria-hidden="true"><div class="tex-bar"><span class="dots"><i></i><i></i><i></i></span><span class="mono" id="texPath">shiftaimagazine.com / tools / ${esc(tl[0]?tl[0].id:"")}</span></div>
     ${tl.map((t,i)=>`<div class="tex-pv" data-i="${i}" data-id="${esc(t.id)}"${i?" hidden":""}><a href="${t.href}" tabindex="-1"><img src="${t.thumb}" alt="" loading="lazy"></a><h3>${esc(toolName(t))}</h3><p>${esc(t.desc)}</p>
       <div class="tex-facts"><span><i>${t.where?"처리 위치":"요금"}</i><b>${esc(t.where||"무료")}</b></span><span><i>가입</i><b>필요 없음</b></span></div><a class="go" href="${t.href}" tabindex="-1">바로 써 보기 →</a></div>`).join("")}</div>`;
@@ -94,9 +94,9 @@ document.addEventListener("click",e=>{
   else { document.querySelectorAll("#homeTerms .dcard").forEach(c=>{ const ok=c.dataset.g===v; c.hidden=!ok; if(ok) replay(c); }); track("home-dict:"+v,"홈 AI 사전 분야"); }
 });
 const texPick = r=>{ if(!r||r.classList.contains("on")) return; const i=r.dataset.i;
-  document.querySelectorAll("#homeTools .trow").forEach(x=>x.classList.toggle("on", x===r));
+  document.querySelectorAll("#homeTools .xrow").forEach(x=>x.classList.toggle("on", x===r));
   document.querySelectorAll("#homeTools .tex-pv").forEach(p=>{ const ok=p.dataset.i===i; p.hidden=!ok; if(ok){ replay(p); $("#texPath").textContent="shiftaimagazine.com / tools / "+p.dataset.id; } }); };
-["mouseover","focusin"].forEach(ty=>document.addEventListener(ty,e=>{ const r=e.target.closest&&e.target.closest("#homeTools .trow"); if(r) texPick(r); }));
+["mouseover","focusin"].forEach(ty=>document.addEventListener(ty,e=>{ const r=e.target.closest&&e.target.closest("#homeTools .xrow"); if(r) texPick(r); }));
 document.addEventListener("mouseover",function pre(e){ if(!e.target.closest||!e.target.closest("#homeTools")) return;
   document.querySelectorAll("#homeTools .tex-pv img").forEach(im=>im.loading="eager"); document.removeEventListener("mouseover",pre); });
 document.addEventListener("keydown",e=>{ if(e.key!=="/"||e.ctrlKey||e.metaKey||e.altKey) return; const t=e.target;
