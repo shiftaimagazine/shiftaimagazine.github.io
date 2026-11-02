@@ -162,6 +162,45 @@ if __name__ == '__main__':
     for t in TOOLS:
         for k in ('id', 'title', 'desc', 'href', 'tag', 'date', 'thumb'): assert t.get(k), ('도구 항목 없음', t.get('id'), k)
     TOOLS.sort(key=lambda t: t['date'], reverse=True)
+    # 길잡이·'이어서 해 볼 것'(11/3~): news/guides.json. 기사·칼럼마다 맞는 주제를 골라 길잡이·튜토리얼·무료 도구를 최대 3개 붙인다(nx).
+    GD = J('guides.json') if os.path.exists(N + 'guides.json') else {'guides': [], 'fallback': {}}
+    _tid, _tool = {t['id']: t for t in TUTS}, {t['id']: t for t in TOOLS}
+    _pids = {f"{t['id'][2:]}-{i + 1}" for t in TUTS for i, it in enumerate(t['items']) if it.get('prompt')}
+    for g in GD['guides']:
+        assert re.fullmatch(r'[a-z0-9-]+', g['id']) and g.get('kw'), ('guides 형식', g.get('id'))
+        for x in g.get('tuts', []): assert x in _tid, ('guides 튜토리얼 없음', g['id'], x)
+        for x in g.get('tools', []): assert x in _tool, ('guides 무료 도구 없음', g['id'], x)
+        for x in g.get('prompts', []): assert x in _pids, ('guides 프롬프트 없음', g['id'], x)
+        if g.get('page'):
+            for k in ('title', 'h1', 'deck', 'card', 'steps'): assert g.get(k), ('guides 항목 없음', g['id'], k)
+            style_check('길잡이 ' + g['id'], [g['deck']] + [x[1] for x in g['steps']] + [re.sub(r'<[^>]+>', '', a) for _, a in g.get('faq', [])])
+            for _, ans in g.get('faq', []):
+                assert not re.search(r'<(?!/?a\b)|<a (?!href="/[^"]*">)', ans), ('guides FAQ 에는 <a href="/..."> 만', g['id'])
+    for v in GD.get('fallback', {}).values(): assert any(g['id'] == v for g in GD['guides']), ('guides fallback', v)
+    _gid = {g['id']: g for g in GD['guides']}
+    def _flat(x):
+        if isinstance(x, str): return x
+        if isinstance(x, dict): return ' '.join(_flat(v) for v in x.values())
+        if isinstance(x, list): return ' '.join(_flat(v) for v in x)
+        return ''
+    def _hits(g, text): return sum(len(re.findall(re.escape(k), text, re.I)) for k in g['kw'])
+    def _next(head, terms, body, cat):
+        sc = sorted(((3 * _hits(g, head) + 2 * _hits(g, terms) + min(_hits(g, body), 4), i, g) for i, g in enumerate(GD['guides'])), key=lambda x: (-x[0], x[1]))
+        top = [g for s_, _, g in sc if s_ >= 5][:1]
+        top += [g for s_, _, g in sc[1:2] if top and s_ >= max(6, sc[0][0] * 0.6)]
+        top = top or ([_gid[GD['fallback'][cat]]] if cat in GD.get('fallback', {}) else [])
+        nx = []
+        def add(kind, href, title):
+            if len(nx) < 3 and href not in [x[1] for x in nx]: nx.append([kind, href, title])
+        for g in top:
+            if g.get('page'): add('길잡이', f"/guide/{g['id']}/", g['h1'])
+            if g.get('tuts'): t = _tid[g['tuts'][0]]; add('튜토리얼', f"/tutorial/{t['id'][2:]}/", t['title'])
+            if g.get('tools'): t = _tool[g['tools'][0]]; add('무료 도구', t['href'], t['title'])
+        return nx
+    for a in out:
+        a['nx'] = _next(' '.join([a['title'], a.get('sub') or '', a.get('hook') or '', a.get('try') or '']), ' '.join(a.get('terms') or []), _flat(a.get('body')), a['cat'])
+    for c in cols:
+        c['nx'] = _next(' '.join([c['title'], c.get('deck') or '', c.get('sub') or '']), '', _flat(c.get('body')), '')
     # AI 요금 계산기 가격(공식 가격표에서 확인한 값만, 100만 토큰당 달러)
     PR = J('ai_prices.json') if os.path.exists(N + 'ai_prices.json') else None
     if PR:

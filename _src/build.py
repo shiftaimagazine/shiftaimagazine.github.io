@@ -109,10 +109,13 @@ VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exist
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">'
 # 방문 통계: GoatCounter(쿠키 없음, IP 저장 안 함). 개인정보처리방침 7일 전 공지 약속에 따라 시행일부터 센다. 미리 그리기(prerender)·로컬에서는 안 셈.
 GC_CODE, GC_START = 'shiftai', '2026-11-03T00:00:00+09:00'
+# 채널 표시(11/3): 주소의 ?from=th|ig|yt 또는 utm_source 가 있으면 들어온 곳을 쓰레드·인스타·유튜브로 센다(앱 안 브라우저는 들어온 곳을 안 넘겨줌).
 # 보안 점검(11/2): 통계 스크립트는 우리 서버(/lib/goatcounter/count.js)에서 내려보내고, 불러오는 코드도 바깥 파일로 둔다(페이지 안 스크립트 없음 → CSP 로 막을 수 있게).
 GC_URL = f'https://{GC_CODE}.goatcounter.com' if GC_CODE else ''
 if GC_CODE:
     open(OUT + 'assets/stats.js', 'w').write('(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("' + GC_START + '"))return;'
+        'var f=(new URLSearchParams(location.search).get("utm_source")||new URLSearchParams(location.search).get("from")||"").toLowerCase(),M={th:"threads",threads:"threads",ig:"instagram",instagram:"instagram",reels:"instagram",reel:"instagram",yt:"youtube",youtube:"youtube",shorts:"youtube"};'
+        'if(M[f])window.goatcounter={referrer:"https://www."+M[f]+".com/"};'
         'var s=document.createElement("script");s.async=true;s.dataset.goatcounter="' + GC_URL + '/count";s.src="/lib/goatcounter/count.js";document.head.appendChild(s)})();\n')
 ANALYTICS = '<script defer src="/assets/stats.js"></script>\n' if GC_CODE else ''
 # 콘텐츠 보안 정책(CSP): GitHub Pages 는 응답 머리를 못 바꾸므로 <meta> 로 건다. 우리 서버·구글 글꼴·통계 주소 밖으로는 스크립트를 불러오거나 데이터를 보내지 못한다.
@@ -316,6 +319,14 @@ TOOLS = D.get('TOOLS', [])
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
 TOOL_SEO = {
+    'pdf-to-text': dict(js='pdf.js', title='PDF 텍스트 추출 무료 — PDF를 텍스트·마크다운으로 변환 (업로드 없음)',
+                desc='PDF 속 글자를 복사할 수 있는 텍스트와 마크다운으로 바꿉니다. 반복되는 머리글과 쪽 번호를 빼고 끊긴 줄을 문단으로 이어 AI에 올리기 좋게 정리하며, 파일은 브라우저 밖으로 나가지 않습니다.',
+                alt=['PDF 텍스트 추출', 'PDF 텍스트 변환', 'PDF 마크다운 변환', 'PDF 글자 복사'],
+                feat=['PDF 텍스트 추출', '마크다운 변환(제목·목록 추정)', '머리글·쪽 번호 빼기', '끊긴 줄 문단으로 잇기', '쪽 범위 지정', '글자 없는 쪽(스캔본) 알림', '.txt·.md 저장']),
+    'ai-subscriptions': dict(js='subs.js', title='AI 구독료 계산기 — 챗GPT·클로드·제미나이·그록 한 달·1년 합계 (원화)',
+                desc='챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달과 1년 구독료를 원화로 더해 줍니다. 겹치는 챗봇 구독을 하나로 줄였을 때와 연간 결제로 바꿨을 때 아끼는 돈도 계산합니다.',
+                alt=['AI 구독료 계산', '챗GPT 구독료', 'AI 구독 정리', '챗GPT 클로드 구독 비교'],
+                feat=['요금제별 한 달·1년 합계(원화)', '겹치는 챗봇 구독 찾기', '연간 결제 절약액', '팀 요금제 인원', '목록에 없는 구독 직접 추가', '이 브라우저에 저장']),
     'ocr': dict(js='ocr.js', title='이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR)',
                 desc='사진이나 화면 캡처 속 글자를 복사할 수 있는 텍스트로 바꿉니다. 한국어와 영어를 함께 읽는 무료 OCR이고 가입·설치 없이 브라우저에서 바로 씁니다. 사진은 서버로 올리지 않고 내 컴퓨터 안에서만 읽습니다.',
                 alt=['이미지 텍스트 추출', '사진 글자 추출', '한국어 OCR', '이미지 글자 인식'],
@@ -389,6 +400,9 @@ def rel_item(r):  # tools.json rel: 사이트 안 주소(/tutorial/·/column/·/
         x = _termBy[r[5:]]; return f"/dict/{x['s']}/", f"{x['t']} 뜻", 'AI 사전'
     if r in _tutBy: return r, _tutBy[r], '튜토리얼'
     if r in _colBy: return r, _colBy[r], '칼럼'
+    if r == '/vs/': return r, '챗GPT·클로드·제미나이·그록 둘씩 비교', 'AI 서비스 비교'
+    if r.startswith('/guide/'):
+        g = next(x for x in json.load(open(SRC + 'news/guides.json'))['guides'] if f"/guide/{x['id']}/" == r); return r, g['h1'], 'AI 길잡이'
     o = next(x for x in TOOLS if x['href'] == r); return r, o['title'], '무료 도구'
 def faq_of(v):
     m = re.search(r'<section class="tfaq".*?</section>', v, re.S)
@@ -409,6 +423,11 @@ for t in TOOLS:
           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
     v = fix_links(view('tool-' + t['id']))
     if t['id'] == 'free-alternatives': v = fa_render(v)
+    if t['id'] == 'ai-subscriptions':  # 요금은 news/vs.json plans(10/29 공식 페이지), 환율은 ai_prices.json 과 같은 값
+        _v, _fx = json.load(open(SRC + 'news/vs.json')), json.load(open(SRC + 'news/ai_prices.json'))['fx']
+        _sd = {'checked': _v['checked'], 'fx': _fx, 'services': {k: {'name': x['name'], 'plans': x['plans']} for k, x in _v['services'].items()}, 'pairs': [{'id': q['id'], 'a': q['a'], 'b': q['b']} for q in _v['pairs']]}
+        assert '<!--SUBDATA-->' in v
+        v = v.replace('<!--SUBDATA-->', '<script type="application/json" id="subData">' + json.dumps(_sd, ensure_ascii=False).replace('</', '<\\/') + '</script>')
     # 페이지 끝: 함께 보면 좋은 글 + 다른 무료 도구(사이트 안 링크)
     rels = [rel_item(r) for r in t.get('rel', [])]
     others = [o for o in TOOLS if o['id'] != t['id']]
@@ -523,7 +542,7 @@ for i, m in enumerate(WEEKS):
             + (f'  <nav class="trel wknav" aria-label="다른 주"><div class="trel-tools">{nav}</div></nav>\n' if nav else '') + f'{FOLLOWBOX}\n</article></main>')
     title = f"{'이번 주 ' if now else ''}AI 판정 {rg}" + (f" — {summ}" if summ else '') + ' · SHIFT AI'
     top = next((a for k, *_ in _VDN for a in xs if (a.get('verdict') or {}).get('v') == k), xs[0])
-    og = f"og/{top['id']}.jpg" if os.path.exists(OUT + f"og/{top['id']}.jpg") else OG_SITE
+    og = f"og/a-{top['id']}.jpg" if os.path.exists(OUT + f"og/a-{top['id']}.jpg") else OG_SITE
     ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f"주간 AI 판정 {m[:4]}년 {rg}", 'description': deck, 'url': SITE + u, 'inLanguage': 'ko', 'publisher': PUBLISHER,
           'datePublished': kst(m), 'dateModified': kst(max(a['date'] for a in xs)),
           'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(xs), 'itemListElement': [{'@type': 'ListItem', 'position': j + 1, 'name': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for j, a in enumerate(xs)]}}
@@ -534,6 +553,45 @@ page('/weekly/', 'weekly', '주간 AI 판정 — 이번 주 써볼 만한 AI, �
      f'<main id="v-weeklyindex"><div class="ph"><h1>주간 AI 판정</h1><p>한 주 동안 나온 AI 소식을 판정별로 묶었습니다. 바쁘면 이번 주 \'써볼 만해요\'만 보셔도 됩니다. 기사 하나하나는 <a href="/verdict/">AI 판정 모아보기</a>에서 봅니다.</p></div>\n'
      f'  <div class="trel-tools vsidx">{_wi}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('주간 AI 판정', '/weekly/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': '주간 AI 판정', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/weekly/{m}/", 'name': f"AI 판정 {_wrange(m)[0]}"} for i, m in enumerate(WEEKS)]}))
+# 길잡이(/guide/, 11/3~): news/guides.json. 이미 확인한 튜토리얼·무료 도구·프롬프트를 일 단위로 묶고, 관련 기사는 기사 끝 '이어서 해 볼 것'이 이 길잡이를 고른 기사로 채운다.
+GD = json.load(open(SRC + 'news/guides.json'))
+GUIDES = [g for g in GD['guides'] if g.get('page')]
+_TB, _TL = {t['id']: t for t in T}, {t['id']: t for t in TOOLS}
+_PR = {f"{t['id'][2:]}-{i + 1}": (t, it) for t in T for i, it in enumerate(t['items']) if it.get('prompt')}
+_card = lambda h, b, sp, ev='': f'<a href="{h}"{ev}><b>{esc(b)}</b><span>{esc(sp)}</span></a>'
+_abs = lambda x: re.sub(r'href="/', f'href="{SITE}/', x)
+GUIDE_LAST = {}
+for g in GUIDES:
+    u = f"/guide/{g['id']}/"
+    rel = [a for a in sorted(A, key=lambda a: a['date'] + (a.get('time') or ''), reverse=True) if any(x[1] == u for x in a.get('nx', []))][:6]
+    tuts, tools = [_TB[x] for x in g.get('tuts', [])], [_TL[x] for x in g.get('tools', [])]
+    steps = ''.join(f'<li><b>{esc(h)}</b><p>{esc(d)} <a href="{lk}">{"도구 열기" if lk.startswith("/tools/") else "비교 보기" if lk.startswith("/vs/") else "자세히 보기"} →</a></p></li>' for h, d, lk in g['steps'])
+    prs = ''.join(f'<div class="pr gpr"><b>{esc(it["h"])}</b><div class="pt">{esc(it["prompt"])}</div><div class="pra"><button class="copy dark" data-copy="{esc(it["prompt"])}">복사하기</button>'
+                  f'<a href="/tutorial/{t["id"][2:]}/">나온 글: {esc(t["title"])}</a></div></div>' for t, it in (_PR[x] for x in g.get('prompts', [])))
+    warns = [x for t in tuts for x in (t.get('limits') or [])[:1]][:3]
+    faq = g.get('faq', [])
+    main = (f'<main id="v-guide"><article class="article narrow guide">\n  <a class="back" href="/guide/">← AI 길잡이</a>\n  <span class="cat">AI 길잡이 · 일 단위로 찾기</span>\n'
+            f'  <h1>{esc(g["h1"])}</h1>\n  <p class="deck">{esc(g["deck"])}</p>\n'
+            f'  <div class="sec"><h2>이 순서로 하면 됩니다</h2></div>\n  <ol class="gsteps">{steps}</ol>\n'
+            + (f'  <div class="sec"><h2>복사해서 바로 쓰는 프롬프트</h2><a class="more" href="/prompts/">프롬프트 모음 →</a></div>\n  <div class="gprs">{prs}</div>\n' if prs else '')
+            + (f'  <div class="sec"><h2>무료 도구</h2></div>\n  <div class="trel-tools">{"".join(_card(t["href"], t["title"], t["desc"]) for t in tools)}</div>\n' if tools else '')
+            + f'  <div class="sec"><h2>자세히 따라 하기</h2></div>\n  <div class="trel-tools">{"".join(_card("/tutorial/" + t["id"][2:] + "/", t["title"], t["deck"]) for t in tuts)}</div>\n'
+            + (f'  <div class="box"><b>먼저 알아 둘 것</b><ul class="plain">{"".join(f"<li>{esc(w)}</li>" for w in warns)}</ul></div>\n' if warns else '')
+            + (f'  <div class="sec"><h2>관련 기사와 판정</h2></div>\n  <ul class="plain wkrest">' + ''.join(f'<li><a href="/news/{a["id"]}/">{esc(a["title"])}</a>{(" · " + {"try": "써볼 만해요", "watch": "지켜보세요", "hype": "과장이에요"}[a["verdict"]["v"]]) if a.get("verdict") else ""}</li>' for a in rel) + '</ul>\n' if rel else '')
+            + (_faq(faq) if faq else '')
+            + f'  <nav class="trel" aria-label="다른 길잡이"><h2>다른 일 찾기</h2><div class="trel-tools">{"".join(_card("/guide/" + x["id"] + "/", x["h1"], x["card"]) for x in GUIDES if x is not g)}</div></nav>\n'
+            + f'{FOLLOWBOX}\n</article></main>')
+    og = og_from(tuts[0]['thumb'], 'g-' + g['id']) if tuts and os.path.exists(OUT + tuts[0]['thumb']) else OG_SITE
+    mod = max([t.get('mod') or t['date'] for t in tuts] + [t.get('mod') or t['date'] for t in tools] + ['2026-11-03'])
+    GUIDE_LAST[u] = max([mod] + [a['date'] for a in rel])
+    ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': g['h1'], 'description': g['deck'], 'image': [f'{SITE}/{og}'], 'datePublished': kst('2026-11-03'), 'dateModified': kst(mod),
+          'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko'}
+    fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': _abs(a)}} for q, a in faq]}
+    page(u, 'guide-' + g['id'], g['title'] + ' · SHIFT AI', g['deck'], main, og, 'article', LD(*([ld, crumbs(('AI 길잡이', '/guide/'), (g['h1'], u))] + ([fq] if faq else []))))
+page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀, 일 단위로 찾는 AI 활용법 · SHIFT AI', '회의록 정리, PDF 요약, 메일 답장, 엑셀 수식, 이력서 검토처럼 하려는 일을 고르면 따라 할 순서와 복사해 쓰는 프롬프트, 무료 도구를 한곳에서 봅니다.',
+     f'<main id="v-guideindex"><div class="ph"><h1>AI 길잡이</h1><p>하려는 일을 고르세요. 따라 할 순서와 복사해 쓰는 프롬프트, 설치 없이 쓰는 무료 도구, 관련 기사를 한곳에 모았습니다. 모두 공식 자료로 확인한 튜토리얼에서 가져왔습니다.</p></div>\n'
+     f'  <div class="trel-tools vsidx">{"".join(_card("/guide/" + g["id"] + "/", g["h1"], g["card"]) for g in GUIDES)}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
+     LD(crumbs(('AI 길잡이', '/guide/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 길잡이', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/guide/{g['id']}/", 'name': g['h1']} for i, g in enumerate(GUIDES)]}))
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----
@@ -547,6 +605,8 @@ for t in TOOLS: last[t['href']] = t.get('mod') or t['date']
 for _p in ['/vs/'] + [f"/vs/{q['id']}/" for q in VS['pairs']]: last[_p] = '2026-11-02'
 if TOOLS: last['/tools/'] = max(t.get('mod') or t['date'] for t in TOOLS)
 for _p, _d in WEEK_LAST.items(): last[_p] = _d
+for _p, _d in GUIDE_LAST.items(): last[_p] = _d
+if GUIDE_LAST: last['/guide/'] = max(GUIDE_LAST.values())
 if WEEK_LAST: last['/weekly/'] = max(WEEK_LAST.values())
 for _p, _u in UPD.items(): last[_p] = max([last.get(_p, '')] + [x[0] for x in _u])
 # 대표 이미지(구글 이미지 검색): 기사·튜토리얼·칼럼·데일리·무료 도구. 사이트 로고는 넣지 않는다.
@@ -557,6 +617,8 @@ for c in C: PIMG[f"/column/{c['id'][2:]}/"] = col_img(c)
 for d in DY: PIMG[f"/daily/{d['date']}/"] = day_img(d)
 for t in TOOLS: PIMG[t['href']] = t['thumb']
 PIMG.update(PIMG_W)
+for g in GUIDES:
+    if g.get('tuts') and g['tuts'][0] in _TB: PIMG[f"/guide/{g['id']}/"] = _TB[g['tuts'][0]]['thumb']
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
 for p in PAGES:
     if p in ('/privacy/', '/search/'): continue
@@ -585,6 +647,8 @@ open(OUT + INDEXNOW_KEY + '.txt', 'w').write(INDEXNOW_KEY)
 _ll = [f'# SHIFT AI (시프트 AI)', '', f'> {LISTS["about"][1]} 모든 기사는 회사 발표·논문·공식 문서 같은 원문을 출처로 씁니다. 한국어 사이트입니다.', '',
        '## 섹션', f'- [AI 뉴스]({SITE}/news/): 오늘의 인공지능 소식', f'- [데일리 이슈]({SITE}/daily/): 날마다 정리하는 AI 뉴스', f'- [튜토리얼]({SITE}/tutorial/): 단계별 AI 실전 가이드',
        f'- [AI 사전]({SITE}/dict/): AI 용어 {len(TERMS)}개 뜻', f'- [무료 도구]({SITE}/tools/): 설치 없이 쓰는 AI 도구', f'- [복붙 프롬프트 모음]({SITE}/prompts/): 튜토리얼 프롬프트를 주제별로', f'- [AI 판정 모아보기]({SITE}/verdict/): 써볼 만해요·지켜보세요·과장이에요', f'- [AI 서비스 비교]({SITE}/vs/): 챗GPT·클로드·제미나이·그록 요금과 무료 범위', f'- [소개]({SITE}/about/): 편집 원칙과 출처 규칙', f'- [RSS]({SITE}/feed.xml)', '',
+       f'- [주간 AI 판정]({SITE}/weekly/): 한 주 기사를 판정별로 묶음', f'- [AI 길잡이]({SITE}/guide/): 회의록·PDF·메일·엑셀 등 일 단위 AI 활용법', '',
+       '## AI 길잡이'] + [f"- [{g['h1']}]({SITE}/guide/{g['id']}/): {g['deck']}" for g in GUIDES] + ['',
        '## 최신 기사'] + [f"- [{a['title']}]({SITE}/news/{a['id']}/): {a['hook']}" for a in sorted(A, key=_pub, reverse=True)[:30]] + ['', '## 튜토리얼'] + \
       [f"- [{t['title']}]({SITE}/tutorial/{t['id'][2:]}/): {t['deck']}" for t in T] + ['', '## 무료 도구'] + [f"- [{t['title']}]({SITE}{t['href']}): {t['desc']}" for t in TOOLS] + \
       ['', '## AI 사전 (일부)'] + [f"- [{t['t']}]({SITE}/dict/{t['s']}/): {t['d']}" for t in sorted(TERMS, key=lambda t: -len(t['arts']))[:40]]

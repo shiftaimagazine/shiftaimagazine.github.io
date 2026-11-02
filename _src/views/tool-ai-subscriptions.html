@@ -1,0 +1,60 @@
+<main id="v-tool-ai-subscriptions">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · AI 구독료</span>
+  <h1>AI 구독료 계산기 (겹치는 구독 찾기)</h1>
+  <p class="deck">챗GPT·클로드·제미나이·그록 가운데 내가 내는 요금제를 고르면 한 달과 1년 구독료를 원화로 더해 줍니다. 챗봇 구독이 겹치면 하나만 남겼을 때 아끼는 돈과 연간 결제로 바꿨을 때 줄어드는 돈도 함께 보여 줍니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>고른 내용은 이 브라우저에만 저장 · 어디에도 보내지 않음</span></div>
+  <!--SUBDATA-->
+
+  <section class="tstep">
+    <h2><i>1</i>내는 요금제 고르기</h2>
+    <div class="sbsvc" id="sSvc"></div>
+    <p class="hint" id="sAsof"></p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>고른 구독 <small id="sNum"></small></h2>
+    <div class="sblist" id="sList"><p class="empty">위에서 요금제를 누르면 여기에 담깁니다.</p></div>
+    <details class="sbadd">
+      <summary>목록에 없는 구독 직접 넣기 (미드저니, 커서, 퍼플렉시티 등)</summary>
+      <div class="trow">
+        <label class="inl">이름 <input id="sName" type="text" maxlength="30" placeholder="예: 미드저니" style="width:140px"></label>
+        <label class="inl">한 달 <input id="sPrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="10"></label>
+        <div class="seg mini" role="radiogroup" aria-label="통화">
+          <label><input type="radio" name="sCur" value="usd" checked><span><b>달러</b></span></label>
+          <label><input type="radio" name="sCur" value="krw"><span><b>원</b></span></label>
+        </div>
+        <button class="ghost" type="button" id="sAdd">담기</button>
+      </div>
+      <p class="hint">직접 넣은 금액은 확인하지 않은 값이니 각 서비스 결제 화면에서 확인한 금액을 넣어 주세요.</p>
+    </details>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>결과</h2>
+    <div class="sbsum" id="sSum" aria-live="polite"></div>
+    <div id="sTips"></div>
+    <div class="trow">
+      <button class="btn" type="button" id="sCopy" data-ev="tool-done:/tools/ai-subscriptions/" disabled>결과 복사하기</button>
+      <button class="ghost" type="button" id="sClear">모두 비우기</button>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>요금은 각 사 공식 요금 페이지와 도움말에서 확인한 값입니다. 확인한 날짜는 위 1단계 아래에 적었습니다. 요금제는 자주 바뀌니 결제하기 전에 각 사 요금 페이지에서 다시 확인하세요.</li>
+      <li>달러 요금은 정해 둔 환율로 바꾼 값이고 세금은 넣지 않았습니다. 카드사 해외 결제 수수료와 부가세 때문에 실제 청구액은 더 많을 수 있습니다.</li>
+      <li>무료로 되는 기능은 서비스마다 다르고 숫자 없이 수시로 조정됩니다. 줄이기 전에 <a href="/vs/">AI 서비스 비교</a>에서 무료로 되는 것을 확인하세요.</li>
+    </ul>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>챗GPT와 클로드를 둘 다 구독할 필요가 있나요?</summary><p>쓰는 일에 따라 다릅니다. 글 대화나 리서치처럼 겹치는 기능이 많다면 많이 쓰는 하나만 남기고 나머지는 무료 요금제로 쓰는 방법이 있습니다. 둘 중 무엇이 맞는지는 <a href="/vs/chatgpt-vs-claude/">챗GPT vs 클로드 비교</a>에서 무료로 되는 기능과 함께 볼 수 있습니다.</p></details>
+    <details><summary>원화 금액은 어떻게 계산하나요?</summary><p>달러 요금에 이 페이지 1단계 아래에 적은 환율을 곱하고 100원 단위에서 반올림했습니다. 제미나이처럼 한국 공식 페이지에 원화로 나온 요금은 그 금액을 그대로 씁니다.</p></details>
+    <details><summary>연간 결제로 바꾸면 얼마나 아끼나요?</summary><p>공식 페이지에 연간 결제 가격이 나온 요금제(클로드 프로·팀, 챗GPT 비즈니스, 제미나이 AI 프로)는 고른 구독 목록에서 '연간 결제'를 켜고 끌 수 있고, 결과에 1년 동안 줄어드는 금액이 나옵니다. 연간 결제는 1년 치를 한 번에 내는 방식이니 바꾸기 전에 각 서비스의 해지·환불 안내를 확인하세요.</p></details>
+    <details><summary>고른 내용이 저장되거나 전송되나요?</summary><p>다음에 다시 열었을 때 그대로 보이도록 이 브라우저(로컬 저장소)에만 저장하고 어디에도 보내지 않습니다. '모두 비우기'를 누르면 저장한 내용도 지워집니다.</p></details>
+  </section>
+</article>
+</main>

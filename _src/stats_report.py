@@ -59,7 +59,7 @@ try:
     for h in pv(hc):
         p = h['path']; k = ('첫 화면' if p == '/' else '무료 도구' if p.startswith('/tools/') else '튜토리얼' if p.startswith('/tutorial') else '칼럼' if p.startswith('/column') else
              '뉴스·기사' if p.startswith('/news') else '데일리' if p.startswith('/daily') else 'AI 사전' if p.startswith('/dict') else '프롬프트 모음' if p.startswith('/prompts')
-             else '판정' if p.startswith(('/verdict', '/weekly', '/vs')) else '기타')
+             else '판정' if p.startswith(('/verdict', '/weekly', '/vs')) else 'AI 길잡이' if p.startswith('/guide') else '기타')
         kind[k] += cnt(h)
     say('== 종류별 조회수: ' + ' · '.join(f'{k} {v:,}' for k, v in kind.most_common()))
     say('')
@@ -69,7 +69,7 @@ try:
     for h in ev(hp): ep[h['path']] += cnt(h)
     groups = [('tool-use:', '무료 도구 사용(페이지에서 처음 넣거나 누름)'), ('tool-run:', '무료 도구 실행 버튼'), ('tool-done:', '무료 도구 결과 가져감(복사·저장)'),
               ('copy-prompt:', '프롬프트 복사'), ('copy-link:', '링크 복사'), ('fa-find:', '무료 대체 프로그램 찾음'), ('fa-none', '대체 프로그램 못 찾음'),
-              ('out:', '밖으로 나간 링크(사이트)'), ('fix-report:', '틀린 곳 알려 주기 누름')]
+              ('next:', '기사 끝 \'이어서 해 볼 것\' 클릭(간 곳)'), ('out:', '밖으로 나간 링크(사이트)'), ('fix-report:', '틀린 곳 알려 주기 누름')]
     for pre, label in groups:
         items = [(k, v) for k, v in em.items() if k.startswith(pre)]
         tot, totp = sum(v for _, v in items), sum(v for k, v in ep.items() if k.startswith(pre))

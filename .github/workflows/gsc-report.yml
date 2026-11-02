@@ -1,0 +1,31 @@
+# 구글 서치 콘솔 주간 보고서. 매주 월요일 03:37(한국 시간)과 손으로 실행. 결과는 gsc-tmp 가지의 report.txt.
+# 인증은 저장소 비밀값 GSC_SA_KEY(서비스 계정 JSON, 서치 콘솔 '제한됨' 권한)에서만 읽는다. 없으면 보고서에 넣는 방법을 적는다.
+name: gsc-report
+on:
+  schedule:
+    - cron: '37 18 * * 0'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: _src/gsc_report.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install google-auth==2.35.0 requests==2.32.3
+      - name: 검색 성과 읽기
+        env:
+          GSC_SA_KEY: ${{ secrets.GSC_SA_KEY }}
+        run: python3 _src/gsc_report.py report.txt
+      - name: 결과 올리기
+        run: |
+          git init -q out && cd out && git checkout -q -b gsc-tmp
+          cp ../report.txt . && git add report.txt
+          git -c user.name=gsc-report -c user.email=actions@users.noreply.github.com commit -qm "gsc-report $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gsc-tmp

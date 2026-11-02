@@ -1,0 +1,63 @@
+<main id="v-tool-pdf-to-text">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · PDF</span>
+  <h1>PDF 글자 뽑기 (텍스트·마크다운 변환)</h1>
+  <p class="deck">PDF 파일을 넣으면 안의 글자를 복사할 수 있는 텍스트와 마크다운으로 바꿉니다. 쪽마다 반복되는 머리글과 쪽 번호를 빼고 끊긴 줄을 문단으로 이어 주니, AI에 올리기 전에 무엇이 전달되는지 먼저 확인할 수 있습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 읽음 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>PDF 넣기</h2>
+    <label class="odrop" id="pDrop" tabindex="0">
+      <input type="file" id="pFile" accept="application/pdf,.pdf">
+      <b>여기를 눌러 PDF를 고르거나 끌어다 놓으세요</b>
+      <span>한 번에 파일 하나 · 큰 파일은 쪽 범위를 정하면 빨라집니다</span>
+    </label>
+    <div class="trow">
+      <label class="inl">쪽 범위 <input id="pRange" type="text" inputmode="numeric" placeholder="예: 1-5, 8 (비우면 전체)" size="18"></label>
+    </div>
+    <div class="ochecks">
+      <label><input type="checkbox" id="pJoin" checked> 끊긴 줄을 문단으로 잇기 <small>(쪽 너비에서 끊긴 줄을 이어 붙입니다)</small></label>
+      <label><input type="checkbox" id="pHead" checked> 머리글·쪽 번호 빼기 <small>(여러 쪽 위아래에 똑같이 반복되는 줄)</small></label>
+      <label><input type="checkbox" id="pMark"> 쪽 구분 표시 <small>(결과에 쪽 번호를 남깁니다)</small></label>
+    </div>
+    <div class="obar" id="pBar" hidden><i></i></div>
+    <p class="meta" id="pStatus" aria-live="polite">PDF를 넣으면 바로 읽기 시작합니다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>뽑은 글자</h2>
+    <div class="seg mini" role="radiogroup" aria-label="결과 형식">
+      <label><input type="radio" name="pFmt" value="txt" checked><span><b>텍스트</b></span></label>
+      <label><input type="radio" name="pFmt" value="md"><span><b>마크다운</b></span></label>
+    </div>
+    <label class="sr" for="pOut">뽑은 글자</label>
+    <textarea id="pOut" rows="14" placeholder="여기에 결과가 나옵니다. 고쳐 쓸 수도 있습니다." readonly></textarea>
+    <div class="trow">
+      <button class="btn" type="button" id="pCopy" data-ev="tool-done:/tools/pdf-to-text/" disabled>복사하기</button>
+      <button class="ghost" type="button" id="pDown" data-ev="tool-done:/tools/pdf-to-text/" disabled>파일로 저장</button>
+      <a class="ghost" id="pCount" href="/tools/char-count/">글자 수·토큰 세기 →</a>
+    </div>
+    <p class="hint" id="pSum"></p>
+    <p class="hint" id="pScan" hidden></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>PDF 안에 글자 정보가 있는 파일만 읽습니다. 종이를 스캔했거나 사진으로 만든 PDF는 글자가 나오지 않으니, 그 쪽을 이미지로 저장해 <a href="/tools/ocr/">사진 속 글자 뽑기</a>로 읽힙니다.</li>
+      <li>표는 칸 구분 없이 한 줄씩 글자로 나올 수 있습니다. 숫자가 중요한 표는 원본 PDF와 직접 맞춰 보세요.</li>
+      <li>마크다운의 제목(#)은 글자 크기로 짐작해 붙인 것이라 틀릴 수 있습니다. 여러 단으로 된 문서는 읽는 순서가 섞일 수 있습니다.</li>
+    </ul>
+    <p>PDF는 모질라의 오픈소스 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener">PDF.js</a>(Apache-2.0)로 읽습니다. 프로그램은 처음 한 번 SHIFT AI 서버에서 받아 오고, 파일은 이 페이지 밖으로 나가지 않습니다.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>PDF 파일이 서버로 올라가나요?</summary><p>올라가지 않습니다. 파일은 내 브라우저 안에서만 읽고, 글자를 뽑는 프로그램만 처음 한 번 SHIFT AI 서버에서 받아 옵니다. 페이지를 닫으면 결과도 사라집니다.</p></details>
+    <details><summary>스캔한 PDF는 왜 글자가 안 나오나요?</summary><p>스캔한 PDF는 글자가 아니라 사진으로 들어 있어서 뽑을 글자 정보가 없습니다. 글자가 거의 없는 쪽은 결과 아래에 쪽 번호로 알려 드리니, 그 쪽을 이미지로 저장해 <a href="/tools/ocr/">사진 속 글자 뽑기</a>에 넣으면 됩니다.</p></details>
+    <details><summary>텍스트와 마크다운은 무엇이 다른가요?</summary><p>텍스트는 글자만 있는 결과입니다. 마크다운은 큰 글씨로 된 줄 앞에 #을, 목록 앞에 -를 붙여 제목과 목록 구조를 함께 남깁니다. 챗GPT·클로드·제미나이에 붙여 넣을 때는 둘 다 쓸 수 있고, 구조가 중요한 문서라면 마크다운이 낫습니다.</p></details>
+    <details><summary>AI에 PDF를 그대로 올리면 안 되나요?</summary><p>올려도 되지만 표가 깨지거나 머리글과 쪽 번호가 본문에 섞일 수 있습니다. 글자를 먼저 뽑아 보면 AI에게 무엇이 전달되는지 확인하고 필요한 부분만 골라 보낼 수 있습니다. 자세한 방법은 <a href="/tutorial/pdf-to-markdown/">PDF를 마크다운으로 바꿔 AI에 올리는 7단계</a>에 있습니다.</p></details>
+    <details><summary>암호가 걸린 PDF도 되나요?</summary><p>열람 암호가 걸린 PDF는 읽지 못합니다. PDF 프로그램에서 암호를 푼 사본을 만든 뒤 넣어 주세요.</p></details>
+  </section>
+</article>
+</main>

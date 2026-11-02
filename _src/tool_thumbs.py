@@ -86,7 +86,25 @@ def cap_free_alt(p, base):
     p.goto(base + '/tools/free-alternatives/'); p.add_style_tag(content=HIDE + ' .fac:nth-child(n+3){display:none}')
     p.fill('#faQ', '포토샵'); p.dispatch_event('#faQ', 'input'); p.wait_for_timeout(300)
     return shot_range(p, '.fafind', '.fap:not([hidden])')
-CAP = {'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt}
+def poll(p, sel, word, t=120):  # CSP 아래에서는 wait_for_function(eval)이 막혀 직접 기다린다
+    import time
+    end = time.time() + t
+    while time.time() < end:
+        if word in p.locator(sel).inner_text(): return
+        time.sleep(0.4)
+    raise TimeoutError(sel)
+def cap_pdf(p, base):
+    p.goto(base + '/tools/pdf-to-text/'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#pFile', SRC + 'thumbs/sample.pdf'); poll(p, '#pStatus', '다 읽었습니다')
+    p.check('input[name=pFmt][value=md]'); p.wait_for_timeout(200)
+    return shot_range(p, 'section.tstep >> nth=1', 'section.tstep >> nth=1')
+def cap_subs(p, base):
+    p.goto(base + '/tools/ai-subscriptions/'); p.add_style_tag(content=HIDE)
+    p.evaluate('()=>{try{localStorage.removeItem("shift-subs-v1")}catch(e){}}'); p.reload(); p.add_style_tag(content=HIDE)
+    for k in ('chatgpt:1', 'claude:0', 'gemini:1'): p.click(f'button[data-k="{k}"]')
+    p.wait_for_timeout(200)
+    return shot_range(p, 'section.tstep >> nth=1', 'section.tstep >> nth=2')
+CAP = {'pdf-to-text': cap_pdf, 'ai-subscriptions': cap_subs, 'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt}
 
 # ---------- 그리기 ----------
 def card(im, w, h, pad=20):

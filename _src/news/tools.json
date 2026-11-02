@@ -1,5 +1,43 @@
 [
  {
+  "id": "ai-subscriptions",
+  "title": "AI 구독료 계산기",
+  "desc": "챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달·1년 구독료를 원화로 더하고, 겹치는 챗봇 구독과 연간 결제로 아끼는 돈을 보여 줍니다.",
+  "href": "/tools/ai-subscriptions/",
+  "tag": "AI 구독료",
+  "date": "2026-11-03",
+  "thumb": "img/tools/ai-subscriptions.webp",
+  "cover": {
+   "t": "AI 구독료\n계산기",
+   "line": "겹치는 챗봇 구독과\n연간 결제로 아끼는 돈까지"
+  },
+  "rel": [
+   "/column/ai-plans-compare/",
+   "/vs/",
+   "/guide/ai-cost-save/"
+  ],
+  "mod": "2026-11-03"
+ },
+ {
+  "id": "pdf-to-text",
+  "title": "PDF 글자 뽑기 (텍스트·마크다운)",
+  "desc": "PDF 속 글자를 복사할 수 있는 텍스트와 마크다운으로 바꿉니다. 머리글·쪽 번호를 빼고 끊긴 줄을 문단으로 이어 AI에 올리기 좋게 정리합니다.",
+  "href": "/tools/pdf-to-text/",
+  "tag": "PDF",
+  "date": "2026-11-03",
+  "thumb": "img/tools/pdf-to-text.webp",
+  "cover": {
+   "t": "PDF 글자\n뽑기",
+   "line": "텍스트·마크다운으로 바꿔\nAI에 올리기 전에 확인"
+  },
+  "rel": [
+   "/tutorial/pdf-to-markdown/",
+   "/tutorial/notebooklm/",
+   "/guide/pdf-summary/"
+  ],
+  "mod": "2026-11-03"
+ },
+ {
   "id": "free-alternatives",
   "title": "유료 프로그램 무료 대체 찾기",
   "desc": "포토샵·한글·MS 오피스·프리미어처럼 돈 내고 쓰던 프로그램 대신 쓸 무료 프로그램을 찾아 줍니다. 무료 범위와 원래 파일을 여는지까지 공식 페이지 기준으로 정리했습니다.",
