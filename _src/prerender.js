@@ -34,7 +34,15 @@ server.listen(0, '127.0.0.1', async () => {
   for (const p of pages) {
     errs.length = 0;
     await pg.goto(base + p, { waitUntil: 'load' });
-    let doc = await pg.evaluate(() => { document.body.dataset.pre = '1'; return '<!doctype html>\n' + document.documentElement.outerHTML + '\n'; });
+    // 줄바꿈 다듬기(11/3~): 제목·굵은 글씨에서 가운뎃점(·) 앞에서 줄이 바뀌어 '·마크다운'처럼 줄이 점으로 시작하지 않게
+    // 점 앞에 보이지 않는 이음표(U+2060)를 넣는다. 점 뒤에서는 그대로 줄을 바꿀 수 있다. 본문·주소·복사용 글은 건드리지 않는다.
+    let doc = await pg.evaluate(() => {
+      document.querySelectorAll('h1,h2,h3,h4,b,strong').forEach(el => {
+        if (el.closest('[data-copy],pre,code,script,style,textarea')) return;
+        const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+        while ((n = w.nextNode())) if (n.data.includes('·')) n.data = n.data.replace(/(\S)·/g, '$1\u2060·');
+      });
+      document.body.dataset.pre = '1'; return '<!doctype html>\n' + document.documentElement.outerHTML + '\n'; });
     if (errs.length) { console.error('JS error on', p, errs); process.exitCode = 1; }
     if (!FULL.has(p)) { const n0 = doc.length; doc = doc.replace(/<script src="\/assets\/data\.js\?v=/, '<script src="/assets/data-lite.js?v='); if (doc.length === n0) { console.error('data.js 줄 없음', p); process.exitCode = 1; } }
     const file = p === '/' ? path.join(OUT, 'index.html') : path.join(OUT, p, 'index.html');

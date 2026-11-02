@@ -111,6 +111,52 @@ os.makedirs(OUT + 'assets', exist_ok=True)
 data_js = ''.join(f'const {k} = {json.dumps(v, ensure_ascii=False)};\n' for k, v in D.items()) + f'const FOLLOWBOX = {json.dumps(FOLLOWBOX, ensure_ascii=False)};\n'
 app_js = open(SRC + 'app.js').read()
 css = open(SRC + 'site.css').read()
+
+# 휴대폰 글자 크기(11/3~): 컴퓨터 화면은 그대로 두고, 폭 640px 이하에서만 글자를 한 단계씩 키운다.
+# 기준: 보그 코리아 모바일(본문 16px·줄 간격 1.62, 목록 제목 16px, 날짜 12~14px), 구글 뉴스 모바일(제목 16px, 출처·시간 12px).
+# 우리 쪽은 그보다 같거나 조금 크게, 가장 작은 글자도 12.5px 아래로 내려가지 않게 한다.
+# site.css 의 font-size 규칙을 같은 선택자·같은 순서로 다시 적어 덧붙이므로, 새 규칙을 써도 자동으로 따라간다.
+MOBILE_MAP = {10.5: 11, 11: 12.5, 11.5: 12.5, 12: 13, 12.5: 13.5, 13: 14, 13.5: 14.5, 14: 15.5, 14.5: 16, 15: 16, 15.5: 16.5,
+              16: 17, 16.5: 17.5, 17: 17.5, 17.5: 18, 18: 18.5, 18.5: 19}
+# 길게 읽는 본문은 한 단계 더: 기사 본문 18px, 튜토리얼 설명 17px
+MOBILE_FIX = {'.tcard b': 17, '.article .body': 18, '.tut-page .how': 17, '.tut-page .pr .pt': 17, '.tut-page .quick ol': 17, '.tut-page .limits ul': 17}
+MOBILE_SKIP = re.compile(r'\.annc \.nb|\.tglyph|kbd|\.chev|\.fword|\.hero h1|\.hstats b|\.hsearch kbd|\.sicon|\.cover|\.og-')
+def mobile_type(src):
+    out, cur, buf = [], None, []
+    def flush():
+        if buf: out.append('@media (max-width:%spx){%s}' % (cur, ''.join(buf)))
+    def walk(text, cond):
+        nonlocal cur, buf
+        i = 0
+        while i < len(text):
+            j = text.find('{', i)
+            if j < 0: break
+            head = text[i:j].strip()
+            if head.startswith('@'):  # @media 는 안으로 들어가고, @keyframes 같은 다른 묶음은 통째로 건너뜀
+                d, k = 1, j + 1
+                while d: d += {'{': 1, '}': -1}.get(text[k], 0); k += 1
+                if head.startswith('@media'): walk(text[j + 1:k - 1], head[6:].strip())
+                i = k; continue
+            k = text.index('}', j); body = text[j + 1:k]; i = k + 1
+            m = re.search(r'font-size:\s*([0-9.]+)px', body) or re.search(r'(?:^|;)\s*font:\s*(?:[a-z0-9 ]+\s)?([0-9.]+)px', body)
+            if not m or MOBILE_SKIP.search(head): continue
+            v = float(m.group(1)); nv = MOBILE_FIX.get(head, MOBILE_MAP.get(v))
+            if nv is None or nv == v: continue
+            # 휴대폰(폭 360~640)에 걸리는 조건만: 조건 없음, max-width, 색·동작 설정. min-width·print 는 건너뜀
+            w = 640
+            if cond:
+                if 'min-width' in cond or 'print' in cond: continue
+                mw = re.search(r'max-width:\s*(\d+)px', cond)
+                if mw: w = min(640, int(mw.group(1)))
+                if 'prefers-' in cond: continue
+            if w != cur: flush(); cur, buf = w, []
+            buf.append('%s{font-size:%gpx}' % (head, nv))
+    walk(re.sub(r'/\*.*?\*/', '', src, flags=re.S), '')
+    flush()
+    gen = '\n'.join(out)
+    assert gen.count('{') == gen.count('}') and not re.search(r'\}[^{}]*[@}][^{}]*\{font-size', gen), '휴대폰 글자 크기 규칙이 깨짐'
+    return src + '\n/* ---- 휴대폰 글자 크기: build.py mobile_type() 가 만든 부분 ---- */\n' + gen + '\n'
+css = mobile_type(css)
 open(OUT + 'assets/data.js', 'w').write(data_js)
 open(OUT + 'assets/app.js', 'w').write(app_js)
 open(OUT + 'assets/site.css', 'w').write(css)
