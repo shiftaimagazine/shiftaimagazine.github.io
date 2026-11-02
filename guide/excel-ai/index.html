@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>엑셀 AI 활용법, 수식 만들기와 회사 데이터 올리기 전 주의할 점 · SHIFT AI</title>
+<meta name="description" content="함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 붙여 넣을 수식을 써 줍니다. 이름이나 연락처가 든 표는 가린 사본으로 묻고 결과를 내 PC에서 되돌리는 방법까지 함께 담았습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/guide/excel-ai/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="엑셀 AI 활용법, 수식 만들기와 회사 데이터 올리기 전 주의할 점 · SHIFT AI">
+<meta property="og:description" content="함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 붙여 넣을 수식을 써 줍니다. 이름이나 연락처가 든 표는 가린 사본으로 묻고 결과를 내 PC에서 되돌리는 방법까지 함께 담았습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/guide/excel-ai/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/g-excel-ai.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "엑셀·구글 시트, AI로 수식 만들고 데이터 정리하기", "description": "함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 붙여 넣을 수식을 써 줍니다. 이름이나 연락처가 든 표는 가린 사본으로 묻고 결과를 내 PC에서 되돌리는 방법까지 함께 담았습니다.", "image": ["https://shiftaimagazine.com/og/g-excel-ai.jpg"], "datePublished": "2026-11-03T09:00:00+09:00", "dateModified": "2026-11-03T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "mainEntityOfPage": "https://shiftaimagazine.com/guide/excel-ai/", "inLanguage": "ko"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 길잡이", "item": "https://shiftaimagazine.com/guide/"}, {"@type": "ListItem", "position": 3, "name": "엑셀·구글 시트, AI로 수식 만들고 데이터 정리하기", "item": "https://shiftaimagazine.com/guide/excel-ai/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI가 준 수식이 내 엑셀에서 안 돼요.", "acceptedAnswer": {"@type": "Answer", "text": "AI가 내 엑셀 버전에서 쓸 수 없는 함수를 내놓을 수 있습니다. 질문할 때 버전을 꼭 적고, 오류가 나면 #N/A나 #VALUE! 같은 오류 메시지를 그대로 붙여 넣어 이유를 물어봅니다."}}, {"@type": "Question", "name": "회사 엑셀을 AI에 올려도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "회사가 승인한 도구인지부터 확인해야 합니다. 올린다면 분석에 필요 없는 개인정보는 지우거나 자리표로 바꾼 사본만 올리고, 비고·메모 칸은 사람이 한 번 더 훑어봅니다."}}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=b8f647db">
+</head>
+<body data-route="guide-excel-ai" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-guide"><article class="article narrow guide">
+  <a class="back" href="/guide/">← AI 길잡이</a>
+  <span class="cat">AI 길잡이 · 일 단위로 찾기</span>
+  <h1>엑셀·구글 시트, AI로 수식 만들고 데이터 정리하기</h1>
+  <p class="deck">함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 붙여 넣을 수식을 써 줍니다. 이름이나 연락처가 든 표는 가린 사본으로 묻고 결과를 내 PC에서 되돌리는 방법까지 함께 담았습니다.</p>
+  <div class="sec"><h2>이 순서로 하면 됩니다</h2></div>
+  <ol class="gsteps"><li><b>내 표를 먼저 설명하기</b><p>프로그램 버전, 열 구성, 예시 3줄을 적어 질문 앞에 붙입니다. 예시 데이터는 실제 고객·직원 값 대신 비슷한 가짜 값으로 바꿉니다. <a href="/tutorial/spreadsheet-formulas/">자세히 보기 →</a></p></li><li><b>개인정보는 자리표로 가리고 묻기</b><p>실제 데이터를 분석해야 한다면 이름·사번·이메일을 고객_001 같은 자리표로 바꾼 사본을 올립니다. 주민번호·계좌·전화번호 열은 통째로 지웁니다. <a href="/tutorial/redact-before-upload/">자세히 보기 →</a></p></li><li><b>받은 수식은 몇 줄로 검산하기</b><p>손으로 계산할 수 있는 몇 줄에서 결과를 먼저 맞춰 본 뒤 전체에 씁니다. 엑셀과 구글 시트는 일부 함수의 동작이 달라서 옮긴 뒤에는 다시 확인합니다. <a href="/tutorial/spreadsheet-formulas/">자세히 보기 →</a></p></li></ol>
+  <div class="sec"><h2>복사해서 바로 쓰는 프롬프트</h2><a class="more" href="/prompts/">프롬프트 모음 →</a></div>
+  <div class="gprs"><div class="pr gpr"><b>내 표를 설명하는 기본 틀</b><div class="pt">[엑셀 365 / 엑셀 2019 / 구글 시트]를 쓰고 있어. 시트 이름은 [시트 이름]이고 1행은 머리글, 데이터는 2행부터 [500]행까지야. 열 구성: A열 [ ], B열 [ ], C열 [ ], D열 [ ]. 예시 3줄: [예시 데이터]. 빈칸이 [있음/없음]. 원하는 결과: [결과]. 1) 바로 붙여 넣을 수식, 2) 수식을 넣을 셀, 3) 수식의 각 부분이 하는 일을 한 줄씩 설명해 줘. 내 버전에서 안 되는 함수는 쓰지 마.</div><div class="pra"><button class="copy dark" data-copy="[엑셀 365 / 엑셀 2019 / 구글 시트]를 쓰고 있어. 시트 이름은 [시트 이름]이고 1행은 머리글, 데이터는 2행부터 [500]행까지야. 열 구성: A열 [ ], B열 [ ], C열 [ ], D열 [ ]. 예시 3줄: [예시 데이터]. 빈칸이 [있음/없음]. 원하는 결과: [결과]. 1) 바로 붙여 넣을 수식, 2) 수식을 넣을 셀, 3) 수식의 각 부분이 하는 일을 한 줄씩 설명해 줘. 내 버전에서 안 되는 함수는 쓰지 마.">복사하기</button><a href="/tutorial/spreadsheet-formulas/">나온 글: 엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개</a></div></div><div class="pr gpr"><b>조건 맞는 것만 합계·개수</b><div class="pt">B열은 지역, C열은 날짜, D열은 매출이야(2~500행). 지역이 [서울]이고 날짜가 [2026년 10월]인 행의 매출 합계와 행 개수를 각각 구하는 수식을 줘. 지역 이름을 [G1] 셀에 적으면 그 지역으로 바뀌게 만들어 줘. SUMIFS와 COUNTIFS를 써 주고, 날짜가 텍스트로 들어가 있을 때 생기는 문제와 확인 방법도 알려줘.</div><div class="pra"><button class="copy dark" data-copy="B열은 지역, C열은 날짜, D열은 매출이야(2~500행). 지역이 [서울]이고 날짜가 [2026년 10월]인 행의 매출 합계와 행 개수를 각각 구하는 수식을 줘. 지역 이름을 [G1] 셀에 적으면 그 지역으로 바뀌게 만들어 줘. SUMIFS와 COUNTIFS를 써 주고, 날짜가 텍스트로 들어가 있을 때 생기는 문제와 확인 방법도 알려줘.">복사하기</button><a href="/tutorial/spreadsheet-formulas/">나온 글: 엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개</a></div></div><div class="pr gpr"><b>오류 메시지 해석</b><div class="pt">[셀 주소]에 아래 수식을 넣었더니 [오류 표시, 예: #N/A]가 나와. 수식: [수식 붙여 넣기]. 참조하는 셀 값: [예: A2='P-001', 상품!A:A에는 'P-001 '처럼 끝에 공백이 있음]. 1) 이 오류가 뜻하는 것, 2) 내 경우 가능성 높은 원인을 순서대로, 3) 원인을 하나씩 확인하는 방법, 4) 고친 수식을 알려줘. 오류를 IFERROR로 가리기만 하는 방법은 마지막에 따로, 언제 써도 되는지와 함께 알려줘.</div><div class="pra"><button class="copy dark" data-copy="[셀 주소]에 아래 수식을 넣었더니 [오류 표시, 예: #N/A]가 나와. 수식: [수식 붙여 넣기]. 참조하는 셀 값: [예: A2='P-001', 상품!A:A에는 'P-001 '처럼 끝에 공백이 있음]. 1) 이 오류가 뜻하는 것, 2) 내 경우 가능성 높은 원인을 순서대로, 3) 원인을 하나씩 확인하는 방법, 4) 고친 수식을 알려줘. 오류를 IFERROR로 가리기만 하는 방법은 마지막에 따로, 언제 써도 되는지와 함께 알려줘.">복사하기</button><a href="/tutorial/spreadsheet-formulas/">나온 글: 엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개</a></div></div></div>
+  <div class="sec"><h2>무료 도구</h2></div>
+  <div class="trel-tools"><a href="/tools/redact/"><b>개인정보 자동 가리기</b><span>글이나 엑셀 표에 들어 있는 주민등록번호·전화번호·이메일·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.</span></a></div>
+  <div class="sec"><h2>자세히 따라 하기</h2></div>
+  <div class="trel-tools"><a href="/tutorial/spreadsheet-formulas/"><b>엑셀·구글 시트 수식, AI로 만드는 프롬프트 9개</b><span>함수 이름을 몰라도 표 구조와 원하는 결과를 정확히 말하면 AI가 바로 붙여 넣을 수식을 써 줍니다. 조건 합계에서 시작해 오류 해석과 피벗 설계까지 차례로 다룹니다.</span></a><a href="/tutorial/redact-before-upload/"><b>회사 엑셀, 개인정보 가리고 AI에 올리는 3단계와 프롬프트 9개</b><span>이름·연락처가 든 표를 그대로 올리지 않아도 AI 분석은 똑같이 받을 수 있습니다. 먼저 자리표로 가리고 가린 표로 물은 뒤 결과를 내 PC에서 되돌립니다.</span></a></div>
+  <div class="box"><b>먼저 알아 둘 것</b><ul class="plain"><li>AI가 내 엑셀 버전에서 쓸 수 없는 함수를 내놓을 수 있으니 버전을 꼭 적고 결과를 직접 확인해야 합니다.</li><li>자리표로 바꿔도 부서·직급·입사연도를 합치면 한두 명으로 좁혀져 누군지 드러날 수 있으니 인원이 적은 조합은 따로 점검해야 합니다.</li></ul></div>
+<section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>AI가 준 수식이 내 엑셀에서 안 돼요.</summary><p>AI가 내 엑셀 버전에서 쓸 수 없는 함수를 내놓을 수 있습니다. 질문할 때 버전을 꼭 적고, 오류가 나면 #N/A나 #VALUE! 같은 오류 메시지를 그대로 붙여 넣어 이유를 물어봅니다.</p></details>
+    <details><summary>회사 엑셀을 AI에 올려도 되나요?</summary><p>회사가 승인한 도구인지부터 확인해야 합니다. 올린다면 분석에 필요 없는 개인정보는 지우거나 자리표로 바꾼 사본만 올리고, 비고·메모 칸은 사람이 한 번 더 훑어봅니다.</p></details>
+  </section>
+  <nav class="trel" aria-label="다른 길잡이"><h2>다른 일 찾기</h2><div class="trel-tools"><a href="/guide/meeting-notes/"><b>회의록 정리, AI로 하는 법</b><span>녹취록을 결정·할 일·미결로 나누고 영어 회의는 한국어 자막으로</span></a><a href="/guide/pdf-summary/"><b>PDF·긴 자료, AI로 요약하고 근거 확인하기</b><span>PDF 글자를 먼저 뽑아 보고 자료 안에서만 답하게 묻기</span></a><a href="/guide/email-reply/"><b>곤란한 메일 답장, AI로 초안 잡기</b><span>거절·사과·독촉 메일을 상황별 프롬프트로 초안부터</span></a><a href="/guide/privacy/"><b>개인정보 지키며 AI 쓰기</b><span>학습 설정을 점검하고 올리기 전에 가리기</span></a><a href="/guide/verify-ai/"><b>AI 답, 믿기 전에 확인하는 법</b><span>숫자마다 출처를 붙이게 하고 다른 AI로 교차 검증</span></a><a href="/guide/resume/"><b>이력서·자기소개서, AI로 검토받기</b><span>공고와 맞대 보고 글자 수와 AI 티까지 점검</span></a><a href="/guide/ai-cost-save/"><b>AI 구독료·사용료 줄이기</b><span>지금 내는 구독료 합계와 무료로 되는 기능부터 확인</span></a><a href="/guide/presentation/"><b>발표 자료, AI로 뼈대 잡기</b><span>청중과 남길 한 문장을 정하고 목차·반론·대본 순서로</span></a><a href="/guide/study/"><b>AI로 공부하기</b><span>답 대신 질문을 받고 오답 노트와 퀴즈로 복습</span></a></div></nav>
+<section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+</article></main>
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/guide/">AI 길잡이</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=b8f647db"></script>
+<script src="/assets/app.js?v=b8f647db"></script>
+
+
+</body></html>

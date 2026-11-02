@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>회의록 정리 AI 쓰는 법, 녹취 요약부터 영어 회의 자막까지 · SHIFT AI</title>
+<meta name="description" content="녹취록을 요약만 시키면 누가 언제까지 무엇을 하기로 했는지가 빠지기 쉽습니다. 결정·할 일·미결로 나눠 받는 프롬프트와 영어 회의를 한국어 자막으로 보는 무료 도구를 한곳에 모았습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/guide/meeting-notes/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="회의록 정리 AI 쓰는 법, 녹취 요약부터 영어 회의 자막까지 · SHIFT AI">
+<meta property="og:description" content="녹취록을 요약만 시키면 누가 언제까지 무엇을 하기로 했는지가 빠지기 쉽습니다. 결정·할 일·미결로 나눠 받는 프롬프트와 영어 회의를 한국어 자막으로 보는 무료 도구를 한곳에 모았습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/guide/meeting-notes/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/g-meeting-notes.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "회의록 정리, AI로 하는 법", "description": "녹취록을 요약만 시키면 누가 언제까지 무엇을 하기로 했는지가 빠지기 쉽습니다. 결정·할 일·미결로 나눠 받는 프롬프트와 영어 회의를 한국어 자막으로 보는 무료 도구를 한곳에 모았습니다.", "image": ["https://shiftaimagazine.com/og/g-meeting-notes.jpg"], "datePublished": "2026-11-03T09:00:00+09:00", "dateModified": "2026-11-03T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "mainEntityOfPage": "https://shiftaimagazine.com/guide/meeting-notes/", "inLanguage": "ko"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 길잡이", "item": "https://shiftaimagazine.com/guide/"}, {"@type": "ListItem", "position": 3, "name": "회의록 정리, AI로 하는 법", "item": "https://shiftaimagazine.com/guide/meeting-notes/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "회의 녹취를 AI에 넣어도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "회의를 녹음하거나 녹취록을 외부 AI에 넣기 전에는 참석자 동의와 회사 규정을 먼저 확인해야 합니다. 이름이나 연락처는 <a href=\"https://shiftaimagazine.com/tools/redact/\">개인정보 자동 가리기</a>로 가린 뒤 넣을 수 있습니다."}}, {"@type": "Question", "name": "영어 회의 자막은 휴대폰에서도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "회의 통역창은 버전 138 이상인 PC 크롬에서만 됩니다. 영어·중국어·일본어·프랑스어를 한국어 자막으로 바꾸고, 소리가 구글 음성 인식 서버로 가니 기밀 회의라면 보안 규정부터 확인해야 합니다."}}, {"@type": "Question", "name": "AI가 정리한 회의록을 그대로 공유해도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "참석자가 확인하기 전까지는 초안입니다. AI가 논의만 한 내용을 결정사항으로 옮겨 적을 수 있어서 누가 확정했는지는 회의 주최자가 직접 확인해야 합니다."}}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=b8f647db">
+</head>
+<body data-route="guide-meeting-notes" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-guide"><article class="article narrow guide">
+  <a class="back" href="/guide/">← AI 길잡이</a>
+  <span class="cat">AI 길잡이 · 일 단위로 찾기</span>
+  <h1>회의록 정리, AI로 하는 법</h1>
+  <p class="deck">녹취록을 요약만 시키면 누가 언제까지 무엇을 하기로 했는지가 빠지기 쉽습니다. 결정·할 일·미결로 나눠 받는 프롬프트와 영어 회의를 한국어 자막으로 보는 무료 도구를 한곳에 모았습니다.</p>
+  <div class="sec"><h2>이 순서로 하면 됩니다</h2></div>
+  <ol class="gsteps"><li><b>영어 회의라면 자막부터 띄우기</b><p>PC 크롬에서 회의 통역창을 열고 '시스템 오디오도 공유'를 켜면 들리는 말이 한국어 자막으로 나옵니다. 회의가 끝나면 창을 닫기 전에 자막을 복사해 둡니다. <a href="/tools/interpreter/">도구 열기 →</a></p></li><li><b>녹취록을 결정·할 일·미결로 나누기</b><p>녹취록과 참석자 이름·역할을 함께 넣고 세 칸으로 나눠 달라고 합니다. 담당자나 마감이 빈 할 일은 AI가 채우지 않게 하고 참석자에게 직접 묻습니다. <a href="/tutorial/meeting-notes/">자세히 보기 →</a></p></li><li><b>공유 전에 숫자·이름 확인</b><p>받아쓰기는 금액과 날짜, 사람 이름을 자주 틀립니다. 확인 목록을 따로 뽑아 하나씩 맞춰 본 뒤 공유합니다. <a href="/tutorial/meeting-notes/">자세히 보기 →</a></p></li></ol>
+  <div class="sec"><h2>복사해서 바로 쓰는 프롬프트</h2><a class="more" href="/prompts/">프롬프트 모음 →</a></div>
+  <div class="gprs"><div class="pr gpr"><b>결정·할 일·미결 3분류</b><div class="pt">아래 회의 기록을 세 가지로 나눠 줘. 1) 결정사항: 회의에서 분명히 합의된 것만, 누가 확정했는지와 함께. 2) 할 일: '담당자 | 할 일 | 마감 | 근거가 된 발언' 표로. 3) 미결 사항: 논의는 했지만 결론이 안 난 것과 다음에 누가 결정해야 하는지. 애매한 건 결정사항에 넣지 말고 미결로 보내. 회의 기록: [붙여 넣기]</div><div class="pra"><button class="copy dark" data-copy="아래 회의 기록을 세 가지로 나눠 줘. 1) 결정사항: 회의에서 분명히 합의된 것만, 누가 확정했는지와 함께. 2) 할 일: '담당자 | 할 일 | 마감 | 근거가 된 발언' 표로. 3) 미결 사항: 논의는 했지만 결론이 안 난 것과 다음에 누가 결정해야 하는지. 애매한 건 결정사항에 넣지 말고 미결로 보내. 회의 기록: [붙여 넣기]">복사하기</button><a href="/tutorial/meeting-notes/">나온 글: 회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</a></div></div><div class="pr gpr"><b>담당자·마감 빠진 할 일 찾기</b><div class="pt">아래 할 일 목록에서 1) 담당자가 없거나 '우리 팀', '다 같이'처럼 한 사람으로 정해지지 않은 일, 2) 마감이 없거나 '나중에', '조만간'인 일, 3) 너무 커서 다음 행동이 무엇인지 모호한 일을 찾아 줘. 각각 담당자·마감을 정하기 위해 참석자에게 물어볼 질문을 한 문장씩 만들어 줘. 담당자와 마감은 네가 정하지 마. 목록: [할 일 목록]</div><div class="pra"><button class="copy dark" data-copy="아래 할 일 목록에서 1) 담당자가 없거나 '우리 팀', '다 같이'처럼 한 사람으로 정해지지 않은 일, 2) 마감이 없거나 '나중에', '조만간'인 일, 3) 너무 커서 다음 행동이 무엇인지 모호한 일을 찾아 줘. 각각 담당자·마감을 정하기 위해 참석자에게 물어볼 질문을 한 문장씩 만들어 줘. 담당자와 마감은 네가 정하지 마. 목록: [할 일 목록]">복사하기</button><a href="/tutorial/meeting-notes/">나온 글: 회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</a></div></div><div class="pr gpr"><b>숫자·날짜·이름 확인 목록</b><div class="pt">아래 회의 기록에서 숫자(금액, 수량, 비율), 날짜·요일, 사람·회사·제품 이름을 모두 뽑아 표로 만들어 줘. 열은 '항목 | 기록된 표기 | 나온 문맥 | 틀렸을 가능성(높음/낮음)과 이유'야. 날짜와 요일이 서로 안 맞는 경우, 같은 이름이 다르게 적힌 경우는 꼭 표시해 줘. 올해는 [연도]야. 회의 기록: [붙여 넣기]</div><div class="pra"><button class="copy dark" data-copy="아래 회의 기록에서 숫자(금액, 수량, 비율), 날짜·요일, 사람·회사·제품 이름을 모두 뽑아 표로 만들어 줘. 열은 '항목 | 기록된 표기 | 나온 문맥 | 틀렸을 가능성(높음/낮음)과 이유'야. 날짜와 요일이 서로 안 맞는 경우, 같은 이름이 다르게 적힌 경우는 꼭 표시해 줘. 올해는 [연도]야. 회의 기록: [붙여 넣기]">복사하기</button><a href="/tutorial/meeting-notes/">나온 글: 회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</a></div></div></div>
+  <div class="sec"><h2>무료 도구</h2></div>
+  <div class="trel-tools"><a href="/tools/interpreter/"><b>무료 실시간 크롬 번역 (회의 통역창)</b><span>영어·중국어·일본어·프랑스어로 진행되는 회의나 영상을 바로 한국어 자막으로 바꿔 줍니다. 크롬만 있으면 쓸 수 있습니다.</span></a><a href="/tools/redact/"><b>개인정보 자동 가리기</b><span>글이나 엑셀 표에 들어 있는 주민등록번호·전화번호·이메일·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.</span></a></div>
+  <div class="sec"><h2>자세히 따라 하기</h2></div>
+  <div class="trel-tools"><a href="/tutorial/meeting-notes/"><b>회의록·녹취를 할 일 목록으로 바꾸는 프롬프트 9개</b><span>녹취록을 요약만 하면 '좋은 회의였다'로 끝나기 쉽습니다. 결정사항과 담당자, 마감, 미결 사항으로 나눠 정리해야 다음 날 일이 움직입니다.</span></a><a href="/tutorial/meeting-interpreter/"><b>영어 회의, 이제 못 알아들어도 됩니다. 무료 실시간 크롬 번역</b><span>Zoom 회의나 유튜브, 해외 강의에서 들리는 말을 바로 한국어 자막으로 바꿔 줍니다. 설치나 가입이 필요 없고 무료입니다. 크롬 탭 하나만 열어 두면 영어·중국어·일본어·프랑스어를 알아듣습니다.</span></a></div>
+  <div class="box"><b>먼저 알아 둘 것</b><ul class="plain"><li>AI 정리본도 참석자가 확인하기 전까지 초안으로 다뤄야 하는 건 받아쓰기가 화자 구분과 숫자·고유명사를 자주 틀리기 때문입니다.</li><li>버전 138 이상인 PC 크롬에서만 되고 휴대폰에서는 쓸 수 없습니다. 알아듣는 언어는 영어·중국어·일본어·프랑스어입니다.</li></ul></div>
+  <div class="sec"><h2>관련 기사와 판정</h2></div>
+  <ul class="plain wkrest"><li><a href="/news/2026-10-30-nvidia-nemotron-transcribe/">엔비디아 Nemotron 3.5 Transcribe 공개…한국어 포함 40개 언어 받아쓰기</a> · 써볼 만해요</li><li><a href="/news/2026-10-20-mistral-voxtral-3/">미스트랄 ‘복스트랄 3’, 받아쓰기·음성 합성·음성 에이전트 한 묶음</a> · 지켜보세요</li></ul>
+<section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>회의 녹취를 AI에 넣어도 되나요?</summary><p>회의를 녹음하거나 녹취록을 외부 AI에 넣기 전에는 참석자 동의와 회사 규정을 먼저 확인해야 합니다. 이름이나 연락처는 <a href="/tools/redact/">개인정보 자동 가리기</a>로 가린 뒤 넣을 수 있습니다.</p></details>
+    <details><summary>영어 회의 자막은 휴대폰에서도 되나요?</summary><p>회의 통역창은 버전 138 이상인 PC 크롬에서만 됩니다. 영어·중국어·일본어·프랑스어를 한국어 자막으로 바꾸고, 소리가 구글 음성 인식 서버로 가니 기밀 회의라면 보안 규정부터 확인해야 합니다.</p></details>
+    <details><summary>AI가 정리한 회의록을 그대로 공유해도 되나요?</summary><p>참석자가 확인하기 전까지는 초안입니다. AI가 논의만 한 내용을 결정사항으로 옮겨 적을 수 있어서 누가 확정했는지는 회의 주최자가 직접 확인해야 합니다.</p></details>
+  </section>
+  <nav class="trel" aria-label="다른 길잡이"><h2>다른 일 찾기</h2><div class="trel-tools"><a href="/guide/pdf-summary/"><b>PDF·긴 자료, AI로 요약하고 근거 확인하기</b><span>PDF 글자를 먼저 뽑아 보고 자료 안에서만 답하게 묻기</span></a><a href="/guide/email-reply/"><b>곤란한 메일 답장, AI로 초안 잡기</b><span>거절·사과·독촉 메일을 상황별 프롬프트로 초안부터</span></a><a href="/guide/excel-ai/"><b>엑셀·구글 시트, AI로 수식 만들고 데이터 정리하기</b><span>표 구조를 설명해 수식을 받고 개인정보는 가린 사본으로</span></a><a href="/guide/privacy/"><b>개인정보 지키며 AI 쓰기</b><span>학습 설정을 점검하고 올리기 전에 가리기</span></a><a href="/guide/verify-ai/"><b>AI 답, 믿기 전에 확인하는 법</b><span>숫자마다 출처를 붙이게 하고 다른 AI로 교차 검증</span></a><a href="/guide/resume/"><b>이력서·자기소개서, AI로 검토받기</b><span>공고와 맞대 보고 글자 수와 AI 티까지 점검</span></a><a href="/guide/ai-cost-save/"><b>AI 구독료·사용료 줄이기</b><span>지금 내는 구독료 합계와 무료로 되는 기능부터 확인</span></a><a href="/guide/presentation/"><b>발표 자료, AI로 뼈대 잡기</b><span>청중과 남길 한 문장을 정하고 목차·반론·대본 순서로</span></a><a href="/guide/study/"><b>AI로 공부하기</b><span>답 대신 질문을 받고 오답 노트와 퀴즈로 복습</span></a></div></nav>
+<section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+</article></main>
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/guide/">AI 길잡이</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=b8f647db"></script>
+<script src="/assets/app.js?v=b8f647db"></script>
+
+
+</body></html>

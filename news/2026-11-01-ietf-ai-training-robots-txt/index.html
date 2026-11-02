@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=9b27ea53">
+<link rel="stylesheet" href="/assets/site.css?v=b8f647db">
 </head>
 <body data-route="a-2026-11-01-ietf-ai-training-robots-txt" data-pre="1">
 <div class="wrap">
@@ -73,6 +73,7 @@
     <div class="box keyp"><b>세 줄 요약</b><ul><li><b>User-Agent 자리에 __usage_ai-training.</b> Disallow·Allow로 경로별 학습 선호 표시</li><li><b>크롤링 규칙과는 별개.</b> 검색 크롤러는 기존 규칙 그대로</li><li><b>개인 초안 단계.</b> IETF 승인 표준 아님, 2027년 5월 3일 만료</li></ul></div>
     <div class="body"><p class="lead">내 사이트의 글을 AI 학습에 써도 되는지를 robots.txt에 적는 방법이 인터넷 표준 기구 IETF에 초안으로 올라왔습니다. 10월 30일 자 문서 ‘Machine-Readable Training Preference Signal’은 새 문법 없이 기존 robots.txt 규칙에 특별한 이름 하나를 더하는 방식을 제안합니다. 같은 달 구글 검색 센트럴 블로그에도 ‘Supporting a shared AI training control for websites’라는 제목의 글이 올라왔습니다.</p><h3>robots.txt는 원래 크롤러 출입 안내문입니다</h3><p>robots.txt는 웹사이트 맨 위 폴더에 두는 글 파일입니다. 검색 엔진 같은 크롤러가 어느 경로를 가져가도 되는지 User-Agent, Disallow, Allow 같은 줄로 적고 이 규칙은 RFC 9309라는 표준 문서로 정리되어 있습니다. 지금까지 AI 학습을 막고 싶은 운영자는 회사마다 다른 크롤러 이름을 하나씩 찾아 막아야 했습니다. 이번 초안은 크롤러 이름 대신 ‘AI 학습’이라는 쓰임새 자체를 가리키는 이름을 쓰자는 제안입니다. HTTP 헤더로 같은 선호를 붙이는 방법은 이 초안이 아니라 IETF 작업반의 다른 문서가 다룹니다.</p><h3>robots.txt에 넣는 세 줄</h3><p>초안이 든 예시는 세 줄짜리입니다. User-Agent 줄에 __usage_ai-training을 적고 그 아래에 Disallow로 사이트 전체(/)를 지정하면 AI 학습에 쓰지 말라는 뜻이 됩니다. 여기에 Allow로 /press-kit/ 경로를 더하면 보도 자료 폴더만은 학습에 써도 좋다는 뜻이 됩니다. 문서는 새 지시어 이름도 새 문법도 만들지 않는다고 적었습니다. 모든 크롤러를 가리키는 별표(*) 묶음은 이 표시로 해석하면 안 됩니다. AI 학습의 뜻은 IETF AI 선호(aipref) 작업반의 정의를 따르며 생성형 AI 모델의 학습된 파라미터를 바꾸는 데 자료를 쓰는 일을 가리킵니다.</p><h3>검색 노출과 학습 허락을 따로 적습니다</h3><p>이 표시는 크롤러가 어디를 긁어 갈지 정하는 지시가 아닙니다. 초안은 콘텐츠 사용 선호와 트래픽 관리 신호가 같은 robots.txt 안에 있어도 서로 독립이라고 설명합니다. 따라서 검색 엔진 크롤러는 자기 이름으로 적힌 규칙을 이 문서가 없을 때와 똑같이 해석해야 합니다. 사이트 운영자는 검색 크롤러를 그대로 허용하면서 AI 학습에 대한 선호만 따로 밝힐 수 있게 됩니다.</p><h3>앤트로픽 소속 저자 한 명의 개인 초안</h3><p>저자는 앤트로픽(Anthropic) 소속 케빈 켈리(Kevin Kelley) 한 명이고 문서는 개인 초안 00판입니다. 데이터트래커에는 이 문서가 IETF의 승인을 받지 않았고 공식 지위가 없다는 안내가 붙어 있습니다. 감사 명단에는 구글, 마이크로소프트, 오픈AI, 메타, 클라우드플레어, 커먼 크롤 재단, 인터넷 아카이브 등 여러 곳의 사람들이 이름을 올렸고 구글에서는 게리 일리스(Gary Illyes), 존 뮬러(John Mueller)도 들어 있습니다. 소속은 신원 확인용이며 IETF 참여자는 개인 자격으로 기여한다고 문서에 적혀 있습니다. 어느 회사가 언제부터 이 표시를 따를지는 초안에 나오지 않습니다.</p></div>
     <div class="ask"><small>생각해 볼 질문</small>내 블로그 글이 AI 학습에 쓰이는 것을 막고 싶나요, 허락하고 싶나요?</div>
+    <nav class="nxbox" aria-label="이어서 해 볼 것"><b>이어서 해 볼 것</b><a href="/guide/verify-ai/" data-ev="next:/guide/verify-ai/"><span>길잡이</span>AI 답, 믿기 전에 확인하는 법</a><a href="/tutorial/verify-numbers/" data-ev="next:/tutorial/verify-numbers/"><span>튜토리얼</span>AI가 말한 숫자·날짜·가격, 원문으로 확인하는 프롬프트 9개</a></nav>
     <div class="src"><b>원문</b><a href="https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/" target="_blank" rel="noopener">IETF — Machine-Readable Training Preference Signal (draft-kelley-aipref-training-preference-signal-00) · https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/</a><a href="https://developers.google.com/search/blog/2026/10/ai-training-control" target="_blank" rel="noopener">구글 검색 센트럴 블로그 — Supporting a shared AI training control for websites · https://developers.google.com/search/blog/2026/10/ai-training-control</a></div>
     
     <div class="chips"><a href="/dict/robots-txt/" title="웹사이트 맨 위 폴더에 두는 글 파일로, 검색 엔진 같은 크롤러에게 어느 경로를 가져가도 되는지 알려 줍니다. 규칙은 RFC 9309로 정리되어 있습니다.">robots.txt</a><a href="/dict/ietf/" title="HTTP 같은 인터넷 기술 표준을 만드는 국제 표준 기구입니다. 누구나 초안을 낼 수 있고 작업반 논의를 거쳐 RFC라는 표준 문서가 됩니다.">IETF</a><a href="/dict/crawling/" title="프로그램이 웹페이지를 자동으로 돌아다니며 내용을 모으는 일입니다. AI 학습 데이터 수집과 저작권 논쟁의 중심에 있습니다.">크롤링</a><a href="/dict/training-data/" title="AI 모델을 만들 때 읽히는 글·그림·코드 뭉치입니다. 어디서 가져왔는지, 학습 중 외부와 연결되는지가 안전과 저작권 문제로 이어집니다.">학습 데이터</a><a href="/dict/copyright/" title="창작물을 만든 사람이 갖는 권리입니다. AI가 남의 글·그림으로 학습하거나 비슷한 결과를 낼 때 침해인지가 세계 곳곳에서 소송과 입법으로 다뤄지고 있습니다.">저작권</a><a href="/dict/anthropic/" title="클로드를 만드는 미국 AI 회사입니다. 오픈AI 출신 연구자들이 2021년 세웠고 AI 안전 연구를 앞세웁니다.">앤트로픽</a></div>
@@ -94,13 +95,13 @@
     <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
     <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
   </div>
-  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/guide/">AI 길잡이</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
 </footer>
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=9b27ea53"></script>
-<script src="/assets/app.js?v=9b27ea53"></script>
+<script src="/assets/data-lite.js?v=b8f647db"></script>
+<script src="/assets/app.js?v=b8f647db"></script>
 
 
 </body></html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>AI 구독료 줄이는 법, 챗GPT·클로드·제미나이 겹치는 구독과 무료 범위 정리 · SHIFT AI</title>
+<meta name="description" content="챗봇 구독 여러 개에 매달 돈을 내고 있다면 무료로 되는 기능과 겹치는 기능부터 보면 줄일 곳이 보입니다. 구독료 합계 계산기와 서비스 비교, API 요금 계산기를 한곳에 모았습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/guide/ai-cost-save/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 구독료 줄이는 법, 챗GPT·클로드·제미나이 겹치는 구독과 무료 범위 정리 · SHIFT AI">
+<meta property="og:description" content="챗봇 구독 여러 개에 매달 돈을 내고 있다면 무료로 되는 기능과 겹치는 기능부터 보면 줄일 곳이 보입니다. 구독료 합계 계산기와 서비스 비교, API 요금 계산기를 한곳에 모았습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/guide/ai-cost-save/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/g-ai-cost-save.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI 구독료·사용료 줄이기", "description": "챗봇 구독 여러 개에 매달 돈을 내고 있다면 무료로 되는 기능과 겹치는 기능부터 보면 줄일 곳이 보입니다. 구독료 합계 계산기와 서비스 비교, API 요금 계산기를 한곳에 모았습니다.", "image": ["https://shiftaimagazine.com/og/g-ai-cost-save.jpg"], "datePublished": "2026-11-03T09:00:00+09:00", "dateModified": "2026-11-03T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "mainEntityOfPage": "https://shiftaimagazine.com/guide/ai-cost-save/", "inLanguage": "ko"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 길잡이", "item": "https://shiftaimagazine.com/guide/"}, {"@type": "ListItem", "position": 3, "name": "AI 구독료·사용료 줄이기", "item": "https://shiftaimagazine.com/guide/ai-cost-save/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "원화 금액은 정확한가요?", "acceptedAnswer": {"@type": "Answer", "text": "각 사 공식 요금 페이지의 달러 요금을 정해진 환율로 바꾼 값입니다. 달러 요금에는 세금이 따로 붙을 수 있으니 결제하기 전에 각 사 요금 페이지에서 다시 확인해야 합니다."}}, {"@type": "Question", "name": "클로드 코드 사용량을 아끼려면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "따로 설치하는 도구 없이 /clear와 /compact로 대화를 가볍게 유지하고, 평소에는 Sonnet을 쓰다가 어려운 설계에만 Opus를 쓰는 방법이 있습니다. 자세한 순서는 <a href=\"https://shiftaimagazine.com/tutorial/claude-code-save-usage/\">클로드 코드 한도 아끼는 7단계</a>에 있습니다."}}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=b8f647db">
+</head>
+<body data-route="guide-ai-cost-save" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-guide"><article class="article narrow guide">
+  <a class="back" href="/guide/">← AI 길잡이</a>
+  <span class="cat">AI 길잡이 · 일 단위로 찾기</span>
+  <h1>AI 구독료·사용료 줄이기</h1>
+  <p class="deck">챗봇 구독 여러 개에 매달 돈을 내고 있다면 무료로 되는 기능과 겹치는 기능부터 보면 줄일 곳이 보입니다. 구독료 합계 계산기와 서비스 비교, API 요금 계산기를 한곳에 모았습니다.</p>
+  <div class="sec"><h2>이 순서로 하면 됩니다</h2></div>
+  <ol class="gsteps"><li><b>지금 내는 구독료 합계 보기</b><p>AI 구독료 계산기에서 쓰는 요금제를 고르면 한 달과 1년 합계가 원화로 나오고 챗봇 구독이 겹치는지도 알려 줍니다. <a href="/tools/ai-subscriptions/">도구 열기 →</a></p></li><li><b>무료로 되는 기능 비교하기</b><p>챗GPT·클로드·제미나이·그록을 둘씩 놓고 무료로 되는 기능과 돈을 내야 하는 순간을 비교합니다. <a href="/vs/">비교 보기 →</a></p></li><li><b>API로 쓴다면 토큰 요금 계산하기</b><p>앱 구독 대신 API로 쓰면 쓴 만큼 냅니다. AI 요금 계산기에 사용량을 넣으면 모델별 한 달 비용을 원화로 비교할 수 있습니다. <a href="/tools/ai-cost/">도구 열기 →</a></p></li><li><b>유료 프로그램은 무료 대체부터 찾기</b><p>포토샵이나 오피스 같은 유료 프로그램도 같은 일을 하는 무료 프로그램이 있는지 먼저 찾아봅니다. <a href="/tools/free-alternatives/">도구 열기 →</a></p></li></ol>
+  <div class="sec"><h2>무료 도구</h2></div>
+  <div class="trel-tools"><a href="/tools/ai-subscriptions/"><b>AI 구독료 계산기</b><span>챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달·1년 구독료를 원화로 더하고, 겹치는 챗봇 구독과 연간 결제로 아끼는 돈을 보여 줍니다.</span></a><a href="/tools/ai-cost/"><b>AI 요금 계산기 (원화)</b><span>챗GPT·클로드·제미나이 등 주요 AI API를 쓰면 한 달에 얼마가 드는지 공식 가격표를 기준으로 원화로 바로 비교합니다.</span></a><a href="/tools/free-alternatives/"><b>유료 프로그램 무료 대체 찾기</b><span>포토샵·한글·MS 오피스·프리미어처럼 돈 내고 쓰던 프로그램 대신 쓸 무료 프로그램을 찾아 줍니다. 무료 범위와 원래 파일을 여는지까지 공식 페이지 기준으로 정리했습니다.</span></a></div>
+  <div class="sec"><h2>자세히 따라 하기</h2></div>
+  <div class="trel-tools"><a href="/tutorial/claude-code-save-usage/"><b>클로드 코드 한도가 금방 바닥난다면, 기본 기능만으로 오래 쓰는 7단계</b><span>따로 설치하는 도구 없이 클로드 코드에 들어 있는 명령과 설정만으로 사용 한도와 토큰을 아끼는 방법을 공식 문서에서 확인해 정리했습니다. 먼저 어디에 많이 쓰는지 보고 대화와 지시 파일을 가볍게 유지하는 순서로 갑니다.</span></a></div>
+  <div class="box"><b>먼저 알아 둘 것</b><ul class="plain"><li>명령과 설정은 2026년 10월 27일 공식 문서에서 확인했고 직접 실행해 보지는 않았습니다. 화면이나 이름이 다르면 claude --version으로 버전을 확인하고 공식 문서를 다시 봅니다.</li></ul></div>
+  <div class="sec"><h2>관련 기사와 판정</h2></div>
+  <ul class="plain wkrest"><li><a href="/news/2026-10-31-mistral-large-4-open-weights/">미스트랄 라지 4 가중치 공개…1조 파라미터 모델을 누구나 내려받습니다</a> · 지켜보세요</li><li><a href="/news/2026-10-30-microsoft-copilot-harness-foundry/">마이크로소프트 코파일럿 하네스, 파운드리에서 미리 보기…12월부터 과금</a> · 지켜보세요</li><li><a href="/news/2026-10-29-liquid-ai-lfm3/">리퀴드 AI ‘LFM3’ 공개…약 1GB에 들어가는 소형 오픈 모델 6종</a> · 지켜보세요</li><li><a href="/news/2026-10-29-meta-muse-singapore/">메타 AI 에이전트 ‘뮤즈’ 싱가포르 출시…쇼피·그랩·싱가포르항공과 연결</a> · 지켜보세요</li><li><a href="/news/2026-10-28-apple-iwork-ai-assistant-mcp/">애플 키노트·페이지스·넘버스에 AI 비서…MCP로 외부 AI도 연결</a> · 지켜보세요</li><li><a href="/news/2026-10-28-boe-fca-ai-survey-2026/">영국 금융사 86%가 AI 쓴다…넓은 권한 맡긴 에이전트는 2%</a></li></ul>
+<section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>원화 금액은 정확한가요?</summary><p>각 사 공식 요금 페이지의 달러 요금을 정해진 환율로 바꾼 값입니다. 달러 요금에는 세금이 따로 붙을 수 있으니 결제하기 전에 각 사 요금 페이지에서 다시 확인해야 합니다.</p></details>
+    <details><summary>클로드 코드 사용량을 아끼려면 어떻게 하나요?</summary><p>따로 설치하는 도구 없이 /clear와 /compact로 대화를 가볍게 유지하고, 평소에는 Sonnet을 쓰다가 어려운 설계에만 Opus를 쓰는 방법이 있습니다. 자세한 순서는 <a href="/tutorial/claude-code-save-usage/">클로드 코드 한도 아끼는 7단계</a>에 있습니다.</p></details>
+  </section>
+  <nav class="trel" aria-label="다른 길잡이"><h2>다른 일 찾기</h2><div class="trel-tools"><a href="/guide/meeting-notes/"><b>회의록 정리, AI로 하는 법</b><span>녹취록을 결정·할 일·미결로 나누고 영어 회의는 한국어 자막으로</span></a><a href="/guide/pdf-summary/"><b>PDF·긴 자료, AI로 요약하고 근거 확인하기</b><span>PDF 글자를 먼저 뽑아 보고 자료 안에서만 답하게 묻기</span></a><a href="/guide/email-reply/"><b>곤란한 메일 답장, AI로 초안 잡기</b><span>거절·사과·독촉 메일을 상황별 프롬프트로 초안부터</span></a><a href="/guide/excel-ai/"><b>엑셀·구글 시트, AI로 수식 만들고 데이터 정리하기</b><span>표 구조를 설명해 수식을 받고 개인정보는 가린 사본으로</span></a><a href="/guide/privacy/"><b>개인정보 지키며 AI 쓰기</b><span>학습 설정을 점검하고 올리기 전에 가리기</span></a><a href="/guide/verify-ai/"><b>AI 답, 믿기 전에 확인하는 법</b><span>숫자마다 출처를 붙이게 하고 다른 AI로 교차 검증</span></a><a href="/guide/resume/"><b>이력서·자기소개서, AI로 검토받기</b><span>공고와 맞대 보고 글자 수와 AI 티까지 점검</span></a><a href="/guide/presentation/"><b>발표 자료, AI로 뼈대 잡기</b><span>청중과 남길 한 문장을 정하고 목차·반론·대본 순서로</span></a><a href="/guide/study/"><b>AI로 공부하기</b><span>답 대신 질문을 받고 오답 노트와 퀴즈로 복습</span></a></div></nav>
+<section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+</article></main>
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/guide/">AI 길잡이</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=b8f647db"></script>
+<script src="/assets/app.js?v=b8f647db"></script>
+
+
+</body></html>

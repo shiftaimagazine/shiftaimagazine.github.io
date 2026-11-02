@@ -5,7 +5,7 @@
 <url><loc>https://shiftaimagazine.com/tutorial/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/daily/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/</loc><lastmod>2026-11-02</lastmod></url>
-<url><loc>https://shiftaimagazine.com/tools/</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://shiftaimagazine.com/tools/</loc><lastmod>2026-11-03</lastmod></url>
 <url><loc>https://shiftaimagazine.com/prompts/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/verdict/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/about/</loc><lastmod>2026-11-02</lastmod></url>
@@ -287,6 +287,8 @@
 <url><loc>https://shiftaimagazine.com/dict/xai/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/clean-air-act/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/feishu/</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://shiftaimagazine.com/tools/ai-subscriptions/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/ai-subscriptions.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/tools/pdf-to-text/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/pdf-to-text.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/tools/free-alternatives/</loc><lastmod>2026-11-02</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/free-alternatives.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/tools/char-count/</loc><lastmod>2026-11-02</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/char-count.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/tools/heic-to-jpg/</loc><lastmod>2026-11-02</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/heic-to-jpg.webp</image:loc></image:image></url>
@@ -305,4 +307,15 @@
 <url><loc>https://shiftaimagazine.com/weekly/2026-10-26/</loc><lastmod>2026-11-01</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-10-30-nvidia-nemotron-transcribe.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/2026-10-19/</loc><lastmod>2026-10-25</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/canva-craft.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://shiftaimagazine.com/guide/meeting-notes/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-meeting-notes.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/pdf-summary/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-pdf-to-markdown.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/email-reply/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-email-replies.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/excel-ai/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-spreadsheet-formulas.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/privacy/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-privacy-settings.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/verify-ai/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-verify-numbers.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/resume/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-resume-review.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/ai-cost-save/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-claude-code-save-usage.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/presentation/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-presentation.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/study/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-ai-tutor.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/</loc><lastmod>2026-11-03</lastmod></url>
 </urlset>

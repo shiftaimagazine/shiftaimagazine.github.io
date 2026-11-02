@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>AI 구독료 계산기 — 챗GPT·클로드·제미나이·그록 한 달·1년 합계 (원화) · SHIFT AI</title>
+<meta name="description" content="챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달과 1년 구독료를 원화로 더해 줍니다. 겹치는 챗봇 구독을 하나로 줄였을 때와 연간 결제로 바꿨을 때 아끼는 돈도 계산합니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tools/ai-subscriptions/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI 구독료 계산기 — 챗GPT·클로드·제미나이·그록 한 달·1년 합계 (원화) · SHIFT AI">
+<meta property="og:description" content="챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달과 1년 구독료를 원화로 더해 줍니다. 겹치는 챗봇 구독을 하나로 줄였을 때와 연간 결제로 바꿨을 때 아끼는 돈도 계산합니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tools/ai-subscriptions/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/tool-ai-subscriptions.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "AI 구독료 계산기", "alternateName": ["AI 구독료 계산", "챗GPT 구독료", "AI 구독 정리", "챗GPT 클로드 구독 비교"], "url": "https://shiftaimagazine.com/tools/ai-subscriptions/", "description": "챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달과 1년 구독료를 원화로 더해 줍니다. 겹치는 챗봇 구독을 하나로 줄였을 때와 연간 결제로 바꿨을 때 아끼는 돈도 계산합니다.", "image": "https://shiftaimagazine.com/og/tool-ai-subscriptions.jpg", "screenshot": "https://shiftaimagazine.com/img/tools/ai-subscriptions.webp", "applicationCategory": "UtilitiesApplication", "operatingSystem": "웹 브라우저", "browserRequirements": "JavaScript를 켠 최신 브라우저", "featureList": ["요금제별 한 달·1년 합계(원화)", "겹치는 챗봇 구독 찾기", "연간 결제 절약액", "팀 요금제 인원", "목록에 없는 구독 직접 추가", "이 브라우저에 저장"], "inLanguage": "ko", "isAccessibleForFree": true, "datePublished": "2026-11-03", "dateModified": "2026-11-03", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "AI 구독료 계산기", "item": "https://shiftaimagazine.com/tools/ai-subscriptions/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "챗GPT와 클로드를 둘 다 구독할 필요가 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "쓰는 일에 따라 다릅니다. 글 대화나 리서치처럼 겹치는 기능이 많다면 많이 쓰는 하나만 남기고 나머지는 무료 요금제로 쓰는 방법이 있습니다. 둘 중 무엇이 맞는지는 <a href=\"https://shiftaimagazine.com/vs/chatgpt-vs-claude/\">챗GPT vs 클로드 비교</a>에서 무료로 되는 기능과 함께 볼 수 있습니다."}}, {"@type": "Question", "name": "원화 금액은 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "달러 요금에 이 페이지 1단계 아래에 적은 환율을 곱하고 100원 단위에서 반올림했습니다. 제미나이처럼 한국 공식 페이지에 원화로 나온 요금은 그 금액을 그대로 씁니다."}}, {"@type": "Question", "name": "연간 결제로 바꾸면 얼마나 아끼나요?", "acceptedAnswer": {"@type": "Answer", "text": "공식 페이지에 연간 결제 가격이 나온 요금제(클로드 프로·팀, 챗GPT 비즈니스, 제미나이 AI 프로)는 고른 구독 목록에서 '연간 결제'를 켜고 끌 수 있고, 결과에 1년 동안 줄어드는 금액이 나옵니다. 연간 결제는 1년 치를 한 번에 내는 방식이니 바꾸기 전에 각 서비스의 해지·환불 안내를 확인하세요."}}, {"@type": "Question", "name": "고른 내용이 저장되거나 전송되나요?", "acceptedAnswer": {"@type": "Answer", "text": "다음에 다시 열었을 때 그대로 보이도록 이 브라우저(로컬 저장소)에만 저장하고 어디에도 보내지 않습니다. '모두 비우기'를 누르면 저장한 내용도 지워집니다."}}]}</script>
+<script defer="" src="/assets/subs.js?v=c3573bad"></script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=b8f647db">
+</head>
+<body data-route="tool-ai-subscriptions" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="true">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-tool-ai-subscriptions">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · AI 구독료</span>
+  <h1>AI 구독료 계산기 (겹치는 구독 찾기)</h1>
+  <p class="deck">챗GPT·클로드·제미나이·그록 가운데 내가 내는 요금제를 고르면 한 달과 1년 구독료를 원화로 더해 줍니다. 챗봇 구독이 겹치면 하나만 남겼을 때 아끼는 돈과 연간 결제로 바꿨을 때 줄어드는 돈도 함께 보여 줍니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>고른 내용은 이 브라우저에만 저장 · 어디에도 보내지 않음</span></div>
+  <script type="application/json" id="subData">{"checked": "2026-10-29", "fx": {"rate": 1324.3, "date": "2026-10-26", "source": "한국자금중개 미화 매매기준율", "url": "https://kmbco.com/kor/rate/financial_rate.do"}, "services": {"chatgpt": {"name": "챗GPT", "plans": [{"n": "고", "usd": 8}, {"n": "플러스", "usd": 20}, {"n": "프로 100달러", "usd": 100}, {"n": "프로 200달러", "usd": 200}, {"n": "프로 500달러", "usd": 500}, {"n": "비즈니스 (1명)", "usd": 25, "yusd": 20, "team": true}]}, "claude": {"name": "클로드", "plans": [{"n": "프로", "usd": 20, "yusd": 17}, {"n": "맥스 100달러", "usd": 100}, {"n": "맥스 200달러", "usd": 200}, {"n": "팀 (1명)", "usd": 25, "yusd": 20, "team": true}]}, "gemini": {"name": "제미나이", "plans": [{"n": "AI 플러스", "krw": 7500}, {"n": "AI 프로", "usd": 19.99, "ykrw": 290000}, {"n": "AI 울트라 11만 9천 원", "krw": 119000}, {"n": "AI 울트라 30만 원", "krw": 300000}, {"n": "엔터프라이즈 비즈니스 (1명)", "usd": 21, "team": true}]}, "grok": {"name": "그록", "plans": [{"n": "플러스", "usd": 8}, {"n": "프리미엄", "usd": 30}, {"n": "슈퍼", "usd": 100}, {"n": "울트라", "usd": 200}]}}, "pairs": [{"id": "chatgpt-vs-claude", "a": "chatgpt", "b": "claude"}, {"id": "chatgpt-vs-gemini", "a": "chatgpt", "b": "gemini"}, {"id": "claude-vs-gemini", "a": "claude", "b": "gemini"}, {"id": "chatgpt-vs-grok", "a": "chatgpt", "b": "grok"}]}</script>
+
+  <section class="tstep">
+    <h2><i>1</i>내는 요금제 고르기</h2>
+    <div class="sbsvc" id="sSvc"><div class="sbrow"><b>챗GPT</b><div class="chips"><button type="button" data-k="chatgpt:0" aria-pressed="false">고 <small>$8</small></button><button type="button" data-k="chatgpt:1" aria-pressed="false">플러스 <small>$20</small></button><button type="button" data-k="chatgpt:2" aria-pressed="false">프로 100달러 <small>$100</small></button><button type="button" data-k="chatgpt:3" aria-pressed="false">프로 200달러 <small>$200</small></button><button type="button" data-k="chatgpt:4" aria-pressed="false">프로 500달러 <small>$500</small></button><button type="button" data-k="chatgpt:5" aria-pressed="false">비즈니스 (1명) <small>$25</small></button></div></div><div class="sbrow"><b>클로드</b><div class="chips"><button type="button" data-k="claude:0" aria-pressed="false">프로 <small>$20</small></button><button type="button" data-k="claude:1" aria-pressed="false">맥스 100달러 <small>$100</small></button><button type="button" data-k="claude:2" aria-pressed="false">맥스 200달러 <small>$200</small></button><button type="button" data-k="claude:3" aria-pressed="false">팀 (1명) <small>$25</small></button></div></div><div class="sbrow"><b>제미나이</b><div class="chips"><button type="button" data-k="gemini:0" aria-pressed="false">AI 플러스 <small>7,500원</small></button><button type="button" data-k="gemini:1" aria-pressed="false">AI 프로 <small>$19.99</small></button><button type="button" data-k="gemini:2" aria-pressed="false">AI 울트라 11만 9천 원 <small>119,000원</small></button><button type="button" data-k="gemini:3" aria-pressed="false">AI 울트라 30만 원 <small>300,000원</small></button><button type="button" data-k="gemini:4" aria-pressed="false">엔터프라이즈 비즈니스 (1명) <small>$21</small></button></div></div><div class="sbrow"><b>그록</b><div class="chips"><button type="button" data-k="grok:0" aria-pressed="false">플러스 <small>$8</small></button><button type="button" data-k="grok:1" aria-pressed="false">프리미엄 <small>$30</small></button><button type="button" data-k="grok:2" aria-pressed="false">슈퍼 <small>$100</small></button><button type="button" data-k="grok:3" aria-pressed="false">울트라 <small>$200</small></button></div></div></div>
+    <p class="hint" id="sAsof">요금: 각 사 공식 요금 페이지·도움말 2026년 10월 29일 확인 · 환율: 1달러=1,324.3원(한국자금중개 미화 매매기준율, 10월 26일)</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>고른 구독 <small id="sNum"></small></h2>
+    <div class="sblist" id="sList"><p class="empty">위에서 요금제를 누르면 여기에 담깁니다.</p></div>
+    <details class="sbadd">
+      <summary>목록에 없는 구독 직접 넣기 (미드저니, 커서, 퍼플렉시티 등)</summary>
+      <div class="trow">
+        <label class="inl">이름 <input id="sName" type="text" maxlength="30" placeholder="예: 미드저니" style="width:140px"></label>
+        <label class="inl">한 달 <input id="sPrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="10"></label>
+        <div class="seg mini" role="radiogroup" aria-label="통화">
+          <label><input type="radio" name="sCur" value="usd" checked=""><span><b>달러</b></span></label>
+          <label><input type="radio" name="sCur" value="krw"><span><b>원</b></span></label>
+        </div>
+        <button class="ghost" type="button" id="sAdd">담기</button>
+      </div>
+      <p class="hint">직접 넣은 금액은 확인하지 않은 값이니 각 서비스 결제 화면에서 확인한 금액을 넣어 주세요.</p>
+    </details>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>결과</h2>
+    <div class="sbsum" id="sSum" aria-live="polite"><p class="empty">요금제를 고르면 합계가 나옵니다.</p></div>
+    <div id="sTips"></div>
+    <div class="trow">
+      <button class="btn" type="button" id="sCopy" data-ev="tool-done:/tools/ai-subscriptions/" disabled="">결과 복사하기</button>
+      <button class="ghost" type="button" id="sClear">모두 비우기</button>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>요금은 각 사 공식 요금 페이지와 도움말에서 확인한 값입니다. 확인한 날짜는 위 1단계 아래에 적었습니다. 요금제는 자주 바뀌니 결제하기 전에 각 사 요금 페이지에서 다시 확인하세요.</li>
+      <li>달러 요금은 정해 둔 환율로 바꾼 값이고 세금은 넣지 않았습니다. 카드사 해외 결제 수수료와 부가세 때문에 실제 청구액은 더 많을 수 있습니다.</li>
+      <li>무료로 되는 기능은 서비스마다 다르고 숫자 없이 수시로 조정됩니다. 줄이기 전에 <a href="/vs/">AI 서비스 비교</a>에서 무료로 되는 것을 확인하세요.</li>
+    </ul>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>챗GPT와 클로드를 둘 다 구독할 필요가 있나요?</summary><p>쓰는 일에 따라 다릅니다. 글 대화나 리서치처럼 겹치는 기능이 많다면 많이 쓰는 하나만 남기고 나머지는 무료 요금제로 쓰는 방법이 있습니다. 둘 중 무엇이 맞는지는 <a href="/vs/chatgpt-vs-claude/">챗GPT vs 클로드 비교</a>에서 무료로 되는 기능과 함께 볼 수 있습니다.</p></details>
+    <details><summary>원화 금액은 어떻게 계산하나요?</summary><p>달러 요금에 이 페이지 1단계 아래에 적은 환율을 곱하고 100원 단위에서 반올림했습니다. 제미나이처럼 한국 공식 페이지에 원화로 나온 요금은 그 금액을 그대로 씁니다.</p></details>
+    <details><summary>연간 결제로 바꾸면 얼마나 아끼나요?</summary><p>공식 페이지에 연간 결제 가격이 나온 요금제(클로드 프로·팀, 챗GPT 비즈니스, 제미나이 AI 프로)는 고른 구독 목록에서 '연간 결제'를 켜고 끌 수 있고, 결과에 1년 동안 줄어드는 금액이 나옵니다. 연간 결제는 1년 치를 한 번에 내는 방식이니 바꾸기 전에 각 서비스의 해지·환불 안내를 확인하세요.</p></details>
+    <details><summary>고른 내용이 저장되거나 전송되나요?</summary><p>다음에 다시 열었을 때 그대로 보이도록 이 브라우저(로컬 저장소)에만 저장하고 어디에도 보내지 않습니다. '모두 비우기'를 누르면 저장한 내용도 지워집니다.</p></details>
+  </section>
+<nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">
+  <h2>함께 보면 좋은 글</h2>
+  <ul class="plain"><li><a href="/column/ai-plans-compare/">챗GPT·클로드·제미나이·그록 요금제 비교, 무료로 어디까지 되고 언제 돈을 내야 할까</a> <span>칼럼</span></li><li><a href="/vs/">챗GPT·클로드·제미나이·그록 둘씩 비교</a> <span>AI 서비스 비교</span></li><li><a href="/guide/ai-cost-save/">AI 구독료·사용료 줄이기</a> <span>AI 길잡이</span></li></ul>
+  <h2>다른 무료 도구</h2>
+  <div class="trel-tools"><a href="/tools/pdf-to-text/"><b>PDF 글자 뽑기 (텍스트·마크다운)</b><span>PDF 속 글자를 복사할 수 있는 텍스트와 마크다운으로 바꿉니다. 머리글·쪽 번호를 빼고 끊긴 줄을 문단으로 이어 AI에 올리기 좋게 정리합니다.</span></a><a href="/tools/free-alternatives/"><b>유료 프로그램 무료 대체 찾기</b><span>포토샵·한글·MS 오피스·프리미어처럼 돈 내고 쓰던 프로그램 대신 쓸 무료 프로그램을 찾아 줍니다. 무료 범위와 원래 파일을 여는지까지 공식 페이지 기준으로 정리했습니다.</span></a><a href="/tools/char-count/"><b>글자 수·토큰 세기</b><span>자기소개서·보고서 글자 수를 공백 포함·제외로 세고 바이트, 줄·문단, 목표까지 남은 글자 수와 GPT 토큰 수를 한 번에 보여 줍니다.</span></a><a href="/tools/heic-to-jpg/"><b>HEIC → JPG 변환</b><span>아이폰 HEIC 사진을 JPG·PNG로 바꿉니다. 여러 장을 한 번에 바꿔 ZIP으로 받을 수 있고, 사진은 서버로 올리지 않습니다.</span></a><a href="/tools/ocr/"><b>사진 속 글자 뽑기 (한국어 OCR)</b><span>화면 캡처나 문서 사진에서 글자를 뽑아 복사할 수 있게 바꿔 줍니다. 한국어와 영어를 함께 읽고, 사진은 내 컴퓨터 밖으로 나가지 않습니다.</span></a><a href="/tools/ai-tell/"><b>AI 티 검사기</b><span>글을 붙여 넣으면 AI가 자주 쓰는 표현과 문장 버릇을 찾아 표시하고 고치는 방법을 알려 줍니다. AI가 썼는지 판정하는 도구는 아닙니다.</span></a><a href="/tools/prompt/"><b>프롬프트 만들기</b><span>역할·맥락·자료·할 일·조건·답 형식·확인 방법 일곱 칸만 채우면 챗GPT·클로드·제미나이에 바로 붙여 넣을 프롬프트가 완성됩니다.</span></a><a href="/tools/redact/"><b>개인정보 자동 가리기</b><span>글이나 엑셀 표에 들어 있는 주민등록번호·전화번호·이메일·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.</span></a><a href="/tools/ai-cost/"><b>AI 요금 계산기 (원화)</b><span>챗GPT·클로드·제미나이 등 주요 AI API를 쓰면 한 달에 얼마가 드는지 공식 가격표를 기준으로 원화로 바로 비교합니다.</span></a><a href="/tools/interpreter/"><b>무료 실시간 크롬 번역 (회의 통역창)</b><span>영어·중국어·일본어·프랑스어로 진행되는 회의나 영상을 바로 한국어 자막으로 바꿔 줍니다. 크롬만 있으면 쓸 수 있습니다.</span></a></div>
+</nav>
+</article>
+</main>
+
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/guide/">AI 길잡이</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=b8f647db"></script>
+<script src="/assets/app.js?v=b8f647db"></script>
+
+
+</body></html>
