@@ -9,8 +9,9 @@ TOKEN = os.environ.get('GOATCOUNTER_TOKEN', '').strip()
 OUT = sys.argv[1] if len(sys.argv) > 1 else 'report.txt'
 KST = dt.timezone(dt.timedelta(hours=9))
 today = dt.datetime.now(KST).date()
-cur = (today - dt.timedelta(days=7), today - dt.timedelta(days=1))
-prev = (today - dt.timedelta(days=14), today - dt.timedelta(days=8))
+_t = 0 if os.environ.get('INCLUDE_TODAY') == 'true' else 1   # 손으로 돌릴 때 오늘까지 넣어 볼 수 있다
+cur = (today - dt.timedelta(days=6 + _t), today - dt.timedelta(days=_t))
+prev = (cur[0] - dt.timedelta(days=7), cur[0] - dt.timedelta(days=1))
 lines = []
 say = lines.append
 
@@ -22,22 +23,20 @@ def api(path, **q):
             with urllib.request.urlopen(req, timeout=40) as r: return json.load(r)
         except urllib.error.HTTPError as e:
             if e.code == 429 and i < 3: time.sleep(int(e.headers.get('X-Rate-Limit-Reset') or 5) + 1); continue
+            if e.code == 404: return {}   # 그 기간에 기록이 하나도 없으면 GoatCounter 가 404 를 준다
             raise RuntimeError(f'{path} → HTTP {e.code} {e.read()[:200]!r}')
     raise RuntimeError(f'{path} → 너무 많은 요청')
 
-def rng(p): return {'start': p[0].isoformat(), 'end': p[1].isoformat()}
+def rng(p):  # 한국 날짜 하루 전체를 UTC 시각(정시)으로
+    a = dt.datetime.combine(p[0], dt.time(0), KST).astimezone(dt.timezone.utc); b = dt.datetime.combine(p[1] + dt.timedelta(days=1), dt.time(0), KST).astimezone(dt.timezone.utc)
+    return {'start': a.strftime('%Y-%m-%dT%H:%M:%SZ'), 'end': b.strftime('%Y-%m-%dT%H:%M:%SZ')}
 def cnt(h): return h.get('count') if h.get('count') is not None else (h.get('count_unique') or sum((s.get('daily') or 0) for s in h.get('stats') or []))
 
-def hits(p):
-    out, after = [], None
-    for _ in range(20):
-        q = dict(rng(p), limit=100)
-        if after: q['after'] = after
-        d = api('/stats/hits', **q); hs = d.get('hits') or []
-        out += hs
-        if not d.get('more') or not hs: break
-        after = hs[-1].get('path_id')
-    return out
+MORE = []
+def hits(p):  # 상위 100개 경로(페이지·이벤트). 그보다 많으면 보고서에 적는다
+    d = api('/stats/hits', limit=100, **rng(p))
+    if d.get('more'): MORE.append(f'{p[0]}~{p[1]}')
+    return d.get('hits') or []
 
 def pct(a, b): return '새로' if not b else f'{(a - b) / b * 100:+.0f}%'
 
@@ -80,6 +79,7 @@ try:
     say('== 들어온 곳 상위 20 (조회수)')
     for r in refs: say(f'  {r.get("count", 0):>6,}  {r.get("name") or "(직접 들어옴·알 수 없음)"}')
     say('')
+    if MORE: say('(경로가 100개를 넘어 상위 100개만 셌습니다: ' + ', '.join(MORE) + ')')
     sizes = api('/stats/sizes', **rng(cur)).get('stats') or []
     st = sum(s.get('count', 0) for s in sizes) or 1
     say('== 화면 크기: ' + ' · '.join(f'{s.get("name") or "?"} {s.get("count", 0) * 100 / st:.0f}%' for s in sizes))

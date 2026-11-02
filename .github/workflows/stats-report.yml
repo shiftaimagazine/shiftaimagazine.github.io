@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: '47 18 * * 0'
   workflow_dispatch:
+    inputs:
+      include_today:
+        description: '오늘까지 넣어서 보기'
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -19,6 +24,7 @@ jobs:
       - name: 통계 읽기
         env:
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          INCLUDE_TODAY: ${{ inputs.include_today }}
         run: python3 _src/stats_report.py report.txt
       - name: 결과 올리기
         run: |
