@@ -1,0 +1,24 @@
+# 원문·공식 사이트 링크 점검: 매주 월요일 03:17(한국 시각) + 손으로 실행. 결과는 link-check-tmp 가지의 report.txt (사이트에는 영향 없음).
+name: link-check
+on:
+  schedule:
+    - cron: '17 18 * * 0'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pillow==11.0.0 requests==2.32.3
+      - name: 점검
+        run: python3 _src/assemble.py >/dev/null && python3 _src/linkcheck.py
+      - name: 결과 올리기
+        run: |
+          mkdir -p /tmp/out && cp report.txt /tmp/out/ && cd /tmp/out && git init -q && git checkout -q -b link-check-tmp
+          git add report.txt && git -c user.name=link-check -c user.email=actions@users.noreply.github.com commit -qm "link-check $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" link-check-tmp

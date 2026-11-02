@@ -40,8 +40,8 @@
     <label class="sr" for="rOut">가린 결과</label>
     <textarea id="rOut" rows="9" spellcheck="false" readonly placeholder="가린 결과가 여기에 나옵니다"></textarea>
     <div class="trow">
-      <button class="btn" type="button" id="rCopy">결과 복사</button>
-      <button class="ghost" type="button" id="rDown">파일로 저장</button>
+      <button class="btn" type="button" id="rCopy" data-ev="tool-done:/tools/redact/">결과 복사</button>
+      <button class="ghost" type="button" id="rDown" data-ev="tool-done:/tools/redact/">파일로 저장</button>
     </div>
     <p class="hint warn">자동 찾기는 완벽하지 않습니다. 이름·주소·사번처럼 모양이 정해지지 않은 정보는 위 '직접 가릴 말'에 넣고, 올리기 전에 결과를 꼭 한 번 더 눈으로 확인하세요.</p>
   </section>
@@ -53,7 +53,7 @@
     <textarea id="rAi" rows="6" spellcheck="false" placeholder="AI 답을 붙여 넣으세요"></textarea>
     <label class="sr" for="rBack">되돌린 결과</label>
     <textarea id="rBack" rows="6" spellcheck="false" readonly placeholder="원래 값으로 바꾼 결과"></textarea>
-    <div class="trow"><button class="ghost" type="button" id="rBackCopy">되돌린 결과 복사</button><span class="meta" id="rBackInfo"></span></div>
+    <div class="trow"><button class="ghost" type="button" id="rBackCopy" data-ev="tool-done:/tools/redact/#restore">되돌린 결과 복사</button><span class="meta" id="rBackInfo"></span></div>
   </section>
 
   <div class="box">

@@ -144,6 +144,20 @@ if __name__ == '__main__':
         assert v.get('v') in ('try', 'watch', 'hype') and 15 <= len(v.get('why') or '') <= 90, (a['id'], 'verdict 형식: {"v": try|watch|hype, "why": 15~90자}')
         style_check(a['id'] + ' 판정', [v['why']])
         a['verdict'] = {'v': v['v'], 'why': v['why']}
+    # 수정 기록(11/3~): news/updates.json {"/주소/": [["YYYY-MM-DD", "고친 내용"], ...]} → 글 아래 '수정 기록', 사이트맵·dateModified
+    UPD = {k: v for k, v in (J('updates.json') if os.path.exists(N + 'updates.json') else {}).items() if not k.startswith('_')}
+    for k, v in UPD.items():
+        assert k.startswith('/') and k.endswith('/'), ('updates 주소 형식', k)
+        for d, t in v:
+            assert re.match(r'^\d{4}-\d{2}-\d{2}$', d) and 10 <= len(t) <= 160, ('updates 형식', k, d)
+        style_check('수정 기록 ' + k, [t for _, t in v])
+    def _upd(path): return sorted(UPD.get(path, []))
+    for a in out:
+        if _upd(f"/news/{a['id']}/"): a['upd'] = _upd(f"/news/{a['id']}/")
+    for c in cols:
+        if _upd(f"/column/{c['id'][2:]}/"): c['upd'] = _upd(f"/column/{c['id'][2:]}/")
+    for t in TUTS:
+        if _upd(f"/tutorial/{t['id'][2:]}/"): t['upd'] = _upd(f"/tutorial/{t['id'][2:]}/")
     TOOLS = J('tools.json')
     for t in TOOLS:
         for k in ('id', 'title', 'desc', 'href', 'tag', 'date', 'thumb'): assert t.get(k), ('도구 항목 없음', t.get('id'), k)

@@ -1,0 +1,28 @@
+# 주간 방문 통계(GoatCounter). 매주 월요일 03:47(한국 시간)과 손으로 실행. 결과는 stats-tmp 가지의 report.txt.
+# 토큰은 저장소 비밀값 GOATCOUNTER_TOKEN(GoatCounter 읽기 전용 API 토큰)에서만 읽는다. 없으면 보고서에 넣는 방법을 적는다.
+name: stats-report
+on:
+  schedule:
+    - cron: '47 18 * * 0'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: _src/stats_report.py
+          sparse-checkout-cone-mode: false
+      - name: 통계 읽기
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: python3 _src/stats_report.py report.txt
+      - name: 결과 올리기
+        run: |
+          git init -q out && cd out && git checkout -q -b stats-tmp
+          cp ../report.txt . && git add report.txt
+          git -c user.name=stats-report -c user.email=actions@users.noreply.github.com commit -qm "stats-report $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" stats-tmp

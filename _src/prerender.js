@@ -17,11 +17,26 @@ server.listen(0, '127.0.0.1', async () => {
   await ctx.route(/.*/, r => r.request().url().startsWith(base) ? r.continue() : r.abort());
   const pg = await ctx.newPage(); const errs = [];
   pg.on('pageerror', e => errs.push(e.message));
+  // 가벼운 데이터(assets/data-lite.js, 11/3~): 다 그려 둔 페이지는 기사 본문·튜토리얼 단계가 필요 없다.
+  // 목록 카드에 쓰는 읽는 시간·단계 수는 app.js 의 같은 함수로 미리 계산해 넣는다. 본문 검색이 필요한 페이지(FULL)만 전체 data.js 를 받는다.
+  const FULL = new Set(['/search/', '/prompts/', '/tutorial/']);
+  const KEYS = ['ARTICLES', 'TUTORIALS', 'TUT_CATS', 'TOOLS', 'AI_PRICES', 'RESOURCES', 'COLUMNS', 'DAILY', 'TERMS', 'VS', 'ABOUT_CARD'];
+  const dk = Object.keys(JSON.parse(fs.readFileSync(path.join(SRC, 'build/data.json'))));
+  if (dk.join() !== KEYS.join()) throw new Error('data.json 항목이 바뀜: prerender.js 의 KEYS 와 lite 계산을 고칠 것 → ' + dk.join());
+  await pg.goto(base + '/', { waitUntil: 'load' });
+  const lite = await pg.evaluate(() => {
+    const omit = (o, ks) => { const r = { ...o }; ks.forEach(k => delete r[k]); return r; };
+    return { ARTICLES: ARTICLES.map(a => ({ ...omit(a, ['body', 'facts', 'sources', 'ask', 'try', 'sub', 'terms']), rm: readMin(a.body) })),
+      TUTORIALS: TUTORIALS.map(t => ({ ...omit(t, ['items', 'limits', 'intro', 'bonus', 'quick', 'sources', 'master', 'why']), n: t.items.length, rd: tutRead(t) })),
+      TUT_CATS, TOOLS, AI_PRICES, RESOURCES, COLUMNS: COLUMNS.map(c => ({ ...omit(c, ['body']), rm: readMin(c.body) })), DAILY, TERMS, VS, ABOUT_CARD, FOLLOWBOX };
+  });
+  fs.writeFileSync(path.join(OUT, 'assets/data-lite.js'), Object.entries(lite).map(([k, v]) => `const ${k} = ${JSON.stringify(v)};\n`).join(''));
   for (const p of pages) {
     errs.length = 0;
     await pg.goto(base + p, { waitUntil: 'load' });
     let doc = await pg.evaluate(() => { document.body.dataset.pre = '1'; return '<!doctype html>\n' + document.documentElement.outerHTML + '\n'; });
     if (errs.length) { console.error('JS error on', p, errs); process.exitCode = 1; }
+    if (!FULL.has(p)) { const n0 = doc.length; doc = doc.replace(/<script src="\/assets\/data\.js\?v=/, '<script src="/assets/data-lite.js?v='); if (doc.length === n0) { console.error('data.js 줄 없음', p); process.exitCode = 1; } }
     const file = p === '/' ? path.join(OUT, 'index.html') : path.join(OUT, p, 'index.html');
     fs.writeFileSync(file, doc);
   }

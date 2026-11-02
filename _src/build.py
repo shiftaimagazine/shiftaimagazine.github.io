@@ -124,6 +124,15 @@ SECMETA = f'<meta http-equiv="Content-Security-Policy" content="{CSP}">\n<meta n
 # HEIC 변환 라이브러리(heic-to, libheif 를 Emscripten 으로 옮긴 것)는 작업용 워커 안에서 문자열을 코드로 바꿔 실행한다 → 그 라이브러리를 쓰는 두 페이지만 'unsafe-eval' 을 연다.
 SECMETA_EVAL = SECMETA.replace("script-src 'self' 'wasm-unsafe-eval'", "script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval'")
 def kst(date, time='09:00'): return f'{date}T{time}:00+09:00'
+# 수정 기록(news/updates.json, 11/3~): 고친 날짜를 dateModified·사이트맵에, 도구 페이지는 페이지 끝에 '수정 기록'
+UPD = {k: sorted(v) for k, v in (json.load(open(SRC + 'news/updates.json')) if os.path.exists(SRC + 'news/updates.json') else {}).items() if not k.startswith('_')}
+def modd(path, date, time='09:00'):  # 마지막으로 고친 날(없으면 처음 올린 날)
+    u = UPD.get(path); return kst(u[-1][0]) if u and u[-1][0] > date else kst(date, time)
+def upd_box(path):
+    u = UPD.get(path)
+    if not u: return ''
+    ymd = lambda d: f"{int(d[:4])}년 {int(d[5:7])}월 {int(d[8:])}일"
+    return '<div class="upd"><b>수정 기록</b><ul>' + ''.join(f'<li><time datetime="{d}">{ymd(d)}</time> {esc(t)}</li>' for d, t in u) + '</ul></div>\n'
 # 구조화 데이터(JSON-LD) 도우미
 LD = lambda *xs: ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in xs)
 def crumbs(*items):  # (이름, 경로) … → BreadcrumbList (첫 화면이 맨 앞)
@@ -245,7 +254,7 @@ for _old, _new in (json.load(open(_rp)) if os.path.exists(_rp) else {}).items():
 for a in A:
     og = og_from(img_of(a), 'a-' + a['id'])
     ld = {'@context': 'https://schema.org', '@type': 'NewsArticle', 'headline': a['title'], 'description': a['hook'],
-          'image': [f'{SITE}/{og}'], 'datePublished': kst(a['date'], a.get('time') or '09:00'), 'dateModified': kst(a['date'], a.get('time') or '09:00'),
+          'image': [f'{SITE}/{og}'], 'datePublished': kst(a['date'], a.get('time') or '09:00'), 'dateModified': modd(f"/news/{a['id']}/", a['date'], a.get('time') or '09:00'),
           'author': AUTHOR, 'publisher': PUBLISHER, 'isAccessibleForFree': True,
           'mainEntityOfPage': f"{SITE}/news/{a['id']}/", 'articleSection': a['cat'], 'inLanguage': 'ko'}
     if a.get('terms'): ld['keywords'] = ', '.join(a['terms'])
@@ -257,7 +266,7 @@ for a in A:
 for t in T:
     og = og_from(t['thumb'], t['id']); u = f"/tutorial/{t['id'][2:]}/"
     ld = {'@context': 'https://schema.org', '@type': 'TechArticle', 'headline': t['title'], 'description': t['deck'], 'image': [f'{SITE}/{og}'],
-          'datePublished': kst(t['date']), 'dateModified': kst(t['date']), 'author': AUTHOR, 'publisher': PUBLISHER, 'isAccessibleForFree': True,
+          'datePublished': kst(t['date']), 'dateModified': modd(u, t['date']), 'author': AUTHOR, 'publisher': PUBLISHER, 'isAccessibleForFree': True,
           'mainEntityOfPage': SITE + u, 'articleSection': '튜토리얼 · ' + (t.get('cat') or ''), 'keywords': ', '.join(t.get('tool') or []), 'inLanguage': 'ko',
           'proficiencyLevel': t.get('level') or '입문'}
     if t.get('sources'): ld['citation'] = [x for _, x in t['sources']][:8]
@@ -266,7 +275,7 @@ for t in T:
 for c in C:
     og = og_from(col_img(c), c['id']); u = f"/column/{c['id'][2:]}/"
     ld = {'@context': 'https://schema.org', '@type': 'OpinionNewsArticle', 'headline': c['title'], 'description': c['deck'], 'image': [f'{SITE}/{og}'],
-          'datePublished': kst(c['date']), 'dateModified': kst(c['date']), 'author': AUTHOR, 'publisher': PUBLISHER, 'isAccessibleForFree': True,
+          'datePublished': kst(c['date']), 'dateModified': modd(u, c['date']), 'author': AUTHOR, 'publisher': PUBLISHER, 'isAccessibleForFree': True,
           'mainEntityOfPage': SITE + u, 'articleSection': '칼럼', 'inLanguage': 'ko'}
     page(u, c['id'], f"{c['title']} · SHIFT AI 칼럼", c['deck'], ART, og, 'article',
          f'<meta property="article:published_time" content="{kst(c["date"])}">\n' + LD(ld, crumbs(('AI 뉴스', '/news/'), ('칼럼', '/news/?cat=%EC%B9%BC%EB%9F%BC'), (c['title'], u))))
@@ -396,7 +405,7 @@ for t in TOOLS:
     ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': t['title'], 'alternateName': S['alt'], 'url': SITE + t['href'], 'description': S['desc'],
           'image': f'{SITE}/{og}', 'screenshot': f"{SITE}/{t['thumb']}", 'applicationCategory': 'UtilitiesApplication', 'operatingSystem': S.get('os', '웹 브라우저'),
           'browserRequirements': S.get('os', 'JavaScript를 켠 최신 브라우저'), 'featureList': S['feat'], 'inLanguage': 'ko', 'isAccessibleForFree': True,
-          'datePublished': t['date'], 'dateModified': t.get('mod') or t['date'],
+          'datePublished': t['date'], 'dateModified': max([t.get('mod') or t['date']] + [x[0] for x in UPD.get(t['href'], [])]),
           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
     v = fix_links(view('tool-' + t['id']))
     if t['id'] == 'free-alternatives': v = fa_render(v)
@@ -407,7 +416,7 @@ for t in TOOLS:
            + (('  <h2>함께 보면 좋은 글</h2>\n  <ul class="plain">' + ''.join(f'<li><a href="{u}">{esc(n)}</a> <span>{k}</span></li>' for u, n, k in rels) + '</ul>\n') if rels else '')
            + '  <h2>다른 무료 도구</h2>\n  <div class="trel-tools">' + ''.join(f'<a href="{o["href"]}"><b>{esc(o["title"])}</b><span>{esc(o["desc"])}</span></a>' for o in others) + '</div>\n</nav>\n')
     assert v.count('</article>') == 1, t['id']
-    v = v.replace('</article>', nav + '</article>')
+    v = v.replace('</article>', upd_box(t['href']) + nav + '</article>')
     fq = faq_of(v)
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
     if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
@@ -469,6 +478,61 @@ _vsi = (f'<main id="v-vsindex"><div class="ph"><h1>AI 서비스 비교</h1><p>�
         f'{FOLLOWBOX}\n</main>')
 page('/vs/', 'vs', 'AI 서비스 비교 — 챗GPT vs 클로드·제미나이·그록 요금과 무료 범위 · SHIFT AI', '챗GPT·클로드·제미나이·그록을 둘씩 놓고 한 달 요금, 무료로 되는 기능, 돈을 내야 하는 순간, 잘 맞는 사람을 비교했습니다. 각 사 공식 요금 페이지 기준입니다.',
      _vsi, _vsog, 'website', LD(crumbs(('AI 서비스 비교', '/vs/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 서비스 비교', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/vs/{q['id']}/", 'name': f"{_VS[q['a']]['name']} vs {_VS[q['b']]['name']}"} for i, q in enumerate(VS['pairs'])]}))
+# 주간 AI 판정(/weekly/, 11/3~): 월요일~일요일(한국 시간) 기사를 판정별로 묶는다. 지난 주는 기사 4개 이상인 주만, 이번 주는 1개부터 만든다.
+_wk = lambda d: (datetime.date.fromisoformat(d) - datetime.timedelta(days=datetime.date.fromisoformat(d).weekday())).isoformat()
+_md = lambda d: f"{int(d[5:7])}월 {int(d[8:])}일"
+def _wrange(m):
+    e = (datetime.date.fromisoformat(m) + datetime.timedelta(days=6)).isoformat()
+    return f"{_md(m)}~{int(e[8:])}일" if m[5:7] == e[5:7] else f"{_md(m)}~{_md(e)}", e
+_today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+_W = {}
+for a in A: _W.setdefault(_wk(a['date']), []).append(a)
+WEEKS = sorted((m for m, xs in _W.items() if len(xs) >= 4 or (m == _wk(_today) and xs)), reverse=True)
+_VDN = [('try', '써볼 만해요', 'vd-try', '지금 누구나 쓸 수 있고 원문에서 돈이나 시간을 아끼는 효과를 확인한 것'), ('watch', '지켜보세요', 'vd-watch', '발표만 됐거나 일부만 쓸 수 있는 것, 효과가 아직 분명하지 않은 것'),
+        ('hype', '과장이에요', 'vd-hype', '제목이나 회사 발표가 원문에 나온 근거보다 큰 것')]
+def _wpost(a):
+    v = a.get('verdict') or {}; tag = next((f'<span class="vd {c}">{n}</span>' for k, n, c, _ in _VDN if k == v.get('v')), '')
+    return (f'<a class="post vpost" href="/news/{a["id"]}/"><img class="thumb" src="{esc(img_of(a))}" alt="" loading="lazy">'
+            f'<div class="b"><span class="cat">{esc(a["cat"])}{tag}</span><h3>{esc(a["title"])}</h3><p class="vwhy">{esc(v.get("why") or a["hook"])}</p>'
+            f'<div class="meta"><span>{a["date"].replace("-", ".")}</span></div></div></a>')
+PIMG_W, WEEK_LAST = {}, {}
+def _wcount(xs): return {k: sum(1 for a in xs if (a.get('verdict') or {}).get('v') == k) for k, *_ in _VDN}
+for i, m in enumerate(WEEKS):
+    xs = sorted(_W[m], key=lambda a: a['date'] + (a.get('time') or ''), reverse=True)
+    rg, end = _wrange(m); now = m == _wk(_today); u = f'/weekly/{m}/'; n = _wcount(xs)
+    inw = lambda d: m <= d <= end
+    nt, nc, ntl, nd = [t for t in T if inw(t['date'])], [c for c in C if inw(c['date'])], [t for t in TOOLS if inw(t['date'])], sorted((d for d in DY if inw(d['date'])), key=lambda d: d['date'])
+    summ = ' · '.join(f'{nm} {n[k]}개' for k, nm, *_ in _VDN if n[k])
+    deck = (f"{'이번 주' if now else rg} AI 기사 {len(xs)}개를 원문과 함께 읽고 붙인 판정입니다." + (f' {summ}.' if summ else '') + (' 기사가 나오는 대로 이 페이지에 더해집니다.' if now else ''))
+    secs = ''
+    for k, nm, cls, how in _VDN:
+        g = [a for a in xs if (a.get('verdict') or {}).get('v') == k]
+        if g: secs += f'  <div class="sec"><h2><span class="vd {cls}">{nm}</span> {len(g)}개</h2><p class="wkhow">{how}</p></div>\n  <div class="list">{"".join(_wpost(a) for a in g)}</div>\n'
+    rest = [a for a in xs if not (a.get('verdict') or {}).get('v')]
+    if rest: secs += f'  <div class="sec"><h2>판정 없이 전한 소식 {len(rest)}개</h2><p class="wkhow">소송·판결·사건처럼 써 볼 대상이 없는 기사</p></div>\n  <ul class="plain wkrest">' + ''.join(f'<li><a href="/news/{a["id"]}/">{esc(a["title"])}</a></li>' for a in rest) + '</ul>\n'
+    more = ([f'<li>튜토리얼 · <a href="/tutorial/{t["id"][2:]}/">{esc(t["title"])}</a></li>' for t in nt] + [f'<li>칼럼 · <a href="/column/{c["id"][2:]}/">{esc(c["title"])}</a></li>' for c in nc]
+            + [f'<li>무료 도구 · <a href="{t["href"]}">{esc(t["title"])}</a></li>' for t in ntl] + [f'<li>데일리 · <a href="/daily/{d["date"]}/">{_md(d["date"])} AI 데일리 뉴스</a></li>' for d in nd])
+    if more: secs += f'  <div class="sec"><h2>이 주에 새로 나온 것</h2></div>\n  <ul class="plain wkrest">{"".join(more)}</ul>\n'
+    nav = ''.join(f'<a href="/weekly/{w}/"><b>{lab}</b><span>{_wrange(w)[0]}</span></a>' for w, lab in ((WEEKS[i + 1] if i + 1 < len(WEEKS) else None, '← 지난 주'), (WEEKS[i - 1] if i else None, '다음 주 →')) if w)
+    h1 = f"이번 주 AI 판정 <small>{rg}</small>" if now else f"{rg} AI 판정"
+    main = (f'<main id="v-weekly"><article class="article narrow weekly">\n  <a class="back" href="/weekly/">← 주간 AI 판정</a>\n'
+            f'  <span class="cat">주간 AI 판정 · {m[:4]}년 {rg}</span>\n  <h1>{h1}</h1>\n  <p class="deck">{esc(deck)}</p>\n{secs}'
+            f'  <div class="box"><b>판정은 이렇게 붙입니다</b><p>AI 에디터가 회사 발표·논문 같은 원문을 읽고 정해진 기준에 따라 판정과 한 줄 이유를 붙이고, 사람 에디터가 기준을 정하고 틀린 판정을 고칩니다. '
+            f'모든 기사 끝에 원문 링크가 있습니다. <a href="/verdict/">판정 전체 모아보기</a> · <a href="/about/">SHIFT AI가 일하는 방식</a></p></div>\n'
+            + (f'  <nav class="trel wknav" aria-label="다른 주"><div class="trel-tools">{nav}</div></nav>\n' if nav else '') + f'{FOLLOWBOX}\n</article></main>')
+    title = f"{'이번 주 ' if now else ''}AI 판정 {rg}" + (f" — {summ}" if summ else '') + ' · SHIFT AI'
+    top = next((a for k, *_ in _VDN for a in xs if (a.get('verdict') or {}).get('v') == k), xs[0])
+    og = f"og/{top['id']}.jpg" if os.path.exists(OUT + f"og/{top['id']}.jpg") else OG_SITE
+    ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f"주간 AI 판정 {m[:4]}년 {rg}", 'description': deck, 'url': SITE + u, 'inLanguage': 'ko', 'publisher': PUBLISHER,
+          'datePublished': kst(m), 'dateModified': kst(max(a['date'] for a in xs)),
+          'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(xs), 'itemListElement': [{'@type': 'ListItem', 'position': j + 1, 'name': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for j, a in enumerate(xs)]}}
+    page(u, 'weekly-' + m, title, deck, main, og, 'website', LD(ld, crumbs(('주간 AI 판정', '/weekly/'), (rg, u))))
+    PIMG_W[u] = img_of(top); WEEK_LAST[u] = max(a['date'] for a in xs)
+_wi = ''.join(f'<a href="/weekly/{m}/"><b>{"이번 주 · " if m == _wk(_today) else ""}{_wrange(m)[0]}</b><span>기사 {len(_W[m])}개 · ' + ' · '.join(f'{nm} {c}' for (k, nm, *_), c in zip(_VDN, _wcount(_W[m]).values()) if c) + '</span></a>' for m in WEEKS)
+page('/weekly/', 'weekly', '주간 AI 판정 — 이번 주 써볼 만한 AI, 지켜볼 AI, 과장된 AI · SHIFT AI', '한 주 동안 나온 AI 소식을 원문부터 읽고 써볼 만해요·지켜보세요·과장이에요로 판정해 주마다 묶었습니다. 판정마다 한 줄 이유와 원문 링크가 있습니다.',
+     f'<main id="v-weeklyindex"><div class="ph"><h1>주간 AI 판정</h1><p>한 주 동안 나온 AI 소식을 판정별로 묶었습니다. 바쁘면 이번 주 \'써볼 만해요\'만 보셔도 됩니다. 기사 하나하나는 <a href="/verdict/">AI 판정 모아보기</a>에서 봅니다.</p></div>\n'
+     f'  <div class="trel-tools vsidx">{_wi}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
+     LD(crumbs(('주간 AI 판정', '/weekly/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': '주간 AI 판정', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/weekly/{m}/", 'name': f"AI 판정 {_wrange(m)[0]}"} for i, m in enumerate(WEEKS)]}))
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----
@@ -481,6 +545,9 @@ last.update(termLast)
 for t in TOOLS: last[t['href']] = t.get('mod') or t['date']
 for _p in ['/vs/'] + [f"/vs/{q['id']}/" for q in VS['pairs']]: last[_p] = '2026-11-02'
 if TOOLS: last['/tools/'] = max(t.get('mod') or t['date'] for t in TOOLS)
+for _p, _d in WEEK_LAST.items(): last[_p] = _d
+if WEEK_LAST: last['/weekly/'] = max(WEEK_LAST.values())
+for _p, _u in UPD.items(): last[_p] = max([last.get(_p, '')] + [x[0] for x in _u])
 # 대표 이미지(구글 이미지 검색): 기사·튜토리얼·칼럼·데일리·무료 도구. 사이트 로고는 넣지 않는다.
 PIMG = {}
 for a in A: PIMG[f"/news/{a['id']}/"] = img_of(a)
@@ -488,6 +555,7 @@ for t in T: PIMG[f"/tutorial/{t['id'][2:]}/"] = t['thumb']
 for c in C: PIMG[f"/column/{c['id'][2:]}/"] = col_img(c)
 for d in DY: PIMG[f"/daily/{d['date']}/"] = day_img(d)
 for t in TOOLS: PIMG[t['href']] = t['thumb']
+PIMG.update(PIMG_W)
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
 for p in PAGES:
     if p in ('/privacy/', '/search/'): continue
@@ -526,6 +594,7 @@ def rfc822(date, time):
 feed = ([(a['date'], a.get('time') or '09:00', a['title'], f"/news/{a['id']}/", a['cat'], a['hook']) for a in A]
         + [(t['date'], '09:00', t['title'], f"/tutorial/{t['id'][2:]}/", '튜토리얼', t['deck']) for t in T]
         + [(c['date'], '09:00', c['title'], f"/column/{c['id'][2:]}/", '칼럼', c['deck']) for c in C]
+        + [(WEEK_LAST[f'/weekly/{m}/'], '21:00', f"주간 AI 판정 {_wrange(m)[0]}", f'/weekly/{m}/', '주간 AI 판정', f"이 주에 나온 AI 기사 {len(_W[m])}개를 써볼 만해요·지켜보세요·과장이에요로 묶었습니다.") for m in WEEKS if m != _wk(_today)]
         + [(d['date'], '07:00', f"{int(d['date'][5:7])}월 {int(d['date'][8:])}일 AI 데일리 뉴스 — {d['title']}", f"/daily/{d['date']}/", '데일리 이슈', d.get('summary') or ' / '.join(d['three'])) for d in DY])
 items = []
 for dt, tm, ti, u, cat, ds in sorted(feed, key=lambda x: x[0] + x[1], reverse=True)[:60]:

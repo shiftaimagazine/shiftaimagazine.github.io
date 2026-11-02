@@ -30,7 +30,7 @@
       <label><input type="checkbox" id="oJoin"> 줄바꿈 정리 <small>(문장 중간에서 끊긴 줄을 이어 붙입니다)</small></label>
     </div>
     <div class="trow">
-      <button class="btn" type="button" id="oRun" disabled>글자 뽑기</button>
+      <button class="btn" type="button" id="oRun" data-ev="tool-run:/tools/ocr/" disabled>글자 뽑기</button>
       <span class="meta" id="oStatus">사진을 넣으면 시작할 수 있습니다.</span>
     </div>
     <div class="obar" id="oBar" hidden><i></i></div>
@@ -43,9 +43,9 @@
     <label class="sr" for="oOut">뽑은 글자</label>
     <textarea id="oOut" rows="12" spellcheck="false" placeholder="뽑은 글자가 여기에 나옵니다. 바로 고쳐 쓸 수도 있습니다."></textarea>
     <div class="trow">
-      <button class="btn" type="button" id="oCopy">글자 복사</button>
-      <button class="ghost" type="button" id="oDown">텍스트 파일로 저장</button>
-      <button class="ghost" type="button" id="oAi">AI에 정리 맡기는 프롬프트로 복사</button>
+      <button class="btn" type="button" id="oCopy" data-ev="tool-done:/tools/ocr/">글자 복사</button>
+      <button class="ghost" type="button" id="oDown" data-ev="tool-done:/tools/ocr/">텍스트 파일로 저장</button>
+      <button class="ghost" type="button" id="oAi" data-ev="tool-done:/tools/ocr/">AI에 정리 맡기는 프롬프트로 복사</button>
     </div>
     <div class="olow" id="oLow" hidden></div>
     <p class="hint warn">숫자, 사람 이름, 금액, 기호는 잘못 읽는 경우가 있습니다(예: '$40로'를 '$402'로). 중요한 내용은 원본 사진과 꼭 대조하세요.</p>

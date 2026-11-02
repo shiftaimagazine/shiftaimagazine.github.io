@@ -27,14 +27,18 @@ const imgOf = a=>a.image&&a.image.src ? a.image : {src:"img/logo.webp",credit:""
 const fig = (im,cls="")=>`<figure class="${cls}"><img src="${im.src}" alt="${esc(im.alt||"")}" loading="lazy">${im.credit?`<figcaption>${esc(im.credit)}</figcaption>`:""}</figure>`;
 const thumb = im=>`<img class="thumb" src="${im.src}" alt="" loading="lazy">`;
 
+// 수정 기록(글 아래)·틀린 곳 알려 주기(메일, 11/3~)
+const updHTML = x=>x.upd&&x.upd.length ? `<div class="upd"><b>수정 기록</b><ul>${x.upd.map(([d,t])=>`<li><time datetime="${esc(d)}">${fmtDate(d)}</time> ${esc(t)}</li>`).join("")}</ul></div>` : "";
+const updMeta = x=>x.upd&&x.upd.length ? `<span class="dot"></span><span>${fmtDate(x.upd[x.upd.length-1][0])} 수정</span>` : "";
+const fixLink = (title, path)=>`<a href="mailto:shiftai.magazine@gmail.com?subject=${encodeURIComponent("[정정 요청] "+title)}&body=${encodeURIComponent("페이지: https://shiftaimagazine.com"+path+"\n틀린 곳:\n바른 내용과 근거(원문 링크):\n")}">틀린 곳 알려 주기</a>`;
 const VD = {try:["써볼 만해요","vd-try"], watch:["지켜보세요","vd-watch"], hype:["과장이에요","vd-hype"]};  // 기사 판정(11/2~)
 const vdTag = a=>a.verdict&&VD[a.verdict.v] ? `<span class="vd ${VD[a.verdict.v][1]}">${VD[a.verdict.v][0]}</span>` : "";
 const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
-  <div class="b"><span class="cat">${esc(a.cat)}${vdTag(a)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div></div></a>`;
+  <div class="b"><span class="cat">${esc(a.cat)}${vdTag(a)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${a.rm||readMin(a.body)}분 읽기</span></div></div></a>`;
 // 튜토리얼: 읽는 시간(글자 수 기준)과 단위(STEP / 프롬프트)
 const tutText = t=>[t.deck,t.why,t.intro,...(t.quick?t.quick.lines:[]),...t.items.flatMap(x=>[x.h,x.d,x.how,...(x.more||[]),x.prompt,...(x.term||[]).flat(),...(x.code||[]).map(c=>c.cmd+" "+(c.ok||"")),x.bad,x.good]),...(t.bonus?t.bonus.items:[]),...(t.limits||[])].filter(Boolean).join(" ");
-const tutRead = t=>Math.max(1,Math.round(tutText(t).replace(/\s/g,"").length/350));
-const tutUnit = t=>t.kind==="steps" ? `STEP ${t.items.length}개` : `프롬프트 ${t.items.length}개`;
+const tutRead = t=>t.rd||Math.max(1,Math.round(tutText(t).replace(/\s/g,"").length/350));
+const tutUnit = t=>t.kind==="steps" ? `STEP ${t.n??t.items.length}개` : `프롬프트 ${t.n??t.items.length}개`;
 const tutLabel = (t,k)=>t.kind==="steps" ? `STEP ${k+1}` : `프롬프트 ${k+1}`;
 const tutHTML = t=>`<a class="post" href="${P(t.id)}">${thumb({src:t.thumb})}
   <div class="b"><span class="cat">${esc(t.cat||"튜토리얼")} · ${esc(t.level)}</span><h3>${esc(t.title)}</h3><p>${esc(t.deck)}</p><div class="meta"><span>${fmtDate(t.date)}</span><span class="dot"></span><span>${tutUnit(t)}</span><span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span>${t.pdf?`<span class="dot"></span><span>PDF 정리본</span>`:""}</div></div></a>`;
@@ -42,7 +46,7 @@ const toolHTML = t=>`<a class="post" href="${t.href}">${thumb({src:t.thumb})}
   <div class="b"><span class="cat">무료 도구 · ${esc(t.tag)}</span><h3>${esc(t.title)}</h3><p>${esc(t.desc)}</p><div class="meta"><span>설치·가입 없음</span><span class="dot"></span><span>브라우저에서 바로</span></div></div></a>`;
 const colImg = c=>c.image||(c.rel&&byId[c.rel]?imgOf(byId[c.rel]):{src:"img/logo.webp"});
 const colHTML = c=>`<a class="post" href="${P(c.id)}">${thumb(colImg(c))}
-  <div class="b"><span class="cat">칼럼</span><h3>${esc(c.title)}</h3><p>${esc(c.deck)}</p><div class="meta"><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div></div></a>`;
+  <div class="b"><span class="cat">칼럼</span><h3>${esc(c.title)}</h3><p>${esc(c.deck)}</p><div class="meta"><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${c.rm||readMin(c.body)}분 읽기</span></div></div></a>`;
 const dayItems = d=>d.items.map(id=>byId[id]).filter(Boolean);
 const dayPhoto = d=>{const its=dayItems(d); return (byId[d.lead]&&!byId[d.lead].image.temp)?byId[d.lead]:(its.find(a=>!a.image.temp)||byId[d.lead]||its[0]);};
 
@@ -137,7 +141,7 @@ function renderLists(){
 // 복붙 프롬프트 모음(/prompts/, 11/2~): 튜토리얼의 prompt·master 를 한곳에. 주소 ?cat=&q=
 const PROMPTS = (()=>{ const out=[]; [...TUTORIALS].sort((a,b)=>(a.kind==="prompts"?0:1)-(b.kind==="prompts"?0:1)).forEach(t=>{ const slug=t.id.slice(2);  /* 바로 복사해 쓰는 프롬프트 글이 먼저 */
   if(t.master&&t.master.prompt) out.push({id:slug+"-all", h:"통째로 맡기는 프롬프트: "+t.title, d:(t.master.tool||"AI")+"에 붙여 넣으면 이 글의 단계를 대신 진행합니다.", p:t.master.prompt, t});
-  t.items.forEach((it,i)=>{ if(it.prompt) out.push({id:slug+"-"+(i+1), h:it.h, d:it.d||"", p:it.prompt, t}); }); }); return out; })();
+  (t.items||[]).forEach((it,i)=>{ if(it.prompt) out.push({id:slug+"-"+(i+1), h:it.h, d:it.d||"", p:it.prompt, t}); }); }); return out; })();
 const _pq = new URLSearchParams(ROUTE==="prompts" ? location.search : "");
 let prCat = _pq.get("cat") || "all", prQ = _pq.get("q") || "";
 function renderPrompts(){
@@ -307,15 +311,16 @@ function renderArticle(a){
     <h1>${esc(a.title)}</h1><p class="deck">${esc(a.sub)}</p>
     ${a.verdict&&VD[a.verdict.v]?`<a class="vdbox ${VD[a.verdict.v][1]}" href="/verdict/"><b>SHIFT 판정 · ${VD[a.verdict.v][0]}</b><span>${esc(a.verdict.why)}</span></a>`:""}
     ${a.try?`<div class="trynow"><b>오늘 바로 해 볼 것</b><span>${esc(a.try)}</span></div>`:""}
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span>${updMeta(a)}<span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
     ${fig(imgOf(a),"lead-fig")}
     ${factsHTML(a.facts)}
     ${ul?`<div class="box keyp"><b>세 줄 요약</b><ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul></div>`:""}
     <div class="body">${bodyHTML(rest)}</div>
     <div class="ask"><small>생각해 볼 질문</small>${esc(a.ask)}</div>
     ${srcHTML(a.sources)}
+    ${updHTML(a)}
     ${tl.length?`<div class="chips">${tl.map(t=>`<a href="${TP(t)}" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
-    <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">스레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}</div>
+    <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">스레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}${fixLink(a.title, P("a-"+a.id))}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
   </article>`;
@@ -326,11 +331,12 @@ function renderColumn(c){
     <a class="back" href="/news/?cat=칼럼">← AI 뉴스 · 칼럼</a>
     <span class="cat">칼럼</span>
     <h1>${esc(c.title)}</h1><p class="deck">${esc(c.deck)}</p>
-    <div class="meta"><span>SHIFT AI 편집장</span><span class="dot"></span><span>${fmtDate(c.date)}</span><span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div>
+    <div class="meta"><span>SHIFT AI 편집장 기획 · AI 에디터 작성</span><span class="dot"></span><span>${fmtDate(c.date)}</span>${updMeta(c)}<span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div>
     ${fig(colImg(c),"lead-fig")}
     <div class="body">${bodyHTML(c.body)}</div>
+    ${updHTML(c)}
     ${rel?`<div class="next"><div class="lbl">바탕이 된 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
-    <div class="links"><a href="${TH}" target="_blank" rel="noopener">스레드에서 반론 남기기</a>${linkCopy(c.id,"링크 복사")}</div>
+    <div class="links"><a href="${TH}" target="_blank" rel="noopener">스레드에서 반론 남기기</a>${linkCopy(c.id,"링크 복사")}${fixLink(c.title, P(c.id))}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 칼럼</div><div class="list">${colHTML(nx)}</div></div>
   </article>`;
@@ -362,7 +368,7 @@ function renderTutorial(t){
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · ${esc(t.cat||"")} · ${esc(t.level)}</span>
     <h1>${esc(t.title)}</h1><p class="deck">${esc(t.deck)}</p>
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span><span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span><span class="dot"></span><span>${tutUnit(t)}</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span>${updMeta(t)}<span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span><span class="dot"></span><span>${tutUnit(t)}</span></div>
     ${(t.tool||[]).length?`<div class="ttags">${t.tool.map(x=>`<a href="/tutorial/?tool=${encodeURIComponent(x)}">${esc(x)}</a>`).join("")}</div>`:""}
     ${t.pdf?`<div class="pdfbox"><div class="pages">${t.pdf.pages.map((p,k)=>`<img src="${p}" alt="정리본 ${k+1}쪽" loading="lazy">`).join("")}</div>
       <div class="pdfmeta"><div><b>PDF 정리본 · ${t.pdf.count}쪽</b>이 글을 그대로 담은 PDF입니다. 저장해 두고 필요할 때 꺼내 보세요.</div><a class="btn" href="${t.pdf.url}" target="_blank" rel="noopener">PDF 열기</a></div></div>`:fig({src:t.cover||t.thumb, credit:t.coverCredit||""},"lead-fig")}
@@ -376,8 +382,9 @@ function renderTutorial(t){
     ${t.bonus?`<div class="bonus"><b>보너스 · ${esc(t.bonus.title)}</b><ol>${t.bonus.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
     ${limits}
     ${srcs}
+    ${updHTML(t)}
     ${rel?`<div class="next"><div class="lbl">관련 기사</div><div class="list">${postHTML(rel)}</div></div>`:""}
-    <div class="links">${t.app?`<a href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a>`:""}${t.pdf?`<a href="${t.pdf.url}" target="_blank" rel="noopener">PDF 정리본 열기</a>`:""}<a href="${TH}" target="_blank" rel="noopener">스레드에서 질문하기</a>${linkCopy(t.id,"링크 복사")}</div>
+    <div class="links">${t.app?`<a href="${t.app.url}" target="_blank" rel="noopener">${esc(t.app.btn)}</a>`:""}${t.pdf?`<a href="${t.pdf.url}" target="_blank" rel="noopener">PDF 정리본 열기</a>`:""}<a href="${TH}" target="_blank" rel="noopener">스레드에서 질문하기</a>${linkCopy(t.id,"링크 복사")}${fixLink(t.title, P(t.id))}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list">${tutHTML(nx)}</div></div>
   </article>`;
@@ -420,8 +427,28 @@ function renderTerm(t){
   </article>`;
 }
 
+// 방문자 행동 세기(GoatCounter 이벤트). 이름·주소·프로그램 id 같은 정해진 값만 보내고, 사람이 입력한 글은 절대 보내지 않는다.
+// 통계 스크립트가 없으면(개발 중·로봇·켜기 전) 아무 일도 안 한다.
+const track = (p,t)=>{ try{ const g=window.goatcounter; if(g&&g.count) g.count({path:String(p).slice(0,200), title:t||String(p).slice(0,200), event:true}); }catch(_){} };
+window.track = track;
+document.addEventListener("click",e=>{
+  const el=e.target.closest&&e.target.closest("a,button"); if(!el) return;
+  if(el.dataset.ev) return track(el.dataset.ev);
+  if(el.tagName!=="A") return;
+  const h=el.getAttribute("href")||"";
+  if(h.startsWith("mailto:")) return track("fix-report:"+location.pathname, "틀린 곳 알려 주기");
+  if(/^https?:/i.test(h) && el.hostname && el.hostname!==location.hostname) track("out:"+el.hostname.replace(/^www\./,""), "나가는 링크");
+},true);
+// 무료 도구: 페이지를 연 뒤 처음으로 무언가를 넣거나 누르면 '사용'으로 한 번 센다
+let toolUsed=false;
+const firstUse=e=>{ if(toolUsed) return; const t=e.target; if(!t||!t.closest) return;
+  const m=t.closest('main[id^="v-tool"]'); if(!m||t.closest(".tfaq,.back,a")) return;
+  if(e.type==="click" && !t.closest("button,label,input,select,textarea")) return;
+  toolUsed=true; track("tool-use:"+location.pathname, "무료 도구 사용"); };
+["input","change","click","drop"].forEach(ty=>document.addEventListener(ty,firstUse,true));
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-copy]"); if(!b) return; e.preventDefault();
+  const pc=b.closest(".prc"); track(b.tagName==="A"?"copy-link:"+location.pathname : (ROUTE.startsWith("tool-")?"tool-done:":"copy-prompt:")+location.pathname+(pc?"#"+pc.id:""), b.tagName==="A"?"링크 복사":"복사");
   const txt=b.dataset.copy; const done=()=>toast("복사했습니다");
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(fallback);}else fallback();
   function fallback(){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(_){toast("길게 눌러 복사해 주세요");}ta.remove();}
