@@ -1,0 +1,1262 @@
+{
+ "checked": "2026-11-02",
+ "programs": [
+  {
+   "id": "microsoft-365",
+   "name_ko": "MS 오피스(마이크로소프트 365)",
+   "name_en": "Microsoft 365",
+   "aliases": [
+    "MS 오피스",
+    "오피스",
+    "마이크로소프트 오피스",
+    "마이크로소프트 365",
+    "microsoft 365",
+    "office 365",
+    "오피스365",
+    "워드",
+    "엑셀",
+    "파워포인트",
+    "ms word",
+    "excel",
+    "powerpoint",
+    "ppt"
+   ],
+   "category": "문서",
+   "official_url": "https://www.microsoft.com/ko-kr/microsoft-365",
+   "alts": [
+    {
+     "name": "LibreOffice(리브레오피스)",
+     "url": "https://ko.libreoffice.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "MPL-2.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "DOCX",
+      "XLSX",
+      "PPTX"
+     ],
+     "free_limits": "복잡한 MS 오피스 문서는 서식 일부 차이",
+     "good_for": "설치형 오피스 전체 대체",
+     "ai_features": null,
+     "sources": [
+      "https://www.libreoffice.org/",
+      "https://ko.libreoffice.org/",
+      "https://www.libreoffice.org/get-help/system-requirements/",
+      "https://www.libreoffice.org/download/download-libreoffice/",
+      "https://help.libreoffice.org/latest/en-US/text/shared/guide/ms_import_export_limitations.html"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "ONLYOFFICE Desktop Editors",
+     "url": "https://www.onlyoffice.com/desktop.aspx",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "AGPL-3.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "DOCX",
+      "XLSX",
+      "PPTX"
+     ],
+     "free_limits": null,
+     "good_for": "문서·스프레드시트·프레젠테이션·PDF 편집",
+     "ai_features": "선택형 AI 도구 연결(텍스트 생성·번역·OCR)",
+     "sources": [
+      "https://www.onlyoffice.com/desktop.aspx",
+      "https://www.onlyoffice.com/download-desktop.aspx"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "구글 문서·시트·슬라이드",
+     "url": "https://workspace.google.com/products/docs/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [
+      "DOCX"
+     ],
+     "free_limits": "구글 계정 저장공간 15GB(지메일·드라이브·포토 공유)",
+     "good_for": "웹에서 문서 작성과 공동 편집",
+     "ai_features": null,
+     "sources": [
+      "https://workspace.google.com/products/docs/",
+      "https://gemini.google/subscriptions/",
+      "https://apps.apple.com/kr/app/id842842640"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Microsoft 365 웹 무료 버전",
+     "url": "https://www.microsoft.com/ko-kr/microsoft-365/free-office-online-for-the-web",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [
+      "DOCX",
+      "XLSX",
+      "PPTX"
+     ],
+     "free_limits": "파일은 OneDrive에 저장, 저장공간 5GB",
+     "good_for": "MS 오피스 파일을 브라우저에서 편집",
+     "ai_features": null,
+     "sources": [
+      "https://www.microsoft.com/ko-kr/microsoft-365/free-office-online-for-the-web",
+      "https://www.microsoft.com/en-us/microsoft-365/free-office-online-for-the-web"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "hancom-hangul",
+   "name_ko": "한글(한컴오피스)",
+   "name_en": "Hancom Office Hangul",
+   "aliases": [
+    "한글",
+    "한컴",
+    "한컴오피스",
+    "한글과컴퓨터",
+    "hwp",
+    "hwpx",
+    "아래아한글",
+    "한글 프로그램",
+    "hangul",
+    "hancom office"
+   ],
+   "category": "문서",
+   "official_url": "https://www.hancom.com/",
+   "alts": [
+    {
+     "name": "한컴오피스 뷰어",
+     "url": "https://www.hancom.com/product/office/officeViewer",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [
+      "HWP",
+      "HWPX"
+     ],
+     "free_limits": "보기 전용 뷰어, 개인·가정용만 무료",
+     "good_for": "HWP 문서 열어 보기",
+     "ai_features": null,
+     "sources": [
+      "https://www.hancom.com/product/office/officeViewer",
+      "https://apps.apple.com/KR/app/id369832061"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "한컴독스 무료 플랜",
+     "url": "https://www.hancom.com/service/docs",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [
+      "HWP",
+      "HWPX"
+     ],
+     "free_limits": "저장공간 2GB, PC 설치형은 뷰어만, 한컴독스 AI 제외",
+     "good_for": "웹·모바일에서 HWP 문서 작업",
+     "ai_features": null,
+     "sources": [
+      "https://www.hancom.com/service/docs",
+      "https://www.hancom.com/en/service/docs",
+      "https://apps.apple.com/kr/app/id1611732182"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "LibreOffice + H2Orestart 확장",
+     "url": "https://extensions.libreoffice.org/en/extensions/show/27504",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "MPL-2.0(LibreOffice), GPL(H2Orestart)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "HWP",
+      "HWPX"
+     ],
+     "free_limits": "저장은 ODT 등 다른 형식, 자바(JRE 8 이상) 필요",
+     "good_for": "HWP 문서 열어 다른 형식으로 변환",
+     "ai_features": null,
+     "sources": [
+      "https://extensions.libreoffice.org/en/extensions/show/27504",
+      "https://help.libreoffice.org/latest/en-US/text/shared/guide/convertfilters.html",
+      "https://www.libreoffice.org/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "폴라리스 오피스 무료(Basic 계정·웹 오피스)",
+     "url": "https://www.polarisoffice.com/ko/personal/office",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS",
+      "웹"
+     ],
+     "korean_ui": true,
+     "opens_files": [
+      "HWP",
+      "HWPX"
+     ],
+     "free_limits": "모바일 앱 광고 포함, 웹 오피스 일부 기능 제한",
+     "good_for": "HWP와 MS 오피스 문서 열기·편집",
+     "ai_features": null,
+     "sources": [
+      "https://www.polarisoffice.com/ko/personal/office",
+      "https://www.polarisoffice.com/ko",
+      "https://apps.apple.com/KR/app/id698070860"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "photoshop",
+   "name_ko": "포토샵",
+   "name_en": "Adobe Photoshop",
+   "aliases": [
+    "포토샵",
+    "photoshop",
+    "포샵",
+    "어도비 포토샵",
+    "ps",
+    "psd"
+   ],
+   "category": "사진·그림",
+   "official_url": "https://www.adobe.com/kr/products/photoshop.html",
+   "alts": [
+    {
+     "name": "GIMP(김프)",
+     "url": "https://www.gimp.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0-or-later",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PSD"
+     ],
+     "free_limits": null,
+     "good_for": "레이어 기반 사진 편집·보정",
+     "ai_features": null,
+     "sources": [
+      "https://www.gimp.org/about/",
+      "https://www.gimp.org/downloads/",
+      "https://www.gimp.org/docs/userfaq.html",
+      "https://www.gimp.org/release-notes/gimp-3.0.html"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Photopea(포토피아)",
+     "url": "https://www.photopea.com/",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PSD"
+     ],
+     "free_limits": "광고 표시(유료 Premium은 광고 없음)",
+     "good_for": "설치 없이 브라우저에서 PSD 편집",
+     "ai_features": null,
+     "sources": [
+      "https://www.photopea.com/",
+      "https://www.photopea.com/api/accounts",
+      "https://www.photopea.com/learn/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Krita(크리타)",
+     "url": "https://krita.org/en/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PSD"
+     ],
+     "free_limits": null,
+     "good_for": "디지털 페인팅·일러스트",
+     "ai_features": null,
+     "sources": [
+      "https://krita.org/en/about/",
+      "https://krita.org/en/download/",
+      "https://krita.org/en/features/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Pixlr 무료 사용(픽슬러)",
+     "url": "https://pixlr.com/editor/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "광고 표시, 무제한 저장·월 AI 크레딧은 유료 플랜",
+     "good_for": "브라우저에서 간단한 사진 편집",
+     "ai_features": null,
+     "sources": [
+      "https://pixlr.com/editor/",
+      "https://pixlr.com/pricing/"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "illustrator",
+   "name_ko": "일러스트레이터",
+   "name_en": "Adobe Illustrator",
+   "aliases": [
+    "일러스트레이터",
+    "illustrator",
+    "일러",
+    "어도비 일러스트레이터",
+    "ai 파일"
+   ],
+   "category": "디자인",
+   "official_url": "https://www.adobe.com/kr/products/illustrator.html",
+   "alts": [
+    {
+     "name": "Inkscape(잉크스케이프)",
+     "url": "https://inkscape.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-2.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "AI",
+      "EPS"
+     ],
+     "free_limits": "구형 AI 파일(8.0 이하)은 Windows에서 별도 모듈 필요",
+     "good_for": "로고·아이콘 같은 벡터 그래픽 작업",
+     "ai_features": null,
+     "sources": [
+      "https://inkscape.org/about/",
+      "https://inkscape.org/learn/faq/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Figma 무료 플랜(Starter)",
+     "url": "https://www.figma.com/pricing/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "팀 1개·폴더 1개·디자인 파일 3개, 버전 기록 30일",
+     "good_for": "UI·웹 화면 디자인과 공동 작업",
+     "ai_features": null,
+     "sources": [
+      "https://www.figma.com/pricing/",
+      "https://help.figma.com/hc/en-us/articles/360040328273-Figma-plans-and-features",
+      "https://www.figma.com/downloads/"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "premiere-pro",
+   "name_ko": "프리미어 프로",
+   "name_en": "Adobe Premiere Pro",
+   "aliases": [
+    "프리미어",
+    "프리미어 프로",
+    "프리미어프로",
+    "premiere",
+    "premiere pro",
+    "어도비 프리미어",
+    "프리미어 무료"
+   ],
+   "category": "영상",
+   "official_url": "https://www.adobe.com/kr/products/premiere.html",
+   "alts": [
+    {
+     "name": "DaVinci Resolve (무료 버전)",
+     "url": "https://www.blackmagicdesign.com/kr/products/davinciresolve",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "8비트·최대 UHD 60fps, AI 뉴럴 엔진·다중 GPU는 유료 Studio",
+     "good_for": "컷 편집·색보정·오디오 작업을 한 프로그램에서",
+     "ai_features": null,
+     "sources": [
+      "https://www.blackmagicdesign.com/products/davinciresolve",
+      "https://www.blackmagicdesign.com/kr/products/davinciresolve",
+      "https://www.blackmagicdesign.com/products/davinciresolve/whatsnew",
+      "https://www.blackmagicdesign.com/products/davinciresolve/studio"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Shotcut(샷컷)",
+     "url": "https://shotcut.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "가벼운 컷 편집",
+     "ai_features": null,
+     "sources": [
+      "https://shotcut.org/",
+      "https://mltframework.github.io/shotcut_web/download/",
+      "https://github.com/mltframework/shotcut"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Kdenlive(케이덴라이브)",
+     "url": "https://kdenlive.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "타임라인 기반 일반 영상 편집",
+     "ai_features": null,
+     "sources": [
+      "https://kdenlive.org/en/about/",
+      "https://kdenlive.org/download/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "CapCut 무료 플랜(캡컷)",
+     "url": "https://www.capcut.com/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "Pro 전용 기능·소재 포함 시 내보내기 제한(모바일은 워터마크 표시)",
+     "good_for": "숏폼·SNS 영상 빠른 편집",
+     "ai_features": null,
+     "sources": [
+      "https://www.capcut.com/pricing",
+      "https://www.capcut.com/help/join-capcut-pro-for-exporting",
+      "https://www.capcut.com/",
+      "https://www.capcut.com/tools/desktop-video-editor",
+      "https://apps.apple.com/kr/app/id1500855883"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "after-effects",
+   "name_ko": "애프터 이펙트",
+   "name_en": "Adobe After Effects",
+   "aliases": [
+    "애프터 이펙트",
+    "애프터이펙트",
+    "에펙",
+    "after effects",
+    "ae",
+    "어도비 애프터이펙트",
+    "모션 그래픽"
+   ],
+   "category": "영상",
+   "official_url": "https://www.adobe.com/kr/products/aftereffects.html",
+   "alts": [
+    {
+     "name": "Blender(블렌더)",
+     "url": "https://www.blender.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-2.0-or-later(소스), GPL-3.0-or-later(배포본)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "3D·합성·모션 트래킹",
+     "ai_features": null,
+     "sources": [
+      "https://www.blender.org/about/",
+      "https://www.blender.org/download/",
+      "https://www.blender.org/features/",
+      "https://www.blender.org/about/license/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "DaVinci Resolve 무료 버전의 Fusion",
+     "url": "https://www.blackmagicdesign.com/products/davinciresolve/fusion",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "AI 뉴럴 엔진·일부 Resolve FX는 유료 Studio",
+     "good_for": "노드 방식 모션 그래픽·합성",
+     "ai_features": null,
+     "sources": [
+      "https://www.blackmagicdesign.com/products/davinciresolve/fusion",
+      "https://www.blackmagicdesign.com/products/davinciresolve/whatsnew",
+      "https://www.blackmagicdesign.com/products/davinciresolve/studio"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Natron(나트론)",
+     "url": "https://natrongithub.github.io/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-2.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "2022년 11월(2.5.0) 이후 정식 버전 없음(개발자·관리자 모집 중), macOS 정식판은 인텔용",
+     "good_for": "노드 방식 VFX 합성",
+     "ai_features": null,
+     "sources": [
+      "https://natrongithub.github.io/",
+      "https://github.com/NatronGitHub/Natron/releases",
+      "https://github.com/NatronGitHub/Natron"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "lightroom",
+   "name_ko": "라이트룸",
+   "name_en": "Adobe Lightroom",
+   "aliases": [
+    "라이트룸",
+    "lightroom",
+    "라룸",
+    "어도비 라이트룸",
+    "lr",
+    "사진 보정"
+   ],
+   "category": "사진·그림",
+   "official_url": "https://www.adobe.com/kr/products/photoshop-lightroom.html",
+   "alts": [
+    {
+     "name": "darktable(다크테이블)",
+     "url": "https://www.darktable.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0-or-later",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "RAW 사진 관리·현상",
+     "ai_features": "선택형 AI 마스크·노이즈 제거·업스케일(기본 꺼짐)",
+     "sources": [
+      "https://www.darktable.org/about/",
+      "https://www.darktable.org/install/",
+      "https://www.darktable.org/2026/06/darktable-5.6.0-released/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "RawTherapee(로테라피)",
+     "url": "https://www.rawtherapee.com/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "RAW 파일 세밀한 현상",
+     "ai_features": null,
+     "sources": [
+      "https://www.rawtherapee.com/"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "acrobat-pro",
+   "name_ko": "아크로뱃 프로",
+   "name_en": "Adobe Acrobat Pro",
+   "aliases": [
+    "아크로뱃",
+    "아크로벳",
+    "아크로뱃 프로",
+    "acrobat",
+    "acrobat pro",
+    "어도비 아크로뱃",
+    "pdf 편집",
+    "어도비 pdf"
+   ],
+   "category": "PDF",
+   "official_url": "https://www.adobe.com/kr/acrobat/acrobat-pro.html",
+   "alts": [
+    {
+     "name": "PDF24 Creator",
+     "url": "https://tools.pdf24.org/en/creator",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PDF"
+     ],
+     "free_limits": null,
+     "good_for": "PDF 합치기·나누기·압축·OCR",
+     "ai_features": null,
+     "sources": [
+      "https://tools.pdf24.org/en/creator"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "PDFgear",
+     "url": "https://www.pdfgear.com/",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "iOS",
+      "Android",
+      "웹"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PDF"
+     ],
+     "free_limits": null,
+     "good_for": "PDF 텍스트 편집·형식 변환",
+     "ai_features": "AI 채팅(PDF Copilot)",
+     "sources": [
+      "https://www.pdfgear.com/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "LibreOffice Draw",
+     "url": "https://ko.libreoffice.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "MPL-2.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PDF"
+     ],
+     "free_limits": null,
+     "good_for": "PDF 가져와 직접 수정",
+     "ai_features": null,
+     "sources": [
+      "https://help.libreoffice.org/latest/en-US/text/shared/guide/convertfilters.html",
+      "https://www.libreoffice.org/",
+      "https://ko.libreoffice.org/",
+      "https://www.libreoffice.org/get-help/system-requirements/",
+      "https://www.libreoffice.org/download/download-libreoffice/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Microsoft Edge PDF 뷰어",
+     "url": "https://explore.microsoft.com/en-us/edge/features/pdf-reader",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS"
+     ],
+     "korean_ui": null,
+     "opens_files": [
+      "PDF"
+     ],
+     "free_limits": "주석·형광펜·텍스트 추가 중심, XFA 양식 미지원",
+     "good_for": "PDF 보기·형광펜·메모",
+     "ai_features": "Copilot으로 PDF 요약",
+     "sources": [
+      "https://explore.microsoft.com/en-us/edge/features/pdf-reader?form=AWRE",
+      "https://learn.microsoft.com/deployedge/microsoft-edge-pdf",
+      "https://explore.microsoft.com/ko-kr/edge/download?form=MA13FJ"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "canva-pro",
+   "name_ko": "캔바 프로",
+   "name_en": "Canva Pro",
+   "aliases": [
+    "캔바",
+    "캔바 프로",
+    "canva",
+    "canva pro",
+    "칸바"
+   ],
+   "category": "디자인",
+   "official_url": "https://www.canva.com/ko_kr/pro/",
+   "alts": [
+    {
+     "name": "Canva 무료 플랜",
+     "url": "https://www.canva.com/ko_kr/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "저장공간 5GB, 프리미엄 템플릿·배경 제거·자동 크기 조정은 Pro 전용",
+     "good_for": "SNS 이미지·카드뉴스 제작",
+     "ai_features": null,
+     "sources": [
+      "https://www.canva.com/ko_kr/draw/",
+      "https://www.canva.com/ko_kr/download/",
+      "https://apps.apple.com/kr/app/id897446215"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Figma 무료 플랜(Starter)",
+     "url": "https://www.figma.com/pricing/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "팀 1개·폴더 1개·디자인 파일 3개, 버전 기록 30일",
+     "good_for": "UI·웹 화면 디자인과 공동 작업",
+     "ai_features": null,
+     "sources": [
+      "https://www.figma.com/pricing/",
+      "https://help.figma.com/hc/en-us/articles/360040328273-Figma-plans-and-features",
+      "https://www.figma.com/downloads/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Adobe Express 무료 플랜",
+     "url": "https://www.adobe.com/kr/express/pricing",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "저장공간 5GB, 생성형 AI 사용량 제한, 프리미엄 템플릿 제외",
+     "good_for": "템플릿 기반 SNS 이미지·짧은 영상",
+     "ai_features": "생성형 AI 무료 사용량(이미지 생성 등)",
+     "sources": [
+      "https://www.adobe.com/express/pricing",
+      "https://www.adobe.com/kr/express/pricing"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "bandicam",
+   "name_ko": "반디캠",
+   "name_en": "Bandicam",
+   "aliases": [
+    "반디캠",
+    "bandicam",
+    "화면 녹화",
+    "화면녹화",
+    "녹화 프로그램",
+    "게임 녹화"
+   ],
+   "category": "화면 녹화",
+   "official_url": "https://www.bandicam.co.kr/",
+   "alts": [
+    {
+     "name": "OBS Studio",
+     "url": "https://obsproject.com/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-2.0-or-later",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "화면 녹화·라이브 방송",
+     "ai_features": null,
+     "sources": [
+      "https://obsproject.com/",
+      "https://github.com/obsproject/obs-studio"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "ShareX",
+     "url": "https://getsharex.com/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0",
+     "platforms": [
+      "Windows"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "화면 녹화·GIF 녹화·스크린샷",
+     "ai_features": null,
+     "sources": [
+      "https://getsharex.com/",
+      "https://github.com/ShareX/ShareX"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Windows 캡처 도구(Snipping Tool) 화면 녹화",
+     "url": "https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b",
+     "cost_type": "완전 무료",
+     "license": "Windows 기본 앱",
+     "platforms": [
+      "Windows"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "설치 없이 간단한 화면 녹화",
+     "ai_features": null,
+     "sources": [
+      "https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Xbox Game Bar 녹화",
+     "url": "https://support.microsoft.com/windows/use-a-screen-reader-to-record-your-screen-with-xbox-game-bar-5328cd25-9046-4472-8a14-c485f138802c",
+     "cost_type": "완전 무료",
+     "license": "Windows 기본 앱",
+     "platforms": [
+      "Windows"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "게임·앱 화면 녹화(시스템 소리·마이크 포함)",
+     "ai_features": null,
+     "sources": [
+      "https://support.microsoft.com/windows/use-a-screen-reader-to-record-your-screen-with-xbox-game-bar-5328cd25-9046-4472-8a14-c485f138802c"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "chatgpt-plus",
+   "name_ko": "챗GPT 플러스",
+   "name_en": "ChatGPT Plus",
+   "aliases": [
+    "챗gpt",
+    "챗GPT 플러스",
+    "chatgpt",
+    "chatgpt plus",
+    "챗지피티",
+    "지피티",
+    "gpt 유료",
+    "오픈ai"
+   ],
+   "category": "AI",
+   "official_url": "https://chatgpt.com/ko-KR/pricing/",
+   "alts": [
+    {
+     "name": "ChatGPT 무료 플랜",
+     "url": "https://chatgpt.com/ko-KR/pricing/",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "무료 모델(GPT-6 루나)로 글 대화, 파일 올리기·이미지 만들기·딥리서치는 조금만, 광고 표시될 수 있음",
+     "good_for": "일상 질문·글쓰기 보조",
+     "ai_features": "이미지 만들기·딥리서치(사용량 적음)",
+     "sources": [
+      "https://chatgpt.com/pricing",
+      "https://chatgpt.com/ko-KR/pricing/",
+      "https://chatgpt.com/download"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Claude 무료 플랜",
+     "url": "https://claude.com/pricing",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "5시간·주간 사용량 제한, Opus 모델 제외",
+     "good_for": "긴 글 읽기·쓰기와 문서 정리",
+     "ai_features": "웹 검색, 코드 실행으로 파일 생성·편집",
+     "sources": [
+      "https://claude.com/pricing",
+      "https://claude.com/download"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Gemini 무료",
+     "url": "https://gemini.google/kr/subscriptions/?hl=ko",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "Flash-Lite 모델, 5시간마다 갱신되는 사용량·주간 한도",
+     "good_for": "검색·요약·이미지 생성",
+     "ai_features": "이미지 생성·수정, Deep Research",
+     "sources": [
+      "https://gemini.google/subscriptions/",
+      "https://gemini.google/kr/subscriptions/?hl=ko",
+      "https://apps.apple.com/kr/app/id6477489729"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "midjourney",
+   "name_ko": "미드저니",
+   "name_en": "Midjourney",
+   "aliases": [
+    "미드저니",
+    "midjourney",
+    "mj",
+    "ai 그림",
+    "이미지 생성 ai",
+    "AI 이미지"
+   ],
+   "category": "AI",
+   "official_url": "https://www.midjourney.com/",
+   "alts": [
+    {
+     "name": "Bing Image Creator",
+     "url": "https://www.bing.com/images/create",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "빠른 생성 하루 15회(이후 느린 생성 24시간 200회까지), 개인 Microsoft 계정 필요",
+     "good_for": "간단한 이미지 생성",
+     "ai_features": "이미지 생성(MAI-Image 모델)",
+     "sources": [
+      "https://www.bing.com/images/create/help"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Gemini 이미지 생성",
+     "url": "https://gemini.google/kr/subscriptions/?hl=ko",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹",
+      "Android",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": "사용량 한도(5시간마다 갱신, 주간 한도)",
+     "good_for": "대화하듯 이미지 생성·수정",
+     "ai_features": "이미지 생성·수정(Nano Banana 2)",
+     "sources": [
+      "https://gemini.google/subscriptions/",
+      "https://gemini.google/kr/subscriptions/?hl=ko",
+      "https://apps.apple.com/kr/app/id6477489729"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Ideogram 무료 플랜",
+     "url": "https://ideogram.ai/pricing",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "주간 무료 크레딧, 생성 이미지 기본 공개",
+     "good_for": "간단한 이미지 시안 생성",
+     "ai_features": "이미지 생성",
+     "sources": [
+      "https://ideogram.ai/pricing"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "Adobe Firefly 무료 사용",
+     "url": "https://www.adobe.com/products/firefly/plans.html",
+     "cost_type": "무료 플랜(제한 있음)",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "웹"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "일일 무료 생성 횟수 제한",
+     "good_for": "이미지 시안 생성",
+     "ai_features": "이미지·영상·오디오 생성(Nano Banana 등 모델)",
+     "sources": [
+      "https://www.adobe.com/products/firefly/plans.html"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "final-cut-pro",
+   "name_ko": "파이널 컷 프로",
+   "name_en": "Final Cut Pro",
+   "aliases": [
+    "파이널컷",
+    "파이널 컷",
+    "파이널 컷 프로",
+    "final cut",
+    "final cut pro",
+    "fcp",
+    "파컷"
+   ],
+   "category": "영상",
+   "official_url": "https://www.apple.com/kr/final-cut-pro/",
+   "alts": [
+    {
+     "name": "iMovie(아이무비)",
+     "url": "https://www.apple.com/kr/imovie/",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "macOS",
+      "iOS"
+     ],
+     "korean_ui": true,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "간단한 영상 편집, Final Cut Pro로 이어서 작업 가능",
+     "ai_features": null,
+     "sources": [
+      "https://www.apple.com/kr/imovie/"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "DaVinci Resolve (무료 버전)",
+     "url": "https://www.blackmagicdesign.com/kr/products/davinciresolve",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": "8비트·최대 UHD 60fps, AI 뉴럴 엔진·다중 GPU는 유료 Studio",
+     "good_for": "컷 편집·색보정·오디오 작업을 한 프로그램에서",
+     "ai_features": null,
+     "sources": [
+      "https://www.blackmagicdesign.com/products/davinciresolve",
+      "https://www.blackmagicdesign.com/kr/products/davinciresolve",
+      "https://www.blackmagicdesign.com/products/davinciresolve/whatsnew",
+      "https://www.blackmagicdesign.com/products/davinciresolve/studio"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "id": "audition",
+   "name_ko": "어도비 오디션",
+   "name_en": "Adobe Audition",
+   "aliases": [
+    "오디션",
+    "어도비 오디션",
+    "audition",
+    "adobe audition",
+    "오디오 편집",
+    "녹음 편집"
+   ],
+   "category": "오디오",
+   "official_url": "https://www.adobe.com/kr/products/audition.html",
+   "alts": [
+    {
+     "name": "Audacity(오다시티)",
+     "url": "https://www.audacityteam.org/",
+     "cost_type": "완전 무료(오픈소스)",
+     "license": "GPL-3.0",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "녹음과 오디오 편집",
+     "ai_features": "별도 AI 플러그인(음원 분리·잡음 억제 등)",
+     "sources": [
+      "https://www.audacityteam.org/",
+      "https://github.com/audacity/audacity"
+     ],
+     "checked": "2026-11-02"
+    },
+    {
+     "name": "ocenaudio(오센오디오)",
+     "url": "https://www.ocenaudio.com/",
+     "cost_type": "완전 무료",
+     "license": "무료 소프트웨어(소스 비공개)",
+     "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+     ],
+     "korean_ui": null,
+     "opens_files": [],
+     "free_limits": null,
+     "good_for": "가벼운 오디오 편집",
+     "ai_features": null,
+     "sources": [
+      "https://www.ocenaudio.com/",
+      "https://www.ocenaudio.com/download"
+     ],
+     "checked": "2026-11-02"
+    }
+   ]
+  }
+ ]
+}

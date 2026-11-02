@@ -65,7 +65,28 @@ def cap_prompt(p, base):
     p.goto(base + '/tools/prompt/'); p.add_style_tag(content=HIDE)
     p.click('#pReset'); p.click('button[data-t="report"]'); p.click('#pFill'); p.wait_for_timeout(300)
     return shot(p.locator('section.tstep').nth(1), (0, 0, 508, 520))
-CAP = {'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt}
+def shot_range(p, first, last, w=508):  # 두 요소를 위아래로 아우르는 영역(CSS 픽셀)
+    box = lambda sel: p.locator(sel).evaluate('e=>{const r=e.getBoundingClientRect();return {x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height}}')  # 페이지 기준 좌표
+    a, b = box(first), box(last)
+    return Image.open(io.BytesIO(p.screenshot(clip={'x': a['x'], 'y': a['y'], 'width': min(w, a['width']), 'height': b['y'] + b['height'] - a['y']}, full_page=True))).convert('RGB')
+CC_SAMPLE = ("저는 고객의 불편을 숫자로 확인하고 고치는 일을 좋아합니다. 대학 시절 학생회 홈페이지 문의 게시판을 맡았을 때, 같은 질문이 한 달에 40번 넘게 "
+             "반복된다는 것을 알고 자주 묻는 질문 페이지를 만들었습니다. 그 뒤 문의가 절반 가까이 줄었고, 남는 시간에 행사 안내를 더 일찍 올릴 수 있었습니다.\n\n"
+             "입사 후에도 작은 불편을 찾아 바로 고치는 사람이 되겠습니다.")
+def cap_char_count(p, base):
+    p.goto(base + '/tools/char-count/'); p.add_style_tag(content=HIDE)
+    p.fill('#ccIn', CC_SAMPLE); p.fill('#ccGoal', '500'); p.dispatch_event('#ccGoal', 'input')
+    p.wait_for_function('document.getElementById("ccTok").textContent.includes("o200k")', timeout=120000)
+    return shot_range(p, 'section.tstep >> nth=1', 'section.tstep >> nth=2')
+def cap_heic(p, base):
+    p.goto(base + '/tools/heic-to-jpg/'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#hFile', SRC + 'thumbs/sample.heic')
+    p.wait_for_function('document.getElementById("hStatus").textContent.includes("바꿨습니다")', timeout=120000)
+    return shot_range(p, 'section.tstep >> nth=1', 'section.tstep >> nth=2')
+def cap_free_alt(p, base):
+    p.goto(base + '/tools/free-alternatives/'); p.add_style_tag(content=HIDE + ' .fac:nth-child(n+3){display:none}')
+    p.fill('#faQ', '포토샵'); p.dispatch_event('#faQ', 'input'); p.wait_for_timeout(300)
+    return shot_range(p, '.fafind', '.fap:not([hidden])')
+CAP = {'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt}
 
 # ---------- 그리기 ----------
 def card(im, w, h, pad=20):

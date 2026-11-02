@@ -1,0 +1,55 @@
+<main id="v-tool-heic-to-jpg">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 사진 변환</span>
+  <h1>아이폰 사진 HEIC를 JPG로 바꾸기</h1>
+  <p class="deck">아이폰으로 찍은 HEIC 사진이 윈도우 PC나 회사 시스템에서 열리지 않을 때, 여기에 넣으면 JPG나 PNG로 바꿔 줍니다. 여러 장을 한 번에 바꾸고 ZIP으로 내려받을 수 있습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 브라우저 안에서만 바꿈 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>HEIC 사진 넣기</h2>
+    <label class="odrop" id="hDrop" tabindex="0">
+      <input type="file" id="hFile" accept=".heic,.heif,image/heic,image/heif" multiple>
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>HEIC·HEIF 사진, 한 번에 30장까지</span>
+    </label>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>바꿀 형식</h2>
+    <div class="trow">
+      <div class="seg mini" role="radiogroup" aria-label="바꿀 형식">
+        <label><input type="radio" name="hType" value="image/jpeg" checked><span><b>JPG</b></span></label>
+        <label><input type="radio" name="hType" value="image/png"><span><b>PNG</b></span></label>
+      </div>
+      <label class="inl" id="hQWrap">화질 <input id="hQ" type="range" min="60" max="100" step="1" value="92"> <output id="hQv">92</output></label>
+    </div>
+    <p class="hint">JPG는 파일이 작고 어디서나 열립니다. PNG는 화질 손실이 없지만 파일이 크게 나옵니다. 화질 92 정도면 눈으로 차이를 느끼기 어렵습니다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>바뀐 사진 내려받기 <small id="hStatus">사진을 넣으면 바로 바꿉니다.</small></h2>
+    <div class="obar" id="hBar" hidden><i></i></div>
+    <div class="hlist" id="hList"></div>
+    <div class="trow"><button class="btn" type="button" id="hZip" disabled>모두 ZIP으로 내려받기</button><button class="ghost" type="button" id="hClear">모두 지우기</button></div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>바꾼 사진에는 촬영 위치(GPS) 같은 사진 정보(메타데이터)가 남지 않습니다. 사진을 남에게 보낼 때 위치가 같이 가지 않아 오히려 안전합니다. 촬영 날짜가 필요하면 원본을 따로 보관하세요.</li>
+      <li>사진은 SHIFT AI 서버로 올라가지 않습니다. 변환 프로그램(heic-to, LGPL-3.0)만 처음 한 번 받아 와서 브라우저 안에서 바꿉니다.</li>
+      <li>아이폰에서 앞으로 JPG로 찍으려면 설정 → 카메라 → 포맷에서 '높은 호환성'을 고르면 됩니다(<a href="https://support.apple.com/ko-kr/116944" target="_blank" rel="noopener">애플 지원 문서</a>).</li>
+    </ul>
+    <p>함께 쓰면 좋은 도구: <a href="/tools/ocr/">사진 속 글자 뽑기</a> (바꾼 사진에서 글자를 뽑아 복사할 수 있습니다)</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>HEIC가 무엇인가요?</summary><p>아이폰 7 이후 기기가 기본으로 쓰는 사진 형식입니다. JPG보다 파일이 작지만 윈도우 PC의 일부 프로그램이나 회사·기관 사이트처럼 HEIC를 열지 못하거나 올릴 수 없는 곳이 있습니다.</p></details>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 변환 프로그램만 SHIFT AI 서버에서 받아 오고, 사진을 읽고 바꾸는 일은 모두 이 브라우저 안에서 합니다. 개인 사진이나 신분증 사진도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>화질이 떨어지나요?</summary><p>JPG는 압축 방식이라 아주 조금 손실이 생깁니다. 화질을 92 이상으로 두면 눈으로 차이를 느끼기 어렵고, 손실이 없어야 하면 PNG를 고르세요. PNG는 파일 크기가 몇 배로 커집니다.</p></details>
+    <details><summary>몇 장까지 바꿀 수 있나요?</summary><p>한 번에 30장까지 넣을 수 있습니다. 4,800만 화소처럼 큰 사진일수록 바꾸는 데 시간이 더 걸립니다.</p></details>
+    <details><summary>휴대폰에서도 되나요?</summary><p>휴대폰 브라우저에서도 열립니다. 다만 큰 사진을 여러 장 바꿀 때는 PC 쪽이 더 빠릅니다.</p></details>
+  </section>
+</article>
+</main>

@@ -639,3 +639,103 @@ mark.lv2,.akey.lv2{background:#FFF3C4;box-shadow:inset 0 -2px 0 #c9a227}
 .padvice li.mid::before{content:"△";color:#b07d00}
 .padvice li.no::before{content:"!";color:#b42318}
 #pOut{font-size:14.5px}
+
+/* 판정 배지(11/2~): 써볼 만해요·지켜보세요·과장이에요 — 색만으로 구분하지 않고 글자로 적음 */
+.vd{display:inline-block;margin-left:8px;font-size:11.5px;font-weight:800;letter-spacing:0;border-radius:999px;padding:1px 8px;vertical-align:1px;border:1px solid currentColor}
+.vd-try{color:var(--ok)}.vd-watch{color:var(--part)}.vd-hype{color:#b42318}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vd-hype{color:#ff8a80}}
+:root[data-theme="dark"] .vd-hype{color:#ff8a80}
+.vdbox{display:flex;gap:6px 12px;align-items:baseline;flex-wrap:wrap;text-decoration:none;border:1px solid currentColor;border-radius:10px;padding:10px 14px;margin:14px 0 0;font-size:15px;line-height:1.6}
+.vdbox b{font-size:13px;font-weight:800;white-space:nowrap}
+.vdbox span{flex:1;min-width:220px;color:var(--text)}
+.vlegend:empty{display:none}
+.vpost .vwhy{color:var(--text)}
+.vhow{margin-top:30px}
+
+/* 복붙 프롬프트 모음(/prompts/) */
+.prtip{font-size:14px;color:var(--sub);margin:4px 0 14px}
+.prtip a{color:var(--ink)}
+.prlist{display:grid;gap:18px}
+.prc{border-top:1px solid var(--line);padding-top:16px}
+.prh .cat{display:block;margin-bottom:2px}
+.prh h2{font-size:19px;line-height:1.4;margin:0 0 4px}
+.prh p{margin:0 0 10px;font-size:14.5px;color:var(--sub);line-height:1.6}
+.prc .pr{background:#161616;color:#f1f1ee;border-radius:12px;padding:14px 18px 14px;position:relative}
+.prc .pr .pt{font-size:15px;line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}
+.prc .pr.clip:not(.open) .pt{max-height:11.5em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.prc .pra{display:flex;gap:8px;flex-wrap:wrap}
+.prc .copy.dark{background:transparent;color:#f1f1ee;border-color:rgba(255,255,255,.35)}
+.prsrc{display:inline-block;margin-top:8px;font-size:13.5px;color:var(--sub)}
+.prsrc:hover{color:var(--ink)}
+
+/* 바로 쓰는 모음(첫 화면) */
+.hubs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 10px}
+.hubs a{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.hubs a:hover{border-color:var(--ink)}
+.hubs b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
+.hubs span{font-size:13.5px;color:var(--sub);line-height:1.55;display:block}
+@media (max-width:700px){.hubs{grid-template-columns:1fr}}
+
+/* AI 서비스 비교(/vs/) */
+.vs h2{font-size:21px;margin:34px 0 10px}
+.vs h3{font-size:17px;margin:22px 0 6px}
+.vspick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 6px}
+.vspick>div{background:var(--bg2);border-radius:10px;padding:14px 16px}
+.vspick b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
+.vspick p{margin:0;font-size:14.5px;line-height:1.65}
+@media (max-width:640px){.vspick{grid-template-columns:1fr}}
+.vsnote{font-size:13px;color:var(--sub);line-height:1.6;margin:-6px 0 10px}
+.vspay li{margin-bottom:6px}
+.vsidx{margin-top:6px}
+.vslinks{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.vslinks a{font-size:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink)}
+.vslinks a:hover{border-color:var(--ink)}
+
+/* 글자 수·토큰 세기 */
+.ccgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.ccgrid>div{background:var(--bg2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:1px}
+.ccgrid b{font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ccgrid span{font-size:13px;color:var(--text);font-weight:600}
+.ccgrid small{font-size:11.5px;color:var(--sub);line-height:1.4}
+.ccgrid>div:nth-child(-n+2) b{font-size:28px}
+.ccgoal .chips button{font-size:13px}
+.ccbar{height:10px;border-radius:999px;background:var(--bg2);overflow:hidden;margin:10px 0 6px}
+.ccbar i{display:block;height:100%;background:var(--ok);border-radius:999px;transition:width .2s}
+.ccbar.over i{background:#b42318}
+.ccleft{font-size:15px;margin:4px 0 0}
+.ccleft b.over{color:#b42318}
+.cctok{background:var(--bg2);border-radius:10px;padding:12px 14px;font-size:15px}
+.cctok b{font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums}
+.cctok span{font-size:13px;color:var(--sub);margin-left:6px}
+.cctok small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}
+
+/* HEIC → JPG */
+.hlist{display:grid;gap:8px;margin:8px 0}
+.hlist:empty{display:none}
+.hitem{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.hitem .hthumb{width:64px;height:48px;object-fit:cover;border-radius:6px;background:var(--bg2)}
+.hitem b{display:block;font-size:14.5px;color:var(--ink);overflow-wrap:anywhere}
+.hitem span{font-size:13px;color:var(--sub)}
+.hitem.bad span{color:#b42318}
+.hitem.wait .hthumb{animation:hpulse 1.2s ease-in-out infinite}
+@keyframes hpulse{50%{opacity:.4}}
+@media (max-width:520px){.hitem{grid-template-columns:52px 1fr}.hitem .ghost{grid-column:1/-1}}
+.ccgoal .chips{margin:0}
+
+/* 유료 프로그램 무료 대체 찾기 */
+.fafind{margin-top:22px}
+.falist{display:grid;gap:26px;margin-top:8px}
+.fap{border-top:1px solid var(--line-strong);padding-top:14px}
+.faph h2{font-size:20px;margin:2px 0 2px}
+.faph p{margin:0 0 10px;font-size:13.5px;color:var(--sub)}
+.facards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.fac{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.fach{display:flex;gap:8px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.fach b{font-size:16px;color:var(--ink)}
+.fcost{font-size:11.5px;font-weight:800;border-radius:999px;padding:2px 8px;border:1px solid currentColor;white-space:nowrap}
+.fc-oss,.fc-free{color:var(--ok)}.fc-plan{color:var(--part)}
+.fac dl{margin:0;display:grid;gap:5px;font-size:13.5px;line-height:1.5}
+.fac dl div{display:grid;grid-template-columns:96px 1fr;gap:8px}
+.fac dt{color:var(--sub)}
+.fac dd{margin:0;color:var(--text)}
+.fac .ghost{align-self:flex-start;margin-top:auto;padding:6px 12px;font-size:13px}
