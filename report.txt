@@ -1,0 +1,104 @@
+== 주소 넘김·상태 (코드 → 넘어가는 주소)
+http://shiftaimagazine.com/ -> 301 https://shiftaimagazine.com/
+http://www.shiftaimagazine.com/tools/ -> 301 https://shiftaimagazine.com/tools/
+https://www.shiftaimagazine.com/ -> 301 https://shiftaimagazine.com/
+https://shiftaimagazine.github.io/tools/ -> 301 https://shiftaimagazine.com/tools/
+https://shiftaimagazine.com/tools/ocr -> 301 https://shiftaimagazine.com/tools/ocr/
+https://shiftaimagazine.com/no-such-page-xyz/ -> 404 
+https://shiftaimagazine.com/ -> 200 
+https://shiftaimagazine.com/robots.txt -> 200 
+https://shiftaimagazine.com/sitemap.xml -> 200 
+https://shiftaimagazine.com/news-sitemap.xml -> 200 
+https://shiftaimagazine.com/feed.xml -> 200 
+https://shiftaimagazine.com/llms.txt -> 200 
+
+== 검색 로봇으로 받기 (코드 · 바이트 · 제목)
+Googlebot/2.1 / -> 200 23911 SHIFT AI(시프트 AI) — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진
+Googlebot/2.1 /tools/ocr/ -> 200 19986 이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR) · SHIFT AI
+Googlebot/2.1 /dict/rag/ -> 200 10447 RAG(Retrieval-Augmented Generation) 뜻 — 쉽게 풀이한 AI 용어 
+Googlebot/2.1 /tutorial/ -> 200 24840 튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+Yeti/1.1 / -> 200 23911 SHIFT AI(시프트 AI) — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진
+Yeti/1.1 /tools/ocr/ -> 200 19986 이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR) · SHIFT AI
+Yeti/1.1 /dict/rag/ -> 200 10447 RAG(Retrieval-Augmented Generation) 뜻 — 쉽게 풀이한 AI 용어 
+Yeti/1.1 /tutorial/ -> 200 24840 튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+bingbot/2.0 / -> 200 23911 SHIFT AI(시프트 AI) — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진
+bingbot/2.0 /tools/ocr/ -> 200 19986 이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR) · SHIFT AI
+bingbot/2.0 /dict/rag/ -> 200 10447 RAG(Retrieval-Augmented Generation) 뜻 — 쉽게 풀이한 AI 용어 
+bingbot/2.0 /tutorial/ -> 200 24840 튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+Daum/4.1 / -> 200 23911 SHIFT AI(시프트 AI) — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진
+Daum/4.1 /tools/ocr/ -> 200 19986 이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR) · SHIFT AI
+Daum/4.1 /dict/rag/ -> 200 10447 RAG(Retrieval-Augmented Generation) 뜻 — 쉽게 풀이한 AI 용어 
+Daum/4.1 /tutorial/ -> 200 24840 튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+
+== robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://shiftaimagazine.com/sitemap.xml
+Sitemap: https://shiftaimagazine.com/news-sitemap.xml
+
+#DaumWebMasterTool:6dc606a8387b0de59eded7151dcfeb0c85e1bc4536f5959dca7e3047ede34d5b:/muGpe/rLcLTp+f7AlrcFg==
+
+== 사이트맵 주소 수: 301 · 뉴스 사이트맵: 6 · RSS 글: 60
+
+== 응답 머리(첫 화면)
+server: GitHub.com
+content-type: text/html; charset=utf-8
+cache-control: max-age=600
+
+== 보안: 응답 머리 전체(첫 화면·도구)
+-- /
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-edge-region: iad
+
+-- /tools/redact/
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-edge-region: iad
+
+-- /tools/meeting-interpreter.html
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+x-origin-cache: HIT
+access-control-allow-origin: *
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-edge-region: iad
+
+-- 페이지 안 보안 메타(CSP·referrer)
+/: <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.goo <meta name="referrer" content="strict-origin-when-cross-origin">
+/tools/redact/: <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.goo <meta name="referrer" content="strict-origin-when-cross-origin">
+/tools/ocr/: <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval'; style-src 'self' 'unsafe-inline' htt <meta name="referrer" content="strict-origin-when-cross-origin">
+/tools/meeting-interpreter.html: <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-s <meta name="referrer" content="strict-origin-when-cross-origin">
+-- 공개되면 안 되는 파일
+/.git/config -> 404
+/_src/build.py -> 404
+/.github/workflows/build.yml -> 404
+/_src/news/BRIEF.md -> 404
+/.well-known/security.txt -> 200
+
+== DNS (메일 사칭 방지 레코드)
+TXT shiftaimagazine.com: "google-site-verification=o4TsFqBGQ9R1g6wVBLs9aRJ99hXdwSjVKvV7L6EPByI" "v=spf1 include:_spf.porkbun.com ~all" 
+TXT _dmarc.shiftaimagazine.com: 
+MX shiftaimagazine.com: 10 fwd1.porkbun.com. 20 fwd2.porkbun.com. 
+CAA shiftaimagazine.com: 
+A shiftaimagazine.com: 185.199.109.153 185.199.110.153 185.199.108.153 185.199.111.153 
+CNAME www.shiftaimagazine.com: shiftaimagazine.github.io. 
+
+== PageSpeed Insights (휴대폰)
+-- /
+오류 Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'.
+-- /tools/ocr/
+오류 Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'.
+-- /news/
+오류 Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'.
