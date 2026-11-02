@@ -669,7 +669,8 @@ mark.lv2,.akey.lv2{background:#FFF3C4;box-shadow:inset 0 -2px 0 #c9a227}
 .prsrc:hover{color:var(--ink)}
 
 /* 바로 쓰는 모음(첫 화면) */
-.hubs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 10px}
+.hubs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 10px}
+@media (max-width:1000px){.hubs{grid-template-columns:repeat(2,1fr)}}
 .hubs a{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 .hubs a:hover{border-color:var(--ink)}
 .hubs b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
@@ -744,3 +745,20 @@ mark.lv2,.akey.lv2{background:#FFF3C4;box-shadow:inset 0 -2px 0 #c9a227}
 .rsum .rfix{display:block;font-size:13px;color:var(--sub);margin-top:4px}
 #rBackInfo.warn{color:#b42318;font-weight:700}
 @media (prefers-color-scheme:dark){#rBackInfo.warn{color:#ff9086}}
+
+/* 수정 기록·틀린 곳 알려 주기 (11/3) */
+.upd{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:22px 0;font-size:14px}
+.upd b{display:block;font-size:13px;color:var(--sub);margin-bottom:4px}
+.upd ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.upd time{font-weight:700;color:var(--ink);margin-right:4px}
+
+/* 주간 AI 판정(/weekly/) */
+.weekly h1 small{display:block;font-size:.5em;font-weight:600;color:var(--sub);margin-top:6px}
+.weekly .sec{display:block}
+.weekly .sec h2 .vd{font-size:15px;vertical-align:2px;margin:0 6px 0 0;white-space:nowrap}
+.weekly .wkhow{color:var(--sub);font-size:14px;margin:4px 0 10px}
+.weekly .list{display:block}
+.wkrest{margin:6px 0 18px}
+.wkrest li{padding:6px 0;border-bottom:1px solid var(--line)}
+.wkrest li:last-child{border-bottom:0}
+.wknav .trel-tools{grid-template-columns:repeat(2,1fr)}

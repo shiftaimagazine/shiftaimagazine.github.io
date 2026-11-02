@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=210eaac3">
+<link rel="stylesheet" href="/assets/site.css?v=9b27ea53">
 </head>
 <body data-route="tool-ocr" data-pre="1">
 <div class="wrap">
@@ -93,7 +93,7 @@
       <label><input type="checkbox" id="oJoin"> 줄바꿈 정리 <small>(문장 중간에서 끊긴 줄을 이어 붙입니다)</small></label>
     </div>
     <div class="trow">
-      <button class="btn" type="button" id="oRun" disabled="">글자 뽑기</button>
+      <button class="btn" type="button" id="oRun" data-ev="tool-run:/tools/ocr/" disabled="">글자 뽑기</button>
       <span class="meta" id="oStatus">사진을 넣으면 시작할 수 있습니다.</span>
     </div>
     <div class="obar" id="oBar" hidden=""><i></i></div>
@@ -106,9 +106,9 @@
     <label class="sr" for="oOut">뽑은 글자</label>
     <textarea id="oOut" rows="12" spellcheck="false" placeholder="뽑은 글자가 여기에 나옵니다. 바로 고쳐 쓸 수도 있습니다."></textarea>
     <div class="trow">
-      <button class="btn" type="button" id="oCopy">글자 복사</button>
-      <button class="ghost" type="button" id="oDown">텍스트 파일로 저장</button>
-      <button class="ghost" type="button" id="oAi">AI에 정리 맡기는 프롬프트로 복사</button>
+      <button class="btn" type="button" id="oCopy" data-ev="tool-done:/tools/ocr/">글자 복사</button>
+      <button class="ghost" type="button" id="oDown" data-ev="tool-done:/tools/ocr/">텍스트 파일로 저장</button>
+      <button class="ghost" type="button" id="oAi" data-ev="tool-done:/tools/ocr/">AI에 정리 맡기는 프롬프트로 복사</button>
     </div>
     <div class="olow" id="oLow" hidden=""></div>
     <p class="hint warn">숫자, 사람 이름, 금액, 기호는 잘못 읽는 경우가 있습니다(예: '$40로'를 '$402'로). 중요한 내용은 원본 사진과 꼭 대조하세요.</p>
@@ -133,6 +133,7 @@
     <details><summary>표도 그대로 뽑히나요?</summary><p>표는 칸 구분이 사라지고 글자만 남습니다. 결과 아래 'AI에 정리 맡기는 프롬프트로 복사'를 눌러 챗GPT·클로드·제미나이에 붙여 넣으면 표로 다시 만들어 달라고 부탁할 수 있습니다.</p></details>
     <details><summary>처음 읽을 때는 왜 오래 걸리나요?</summary><p>처음 한 번은 글자 인식 데이터를 내려받기 때문입니다. 그다음부터는 브라우저에 저장해 둔 데이터를 써서 더 빨리 시작합니다.</p></details>
   </section>
+<div class="upd"><b>수정 기록</b><ul><li><time datetime="2026-11-02">2026년 11월 2일</time> 아이폰 HEIC 사진을 바로 읽을 수 있게 했습니다.</li></ul></div>
 <nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">
   <h2>함께 보면 좋은 글</h2>
   <ul class="plain"><li><a href="/tutorial/pdf-to-markdown/">PDF를 마크다운으로 바꿔 AI에 올리는 7단계</a> <span>튜토리얼</span></li><li><a href="/dict/ocr/">OCR 뜻</a> <span>AI 사전</span></li><li><a href="/dict/multimodal/">멀티모달 뜻</a> <span>AI 사전</span></li></ul>
@@ -148,13 +149,13 @@
     <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
     <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
   </div>
-  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
 </footer>
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=210eaac3"></script>
-<script src="/assets/app.js?v=210eaac3"></script>
+<script src="/assets/data-lite.js?v=9b27ea53"></script>
+<script src="/assets/app.js?v=9b27ea53"></script>
 
 
 </body></html>

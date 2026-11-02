@@ -19,7 +19,11 @@ function render(){
   if($("faQ").value!==q) $("faQ").value = q;
 }
 function url(){ const p=new URLSearchParams(); if(q) p.set("q",q); if(cat!=="all") p.set("cat",cat); try{ history.replaceState(null,"", location.pathname+(p.toString()?"?"+p:"")+location.hash); }catch(_){} }
-$("faQ").addEventListener("input", e=>{ q = e.target.value.trim(); render(); url(); });
+// 검색으로 1~3개 프로그램만 남으면 그 프로그램 id를 한 번씩 센다(입력한 글자는 보내지 않는다)
+const seen = new Set(); let tT;
+function trackHits(){ clearTimeout(tT); tT = setTimeout(()=>{ if(!q) return; const v = secs.filter(sc=>!sc.hidden); if(!v.length){ if(!seen.has("")){ seen.add(""); window.track&&track("fa-none", "대체 프로그램 못 찾음"); } return; }
+  if(v.length>3) return; v.forEach(sc=>{ if(seen.has(sc.id)) return; seen.add(sc.id); window.track&&track("fa-find:"+sc.id, "대체 프로그램 찾음"); }); }, 1500); }
+$("faQ").addEventListener("input", e=>{ q = e.target.value.trim(); render(); url(); trackHits(); });
 $("faCats").addEventListener("click", e=>{ const b=e.target.closest("button[data-fc]"); if(!b) return; cat = b.dataset.fc; render(); url(); });
 render();
 if(location.hash){ const t=document.getElementById(location.hash.slice(1)); if(t){ t.hidden=false; t.scrollIntoView(); } }

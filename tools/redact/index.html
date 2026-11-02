@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=210eaac3">
+<link rel="stylesheet" href="/assets/site.css?v=9b27ea53">
 </head>
 <body data-route="tool-redact" data-pre="1">
 <div class="wrap">
@@ -103,8 +103,8 @@
     <label class="sr" for="rOut">가린 결과</label>
     <textarea id="rOut" rows="9" spellcheck="false" readonly="" placeholder="가린 결과가 여기에 나옵니다"></textarea>
     <div class="trow">
-      <button class="btn" type="button" id="rCopy">결과 복사</button>
-      <button class="ghost" type="button" id="rDown">파일로 저장</button>
+      <button class="btn" type="button" id="rCopy" data-ev="tool-done:/tools/redact/">결과 복사</button>
+      <button class="ghost" type="button" id="rDown" data-ev="tool-done:/tools/redact/">파일로 저장</button>
     </div>
     <p class="hint warn">자동 찾기는 완벽하지 않습니다. 이름·주소·사번처럼 모양이 정해지지 않은 정보는 위 '직접 가릴 말'에 넣고, 올리기 전에 결과를 꼭 한 번 더 눈으로 확인하세요.</p>
   </section>
@@ -116,7 +116,7 @@
     <textarea id="rAi" rows="6" spellcheck="false" placeholder="AI 답을 붙여 넣으세요"></textarea>
     <label class="sr" for="rBack">되돌린 결과</label>
     <textarea id="rBack" rows="6" spellcheck="false" readonly="" placeholder="원래 값으로 바꾼 결과"></textarea>
-    <div class="trow"><button class="ghost" type="button" id="rBackCopy">되돌린 결과 복사</button><span class="meta" id="rBackInfo"></span></div>
+    <div class="trow"><button class="ghost" type="button" id="rBackCopy" data-ev="tool-done:/tools/redact/#restore">되돌린 결과 복사</button><span class="meta" id="rBackInfo"></span></div>
   </section>
 
   <div class="box">
@@ -139,6 +139,7 @@
     <details><summary>가린 값을 원래대로 되돌릴 수 있나요?</summary><p>'이름표로 바꾸기'를 고르면 됩니다. AI 답에 [전화번호1] 같은 이름표가 남아 있으면 4번 칸에 붙여 넣어 원래 값으로 바꿉니다. 이름표와 원래 값의 짝은 이 탭에만 있어서 창을 닫으면 사라집니다.</p></details>
     <details><summary>자동으로 빠짐없이 찾아 주나요?</summary><p>빠짐없이 찾는다고 장담할 수 없습니다. 정해진 모양에서 벗어난 번호는 놓칠 수 있으니, AI에 올리기 전에 결과를 한 번 더 눈으로 확인하세요.</p></details>
   </section>
+<div class="upd"><b>수정 기록</b><ul><li><time datetime="2026-11-02">2026년 11월 2일</time> 전각 숫자, 보이지 않는 문자, 특수 대시로 쓴 번호도 찾도록 고치고, AI 답의 링크·수식 안 이름표를 경고하게 했습니다.</li></ul></div>
 <nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">
   <h2>함께 보면 좋은 글</h2>
   <ul class="plain"><li><a href="/tutorial/redact-before-upload/">회사 엑셀, 개인정보 가리고 AI에 올리는 3단계와 프롬프트 9개</a> <span>튜토리얼</span></li><li><a href="/tutorial/privacy-settings/">ChatGPT·클로드·제미나이 개인정보·학습 설정 점검 8단계</a> <span>튜토리얼</span></li></ul>
@@ -154,13 +155,13 @@
     <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
     <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
   </div>
-  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/weekly/">주간 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
 </footer>
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=210eaac3"></script>
-<script src="/assets/app.js?v=210eaac3"></script>
+<script src="/assets/data-lite.js?v=9b27ea53"></script>
+<script src="/assets/app.js?v=9b27ea53"></script>
 
 
 </body></html>
