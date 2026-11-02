@@ -252,5 +252,17 @@
   "credit": "화면: selc.org",
   "alt": "남부환경법센터(SELC) 보도자료 화면",
   "auto": true
+ },
+ "2026-11-03-ihitl-agent-spending-cap": {
+  "src": "img/ph/2026-11-03-ihitl-agent-spending-cap.webp",
+  "credit": "화면: arxiv.org",
+  "alt": "arXiv의 I-HITL 논문 초록 화면",
+  "auto": true
+ },
+ "2026-11-03-linux-7-4-rc1-ai-fixes": {
+  "src": "img/ph/2026-11-03-linux-7-4-rc1-ai-fixes.webp",
+  "credit": "화면: lkml.iu.edu",
+  "alt": "리눅스 7.4-rc1 공지 메일 화면",
+  "auto": true
  }
 }
