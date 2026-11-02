@@ -135,6 +135,15 @@ if __name__ == '__main__':
     old['resources'].sort(key=lambda r: r['date'], reverse=True)
 
     out.sort(key=lambda a: a['date'] + ' ' + (a.get('time') or ''), reverse=True)
+    # 기사 판정(11/2~): 기사 JSON 의 "verdict" 또는 news/verdicts.json {"기사 id": {"v": "try|watch|hype", "why": "한 줄 이유"}}
+    #  try=써볼 만해요 · watch=지켜보세요 · hype=과장이에요. 소송·사건처럼 써 볼 대상이 없는 기사는 비워 둔다. 규칙은 BRIEF.md 2-2장.
+    VERD = J('verdicts.json') if os.path.exists(N + 'verdicts.json') else {}
+    for a in out:
+        v = a.get('verdict') or VERD.get(a['id'])
+        if not v: continue
+        assert v.get('v') in ('try', 'watch', 'hype') and 15 <= len(v.get('why') or '') <= 90, (a['id'], 'verdict 형식: {"v": try|watch|hype, "why": 15~90자}')
+        style_check(a['id'] + ' 판정', [v['why']])
+        a['verdict'] = {'v': v['v'], 'why': v['why']}
     TOOLS = J('tools.json')
     for t in TOOLS:
         for k in ('id', 'title', 'desc', 'href', 'tag', 'date', 'thumb'): assert t.get(k), ('도구 항목 없음', t.get('id'), k)
@@ -178,7 +187,9 @@ if __name__ == '__main__':
         t['arts'] = arts[:20]
         t['tuts'] = [x['id'] for x in TUTS if any(n and n.lower() == k.lower() for k in x['tool'] for n in (t['t'], t.get('en')))
                      or (t['g'] == '제품·회사' and _named(t, x['title']))][:6]
-    DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS,
+    _vs = J('vs.json'); _vsv = _vs['services']
+    VSL = [{'id': q['id'], 't': f"{_vsv[q['a']]['name']} vs {_vsv[q['b']]['name']}", 'k': [_vsv[q['a']]['dict'], _vsv[q['b']]['dict']]} for q in _vs['pairs']]
+    DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS, 'VS': VSL,
             'ABOUT_CARD': {'src': 'img/ph/about-card.webp', 'caption': '쓰레드·인스타그램 카드 (10월 26일 PHP2Shell 편)'}}
     os.makedirs(SRC + 'build', exist_ok=True)
     json.dump(DATA, open(SRC + 'build/data.json', 'w'), ensure_ascii=False)

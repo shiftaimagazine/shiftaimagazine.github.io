@@ -27,8 +27,10 @@ const imgOf = a=>a.image&&a.image.src ? a.image : {src:"img/logo.webp",credit:""
 const fig = (im,cls="")=>`<figure class="${cls}"><img src="${im.src}" alt="${esc(im.alt||"")}" loading="lazy">${im.credit?`<figcaption>${esc(im.credit)}</figcaption>`:""}</figure>`;
 const thumb = im=>`<img class="thumb" src="${im.src}" alt="" loading="lazy">`;
 
+const VD = {try:["써볼 만해요","vd-try"], watch:["지켜보세요","vd-watch"], hype:["과장이에요","vd-hype"]};  // 기사 판정(11/2~)
+const vdTag = a=>a.verdict&&VD[a.verdict.v] ? `<span class="vd ${VD[a.verdict.v][1]}">${VD[a.verdict.v][0]}</span>` : "";
 const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
-  <div class="b"><span class="cat">${esc(a.cat)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div></div></a>`;
+  <div class="b"><span class="cat">${esc(a.cat)}${vdTag(a)}</span><h3>${esc(a.title)}</h3><p>${esc(a.hook)}</p><div class="meta"><span>${fmtDate(a.date)}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div></div></a>`;
 // 튜토리얼: 읽는 시간(글자 수 기준)과 단위(STEP / 프롬프트)
 const tutText = t=>[t.deck,t.why,t.intro,...(t.quick?t.quick.lines:[]),...t.items.flatMap(x=>[x.h,x.d,x.how,...(x.more||[]),x.prompt,...(x.term||[]).flat(),...(x.code||[]).map(c=>c.cmd+" "+(c.ok||"")),x.bad,x.good]),...(t.bonus?t.bonus.items:[]),...(t.limits||[])].filter(Boolean).join(" ");
 const tutRead = t=>Math.max(1,Math.round(tutText(t).replace(/\s/g,"").length/350));
@@ -131,6 +133,43 @@ function renderLists(){
   if($("#dailyList")) $("#dailyList").innerHTML = dailySorted.map(drowHTML).join("");
   if($("#dailyPreview")) $("#dailyPreview").innerHTML = dailySorted.slice(0,3).map(drowHTML).join("");
 }
+
+// 복붙 프롬프트 모음(/prompts/, 11/2~): 튜토리얼의 prompt·master 를 한곳에. 주소 ?cat=&q=
+const PROMPTS = (()=>{ const out=[]; [...TUTORIALS].sort((a,b)=>(a.kind==="prompts"?0:1)-(b.kind==="prompts"?0:1)).forEach(t=>{ const slug=t.id.slice(2);  /* 바로 복사해 쓰는 프롬프트 글이 먼저 */
+  if(t.master&&t.master.prompt) out.push({id:slug+"-all", h:"통째로 맡기는 프롬프트: "+t.title, d:(t.master.tool||"AI")+"에 붙여 넣으면 이 글의 단계를 대신 진행합니다.", p:t.master.prompt, t});
+  t.items.forEach((it,i)=>{ if(it.prompt) out.push({id:slug+"-"+(i+1), h:it.h, d:it.d||"", p:it.prompt, t}); }); }); return out; })();
+const _pq = new URLSearchParams(ROUTE==="prompts" ? location.search : "");
+let prCat = _pq.get("cat") || "all", prQ = _pq.get("q") || "";
+function renderPrompts(){
+  if(!$("#prList")) return;
+  const n=s=>String(s||"").toLowerCase().replace(/\s/g,"");
+  const cats = TUT_CATS.filter(c=>PROMPTS.some(x=>x.t.cat===c));
+  $("#prCats").innerHTML = `<span class="flbl">주제</span><button aria-pressed="${prCat==="all"}" data-pc="all">전체 ${PROMPTS.length}</button>`
+    + cats.map(c=>`<button aria-pressed="${prCat===c}" data-pc="${esc(c)}">${esc(c)} ${PROMPTS.filter(x=>x.t.cat===c).length}</button>`).join("");
+  if($("#prQ").value!==prQ) $("#prQ").value = prQ;
+  const list = PROMPTS.filter(x=>(prCat==="all"||x.t.cat===prCat) && (!prQ || n(prQ).split(",").every(w=>!w||n([x.h,x.d,x.p,x.t.title,x.t.cat].join(" ")).includes(w))));
+  $("#prCount").textContent = `${list.length}개`;
+  $("#prList").innerHTML = list.length ? list.map(x=>`<article class="prc" id="${x.id}">
+    <div class="prh"><span class="cat">${esc(x.t.cat)}</span><h2>${esc(x.h)}</h2>${x.d?`<p>${esc(x.d)}</p>`:""}</div>
+    <div class="pr${x.p.length>420?" clip":""}"><div class="pt">${esc(x.p)}</div><div class="pra"><button class="copy dark" data-copy="${esc(x.p)}">복사하기</button>${x.p.length>420?`<button class="copy dark prmore" type="button">전체 보기</button>`:""}</div></div>
+    <a class="prsrc" href="${P(x.t.id)}">이 프롬프트가 나온 글: ${esc(x.t.title)}</a></article>`).join("")
+    : `<div class="empty">조건에 맞는 프롬프트가 없습니다. 검색어나 주제를 바꿔 보세요.</div>`;
+}
+function prURL(){ const q=new URLSearchParams(); if(prCat!=="all") q.set("cat",prCat); if(prQ) q.set("q",prQ); try{ history.replaceState(null,"","/prompts/"+(q.toString()?"?"+q:"")); }catch(_){} }
+$("#prCats") && $("#prCats").addEventListener("click",e=>{const b=e.target.closest("button[data-pc]"); if(!b) return; prCat=b.dataset.pc; renderPrompts(); prURL(); });
+$("#prQ") && $("#prQ").addEventListener("input",e=>{ prQ=e.target.value.trim(); renderPrompts(); prURL(); });
+$("#prList") && $("#prList").addEventListener("click",e=>{const b=e.target.closest(".prmore"); if(!b) return; const box=b.closest(".pr"); box.classList.toggle("open"); b.textContent=box.classList.contains("open")?"접기":"전체 보기"; });
+// AI 판정 모아보기(/verdict/, 11/2~). 주소 ?v=try|watch|hype
+let vFilter = new URLSearchParams(ROUTE==="verdict" ? location.search : "").get("v") || "all";
+function renderVerdict(){
+  if(!$("#vList")) return;
+  const vs = sorted.filter(a=>a.verdict&&VD[a.verdict.v]);
+  $("#vFilters").innerHTML = `<button aria-pressed="${vFilter==="all"}" data-vf="all">전체 ${vs.length}</button>` + Object.entries(VD).map(([k,[name]])=>`<button aria-pressed="${vFilter===k}" data-vf="${k}">${name} ${vs.filter(a=>a.verdict.v===k).length}</button>`).join("");
+  const list = vs.filter(a=>vFilter==="all"||a.verdict.v===vFilter);
+  $("#vList").innerHTML = list.map(a=>`<a class="post vpost" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
+    <div class="b"><span class="cat">${esc(a.cat)}${vdTag(a)}</span><h3>${esc(a.title)}</h3><p class="vwhy">${esc(a.verdict.why)}</p><div class="meta"><span>${fmtDate(a.date)}</span></div></div></a>`).join("") || `<div class="empty">아직 이 판정을 받은 기사가 없습니다.</div>`;
+}
+$("#vFilters") && $("#vFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-vf]"); if(!b) return; vFilter=b.dataset.vf; renderVerdict(); try{ history.replaceState(null,"","/verdict/"+(vFilter!=="all"?"?v="+vFilter:"")); }catch(_){} });
 
 function renderAbout(){
   if(!$("#stats")) return;
@@ -266,6 +305,7 @@ function renderArticle(a){
     <a class="back" href="/news/">← AI 뉴스</a>
     <span class="cat">${esc(a.cat)}</span>
     <h1>${esc(a.title)}</h1><p class="deck">${esc(a.sub)}</p>
+    ${a.verdict&&VD[a.verdict.v]?`<a class="vdbox ${VD[a.verdict.v][1]}" href="/verdict/"><b>SHIFT 판정 · ${VD[a.verdict.v][0]}</b><span>${esc(a.verdict.why)}</span></a>`:""}
     ${a.try?`<div class="trynow"><b>오늘 바로 해 볼 것</b><span>${esc(a.try)}</span></div>`:""}
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span><span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
     ${fig(imgOf(a),"lead-fig")}
@@ -374,6 +414,7 @@ function renderTerm(t){
     ${arts.length?`<div class="sec"><h2>${esc(t.t)} ${brand?"최신 소식":"관련 기사"} <small>${arts.length}건</small></h2></div><div class="list">${arts.map(postHTML).join("")}</div>`:""}
     ${tuts.length?`<div class="sec"><h2>${esc(t.t)} 튜토리얼</h2></div><div class="list">${tuts.map(tutHTML).join("")}</div>`:""}
     ${co.length?`<div class="sec"><h2>함께 보면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
+    ${(typeof VS!=="undefined"?VS:[]).some(v=>v.k.includes(t.s))?`<div class="sec"><h2>요금·무료 범위 비교</h2></div><div class="vslinks">${VS.filter(v=>v.k.includes(t.s)).map(v=>`<a href="/vs/${v.id}/">${esc(v.t)}</a>`).join("")}</div>`:""}
     <div class="links"><a href="/dict/">AI 사전 전체 ${TERMS.length}개</a><a href="/search/?q=${encodeURIComponent(t.t)}">‘${esc(t.t)}’ 검색</a>${linkCopy("w-"+t.s,"링크 복사")}</div>
     ${FOLLOWBOX}
   </article>`;
@@ -399,7 +440,7 @@ function init(){
   const r = ROUTE;
   if(!PRE){
     if($("#dailyHome")) renderHome();
-    renderNews(); renderDict(); renderLists(); renderAbout();
+    renderNews(); renderDict(); renderLists(); renderAbout(); renderPrompts(); renderVerdict();
     if(r.startsWith("a-") && byId[r.slice(2)]) renderArticle(byId[r.slice(2)]);
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);
     else if(r.startsWith("c-") && colById[r]) renderColumn(colById[r]);
@@ -408,6 +449,7 @@ function init(){
     // 화면 맨 위 그림은 바로 받는다(가장 큰 그림이 늦게 뜨지 않게): 첫 그림의 지연 로딩을 끔
     const lcp = document.querySelector("main img[loading=lazy]"); if(lcp){ lcp.removeAttribute("loading"); lcp.setAttribute("fetchpriority","high"); }
   } else if(q0 || dq0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
+  if(PRE && (ROUTE==="prompts"||ROUTE==="verdict") && location.search){ renderPrompts(); renderVerdict(); }
   if($("#sResults")) renderSearch();
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");

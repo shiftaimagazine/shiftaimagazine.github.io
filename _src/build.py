@@ -42,6 +42,8 @@ STATIC = {
     'privacy': view('privacy'),
     'search': view('search'),
     'tools': with_follow(fix_links(view('tools'))),
+    'prompts': with_follow(fix_links(view('prompts'))),
+    'verdict': with_follow(fix_links(view('verdict'))),
 }
 
 # ---- 공유 이미지(og) ----
@@ -174,19 +176,31 @@ HOME_LD = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'SHIFT
             'sameAs': [IG, 'https://www.threads.com/@shift_ai_magazine', 'https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw']}]
 HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in HOME_LD)
 page('/', 'home', 'SHIFT AI(시프트 AI) — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진', '오늘 나온 AI 뉴스를 회사 발표나 논문 같은 원문부터 읽고 써 볼 만한지 판정합니다. 챗GPT, 클로드, 제미나이 같은 인공지능 소식과 AI 데일리 이슈, 따라 해 볼 수 있는 튜토리얼, 칼럼을 싣습니다.', STATIC['home'], OG_SITE, 'website', HOME_EXTRA)
+_NPROMPT = sum(1 for t in T for it in t['items'] if it.get('prompt')) + sum(1 for t in T if (t.get('master') or {}).get('prompt'))
 LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 AI 뉴스와 인공지능 기사. 회사 발표·논문·공식 게시물 같은 원문을 읽고 쓰며, 모든 기사 끝에 원문 링크가 있습니다.'),
          'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.'),
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에 모았습니다. 제목 한 줄과 요점 세 줄, 소식 목록과 숫자를 한 번에 봅니다.'),
          'dict': ('AI 사전 — AI 용어 뜻 쉽게 풀이', f'AI 용어 {len(TERMS)}개의 뜻을 쉬운 말로 풀었습니다. 에이전트·RAG·MCP·토큰 같은 AI 용어부터 API·GPU 같은 IT 용어, 클로드·챗GPT·제미나이 같은 제품 이름까지 관련 기사와 함께 봅니다.'),
-         'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", '이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
+         'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", '유료 프로그램 무료 대체 찾기, 글자 수·토큰 세기, HEIC JPG 변환, 이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
+         'prompts': (f"복붙 프롬프트 모음 {_NPROMPT}개 — 챗GPT·클로드·제미나이에 바로 쓰는 업무 프롬프트", f"메일 답장, 회의록 정리, 긴 자료 요약, 이력서·자기소개서 검토, 엑셀 수식, 공부까지 바로 복사해 쓰는 프롬프트 {_NPROMPT}개를 주제별로 모았습니다. 챗GPT·클로드·제미나이에 그대로 붙여 넣으면 됩니다."),
+         'verdict': ('AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요', 'SHIFT AI가 원문을 읽고 기사마다 붙인 판정을 모았습니다. 지금 써 볼 만한 AI 도구, 조금 더 지켜볼 발표, 근거보다 부풀려진 발표를 골라 봅니다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 확인하고 써 볼 만한지 판정하는 AI 매거진입니다.'),
          'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
-LIST_NAME = {'news': 'AI 뉴스', 'tutorial': '튜토리얼', 'daily': '데일리 이슈', 'dict': 'AI 사전', 'tools': '무료 도구', 'about': '소개', 'privacy': '개인정보처리방침'}
+LIST_NAME = {'prompts': '복붙 프롬프트 모음', 'verdict': 'AI 판정 모아보기', 'news': 'AI 뉴스', 'tutorial': '튜토리얼', 'daily': '데일리 이슈', 'dict': 'AI 사전', 'tools': '무료 도구', 'about': '소개', 'privacy': '개인정보처리방침'}
 TERMSET = {'@type': 'DefinedTermSet', 'name': 'SHIFT AI AI 사전', 'url': SITE + '/dict/', 'inLanguage': 'ko'}
 for r, (t, ds) in LISTS.items():
     xs = [crumbs((LIST_NAME[r], f'/{r}/'))]
     if r == 'dict': xs.append({'@context': 'https://schema.org', **TERMSET, 'description': ds,
                                'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': x['t'], 'url': f"{SITE}/dict/{x['s']}/"} for x in TERMS]})
+    if r == 'prompts':
+        _pl = [(f"{t['id'][2:]}-all", '통째로 맡기는 프롬프트: ' + t['title']) for t in T if (t.get('master') or {}).get('prompt')] + \
+              [(f"{t['id'][2:]}-{i + 1}", it['h']) for t in T for i, it in enumerate(t['items']) if it.get('prompt')]
+        xs.append({'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': '복붙 프롬프트 모음', 'url': SITE + '/prompts/', 'inLanguage': 'ko', 'publisher': PUBLISHER,
+                   'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(_pl), 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'url': f"{SITE}/prompts/#{k}"} for i, (k, n) in enumerate(_pl)]}})
+    if r == 'verdict':
+        _vl = [a for a in sorted(A, key=lambda a: a['date'] + (a.get('time') or ''), reverse=True) if a.get('verdict')]
+        xs.append({'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'AI 판정 모아보기', 'url': SITE + '/verdict/', 'inLanguage': 'ko', 'publisher': PUBLISHER,
+                   'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(_vl), 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for i, a in enumerate(_vl)]}})
     if r == 'tools': xs.append({'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'SHIFT AI 무료 AI 도구',
                                 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + x['href'], 'name': x['title']} for i, x in enumerate(D.get('TOOLS', []))]})
     if r == 'about': xs.append({'@context': 'https://schema.org', '@type': 'AboutPage', 'name': 'SHIFT AI 소개', 'url': SITE + '/about/', 'about': {k: v for k, v in PUBLISHER.items()}})
@@ -284,7 +298,7 @@ TOOL_SEO = {
     'ocr': dict(js='ocr.js', title='이미지 텍스트 추출 무료 — 사진·캡처 속 한국어 글자 뽑기(OCR)',
                 desc='사진이나 화면 캡처 속 글자를 복사할 수 있는 텍스트로 바꿉니다. 한국어와 영어를 함께 읽는 무료 OCR이고 가입·설치 없이 브라우저에서 바로 씁니다. 사진은 서버로 올리지 않고 내 컴퓨터 안에서만 읽습니다.',
                 alt=['이미지 텍스트 추출', '사진 글자 추출', '한국어 OCR', '이미지 글자 인식'],
-                feat=['한국어·영어 글자 인식(OCR)', '화면 캡처 바로 붙여 넣기', '한 번에 사진 12장까지', '확신도가 낮은 글자 따로 표시', '텍스트 파일로 저장', 'AI에 정리 맡기는 프롬프트 복사']),
+                feat=['한국어·영어 글자 인식(OCR)', '아이폰 HEIC 사진도 바로', '화면 캡처 바로 붙여 넣기', '한 번에 사진 12장까지', '확신도가 낮은 글자 따로 표시', '텍스트 파일로 저장', 'AI에 정리 맡기는 프롬프트 복사']),
     'ai-tell': dict(js='ai-tell.js', title='AI 티 검사기 — 챗GPT가 쓴 티 나는 표현·문장 찾아 고치기(무료)',
                 desc="글을 붙여 넣으면 '핵심은', 'A가 아니라 B' 같은 AI 글 버릇 40여 가지를 찾아 색으로 표시하고 고치는 법을 알려 줍니다. 자기소개서·보고서·블로그 글에 쓸 수 있고, 글은 어디에도 보내지 않습니다.",
                 alt=['AI 글 티 검사', 'GPT 티 검사기', 'AI 문체 검사'],
@@ -301,11 +315,50 @@ TOOL_SEO = {
                 desc=f'챗GPT(오픈AI)·클로드·제미나이·그록 API를 쓰면 한 달에 얼마가 드는지 회사별 공식 가격표로 계산해 원화로 비교합니다. 모델 {_NPR}개, 글자 수나 토큰 수와 하루 사용 횟수만 넣으면 됩니다.',
                 alt=['AI API 가격 계산기', '챗GPT API 요금 계산기', '토큰 비용 계산기'],
                 feat=[f'오픈AI·앤트로픽·구글·xAI API 모델 {_NPR}개 비교', '글자 수 또는 토큰 수로 입력', '원화 환산(환율 직접 바꾸기)', '회사별 공식 가격표 링크']),
+    'free-alternatives': dict(js='fa.js', title='유료 프로그램 무료 대체 찾기 — 포토샵·한글·MS 오피스·프리미어 대신 쓰는 무료 프로그램',
+                desc='포토샵, 한글(HWP), MS 오피스, 프리미어 프로, 어도비 아크로뱃, 캔바, 반디캠, 챗GPT 플러스 같은 유료 프로그램 대신 쓸 수 있는 무료 프로그램을 찾아 줍니다. 무료 범위, 한국어 지원, 여는 파일 형식을 공식 페이지 기준으로 정리했습니다.',
+                alt=['무료 대체 프로그램', '포토샵 무료 대체', '한글 무료 대체', 'MS 오피스 무료 대체', '유료 프로그램 무료 대안'],
+                feat=['유료 프로그램 이름으로 검색', '무료 범위(오픈소스·무료 플랜) 표시', '한국어 화면·쓸 수 있는 기기', '원래 파일을 여는지', '공식 사이트 링크']),
+    'char-count': dict(js='char-count.js', title='글자 수 세기 — 공백 포함·제외, 바이트, GPT 토큰 수까지 (자기소개서 무료)',
+                desc='자기소개서·보고서·블로그 글의 글자 수를 공백 포함·제외로 바로 셉니다. UTF-8·한글 2바이트 기준 바이트, 어절·줄·문단, 목표 글자 수까지 남은 양, GPT 토큰 수(o200k)까지 한 번에 보여 주고 글은 어디에도 보내지 않습니다.',
+                alt=['글자수 세기', '자소서 글자수 세기', '글자 수 계산기', '토큰 수 계산기'],
+                feat=['공백 포함·제외 글자 수', 'UTF-8·한글 2바이트 기준 바이트', '어절·문장·줄·문단·원고지 매수', '목표 글자 수까지 남은 양', 'GPT 토큰 수(o200k)', '띄어쓰기·빈 줄 정리', '이 브라우저에 임시 저장']),
+    'heic-to-jpg': dict(js='heic.js', title='HEIC JPG 변환 무료 — 아이폰 사진 여러 장 한 번에, 서버 업로드 없이',
+                desc='아이폰으로 찍은 HEIC·HEIF 사진을 JPG나 PNG로 바꿉니다. 30장까지 한 번에 바꿔 ZIP으로 받을 수 있고, 사진은 서버로 올리지 않고 브라우저 안에서만 바꿉니다. 위치 정보 같은 사진 정보도 남지 않습니다.',
+                alt=['HEIC 변환', 'HEIC JPG 변환', '아이폰 사진 JPG 변환', 'HEIF 변환'],
+                feat=['HEIC·HEIF를 JPG·PNG로', '한 번에 30장', 'JPG 화질 조절', 'ZIP으로 한 번에 내려받기', '브라우저 안에서만 변환']),
     'interpreter': dict(js=None, title='실시간 번역 자막 무료 — 영어 회의·유튜브를 한국어 자막으로(크롬)', os='PC 크롬 138 이상',
                 desc='Zoom 회의, 유튜브, 해외 강의에서 들리는 영어·중국어·일본어·프랑스어를 한국어 자막으로 바로 바꿔 줍니다. PC 크롬만 있으면 설치·가입 없이 무료로 쓰고, 다른 창 위에 떠 있는 자막 창도 띄울 수 있습니다.',
                 alt=['회의 통역창', '실시간 번역 자막', '크롬 실시간 번역'],
                 feat=['영어·중국어·일본어·프랑스어를 한국어 자막으로', '원문 함께 표시', '떠 있는 자막 창', '글자 크기 조절']),
 }
+# 유료 프로그램 무료 대체 찾기(/tools/free-alternatives/, 11/2~): news/alternatives.json(각 프로그램 공식 페이지에서 확인한 값만) → 정적 HTML
+_FC = {'완전 무료(오픈소스)': 'fc-oss', '완전 무료': 'fc-free', '무료 플랜(제한 있음)': 'fc-plan'}
+def fa_render(v):
+    F = json.load(open(SRC + 'news/alternatives.json')); ck = F.get('checked') or ''
+    progs = [dict(p, alts=[a for a in p['alts'] if a.get('cost_type') in _FC]) for p in F['programs']]
+    progs = [p for p in progs if p['alts']]
+    cats = []
+    for p in progs:
+        if p['category'] not in cats: cats.append(p['category'])
+    yn = lambda x: '있음' if x is True else '없음' if x is False else '공식 자료로 확인 못 함'
+    def card(a):
+        rows = [('쓸 수 있는 곳', ' · '.join(a.get('platforms') or []) or '공식 자료로 확인 못 함'), ('한국어 화면', yn(a.get('korean_ui')))]
+        if a.get('opens_files'): rows.append(('여는 파일', ' · '.join(a['opens_files'])))
+        rows.append(('무료로 할 때 막히는 것', a.get('free_limits') or '공식 페이지에 적힌 큰 제한 없음'))
+        if a.get('good_for'): rows.append(('이런 분께', a['good_for']))
+        if a.get('ai_features'): rows.append(('AI 기능', a['ai_features']))
+        if a.get('license'): rows.append(('라이선스', a['license']))
+        return (f'<div class="fac"><div class="fach"><b>{esc(a["name"])}</b><span class="fcost {_FC[a["cost_type"]]}">{esc(a["cost_type"])}</span></div>'
+                f'<dl>{"".join(f"<div><dt>{esc(k)}</dt><dd>{esc(x)}</dd></div>" for k, x in rows)}</dl>'
+                f'<a class="ghost" href="{esc(a["url"])}" target="_blank" rel="noopener">공식 사이트</a></div>')
+    sec = ''.join(f'<section class="fap" id="{esc(p["id"])}" data-cat="{esc(p["category"])}" data-k="{esc(" ".join([p["name_ko"], p.get("name_en") or ""] + (p.get("aliases") or [])))}">'
+                  f'<div class="faph"><span class="cat">{esc(p["category"])}</span><h2>{esc(p["name_ko"])} 대신 쓸 무료 프로그램</h2>'
+                  f'<p>{esc(p.get("name_en") or "")}{" · " if p.get("name_en") else ""}무료 대체 {len(p["alts"])}개</p></div>'
+                  f'<div class="facards">{"".join(card(a) for a in p["alts"])}</div></section>\n' for p in progs)
+    chips = '<span class="flbl">분류</span><button aria-pressed="true" data-fc="all">전체 ' + str(len(progs)) + '</button>' + ''.join(f'<button aria-pressed="false" data-fc="{esc(c)}">{esc(c)} {sum(1 for p in progs if p["category"] == c)}</button>' for c in cats)
+    ckd = f"{int(ck[:4])}년 {int(ck[5:7])}월 {int(ck[8:])}일" if ck else ''
+    return v.replace('<!--FA_LIST-->', '<div class="falist">\n' + sec + '</div>').replace('<!--FA_CATS-->', chips).replace('<!--FA_CHECKED-->', ckd)
 _tutBy = {f"/tutorial/{t['id'][2:]}/": t['title'] for t in T}
 _colBy = {f"/column/{c['id'][2:]}/": c['title'] for c in C}
 _termBy = {x['t']: x for x in TERMS}
@@ -333,6 +386,7 @@ for t in TOOLS:
           'datePublished': t['date'], 'dateModified': t.get('mod') or t['date'],
           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
     v = fix_links(view('tool-' + t['id']))
+    if t['id'] == 'free-alternatives': v = fa_render(v)
     # 페이지 끝: 함께 보면 좋은 글 + 다른 무료 도구(사이트 안 링크)
     rels = [rel_item(r) for r in t.get('rel', [])]
     others = [o for o in TOOLS if o['id'] != t['id']]
@@ -345,6 +399,63 @@ for t in TOOLS:
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
     if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
     page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra)
+# AI 서비스 비교(/vs/, 11/2~): news/vs.json — 요금제 칼럼(10/29 각 사 공식 페이지 확인)에 실린 사실만 쓴다. 칼럼을 고칠 때 같이 고칠 것.
+VS = json.load(open(SRC + 'news/vs.json'))
+_VS, _vsc = VS['services'], next((c for c in C if c['id'] == 'c-ai-plans-compare'), None)
+_vsog = og_from(col_img(_vsc), _vsc['id']) if _vsc else OG_SITE
+_MXL = {'o': ('<i class="mk mk-o"></i>', '무료로 됨'), 'p': ('<i class="mk mk-p"></i>', '무료는 조금만'), 'x': ('<i class="mk mk-x"></i>', '유료부터'), '-': ('–', '기능 없음'), '?': ('?', '공식 자료로 확인 못 함')}
+_VSKEY = {'chatgpt': ['챗GPT', '코덱스', '오픈AI'], 'claude': ['클로드'], 'gemini': ['제미나이', '안티그래비티'], 'grok': ['그록']}
+_ymd = lambda d: f"{int(d[:4])}년 {int(d[5:7])}월 {int(d[8:])}일"
+def _mx(k): return f'<td class="mx-{"n" if k == "-" else "q" if k == "?" else k}"><span aria-hidden="true">{_MXL[k][0]}</span><span class="sr">{_MXL[k][1]}</span></td>'
+def _faq(qa): return '<section class="tfaq" id="faq">\n    <h2>자주 묻는 질문</h2>\n' + ''.join(f'    <details><summary>{q}</summary><p>{a}</p></details>\n' for q, a in qa) + '  </section>\n'
+def _vscard(q): return f'<a href="/vs/{q["id"]}/"><b>{esc(_VS[q["a"]]["name"])} vs {esc(_VS[q["b"]]["name"])}</b><span>{esc(q["deck"])}</span></a>'
+_VSROWS = [('무료', 'free'), ('가장 싼 유료', 'low'), ('많이 쓰는 유료', 'pop'), ('최상위 개인 요금제', 'top'), ('팀 요금제 (1인 월)', 'team'), ('원화 결제', 'krw')]
+for pr in VS['pairs']:
+    X, Y = _VS[pr['a']], _VS[pr['b']]; u = f"/vs/{pr['id']}/"; xn, yn = X['name'], Y['name']
+    pay = [it for it in VS['pay'] if any(k in it[1] for k in _VSKEY[pr['a']] + _VSKEY[pr['b']])]
+    qa = [('무료로 더 많이 쓸 수 있는 쪽은 어디인가요?', "두 서비스 모두 무료 한도를 숫자로 공개하지 않고 '제한적' 또는 '기본 사용량'이라고만 적어 둡니다. 숫자보다는 위 표처럼 무료로 열린 기능의 종류를 보고 고르는 편이 정확합니다."),
+          ('원화로 결제할 수 있나요?', f"{xn}: {X['krw']}. {yn}: {Y['krw']}. 달러 요금에는 세금이 따로 붙을 수 있습니다."),
+          ('API로 쓰면 요금이 어떻게 되나요?', '앱 구독료와 API 요금은 따로 매깁니다. API로 직접 쓸 때 한 달에 얼마가 드는지는 <a href="/tools/ai-cost/">AI 요금 계산기</a>에서 원화로 비교할 수 있습니다.')]
+    price = ''.join(f'<tr><td>{n}</td><td>{esc(X[k])}</td><td>{esc(Y[k])}</td></tr>' for n, k in _VSROWS)
+    mxr = ''.join(f'<tr><th scope="row">{esc(r)}</th>{_mx(X["mx"][i])}{_mx(Y["mx"][i])}</tr>' for i, r in enumerate(VS['mxRows']))
+    payl = ''.join(f'<li><b>{esc(t)}</b> {esc(d)}</li>' for t, d in pay)
+    oth = ''.join(_vscard(q) for q in VS['pairs'] if q['id'] != pr['id'])
+    ck = _ymd(VS['checked'])
+    main = (f'<main id="v-vs"><article class="article narrow vs">\n'
+            f'  <a class="back" href="/vs/">← AI 서비스 비교</a>\n'
+            f'  <span class="cat">AI 서비스 비교 · 각 사 공식 페이지 {ck} 확인</span>\n'
+            f'  <h1>{esc(xn)} vs {esc(yn)}</h1>\n'
+            f'  <p class="deck">{esc(pr["deck"])}</p>\n'
+            f'  <div class="vspick"><div><b>{esc(xn)} 쪽이 맞는 사람</b><p>{esc(X["fit"])}</p></div><div><b>{esc(yn)} 쪽이 맞는 사람</b><p>{esc(Y["fit"])}</p></div></div>\n'
+            f'  <h2>한 달 요금</h2>\n'
+            f'  <div class="tbl"><table class="dtable"><thead><tr><th></th><th>{esc(xn)}</th><th>{esc(yn)}</th></tr></thead><tbody>{price}</tbody></table></div>\n'
+            f'  <p class="vsnote">각 사 공식 요금 페이지·도움말 기준({ck} 확인). 원화 금액은 1달러=1,324.3원(한국자금중개 10월 26일 매매기준율)으로 바꾼 값이고, 달러 요금에는 세금이 따로 붙을 수 있습니다.</p>\n'
+            f'  <h2>무료로 되는 기능</h2>\n'
+            f'  <div class="tbl"><table class="dtable mx"><thead><tr><th></th><th>{esc(xn)}</th><th>{esc(yn)}</th></tr></thead><tbody>{mxr}</tbody></table></div>\n'
+            f'  <p class="vsnote"><span class="vz-key"><i class="mk mk-o mx-o"></i> 무료로 됨 · <i class="mk mk-p mx-p"></i> 무료는 조금만 · <i class="mk mk-x mx-x"></i> 유료부터 · – 기능 없음 · ? 공식 자료로 확인 못 함.</span> {esc(VS["mxNote"])}</p>\n'
+            f'  <h3>{esc(xn)} 무료로 되는 것</h3><p>{esc(X["freeText"])}</p>\n'
+            f'  <h3>{esc(yn)} 무료로 되는 것</h3><p>{esc(Y["freeText"])}</p>\n'
+            f'  <h2>돈을 내야 하는 순간</h2>\n'
+            f'  <ul class="plain vspay">{payl}</ul>\n'
+            f'  {_faq(qa)}'
+            f'  <div class="box"><b>틀릴 수 있는 지점</b>\n'
+            f'    <p>이 비교는 {ck} 각 사 공식 요금 페이지 기준입니다. 네 회사 모두 올해 한 번 이상 요금제를 바꿨고 무료 한도는 숫자 없이 수시로 조정됩니다. 결제하기 전에 각 사 요금 페이지에서 원화 금액과 세금 포함 여부를 한 번 더 확인하세요.</p>\n'
+            f'    <ul class="plain"><li><a href="{VS["column"]}">챗GPT·클로드·제미나이·그록 요금제 비교 (네 서비스 한 번에)</a></li><li><a href="{X["fam"]}">{esc(xn)} 서비스 한 번에 정리</a></li><li><a href="{Y["fam"]}">{esc(yn)} 서비스 한 번에 정리</a></li><li><a href="/dict/{X["dict"]}/">{esc(xn)} 최신 소식</a> · <a href="/dict/{Y["dict"]}/">{esc(yn)} 최신 소식</a></li></ul>\n'
+            f'  </div>\n'
+            f'  <nav class="trel" aria-label="다른 비교"><h2>다른 비교</h2><div class="trel-tools">{oth}</div></nav>\n'
+            f'</article></main>')
+    title = f"{xn} vs {yn} 비교 — 요금·무료로 되는 것·맞는 사람 ({int(VS['checked'][5:7])}월 기준) · SHIFT AI"
+    ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': f"{xn} vs {yn} 비교", 'description': pr['deck'], 'image': [f'{SITE}/{_vsog}'],
+          'datePublished': kst('2026-11-02'), 'dateModified': kst('2026-11-02'), 'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko',
+          'about': [{'@type': 'SoftwareApplication', 'name': xn, 'applicationCategory': 'AI 챗봇'}, {'@type': 'SoftwareApplication', 'name': yn, 'applicationCategory': 'AI 챗봇'}]}
+    fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub(r'href="/', f'href="{SITE}/', a)}} for q, a in qa]}
+    page(u, 'vs-' + pr['id'], title, pr['deck'], main, _vsog, 'article', LD(ld, crumbs(('AI 서비스 비교', '/vs/'), (f"{xn} vs {yn}", u)), fq))
+_vsi = (f'<main id="v-vsindex"><div class="ph"><h1>AI 서비스 비교</h1><p>챗GPT·클로드·제미나이·그록을 둘씩 놓고 한 달 요금, 무료로 되는 기능, 돈을 내야 하는 순간, 잘 맞는 사람을 비교했습니다. 모든 값은 {_ymd(VS["checked"])} 각 사 공식 페이지에서 확인했습니다.</p></div>\n'
+        f'  <div class="trel-tools vsidx">{"".join(_vscard(q) for q in VS["pairs"])}</div>\n'
+        f'  <div class="box vsall"><b>네 서비스를 한 번에 보려면</b><p><a href="{VS["column"]}">챗GPT·클로드·제미나이·그록 요금제 비교, 무료로 어디까지 되고 언제 돈을 내야 할까</a> · API로 쓸 때 비용은 <a href="/tools/ai-cost/">AI 요금 계산기</a></p></div>\n'
+        f'{FOLLOWBOX}\n</main>')
+page('/vs/', 'vs', 'AI 서비스 비교 — 챗GPT vs 클로드·제미나이·그록 요금과 무료 범위 · SHIFT AI', '챗GPT·클로드·제미나이·그록을 둘씩 놓고 한 달 요금, 무료로 되는 기능, 돈을 내야 하는 순간, 잘 맞는 사람을 비교했습니다. 각 사 공식 요금 페이지 기준입니다.',
+     _vsi, _vsog, 'website', LD(crumbs(('AI 서비스 비교', '/vs/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 서비스 비교', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/vs/{q['id']}/", 'name': f"{_VS[q['a']]['name']} vs {_VS[q['b']]['name']}"} for i, q in enumerate(VS['pairs'])]}))
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # ---- 사이트맵·RSS·robots ----
@@ -355,6 +466,7 @@ for c in C: last[f"/column/{c['id'][2:]}/"] = c['date']
 for d in DY: last[f"/daily/{d['date']}/"] = d['date']
 last.update(termLast)
 for t in TOOLS: last[t['href']] = t.get('mod') or t['date']
+for _p in ['/vs/'] + [f"/vs/{q['id']}/" for q in VS['pairs']]: last[_p] = '2026-11-02'
 if TOOLS: last['/tools/'] = max(t.get('mod') or t['date'] for t in TOOLS)
 # 대표 이미지(구글 이미지 검색): 기사·튜토리얼·칼럼·데일리·무료 도구. 사이트 로고는 넣지 않는다.
 PIMG = {}
@@ -390,7 +502,7 @@ open(OUT + INDEXNOW_KEY + '.txt', 'w').write(INDEXNOW_KEY)
 # llms.txt: AI 검색(챗GPT·퍼플렉시티 등)이 사이트를 읽기 쉽게 정리한 안내
 _ll = [f'# SHIFT AI (시프트 AI)', '', f'> {LISTS["about"][1]} 모든 기사는 회사 발표·논문·공식 문서 같은 원문을 출처로 씁니다. 한국어 사이트입니다.', '',
        '## 섹션', f'- [AI 뉴스]({SITE}/news/): 오늘의 인공지능 소식', f'- [데일리 이슈]({SITE}/daily/): 날마다 정리하는 AI 뉴스', f'- [튜토리얼]({SITE}/tutorial/): 단계별 AI 실전 가이드',
-       f'- [AI 사전]({SITE}/dict/): AI 용어 {len(TERMS)}개 뜻', f'- [무료 도구]({SITE}/tools/): 설치 없이 쓰는 AI 도구', f'- [소개]({SITE}/about/): 편집 원칙과 출처 규칙', f'- [RSS]({SITE}/feed.xml)', '',
+       f'- [AI 사전]({SITE}/dict/): AI 용어 {len(TERMS)}개 뜻', f'- [무료 도구]({SITE}/tools/): 설치 없이 쓰는 AI 도구', f'- [복붙 프롬프트 모음]({SITE}/prompts/): 튜토리얼 프롬프트를 주제별로', f'- [AI 판정 모아보기]({SITE}/verdict/): 써볼 만해요·지켜보세요·과장이에요', f'- [AI 서비스 비교]({SITE}/vs/): 챗GPT·클로드·제미나이·그록 요금과 무료 범위', f'- [소개]({SITE}/about/): 편집 원칙과 출처 규칙', f'- [RSS]({SITE}/feed.xml)', '',
        '## 최신 기사'] + [f"- [{a['title']}]({SITE}/news/{a['id']}/): {a['hook']}" for a in sorted(A, key=_pub, reverse=True)[:30]] + ['', '## 튜토리얼'] + \
       [f"- [{t['title']}]({SITE}/tutorial/{t['id'][2:]}/): {t['deck']}" for t in T] + ['', '## 무료 도구'] + [f"- [{t['title']}]({SITE}{t['href']}): {t['desc']}" for t in TOOLS] + \
       ['', '## AI 사전 (일부)'] + [f"- [{t['t']}]({SITE}/dict/{t['s']}/): {t['d']}" for t in sorted(TERMS, key=lambda t: -len(t['arts']))[:40]]

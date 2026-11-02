@@ -1,5 +1,38 @@
 [
  {
+  "id": "char-count",
+  "title": "글자 수·토큰 세기",
+  "desc": "자기소개서·보고서 글자 수를 공백 포함·제외로 세고 바이트, 줄·문단, 목표까지 남은 글자 수와 GPT 토큰 수를 한 번에 보여 줍니다.",
+  "href": "/tools/char-count/",
+  "tag": "글자 수",
+  "date": "2026-11-02",
+  "thumb": "img/tools/char-count.webp",
+  "cover": {
+   "t": "글자 수\n토큰 세기",
+   "line": "공백 포함·제외 글자 수와\n바이트·GPT 토큰까지 한 번에"
+  },
+  "rel": [
+   "/tutorial/resume-review/",
+   "dict:토큰"
+  ],
+  "mod": "2026-11-02"
+ },
+ {
+  "id": "heic-to-jpg",
+  "title": "HEIC → JPG 변환",
+  "desc": "아이폰 HEIC 사진을 JPG·PNG로 바꿉니다. 여러 장을 한 번에 바꿔 ZIP으로 받을 수 있고, 사진은 서버로 올리지 않습니다.",
+  "href": "/tools/heic-to-jpg/",
+  "tag": "사진 변환",
+  "date": "2026-11-02",
+  "thumb": "img/tools/heic-to-jpg.webp",
+  "cover": {
+   "t": "HEIC를\nJPG로",
+   "line": "아이폰 사진을 JPG·PNG로\n여러 장 한 번에, 업로드 없이"
+  },
+  "rel": [],
+  "mod": "2026-11-02"
+ },
+ {
   "id": "redact",
   "title": "개인정보 자동 가리기",
   "desc": "글이나 엑셀 표에 들어 있는 주민등록번호·전화번호·이메일·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.",

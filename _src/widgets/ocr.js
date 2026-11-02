@@ -12,16 +12,28 @@ let toastT; const toast = msg=>{ const t=document.getElementById("toast"); if(!t
 const esc = s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 // ---------- 사진 넣기 ----------
+// 아이폰 HEIC 는 /lib/heic-to/(heic-to, LGPL-3.0)로 브라우저 안에서 JPG 로 바꾼 뒤 넣는다(11/2~)
+const HEIC_LIB = "/lib/heic-to/heic-to.js";
+const isHeic = f=>/heic|heif/i.test(f.type||"") || /\.hei[cf]$/i.test(f.name||"");
+const loadHeic = ()=> typeof window.HeicTo==="function" ? Promise.resolve() : new Promise((ok,no)=>{ const s=document.createElement("script"); s.src=HEIC_LIB; s.onload=ok; s.onerror=()=>no(new Error("heic")); document.head.appendChild(s); });
+async function fromHeic(list){
+  toast(`아이폰 사진 ${list.length}장을 JPG로 바꾸는 중입니다`);
+  const out = [];
+  try{ await loadHeic(); for(const f of list){ try{ const b = await window.HeicTo({blob:f, type:"image/jpeg", quality:0.95}); out.push(new File([b], (f.name||"photo").replace(/\.(heic|heif)$/i,"")+".jpg", {type:"image/jpeg"})); }catch(_){ } } }
+  catch(_){ toast("HEIC 변환 프로그램을 받지 못했습니다"); }
+  if(out.length) addFiles(out); if(out.length < list.length) toast("바꾸지 못한 HEIC 사진이 있습니다");
+}
 function addFiles(list){
-  let skipped = 0;
+  let skipped = 0; const heics = [];
   for(const f of list){
+    if(f && isHeic(f)){ heics.push(f); continue; }
     if(!f || !/^image\//.test(f.type)){ skipped++; continue; }
-    if(/heic|heif/i.test(f.type) || /\.hei[cf]$/i.test(f.name||"")){ skipped++; continue; }
     if(imgs.length >= MAX){ toast(`한 번에 ${MAX}장까지 읽을 수 있습니다`); break; }
     imgs.push({name: f.name || `붙여 넣은 사진 ${imgs.length+1}`, url: URL.createObjectURL(f), file: f});
   }
-  if(skipped) toast("열 수 없는 파일은 뺐습니다(PNG·JPG·WebP만)");
+  if(skipped) toast("열 수 없는 파일은 뺐습니다(PNG·JPG·WebP·HEIC만)");
   drawThumbs();
+  if(heics.length) fromHeic(heics);
 }
 function drawThumbs(){
   $("oThumbs").innerHTML = imgs.map((im,i)=>`<figure><img src="${im.url}" alt=""><figcaption>${i+1}. ${esc(im.name)}</figcaption><button type="button" data-rm="${i}" aria-label="${i+1}번 사진 빼기">×</button></figure>`).join("");

@@ -33,6 +33,11 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
 - 뉴스레터는 없앰(10/26). 대신 인스타그램·유튜브·쓰레드 팔로우 상자. 개인정보처리방침은 views/privacy.html
 - 위쪽 메뉴 순서 = 첫 화면 순서: 데일리 이슈 · AI 뉴스(칼럼 포함) · 튜토리얼 · AI 사전 · 소개
 - 말투(10/27~): 사이트 모든 글·화면 문구는 **습니다체**(질문은 ~나요?/~ㄹ까요?). 따옴표 안 인용·복사용 프롬프트(items.prompt)·예시(example)는 그대로. AI 티 나는 표현 금지 목록은 news/BRIEF.md 2장. assemble.py 가 2026-10-28 이후 기사·데일리·칼럼에서 한다체 문장 끝을 찾으면 멈춘다.
+- 11/2 추가 페이지:
+  - 복붙 프롬프트 모음 `/prompts/`(views/prompts.html, app.js PROMPTS·renderPrompts): 튜토리얼의 item.prompt·master.prompt 를 자동으로 모음. 프롬프트 글(kind prompts)이 앞. 주소 ?cat=&q=, 프롬프트마다 #<튜토리얼주소>-<번호>.
+  - AI 판정 모아보기 `/verdict/`(views/verdict.html, renderVerdict) + 기사 머리 판정 상자·목록 배지(vdTag). 판정은 기사 JSON "verdict" 또는 news/verdicts.json {"id": {"v": try|watch|hype, "why": 15~90자}}. 규칙은 BRIEF.md 2-2장. 소송·사건 기사는 비움.
+  - AI 서비스 비교 `/vs/`·`/vs/<a>-vs-<b>/`(build.py, news/vs.json): 요금제 칼럼(c-ai-plans-compare, 10/29 확인)의 사실만. 칼럼 가격을 고치면 vs.json 도 같이. 사전 제품 용어 페이지에 비교 링크(data VS).
+  - 무료 도구 3개: 글자 수·토큰 세기(/tools/char-count/, /lib/gpt-tokenizer/o200k.js — gpt-tokenizer MIT를 esbuild 로 묶음), HEIC → JPG(/tools/heic-to-jpg/, /lib/heic-to/ heic-to 1.6.7 LGPL-3.0 그대로 + /lib/jszip/ MIT; 사진 정보(EXIF·위치)는 안 남음), 유료 프로그램 무료 대체 찾기(/tools/free-alternatives/, news/alternatives.json → build.py fa_render 가 정적 HTML로, widgets/fa.js 는 거르기만). 사진 속 글자 뽑기도 HEIC 를 받아 JPG로 바꿔 읽음.
 - 튜토리얼 목록: 분류 버튼 맨 앞에 '무료 도구'(tools.json 목록을 보여 줌, /tutorial/?cat=무료 도구). 썸네일은 실제 사진(위키미디어 공용, 출처는 news/tutorial_links.json TFIG) 위에 'SHIFT AI 튜토리얼'과 cover.line 을 얹은 것 — `python3 _src/tut_thumbs.py [튜토리얼 id…]` 로 다시 만든다. 새 사진 찾기·받기는 손으로 돌리는 Actions `commons-photos`(결과는 commons-tmp 가지).
 - 튜토리얼 형식(10/27~): 목록은 검색칸·'도구' 줄(tool 태그)·'주제' 줄(cat, 무료 도구 포함), 카드에 'STEP N개/프롬프트 N개 · 읽는 데 N분'. 글은 이 글에 담긴 것(목차) → 바쁘면 이것만(quick) → 통째로 맡기는 프롬프트(master) → STEP(time·d·how·more·term·code·bad/good·table) → 솔직히 한계(limits) → 공식 자료(sources). 쓰는 법은 news/TUTORIAL_GUIDE.md.
 - 사람이 쓴 글처럼(10/29~): `_src/humanize/HUMANIZE.md`(다듬기 규칙) · `shift_humanize.py`(점검 scan · 내보내기 export · 되돌려 넣기 apply) · `vendor/`(PC 에 설치한 humanize-korean 2.3.2·humanizer-kr 0.1.10 원본 사본, MIT). assemble.py 는 2026-10-29 이후 기사에서 AI 티 S1(정해진 소제목 틀 3개 이상, 핵심은·시사합니다·대시 등)이 남으면 멈춘다(GitHub Actions 에서는 경고만). 작업 파일은 저장소 루트 `_workspace/`(커밋 안 함).
