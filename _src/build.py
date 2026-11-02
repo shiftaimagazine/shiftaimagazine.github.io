@@ -114,12 +114,13 @@ css = open(SRC + 'site.css').read()
 open(OUT + 'assets/data.js', 'w').write(data_js)
 open(OUT + 'assets/app.js', 'w').write(app_js)
 open(OUT + 'assets/site.css', 'w').write(css)
+theme_js = open(SRC + 'theme.js').read(); open(OUT + 'assets/theme.js', 'w').write(theme_js)
 # 무료 도구 스크립트(_src/widgets/*.js → assets/)
 WIDGET_VER = {}
 for _f in sorted(os.listdir(SRC + 'widgets')) if os.path.isdir(SRC + 'widgets') else []:
     if _f.endswith('.js'):
         _w = open(SRC + 'widgets/' + _f).read(); open(OUT + 'assets/' + _f, 'w').write(_w); WIDGET_VER[_f] = hashlib.sha1(_w.encode()).hexdigest()[:8]
-VER = hashlib.sha1((data_js + app_js + css).encode()).hexdigest()[:8]
+VER = hashlib.sha1((data_js + app_js + css + theme_js).encode()).hexdigest()[:8]
 
 VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exists(SRC + 'verify-meta.html') else ''
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">'
@@ -184,6 +185,7 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
+<script src="/assets/theme.js?v={VER}"></script>
 <meta name="robots" content="{robots}">
 {VERIFY}{extra}{ANALYTICS}<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">

@@ -524,6 +524,17 @@ const NAV = r=>r.startsWith("tool-")?"tools":r.startsWith("w-")?"dict":r.startsW
 const q0 = new URLSearchParams(location.search).get("q"); if(q0 && $("#q") && !/^(prompts|tool-|tutorial$)/.test(ROUTE)) $("#q").value = q0;  // 프롬프트·도구 페이지의 ?q= 는 그 페이지 안 검색어라 머리말 검색칸에 넣지 않는다
 if(q0 && ROUTE==="news") location.replace("/search/?q="+encodeURIComponent(q0));  // 예전 검색 주소
 if(ROUTE==="search" && $("#sq")) $("#sq").value = q0 || "";
+// 낮·밤 바꾸기 버튼(11/3~): 고른 값은 이 브라우저에만 저장(shift-theme). 첫 적용은 assets/theme.js 가 한다.
+const sysDark = ()=>!!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+const isDark = ()=>{ const t=document.documentElement.getAttribute("data-theme"); return t ? t==="dark" : sysDark(); };
+function themeSync(){ const b=$("#themeBtn"), d=isDark(); if(b) b.setAttribute("aria-pressed", String(d));
+  const m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute("content", d?"#121315":"#ffffff"); }
+document.addEventListener("click",e=>{ if(!e.target.closest("#themeBtn")) return;
+  const next = isDark() ? "light" : "dark", h=document.documentElement;
+  if(!RM){ h.classList.add("theme-anim"); setTimeout(()=>h.classList.remove("theme-anim"),400); }
+  h.setAttribute("data-theme", next); try{ localStorage.setItem("shift-theme", next); }catch(_){}
+  themeSync(); track("theme:"+next, next==="dark"?"다크 모드":"라이트 모드"); });
+if(window.matchMedia){ const mq=matchMedia("(prefers-color-scheme: dark)"); (mq.addEventListener?mq.addEventListener("change",themeSync):mq.addListener&&mq.addListener(themeSync)); }
 function init(){
   const r = ROUTE;
   if(!PRE){
@@ -542,6 +553,7 @@ function init(){
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
   document.querySelectorAll("[data-nav]").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===NAV(r) ? "true":"false"));
+  themeSync();
   if($("#hq") && matchMedia("(max-width:640px)").matches) $("#hq").placeholder = "기사·튜토리얼·용어 찾기";
   if(PRE) motion();  // 미리 그리는 중(PRE 아님)에는 숨김·0 이 HTML에 박히지 않게 돌리지 않는다
 }
