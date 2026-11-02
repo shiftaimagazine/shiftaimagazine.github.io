@@ -32,6 +32,17 @@ jobs:
           echo; echo "== 사이트맵 주소 수: $(curl -s -m 20 $S/sitemap.xml | grep -o '<loc>' | wc -l) · 뉴스 사이트맵: $(curl -s -m 20 $S/news-sitemap.xml | grep -o '<loc>' | wc -l) · RSS 글: $(curl -s -m 20 $S/feed.xml | grep -o '<item>' | wc -l)"
           echo; echo "== 응답 머리(첫 화면)"; curl -sI -m 20 $S/ | grep -i 'server\|cache-control\|content-type\|strict-transport\|x-robots' || true
           echo
+          echo "== 보안: 응답 머리 전체(첫 화면·도구)"
+          for p in / /tools/redact/ /tools/meeting-interpreter.html; do echo "-- $p"; curl -sI -m 20 "$S$p" | grep -iv '^date:\|^age:\|^x-served-by\|^x-cache\|^x-timer\|^via:\|^x-fastly\|^x-github-request-id\|^accept-ranges\|^last-modified\|^etag\|^expires\|^vary:\|^content-length' ; done
+          echo "-- 페이지 안 보안 메타(CSP·referrer)"
+          for p in / /tools/redact/ /tools/ocr/ /tools/meeting-interpreter.html; do echo "$p: $(curl -s -m 20 "$S$p" | grep -o '<meta http-equiv="Content-Security-Policy"[^>]*>' | head -1 | cut -c1-160) $(curl -s -m 20 "$S$p" | grep -o '<meta name="referrer"[^>]*>' | head -1)"; done
+          echo "-- 공개되면 안 되는 파일"
+          for p in /.git/config /_src/build.py /.github/workflows/build.yml /_src/news/BRIEF.md /.well-known/security.txt; do echo "$p -> $(curl -s -o /dev/null -m 20 -w '%{http_code}' "$S$p")"; done
+          echo
+          echo "== DNS (메일 사칭 방지 레코드)"
+          sudo apt-get install -y -qq dnsutils >/dev/null 2>&1 || true
+          for q in "TXT shiftaimagazine.com" "TXT _dmarc.shiftaimagazine.com" "MX shiftaimagazine.com" "CAA shiftaimagazine.com" "A shiftaimagazine.com" "CNAME www.shiftaimagazine.com"; do echo "$q: $(dig +short $q | tr '\n' ' ')"; done
+          echo
           echo "== PageSpeed Insights (휴대폰)"
           for p in / /tools/ocr/ /news/; do
             r=$(curl -s -m 120 "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=$S$p&strategy=mobile&category=SEO&category=PERFORMANCE&category=ACCESSIBILITY&category=BEST_PRACTICES")
