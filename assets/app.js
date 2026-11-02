@@ -558,3 +558,16 @@ function init(){
   if(PRE) motion();  // 미리 그리는 중(PRE 아님)에는 숨김·0 이 HTML에 박히지 않게 돌리지 않는다
 }
 init();
+
+// 휴대폰인데 브라우저가 'PC 화면(데스크톱 사이트)'으로 연 경우 알림(11/3~).
+// 이 상태에서는 브라우저가 휴대폰용 화면 폭 설정을 무시하고 980px 폭으로 그려 글자가 작아진다. 사이트가 바꿀 수 없어 끄는 법을 알려 준다.
+(function(){
+  let z;
+  try{ const sw=Math.min(screen.width,screen.height); z=innerWidth/screen.width;
+    if(!(navigator.maxTouchPoints>0 && sw<700 && innerWidth>=800 && z>1.6)) return;
+    if(localStorage.getItem("shift-pd-off")) return; }catch(_){ if(!z) return; }
+  const n=document.createElement("div"); n.className="pdnote"; n.setAttribute("role","note"); n.style.setProperty("--z", z.toFixed(2));
+  n.innerHTML='<p><b>PC 화면으로 열려 있어 글자가 작게 보여요.</b> 브라우저 메뉴(⋮)에서 <b>‘데스크톱 사이트’</b>를 끄면 휴대폰 화면으로 바뀝니다.</p><button type="button">닫기</button>';
+  n.querySelector("button").addEventListener("click",()=>{ n.remove(); try{ localStorage.setItem("shift-pd-off","1"); }catch(_){} track("pd-note-close","PC 화면 알림 닫기"); });
+  document.body.prepend(n); track("pd-note","PC 화면 알림");
+})();
