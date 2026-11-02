@@ -1,0 +1,4 @@
+Contact: mailto:shiftai.magazine@gmail.com
+Expires: 2027-11-02T00:00:00.000Z
+Preferred-Languages: ko, en
+Canonical: https://shiftaimagazine.com/.well-known/security.txt

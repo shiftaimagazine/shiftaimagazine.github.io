@@ -109,8 +109,20 @@ VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exist
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">'
 # 방문 통계: GoatCounter(쿠키 없음, IP 저장 안 함). 개인정보처리방침 7일 전 공지 약속에 따라 시행일부터 센다. 미리 그리기(prerender)·로컬에서는 안 셈.
 GC_CODE, GC_START = 'shiftai', '2026-11-03T00:00:00+09:00'
-ANALYTICS = ('<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("' + GC_START + '"))return;'
-             'var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://' + GC_CODE + '.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>\n') if GC_CODE else ''
+# 보안 점검(11/2): 통계 스크립트는 우리 서버(/lib/goatcounter/count.js)에서 내려보내고, 불러오는 코드도 바깥 파일로 둔다(페이지 안 스크립트 없음 → CSP 로 막을 수 있게).
+GC_URL = f'https://{GC_CODE}.goatcounter.com' if GC_CODE else ''
+if GC_CODE:
+    open(OUT + 'assets/stats.js', 'w').write('(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("' + GC_START + '"))return;'
+        'var s=document.createElement("script");s.async=true;s.dataset.goatcounter="' + GC_URL + '/count";s.src="/lib/goatcounter/count.js";document.head.appendChild(s)})();\n')
+ANALYTICS = '<script defer src="/assets/stats.js"></script>\n' if GC_CODE else ''
+# 콘텐츠 보안 정책(CSP): GitHub Pages 는 응답 머리를 못 바꾸므로 <meta> 로 건다. 우리 서버·구글 글꼴·통계 주소 밖으로는 스크립트를 불러오거나 데이터를 보내지 못한다.
+#  'wasm-unsafe-eval' = 글자 인식(tesseract)·HEIC 변환의 WebAssembly, blob: = 그 작업용 워커. 페이지 안 <script> 는 JSON-LD(실행 안 되는 데이터)뿐.
+CSP = ("default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; "
+       f"img-src 'self' data: blob:{' ' + GC_URL if GC_URL else ''}; connect-src 'self'{' ' + GC_URL if GC_URL else ''}; worker-src 'self' blob:; media-src 'self' blob:; "
+       "object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests")
+SECMETA = f'<meta http-equiv="Content-Security-Policy" content="{CSP}">\n<meta name="referrer" content="strict-origin-when-cross-origin">\n'
+# HEIC 변환 라이브러리(heic-to, libheif 를 Emscripten 으로 옮긴 것)는 작업용 워커 안에서 문자열을 코드로 바꿔 실행한다 → 그 라이브러리를 쓰는 두 페이지만 'unsafe-eval' 을 연다.
+SECMETA_EVAL = SECMETA.replace("script-src 'self' 'wasm-unsafe-eval'", "script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval'")
 def kst(date, time='09:00'): return f'{date}T{time}:00+09:00'
 # 구조화 데이터(JSON-LD) 도우미
 LD = lambda *xs: ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in xs)
@@ -122,13 +134,13 @@ BRAND_ALT = ['SHIFT AI 매거진', '시프트 AI', '시프트 AI 매거진', 'SH
 PUBLISHER = {'@type': 'NewsMediaOrganization', 'name': 'SHIFT AI', 'url': SITE + '/', 'logo': {'@type': 'ImageObject', 'url': SITE + '/img/brand/logo-800.png'}}
 AUTHOR = {'@type': 'Organization', 'name': 'SHIFT AI 편집부', 'url': SITE + '/about/'}
 
-def page(path, route, title, desc, main, og, typ='website', extra='', robots='index,follow,max-image-preview:large'):
+def page(path, route, title, desc, main, og, typ='website', extra='', robots='index,follow,max-image-preview:large', secmeta=None):
     url = SITE + path
     doc = f'''<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{secmeta or SECMETA}<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
@@ -399,7 +411,7 @@ for t in TOOLS:
     fq = faq_of(v)
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
     if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
-    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra)
+    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr') else None)
 # AI 서비스 비교(/vs/, 11/2~): news/vs.json — 요금제 칼럼(10/29 각 사 공식 페이지 확인)에 실린 사실만 쓴다. 칼럼을 고칠 때 같이 고칠 것.
 VS = json.load(open(SRC + 'news/vs.json'))
 _VS, _vsc = VS['services'], next((c for c in C if c['id'] == 'c-ai-plans-compare'), None)

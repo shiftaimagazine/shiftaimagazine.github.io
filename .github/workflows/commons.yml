@@ -23,13 +23,18 @@ jobs:
           QUERIES: ${{ github.event.inputs.queries }}
           PICKS: ${{ github.event.inputs.picks }}
           FOCUS: ${{ github.event.inputs.focus }}
+          MODE: ${{ github.event.inputs.mode }}
         run: |
-          for kv in $(echo "$FOCUS" | tr ';' ' '); do export "$kv"; done
-          python3 .github/scripts/commons.py ${{ github.event.inputs.mode }}
+          # 입력은 환경 변수로만 받고(명령줄에 바로 넣지 않음), FOCUS_키=숫자·CONTAIN_키=값 모양만 내보낸다(보안 점검 11/2)
+          for kv in $(echo "$FOCUS" | tr ';' ' '); do case "$kv" in FOCUS_*=*|CONTAIN_*=*) k="${kv%%=*}"; v="${kv#*=}"; [[ "$k" =~ ^[A-Za-z0-9_]+$ ]] && export "$k=$v";; esac; done
+          case "$MODE" in search|fetch) ;; *) echo "mode 는 search 또는 fetch"; exit 1;; esac
+          python3 .github/scripts/commons.py "$MODE"
       - name: 결과를 commons-tmp 가지에 올리기
+        env:
+          MODE: ${{ github.event.inputs.mode }}
         run: |
           mkdir -p /tmp/res && cp -r _cand _out /tmp/res/ 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -q --orphan commons-tmp && git rm -rfq . && rm -rf ./* .github 2>/dev/null; cp -r /tmp/res/* . 2>/dev/null || true
-          git add -A && git commit -qm "commons ${{ github.event.inputs.mode }} 결과" && git push -qf origin commons-tmp
+          git add -A && git commit -qm "commons $MODE 결과" && git push -qf origin commons-tmp

@@ -191,6 +191,13 @@ if __name__ == '__main__':
     VSL = [{'id': q['id'], 't': f"{_vsv[q['a']]['name']} vs {_vsv[q['b']]['name']}", 'k': [_vsv[q['a']]['dict'], _vsv[q['b']]['dict']]} for q in _vs['pairs']]
     DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS, 'VS': VSL,
             'ABOUT_CARD': {'src': 'img/ph/about-card.webp', 'caption': '쓰레드·인스타그램 카드 (10월 26일 PHP2Shell 편)'}}
+    # 보안 점검(11/2): 화면에 링크로 나가는 주소는 https/http(또는 사이트 안 /주소)만. javascript: 같은 주소가 섞이면 빌드를 멈춘다.
+    _okurl = lambda u: isinstance(u, str) and (u.startswith('https://') or u.startswith('http://') or (u.startswith('/') and not u.startswith('//')))
+    for a in out:
+        for _, u in a.get('sources') or []: assert _okurl(u), ('기사 출처 주소 형식', a['id'], u)
+    for t in TUTS:
+        for _, u in (t.get('sources') or []) + ((t.get('quick') or {}).get('links') or []): assert _okurl(u), ('튜토리얼 링크 주소 형식', t['id'], u)
+    for t in TOOLS: assert _okurl(t['href']), ('도구 주소 형식', t['id'])
     os.makedirs(SRC + 'build', exist_ok=True)
     json.dump(DATA, open(SRC + 'build/data.json', 'w'), ensure_ascii=False)
     print('articles', len(out), 'tutorials', len(TUTS), 'columns', len(cols), 'daily', len(DAILY), 'terms', len(TERMS),
