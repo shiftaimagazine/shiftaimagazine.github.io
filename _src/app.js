@@ -405,6 +405,8 @@ function init(){
     else if(r.startsWith("c-") && colById[r]) renderColumn(colById[r]);
     else if(r.startsWith("d-") && dayById[r]) renderDaily(dayById[r]);
     else if(r.startsWith("w-") && termBySlug[r]) renderTerm(termBySlug[r]);
+    // 화면 맨 위 그림은 바로 받는다(가장 큰 그림이 늦게 뜨지 않게): 첫 그림의 지연 로딩을 끔
+    const lcp = document.querySelector("main img[loading=lazy]"); if(lcp){ lcp.removeAttribute("loading"); lcp.setAttribute("fetchpriority","high"); }
   } else if(q0 || dq0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
   if($("#sResults")) renderSearch();
   const from = new URLSearchParams(location.search).get("from");
