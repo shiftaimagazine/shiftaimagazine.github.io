@@ -33,7 +33,7 @@ def _annc():
     if len(new) == 1: msg, href = f'새 무료 도구 {_josa(nm[0], "이", "가")} 나왔습니다', new[0]['href']
     elif len(new) == 2: msg, href = f'새 무료 도구 2개, {_josa(nm[0], "과", "와")} {_josa(nm[1], "이", "가")} 나왔습니다', '/tools/'
     else: msg, href = f'새 무료 도구 {len(new)}개가 나왔습니다', '/tools/'
-    return f'<a class="annc bleed" href="{href}" data-ev="annc:{href}"><span class="nb">NEW</span><span>{esc(msg)}</span><span class="go">써 보기 →</span></a>'
+    return f'<a class="annc bleed" href="{href}" data-ev="annc:{href}"><span class="nb">NEW</span><span>{esc(msg)}</span><span class="go">써 보기 <span class="ar">→</span></span></a>'
 header = fix_links(view('header')).replace('<!--ANNC-->', _annc())
 footer = fix_links(view('footer'))
 assert '/privacy/' in footer and '<!--ANNC-->' not in header
@@ -45,7 +45,7 @@ home = fix_links(view('home'))
 home = home.replace('<div class="sec"><h2>무료 도구</h2>', FOLLOWBOX + '\n  <div class="sec"><h2>무료 도구</h2>', 1)
 assert FOLLOWBOX in home
 _ng = sum(1 for g in json.load(open(SRC + 'news/guides.json'))['guides'] if g.get('page'))
-home = home.replace('AI 길잡이 전체 →', f'AI 길잡이 {_ng}개 →')
+home = home.replace('AI 길잡이 전체 <span class="ar">→</span>', f'AI 길잡이 {_ng}개 <span class="ar">→</span>')
 about = fix_links(view('about'))
 
 STATIC = {
