@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=5b0f8e24">
+<link rel="stylesheet" href="/assets/site.css?v=6fd8c1d9">
 </head>
 <body data-route="tutorial" data-pre="1">
 <div class="wrap">
@@ -39,6 +39,7 @@
       <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
       <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
       <a href="/tutorial/" data-nav="tutorial" aria-current="true">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
       <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
       <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
       <a href="/about/" data-nav="about" aria-current="false">소개</a>
@@ -56,10 +57,10 @@
 </header>
 
 <main id="v-tutorial">
-  <div class="ph"><h1>튜토리얼</h1><p>오늘 바로 따라 할 수 있는 AI 실전 꿀팁을 모았습니다. 복사해서 쓰는 프롬프트 모음부터 클로드 코드·n8n 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.</p></div>
+  <div class="ph"><h1>튜토리얼</h1><p>오늘 바로 따라 할 수 있는 AI 실전 꿀팁을 모았습니다. 복사해서 쓰는 프롬프트 모음부터 클로드 코드·n8n 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다. 프롬프트만 골라 쓰려면 <a href="/prompts/">복붙 프롬프트 모음</a>을 보세요.</p></div>
   <div class="tfind"><input id="tutQ" type="search" placeholder="튜토리얼 검색 (예: 엑셀, 회의, 클로드 코드)" aria-label="튜토리얼 검색"><span id="tutCount" class="tcount">20편</span></div>
   <div class="filters" id="tutTools" role="group" aria-label="도구"><span class="flbl">도구</span><button aria-pressed="true" data-tt="all">전체</button><button aria-pressed="false" data-tt="제미나이">제미나이 15</button><button aria-pressed="false" data-tt="ChatGPT">ChatGPT 14</button><button aria-pressed="false" data-tt="Claude">Claude 14</button><button aria-pressed="false" data-tt="Claude Code">Claude Code 3</button><button aria-pressed="false" data-tt="엑셀·시트">엑셀·시트 2</button><button aria-pressed="false" data-tt="n8n">n8n 1</button><button aria-pressed="false" data-tt="Remotion">Remotion 1</button><button aria-pressed="false" data-tt="크롬">크롬 1</button></div>
-  <div class="filters" id="tutFilters" role="group" aria-label="주제"><span class="flbl">주제</span><button aria-pressed="true" data-tc="all">전체</button><button class="tooltag" aria-pressed="false" data-tc="무료 도구">무료 도구 6</button><button aria-pressed="false" data-tc="업무">업무 6</button><button aria-pressed="false" data-tc="자동화">자동화 1</button><button aria-pressed="false" data-tc="스킬·MCP">스킬·MCP 1</button><button aria-pressed="false" data-tc="비용 절약">비용 절약 1</button><button aria-pressed="false" data-tc="영상·이미지">영상·이미지 1</button><button aria-pressed="false" data-tc="AI 답 검증">AI 답 검증 3</button><button aria-pressed="false" data-tc="보안·개인정보">보안·개인정보 3</button><button aria-pressed="false" data-tc="공부·리서치">공부·리서치 2</button><button aria-pressed="false" data-tc="콘텐츠·커리어">콘텐츠·커리어 2</button></div>
+  <div class="filters" id="tutFilters" role="group" aria-label="주제"><span class="flbl">주제</span><button aria-pressed="true" data-tc="all">전체</button><button class="tooltag" aria-pressed="false" data-tc="무료 도구">무료 도구 9</button><button aria-pressed="false" data-tc="업무">업무 6</button><button aria-pressed="false" data-tc="자동화">자동화 1</button><button aria-pressed="false" data-tc="스킬·MCP">스킬·MCP 1</button><button aria-pressed="false" data-tc="비용 절약">비용 절약 1</button><button aria-pressed="false" data-tc="영상·이미지">영상·이미지 1</button><button aria-pressed="false" data-tc="AI 답 검증">AI 답 검증 3</button><button aria-pressed="false" data-tc="보안·개인정보">보안·개인정보 3</button><button aria-pressed="false" data-tc="공부·리서치">공부·리서치 2</button><button aria-pressed="false" data-tc="콘텐츠·커리어">콘텐츠·커리어 2</button></div>
   <div class="list" id="tutGrid"><a class="post" href="/tutorial/n8n-first-automation/"><img class="thumb" src="img/cover/t-n8n-first-automation.webp" alt="" fetchpriority="high">
   <div class="b"><span class="cat">자동화 · 입문</span><h3>매일 아침 AI 소식 요약이 메일로 오게: n8n 첫 자동화 7단계</h3><p>n8n으로 워크플로를 만들어 매일 아침 8시에 RSS 피드의 최신 글을 가져오고 AI가 한국어로 요약한 결과를 내 메일로 보냅니다. 편집부가 n8n 2.45.4를 직접 설치해 찍은 화면으로 따라갑니다.</p><div class="meta"><span>2026.10.27</span><span class="dot"></span><span>STEP 7개</span><span class="dot"></span><span>읽는 데 16분</span></div></div></a><a class="post" href="/tutorial/remotion-motion-video/"><img class="thumb" src="img/cover/t-remotion-motion-video.webp" alt="" loading="lazy">
   <div class="b"><span class="cat">영상·이미지 · 중급</span><h3>편집 프로그램 없이 코드로 만드는 15초 쇼츠: 리모션과 클로드 코드 7단계</h3><p>리모션(Remotion)은 리액트(React) 코드로 영상을 만드는 프레임워크입니다. 장면 코드를 Claude Code에게 맡기는 방법을 공식 문서 기준으로 정리했습니다. 확인용 영상은 도형과 한국어 글자만 담은 릴스·쇼츠용 1080×1920 MP4로, Claude Code에게 줄 프롬프트와 같은 조건에서 편집부가 직접 쓴 코드로 렌더링했습니다.</p><div class="meta"><span>2026.10.27</span><span class="dot"></span><span>STEP 7개</span><span class="dot"></span><span>읽는 데 19분</span></div></div></a><a class="post" href="/tutorial/claude-code-skills-mcp/"><img class="thumb" src="img/cover/t-claude-code-skills-mcp.webp" alt="" loading="lazy">
@@ -103,13 +104,13 @@
     <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
     <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
   </div>
-  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/tools/">무료 도구</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
 </footer>
 
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=5b0f8e24"></script>
-<script src="/assets/app.js?v=5b0f8e24"></script>
+<script src="/assets/data.js?v=6fd8c1d9"></script>
+<script src="/assets/app.js?v=6fd8c1d9"></script>
 
 
 </body></html>

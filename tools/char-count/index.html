@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>글자 수 세기 — 공백 포함·제외, 바이트, GPT 토큰 수까지 (자기소개서 무료) · SHIFT AI</title>
+<meta name="description" content="자기소개서·보고서·블로그 글의 글자 수를 공백 포함·제외로 바로 셉니다. UTF-8·한글 2바이트 기준 바이트, 어절·줄·문단, 목표 글자 수까지 남은 양, GPT 토큰 수(o200k)까지 한 번에 보여 주고 글은 어디에도 보내지 않습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tools/char-count/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="글자 수 세기 — 공백 포함·제외, 바이트, GPT 토큰 수까지 (자기소개서 무료) · SHIFT AI">
+<meta property="og:description" content="자기소개서·보고서·블로그 글의 글자 수를 공백 포함·제외로 바로 셉니다. UTF-8·한글 2바이트 기준 바이트, 어절·줄·문단, 목표 글자 수까지 남은 양, GPT 토큰 수(o200k)까지 한 번에 보여 주고 글은 어디에도 보내지 않습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tools/char-count/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/tool-char-count.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "글자 수·토큰 세기", "alternateName": ["글자수 세기", "자소서 글자수 세기", "글자 수 계산기", "토큰 수 계산기"], "url": "https://shiftaimagazine.com/tools/char-count/", "description": "자기소개서·보고서·블로그 글의 글자 수를 공백 포함·제외로 바로 셉니다. UTF-8·한글 2바이트 기준 바이트, 어절·줄·문단, 목표 글자 수까지 남은 양, GPT 토큰 수(o200k)까지 한 번에 보여 주고 글은 어디에도 보내지 않습니다.", "image": "https://shiftaimagazine.com/og/tool-char-count.jpg", "screenshot": "https://shiftaimagazine.com/img/tools/char-count.webp", "applicationCategory": "UtilitiesApplication", "operatingSystem": "웹 브라우저", "browserRequirements": "JavaScript를 켠 최신 브라우저", "featureList": ["공백 포함·제외 글자 수", "UTF-8·한글 2바이트 기준 바이트", "어절·문장·줄·문단·원고지 매수", "목표 글자 수까지 남은 양", "GPT 토큰 수(o200k)", "띄어쓰기·빈 줄 정리", "이 브라우저에 임시 저장"], "inLanguage": "ko", "isAccessibleForFree": true, "datePublished": "2026-11-02", "dateModified": "2026-11-02", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "글자 수·토큰 세기", "item": "https://shiftaimagazine.com/tools/char-count/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "공백 포함과 공백 제외는 어떻게 다르게 세나요?", "acceptedAnswer": {"@type": "Answer", "text": "공백 포함은 띄어쓰기와 줄바꿈까지 한 글자로 셉니다. 공백 제외는 띄어쓰기, 줄바꿈, 탭을 모두 빼고 셉니다. 자기소개서 문항에 '공백 포함 1,000자'처럼 기준이 적혀 있으면 위 목표 글자 수에서 같은 기준을 고르세요."}}, {"@type": "Question", "name": "사이트마다 글자 수가 조금씩 다른 이유는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "줄바꿈을 몇 자로 볼지, 연속 띄어쓰기를 어떻게 처리할지가 사이트마다 다르기 때문입니다. 제출할 곳의 입력 칸에 표시되는 숫자가 최종 기준이니, 마감 전에는 그곳에 붙여 넣어 한 번 더 확인하세요."}}, {"@type": "Question", "name": "바이트는 왜 두 가지로 보여 주나요?", "acceptedAnswer": {"@type": "Answer", "text": "요즘 웹에서 쓰는 UTF-8은 한글 한 글자를 3바이트로 저장하고, 예전 시스템에서 쓰던 EUC-KR은 2바이트로 셉니다. 입력 칸에 바이트 제한이 있다면 둘 중 어느 기준인지 확인하세요."}}, {"@type": "Question", "name": "토큰 수는 어디에 쓰나요?", "acceptedAnswer": {"@type": "Answer", "text": "AI는 글을 토큰 단위로 읽고, API 요금과 한 번에 넣을 수 있는 분량도 토큰으로 정합니다. 긴 자료를 넣기 전에 토큰 수를 보면 나눠 넣어야 할지, 요금이 얼마쯤 나올지 가늠할 수 있습니다."}}, {"@type": "Question", "name": "쓴 글이 저장되거나 전송되나요?", "acceptedAnswer": {"@type": "Answer", "text": "다음에 이어 쓸 수 있게 이 브라우저(로컬 저장소)에만 저장하고 어디에도 보내지 않습니다. '지우기'를 누르면 저장한 글도 함께 지워집니다."}}]}</script>
+<script defer="" src="/assets/char-count.js?v=6278259a"></script>
+<script>(function(){if(navigator.webdriver||location.hostname!=="shiftaimagazine.com"||Date.now()<Date.parse("2026-11-03T00:00:00+09:00"))return;var s=document.createElement("script");s.async=true;s.dataset.goatcounter="https://shiftai.goatcounter.com/count";s.src="https://gc.zgo.at/count.js";document.head.appendChild(s)})()</script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=6fd8c1d9">
+</head>
+<body data-route="tool-char-count" data-pre="1">
+<div class="wrap">
+<header>
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="true">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <form class="search" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <label class="sr" for="q">검색</label>
+        <input id="q" type="search" placeholder="검색" autocomplete="off">
+      </form>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<main id="v-tool-char-count">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 글자 수</span>
+  <h1>글자 수·토큰 세기</h1>
+  <p class="deck">자기소개서, 보고서, 블로그 글을 붙여 넣으면 공백 포함·제외 글자 수와 바이트, 줄과 문단 수를 바로 셉니다. 정해진 글자 수까지 얼마나 남았는지와 AI에 넣었을 때의 GPT 토큰 수도 함께 보여 줍니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>글은 이 브라우저 안에서만 셈 · 어디에도 보내지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>글 넣기 <small id="ccSaved"></small></h2>
+    <label class="sr" for="ccIn">글자 수를 셀 글</label>
+    <textarea id="ccIn" rows="11" placeholder="여기에 글을 붙여 넣거나 바로 쓰세요. 쓰는 대로 셉니다."></textarea>
+    <div class="trow">
+      <button class="ghost" type="button" id="ccSpace">연속 띄어쓰기 하나로</button>
+      <button class="ghost" type="button" id="ccLines">빈 줄 정리</button>
+      <button class="ghost" type="button" id="ccTrim">줄 앞뒤 공백 지우기</button>
+      <button class="ghost" type="button" id="ccUndo" hidden="">되돌리기</button>
+      <button class="ghost" type="button" id="ccClear">지우기</button>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>센 결과</h2>
+    <div class="ccgrid" id="ccStats" aria-live="polite"><div><b>0자</b><span>공백 포함</span></div><div><b>0자</b><span>공백 제외</span></div><div><b>0</b><span>바이트 (UTF-8)</span><small>한글 1자 = 3바이트</small></div><div><b>0</b><span>바이트 (한글 2바이트)</span><small>EUC-KR 같은 옛 방식</small></div><div><b>0</b><span>어절</span><small>띄어쓰기로 나눈 덩어리</small></div><div><b>0</b><span>문장</span><small>마침표·물음표 기준 대략</small></div><div><b>0</b><span>줄</span></div><div><b>0</b><span>문단</span><small>빈 줄로 나눈 덩어리</small></div><div><b>약 0매</b><span>원고지</span><small>200자 원고지, 칸 규칙 없이 대략</small></div></div>
+    <p class="hint">줄바꿈은 공백 포함 글자 수에 1자로 셉니다. 이모지처럼 여러 부호로 된 글자도 화면에 보이는 대로 1자로 셉니다. 제출하는 사이트마다 세는 방식이 조금 다를 수 있으니 그곳의 기준을 먼저 확인하세요.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>목표 글자 수</h2>
+    <div class="trow ccgoal">
+      <label class="inl">목표 <input id="ccGoal" type="number" min="1" step="50" inputmode="numeric" placeholder="예: 1000"> 자</label>
+      <div class="seg mini" role="radiogroup" aria-label="기준">
+        <label><input type="radio" name="ccBasis" value="all" checked=""><span><b>공백 포함</b></span></label>
+        <label><input type="radio" name="ccBasis" value="ns"><span><b>공백 제외</b></span></label>
+      </div>
+      <span class="chips" id="ccPresets"><button type="button" data-g="500">500자</button><button type="button" data-g="700">700자</button><button type="button" data-g="1000">1,000자</button><button type="button" data-g="1500">1,500자</button></span>
+    </div>
+    <div class="ccbar" id="ccBar" hidden=""><i></i></div>
+    <p class="ccleft" id="ccLeft">목표 글자 수를 넣으면 남은 글자 수를 알려 줍니다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>4</i>AI 토큰 수</h2>
+    <div class="cctok" id="ccTok">글을 넣으면 셉니다.</div>
+    <p class="hint">GPT 토큰은 오픈AI가 공개한 o200k 토크나이저로 직접 센 값입니다. 실제 요청에는 대화 형식 때문에 토큰이 몇 개 더 붙습니다. 클로드·제미나이는 세는 방식이 달라 같은 글도 토큰 수가 다르게 나옵니다. 요금은 <a href="/tools/ai-cost/">AI 요금 계산기</a>에서 원화로 볼 수 있습니다.</p>
+  </section>
+
+  <div class="box">
+    <b>함께 쓰면 좋은 도구</b>
+    <ul class="plain">
+      <li><a href="/tools/ai-tell/">AI 티 검사기</a>: 자기소개서나 보고서에 AI가 쓴 것 같은 표현이 남아 있는지 찾습니다.</li>
+      <li><a href="/tools/prompt/">프롬프트 만들기</a>: 글을 줄이거나 다듬어 달라는 프롬프트를 일곱 칸으로 만듭니다.</li>
+    </ul>
+    <p>토큰은 오픈소스 <a href="https://github.com/niieani/gpt-tokenizer" target="_blank" rel="noopener">gpt-tokenizer</a>(MIT)로 셉니다. 프로그램은 처음 한 번 SHIFT AI 서버에서 받아 오고, 글은 이 페이지 밖으로 나가지 않습니다.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>공백 포함과 공백 제외는 어떻게 다르게 세나요?</summary><p>공백 포함은 띄어쓰기와 줄바꿈까지 한 글자로 셉니다. 공백 제외는 띄어쓰기, 줄바꿈, 탭을 모두 빼고 셉니다. 자기소개서 문항에 '공백 포함 1,000자'처럼 기준이 적혀 있으면 위 목표 글자 수에서 같은 기준을 고르세요.</p></details>
+    <details><summary>사이트마다 글자 수가 조금씩 다른 이유는 무엇인가요?</summary><p>줄바꿈을 몇 자로 볼지, 연속 띄어쓰기를 어떻게 처리할지가 사이트마다 다르기 때문입니다. 제출할 곳의 입력 칸에 표시되는 숫자가 최종 기준이니, 마감 전에는 그곳에 붙여 넣어 한 번 더 확인하세요.</p></details>
+    <details><summary>바이트는 왜 두 가지로 보여 주나요?</summary><p>요즘 웹에서 쓰는 UTF-8은 한글 한 글자를 3바이트로 저장하고, 예전 시스템에서 쓰던 EUC-KR은 2바이트로 셉니다. 입력 칸에 바이트 제한이 있다면 둘 중 어느 기준인지 확인하세요.</p></details>
+    <details><summary>토큰 수는 어디에 쓰나요?</summary><p>AI는 글을 토큰 단위로 읽고, API 요금과 한 번에 넣을 수 있는 분량도 토큰으로 정합니다. 긴 자료를 넣기 전에 토큰 수를 보면 나눠 넣어야 할지, 요금이 얼마쯤 나올지 가늠할 수 있습니다.</p></details>
+    <details><summary>쓴 글이 저장되거나 전송되나요?</summary><p>다음에 이어 쓸 수 있게 이 브라우저(로컬 저장소)에만 저장하고 어디에도 보내지 않습니다. '지우기'를 누르면 저장한 글도 함께 지워집니다.</p></details>
+  </section>
+<nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">
+  <h2>함께 보면 좋은 글</h2>
+  <ul class="plain"><li><a href="/tutorial/resume-review/">이력서·자기소개서, 채용 담당자 눈으로 검토받는 프롬프트 9개</a> <span>튜토리얼</span></li><li><a href="/dict/token/">토큰 뜻</a> <span>AI 사전</span></li></ul>
+  <h2>다른 무료 도구</h2>
+  <div class="trel-tools"><a href="/tools/free-alternatives/"><b>유료 프로그램 무료 대체 찾기</b><span>포토샵·한글·MS 오피스·프리미어처럼 돈 내고 쓰던 프로그램 대신 쓸 무료 프로그램을 찾아 줍니다. 무료 범위와 원래 파일을 여는지까지 공식 페이지 기준으로 정리했습니다.</span></a><a href="/tools/heic-to-jpg/"><b>HEIC → JPG 변환</b><span>아이폰 HEIC 사진을 JPG·PNG로 바꿉니다. 여러 장을 한 번에 바꿔 ZIP으로 받을 수 있고, 사진은 서버로 올리지 않습니다.</span></a><a href="/tools/ocr/"><b>사진 속 글자 뽑기 (한국어 OCR)</b><span>화면 캡처나 문서 사진에서 글자를 뽑아 복사할 수 있게 바꿔 줍니다. 한국어와 영어를 함께 읽고, 사진은 내 컴퓨터 밖으로 나가지 않습니다.</span></a><a href="/tools/ai-tell/"><b>AI 티 검사기</b><span>글을 붙여 넣으면 AI가 자주 쓰는 표현과 문장 버릇을 찾아 표시하고 고치는 방법을 알려 줍니다. AI가 썼는지 판정하는 도구는 아닙니다.</span></a><a href="/tools/prompt/"><b>프롬프트 만들기</b><span>역할·맥락·자료·할 일·조건·답 형식·확인 방법 일곱 칸만 채우면 챗GPT·클로드·제미나이에 바로 붙여 넣을 프롬프트가 완성됩니다.</span></a><a href="/tools/redact/"><b>개인정보 자동 가리기</b><span>글이나 엑셀 표에 들어 있는 주민등록번호·전화번호·이메일·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.</span></a><a href="/tools/ai-cost/"><b>AI 요금 계산기 (원화)</b><span>챗GPT·클로드·제미나이 등 주요 AI API를 쓰면 한 달에 얼마가 드는지 공식 가격표를 기준으로 원화로 바로 비교합니다.</span></a><a href="/tools/interpreter/"><b>무료 실시간 크롬 번역 (회의 통역창)</b><span>영어·중국어·일본어·프랑스어로 진행되는 회의나 영상을 바로 한국어 자막으로 바꿔 줍니다. 크롬만 있으면 쓸 수 있습니다.</span></a></div>
+</nav>
+</article>
+</main>
+
+<footer>
+  <div class="fl">
+    <img src="img/logo-wide.webp" alt="SHIFT AI">
+    <p>AI 소식, 검색하지 말고 SHIFT 하세요. 원문부터 확인하고 써 볼 만한지 알려 드립니다.</p>
+    <div class="ch"><img src="img/shifty-head.webp" alt=""><span>짧은 소식은</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">Threads</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="r"><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트 모음</a><a href="/tools/">무료 도구</a><a href="/verdict/">AI 판정</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span><span>© 2026 SHIFT AI</span></div>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data.js?v=6fd8c1d9"></script>
+<script src="/assets/app.js?v=6fd8c1d9"></script>
+
+
+</body></html>
