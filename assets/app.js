@@ -72,7 +72,7 @@ function renderHome2(d){
   $("#homeTools").innerHTML = `<div class="tex-list">${tl.map((t,i)=>`<a class="xrow${i?"":" on"}" href="${t.href}" data-i="${i}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="tr-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span><span class="chev" aria-hidden="true">›</span></a>`).join("")}</div>
     <div class="tex-panel" aria-hidden="true"><div class="tex-bar"><span class="dots"><i></i><i></i><i></i></span><span class="mono" id="texPath">shiftaimagazine.com / tools / ${esc(tl[0]?tl[0].id:"")}</span></div>
     ${tl.map((t,i)=>`<div class="tex-pv" data-i="${i}" data-id="${esc(t.id)}"${i?" hidden":""}><a href="${t.href}" tabindex="-1"><img src="${t.thumb}" alt="" loading="lazy"></a><h3>${esc(toolName(t))}</h3><p>${esc(t.desc)}</p>
-      <div class="tex-facts"><span><i>${t.where?"처리 위치":"요금"}</i><b>${esc(t.where||"무료")}</b></span><span><i>가입</i><b>필요 없음</b></span></div><a class="go" href="${t.href}" tabindex="-1">바로 써 보기 →</a></div>`).join("")}</div>`;
+      <div class="tex-facts"><span><i>${t.where?"처리 위치":"요금"}</i><b>${esc(t.where||"무료")}</b></span><span><i>가입</i><b>필요 없음</b></span></div><a class="go" href="${t.href}" tabindex="-1">바로 써 보기 <span class="ar">→</span></a></div>`).join("")}</div>`;
   const gs = Object.entries(TERMS.reduce((o,t)=>(o[t.g||"기타"]=(o[t.g||"기타"]||0)+1,o),{})).sort((a,b)=>b[1]-a[1]);
   const g0 = gs.length?gs[0][0]:"";
   $("#dictMore").textContent = `용어 ${TERMS.length}개 전체`;
@@ -101,13 +101,26 @@ document.addEventListener("mouseover",function pre(e){ if(!e.target.closest||!e.
   document.querySelectorAll("#homeTools .tex-pv img").forEach(im=>im.loading="eager"); document.removeEventListener("mouseover",pre); });
 document.addEventListener("keydown",e=>{ if(e.key!=="/"||e.ctrlKey||e.metaKey||e.altKey) return; const t=e.target;
   if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return; const f=$("#hq")||$("#sq"); if(f){ e.preventDefault(); f.focus(); } });
+// 움직임(11/3 시안): 머리말 그림자·읽기 진행 막대·스크롤 등장(차례로)·섹션 줄 긋기·큰 제호 글자 올라오기·숫자 올라가기.
+// 미리 그린 페이지(PRE)에서만 돌려 숨김 상태가 HTML에 박히지 않게 한다. '동작 줄이기' 설정이면 등장 효과는 모두 끈다.
+const STAG = ".list > .post, .tgrid > .tcard, .dgrid > .dcard, .dailyhome ol li, .tex-list > .xrow, .dlist > a, .sterms > a, .hubs > a, .tcards > a";
 function motion(){
+  const H = document.documentElement; let t1=0, t2=0;
+  const hs = ()=>{ t1=0; H.classList.toggle("scrolled", scrollY>8); };
+  addEventListener("scroll",()=>{ if(!t1) t1=requestAnimationFrame(hs); },{passive:true}); hs();
+  const art = document.querySelector("article.article"), hd = document.querySelector("header");
+  if(art && hd){ const bar=document.createElement("div"); bar.className="rprog"; bar.setAttribute("aria-hidden","true"); bar.innerHTML="<i></i>"; hd.appendChild(bar); const bi=bar.firstChild;
+    const up = ()=>{ t2=0; const r=art.getBoundingClientRect(); const p=Math.min(1,Math.max(0,(90-r.top)/Math.max(1,r.height-innerHeight+90))); bi.style.transform=`scaleX(${p.toFixed(4)})`; };
+    addEventListener("scroll",()=>{ if(!t2) t2=requestAnimationFrame(up); },{passive:true}); addEventListener("resize",up); up(); }
   if(RM || !("IntersectionObserver" in window)) return;
-  const below = el=>el.getBoundingClientRect().top > innerHeight;
-  const io = new IntersectionObserver(es=>es.forEach(en=>{ if(!en.isIntersecting) return; const el=en.target; io.unobserve(el);
-    if(el.dataset.n){ const n=+el.dataset.n, t0=performance.now(); const st=now=>{ const p=Math.min(1,(now-t0)/1200); el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("ko-KR"); if(p<1) requestAnimationFrame(st); }; requestAnimationFrame(st); }
-    else el.classList.remove("rv-pre"); }),{rootMargin:"0px 0px -8% 0px"});
-  document.querySelectorAll(".rv").forEach(el=>{ if(below(el)){ el.classList.add("rv-pre"); io.observe(el); } });
+  const below = el=>el.getBoundingClientRect().top > innerHeight*0.96;
+  const io = new IntersectionObserver(es=>{ let k=0; es.forEach(en=>{ if(!en.isIntersecting) return; const el=en.target; io.unobserve(el);
+    if(el.dataset.n){ const n=+el.dataset.n, t0=performance.now(); const st=now=>{ const p=Math.min(1,(now-t0)/1200); el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("ko-KR"); if(p<1) requestAnimationFrame(st); }; requestAnimationFrame(st); return; }
+    const d = el.classList.contains("stg") ? Math.min(k++,5)*60 : 0;
+    el.style.setProperty("--d", d+"ms"); el.classList.add("rvi"); requestAnimationFrame(()=>el.classList.remove("rv-pre"));
+    setTimeout(()=>{ el.classList.remove("rvi","stg"); el.style.removeProperty("--d"); }, d+1700); }); },{rootMargin:"0px 0px -6% 0px"});
+  document.querySelectorAll(".rv, .sec, .fword").forEach(el=>{ if(below(el)){ el.classList.add("rv-pre"); io.observe(el); } });
+  document.querySelectorAll(STAG).forEach(el=>{ if(below(el) && !el.hidden){ el.classList.add("rv-pre","stg"); io.observe(el); } });
   document.querySelectorAll("#homeStats [data-n]").forEach(el=>{ if(below(el)){ el.textContent="0"; io.observe(el); } });
 }
 
