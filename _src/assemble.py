@@ -126,8 +126,9 @@ if __name__ == '__main__':
             assert os.path.exists(OUT + im), ('칼럼 대표 이미지 파일 없음', c['id'], im)
             assert 'logo' not in im, ('사이트 로고는 대표 이미지로 쓰지 않습니다', c['id'])
             assert (c['image'].get('credit') or '').strip(), ('칼럼 대표 이미지 출처(credit) 필요', c['id'])
-    for a in out:
-        assert 'logo' not in ((a.get('image') or {}).get('src') or ''), ('사이트 로고는 기사 대표 이미지로 쓰지 않습니다', a['id'])
+    for a in out:   # 사진이 아직 없는 새 기사의 임시 로고(temp)는 빼고 본다 — fetch_images.py 가 push 뒤에 채우고, 실패는 photos-missing.json
+        im = a.get('image') or {}
+        assert im.get('temp') or 'logo' not in (im.get('src') or ''), ('사이트 로고는 기사 대표 이미지로 쓰지 않습니다', a['id'])
     for c in cols:   # 칼럼 본문 링크 상자 {"link": {"k": 작은 제목, "t": 제목, "u": 사이트 안 주소, "d": 설명}}
         for b in c['body']:
             if 'link' in b: assert b['link'].get('t') and str(b['link'].get('u', '')).startswith('/'), ('칼럼 link 는 사이트 안 주소(/로 시작)만', c['id'])
