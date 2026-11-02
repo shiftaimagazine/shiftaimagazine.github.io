@@ -16,7 +16,8 @@
    "/vs/",
    "/guide/ai-cost-save/"
   ],
-  "mod": "2026-11-03"
+  "mod": "2026-11-03",
+  "glyph": "₩"
  },
  {
   "id": "pdf-to-text",
@@ -35,7 +36,9 @@
    "/tutorial/notebooklm/",
    "/guide/pdf-summary/"
   ],
-  "mod": "2026-11-03"
+  "mod": "2026-11-03",
+  "glyph": "PDF",
+  "where": "내 브라우저"
  },
  {
   "id": "free-alternatives",
@@ -53,7 +56,8 @@
    "/column/ai-plans-compare/",
    "/tools/ai-cost/"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "0원"
  },
  {
   "id": "char-count",
@@ -71,7 +75,9 @@
    "/tutorial/resume-review/",
    "dict:토큰"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "Aa",
+  "where": "내 브라우저"
  },
  {
   "id": "heic-to-jpg",
@@ -86,7 +92,9 @@
    "line": "아이폰 사진을 JPG·PNG로\n여러 장 한 번에, 업로드 없이"
   },
   "rel": [],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "JPG",
+  "where": "내 브라우저"
  },
  {
   "id": "redact",
@@ -105,7 +113,9 @@
    "/tutorial/redact-before-upload/",
    "/tutorial/privacy-settings/"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "***",
+  "where": "내 브라우저"
  },
  {
   "id": "ai-cost",
@@ -125,7 +135,8 @@
    "dict:토큰",
    "dict:API"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "$"
  },
  {
   "id": "interpreter",
@@ -144,7 +155,9 @@
    "/tutorial/meeting-interpreter/",
    "/tutorial/meeting-notes/"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "EN",
+  "where": "받아쓰기는 구글 음성 인식"
  },
  {
   "id": "ocr",
@@ -163,7 +176,9 @@
    "dict:OCR",
    "dict:멀티모달"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "OCR",
+  "where": "내 브라우저"
  },
  {
   "id": "ai-tell",
@@ -182,7 +197,9 @@
    "/tutorial/email-replies/",
    "/column/ai-label-text-last/"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "AI?",
+  "where": "내 브라우저"
  },
  {
   "id": "prompt",
@@ -202,6 +219,7 @@
    "dict:프롬프트",
    "dict:프롬프트 엔지니어링"
   ],
-  "mod": "2026-11-02"
+  "mod": "2026-11-02",
+  "glyph": "{ }"
  }
 ]

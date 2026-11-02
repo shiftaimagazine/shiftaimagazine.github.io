@@ -52,6 +52,65 @@ const colHTML = c=>`<a class="post" href="${P(c.id)}">${thumb(colImg(c))}
 const dayItems = d=>d.items.map(id=>byId[id]).filter(Boolean);
 const dayPhoto = d=>{const its=dayItems(d); return (byId[d.lead]&&!byId[d.lead].image.temp)?byId[d.lead]:(its.find(a=>!a.image.temp)||byId[d.lead]||its[0]);};
 
+// ---- 홈(11/3~ 새 디자인): 검색 첫 화면·튜토리얼 카드·무료 도구 미리보기·AI 사전 분야·소개 숫자 ----
+// 미리 그려 둔 페이지(PRE)에서도 고르기·미리보기가 되도록 카드는 모두 그려 두고 hidden 으로만 바꾼다.
+const LVC = {"입문":"lv1","중급":"lv2"};
+const tUnit = t=>{ const n=t.n??(t.items||[]).length; return t.kind==="steps" ? `STEP ${n}` : `프롬프트 ${n}`; };
+const tcardHTML = (t,i)=>`<a class="tcard" href="${P(t.id)}" data-lv="${esc(t.level)}"${i>=6?" hidden":""}><span class="tc-top"><span class="tc-cat">${esc(t.cat||"튜토리얼")}</span><span class="mono">${tUnit(t)}</span></span><b>${esc(t.title)}</b><span class="tc-deck">${esc(t.deck)}</span><span class="tc-foot"><span class="lv ${LVC[t.level]||""}">${esc(t.level)}</span>${t.time?`<span>따라 하는 데 ${esc(t.time)}</span>`:""}</span></a>`;
+const pillsHTML = (xs,on)=>xs.map(([k,v,n])=>`<button type="button" data-v="${esc(v)}" aria-pressed="${v===on}">${esc(k)} <span>${n}</span></button>`).join("");
+const toolName = t=>t.title.replace(/\s*\(.*?\)\s*$/,"");
+const firstSent = s=>{ const m=String(s||"").match(/^.*?다\.(?=\s|$)/); return m?m[0]:s; };
+function renderHome2(d){
+  if(d){ const [y,m,dd]=d.date.split("-").map(Number); $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${m}월 ${dd}일 데일리 이슈가 올라왔습니다`; }
+  $("#hq").placeholder = `기사·튜토리얼·AI 용어 ${ARTICLES.length+COLUMNS.length+TUTORIALS.length+TERMS.length}개에서 찾기`;
+  $("#hStat").innerHTML = `기사 ${ARTICLES.length} · 튜토리얼 ${TUTORIALS.length} · AI 용어 ${TERMS.length}<span class="desk"> · 매일 아침 업데이트</span>`;
+  const lv = ["입문","중급"].map(k=>[k,k,TUTORIALS.filter(t=>t.level===k).length]).filter(x=>x[2]);
+  $("#tutLv").innerHTML = pillsHTML([["전체","",TUTORIALS.length],...lv],"");
+  $("#homeTuts").innerHTML = TUTORIALS.map(tcardHTML).join("");
+  const tl = TOOLS.slice(0,5);
+  $("#toolsMore").innerHTML = `<span class="sr">무료 도구 </span>${TOOLS.length}개 전체 보기`;
+  $("#homeTools").innerHTML = `<div class="tex-list">${tl.map((t,i)=>`<a class="trow${i?"":" on"}" href="${t.href}" data-i="${i}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="tr-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span><span class="chev" aria-hidden="true">›</span></a>`).join("")}</div>
+    <div class="tex-panel" aria-hidden="true"><div class="tex-bar"><span class="dots"><i></i><i></i><i></i></span><span class="mono" id="texPath">shiftaimagazine.com / tools / ${esc(tl[0]?tl[0].id:"")}</span></div>
+    ${tl.map((t,i)=>`<div class="tex-pv" data-i="${i}" data-id="${esc(t.id)}"${i?" hidden":""}><a href="${t.href}" tabindex="-1"><img src="${t.thumb}" alt="" loading="lazy"></a><h3>${esc(toolName(t))}</h3><p>${esc(t.desc)}</p>
+      <div class="tex-facts"><span><i>${t.where?"처리 위치":"요금"}</i><b>${esc(t.where||"무료")}</b></span><span><i>가입</i><b>필요 없음</b></span></div><a class="go" href="${t.href}" tabindex="-1">바로 써 보기 →</a></div>`).join("")}</div>`;
+  const gs = Object.entries(TERMS.reduce((o,t)=>(o[t.g||"기타"]=(o[t.g||"기타"]||0)+1,o),{})).sort((a,b)=>b[1]-a[1]);
+  const g0 = gs.length?gs[0][0]:"";
+  $("#dictMore").textContent = `용어 ${TERMS.length}개 전체`;
+  $("#dictG").innerHTML = pillsHTML(gs.map(([g,n])=>[g,g,n]),g0);
+  const rank = t=>(t.arts||[]).length+(t.tuts||[]).length;
+  $("#homeTerms").innerHTML = gs.map(([g])=>TERMS.filter(t=>(t.g||"기타")===g).sort((a,b)=>rank(b)-rank(a)).slice(0,4)
+    .map(t=>`<a class="dcard" href="${TP(t)}" data-g="${esc(g)}"${g===g0?"":" hidden"}><b>${esc(t.t)}</b>${t.en?`<span class="mono">${esc(t.en)}</span>`:""}<span class="dd">${esc(firstSent(t.d))}</span></a>`).join("")).join("");
+  const nv = ARTICLES.filter(a=>a.verdict&&a.verdict.why).length;
+  $("#homeStats").innerHTML = [[ARTICLES.length,"원문을 확인한 기사"],[nv,"판정과 한 줄 이유"],[TUTORIALS.length,"따라 하는 튜토리얼"],[TOOLS.length,"무료 도구"]]
+    .map(([n,k],i)=>`<div${i===3?' class="y"':""}><b data-n="${n}">${n}</b><span>${k}</span></div>`).join("");
+}
+// 고르기·미리보기·숫자 올라가기·스크롤 등장(미리 그린 페이지에서도 동작)
+const RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+const replay = el=>{ if(RM) return; el.classList.remove("fade"); void el.offsetWidth; el.classList.add("fade"); };
+document.addEventListener("click",e=>{
+  const b = e.target.closest("#tutLv button, #dictG button"); if(!b) return;
+  const box = b.parentElement, v = b.dataset.v; box.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+  if(box.id==="tutLv"){ let k=0; document.querySelectorAll("#homeTuts .tcard").forEach(c=>{ const ok=(!v||c.dataset.lv===v)&&k<6; if(ok){k++;replay(c);} c.hidden=!ok; }); track("home-tut:"+(v||"all"),"홈 튜토리얼 난이도"); }
+  else { document.querySelectorAll("#homeTerms .dcard").forEach(c=>{ const ok=c.dataset.g===v; c.hidden=!ok; if(ok) replay(c); }); track("home-dict:"+v,"홈 AI 사전 분야"); }
+});
+const texPick = r=>{ if(!r||r.classList.contains("on")) return; const i=r.dataset.i;
+  document.querySelectorAll("#homeTools .trow").forEach(x=>x.classList.toggle("on", x===r));
+  document.querySelectorAll("#homeTools .tex-pv").forEach(p=>{ const ok=p.dataset.i===i; p.hidden=!ok; if(ok){ replay(p); $("#texPath").textContent="shiftaimagazine.com / tools / "+p.dataset.id; } }); };
+["mouseover","focusin"].forEach(ty=>document.addEventListener(ty,e=>{ const r=e.target.closest&&e.target.closest("#homeTools .trow"); if(r) texPick(r); }));
+document.addEventListener("mouseover",function pre(e){ if(!e.target.closest||!e.target.closest("#homeTools")) return;
+  document.querySelectorAll("#homeTools .tex-pv img").forEach(im=>im.loading="eager"); document.removeEventListener("mouseover",pre); });
+document.addEventListener("keydown",e=>{ if(e.key!=="/"||e.ctrlKey||e.metaKey||e.altKey) return; const t=e.target;
+  if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return; const f=$("#hq")||$("#sq"); if(f){ e.preventDefault(); f.focus(); } });
+function motion(){
+  if(RM || !("IntersectionObserver" in window)) return;
+  const below = el=>el.getBoundingClientRect().top > innerHeight;
+  const io = new IntersectionObserver(es=>es.forEach(en=>{ if(!en.isIntersecting) return; const el=en.target; io.unobserve(el);
+    if(el.dataset.n){ const n=+el.dataset.n, t0=performance.now(); const st=now=>{ const p=Math.min(1,(now-t0)/1200); el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("ko-KR"); if(p<1) requestAnimationFrame(st); }; requestAnimationFrame(st); }
+    else el.classList.remove("rv-pre"); }),{rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".rv").forEach(el=>{ if(below(el)){ el.classList.add("rv-pre"); io.observe(el); } });
+  document.querySelectorAll("#homeStats [data-n]").forEach(el=>{ if(below(el)){ el.textContent="0"; io.observe(el); } });
+}
+
 function renderHome(){
   const d = dailySorted[0];
   if(d){ const its=dayItems(d); const lead=dayPhoto(d);
@@ -59,10 +118,7 @@ function renderHome(){
       <ol>${its.slice(0,5).map((a,i)=>`<li><a href="${P("a-"+a.id)}"><i>${String(i+1).padStart(2,"0")}</i><div><span>${esc(a.cat)}</span><b>${esc(a.title)}</b></div></a></li>`).join("")}</ol>
       <a class="go" href="${P("d-"+d.date)}">이날 소식 ${its.length}건 전체 보기</a></div>${lead?fig(imgOf(lead)):""}`; }
   $("#homeNews").innerHTML = sorted.slice(0,6).map(postHTML).join("");
-  $("#homeTuts").innerHTML = TUTORIALS.slice(0,3).map(tutHTML).join("");
-  $("#homeCols").innerHTML = COLUMNS.slice(0,3).map(colHTML).join("");
-  if($("#homeTools")) $("#homeTools").innerHTML = TOOLS.slice(0,3).map(toolHTML).join("");
-  $("#homeTerms").innerHTML = TERMS.filter(t=>t.rel&&byId[t.rel]).slice(0,6).map(t=>`<a href="${TP(t)}"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></a>`).join("");
+  renderHome2(d);
   const rl = sorted.slice(0,3);
   $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT AI 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
 }
@@ -188,7 +244,8 @@ function renderAbout(){
 }
 
 // ---- 검색: 위쪽 검색칸·휴대폰 검색 버튼 → /search/ (기사·칼럼·데일리·튜토리얼·AI 사전 한 번에) ----
-$("#searchForm").addEventListener("submit",e=>{e.preventDefault(); const q=$("#q").value.trim();
+// (11/3~ 머리말 검색칸은 돋보기 버튼으로 바뀌고, 홈 첫 화면 검색칸(#hq)은 /search/ 로 바로 보낸다)
+if($("#searchForm")) $("#searchForm").addEventListener("submit",e=>{e.preventDefault(); const q=$("#q").value.trim();
   if(ROUTE==="search"){ $("#sq").value=q; renderSearch(true); return; } location.href="/search/"+(q?"?q="+encodeURIComponent(q):"");});
 const norm = s=>String(s??"").toLowerCase().replace(/\s+/g,"");
 const SKINDS = ["기사","칼럼","데일리 이슈","튜토리얼","AI 사전"];
@@ -225,7 +282,7 @@ let sTab = "all";
 const SUGG = ["챗GPT","클로드","제미나이","오픈AI","앤트로픽","프롬프트","에이전트","개인정보","보안","이미지","회의","무료"];
 function renderSearch(push){
   if(!$("#sResults")) return;
-  const q = ($("#sq").value||"").trim(); $("#q").value = q;
+  const q = ($("#sq").value||"").trim(); if($("#q")) $("#q").value = q;
   if(push){ try{ history.replaceState(null,"", q ? "/search/?q="+encodeURIComponent(q) : "/search/"); }catch(_){} }
   document.title = (q ? `‘${q}’ 검색 결과 · ` : "검색 · ") + "SHIFT AI";
   if($("#sChips") && !$("#sChips").dataset.done){ $("#sChips").innerHTML = SUGG.filter(s=>searchAll(s).length).map(s=>`<button type="button" data-sq="${esc(s)}">${esc(s)}</button>`).join(""); $("#sChips").dataset.done="1"; }
@@ -464,7 +521,7 @@ const NAV = r=>r.startsWith("tool-")?"tools":r.startsWith("w-")?"dict":r.startsW
 (function(){ const h=location.hash.slice(1); if(!h) return;
   if(h==="reel") return location.replace("/?from=reels");
   if(/^(a|t|c|d)-/.test(h) || ["news","tutorial","column","daily","dict","about","home"].includes(h)) location.replace(P(h)); })();
-const q0 = new URLSearchParams(location.search).get("q"); if(q0 && !/^(prompts|tool-|tutorial$)/.test(ROUTE)) $("#q").value = q0;  // 프롬프트·도구 페이지의 ?q= 는 그 페이지 안 검색어라 머리말 검색칸에 넣지 않는다
+const q0 = new URLSearchParams(location.search).get("q"); if(q0 && $("#q") && !/^(prompts|tool-|tutorial$)/.test(ROUTE)) $("#q").value = q0;  // 프롬프트·도구 페이지의 ?q= 는 그 페이지 안 검색어라 머리말 검색칸에 넣지 않는다
 if(q0 && ROUTE==="news") location.replace("/search/?q="+encodeURIComponent(q0));  // 예전 검색 주소
 if(ROUTE==="search" && $("#sq")) $("#sq").value = q0 || "";
 function init(){
@@ -485,5 +542,7 @@ function init(){
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
   document.querySelectorAll("[data-nav]").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===NAV(r) ? "true":"false"));
+  if($("#hq") && matchMedia("(max-width:640px)").matches) $("#hq").placeholder = "기사·튜토리얼·용어 찾기";
+  if(PRE) motion();  // 미리 그리는 중(PRE 아님)에는 숨김·0 이 HTML에 박히지 않게 돌리지 않는다
 }
 init();

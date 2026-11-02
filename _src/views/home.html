@@ -1,6 +1,22 @@
 <main id="v-home">
-  <h1 class="sr">SHIFT AI — 오늘의 AI 뉴스와 인공지능 소식</h1>
   <div class="reelwelcome" id="reelwelcome" hidden></div>
+
+  <section class="hero">
+    <div class="hero-in">
+      <a class="hpill" id="hPill" href="#daily"><span class="pdot" aria-hidden="true"></span><span id="hPillT">오늘의 데일리 이슈</span></a>
+      <h1>AI 소식, 검색하지 말고<br>SHIFT 하세요</h1>
+      <p class="hsub">원문부터 읽고 써볼 만한지 판정한 기사와 따라 하는 튜토리얼, 쉬운 AI 용어를 한곳에서 찾습니다.</p>
+      <form class="hsearch" role="search" action="/search/" method="get">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="sr" for="hq">검색어</label>
+        <input id="hq" name="q" type="search" placeholder="기사·튜토리얼·AI 용어에서 찾기" autocomplete="off" enterkeyhint="search">
+        <kbd aria-hidden="true">/</kbd>
+        <button type="submit">검색</button>
+      </form>
+      <div class="htry"><span>이렇게 찾아보세요</span><a href="/search/?q=클로드+코드+한도">클로드 코드 한도</a><a href="/search/?q=회의록">회의록 정리</a><a href="/search/?q=RAG">RAG 뜻</a><a href="/search/?q=PDF+요약">PDF 요약</a><a href="/tools/free-alternatives/?q=포토샵">포토샵 무료 대체</a></div>
+      <p class="hstat" id="hStat"></p>
+    </div>
+  </section>
 
   <div class="sec"><h2>오늘의 데일리 이슈</h2><a class="more" href="#daily">지난 호 보기</a></div>
   <div class="dailyhome" id="dailyHome"></div>
@@ -9,17 +25,25 @@
   <div class="list" id="homeNews"></div>
 
   <div class="sec"><h2>튜토리얼</h2><a class="more" href="#tutorial"><span class="sr">튜토리얼 </span>전체 보기</a></div>
-  <div class="list" id="homeTuts"></div>
+  <div class="hbar"><p>공식 문서로 확인한 내용만 단계별로 정리했습니다. 끝까지 따라 하면 하나가 돌아갑니다.</p><div class="pills" id="tutLv" role="group" aria-label="난이도로 고르기"></div></div>
+  <div class="tgrid rv" id="homeTuts"></div>
+  <nav class="gchips rv" aria-label="하려는 일로 찾기"><b>하려는 일로 찾기</b><a href="/guide/meeting-notes/">회의록 정리</a><a href="/guide/pdf-summary/">PDF 요약</a><a href="/guide/email-reply/">메일 답장</a><a href="/guide/excel-ai/">엑셀 수식</a><a href="/guide/privacy/">개인정보 지키기</a><a href="/guide/ai-cost-save/">구독료 줄이기</a><a class="all" href="/guide/">AI 길잡이 전체 →</a></nav>
 
-  <div class="sec"><h2>무료 도구</h2><a class="more" href="/tools/"><span class="sr">무료 도구 </span>전체 보기</a></div>
-  <div class="list" id="homeTools"></div>
+  <div class="sec"><h2>무료 도구</h2><a class="more" href="/tools/" id="toolsMore"><span class="sr">무료 도구 </span>전체 보기</a></div>
+  <p class="hdesc">설치·가입 없이 브라우저에서 바로 씁니다.<span class="desk"> 왼쪽에 마우스를 올리면 실제 화면이 바뀝니다.</span></p>
+  <div class="tex rv" id="homeTools"></div>
 
-  <div class="sec"><h2>바로 쓰는 모음</h2></div>
-  <div class="hubs"><a href="/guide/"><b>AI 길잡이</b><span>회의록·PDF 요약·메일·엑셀처럼 하려는 일로 찾는 AI 활용법</span></a><a href="/prompts/"><b>복붙 프롬프트 모음</b><span>튜토리얼에 실린 프롬프트를 주제별로 찾아 바로 복사합니다</span></a><a href="/weekly/"><b>이번 주 AI 판정</b><span>한 주 동안 나온 AI 소식을 써볼 만해요·지켜보세요·과장이에요로 묶었습니다</span></a><a href="/vs/"><b>AI 서비스 비교</b><span>챗GPT·클로드·제미나이·그록 요금과 무료 범위를 둘씩 비교합니다</span></a></div>
+  <div class="sec"><h2>AI 사전</h2><a class="more" href="#dict" id="dictMore">전체 용어</a></div>
+  <div class="pills dg" id="dictG" role="group" aria-label="분야로 고르기"></div>
+  <div class="dgrid rv" id="homeTerms"></div>
 
-  <div class="sec"><h2>칼럼</h2><a class="more" href="/news/?cat=칼럼"><span class="sr">칼럼 </span>전체 보기</a></div>
-  <div class="list" id="homeCols"></div>
-
-  <div class="sec"><h2>AI 사전</h2><a class="more" href="#dict">전체 용어</a></div>
-  <div class="tpick" id="homeTerms"></div>
+  <div class="sec"><h2>소개</h2><a class="more" href="#about"><span class="sr">소개 </span>자세히 보기</a></div>
+  <div class="habout rv">
+    <div>
+      <h3>원문부터 읽고,<br>써볼 만한지 판정합니다</h3>
+      <p>소식을 모으고 원문을 읽어 기사를 쓰는 일은 AI 에디터가 하고, 무엇을 다룰지와 판정 기준은 사람 에디터가 정합니다. 직접 써 본 것은 써 봤다고 밝히고, 그렇지 않은 것은 공식 자료로 확인한 내용만 씁니다.</p>
+      <div class="acts"><a class="btn" href="#about">일하는 방식 보기</a><a class="ghost" href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20">틀린 곳 알려 주기</a></div>
+    </div>
+    <div class="hstats" id="homeStats"></div>
+  </div>
 </main>

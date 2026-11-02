@@ -20,16 +20,32 @@ def fix_links(s):
     return s
 
 FOLLOWBOX = view('follow-box').strip()
-header = fix_links(view('header'))
-footer = fix_links(view('footer')).replace('<span>shiftai.magazine@gmail.com</span>',
-    '<a href="/privacy/">개인정보처리방침</a><a href="/feed.xml">RSS</a><span>shiftai.magazine@gmail.com</span>')
-assert '/privacy/' in footer
+# 알림 띠(머리말 위, 11/3~): 최근 14일 안에 나온 무료 도구를 알린다. 없으면 띠를 뺀다.
+def _josa(w, a, b):  # 받침 있으면 a(과·이), 없으면 b(와·가)
+    c = w.strip()[-1:]
+    return w + (a if c and '가' <= c <= '힣' and (ord(c) - 0xAC00) % 28 else b)
+def _annc():
+    tl = json.load(open(SRC + 'news/tools.json')); tl.sort(key=lambda t: t['date'], reverse=True)
+    if not tl: return ''
+    d0 = tl[0]['date']; now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date()
+    if (now - datetime.date.fromisoformat(d0)).days > 14: return ''
+    new = [t for t in tl if t['date'] == d0]; nm = [re.sub(r'\s*\(.*?\)\s*$', '', t['title']) for t in new]
+    if len(new) == 1: msg, href = f'새 무료 도구 {_josa(nm[0], "이", "가")} 나왔습니다', new[0]['href']
+    elif len(new) == 2: msg, href = f'새 무료 도구 2개, {_josa(nm[0], "과", "와")} {_josa(nm[1], "이", "가")} 나왔습니다', '/tools/'
+    else: msg, href = f'새 무료 도구 {len(new)}개가 나왔습니다', '/tools/'
+    return f'<a class="annc bleed" href="{href}" data-ev="annc:{href}"><span class="nb">NEW</span><span>{esc(msg)}</span><span class="go">써 보기 →</span></a>'
+header = fix_links(view('header')).replace('<!--ANNC-->', _annc())
+footer = fix_links(view('footer'))
+assert '/privacy/' in footer and '<!--ANNC-->' not in header
 
 def with_follow(v, before='</main>'):
     i = v.rindex(before); return v[:i] + FOLLOWBOX + '\n' + v[i:]
 
 home = fix_links(view('home'))
-home = home.replace('<div class="sec"><h2>튜토리얼</h2>', FOLLOWBOX + '\n  <div class="sec"><h2>튜토리얼</h2>', 1)
+home = home.replace('<div class="sec"><h2>무료 도구</h2>', FOLLOWBOX + '\n  <div class="sec"><h2>무료 도구</h2>', 1)
+assert FOLLOWBOX in home
+_ng = sum(1 for g in json.load(open(SRC + 'news/guides.json'))['guides'] if g.get('page'))
+home = home.replace('AI 길잡이 전체 →', f'AI 길잡이 {_ng}개 →')
 about = fix_links(view('about'))
 
 STATIC = {
@@ -175,12 +191,12 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 {FONTS}
 <link rel="stylesheet" href="/assets/site.css?v={VER}">
 </head>
-<body data-route="{route}">
-<div class="wrap">
+<body data-route="{route}" id="top">
 {header}
+<div class="wrap">
 {main}
-{footer}
 </div>
+{footer}
 <div class="toast" id="toast" role="status"></div>
 <script src="/assets/data.js?v={VER}"></script>
 <script src="/assets/app.js?v={VER}"></script>
