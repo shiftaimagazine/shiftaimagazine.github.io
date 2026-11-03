@@ -14,7 +14,7 @@
 손으로:
   python3 _src/newsletter/send.py --preview out.html [--date 2026-11-09]   # 메일 모양만(아무것도 안 보냄). --date 는 보낼 날(월요일)
   python3 _src/newsletter/send.py [--date …] [--now]                      # 실제 예약/발송(비밀값 필요)
-환경 변수: RESEND_API_KEY · RESEND_SEGMENT_ID · NEWSLETTER_FROM(선택) · NEWSLETTER_REPLY_TO(선택)
+환경 변수: RESEND_API_KEY · RESEND_SEGMENT_ID(선택, 없으면 '주간 메일' 세그먼트를 찾음) · NEWSLETTER_FROM(선택) · NEWSLETTER_REPLY_TO(선택)
 """
 import argparse, datetime, html, json, os, sys, time, urllib.error, urllib.request
 
@@ -184,8 +184,10 @@ def main():
 
     if send.isoformat() < CFG['start']: print(f'구독 시작일({CFG["start"]}) 전이라 보내지 않음:', send); return
     if len(week) < int(CFG.get('min_articles', 4)): print(f'그 주 기사가 {len(week)}개뿐이라 건너뜀:', send); return
-    if not os.environ.get('RESEND_API_KEY') or not os.environ.get('RESEND_SEGMENT_ID'):
-        print('::warning::RESEND_API_KEY · RESEND_SEGMENT_ID 비밀값이 없어 보내지 않음(_src/newsletter/SETUP.md)'); return
+    if not os.environ.get('RESEND_API_KEY'):
+        print('::warning::RESEND_API_KEY 비밀값이 없어 보내지 않음(_src/newsletter/SETUP.md)'); return
+    seg = os.environ.get('RESEND_SEGMENT_ID') or next((x['id'] for x in (api('GET', '/segments').get('data') or []) if x.get('name') == '주간 메일'), None)
+    if not seg: print("::warning::Resend 에 '주간 메일' 세그먼트가 없음(newsletter-worker 워크플로를 먼저 돌리세요)"); return
     hh, mm = map(int, CFG.get('send_time', '07:00').split(':'))
     at = datetime.datetime.combine(send, datetime.time(hh, mm), KST)
     if not o.now and now > datetime.datetime.combine(send, datetime.time(12, 0), KST):
@@ -195,7 +197,7 @@ def main():
     if not site_has(f"/news/{hot[0]['id']}/", o.wait):
         raise SystemExit(f"사이트에 /news/{hot[0]['id']}/ 가 없음(배포 대기 시간 초과). 다음 실행에서 다시 시도합니다.")
     if already_sent(name): print('이미 만든 발송 있음:', name); return  # 기다리는 동안 다른 실행이 만들었을 수 있음
-    req = {'segment_id': os.environ['RESEND_SEGMENT_ID'], 'from': os.environ.get('NEWSLETTER_FROM') or 'SHIFT AI <news@shiftaimagazine.com>',
+    req = {'segment_id': seg, 'from': os.environ.get('NEWSLETTER_FROM') or 'SHIFT AI <news@shiftaimagazine.com>',
            'reply_to': os.environ.get('NEWSLETTER_REPLY_TO') or 'shiftai.magazine@gmail.com', 'subject': subject, 'html': body, 'text': text, 'name': name, 'send': True}
     if not o.now and at > now + datetime.timedelta(minutes=2): req['scheduled_at'] = at.isoformat()
     r = api('POST', '/broadcasts', req)

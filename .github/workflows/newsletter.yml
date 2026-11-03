@@ -1,7 +1,7 @@
 # 주간 메일 '이번 주 AI 핫 이슈' 발송: 일요일 23:17(한국 시간)에 지난주(월~일) 기사로 메일을 만들어 월요일 07:00 으로 예약한다.
 # 놓친 경우를 위해 월요일 06:41(한국 시간)에도 한 번 확인한다. 같은 주 메일은 한 번만 간다(Resend 발송 이름 weekly-YYYY-MM-DD 로 확인).
 # 편집부가 기사를 고르려면 일요일 밤 전까지 _src/newsletter/weekly/<월요일 날짜>.json 을 올린다(형식은 send.py 맨 위).
-# 저장소 비밀값: RESEND_API_KEY · RESEND_SEGMENT_ID (없으면 경고만 남기고 끝냄). 안내서: _src/newsletter/SETUP.md
+# 저장소 비밀값: RESEND_API_KEY (없으면 경고만 남기고 끝냄). 세그먼트는 이름 '주간 메일'로 찾는다. 안내서: _src/newsletter/SETUP.md
 name: newsletter
 on:
   schedule:

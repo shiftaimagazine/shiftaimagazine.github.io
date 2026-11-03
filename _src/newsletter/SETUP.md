@@ -18,38 +18,35 @@
 - 사이트: 모든 페이지 맨 아래 구독 칸 + 페이지를 열 때마다 한 번 오른쪽 아래 팝업(12초 뒤 또는 글을 절반 읽었을 때, 닫기·Esc, 구독 신청한 브라우저에는 안 뜸).
 - 구독 서버는 주소를 따로 저장하지 않습니다. 명단은 Resend 에만 있습니다.
 
-## 1. Resend
+## 1. Resend (직접: 가입 + 키 1개)
 
-1. https://resend.com 가입(계정 만들기와 키 발급은 본인이 직접 해야 합니다)
-2. **Domains → Add Domain** → `shiftaimagazine.com`, 지역은 기본값(North Virginia) 그대로(개인정보처리방침에 미국으로 적었습니다).
-3. 화면에 나오는 DNS 레코드(MX 1개, TXT 2개 — `send` · `resend._domainkey`)를 도메인 회사(포크번) DNS 관리 화면에 그대로 추가 → Resend 에서 **Verify**. 기존 사이트 레코드(A·CNAME)는 건드리지 않습니다.
-4. 포크번 DNS 에 하나 더: 종류 `TXT`, 호스트 `_dmarc`, 값 `v=DMARC1; p=none;` (지메일·네이버 스팸함 방지)
-5. 도메인 설정에서 **Open tracking · Click tracking 은 끈 채로** 둡니다(방침에 열람·클릭 기록을 받지 않는다고 적었습니다).
-6. **Audience → Segments → Create segment** → 이름 `주간 메일` → 만들어진 세그먼트 **ID** 를 복사
-7. **API Keys → Create API Key** → 권한 **Full access** → 키(`re_…`) 복사
+1. https://resend.com 가입
+2. **API Keys → Create API Key** → 권한 **Full access** → 키(`re_…`) 복사
 
-## 2. Cloudflare
+도메인 등록·세그먼트('주간 메일')는 4번 워크플로가 만듭니다. 열람·클릭 추적은 꺼진 채로 둡니다(방침에 열람·클릭 기록을 받지 않는다고 적었습니다).
+
+## 2. Cloudflare (직접: 가입 + 토큰 1개)
 
 1. https://dash.cloudflare.com 가입
-2. 왼쪽 **Workers & Pages** 를 한 번 열어 workers.dev 하위 주소를 정합니다(예: `shiftai`). 구독 서버 주소는 `https://shift-newsletter.<하위 주소>.workers.dev` 가 됩니다.
-3. 오른쪽 위 계정 메뉴 → **Account ID** 복사(Workers & Pages 화면 오른쪽에도 나옴)
-4. **내 프로필 → API 토큰 → 토큰 만들기 → 'Cloudflare Workers 편집' 템플릿** → 만들기 → 토큰 복사
+2. **내 프로필 → API 토큰 → 토큰 만들기 → 'Cloudflare Workers 편집' 템플릿** → 토큰 요약 → 만들기 → 토큰 복사
 
-## 3. GitHub 저장소 비밀값
+계정 ID·workers.dev 하위 주소는 워크플로가 찾거나 만듭니다.
 
-저장소 **Settings → Secrets and variables → Actions → New repository secret** 에서 5개:
+## 3. GitHub 저장소 비밀값 (직접: 2개 붙여 넣기)
+
+저장소 **Settings → Secrets and variables → Actions → New repository secret**
 
 | 이름 | 값 |
 |---|---|
-| `RESEND_API_KEY` | 1-7 의 `re_…` |
-| `RESEND_SEGMENT_ID` | 1-6 의 세그먼트 ID |
-| `CLOUDFLARE_API_TOKEN` | 2-4 의 토큰 |
-| `CLOUDFLARE_ACCOUNT_ID` | 2-3 의 Account ID |
-| `NEWSLETTER_SIGNING_SECRET` | 아무도 모르는 긴 무작위 글자 40자 이상(비밀번호 생성기로 만들면 됨). 확인 링크 서명용 |
+| `RESEND_API_KEY` | 1-2 의 `re_…` |
+| `CLOUDFLARE_API_TOKEN` | 2-2 의 토큰 |
 
-## 4. 구독 서버 배포
+## 4. 워크플로 실행 → DNS 넣기 → 한 번 더 실행
 
-**Actions → newsletter-worker → Run workflow**. 끝나면 서버 주소를 `_src/newsletter/config.json` 의 `api` 에 적어 커밋하고 build-site 를 돌립니다(자동).
+1. **Actions → newsletter-worker → Run workflow**. Resend 도메인 등록, 세그먼트, 하위 주소, 서버 배포, 확인 링크 서명값(무작위, 어디에도 안 보임), 사이트 연결까지 합니다.
+2. 실행 결과 화면(Summary)에 **포크번에 넣을 DNS 레코드 표**가 나옵니다. 포크번 → 도메인 → DNS 에 그대로 추가(기존 A·CNAME 은 건드리지 않음). `_dmarc` TXT 도 함께.
+3. 몇 분 뒤 newsletter-worker 를 한 번 더 돌리면 인증을 확인합니다. Summary 에 '인증됨'이 나오면 끝.
+
 이후 `_src/newsletter/worker/` 를 고치면 다시 자동 배포됩니다.
 
 ## 5. 여는 날(2026-11-11)
