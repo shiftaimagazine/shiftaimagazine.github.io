@@ -1,6 +1,6 @@
 {
   "_": "주간 메일 설정. api 는 구독 서버 주소(newsletter-worker 워크플로가 배포하고 적음, 비어 있으면 구독 칸·팝업을 안 보임). start 부터 사이트에 구독 칸이 보이고 발송을 시작한다(개인정보처리방침 7일 전 공지). 메일은 매주 월요일 send_time(한국 시간)에 지난주 월~일 기사로 보낸다. hot 은 '이번 주 핫 이슈'로 크게 싣는 기사 수, min_articles 보다 기사가 적은 주는 건너뛴다.",
-  "api": "",
+  "api": "https://shift-newsletter.shiftaimagazine.workers.dev",
   "start": "2026-11-11",
   "send_time": "07:00",
   "hot": 5,
