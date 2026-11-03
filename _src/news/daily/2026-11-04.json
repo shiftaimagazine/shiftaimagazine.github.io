@@ -1,0 +1,536 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-04-hf-transformers-mic",
+   "cat": "연구",
+   "date": "2026-11-04",
+   "time": "06:55",
+   "title": "허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다",
+   "sub": "Model Integration Contracts · 타렉 지아데 · 허깅페이스 블로그",
+   "hook": "허깅페이스(Hugging Face)가 트랜스포머스 라이브러리에 모델 통합 계약(MIC)을 제안했습니다. 실제 모델의 설정으로 줄여 만든 작은 모델에 사용 경로를 돌려 보고, 사람이 검토한 기준 결과와 같은지 CPU에서 확인하는 방식입니다.",
+   "try": "자주 쓰는 모델이 있다면 블로그 안내대로 transformers-mic를 설치하고 tmic run 명령을 내 컴퓨터에서 돌려 축소 모델과 기준 결과가 만들어지는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "허깅페이스(필자 타렉 지아데)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 3일(블로그 게시일)"
+    ],
+    [
+     "무엇",
+     "트랜스포머스 모델 통합 계약(MIC) 표준안"
+    ],
+    [
+     "핵심 숫자",
+     "라마 4 스카우트 파라미터 1,086억 개를 4,470만 개로 축소"
+    ],
+    [
+     "현재 상태",
+     "11월 1일 기준 CI에서 실패를 보고만 하고 PR은 막지 않음"
+    ],
+    [
+     "원문",
+     "허깅페이스 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "허깅페이스(Hugging Face)의 타렉 지아데(Tarek Ziadé)가 11월 3일 블로그에 트랜스포머스(Transformers)용 '모델 통합 계약(Model Integration Contract, MIC)' 표준안을 소개했습니다. 실제 체크포인트의 설정으로 줄여 만든 작은 모델에 대표적인 사용 경로를 돌려 보고, 사람이 검토해 둔 기준 결과와 같은지 CPU에서 확인하는 방식입니다."
+    },
+    {
+     "ul": [
+      [
+       "모델 하나를 세 부분으로 묶은 계약",
+       "줄인 모델, 사용 경로, 기준 결과"
+      ],
+      [
+       "PR마다 CPU에서 확인",
+       "GPU 정기 실행을 기다리지 않고 main에 들어가기 전에 점검"
+      ],
+      [
+       "아직 PR을 막지는 않음",
+       "11월 1일 기준 실패를 보고만 하는 단계"
+      ]
+     ]
+    },
+    {
+     "h": "UMT5 버그는 두 달 가까이 main에 남았습니다"
+    },
+    {
+     "p": "글이 드는 사례는 2026년 7월 30일에 트랜스포머스가 T5에 파이토치(PyTorch)의 SDPA(scaled dot-product attention)를 켠 일입니다. 부작용으로 UMT5 디코더가 미래 토큰을 볼 수 있게 되어 학습 중에 맞혀야 할 답을 미리 엿볼 수 있었지만 오류는 나지 않았고, 버그는 거의 두 달 동안 main에 남았습니다. 트랜스포머스는 지원하는 모델 종류가 750개를 넘고 main에서 CPU 테스트 8만 8,000개 이상, 매일 GPU 테스트 20만 개 이상을 돌립니다. 글에 따르면 작은 UMT5 픽스처는 이 회귀 버그를 생긴 날인 7월 30일부터 수정이 들어간 9월 28일까지 계속 표시했습니다."
+    },
+    {
+     "h": "계약은 픽스처, 사용 경로, 기준 결과로 이뤄집니다"
+    },
+    {
+     "p": "픽스처는 실제 체크포인트의 설정으로 줄여 만든 모델로 한 번 만들어 고정해 둡니다. 층 수와 폭은 줄여도 원래 모델에 있는 층 종류는 모두 남기고 토크나이저와 프로세서 파일도 그대로 씁니다. 사용 경로는 텍스트 생성이나 학습 한 단계처럼 사람들이 그 모델로 실제로 하는 일을 실행 가능한 마크다운 예제로 적은 것이고, 기준 결과는 그 예제를 돌려 기록한 출력을 사람이 검토한 값입니다. 픽스처에서 사용 경로를 돌렸을 때 기준 결과가 그대로 나오면 계약이 지켜진 것입니다. 계약 하나는 체크포인트 하나가 아니라 구조와 사용 경로에 걸리기 때문에 호환되는 체크포인트가 픽스처를 나눠 쓰고 기준 결과만 따로 가집니다."
+    },
+    {
+     "p": "SDPA는 기본 어텐션 경로인데 eager 어텐션 변형만 돌렸을 때는 UMT5 버그가 걸리지 않았습니다. 글은 픽스처가 실제 체크포인트와 같은 코드를 지나야 의미가 있다고 적고, 가중치 파일 형식도 원래대로 두어 사용자가 실제 체크포인트를 불러올 때 도는 변환 코드까지 시험하게 합니다."
+    },
+    {
+     "h": "1,086억 개 파라미터가 4,470만 개가 됩니다"
+    },
+    {
+     "p": "라마 4 스카우트(Llama 4 Scout) 17B-16E Instruct는 파라미터가 1,086억 개에서 4,470만 개로 줄고, 비전 쪽 34층은 2층, 언어 쪽 48층은 4층이 됩니다. UMT5 실험용 픽스처의 가중치는 66MB로 원본 체크포인트의 1,227MB보다 훨씬 작습니다. 수정을 되돌린 시험 가지에서 T5 계약을 돌리자 라벨 로그 확률이 검토한 기준값과 1.22, 학습 손실이 약 0.20 달랐고 실행 단계는 설정 시간을 빼고 CPU에서 13.4초가 걸렸습니다. 위스퍼(Whisper) 가중치 초기화 연구에서는 일부러 심은 결함 24개 중 무작위 가중치 픽스처가 18개, 한 번 과적합시킨 픽스처가 24개를 모두 잡았습니다(자체 발표 기준)."
+    },
+    {
+     "h": "PR을 막지 않고 실패만 알립니다"
+    },
+    {
+     "p": "11월 1일 기준으로 트랜스포머스 CI의 MIC 작업은 실패를 보고하되 PR을 막지는 않습니다. 막을지는 PR에서 실제 버그를 얼마나 잡는지, 헛경보로 얼마나 헤매게 하는지, 기준 결과 검토에 일이 얼마나 드는지처럼 아직 재지 못한 요소에 달려 있다고 글은 적습니다. 위스퍼에서는 두 픽스처 모두 실제 체크포인트로만 드러난 보조 디코딩 버그를 놓쳤고, 심은 결함이 합성이라 과적합판만 잡은 실제 회귀는 찾지 못했습니다. 기준 결과는 LLM이 초안을 쓰고 사람이 승인하며 픽스처가 전체 통합 테스트를 대신하지는 않습니다. 허브 모델 페이지와 MIC를 연결하는 일은 아직 계획으로만 적혀 있습니다."
+    }
+   ],
+   "ask": "쓰고 있는 오픈소스 라이브러리는 업데이트 때 이전 결과와 비교하는 테스트를 어떻게 돌리나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "제안 단계라 CI는 실패를 보고만 하고 PR을 막지 않습니다."
+   },
+   "sources": [
+    [
+     "허깅페이스 블로그 — Transformers Model Integration Contracts",
+     "https://huggingface.co/blog/transformers-mic"
+    ]
+   ],
+   "terms": [
+    "허깅페이스",
+    "트랜스포머",
+    "회귀 버그",
+    "픽스처",
+    "지속적 통합",
+    "파라미터",
+    "LLM"
+   ],
+   "image": {
+    "page": "https://huggingface.co/blog/transformers-mic",
+    "og": "https://huggingface.co/blog/assets/transformers-mic/mic-logo.png",
+    "credit": "이미지: Hugging Face",
+    "alt": "허깅페이스 MIC 블로그 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "750개 모델 종류, 테스트 수",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Transformers supports over 750 model types, and its test suite is big: **88,000+ CPU tests on main, plus 200,000+ GPU tests in a daily run.**"
+    },
+    {
+     "claim": "7월 30일 SDPA, UMT5, 두 달",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "On July 30, 2026, Transformers enabled PyTorch's scaled dot-product attention (SDPA) for T5. As a side effect, UMT5's decoder could attend to future tokens. During training, it could peek at the answer it was supposed to predict. Nothing crashed, and the bug stayed in main for almost two months."
+    },
+    {
+     "claim": "픽스처가 7월 30일~9월 28일 회귀 표시",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "The small UMT5 fixture flagged the regression from its introduction on July 30, 2026 until its fix on September 28."
+    },
+    {
+     "claim": "MIC 세 부분과 정의",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "transformers-mic is a proposed standard for packaging these tests. A Model Integration Contract (MIC) has three parts: a fixture: the shrunk model described above, published once and pinned; a usage path: a runnable Markdown example of something people do with the model, such as generating text or running a training step; baselines: the outputs recorded when running that example, reviewed by a human. The contract holds if running the usage path on the fixture still produces the baselines."
+    },
+    {
+     "claim": "계약은 구조와 사용 경로에 걸림",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "A contract covers an architecture and a usage path, not a single checkpoint: compatible checkpoints can share a fixture, while each keeps its own expected results."
+    },
+    {
+     "claim": "eager 변형만으로는 놓침",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "One detail mattered: the contract used SDPA, the default attention path. Running only the eager attention variant missed the bug. A fixture only helps if it goes through the same code as the real checkpoint."
+    },
+    {
+     "claim": "라마 4 스카우트 축소",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "108.6 billion parameters become 44.7 million. The vision stack goes from 34 layers to 2 and the language stack from 48 to 4, keeping the checked layer kinds and MoE routing style."
+    },
+    {
+     "claim": "UMT5 픽스처 66MB, 원본 1,227MB",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "In our CPU study, the experimental UMT5 fixture used 66 MB of weights; the source checkpoint is 1,227 MB."
+    },
+    {
+     "claim": "로그 확률 1.22, 손실 0.20",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Label log-probabilities differed from the reviewed baseline by 1.22 and training loss by about 0.20."
+    },
+    {
+     "claim": "13.4초",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "The check failed with the same differences, and the selected T5 contract's runner step took 13.4 seconds on CPU, excluding setup."
+    },
+    {
+     "claim": "위스퍼 결함 18/24, 24/24",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "In our weight-initialization study, the random Whisper fixtures caught 18 of 24 injected faults. The overfit fixtures caught all 24."
+    },
+    {
+     "claim": "11월 1일 PR 차단 안 함",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "As of November 1, 2026, the MIC job in Transformers CI reports failures without blocking PRs."
+    },
+    {
+     "claim": "열린 질문",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "How many real bugs does it catch on PRs, not just in replays? How often does it send us chasing false alarms? How much work do baseline reviews take?"
+    },
+    {
+     "claim": "위스퍼 보조 디코딩 버그",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Both versions missed an assisted-decoding bug that the real Whisper checkpoint exposed."
+    },
+    {
+     "claim": "허브 연결은 계획",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Finally, we'd like to link original Hub model pages to their MICs, so a developer or an agent using a checkpoint could start from an example tested on that checkpoint, its environment and its expected outputs."
+    },
+    {
+     "claim": "tmic 명령은 로컬에서 초안과 기준 결과를 만들고 업로드 전에 멈춤",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "It drafts the contract, builds the fixture and records its baselines on your machine, asking you to review each step, and stops before uploading anything."
+    },
+    {
+     "claim": "LLM은 초안, 사람이 승인",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "The LLM drafts; it doesn't approve. Changed expectations require human review."
+    },
+    {
+     "claim": "전체 통합 테스트를 대체하지 않음",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Fixtures won't replace full integration tests, but on PRs they give us a chance to catch bugs before they reach main."
+    },
+    {
+     "claim": "실제 회귀를 과적합판만 잡은 예는 못 찾음",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Those were synthetic faults, and we haven't found a real regression caught only by the overfit version."
+    },
+    {
+     "claim": "변환 코드까지 실행",
+     "url": "https://huggingface.co/blog/transformers-mic",
+     "quote": "Otherwise we would skip the conversion code that runs when a user loads the real checkpoint."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-04-nvidia-city-physical-agentic-ai",
+   "cat": "모델·제품",
+   "date": "2026-11-04",
+   "time": "06:54",
+   "title": "엔비디아 도시용 피지컬·에이전틱 AI 사례, 스페인 150건 넘는 배포부터 말레이시아 카메라 1만 7,000대까지",
+   "sub": "NVIDIA 블로그 · 스마트시티 엑스포 월드 콩그레스 · 7곳 사례",
+   "hook": "엔비디아(NVIDIA)가 도시 행정에 쓰는 피지컬 AI와 에이전틱 AI 사례를 블로그에 모아 소개했습니다. 스페인의 주민 민원 에이전트, 말레이시아의 교통 카메라 분석, 모로코 항만의 AI 공장까지 일곱 곳이 나옵니다.",
+   "try": "사는 지역 시청이나 구청 누리집에 민원 안내 챗봇 같은 AI 서비스가 있는지 찾아보고, 어떤 일을 대신 처리해 주는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "엔비디아(NVIDIA) 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 2일(블로그 표기)"
+    ],
+    [
+     "무엇",
+     "도시용 피지컬 AI·에이전틱 AI 협력사 사례 소개"
+    ],
+    [
+     "핵심 숫자",
+     "스페인 150건 넘는 배포, 말레이시아 카메라 1만 7,000대 이상(2027년까지)"
+    ],
+    [
+     "계기",
+     "스마트시티 엑스포 월드 콩그레스(바르셀로나, 11월 3~5일)"
+    ],
+    [
+     "원문",
+     "엔비디아 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "엔비디아(NVIDIA)가 블로그에서 도시 행정에 쓰는 피지컬 AI와 에이전틱 AI 협력사 사례를 한꺼번에 소개했습니다. 11월 3일부터 5일까지 바르셀로나에서 열리는 스마트시티 엑스포 월드 콩그레스(Smart City Expo World Congress)에 맞춘 글로, 스페인의 주민 민원 에이전트부터 말레이시아의 교통 카메라 분석과 모로코 탕헤르 메드 항만의 AI 공장까지 일곱 곳이 나옵니다."
+    },
+    {
+     "ul": [
+      [
+       "도시 팀이 작게 시작할 수 있다는 설명",
+       "작업에 따라 RTX 워크스테이션이나 소형 GPU 시스템으로 충분할 수 있음"
+      ],
+      [
+       "카메라 영상을 운영 정보로",
+       "말레이시아 ITMAX는 2027년까지 카메라 1만 7,000대 이상 지원"
+      ],
+      [
+       "디지털 트윈으로 먼저 시뮬레이션",
+       "도시 숲 15년을 10분에 시뮬레이션했다는 대만 사례"
+      ]
+     ]
+    },
+    {
+     "h": "민원을 받는 에이전트가 스페인에서 150건 넘게 돌고 있습니다"
+    },
+    {
+     "p": "글은 도시 팀이 큰 인프라 투자 없이 시작할 수 있고, 작업에 따라 엔비디아 RTX 워크스테이션이나 작은 GPU 시스템으로 충분할 수 있다고 설명합니다. 스페인의 1MillionBot은 바르셀로나 슈퍼컴퓨팅 센터(BSC)에서 학습한 오픈소스 ALIA 모델에 엔비디아 네모트론(Nemotron) 등을 합쳐 주민 서비스용 에이전트를 만들었습니다. 이 에이전트는 마드리드 디지털(Madrid Digital)과 카탈루냐 행정 포털 Administració Oberta de Catalunya, 스페인 전역 150건 넘는 배포에서 행정 절차와 예약 요청, 도시계획 관련 민원, 문의를 처리합니다. 미국 샌프란시스코 베이 지역에서는 LiveX가 코스모스(Cosmos) 월드 모델과 네모트론, 옴니버스(Omniverse)와 메트로폴리스(Metropolis) 라이브러리를 RTX PRO GPU에서 돌려 공항과 병원, 행사장에서 말을 알아듣고 답하고 처리까지 하는 대화형 안내원을 만들고 있습니다."
+    },
+    {
+     "h": "카메라 영상이 신호 시간 시험으로 이어지는 말레이시아"
+    },
+    {
+     "p": "폴란드 브로츠와프(Wrocław)에서는 K2K가 기존 카메라 영상을 이동성과 안전, 행사 대응 정보로 바꾸는 공용 AI 인프라를 짓고 있으며, 같은 인프라를 여러 도시 기능이 나눠 씁니다. 말레이시아의 ITMAX는 인프라와 에이전트 앱을 묶어 도시에 장기 관리형 서비스로 제공하는데, 이 회사의 SamurAI V2 비전 에이전트는 RTX PRO 6000 GPU에서 2027년까지 카메라 1만 7,000대 이상을 지원하는 규모로 늘고 있습니다. ITMAX가 라플라스 인텔리전스(Laplace Intelligence)의 오픈소스 교통 시뮬레이션 플랫폼 TeraSim으로 신호 시간을 시험해 피크 시간대 구간 이동 시간을 최대 26% 줄였다고 글은 소개합니다(자체 발표 기준)."
+    },
+    {
+     "h": "정유소와 도시 숲을 먼저 컴퓨터에서 돌려 봅니다"
+    },
+    {
+     "p": "나이지리아 단고테(Dangote)의 레키 정유소에서는 하니웰(Honeywell)의 Forge Plant Cognition이 네모트론 기반 AI 에이전트로 운영 데이터를 읽어 병목과 설비·공정 문제를 찾도록 돕습니다. 옴니버스로 만드는 공장 디지털 트윈은 시뮬레이션과 교육용으로 계획 중입니다. 대만에서는 링커 비전(Linker Vision)과 네덜란드 건축사무소 MVRDV가 도시계획 시나리오의 환경 영향을 평가하는 ESG 에이전트를 만들고 있고, 도시 숲의 15년 뒤 모습을 10분에 시뮬레이션해 설계 반복 한 번에 2주 걸리던 속도를 1시간 안쪽으로 줄였다고 합니다(자체 발표 기준)."
+    },
+    {
+     "h": "모로코 항만과 BSC 스타트업 지원은 계획과 지원 단계입니다"
+    },
+    {
+     "p": "모로코 탕헤르 메드(Tanger Med) 항만에서는 시레스 테크놀로지스(Cires Technologies)가 소버린 AI 팩토리를 넓히며 작업자 안전, 혼잡 분석, 화물 경로, 항만 운영 앱을 계획하고 있습니다. 바르셀로나 슈퍼컴퓨팅 센터의 AI Factory Accelerator Programme은 스타트업에 소버린 컴퓨팅과 기술 지원, 교육을 제공하고 농업, 의료 영상, 지식 접근, 음성 서비스 분야 연구도 돕습니다. 글에 나온 도시와 지역에 한국은 들어 있지 않습니다."
+    }
+   ],
+   "ask": "사는 도시의 행정 서비스 중 AI가 대신 응대해 주면 좋겠다고 느낀 일은 무엇인가요?",
+   "verdict": {
+    "v": "watch",
+    "why": "소개된 사례는 협력사 도입 현황이고 일반 이용자가 쓸 제품은 없습니다."
+   },
+   "sources": [
+    [
+     "엔비디아 블로그 — Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
+     "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/"
+    ]
+   ],
+   "terms": [
+    "엔비디아",
+    "네모트론",
+    "피지컬 AI",
+    "디지털 트윈",
+    "오픈소스",
+    "GPU",
+    "에이전트"
+   ],
+   "image": {
+    "page": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+    "og": "https://blogs.nvidia.com/wp-content/uploads/2026/11/smart-city-blog-1920x1080-1.jpeg",
+    "credit": "이미지: NVIDIA",
+    "alt": "엔비디아 블로그의 스마트시티 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "스페인 1MillionBot, 150건 넘는 배포",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "In Spain, 1MillionBot combines open source ALIA models trained at the Barcelona Supercomputing Center with NVIDIA Nemotron and other models in resident-service agents for Madrid Digital (Comunidad de Madrid), Administració Oberta de Catalunya and 150+ deployments across Spain, handling municipal procedures, appointment requests, urban-planning incidents and service inquiries."
+    },
+    {
+     "claim": "작게 시작 가능",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "City teams don't need a massive infrastructure investment to get started building these AI services: depending on the workload, NVIDIA RTX workstations or a small GPU system may be enough."
+    },
+    {
+     "claim": "LiveX AI City",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "In the San Francisco Bay Area, LiveX is bringing its AI City vision to life with NVIDIA Cosmos world models and Nemotron open models, and Omniverse and Metropolis libraries on NVIDIA RTX PRO GPUs. The interactive, conversational AI hosts understand people's needs, provide answers and take action, and can be tailored to local languages and service needs in airports, hospitals, local events and other public spaces."
+    },
+    {
+     "claim": "K2K 브로츠와프",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "In Wrocław, Poland, K2K is building shared AI infrastructure using NVIDIA accelerated computing, NVIDIA Cosmos world reasoning models, and NVIDIA Metropolis Blueprint for video search and summarization (VSS) to transform existing camera streams into actionable intelligence for mobility, safety and event response — using the same infrastructure across several city functions."
+    },
+    {
+     "claim": "ITMAX 1만 7,000대, 26%",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "In Malaysia, ITMAX bundles infrastructure and agentic AI applications into long-term managed services for cities, including for traffic management. Built with reference to Cosmos, Nemotron and the Metropolis VSS blueprint, ITMAX's SamurAI V2 vision agents are scaling on NVIDIA RTX PRO 6000 GPUs to support 17,000+ cameras by 2027. ITMAX integrates TeraSim, an open source traffic simulation platform from Laplace Intelligence, to test signal timing, reducing peak-hour corridor travel times by up to 26%."
+    },
+    {
+     "claim": "하니웰·단고테, 디지털 트윈은 계획",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "At Dangote's Lekki refinery in Nigeria, Honeywell Technologies' Forge Plant Cognition uses Nemotron-powered AI agents to understand operational data. A digital twin of the plant and its processes, built using Omniverse libraries, is also planned to support simulation and training."
+    },
+    {
+     "claim": "대만 MVRDV 15년·10분·2주→1시간",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "In Taiwan, Linker Vision and Dutch architecture firm MVRDV are using NVIDIA Omniverse and Nemotron to build environmental, social and governance agents that can assess the environmental impact of various urban planning scenarios, simulating 15-year outcomes of an urban forest canopy in 10 minutes — increasing design iteration speed from two weeks per iteration to less than an hour."
+    },
+    {
+     "claim": "탕헤르 메드 계획",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "At Morocco's Tanger Med port, Cires Technologies is expanding a sovereign AI factory for planned applications in worker safety, congestion analysis, cargo routing and port operations."
+    },
+    {
+     "claim": "BSC 스타트업 프로그램",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "Beyond city services, Barcelona Supercomputing Center's AI Factory Accelerator Programme gives startups access to sovereign computing, technical support and training."
+    },
+    {
+     "claim": "엑스포 일정",
+     "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+     "quote": "Smart City Expo World Congress, running Nov. 3-5 in Barcelona"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-04-egoless-mathematics-ai",
+   "cat": "커뮤니티·문화",
+   "date": "2026-11-04",
+   "time": "06:53",
+   "title": "수학자 3인의 에세이 '에고 없는 수학', AI 시대 연구의 값어치를 다시 묻다",
+   "sub": "Egoless Mathematics in the AI Era · 테렌스 타오 블로그 손님 글",
+   "hook": "수학자 세 명이 쓴 에세이 '에고 없는 수학(Egoless Mathematics in the AI Era)'이 11월 2일 테렌스 타오의 블로그에 올라왔습니다. 연구의 값어치를 결과물과 개인 능력에서 찾는 관점이 AI 앞에서 흔들린다는 논지입니다.",
+   "try": "하는 일의 가치를 성과로만 재고 있지 않은지, 원문 첫 두 단락을 읽고 스스로 물어 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "카르틱 C. S.·아미트 사하이·지에 쉐(손님 글)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 2일"
+    ],
+    [
+     "어디에",
+     "테렌스 타오(Terence Tao) 블로그"
+    ],
+    [
+     "무엇",
+     "AI 시대 수학자의 일과 가치를 다룬 에세이"
+    ],
+    [
+     "원문",
+     "terrytao.wordpress.com"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "수학자 카르틱 C. S.(Karthik C. S.), 아미트 사하이(Amit Sahai), 지에 쉐(Jie Xue)가 쓴 에세이 '에고 없는 수학'이 11월 2일 테렌스 타오(Terence Tao)의 블로그에 손님 글로 올라왔습니다. 세 사람은 AI가 수학에 들어온 지금이 수학 일의 목적을 따져 볼 때라고 쓰고, 연구의 값어치를 결과물과 개인 능력의 증명에서 찾아 왔다면 지금의 불확실함은 그 생각의 약점을 드러낸다고 말합니다."
+    },
+    {
+     "ul": [
+      [
+       "값어치를 성과에 두는 관점",
+       "글쓴이들은 이 관점이 AI 이전부터 있었다고 봅니다"
+      ],
+      [
+       "사람만의 능력으로 버티는 길",
+       "창의성, 직관, 감각을 방어선으로 삼아도 같은 전제에 머문다는 지적"
+      ],
+      [
+       "AI를 쓰는 쪽과 쓰지 않는 쪽",
+       "둘 다 수학적 진리에 대한 헌신일 수 있다는 입장"
+      ]
+     ]
+    },
+    {
+     "h": "발견인가 발명인가라는 오래된 질문에서 출발합니다"
+    },
+    {
+     "p": "글은 수학을 공리와 개념을 골라 만든 것으로 볼지 이미 있는 것을 찾아낸 것으로 볼지를 먼저 묻습니다. 두 입장이 꼭 부딪히지는 않는다고 보고, 우리가 만든 구성물이 우리와 무관한 무언가를 알아보게 해 주는지를 기준으로 삼습니다. 근거로는 땅을 파기 전에도 화석이 있다는 고생물학자의 비유, 추측이 반례를 만나는 일, 서로 다른 이론이 같은 구조를 공유하는 일을 듭니다. 소수가 무한히 많다는 사실은 누가 증명하기 전에도 참이었다는 예도 나옵니다. 발견에 큰 창의성이 필요해도 발견된 진리가 개인의 창작물이 되지는 않는다고 글쓴이들은 씁니다. 수학자의 지성은 자신과 무관한 질서를 이해하는 수단이라는 것이 이 대목의 결론입니다."
+    },
+    {
+     "h": "논문 수와 인용 수가 일의 값어치를 정할 때"
+    },
+    {
+     "p": "증명이 형식적으로 맞는 것만으로는 충분하지 않다는 말도 나옵니다. 글은 이론이 이전에 따로 이해하던 것들의 통일성을 드러내거나 어떤 현상이 왜 일어나는지 알아보게 해 줄 때 그 이론을 값지게 여긴다고 설명합니다. 출판물, 인용, 상 같은 지표가 일의 값어치를 정의하는 순간 문제가 생긴다고 글은 봅니다. 그러면 수학자는 생산 능력의 묶음으로, 수학은 그 산출물로 보이기 시작합니다. 이 관점은 AI 이전부터 있었고 AI는 그 결과를 드러냈을 뿐이라는 것이 글쓴이들의 판단입니다. 창의성, 직관, 감각처럼 사람만의 능력을 내세워 AI와 선을 긋는 대응도 같은 관점 안에 머문다고 지적합니다."
+    },
+    {
+     "h": "AI가 찾은 발견도 값어치가 줄지 않습니다"
+    },
+    {
+     "p": "에고 없는 수학은 진리를 대하는 자리에서 시작합니다. 진리를 찾는 조건이 자신의 중요함을 지키는 것이라면 이미 진리를 자신 아래에 둔 것이고, AI가 해낸 발견도 우리가 쓰지 않았다는 이유로 값어치를 잃지 않는다고 글은 말합니다. 이해하는 기쁨은 다른 사람이 먼저 찾아냈다고 줄지 않으며 누구에게서 빼앗지 않은 채 나눌 수 있다고도 합니다. 이 기준으로 보면 AI를 적극 쓰는 수학자와 쓰지 않기로 한 수학자의 선택이 모두 수학적 진리에 대한 헌신에서 나올 수 있다는 것이 글쓴이들의 입장입니다."
+    },
+    {
+     "h": "글쓴이들이 밝힌 한계와 AI 사용"
+    },
+    {
+     "p": "세 사람은 자신들도 에고 없는 상태에는 한참 못 미친다고 인정하고, 이 글이 구체적인 정책이 아니라 숙고를 이끄는 상위의 관점을 내놓으려는 것이라고 설명합니다. 글 끝에서는 라마누잔을 두고 생각 실험을 하나 제시합니다. 타오는 이 글이 처음 다른 파일 형식으로 쓰였다가 AI로 변환됐다고 적었고, 글쓴이들은 초안 작성에 GPT Astra 6.0과 GPT 6.1 Sol을 썼다고 밝혔습니다."
+    }
+   ],
+   "ask": "내가 하는 일의 값어치는 어떤 기준으로 따지고 있나요?",
+   "sources": [
+    [
+     "테렌스 타오 블로그 — Egoless Mathematics in the AI Era",
+     "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/"
+    ]
+   ],
+   "terms": [
+    "인공지능"
+   ],
+   "image": {
+    "page": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+    "og": null,
+    "credit": "이미지: terrytao.wordpress.com 화면",
+    "alt": "테렌스 타오 블로그의 에고 없는 수학 글 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "목적을 따질 때",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "This is a good time for mathematicians to think carefully about the purpose of their work."
+    },
+    {
+     "claim": "결과물·개인 능력과 불확실함",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "If our answer has become inseparable from the production of results and the demonstration of individual ability, the present uncertainty may reveal a difficulty in our conception of the work itself."
+    },
+    {
+     "claim": "발견이 창작물이 되지는 않음",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "The discovery may require great creativity, but that does not make the truth discovered a creation of the individual."
+    },
+    {
+     "claim": "수학자를 생산 능력의 묶음으로",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "We begin to see mathematicians as collections of productive abilities, and mathematics as merely their output."
+    },
+    {
+     "claim": "사람만의 능력은 해법이 아님",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "The response cannot simply be to seek refuge in distinctively human abilities such as creativity, intuition, or taste."
+    },
+    {
+     "claim": "진리를 자신 아래에 둠",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "If we approach truth on the condition that its discovery must preserve our importance, we have already made it subordinate to ourselves."
+    },
+    {
+     "claim": "에고 없는 수학의 시작",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "Egoless mathematics begins with taking that possibility seriously."
+    },
+    {
+     "claim": "이해하는 기쁨은 다름",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "The joy of understanding is different."
+    },
+    {
+     "claim": "게시일 2026년 11월 2일, 손님 글, AI 변환·초안 사용 표기",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+     "quote": "2 November 2026 (page metadata article:published_time 2026-11-02T18:54:00+00:00); guest post by Karthik C. S., Amit Sahai and Jie Xue; the post notes it was initially written in a different file format and converted using AI, and states that GPT Astra 6.0 and GPT 6.1 Sol were used in drafting."
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI 버그 바운티 확대·보안 스프린트·그리드 프로텍터 프로그램",
+   "reason": "openai.com 원문이 열리지 않아(WebFetch 실패) 숫자를 확인할 수 없었음"
+  },
+  {
+   "topic": "앤트로픽 RSI 경고(기업공개 서류)",
+   "reason": "1차 출처인 SEC 서류가 열리지 않고 언론 인용문만 확인됨"
+  },
+  {
+   "topic": "중국 AI 수출통제 공고 48호",
+   "reason": "공고일이 10월 16일이라 36시간 범위를 벗어남"
+  },
+  {
+   "topic": "구글 SynthID Detector 확대·안드로이드 사기 방지",
+   "reason": "원문 게시일이 10월 7일·14일이라 범위를 벗어남"
+  }
+ ]
+}
