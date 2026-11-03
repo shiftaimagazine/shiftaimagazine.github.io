@@ -1,0 +1,23 @@
+# SHIFT AI 메일 구독 서버. 배포는 .github/workflows/newsletter-worker.yml 이 한다(손으로: npx wrangler deploy).
+# 비밀값(RESEND_API_KEY · SIGNING_SECRET)은 여기에 쓰지 않는다. 워크플로가 GitHub 저장소 비밀값에서 넣는다.
+name = "shift-newsletter"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+[vars]
+SITE = "https://shiftaimagazine.com"
+FROM = "SHIFT AI <news@shiftaimagazine.com>"
+REPLY_TO = "shiftai.magazine@gmail.com"
+# Resend 에서 만든 세그먼트 ID 는 워크플로가 저장소 비밀값 RESEND_SEGMENT_ID 로 덮어쓴다(--var)
+SEGMENT_ID = ""
+# 이 시각 전에는 신청을 받지 않는다(개인정보처리방침 7일 전 공지 → 11월 11일 시행). _src/newsletter/config.json 의 start 와 같게.
+START = "2026-11-11T00:00:00+09:00"
+# 시험할 때만: 쉼표로 다른 주소 허용(예: "http://localhost:8000")
+ALLOW_ORIGINS = ""
+
+# 같은 IP 에서 1분에 5번까지(Cloudflare Workers 속도 제한)
+[[ratelimits]]
+name = "RL"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }

@@ -20,6 +20,15 @@ def fix_links(s):
     return s
 
 FOLLOWBOX = view('follow-box').strip()
+# 데일리 메일 구독(11/4~, 시행 11/11): _src/newsletter/config.json. 구독 서버 주소(api)가 있고 시작일(start)이 지났을 때만 구독 칸을 넣는다.
+# 구독 칸은 팔로우 상자 바로 위에 붙어 팔로우 상자가 나오는 모든 페이지에 함께 나온다. 서버·발송은 _src/newsletter/ (SETUP.md)
+NL = json.load(open(SRC + 'newsletter/config.json'))
+NL_API = (NL.get('api') or '').rstrip('/')
+assert not NL_API or re.fullmatch(r'https://[a-z0-9.-]+(/[A-Za-z0-9._/-]*)?', NL_API), ('newsletter api 주소 형식', NL_API)
+NL_LIVE = bool(NL_API) and datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date() >= datetime.date.fromisoformat(NL['start'])
+SUBBOX = view('subscribe-box').strip().replace('{API}', html.escape(NL_API, quote=True)) if NL_LIVE else ''
+FOLLOW_ONLY = FOLLOWBOX
+if NL_LIVE: FOLLOWBOX = SUBBOX + '\n' + FOLLOWBOX
 # 알림 띠(머리말 위, 11/3~): 최근 14일 안에 나온 무료 도구를 알린다. 없으면 띠를 뺀다.
 def _josa(w, a, b):  # 받침 있으면 a(과·이), 없으면 b(와·가)
     c = w.strip()[-1:]
@@ -37,6 +46,9 @@ def _annc():
 header = fix_links(view('header')).replace('<!--ANNC-->', _annc())
 footer = fix_links(view('footer'))
 assert '/privacy/' in footer and '<!--ANNC-->' not in header
+if NL_LIVE:
+    _fg = '<div class="fgrp"><span>팔로우</span>'
+    assert _fg in footer; footer = footer.replace(_fg, _fg + '<a href="/subscribe/">데일리 메일</a>', 1)
 
 def with_follow(v, before='</main>'):
     i = v.rindex(before); return v[:i] + FOLLOWBOX + '\n' + v[i:]
@@ -196,7 +208,7 @@ ANALYTICS = '<script defer src="/assets/stats.js"></script>\n' if GC_CODE else '
 # 콘텐츠 보안 정책(CSP): GitHub Pages 는 응답 머리를 못 바꾸므로 <meta> 로 건다. 우리 서버·구글 글꼴·통계 주소 밖으로는 스크립트를 불러오거나 데이터를 보내지 못한다.
 #  'wasm-unsafe-eval' = 글자 인식(tesseract)·HEIC 변환의 WebAssembly, blob: = 그 작업용 워커. 페이지 안 <script> 는 JSON-LD(실행 안 되는 데이터)뿐.
 CSP = ("default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; "
-       f"img-src 'self' data: blob:{' ' + GC_URL if GC_URL else ''}; connect-src 'self'{' ' + GC_URL if GC_URL else ''}; worker-src 'self' blob:; media-src 'self' blob:; "
+       f"img-src 'self' data: blob:{' ' + GC_URL if GC_URL else ''}; connect-src 'self'{' ' + GC_URL if GC_URL else ''}{' ' + re.match(r'https://[^/]+', NL_API).group(0) if NL_LIVE else ''}; worker-src 'self' blob:; media-src 'self' blob:; "
        "object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests")
 SECMETA = f'<meta http-equiv="Content-Security-Policy" content="{CSP}">\n<meta name="referrer" content="strict-origin-when-cross-origin">\n'
 # HEIC 변환 라이브러리(heic-to, libheif 를 Emscripten 으로 옮긴 것)는 작업용 워커 안에서 문자열을 코드로 바꿔 실행한다 → 그 라이브러리를 쓰는 두 페이지만 'unsafe-eval' 을 연다.
@@ -307,9 +319,16 @@ for r, (t, ds) in LISTS.items():
     page(f'/{r}/', r, f'{t} · SHIFT AI', ds, STATIC[r], OG_SITE, 'website', LD(*xs))
 
 ART = '<main id="v-article"></main>'
-# 뉴스레터 페이지는 없앰 → /subscribe/ 는 첫 화면으로
-os.makedirs(OUT + 'subscribe', exist_ok=True)
-open(OUT + 'subscribe/index.html', 'w').write(f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>SHIFT AI</title><link rel="canonical" href="{SITE}/"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0; url=/"><script>location.replace("/")</script></head><body><a href="/">SHIFT AI</a></body></html>\n')
+# 데일리 메일 구독 페이지(/subscribe/): 구독 신청 + 확인 메일 링크(?t=)로 들어와 구독을 확정하는 곳. 구독을 열기 전에는 첫 화면으로 넘긴다.
+if NL_LIVE:
+    _sv = view('subscribe').replace('<!--SUBBOX-->', SUBBOX, 1)
+    assert SUBBOX in _sv
+    page('/subscribe/', 'subscribe', '데일리 메일 구독 — 매일 아침 7시 AI 뉴스 메일 · SHIFT AI',
+         '그날의 AI 데일리 이슈를 매일 아침 7시에 메일 한 통으로 받습니다. 제목과 요점 세 줄, 기사마다 판정과 원문 링크. 무료이고 언제든 해지할 수 있습니다.',
+         _sv.replace('</div>\n</main>', FOLLOW_ONLY + '\n</div>\n</main>'), OG_SITE, 'website', LD(crumbs(('데일리 메일 구독', '/subscribe/'))))
+else:
+    os.makedirs(OUT + 'subscribe', exist_ok=True)
+    open(OUT + 'subscribe/index.html', 'w').write(f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>SHIFT AI</title><link rel="canonical" href="{SITE}/"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0; url=/"><script>location.replace("/")</script></head><body><a href="/">SHIFT AI</a></body></html>\n')
 # 칼럼 목록은 AI 뉴스 안의 '칼럼' 분류로 옮김 → 예전 주소 /column/ 은 그쪽으로 넘긴다
 _go = '/news/?cat=%EC%B9%BC%EB%9F%BC'
 os.makedirs(OUT + 'column', exist_ok=True)

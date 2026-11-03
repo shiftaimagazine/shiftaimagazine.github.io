@@ -353,6 +353,38 @@ footer .fword{font-size:22vw;line-height:.78;font-weight:800;letter-spacing:-.07
 .fbtn:hover{border-color:var(--line-strong)}
 .article .followbox,.narrow .followbox{grid-template-columns:1fr;gap:16px}
 @media (max-width:760px){.followbox{grid-template-columns:1fr;gap:16px;padding:22px}}
+/* 데일리 메일 구독 상자(11/11~): 팔로우 상자 바로 위 */
+.subbox{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;background:var(--bg2);border-radius:14px;padding:28px 30px;margin:56px 0 0}
+.subbox+.followbox{margin-top:12px}
+.subbox>*{min-width:0}
+.subbox .k{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em}
+.subbox h2{font-size:23px;line-height:1.35;margin:6px 0 8px}
+.subbox .st p{margin:0;color:var(--sub);font-size:15px;line-height:1.7}
+.subf{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.subrow{display:flex;gap:8px}
+.subrow label{flex:1;min-width:0;display:flex}
+.subrow input{flex:1;min-width:0;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.subrow input:focus{outline:2px solid var(--ink);outline-offset:1px;border-color:transparent}
+.subrow .btn{font-size:15px;padding:12px 18px;border-radius:10px}
+.subrow .btn:disabled{opacity:.55;cursor:default}
+.subf .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.subf .agree{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--text);cursor:pointer}
+.subf .agree input{margin:3px 0 0;flex:none;width:16px;height:16px;accent-color:var(--ink)}
+.subf .agreed{font-size:13px;color:var(--sub)}
+.subf .agreed summary{cursor:pointer;width:max-content}
+.subf .agreed p{margin:6px 0 0;line-height:1.65}
+.subf .agreed a{color:inherit}
+.submsg{margin:0;font-size:14px;line-height:1.6;color:var(--ink)}
+.submsg:empty{display:none}
+.submsg.bad{color:var(--accent)}
+.article .subbox,.narrow .subbox{grid-template-columns:1fr;gap:16px}
+@media (max-width:760px){.subbox{grid-template-columns:1fr;gap:16px;padding:22px}}
+.subconfirm{background:var(--bg2);border-left:4px solid var(--accent);border-radius:10px;padding:20px 22px;margin:20px 0 0}
+.subconfirm h2{font-size:21px;margin:0 0 6px}
+.subconfirm p{margin:0 0 14px;color:var(--text);font-size:15px;line-height:1.7}
+.subconfirm .btn{font-size:15px;padding:11px 18px}
+.subconfirm+.subbox{margin-top:20px}
+#v-subscribe .subbox{margin-top:28px}
 
 /* 검색 */
 .sicon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;background:var(--bg2);color:var(--ink);transition:background .2s}
@@ -1087,6 +1119,14 @@ header{transition:box-shadow .3s ease}
   .followbox .fbtn{justify-content:center;padding:10px 4px}
   .followbox .fbtn span{display:none}
   .followbox .fbtn b{font-size:14.5px}
+  /* 구독 상자: 팔로우 상자와 같은 결로 줄이고, 입력칸은 휴대폰에서 확대되지 않게 16px */
+  .subbox{gap:12px;padding:18px;margin-top:40px}
+  .subbox h2{display:none}
+  .subbox .k{font-size:16.5px;color:var(--ink)}
+  .subbox .st p{font-size:14.5px;margin-top:2px}
+  .subbox+.followbox{margin-top:10px}
+  .subrow input{font-size:16px;padding:11px 12px}
+  .subrow .btn{padding:11px 14px}
   /* 바닥: 링크를 한 덩어리로 */
   footer .fin{padding-top:28px;gap:18px}
   footer .fcols{display:flex;flex-wrap:wrap;gap:4px 16px}

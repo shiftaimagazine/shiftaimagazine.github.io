@@ -539,6 +539,41 @@ document.addEventListener("click",e=>{
 });
 let toastT; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),1600);}
 
+// 데일리 메일 구독(11/11~). 구독 칸(.subf)은 build.py 가 구독 서버 주소(data-api)를 넣어 팔로우 상자 위에 붙인다.
+// 신청 → 서버가 확인 메일을 보냄 → 메일 링크(/subscribe/?t=…)에서 '구독 확정하기'를 눌러야 명단에 들어간다(메일 보안 검사기가 링크만 열어서는 확정되지 않게 버튼으로).
+// 입력한 주소는 구독 서버로만 보내고 통계(track)에는 절대 넣지 않는다.
+const SUB_T0 = Date.now();
+const SUB_ERR = {bad_email:"이메일 주소를 다시 확인해 주세요.", too_many:"신청이 많습니다. 1분 뒤 다시 시도해 주세요.", busy:"지금 확인 메일을 보내기 어렵습니다. 잠시 뒤(늦으면 내일) 다시 시도해 주세요.",
+  not_open:"아직 구독 신청을 받기 전입니다.", expired:"확인 링크가 만료됐습니다. 아래에서 다시 신청해 주세요.", bad:"확인 링크가 올바르지 않습니다. 메일의 링크를 그대로 열었는지 확인해 주세요."};
+const subPost = (api,path,body)=>fetch(api+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(r=>r.json().catch(()=>({ok:false}))).catch(()=>({ok:false,error:"net"}));
+document.addEventListener("submit",async e=>{
+  const f=e.target.closest&&e.target.closest("form.subf"); if(!f) return; e.preventDefault();
+  const msg=f.querySelector(".submsg"), btn=f.querySelector("button[type=submit]"), em=f.elements.email.value.trim();
+  const say=(m,bad)=>{ msg.textContent=m; msg.classList.toggle("bad",!!bad); };
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { f.elements.email.focus(); return say(SUB_ERR.bad_email,1); }
+  if(!f.elements.agree.checked) { f.elements.agree.focus(); return say("개인정보 수집·이용과 국외 이전에 동의해야 구독할 수 있습니다.",1); }
+  if(!f.dataset.api) return say("구독 신청을 준비하고 있습니다. 잠시 뒤 다시 와 주세요.",1);
+  btn.disabled=true; say("보내는 중입니다…");
+  const j=await subPost(f.dataset.api,"/subscribe",{email:em, hp:f.elements.website.value, ms:Date.now()-SUB_T0});
+  btn.disabled=false;
+  if(j.ok){ say(`${em} 주소로 확인 메일을 보냈습니다. 메일 안의 '구독 확정하기'를 눌러야 구독이 끝납니다. 메일이 안 보이면 스팸함이나 프로모션함을 확인해 주세요.`); f.elements.email.value=""; track("subscribe:request","구독 신청"); }
+  else say(SUB_ERR[j.error]||"연결이 원활하지 않습니다. 잠시 뒤 다시 시도해 주세요.",1);
+});
+(function(){
+  if(ROUTE!=="subscribe" || !$("#subConfirm")) return;
+  const t=new URLSearchParams(location.search).get("t"); if(!t) return;
+  try{ history.replaceState(null,"","/subscribe/"); }catch(_){}  // 주소창·방문 기록에 토큰이 남지 않게
+  let em=""; try{ em=decodeURIComponent(escape(atob(t.split(".")[0].replace(/-/g,"+").replace(/_/g,"/")))).split("|")[0]; }catch(_){}
+  const box=$("#subConfirm"), b=$("#subCBtn"), f=document.querySelector("#v-subscribe form.subf");
+  box.hidden=false; $("#subCEmail").textContent=em||"신청한";
+  b.addEventListener("click",async ()=>{
+    b.disabled=true; b.textContent="확정하는 중…";
+    const j=await subPost(f?f.dataset.api:"","/confirm",{t});
+    if(j.ok){ $("#subCTitle").textContent="구독이 확정됐습니다"; $("#subCMsg").textContent=`내일 아침 7시부터 ${em||"이 주소"}로 데일리 메일이 갑니다. 해지는 메일 아래 '구독 해지' 링크 한 번이면 됩니다.`; b.remove(); if(f) f.closest(".subbox").hidden=true; track("subscribe:confirm","구독 확정"); }
+    else { $("#subCTitle").textContent="구독을 확정하지 못했습니다"; $("#subCMsg").textContent=SUB_ERR[j.error]||"잠시 뒤 다시 눌러 주세요."; b.disabled=false; b.textContent="다시 시도"; if(j.error==="expired"||j.error==="bad") b.remove(); }
+  });
+})();
+
 const NAV = r=>r.startsWith("tool-")?"tools":r.startsWith("w-")?"dict":r.startsWith("a-")?"news":r.startsWith("t-")?"tutorial":r.startsWith("c-")?"news":r.startsWith("d-")?"daily":r;
 // 옛 해시 주소(#a-… 등)로 들어오면 새 주소로 보낸다
 (function(){ const h=location.hash.slice(1); if(!h) return;
