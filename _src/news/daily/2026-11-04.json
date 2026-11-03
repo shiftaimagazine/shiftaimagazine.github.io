@@ -105,10 +105,10 @@
    ],
    "image": {
     "page": "https://huggingface.co/blog/transformers-mic",
-    "og": "https://huggingface.co/blog/assets/transformers-mic/mic-logo.png",
-    "credit": "이미지: Hugging Face",
+    "og": null,
+    "credit": "화면: huggingface.co",
     "alt": "허깅페이스 MIC 블로그 대표 이미지",
-    "mode": null
+    "mode": "screenshot"
    },
    "verify": [
     {
@@ -315,10 +315,10 @@
    ],
    "image": {
     "page": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
-    "og": "https://blogs.nvidia.com/wp-content/uploads/2026/11/smart-city-blog-1920x1080-1.jpeg",
-    "credit": "이미지: NVIDIA",
+    "og": null,
+    "credit": "화면: blogs.nvidia.com",
     "alt": "엔비디아 블로그의 스마트시티 대표 이미지",
-    "mode": null
+    "mode": "screenshot"
    },
    "verify": [
     {
