@@ -315,10 +315,10 @@
    ],
    "image": {
     "page": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
-    "og": null,
-    "credit": "화면: blogs.nvidia.com",
+    "og": "https://blogs.nvidia.com/wp-content/uploads/2026/11/smart-city-blog-1920x1080-1.jpeg",
+    "credit": "이미지: NVIDIA",
     "alt": "엔비디아 블로그의 스마트시티 대표 이미지",
-    "mode": "screenshot"
+    "mode": null
    },
    "verify": [
     {
