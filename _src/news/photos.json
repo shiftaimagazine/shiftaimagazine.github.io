@@ -276,5 +276,11 @@
   "credit": "화면: huggingface.co",
   "alt": "허깅페이스 MIC 블로그 대표 이미지",
   "auto": true
+ },
+ "2026-11-04-nvidia-city-physical-agentic-ai": {
+  "src": "img/ph/2026-11-04-nvidia-city-physical-agentic-ai.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 블로그의 스마트시티 대표 이미지",
+  "auto": true
  }
 }
