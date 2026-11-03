@@ -104,7 +104,31 @@ def cap_subs(p, base):
     for k in ('chatgpt:1', 'claude:0', 'gemini:1'): p.click(f'button[data-k="{k}"]')
     p.wait_for_timeout(200)
     return shot_range(p, 'section.tstep >> nth=1', 'section.tstep >> nth=2')
-CAP = {'pdf-to-text': cap_pdf, 'ai-subscriptions': cap_subs, 'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt}
+def cap_ai_format(p, base):
+    p.goto(base + '/tools/ai-format/'); p.add_style_tag(content=HIDE); p.click('#fmSample'); poll(p, '#fmStatus', '카톡')
+    return shot_range(p, 'section.tstep >> nth=2', 'section.tstep >> nth=2')
+def cap_exif(p, base):
+    p.goto(base + '/tools/exif-remove/'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#exFile', SRC + 'thumbs/exif-sample.jpg'); poll(p, '#exStatus', '1장 처리')
+    return shot_range(p, 'section.tstep >> nth=2', 'section.tstep >> nth=2')
+def cap_image(p, base):
+    p.goto(base + '/tools/image-resize/'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#irFile', SRC + 'thumbs/insta-sample.jpg'); p.wait_for_selector('.irpv canvas'); p.wait_for_timeout(800)
+    return shot_range(p, 'section.tstep >> nth=2', 'section.tstep >> nth=2')
+def cap_pdf_merge(p, base):
+    p.goto(base + '/tools/pdf-merge/'); p.add_style_tag(content=HIDE); p.check('input[name=pmJob][value=pick]')
+    p.set_input_files('#pmFile', SRC + 'thumbs/sample.pdf'); p.wait_for_selector('.pmpg.done'); p.wait_for_timeout(1500)
+    p.locator('.pmpg').nth(0).click(); p.locator('.pmpg').nth(2).click(); p.wait_for_timeout(200)
+    return shot_range(p, '#pmList', '#pmPages')
+def cap_table(p, base):
+    p.goto(base + '/tools/table-to-markdown/'); p.add_style_tag(content=HIDE); p.click('#tmSample'); poll(p, '#tmStatus', '행')
+    p.check('#tmPad'); p.wait_for_timeout(300)
+    return shot_range(p, 'section.tstep >> nth=2', 'section.tstep >> nth=2')
+def cap_diff(p, base):
+    p.goto(base + '/tools/prompt-diff/'); p.add_style_tag(content=HIDE); p.click('#pdSample'); poll(p, '#pdStatus', '바뀐 곳')
+    p.check('input[name=pdView][value=inline]'); p.wait_for_timeout(800)
+    return shot_range(p, 'section.tstep >> nth=2', 'section.tstep >> nth=2')
+CAP = {'ai-format': cap_ai_format, 'exif-remove': cap_exif, 'image-resize': cap_image, 'pdf-merge': cap_pdf_merge, 'table-to-markdown': cap_table, 'prompt-diff': cap_diff, 'pdf-to-text': cap_pdf, 'ai-subscriptions': cap_subs, 'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt}
 
 # ---------- 그리기 ----------
 def card(im, w, h, pad=20):

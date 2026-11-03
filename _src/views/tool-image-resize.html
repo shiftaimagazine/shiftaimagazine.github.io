@@ -1,0 +1,83 @@
+<main id="v-tool-image-resize">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 사진 크기</span>
+  <h1>이미지 압축·인스타 규격 자르기</h1>
+  <p class="deck">사진 용량을 줄이거나, 인스타그램 피드(1080×1350)와 스토리·릴스(1080×1920) 크기로 한 번에 잘라 줍니다. 여러 장을 넣고 자를 자리를 끌어서 맞춘 뒤 ZIP으로 받으면 됩니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 바꿈 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>사진 넣기</h2>
+    <label class="odrop" id="irDrop" tabindex="0">
+      <input type="file" id="irFile" accept="image/jpeg,image/png,image/webp,image/gif,image/avif,.jpg,.jpeg,.png,.webp" multiple>
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>JPG·PNG·WebP, 한 번에 30장까지 · 아이폰 HEIC는 먼저 <a href="/tools/heic-to-jpg/">HEIC → JPG</a>로 바꿔 주세요</span>
+    </label>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>무엇을 할까요?</h2>
+    <div class="seg" role="radiogroup" aria-label="할 일" style="grid-template-columns:repeat(2,1fr)">
+      <label><input type="radio" name="irJob" value="insta" checked><span><b>인스타 규격으로 자르기</b>피드 세로·스토리·정사각형 크기로 만듭니다.</span></label>
+      <label><input type="radio" name="irJob" value="shrink"><span><b>용량 줄이기</b>비율은 그대로 두고 크기와 화질을 줄입니다.</span></label>
+    </div>
+
+    <div id="irInsta">
+      <div class="ochecks">
+        <label><input type="checkbox" name="irSize" value="1080x1350" checked> 피드 세로 1080×1350 <small>(4:5, 피드에서 가장 크게 보이는 크기)</small></label>
+        <label><input type="checkbox" name="irSize" value="1080x1920" checked> 스토리·릴스 1080×1920 <small>(9:16)</small></label>
+        <label><input type="checkbox" name="irSize" value="1080x1080"> 정사각형 1080×1080 <small>(1:1)</small></label>
+      </div>
+      <div class="trow">
+        <span class="meta">맞추는 방법</span>
+        <div class="seg mini" role="radiogroup" aria-label="맞추는 방법">
+          <label><input type="radio" name="irFit" value="crop" checked><span><b>꽉 채워 자르기</b></span></label>
+          <label><input type="radio" name="irFit" value="blur"><span><b>흐린 배경 채우기</b></span></label>
+          <label><input type="radio" name="irFit" value="white"><span><b>흰 여백</b></span></label>
+          <label><input type="radio" name="irFit" value="black"><span><b>검은 여백</b></span></label>
+        </div>
+      </div>
+      <p class="hint">'꽉 채워 자르기'는 넘치는 부분을 잘라 냅니다. 아래 미리 보기를 끌어서 남길 자리를 고르고, 막대로 확대할 수 있습니다. 여백 채우기는 사진을 자르지 않고 빈 곳을 채웁니다.</p>
+    </div>
+
+    <div id="irShrink" hidden>
+      <div class="trow">
+        <label class="inl">긴 변 최대 <select id="irMax"><option value="0">원래 크기</option><option value="3840">3840px</option><option value="2560">2560px</option><option value="1920" selected>1920px</option><option value="1280">1280px</option><option value="1080">1080px</option><option value="800">800px</option></select></label>
+        <label class="inl">형식 <select id="irType"><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option><option value="image/png">PNG</option></select></label>
+        <label class="inl">목표 용량 <select id="irTarget"><option value="0">정하지 않음</option><option value="2048">2MB 이하</option><option value="1024">1MB 이하</option><option value="500">500KB 이하</option><option value="300">300KB 이하</option><option value="150">150KB 이하</option></select></label>
+      </div>
+      <p class="hint">목표 용량을 고르면 그 안에 들어오도록 화질을 알아서 낮춥니다. 회사 시스템·관공서 사이트에 '1MB 이하'로 올려야 할 때 쓰세요. PNG는 화질을 낮출 수 없어 크기만 줄입니다.</p>
+    </div>
+
+    <div class="trow" id="irQRow">
+      <label class="inl">화질 <input id="irQ" type="range" min="50" max="100" step="1" value="90"> <output id="irQv">90</output></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>미리 보고 내려받기 <small id="irStatus" aria-live="polite">사진을 넣으면 여기에 미리 보기가 나옵니다.</small></h2>
+    <div class="irgrid" id="irGrid"></div>
+    <div class="obar" id="irBar" hidden><i></i></div>
+    <div class="trow"><button class="btn" type="button" id="irZip" data-ev="tool-done:/tools/image-resize/" disabled>모두 만들어 ZIP으로 받기</button><button class="ghost" type="button" id="irClear">모두 지우기</button></div>
+    <p class="hint" id="irSum"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>만든 사진에는 찍은 위치(GPS)·기종 같은 사진 정보가 남지 않습니다. 원본은 그대로 두고 새 사진을 만듭니다.</li>
+      <li>인스타그램 크기(피드 세로 4:5, 스토리·릴스 9:16, 정사각형 1:1)는 많이 쓰는 업로드 크기입니다. 인스타그램 앱이 보여 주는 방식이 바뀌면 화면에서 잘리는 부분이 달라질 수 있습니다.</li>
+      <li>작은 사진을 1080px로 키우면 흐려질 수 있습니다. 미리 보기에 '원본이 작음'이 뜨면 더 큰 원본을 쓰세요.</li>
+    </ul>
+    <p>함께 쓰면 좋은 도구: <a href="/tools/exif-remove/">사진 위치정보 지우기</a> (원본 화질 그대로 위치만 지우기) · <a href="/tools/heic-to-jpg/">HEIC → JPG</a></p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>인스타그램 피드 사진은 어떤 크기가 좋나요?</summary><p>세로로 긴 1080×1350(4:5)이 피드에서 가장 크게 보입니다. 정사각형은 1080×1080, 스토리와 릴스는 1080×1920(9:16)입니다. 여기서 세 크기를 한 번에 만들 수 있습니다.</p></details>
+    <details><summary>가로 사진을 세로로 잘리지 않게 올리려면요?</summary><p>'흐린 배경 채우기'나 '흰 여백'을 고르세요. 사진은 자르지 않고 가운데에 두고, 남는 위아래를 같은 사진을 흐리게 한 배경이나 흰색으로 채웁니다.</p></details>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 크기를 바꾸고 압축하는 일은 이 브라우저 안에서 합니다. ZIP으로 묶는 프로그램(JSZip, MIT)만 처음 한 번 SHIFT AI 서버에서 받아 옵니다.</p></details>
+    <details><summary>용량을 줄이면 화질이 얼마나 떨어지나요?</summary><p>JPG·WebP 화질 85~90이면 휴대폰 화면에서 차이를 알아보기 어렵고 용량은 원본의 몇 분의 1로 줄어드는 경우가 많습니다. 목표 용량을 너무 작게 잡으면 글자나 경계가 뭉개질 수 있으니 미리 보기로 확인하세요.</p></details>
+    <details><summary>몇 장까지 한 번에 되나요?</summary><p>30장까지 넣을 수 있습니다. 인스타 크기 세 가지를 모두 고르면 사진 한 장당 세 장이 만들어집니다.</p></details>
+  </section>
+</article>
+</main>

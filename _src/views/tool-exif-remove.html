@@ -1,0 +1,51 @@
+<main id="v-tool-exif-remove">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 개인정보</span>
+  <h1>사진 위치정보(EXIF) 지우기</h1>
+  <p class="deck">휴대폰으로 찍은 사진에는 찍은 곳의 GPS 좌표, 휴대폰 기종, 찍은 날짜와 시각이 함께 저장됩니다. 사진을 넣으면 어떤 정보가 들어 있는지 먼저 보여 주고, 화질은 그대로 둔 채 그 정보만 지운 사진을 돌려줍니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>사진 넣기</h2>
+    <label class="odrop" id="exDrop" tabindex="0">
+      <input type="file" id="exFile" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple>
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>JPG·PNG·WebP, 한 번에 50장까지 · 아이폰 HEIC는 <a href="/tools/heic-to-jpg/">HEIC → JPG</a>로 바꾸면 정보가 함께 지워집니다</span>
+    </label>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>지울 범위</h2>
+    <div class="seg" role="radiogroup" aria-label="지울 범위" style="grid-template-columns:repeat(2,1fr)">
+      <label><input type="radio" name="exMode" value="all" checked><span><b>모두 지우기</b>위치·기종·날짜·편집 프로그램 기록을 모두 지웁니다. 사진 방향만 남깁니다.</span></label>
+      <label><input type="radio" name="exMode" value="gps"><span><b>위치만 지우기</b>GPS 좌표만 지우고 찍은 날짜와 기종은 남깁니다. 사진 정리용으로 날짜가 필요할 때 고르세요(JPG만).</span></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>들어 있던 정보와 지운 사진 <small id="exStatus" aria-live="polite">사진을 넣으면 바로 확인합니다.</small></h2>
+    <div class="exlist" id="exList"></div>
+    <div class="trow"><button class="btn" type="button" id="exZip" data-ev="tool-done:/tools/exif-remove/" disabled>모두 ZIP으로 내려받기</button><button class="ghost" type="button" id="exClear">모두 지우기</button></div>
+    <p class="hint">지운 사진은 다시 읽어서 위치 정보가 남지 않았는지 확인한 뒤 내려받기 버튼을 보여 줍니다. 화면에 '확인함'이 붙은 사진만 내려받을 수 있습니다.</p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>사진을 다시 압축하지 않고 정보가 든 부분만 잘라 내므로 화질과 크기가 그대로입니다. 사진이 옆으로 눕지 않도록 방향 정보 하나만 남깁니다.</li>
+      <li>사진 안에 찍힌 것(집 앞 간판, 택배 송장, 창밖 풍경)으로도 사는 곳을 알 수 있습니다. 이 도구는 파일에 숨은 정보만 지웁니다.</li>
+      <li>사진은 SHIFT AI 서버로 올라가지 않습니다. ZIP으로 묶을 때 쓰는 프로그램(JSZip, MIT)만 처음 한 번 받아 옵니다.</li>
+    </ul>
+    <p>개인정보를 더 지키려면: <a href="/guide/privacy/">AI 쓸 때 개인정보 지키는 길잡이</a> · <a href="/tools/redact/">글 속 개인정보 자동 가리기</a></p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>EXIF가 무엇인가요?</summary><p>디지털 사진 파일 안에 함께 저장되는 촬영 정보입니다. 카메라·휴대폰 기종, 찍은 날짜와 시각, 노출 같은 설정값이 들어가고, 위치 서비스를 켜 둔 휴대폰은 찍은 곳의 GPS 좌표도 넣습니다.</p></details>
+    <details><summary>사진만 보고 우리 집 위치를 알 수 있나요?</summary><p>GPS 좌표가 들어 있는 사진 파일을 그대로 받으면 사진 정보 보기 기능이나 지도 프로그램으로 찍은 곳을 몇 미터 안쪽까지 알 수 있습니다. 중고 거래나 블로그에 집에서 찍은 사진을 원본 파일로 올릴 때 특히 조심하세요.</p></details>
+    <details><summary>지우면 화질이 떨어지나요?</summary><p>떨어지지 않습니다. 사진을 다시 저장하지 않고 정보가 든 부분만 파일에서 빼내기 때문에 사진 자체는 한 점도 바뀌지 않습니다. 파일 크기는 지운 정보만큼 조금 줄어듭니다.</p></details>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 사진을 읽고 정보를 지우는 일은 모두 이 브라우저 안에서 합니다. 인터넷을 끊은 상태에서도 페이지만 열려 있으면 동작합니다.</p></details>
+    <details><summary>AI에 사진을 올릴 때도 지워야 하나요?</summary><p>챗GPT·클로드·제미나이에 사진을 올리면 파일이 그 회사 서버로 갑니다. 위치가 드러나면 곤란한 사진이라면 올리기 전에 지우는 편이 안전합니다.</p></details>
+  </section>
+</article>
+</main>

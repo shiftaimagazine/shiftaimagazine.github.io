@@ -1,0 +1,86 @@
+<main id="v-tool-pdf-merge">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · PDF</span>
+  <h1>PDF 합치기·나누기·쪽 뽑기</h1>
+  <p class="deck">PDF 여러 개를 하나로 합치거나, 한 파일을 쪽마다·범위마다 나누거나, 필요한 쪽만 골라 새 PDF로 만듭니다. 계약서·지원 서류처럼 남에게 보이기 싫은 파일도 서버에 올리지 않고 이 브라우저 안에서 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+  <nav class="pdfset" aria-label="PDF 도구"><span>PDF 도구</span><a href="/tools/pdf-merge/" aria-current="page">합치기·나누기·쪽 뽑기</a><a href="/tools/pdf-to-text/">글자 뽑기(텍스트·마크다운)</a></nav>
+
+  <section class="tstep">
+    <h2><i>1</i>무엇을 할까요?</h2>
+    <div class="seg" role="radiogroup" aria-label="할 일">
+      <label><input type="radio" name="pmJob" value="merge" checked><span><b>합치기</b>PDF 여러 개를 고른 순서대로 한 파일로 만듭니다.</span></label>
+      <label><input type="radio" name="pmJob" value="split"><span><b>나누기</b>한 파일을 쪽마다, 몇 쪽씩, 범위마다 여러 파일로 나눕니다.</span></label>
+      <label><input type="radio" name="pmJob" value="pick"><span><b>쪽 뽑기·빼기</b>필요한 쪽만 골라 새 PDF로 만들거나, 고른 쪽을 빼고 저장합니다.</span></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>PDF 넣기 <small id="pmStatus" aria-live="polite"></small></h2>
+    <label class="odrop" id="pmDrop" tabindex="0">
+      <input type="file" id="pmFile" accept="application/pdf,.pdf" multiple>
+      <b id="pmDropT">여기를 눌러 PDF를 고르거나 끌어다 놓으세요</b>
+      <span id="pmDropS">합칠 PDF를 여러 개 넣고 순서를 바꿀 수 있습니다</span>
+    </label>
+    <ol class="pmlist" id="pmList"></ol>
+
+    <div id="pmSplit" hidden>
+      <div class="trow">
+        <span class="meta">나누는 방법</span>
+        <div class="seg mini" role="radiogroup" aria-label="나누는 방법">
+          <label><input type="radio" name="pmHow" value="each" checked><span><b>쪽마다 한 파일</b></span></label>
+          <label><input type="radio" name="pmHow" value="every"><span><b>몇 쪽씩</b></span></label>
+          <label><input type="radio" name="pmHow" value="ranges"><span><b>범위마다</b></span></label>
+        </div>
+      </div>
+      <div class="trow" id="pmEveryRow" hidden><label class="inl"><input id="pmEvery" type="number" min="1" value="2" style="width:70px">쪽씩 나누기</label></div>
+      <div class="trow" id="pmRangesRow" hidden><input id="pmRanges" type="text" placeholder="예: 1-3, 4-10, 11-   (쉼표마다 한 파일)"></div>
+    </div>
+
+    <div id="pmPick" hidden>
+      <div class="trow">
+        <input id="pmSel" type="text" inputmode="numeric" placeholder="뽑을 쪽: 예 1-3, 7, 10-   (아래 쪽을 눌러 고를 수도 있습니다)">
+        <button class="ghost" type="button" id="pmAll">모두 고르기</button><button class="ghost" type="button" id="pmNone">고른 것 풀기</button>
+      </div>
+      <div class="trow">
+        <div class="seg mini" role="radiogroup" aria-label="고른 쪽을">
+          <label><input type="radio" name="pmKeep" value="keep" checked><span><b>고른 쪽만 새 PDF로</b></span></label>
+          <label><input type="radio" name="pmKeep" value="drop"><span><b>고른 쪽 빼고 저장</b></span></label>
+        </div>
+        <label class="inl"><input type="checkbox" id="pmRot"> 고른 쪽 90° 돌리기</label>
+      </div>
+      <div class="pmpages" id="pmPages"></div>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>만들어 내려받기</h2>
+    <div class="trow">
+      <button class="btn" type="button" id="pmGo" data-ev="tool-done:/tools/pdf-merge/" disabled>PDF 만들기</button>
+      <label class="inl">파일 이름 <input id="pmName" type="text" value="" placeholder="합친파일" style="width:180px"></label>
+    </div>
+    <div class="obar" id="pmBar" hidden><i></i></div>
+    <div class="hlist" id="pmOut"></div>
+    <p class="hint" id="pmHint"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>쪽을 그대로 옮겨 붙이므로 글자·사진 화질은 바뀌지 않습니다. 다만 책갈피(목차)와 일부 입력 칸(서명란·체크 상자)은 새 파일로 옮겨지지 않을 수 있습니다.</li>
+      <li>열람 암호가 걸린 PDF는 열 수 없습니다. PDF 프로그램에서 암호를 푼 사본을 만든 뒤 넣어 주세요.</li>
+      <li>PDF를 읽고 붙이는 프로그램은 오픈소스 <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener">pdf-lib</a>(MIT)와 쪽 미리 보기용 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener">PDF.js</a>(Apache-2.0)입니다. 처음 한 번 SHIFT AI 서버에서 받아 오고, 파일은 이 페이지 밖으로 나가지 않습니다.</li>
+    </ul>
+    <p>다음 단계: 만든 PDF를 AI에 올리기 전에 <a href="/tools/pdf-to-text/">PDF 글자 뽑기</a>로 텍스트·마크다운으로 바꾸면 토큰을 아끼고 내용도 미리 확인할 수 있습니다.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>PDF 파일이 서버로 올라가나요?</summary><p>올라가지 않습니다. 합치기·나누기·쪽 뽑기는 모두 이 브라우저 안에서 합니다. 주민등록등본이나 계약서처럼 남에게 보이면 안 되는 PDF도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>PDF 여러 개를 하나로 합치려면요?</summary><p>'합치기'를 고르고 PDF를 모두 넣은 뒤 ▲▼ 버튼이나 끌어 놓기로 순서를 맞추고 'PDF 만들기'를 누르세요. 파일마다 쪽 범위를 적으면 그 쪽만 합칠 수도 있습니다.</p></details>
+    <details><summary>PDF에서 몇 쪽만 따로 저장하려면요?</summary><p>'쪽 뽑기·빼기'를 고르고 PDF를 넣은 뒤 미리 보기에서 쪽을 누르거나 '1-3, 7'처럼 적으세요. '고른 쪽만 새 PDF로'를 누르면 그 쪽만 든 파일이 나옵니다.</p></details>
+    <details><summary>화질이 떨어지나요?</summary><p>떨어지지 않습니다. 쪽을 그림으로 바꾸지 않고 원래 PDF 안의 내용을 그대로 옮겨 붙입니다. 쪽마다 넣은 미리 보기만 작은 그림입니다.</p></details>
+    <details><summary>몇 쪽까지 되나요?</summary><p>정해 둔 한도는 없습니다. 수백 쪽짜리도 되지만 컴퓨터 메모리에 따라 느려질 수 있고, 미리 보기는 앞쪽부터 화면에 보이는 쪽만 그립니다.</p></details>
+  </section>
+</article>
+</main>

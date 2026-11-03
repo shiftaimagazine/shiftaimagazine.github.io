@@ -1,0 +1,71 @@
+<main id="v-tool-prompt-diff">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 프롬프트</span>
+  <h1>프롬프트 비교 (바뀐 부분 표시)</h1>
+  <p class="deck">고치기 전과 고친 뒤의 프롬프트를 나란히 놓으면 더한 말은 초록, 뺀 말은 빨강으로 표시합니다. 답이 왜 달라졌는지 찾거나, 팀원이 고친 프롬프트에서 무엇이 바뀌었는지 볼 때 씁니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>글은 이 브라우저 안에서만 비교 · 어디에도 보내지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>두 프롬프트 넣기</h2>
+    <div class="pdin">
+      <div><label for="pdA"><b>원래 프롬프트</b> <small id="pdAc"></small></label><textarea id="pdA" rows="10" placeholder="고치기 전 프롬프트를 붙여 넣으세요."></textarea></div>
+      <div><label for="pdB"><b>바꾼 프롬프트</b> <small id="pdBc"></small></label><textarea id="pdB" rows="10" placeholder="고친 뒤 프롬프트를 붙여 넣으세요."></textarea></div>
+    </div>
+    <div class="trow">
+      <button class="ghost" type="button" id="pdSample">예시 넣기</button>
+      <button class="ghost" type="button" id="pdSwap">서로 바꾸기</button>
+      <button class="ghost" type="button" id="pdClear">지우기</button>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>비교 방법</h2>
+    <div class="trow">
+      <span class="meta">단위</span>
+      <div class="seg mini" role="radiogroup" aria-label="비교 단위">
+        <label><input type="radio" name="pdUnit" value="word" checked><span><b>낱말</b></span></label>
+        <label><input type="radio" name="pdUnit" value="char"><span><b>글자</b></span></label>
+        <label><input type="radio" name="pdUnit" value="line"><span><b>줄</b></span></label>
+      </div>
+      <span class="meta">보기</span>
+      <div class="seg mini" role="radiogroup" aria-label="보기">
+        <label><input type="radio" name="pdView" value="side" checked><span><b>나란히</b></span></label>
+        <label><input type="radio" name="pdView" value="inline"><span><b>한 칸에</b></span></label>
+      </div>
+    </div>
+    <div class="ochecks">
+      <label><input type="checkbox" id="pdWs" checked> 띄어쓰기·빈 줄 차이는 무시</label>
+      <label><input type="checkbox" id="pdOnly"> 바뀐 줄만 보기 <small>(같은 줄은 접어 둡니다)</small></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>바뀐 부분 <small id="pdStatus" aria-live="polite">두 칸에 글을 넣으면 바로 비교합니다.</small></h2>
+    <div class="pdstats" id="pdStats" hidden></div>
+    <div class="pdout" id="pdOut"></div>
+    <div class="trow">
+      <button class="btn" type="button" id="pdCopy" data-ev="tool-done:/tools/prompt-diff/" disabled>바뀐 내용 복사</button>
+      <button class="ghost" type="button" id="pdAsk" disabled>AI에 차이 설명 맡기는 프롬프트 복사</button>
+    </div>
+    <p class="hint">'바뀐 내용 복사'는 [+더한 말] [-뺀 말] 표시를 넣은 글로 복사합니다. 메신저로 팀원에게 무엇을 고쳤는지 알릴 때 붙여 넣으세요.</p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>'낱말'은 띄어쓰기로 나눈 덩어리끼리 비교합니다. '보고서를'이 '보고서는'으로 바뀌면 낱말 전체가 바뀐 것으로 나오니, 조사 한 글자까지 보려면 '글자'를 고르세요.</li>
+      <li>같은 말을 다른 자리로 옮기면 한쪽에서 빼고 다른 쪽에 더한 것으로 표시됩니다.</li>
+      <li>토큰 수는 GPT(o200k) 기준입니다. 클로드·제미나이는 세는 방법이 달라 조금 다를 수 있습니다.</li>
+    </ul>
+    <p>함께 쓰면 좋은 도구: <a href="/tools/prompt/">프롬프트 만들기</a> · <a href="/tools/char-count/">글자 수·토큰 세기</a> · <a href="/prompts/">복붙 프롬프트 모음</a></p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>프롬프트를 왜 비교하나요?</summary><p>프롬프트를 몇 번 고치다 보면 어느 문장 때문에 답이 좋아졌는지 잊기 쉽습니다. 고치기 전과 뒤를 나란히 놓으면 바뀐 말이 한눈에 보여, 잘 먹힌 지시를 다음 프롬프트에도 그대로 쓸 수 있습니다.</p></details>
+    <details><summary>글이 서버로 가나요?</summary><p>가지 않습니다. 비교는 이 브라우저 안에서만 합니다. 토큰을 세는 프로그램(gpt-tokenizer, MIT)만 처음 한 번 SHIFT AI 서버에서 받아 옵니다.</p></details>
+    <details><summary>프롬프트 말고 다른 글도 비교할 수 있나요?</summary><p>됩니다. 자기소개서 고친 본, 계약서 문구, 보고서 초안처럼 두 글의 차이를 보고 싶은 글이면 무엇이든 넣을 수 있습니다.</p></details>
+    <details><summary>아주 긴 글도 되나요?</summary><p>수만 자 길이도 비교할 수 있습니다. 다만 두 글이 거의 다 다르면 표시가 많아 읽기 어려우니 '줄' 단위로 먼저 보고 바뀐 곳을 좁히세요.</p></details>
+  </section>
+</article>
+</main>

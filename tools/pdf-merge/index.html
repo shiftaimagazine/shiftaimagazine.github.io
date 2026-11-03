@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>PDF 합치기·나누기 무료 — 페이지 추출·삭제까지 업로드 없이 · SHIFT AI</title>
+<meta name="description" content="PDF 여러 개를 하나로 합치고, 한 파일을 쪽마다·몇 쪽씩·범위마다 나누고, 필요한 쪽만 골라 새 PDF로 만듭니다. 쪽 미리 보기로 고르며, 파일은 서버로 올리지 않고 브라우저 안에서 처리합니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tools/pdf-merge/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF 합치기·나누기 무료 — 페이지 추출·삭제까지 업로드 없이 · SHIFT AI">
+<meta property="og:description" content="PDF 여러 개를 하나로 합치고, 한 파일을 쪽마다·몇 쪽씩·범위마다 나누고, 필요한 쪽만 골라 새 PDF로 만듭니다. 쪽 미리 보기로 고르며, 파일은 서버로 올리지 않고 브라우저 안에서 처리합니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tools/pdf-merge/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/tool-pdf-merge.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<script src="/assets/theme.js?v=1d678fd1"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF 합치기·나누기·쪽 뽑기", "alternateName": ["PDF 합치기", "PDF 병합", "PDF 나누기", "PDF 분할", "PDF 페이지 추출", "PDF 페이지 삭제"], "url": "https://shiftaimagazine.com/tools/pdf-merge/", "description": "PDF 여러 개를 하나로 합치고, 한 파일을 쪽마다·몇 쪽씩·범위마다 나누고, 필요한 쪽만 골라 새 PDF로 만듭니다. 쪽 미리 보기로 고르며, 파일은 서버로 올리지 않고 브라우저 안에서 처리합니다.", "image": "https://shiftaimagazine.com/og/tool-pdf-merge.jpg", "screenshot": "https://shiftaimagazine.com/img/tools/pdf-merge.webp", "applicationCategory": "UtilitiesApplication", "operatingSystem": "웹 브라우저", "browserRequirements": "JavaScript를 켠 최신 브라우저", "featureList": ["PDF 여러 개 합치기(순서 바꾸기·파일별 쪽 범위)", "쪽마다·몇 쪽씩·범위마다 나누기", "쪽 미리 보기로 골라 뽑기·빼기", "고른 쪽 90° 돌리기", "화질 그대로", "ZIP 내려받기"], "inLanguage": "ko", "isAccessibleForFree": true, "datePublished": "2026-11-04", "dateModified": "2026-11-04", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "PDF 합치기·나누기·쪽 뽑기", "item": "https://shiftaimagazine.com/tools/pdf-merge/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "PDF 파일이 서버로 올라가나요?", "acceptedAnswer": {"@type": "Answer", "text": "올라가지 않습니다. 합치기·나누기·쪽 뽑기는 모두 이 브라우저 안에서 합니다. 주민등록등본이나 계약서처럼 남에게 보이면 안 되는 PDF도 밖으로 나가지 않습니다."}}, {"@type": "Question", "name": "PDF 여러 개를 하나로 합치려면요?", "acceptedAnswer": {"@type": "Answer", "text": "'합치기'를 고르고 PDF를 모두 넣은 뒤 ▲▼ 버튼이나 끌어 놓기로 순서를 맞추고 'PDF 만들기'를 누르세요. 파일마다 쪽 범위를 적으면 그 쪽만 합칠 수도 있습니다."}}, {"@type": "Question", "name": "PDF에서 몇 쪽만 따로 저장하려면요?", "acceptedAnswer": {"@type": "Answer", "text": "'쪽 뽑기·빼기'를 고르고 PDF를 넣은 뒤 미리 보기에서 쪽을 누르거나 '1-3, 7'처럼 적으세요. '고른 쪽만 새 PDF로'를 누르면 그 쪽만 든 파일이 나옵니다."}}, {"@type": "Question", "name": "화질이 떨어지나요?", "acceptedAnswer": {"@type": "Answer", "text": "떨어지지 않습니다. 쪽을 그림으로 바꾸지 않고 원래 PDF 안의 내용을 그대로 옮겨 붙입니다. 쪽마다 넣은 미리 보기만 작은 그림입니다."}}, {"@type": "Question", "name": "몇 쪽까지 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "정해 둔 한도는 없습니다. 수백 쪽짜리도 되지만 컴퓨터 메모리에 따라 느려질 수 있고, 미리 보기는 앞쪽부터 화면에 보이는 쪽만 그립니다."}}]}</script>
+<script defer="" src="/assets/pdf-merge.js?v=a29cf435"></script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=1d678fd1">
+</head>
+<body data-route="tool-pdf-merge" id="top" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="true">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-tool-pdf-merge">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · PDF</span>
+  <h1>PDF 합치기⁠·나누기⁠·쪽 뽑기</h1>
+  <p class="deck">PDF 여러 개를 하나로 합치거나, 한 파일을 쪽마다·범위마다 나누거나, 필요한 쪽만 골라 새 PDF로 만듭니다. 계약서·지원 서류처럼 남에게 보이기 싫은 파일도 서버에 올리지 않고 이 브라우저 안에서 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+  <nav class="pdfset" aria-label="PDF 도구"><span>PDF 도구</span><a href="/tools/pdf-merge/" aria-current="page">합치기·나누기·쪽 뽑기</a><a href="/tools/pdf-to-text/">글자 뽑기(텍스트·마크다운)</a></nav>
+
+  <section class="tstep">
+    <h2><i>1</i>무엇을 할까요?</h2>
+    <div class="seg" role="radiogroup" aria-label="할 일">
+      <label><input type="radio" name="pmJob" value="merge" checked=""><span><b>합치기</b>PDF 여러 개를 고른 순서대로 한 파일로 만듭니다.</span></label>
+      <label><input type="radio" name="pmJob" value="split"><span><b>나누기</b>한 파일을 쪽마다, 몇 쪽씩, 범위마다 여러 파일로 나눕니다.</span></label>
+      <label><input type="radio" name="pmJob" value="pick"><span><b>쪽 뽑기⁠·빼기</b>필요한 쪽만 골라 새 PDF로 만들거나, 고른 쪽을 빼고 저장합니다.</span></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>PDF 넣기 <small id="pmStatus" aria-live="polite"></small></h2>
+    <label class="odrop" id="pmDrop" tabindex="0">
+      <input type="file" id="pmFile" accept="application/pdf,.pdf" multiple="">
+      <b id="pmDropT">여기를 눌러 PDF를 고르거나 끌어다 놓으세요</b>
+      <span id="pmDropS">합칠 PDF를 여러 개 넣고 순서를 바꿀 수 있습니다</span>
+    </label>
+    <ol class="pmlist" id="pmList"></ol>
+
+    <div id="pmSplit" hidden="">
+      <div class="trow">
+        <span class="meta">나누는 방법</span>
+        <div class="seg mini" role="radiogroup" aria-label="나누는 방법">
+          <label><input type="radio" name="pmHow" value="each" checked=""><span><b>쪽마다 한 파일</b></span></label>
+          <label><input type="radio" name="pmHow" value="every"><span><b>몇 쪽씩</b></span></label>
+          <label><input type="radio" name="pmHow" value="ranges"><span><b>범위마다</b></span></label>
+        </div>
+      </div>
+      <div class="trow" id="pmEveryRow" hidden=""><label class="inl"><input id="pmEvery" type="number" min="1" value="2" style="width:70px">쪽씩 나누기</label></div>
+      <div class="trow" id="pmRangesRow" hidden=""><input id="pmRanges" type="text" placeholder="예: 1-3, 4-10, 11-   (쉼표마다 한 파일)"></div>
+    </div>
+
+    <div id="pmPick" hidden="">
+      <div class="trow">
+        <input id="pmSel" type="text" inputmode="numeric" placeholder="뽑을 쪽: 예 1-3, 7, 10-   (아래 쪽을 눌러 고를 수도 있습니다)">
+        <button class="ghost" type="button" id="pmAll">모두 고르기</button><button class="ghost" type="button" id="pmNone">고른 것 풀기</button>
+      </div>
+      <div class="trow">
+        <div class="seg mini" role="radiogroup" aria-label="고른 쪽을">
+          <label><input type="radio" name="pmKeep" value="keep" checked=""><span><b>고른 쪽만 새 PDF로</b></span></label>
+          <label><input type="radio" name="pmKeep" value="drop"><span><b>고른 쪽 빼고 저장</b></span></label>
+        </div>
+        <label class="inl"><input type="checkbox" id="pmRot"> 고른 쪽 90° 돌리기</label>
+      </div>
+      <div class="pmpages" id="pmPages"></div>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>만들어 내려받기</h2>
+    <div class="trow">
+      <button class="btn" type="button" id="pmGo" data-ev="tool-done:/tools/pdf-merge/" disabled="">PDF 합치기</button>
+      <label class="inl">파일 이름 <input id="pmName" type="text" value="" placeholder="합친파일" style="width:180px"></label>
+    </div>
+    <div class="obar" id="pmBar" hidden=""><i></i></div>
+    <div class="hlist" id="pmOut"></div>
+    <p class="hint" id="pmHint"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>쪽을 그대로 옮겨 붙이므로 글자·사진 화질은 바뀌지 않습니다. 다만 책갈피(목차)와 일부 입력 칸(서명란·체크 상자)은 새 파일로 옮겨지지 않을 수 있습니다.</li>
+      <li>열람 암호가 걸린 PDF는 열 수 없습니다. PDF 프로그램에서 암호를 푼 사본을 만든 뒤 넣어 주세요.</li>
+      <li>PDF를 읽고 붙이는 프로그램은 오픈소스 <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener">pdf-lib</a>(MIT)와 쪽 미리 보기용 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener">PDF.js</a>(Apache-2.0)입니다. 처음 한 번 SHIFT AI 서버에서 받아 오고, 파일은 이 페이지 밖으로 나가지 않습니다.</li>
+    </ul>
+    <p>다음 단계: 만든 PDF를 AI에 올리기 전에 <a href="/tools/pdf-to-text/">PDF 글자 뽑기</a>로 텍스트·마크다운으로 바꾸면 토큰을 아끼고 내용도 미리 확인할 수 있습니다.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>PDF 파일이 서버로 올라가나요?</summary><p>올라가지 않습니다. 합치기·나누기·쪽 뽑기는 모두 이 브라우저 안에서 합니다. 주민등록등본이나 계약서처럼 남에게 보이면 안 되는 PDF도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>PDF 여러 개를 하나로 합치려면요?</summary><p>'합치기'를 고르고 PDF를 모두 넣은 뒤 ▲▼ 버튼이나 끌어 놓기로 순서를 맞추고 'PDF 만들기'를 누르세요. 파일마다 쪽 범위를 적으면 그 쪽만 합칠 수도 있습니다.</p></details>
+    <details><summary>PDF에서 몇 쪽만 따로 저장하려면요?</summary><p>'쪽 뽑기·빼기'를 고르고 PDF를 넣은 뒤 미리 보기에서 쪽을 누르거나 '1-3, 7'처럼 적으세요. '고른 쪽만 새 PDF로'를 누르면 그 쪽만 든 파일이 나옵니다.</p></details>
+    <details><summary>화질이 떨어지나요?</summary><p>떨어지지 않습니다. 쪽을 그림으로 바꾸지 않고 원래 PDF 안의 내용을 그대로 옮겨 붙입니다. 쪽마다 넣은 미리 보기만 작은 그림입니다.</p></details>
+    <details><summary>몇 쪽까지 되나요?</summary><p>정해 둔 한도는 없습니다. 수백 쪽짜리도 되지만 컴퓨터 메모리에 따라 느려질 수 있고, 미리 보기는 앞쪽부터 화면에 보이는 쪽만 그립니다.</p></details>
+  </section>
+<nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">
+  <h2>함께 보면 좋은 글</h2>
+  <ul class="plain"><li><a href="/tools/pdf-to-text/">PDF 글자 뽑기 (텍스트·마크다운)</a> <span>무료 도구</span></li><li><a href="/guide/pdf-summary/">PDF·긴 자료, AI로 요약하고 근거 확인하기</a> <span>AI 길잡이</span></li><li><a href="/tutorial/pdf-to-markdown/">PDF를 마크다운으로 바꿔 AI에 올리는 7단계</a> <span>튜토리얼</span></li></ul>
+  <h2>다른 무료 도구</h2>
+  <div class="trel-tools"><a href="/tools/ai-format/"><b>AI 답변 서식 정리기 (마크다운 기호 지우기)</b><span>챗GPT·클로드 답을 카톡·한글에 붙이면 생기는 **, #, 표 기호를 지우고 제목·목록·표를 붙일 곳에 맞게 정리합니다. 한글·워드에는 서식째, 엑셀에는 칸이 나뉜 표로 복사합니다.</span></a><a href="/tools/exif-remove/"><b>사진 위치정보(EXIF) 지우기</b><span>사진에 숨은 GPS 위치·휴대폰 기종·찍은 날짜를 보여 주고, 화질은 그대로 둔 채 그 정보만 지웁니다. 중고 거래·블로그에 집에서 찍은 사진을 올리기 전에 쓰세요.</span></a><a href="/tools/image-resize/"><b>이미지 압축⁠·인스타 규격 자르기</b><span>사진 용량을 1MB·500KB 이하로 줄이거나 인스타그램 피드 1080×1350, 스토리·릴스 1080×1920 크기로 여러 장을 한 번에 자릅니다. 자를 자리는 끌어서 고릅니다.</span></a><a href="/tools/table-to-markdown/"><b>엑셀⁠·CSV → 마크다운 표 변환</b><span>엑셀·구글 시트에서 복사한 칸이나 .xlsx·CSV 파일을 AI가 잘 읽는 마크다운 표로 바꿉니다. 필요한 열만 고르고 빈 줄을 빼서 AI에 보낼 양과 토큰을 줄입니다.</span></a><a href="/tools/prompt-diff/"><b>프롬프트 비교 (바뀐 부분 표시)</b><span>고치기 전과 고친 뒤의 프롬프트를 나란히 놓고 더한 말은 초록, 뺀 말은 빨강으로 표시합니다. 낱말·글자·줄 단위로 보고 토큰 수 변화까지 확인합니다.</span></a><a href="/tools/ai-subscriptions/"><b>AI 구독료 계산기</b><span>챗GPT·클로드·제미나이·그록 요금제를 고르면 한 달·1년 구독료를 원화로 더하고, 겹치는 챗봇 구독과 연간 결제로 아끼는 돈을 보여 줍니다.</span></a><a href="/tools/pdf-to-text/"><b>PDF 글자 뽑기 (텍스트⁠·마크다운)</b><span>PDF 속 글자를 복사할 수 있는 텍스트와 마크다운으로 바꿉니다. 머리글·쪽 번호를 빼고 끊긴 줄을 문단으로 이어 AI에 올리기 좋게 정리합니다.</span></a><a href="/tools/free-alternatives/"><b>유료 프로그램 무료 대체 찾기</b><span>포토샵·한글·MS 오피스·프리미어처럼 돈 내고 쓰던 프로그램 대신 쓸 무료 프로그램을 찾아 줍니다. 무료 범위와 원래 파일을 여는지까지 공식 페이지 기준으로 정리했습니다.</span></a><a href="/tools/char-count/"><b>글자 수⁠·토큰 세기</b><span>자기소개서·보고서 글자 수를 공백 포함·제외로 세고 바이트, 줄·문단, 목표까지 남은 글자 수와 GPT 토큰 수를 한 번에 보여 줍니다.</span></a><a href="/tools/heic-to-jpg/"><b>HEIC → JPG 변환</b><span>아이폰 HEIC 사진을 JPG·PNG로 바꿉니다. 여러 장을 한 번에 바꿔 ZIP으로 받을 수 있고, 사진은 서버로 올리지 않습니다.</span></a><a href="/tools/ocr/"><b>사진 속 글자 뽑기 (한국어 OCR)</b><span>화면 캡처나 문서 사진에서 글자를 뽑아 복사할 수 있게 바꿔 줍니다. 한국어와 영어를 함께 읽고, 사진은 내 컴퓨터 밖으로 나가지 않습니다.</span></a><a href="/tools/ai-tell/"><b>AI 티 검사기</b><span>글을 붙여 넣으면 AI가 자주 쓰는 표현과 문장 버릇을 찾아 표시하고 고치는 방법을 알려 줍니다. AI가 썼는지 판정하는 도구는 아닙니다.</span></a><a href="/tools/prompt/"><b>프롬프트 만들기</b><span>역할·맥락·자료·할 일·조건·답 형식·확인 방법 일곱 칸만 채우면 챗GPT·클로드·제미나이에 바로 붙여 넣을 프롬프트가 완성됩니다.</span></a><a href="/tools/redact/"><b>개인정보 자동 가리기</b><span>글이나 엑셀 표에 들어 있는 주민등록번호·전화번호·이메일·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.</span></a><a href="/tools/ai-cost/"><b>AI 요금 계산기 (원화)</b><span>챗GPT·클로드·제미나이 등 주요 AI API를 쓰면 한 달에 얼마가 드는지 공식 가격표를 기준으로 원화로 바로 비교합니다.</span></a><a href="/tools/interpreter/"><b>무료 실시간 크롬 번역 (회의 통역창)</b><span>영어·중국어·일본어·프랑스어로 진행되는 회의나 영상을 바로 한국어 자막으로 바꿔 줍니다. 크롬만 있으면 쓸 수 있습니다.</span></a></div>
+</nav>
+</article>
+</main>
+
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top">맨 위로 ↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=1d678fd1"></script>
+<script src="/assets/app.js?v=1d678fd1"></script>
+
+
+</body></html>

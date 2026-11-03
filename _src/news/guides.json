@@ -105,6 +105,7 @@
     "t-notebooklm"
    ],
    "tools": [
+    "pdf-merge",
     "pdf-to-text",
     "char-count",
     "ocr"
@@ -167,6 +168,7 @@
     "t-email-replies"
    ],
    "tools": [
+    "ai-format",
     "prompt",
     "ai-tell",
     "redact"
@@ -224,6 +226,7 @@
     "t-redact-before-upload"
    ],
    "tools": [
+    "table-to-markdown",
     "redact"
    ],
    "prompts": [
@@ -280,6 +283,7 @@
     "t-redact-before-upload"
    ],
    "tools": [
+    "exif-remove",
     "redact"
    ],
    "prompts": [
@@ -508,6 +512,7 @@
     "t-presentation"
    ],
    "tools": [
+    "ai-format",
     "prompt"
    ],
    "prompts": [
@@ -639,6 +644,7 @@
     "t-remotion-motion-video"
    ],
    "tools": [
+    "image-resize",
     "free-alternatives",
     "heic-to-jpg"
    ]
