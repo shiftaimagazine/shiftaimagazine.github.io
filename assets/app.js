@@ -61,7 +61,9 @@ const pillsHTML = (xs,on)=>xs.map(([k,v,n])=>`<button type="button" data-v="${es
 const toolName = t=>t.title.replace(/\s*\(.*?\)\s*$/,"");
 const firstSent = s=>{ const m=String(s||"").match(/^.*?다\.(?=\s|$)/); return m?m[0]:s; };
 function renderHome2(d){
-  if(d){ const [y,m,dd]=d.date.split("-").map(Number); $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${m}월 ${dd}일 데일리 이슈가 올라왔습니다`; }
+  if(d){ const [y,m,dd]=d.date.split("-").map(Number); $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${m}월 ${dd}일 데일리 이슈가 올라왔습니다`;
+    if($("#hDaily")){ $("#hDaily").href=P("d-"+d.date); $("#hDailyT").textContent=`${m}월 ${dd}일 · ${d.title}`; } }
+  if($("#hAll")) $("#hAll").textContent = `AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기`;
   $("#hq").placeholder = `기사·튜토리얼·AI 용어 ${ARTICLES.length+COLUMNS.length+TUTORIALS.length+TERMS.length}개에서 찾기`;
   $("#hStat").innerHTML = `기사 ${ARTICLES.length} · 튜토리얼 ${TUTORIALS.length} · AI 용어 ${TERMS.length}<span class="desk"> · 매일 아침 업데이트</span>`;
   const lv = ["입문","중급"].map(k=>[k,k,TUTORIALS.filter(t=>t.level===k).length]).filter(x=>x[2]);
@@ -81,8 +83,8 @@ function renderHome2(d){
   $("#homeTerms").innerHTML = gs.map(([g])=>TERMS.filter(t=>(t.g||"기타")===g).sort((a,b)=>rank(b)-rank(a)).slice(0,4)
     .map(t=>`<a class="dcard" href="${TP(t)}" data-g="${esc(g)}"${g===g0?"":" hidden"}><b>${esc(t.t)}</b>${t.en?`<span class="mono">${esc(t.en)}</span>`:""}<span class="dd">${esc(firstSent(t.d))}</span></a>`).join("")).join("");
   const nv = ARTICLES.filter(a=>a.verdict&&a.verdict.why).length;
-  $("#homeStats").innerHTML = [[ARTICLES.length,"원문을 확인한 기사"],[nv,"판정과 한 줄 이유"],[TUTORIALS.length,"따라 하는 튜토리얼"],[TOOLS.length,"무료 도구"]]
-    .map(([n,k],i)=>`<div${i===3?' class="y"':""}><b data-n="${n}">${n}</b><span>${k}</span></div>`).join("");
+  $("#homeStats").innerHTML = [[ARTICLES.length,"원문을 확인한 기사","기사"],[nv,"판정과 한 줄 이유","판정"],[TUTORIALS.length,"따라 하는 튜토리얼","튜토리얼"],[TOOLS.length,"무료 도구","무료 도구"]]
+    .map(([n,k,ks],i)=>`<div${i===3?' class="y"':""}><b data-n="${n}">${n}</b><span><span class="d-only">${k}</span><span class="m-only">${ks}</span></span></div>`).join("");
 }
 // 고르기·미리보기·숫자 올라가기·스크롤 등장(미리 그린 페이지에서도 동작)
 const RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -377,7 +379,12 @@ function renderArticle(a){
   const tl = (a.terms||[]).map(t=>termByName[t]).filter(Boolean);
   const ul = a.body.find(x=>x.ul); const rest = a.body.filter(x=>!x.ul);
   const day = DAILY.find(d=>d.items.includes(a.id));
-  $("#v-article").innerHTML = `<article class="article narrow">
+  // 휴대폰(11/4~): 첫 문단 바로 뒤 '한눈에'(판정+세 줄 요약), 본문 뒤 '오늘 바로 해 볼 것', 핵심 정보·원문은 접기
+  const lp = rest[0]&&rest[0].lead ? 1 : 0;
+  const vd = a.verdict&&VD[a.verdict.v];
+  const glance = (vd||ul) ? `<div class="glance m-only">${vd?`<a class="gv" href="/verdict/"><i class="${VD[a.verdict.v][1]}">SHIFT 판정 · ${VD[a.verdict.v][0]}</i><span>${esc(a.verdict.why)}</span></a>`:""}${ul?`<ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`:""}</div>` : "";
+  const mfold = (a.facts&&a.facts.length)||(a.sources&&a.sources.length) ? `<div class="mfold m-only">${a.facts&&a.facts.length?`<details><summary>핵심 정보 ${a.facts.length}개</summary><table class="facts"><tbody>${a.facts.map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table></details>`:""}${a.sources&&a.sources.length?`<details><summary>원문 ${a.sources.length}곳</summary><div class="srcl">${a.sources.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}</div></details>`:""}</div>` : "";
+  $("#v-article").innerHTML = `<article class="article narrow art-news">
     <a class="back" href="/news/">← AI 뉴스</a>
     <span class="cat">${esc(a.cat)}</span>
     <h1>${esc(a.title)}</h1><p class="deck">${esc(a.sub)}</p>
@@ -387,12 +394,15 @@ function renderArticle(a){
     ${fig(imgOf(a),"lead-fig")}
     ${factsHTML(a.facts)}
     ${ul?`<div class="box keyp"><b>세 줄 요약</b><ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul></div>`:""}
-    <div class="body">${bodyHTML(rest)}</div>
+    <div class="body">${bodyHTML(rest.slice(0,lp))}${glance}${bodyHTML(rest.slice(lp))}</div>
+    ${a.try?`<div class="trynow m-only"><b>오늘 바로 해 볼 것</b><span>${esc(a.try)}</span></div>`:""}
     <div class="ask"><small>생각해 볼 질문</small>${esc(a.ask)}</div>
     ${nxHTML(a)}
     ${srcHTML(a.sources)}
+    ${mfold}
     ${updHTML(a)}
     ${tl.length?`<div class="chips">${tl.map(t=>`<a href="${TP(t)}" title="${esc(t.d)}">${esc(t.t)}</a>`).join("")}</div>`:""}
+    ${a.ask?`<div class="ask m-only"><small>생각해 볼 질문</small>${esc(a.ask)}</div>`:""}
     <div class="links">${day?`<a href="${P("d-"+day.date)}">${fmtDate(day.date)} 데일리 이슈</a>`:""}<a href="${a.reel||IG}" target="_blank" rel="noopener">30초 영상 보기</a><a href="${a.thread||TH}" target="_blank" rel="noopener">스레드에서 의견 남기기</a>${linkCopy("a-"+a.id,"링크 복사")}${fixLink(a.title, P("a-"+a.id))}</div>
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
