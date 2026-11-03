@@ -551,7 +551,8 @@ document.addEventListener("submit",async e=>{
   const msg=f.querySelector(".submsg"), btn=f.querySelector("button[type=submit]"), em=f.elements.email.value.trim();
   const say=(m,bad)=>{ msg.textContent=m; msg.classList.toggle("bad",!!bad); };
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { f.elements.email.focus(); return say(SUB_ERR.bad_email,1); }
-  if(!f.elements.agree.checked) { f.elements.agree.focus(); return say("개인정보 수집·이용과 국외 이전에 동의해야 구독할 수 있습니다.",1); }
+  if(!f.elements.agree.checked) { f.elements.agree.focus(); return say("이메일 주소 수집·이용에 동의해야 구독할 수 있습니다.",1); }
+  if(!f.elements.agree_abroad.checked) { f.elements.agree_abroad.focus(); return say("메일은 미국 Resend로 보내기 때문에, 국외 이전에 동의해야 구독할 수 있습니다.",1); }
   if(!f.dataset.api) return say("구독 신청을 준비하고 있습니다. 잠시 뒤 다시 와 주세요.",1);
   btn.disabled=true; say("보내는 중입니다…");
   const j=await subPost(f.dataset.api,"/subscribe",{email:em, hp:f.elements.website.value, ms:Date.now()-SUB_T0});
