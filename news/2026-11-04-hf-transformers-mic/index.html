@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=d0cf2850"></script>
+<script src="/assets/theme.js?v=d36bee73"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=d0cf2850">
+<link rel="stylesheet" href="/assets/site.css?v=d36bee73">
 </head>
 <body data-route="a-2026-11-04-hf-transformers-mic" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 2개, AI 구독료 계산기와 PDF 글자 뽑기가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -66,7 +66,7 @@
     <a class="vdbox vd-watch" href="/verdict/"><b>SHIFT 판정 · 지켜보세요</b><span>제안 단계라 CI는 실패를 보고만 하고 PR을 막지 않습니다.</span></a>
     <div class="trynow"><b>오늘 바로 해 볼 것</b><span>자주 쓰는 모델이 있다면 블로그 안내대로 transformers-mic를 설치하고 tmic run 명령을 내 컴퓨터에서 돌려 축소 모델과 기준 결과가 만들어지는지 확인해 보세요.</span></div>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.11.04 06:55</span><span class="dot"></span><span>4분 읽기</span></div>
-    <figure class="lead-fig"><img src="img/ph/2026-11-04-hf-transformers-mic.webp" alt="허깅페이스 MIC 블로그 대표 이미지" fetchpriority="high"><figcaption>이미지: Hugging Face</figcaption></figure>
+    <figure class="lead-fig"><img src="img/ph/2026-11-04-hf-transformers-mic.webp" alt="허깅페이스 MIC 블로그 대표 이미지" fetchpriority="high"><figcaption>화면: huggingface.co</figcaption></figure>
     <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>허깅페이스(필자 타렉 지아데)</td></tr><tr><th>날짜</th><td>2026년 11월 3일(블로그 게시일)</td></tr><tr><th>무엇</th><td>트랜스포머스 모델 통합 계약(MIC) 표준안</td></tr><tr><th>핵심 숫자</th><td>라마 4 스카우트 파라미터 1,086억 개를 4,470만 개로 축소</td></tr><tr><th>현재 상태</th><td>11월 1일 기준 CI에서 실패를 보고만 하고 PR은 막지 않음</td></tr><tr><th>원문</th><td>허깅페이스 블로그</td></tr></tbody></table></div>
     <div class="box keyp"><b>세 줄 요약</b><ul><li><b>모델 하나를 세 부분으로 묶은 계약.</b> 줄인 모델, 사용 경로, 기준 결과</li><li><b>PR마다 CPU에서 확인.</b> GPU 정기 실행을 기다리지 않고 main에 들어가기 전에 점검</li><li><b>아직 PR을 막지는 않음.</b> 11월 1일 기준 실패를 보고만 하는 단계</li></ul></div>
     <div class="body"><p class="lead">허깅페이스(Hugging Face)의 타렉 지아데(Tarek Ziadé)가 11월 3일 블로그에 트랜스포머스(Transformers)용 '모델 통합 계약(Model Integration Contract, MIC)' 표준안을 소개했습니다. 실제 체크포인트의 설정으로 줄여 만든 작은 모델에 대표적인 사용 경로를 돌려 보고, 사람이 검토해 둔 기준 결과와 같은지 CPU에서 확인하는 방식입니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정 · 지켜보세요</i><span>제안 단계라 CI는 실패를 보고만 하고 PR을 막지 않습니다.</span></a><ul><li><b>모델 하나를 세 부분으로 묶은 계약.</b> 줄인 모델, 사용 경로, 기준 결과</li><li><b>PR마다 CPU에서 확인.</b> GPU 정기 실행을 기다리지 않고 main에 들어가기 전에 점검</li><li><b>아직 PR을 막지는 않음.</b> 11월 1일 기준 실패를 보고만 하는 단계</li></ul></div><h3>UMT5 버그는 두 달 가까이 main에 남았습니다</h3><p>글이 드는 사례는 2026년 7월 30일에 트랜스포머스가 T5에 파이토치(PyTorch)의 SDPA(scaled dot-product attention)를 켠 일입니다. 부작용으로 UMT5 디코더가 미래 토큰을 볼 수 있게 되어 학습 중에 맞혀야 할 답을 미리 엿볼 수 있었지만 오류는 나지 않았고, 버그는 거의 두 달 동안 main에 남았습니다. 트랜스포머스는 지원하는 모델 종류가 750개를 넘고 main에서 CPU 테스트 8만 8,000개 이상, 매일 GPU 테스트 20만 개 이상을 돌립니다. 글에 따르면 작은 UMT5 픽스처는 이 회귀 버그를 생긴 날인 7월 30일부터 수정이 들어간 9월 28일까지 계속 표시했습니다.</p><h3>계약은 픽스처, 사용 경로, 기준 결과로 이뤄집니다</h3><p>픽스처는 실제 체크포인트의 설정으로 줄여 만든 모델로 한 번 만들어 고정해 둡니다. 층 수와 폭은 줄여도 원래 모델에 있는 층 종류는 모두 남기고 토크나이저와 프로세서 파일도 그대로 씁니다. 사용 경로는 텍스트 생성이나 학습 한 단계처럼 사람들이 그 모델로 실제로 하는 일을 실행 가능한 마크다운 예제로 적은 것이고, 기준 결과는 그 예제를 돌려 기록한 출력을 사람이 검토한 값입니다. 픽스처에서 사용 경로를 돌렸을 때 기준 결과가 그대로 나오면 계약이 지켜진 것입니다. 계약 하나는 체크포인트 하나가 아니라 구조와 사용 경로에 걸리기 때문에 호환되는 체크포인트가 픽스처를 나눠 쓰고 기준 결과만 따로 가집니다.</p><p>SDPA는 기본 어텐션 경로인데 eager 어텐션 변형만 돌렸을 때는 UMT5 버그가 걸리지 않았습니다. 글은 픽스처가 실제 체크포인트와 같은 코드를 지나야 의미가 있다고 적고, 가중치 파일 형식도 원래대로 두어 사용자가 실제 체크포인트를 불러올 때 도는 변환 코드까지 시험하게 합니다.</p><h3>1,086억 개 파라미터가 4,470만 개가 됩니다</h3><p>라마 4 스카우트(Llama 4 Scout) 17B-16E Instruct는 파라미터가 1,086억 개에서 4,470만 개로 줄고, 비전 쪽 34층은 2층, 언어 쪽 48층은 4층이 됩니다. UMT5 실험용 픽스처의 가중치는 66MB로 원본 체크포인트의 1,227MB보다 훨씬 작습니다. 수정을 되돌린 시험 가지에서 T5 계약을 돌리자 라벨 로그 확률이 검토한 기준값과 1.22, 학습 손실이 약 0.20 달랐고 실행 단계는 설정 시간을 빼고 CPU에서 13.4초가 걸렸습니다. 위스퍼(Whisper) 가중치 초기화 연구에서는 일부러 심은 결함 24개 중 무작위 가중치 픽스처가 18개, 한 번 과적합시킨 픽스처가 24개를 모두 잡았습니다(자체 발표 기준).</p><h3>PR을 막지 않고 실패만 알립니다</h3><p>11월 1일 기준으로 트랜스포머스 CI의 MIC 작업은 실패를 보고하되 PR을 막지는 않습니다. 막을지는 PR에서 실제 버그를 얼마나 잡는지, 헛경보로 얼마나 헤매게 하는지, 기준 결과 검토에 일이 얼마나 드는지처럼 아직 재지 못한 요소에 달려 있다고 글은 적습니다. 위스퍼에서는 두 픽스처 모두 실제 체크포인트로만 드러난 보조 디코딩 버그를 놓쳤고, 심은 결함이 합성이라 과적합판만 잡은 실제 회귀는 찾지 못했습니다. 기준 결과는 LLM이 초안을 쓰고 사람이 승인하며 픽스처가 전체 통합 테스트를 대신하지는 않습니다. 허브 모델 페이지와 MIC를 연결하는 일은 아직 계획으로만 적혀 있습니다.</p></div>
@@ -106,8 +106,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=d0cf2850"></script>
-<script src="/assets/app.js?v=d0cf2850"></script>
+<script src="/assets/data-lite.js?v=d36bee73"></script>
+<script src="/assets/app.js?v=d36bee73"></script>
 
 
 </body></html>
