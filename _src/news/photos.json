@@ -264,5 +264,23 @@
   "credit": "화면: lkml.iu.edu",
   "alt": "리눅스 7.4-rc1 공지 메일 화면",
   "auto": true
+ },
+ "2026-11-04-hf-transformers-mic": {
+  "src": "img/ph/2026-11-04-hf-transformers-mic.webp",
+  "credit": "이미지: Hugging Face",
+  "alt": "허깅페이스 MIC 블로그 대표 이미지",
+  "auto": true
+ },
+ "2026-11-04-nvidia-city-physical-agentic-ai": {
+  "src": "img/ph/2026-11-04-nvidia-city-physical-agentic-ai.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 블로그의 스마트시티 대표 이미지",
+  "auto": true
+ },
+ "2026-11-04-egoless-mathematics-ai": {
+  "src": "img/ph/2026-11-04-egoless-mathematics-ai.webp",
+  "credit": "화면: terrytao.wordpress.com",
+  "alt": "테렌스 타오 블로그의 에고 없는 수학 글 화면",
+  "auto": true
  }
 }

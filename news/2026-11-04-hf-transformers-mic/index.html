@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다 · SHIFT AI</title>
+<meta name="description" content="허깅페이스(Hugging Face)가 트랜스포머스 라이브러리에 모델 통합 계약(MIC)을 제안했습니다. 실제 모델의 설정으로 줄여 만든 작은 모델에 사용 경로를 돌려 보고, 사람이 검토한 기준 결과와 같은지 CPU에서 확인하는 방식입니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/news/2026-11-04-hf-transformers-mic/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다 · SHIFT AI">
+<meta property="og:description" content="허깅페이스(Hugging Face)가 트랜스포머스 라이브러리에 모델 통합 계약(MIC)을 제안했습니다. 실제 모델의 설정으로 줄여 만든 작은 모델에 사용 경로를 돌려 보고, 사람이 검토한 기준 결과와 같은지 CPU에서 확인하는 방식입니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/news/2026-11-04-hf-transformers-mic/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/a-2026-11-04-hf-transformers-mic.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<script src="/assets/theme.js?v=d0cf2850"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-04T06:55:00+09:00">
+<meta property="article:section" content="연구">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다", "description": "허깅페이스(Hugging Face)가 트랜스포머스 라이브러리에 모델 통합 계약(MIC)을 제안했습니다. 실제 모델의 설정으로 줄여 만든 작은 모델에 사용 경로를 돌려 보고, 사람이 검토한 기준 결과와 같은지 CPU에서 확인하는 방식입니다.", "image": ["https://shiftaimagazine.com/og/a-2026-11-04-hf-transformers-mic.jpg"], "datePublished": "2026-11-04T06:55:00+09:00", "dateModified": "2026-11-04T06:55:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-11-04-hf-transformers-mic/", "articleSection": "연구", "inLanguage": "ko", "keywords": "허깅페이스, 트랜스포머, 회귀 버그, 픽스처, 지속적 통합, 파라미터, LLM", "isBasedOn": ["https://huggingface.co/blog/transformers-mic"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 뉴스", "item": "https://shiftaimagazine.com/news/"}, {"@type": "ListItem", "position": 3, "name": "허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다", "item": "https://shiftaimagazine.com/news/2026-11-04-hf-transformers-mic/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=d0cf2850">
+</head>
+<body data-route="a-2026-11-04-hf-transformers-mic" id="top" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 2개, AI 구독료 계산기와 PDF 글자 뽑기가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="true">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow art-news">
+    <a class="back" href="/news/">← AI 뉴스</a>
+    <span class="cat">연구</span>
+    <h1>허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다</h1><p class="deck">Model Integration Contracts · 타렉 지아데 · 허깅페이스 블로그</p>
+    <a class="vdbox vd-watch" href="/verdict/"><b>SHIFT 판정 · 지켜보세요</b><span>제안 단계라 CI는 실패를 보고만 하고 PR을 막지 않습니다.</span></a>
+    <div class="trynow"><b>오늘 바로 해 볼 것</b><span>자주 쓰는 모델이 있다면 블로그 안내대로 transformers-mic를 설치하고 tmic run 명령을 내 컴퓨터에서 돌려 축소 모델과 기준 결과가 만들어지는지 확인해 보세요.</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.11.04 06:55</span><span class="dot"></span><span>4분 읽기</span></div>
+    <figure class="lead-fig"><img src="img/ph/2026-11-04-hf-transformers-mic.webp" alt="허깅페이스 MIC 블로그 대표 이미지" fetchpriority="high"><figcaption>이미지: Hugging Face</figcaption></figure>
+    <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>허깅페이스(필자 타렉 지아데)</td></tr><tr><th>날짜</th><td>2026년 11월 3일(블로그 게시일)</td></tr><tr><th>무엇</th><td>트랜스포머스 모델 통합 계약(MIC) 표준안</td></tr><tr><th>핵심 숫자</th><td>라마 4 스카우트 파라미터 1,086억 개를 4,470만 개로 축소</td></tr><tr><th>현재 상태</th><td>11월 1일 기준 CI에서 실패를 보고만 하고 PR은 막지 않음</td></tr><tr><th>원문</th><td>허깅페이스 블로그</td></tr></tbody></table></div>
+    <div class="box keyp"><b>세 줄 요약</b><ul><li><b>모델 하나를 세 부분으로 묶은 계약.</b> 줄인 모델, 사용 경로, 기준 결과</li><li><b>PR마다 CPU에서 확인.</b> GPU 정기 실행을 기다리지 않고 main에 들어가기 전에 점검</li><li><b>아직 PR을 막지는 않음.</b> 11월 1일 기준 실패를 보고만 하는 단계</li></ul></div>
+    <div class="body"><p class="lead">허깅페이스(Hugging Face)의 타렉 지아데(Tarek Ziadé)가 11월 3일 블로그에 트랜스포머스(Transformers)용 '모델 통합 계약(Model Integration Contract, MIC)' 표준안을 소개했습니다. 실제 체크포인트의 설정으로 줄여 만든 작은 모델에 대표적인 사용 경로를 돌려 보고, 사람이 검토해 둔 기준 결과와 같은지 CPU에서 확인하는 방식입니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정 · 지켜보세요</i><span>제안 단계라 CI는 실패를 보고만 하고 PR을 막지 않습니다.</span></a><ul><li><b>모델 하나를 세 부분으로 묶은 계약.</b> 줄인 모델, 사용 경로, 기준 결과</li><li><b>PR마다 CPU에서 확인.</b> GPU 정기 실행을 기다리지 않고 main에 들어가기 전에 점검</li><li><b>아직 PR을 막지는 않음.</b> 11월 1일 기준 실패를 보고만 하는 단계</li></ul></div><h3>UMT5 버그는 두 달 가까이 main에 남았습니다</h3><p>글이 드는 사례는 2026년 7월 30일에 트랜스포머스가 T5에 파이토치(PyTorch)의 SDPA(scaled dot-product attention)를 켠 일입니다. 부작용으로 UMT5 디코더가 미래 토큰을 볼 수 있게 되어 학습 중에 맞혀야 할 답을 미리 엿볼 수 있었지만 오류는 나지 않았고, 버그는 거의 두 달 동안 main에 남았습니다. 트랜스포머스는 지원하는 모델 종류가 750개를 넘고 main에서 CPU 테스트 8만 8,000개 이상, 매일 GPU 테스트 20만 개 이상을 돌립니다. 글에 따르면 작은 UMT5 픽스처는 이 회귀 버그를 생긴 날인 7월 30일부터 수정이 들어간 9월 28일까지 계속 표시했습니다.</p><h3>계약은 픽스처, 사용 경로, 기준 결과로 이뤄집니다</h3><p>픽스처는 실제 체크포인트의 설정으로 줄여 만든 모델로 한 번 만들어 고정해 둡니다. 층 수와 폭은 줄여도 원래 모델에 있는 층 종류는 모두 남기고 토크나이저와 프로세서 파일도 그대로 씁니다. 사용 경로는 텍스트 생성이나 학습 한 단계처럼 사람들이 그 모델로 실제로 하는 일을 실행 가능한 마크다운 예제로 적은 것이고, 기준 결과는 그 예제를 돌려 기록한 출력을 사람이 검토한 값입니다. 픽스처에서 사용 경로를 돌렸을 때 기준 결과가 그대로 나오면 계약이 지켜진 것입니다. 계약 하나는 체크포인트 하나가 아니라 구조와 사용 경로에 걸리기 때문에 호환되는 체크포인트가 픽스처를 나눠 쓰고 기준 결과만 따로 가집니다.</p><p>SDPA는 기본 어텐션 경로인데 eager 어텐션 변형만 돌렸을 때는 UMT5 버그가 걸리지 않았습니다. 글은 픽스처가 실제 체크포인트와 같은 코드를 지나야 의미가 있다고 적고, 가중치 파일 형식도 원래대로 두어 사용자가 실제 체크포인트를 불러올 때 도는 변환 코드까지 시험하게 합니다.</p><h3>1,086억 개 파라미터가 4,470만 개가 됩니다</h3><p>라마 4 스카우트(Llama 4 Scout) 17B-16E Instruct는 파라미터가 1,086억 개에서 4,470만 개로 줄고, 비전 쪽 34층은 2층, 언어 쪽 48층은 4층이 됩니다. UMT5 실험용 픽스처의 가중치는 66MB로 원본 체크포인트의 1,227MB보다 훨씬 작습니다. 수정을 되돌린 시험 가지에서 T5 계약을 돌리자 라벨 로그 확률이 검토한 기준값과 1.22, 학습 손실이 약 0.20 달랐고 실행 단계는 설정 시간을 빼고 CPU에서 13.4초가 걸렸습니다. 위스퍼(Whisper) 가중치 초기화 연구에서는 일부러 심은 결함 24개 중 무작위 가중치 픽스처가 18개, 한 번 과적합시킨 픽스처가 24개를 모두 잡았습니다(자체 발표 기준).</p><h3>PR을 막지 않고 실패만 알립니다</h3><p>11월 1일 기준으로 트랜스포머스 CI의 MIC 작업은 실패를 보고하되 PR을 막지는 않습니다. 막을지는 PR에서 실제 버그를 얼마나 잡는지, 헛경보로 얼마나 헤매게 하는지, 기준 결과 검토에 일이 얼마나 드는지처럼 아직 재지 못한 요소에 달려 있다고 글은 적습니다. 위스퍼에서는 두 픽스처 모두 실제 체크포인트로만 드러난 보조 디코딩 버그를 놓쳤고, 심은 결함이 합성이라 과적합판만 잡은 실제 회귀는 찾지 못했습니다. 기준 결과는 LLM이 초안을 쓰고 사람이 승인하며 픽스처가 전체 통합 테스트를 대신하지는 않습니다. 허브 모델 페이지와 MIC를 연결하는 일은 아직 계획으로만 적혀 있습니다.</p></div>
+    <div class="trynow m-only"><b>오늘 바로 해 볼 것</b><span>자주 쓰는 모델이 있다면 블로그 안내대로 transformers-mic를 설치하고 tmic run 명령을 내 컴퓨터에서 돌려 축소 모델과 기준 결과가 만들어지는지 확인해 보세요.</span></div>
+    <div class="ask"><small>생각해 볼 질문</small>쓰고 있는 오픈소스 라이브러리는 업데이트 때 이전 결과와 비교하는 테스트를 어떻게 돌리나요?</div>
+    <nav class="nxbox" aria-label="이어서 해 볼 것"><b>이어서 해 볼 것</b><a href="/guide/verify-ai/" data-ev="next:/guide/verify-ai/"><span>길잡이</span>AI 답, 믿기 전에 확인하는 법</a><a href="/tutorial/verify-numbers/" data-ev="next:/tutorial/verify-numbers/"><span>튜토리얼</span>AI가 말한 숫자·날짜·가격, 원문으로 확인하는 프롬프트 9개</a></nav>
+    <div class="src"><b>원문</b><a href="https://huggingface.co/blog/transformers-mic" target="_blank" rel="noopener">허깅페이스 블로그 — Transformers Model Integration Contracts · https://huggingface.co/blog/transformers-mic</a></div>
+    <div class="mfold m-only"><details><summary>핵심 정보 6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>허깅페이스(필자 타렉 지아데)</td></tr><tr><th>날짜</th><td>2026년 11월 3일(블로그 게시일)</td></tr><tr><th>무엇</th><td>트랜스포머스 모델 통합 계약(MIC) 표준안</td></tr><tr><th>핵심 숫자</th><td>라마 4 스카우트 파라미터 1,086억 개를 4,470만 개로 축소</td></tr><tr><th>현재 상태</th><td>11월 1일 기준 CI에서 실패를 보고만 하고 PR은 막지 않음</td></tr><tr><th>원문</th><td>허깅페이스 블로그</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://huggingface.co/blog/transformers-mic" target="_blank" rel="noopener">허깅페이스 블로그 — Transformers Model Integration Contracts</a></div></details></div>
+    
+    <div class="chips"><a href="/dict/hugging-face/" title="AI 모델과 데이터셋을 올리고 내려받는 공유 사이트입니다. 오픈 웨이트 모델 대부분이 여기에 공개됩니다.">허깅페이스</a><a href="/dict/transformer/" title="오늘날 LLM 대부분이 쓰는 신경망 구조입니다. 그 중심에는 문장 속 단어들의 관계를 한꺼번에 계산하는 '어텐션'이 있습니다.">트랜스포머</a><a href="/dict/regression/" title="소프트웨어를 고치거나 바꾼 뒤 예전에는 잘 되던 기능이 다시 틀리게 되는 버그입니다. 이전 결과와 비교하는 테스트로 찾습니다.">회귀 버그</a><a href="/dict/fixture/" title="테스트를 돌릴 때 미리 만들어 두고 고정해서 쓰는 준비 자료입니다. 허깅페이스의 MIC 제안에서는 실제 모델의 설정으로 줄여 만든 작은 모델을 가리킵니다.">픽스처</a><a href="/dict/continuous-integration/" title="코드가 바뀔 때마다 자동으로 빌드와 테스트를 돌려 문제를 빨리 찾는 개발 방식입니다. CI라고 줄여 부릅니다.">지속적 통합</a><a href="/dict/parameter/" title="모델이 학습하며 조정하는 숫자(매개변수)입니다. '1조 파라미터 모델'처럼 모델 크기를 말할 때 씁니다. 많을수록 대체로 똑똑하지만 돌리는 비용도 커집니다.">파라미터</a><a href="/dict/llm/" title="대규모 언어 모델입니다. 방대한 글로 학습해 글을 읽고 쓰는 AI로, 챗GPT·클로드·제미나이가 대표적입니다.">LLM</a></div>
+    <div class="ask m-only"><small>생각해 볼 질문</small>쓰고 있는 오픈소스 라이브러리는 업데이트 때 이전 결과와 비교하는 테스트를 어떻게 돌리나요?</div>
+    <div class="links"><a href="/daily/2026-11-04/">2026.11.04 데일리 이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 영상 보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 의견 남기기</a><a href="/news/2026-11-04-hf-transformers-mic/" data-copy="https://shiftaimagazine.com/news/2026-11-04-hf-transformers-mic/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20%ED%97%88%EA%B9%85%ED%8E%98%EC%9D%B4%EC%8A%A4%20%ED%8A%B8%EB%9E%9C%EC%8A%A4%ED%8F%AC%EB%A8%B8%EC%8A%A4%20MIC%20%EC%A0%9C%EC%95%88%2C%20%EC%A4%84%EC%9D%B8%20%EB%AA%A8%EB%8D%B8%EB%A1%9C%20PR%20%EB%8B%A8%EA%B3%84%EC%97%90%EC%84%9C%20%EB%B2%84%EA%B7%B8%20%EC%B0%BE%EB%8A%94%EB%8B%A4&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Fnews%2F2026-11-04-hf-transformers-mic%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려 주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 기사</div><div class="list"><a class="post" href="/news/2026-11-04-nvidia-city-physical-agentic-ai/"><img class="thumb" src="img/ph/2026-11-04-nvidia-city-physical-agentic-ai.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">모델·제품<span class="vd vd-watch">지켜보세요</span></span><h3>엔비디아 도시용 피지컬⁠·에이전틱 AI 사례, 스페인 150건 넘는 배포부터 말레이시아 카메라 1만 7,000대까지</h3><p>엔비디아(NVIDIA)가 도시 행정에 쓰는 피지컬 AI와 에이전틱 AI 사례를 블로그에 모아 소개했습니다. 스페인의 주민 민원 에이전트, 말레이시아의 교통 카메라 분석, 모로코 항만의 AI 공장까지 일곱 곳이 나옵니다.</p><div class="meta"><span>2026.11.04</span><span class="dot"></span><span>4분 읽기</span></div></div></a></div></div>
+  </article></main>
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top">맨 위로 ↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=d0cf2850"></script>
+<script src="/assets/app.js?v=d0cf2850"></script>
+
+
+</body></html>
