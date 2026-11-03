@@ -86,14 +86,14 @@ function confirmMail(env, link) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px">
 <tr><td style="padding:28px 28px 8px"><img src="${site}/img/brand/logo-wide-mail.png" width="140" height="45" alt="SHIFT AI" style="display:block;border:0;width:140px;height:auto"></td></tr>
 <tr><td style="padding:12px 28px 0;font-size:20px;font-weight:700;line-height:1.45">구독 신청을 확인해 주세요</td></tr>
-<tr><td style="padding:12px 28px 0;font-size:15px;line-height:1.75;color:#3f4046">SHIFT AI 데일리 메일 구독 신청을 받았습니다. 아래 버튼을 누르면 구독이 확정되고, 그날 나온 데일리 이슈를 매일 아침 7시에 보내 드립니다.</td></tr>
+<tr><td style="padding:12px 28px 0;font-size:15px;line-height:1.75;color:#3f4046">SHIFT AI 주간 메일 구독 신청을 받았습니다. 아래 버튼을 누르면 구독이 확정되고, 매주 월요일 아침 7시에 지난 한 주의 AI 핫 이슈를 보내 드립니다.</td></tr>
 <tr><td style="padding:22px 28px 6px"><a href="${escHtml(link)}" style="display:inline-block;background:#111214;color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;padding:13px 22px;border-radius:8px">구독 확정하기</a></td></tr>
 <tr><td style="padding:14px 28px 0;font-size:13px;line-height:1.7;color:#6f7076">버튼이 안 눌리면 이 주소를 브라우저에 붙여 넣으세요.<br><a href="${escHtml(link)}" style="color:#6f7076;word-break:break-all">${escHtml(link)}</a></td></tr>
 <tr><td style="padding:18px 28px 28px;font-size:13px;line-height:1.7;color:#6f7076">직접 신청하지 않았다면 이 메일은 무시하셔도 됩니다. 버튼을 누르지 않으면 더는 메일이 가지 않습니다. 확인 링크는 ${TOKEN_DAYS}일 동안 열려 있습니다.</td></tr>
 </table>
 <p style="margin:16px 0 0;font-size:12px;color:#8a8b90">SHIFT AI · <a href="${site}/" style="color:#8a8b90">shiftaimagazine.com</a> · <a href="${site}/privacy/" style="color:#8a8b90">개인정보처리방침</a></p>
 </td></tr></table></body></html>`;
-  const text = `SHIFT AI 데일리 메일 구독 신청을 받았습니다.\n아래 주소를 열어 구독을 확정해 주세요. 확정하면 그날 나온 데일리 이슈를 매일 아침 7시에 보내 드립니다.\n\n${link}\n\n직접 신청하지 않았다면 이 메일은 무시하셔도 됩니다. 확인하지 않으면 더는 메일이 가지 않습니다.\n\nSHIFT AI · ${site}/`;
+  const text = `SHIFT AI 주간 메일 구독 신청을 받았습니다.\n아래 주소를 열어 구독을 확정해 주세요. 확정하면 매주 월요일 아침 7시에 지난 한 주의 AI 핫 이슈를 보내 드립니다.\n\n${link}\n\n직접 신청하지 않았다면 이 메일은 무시하셔도 됩니다. 확인하지 않으면 더는 메일이 가지 않습니다.\n\nSHIFT AI · ${site}/`;
   return { subject: '[SHIFT AI] 구독 신청을 확인해 주세요', html, text };
 }
 

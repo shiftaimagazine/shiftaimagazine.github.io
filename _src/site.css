@@ -353,9 +353,9 @@ footer .fword{font-size:22vw;line-height:.78;font-weight:800;letter-spacing:-.07
 .fbtn:hover{border-color:var(--line-strong)}
 .article .followbox,.narrow .followbox{grid-template-columns:1fr;gap:16px}
 @media (max-width:760px){.followbox{grid-template-columns:1fr;gap:16px;padding:22px}}
-/* 데일리 메일 구독 상자(11/11~): 팔로우 상자 바로 위 */
+/* 주간 메일 구독 상자(11/11~): 모든 페이지 맨 아래(바닥글 바로 위) */
 .subbox{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;background:var(--bg2);border-radius:14px;padding:28px 30px;margin:56px 0 0}
-.subbox+.followbox{margin-top:12px}
+.wrap>.subbox{margin:64px 0 48px}
 .subbox>*{min-width:0}
 .subbox .k{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em}
 .subbox h2{font-size:23px;line-height:1.35;margin:6px 0 8px}
@@ -385,6 +385,18 @@ footer .fword{font-size:22vw;line-height:.78;font-weight:800;letter-spacing:-.07
 .subconfirm .btn{font-size:15px;padding:11px 18px}
 .subconfirm+.subbox{margin-top:20px}
 #v-subscribe .subbox{margin-top:28px}
+/* 구독 팝업(11/11~): 페이지를 열 때마다 한 번, 구석에 작게. 화면을 가리지 않고(배경 막 없음) 닫기·Esc 로 바로 닫힌다 */
+.subpop{position:fixed;right:20px;bottom:20px;z-index:60;width:min(380px,calc(100vw - 32px));background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.16);padding:18px 18px 16px;animation:subpop-in .28s ease-out}
+.subpop .subpop-k{display:block;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em;padding-right:28px}
+.subpop .subpop-t{display:block;font-size:17px;line-height:1.4;margin:4px 0 4px;padding-right:28px}
+.subpop .subpop-d{margin:0 0 12px;color:var(--sub);font-size:14px;line-height:1.6}
+.subpop .subf{gap:8px}
+.subpop .subrow .btn{padding:11px 14px}
+.subpop-x{position:absolute;top:8px;right:8px;width:34px;height:34px;border:0;border-radius:999px;background:transparent;color:var(--sub);font-size:22px;line-height:1;cursor:pointer}
+.subpop-x:hover{background:var(--bg2);color:var(--ink)}
+@keyframes subpop-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.subpop{animation:none}}
+@media (max-width:640px){.subpop{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto;padding:16px 14px 14px}.subpop .subpop-d{display:none}}
 
 /* 검색 */
 .sicon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;background:var(--bg2);color:var(--ink);transition:background .2s}
@@ -1124,7 +1136,7 @@ header{transition:box-shadow .3s ease}
   .subbox h2{display:none}
   .subbox .k{font-size:16.5px;color:var(--ink)}
   .subbox .st p{font-size:14.5px;margin-top:2px}
-  .subbox+.followbox{margin-top:10px}
+  .wrap>.subbox{margin:44px 0 32px}
   .subrow input{font-size:16px;padding:11px 12px}
   .subrow .btn{padding:11px 14px}
   /* 바닥: 링크를 한 덩어리로 */

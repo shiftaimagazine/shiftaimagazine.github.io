@@ -1,16 +1,15 @@
-# 데일리 메일 발송: 사이트가 다시 만들어지면(build-site 끝) 다음 날 데일리 이슈 메일을 아침 7시(한국 시간)로 예약한다.
-# 놓친 경우를 위해 매일 06:41(한국 시간)에도 한 번 확인한다. 같은 날 메일은 한 번만 간다(Resend 발송 이름 daily-YYYY-MM-DD 로 확인).
+# 주간 메일 '이번 주 AI 핫 이슈' 발송: 일요일 23:17(한국 시간)에 지난주(월~일) 기사로 메일을 만들어 월요일 07:00 으로 예약한다.
+# 놓친 경우를 위해 월요일 06:41(한국 시간)에도 한 번 확인한다. 같은 주 메일은 한 번만 간다(Resend 발송 이름 weekly-YYYY-MM-DD 로 확인).
+# 편집부가 기사를 고르려면 일요일 밤 전까지 _src/newsletter/weekly/<월요일 날짜>.json 을 올린다(형식은 send.py 맨 위).
 # 저장소 비밀값: RESEND_API_KEY · RESEND_SEGMENT_ID (없으면 경고만 남기고 끝냄). 안내서: _src/newsletter/SETUP.md
 name: newsletter
 on:
-  workflow_run:
-    workflows: [build-site]
-    types: [completed]
   schedule:
-    - cron: '41 21 * * *'
+    - cron: '17 14 * * 0'
+    - cron: '41 21 * * 0'
   workflow_dispatch:
     inputs:
-      date: {description: '보낼 데일리 이슈 날짜(YYYY-MM-DD, 비우면 오늘·내일 중 최신)', required: false, default: ''}
+      date: {description: '보낼 날(월요일, YYYY-MM-DD). 비우면 돌아오는 월요일', required: false, default: ''}
       now: {description: '예약하지 않고 바로 보내기', type: boolean, default: false}
 permissions:
   contents: read
@@ -19,7 +18,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   send:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
