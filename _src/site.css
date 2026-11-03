@@ -1019,3 +1019,106 @@ header{transition:box-shadow .3s ease}
   .rv-pre,.sec.rv-pre>*,.fword.rv-pre span{opacity:1!important;transform:none!important}.sec.rv-pre::after{transform:none}
   .post:hover .thumb{transform:none;clip-path:inset(0 round 8px)}
 }
+
+/* ---- 휴대폰 가독성(11/4~): 정보량 줄이기. PC는 그대로 ----
+   이 묶음은 (min-width:0px)를 붙여 build.py mobile_type() 글자 키우기에서 빠진다 = 여기 적은 크기가 그대로 쓰인다 */
+.m-only{display:none}
+@media (min-width:0px) and (max-width:640px){
+  .m-only{display:revert}
+  .d-only{display:none}
+  /* 홈 첫 화면: 설명·숫자 줄 빼고 왼쪽 정렬, 추천 검색어는 한 줄로 넘기기 */
+  #v-home .hero-in{text-align:left;padding:26px 0 20px}
+  #v-home .hero h1{font-size:30px;line-height:1.22}
+  #v-home .hpill,#v-home .hsub,#v-home .hstat,#v-home .htry>span{display:none}
+  #v-home .hsearch{margin-top:18px}
+  #v-home .htry,#v-home .pills,#v-home .gchips,#dictG{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin-left:calc(-1*var(--gl));margin-right:calc(-1*var(--gr));padding-left:var(--gl);padding-right:var(--gr)}
+  #v-home .htry::-webkit-scrollbar,#v-home .pills::-webkit-scrollbar,#v-home .gchips::-webkit-scrollbar,#homeTuts::-webkit-scrollbar,#homeTerms::-webkit-scrollbar{display:none}
+  #v-home .htry a,#v-home .pills button,#v-home .gchips a,#v-home .gchips b{flex:none}
+  /* 데일리 이슈 + 최신 기사 → '오늘의 AI 뉴스' 하나(같은 기사 두 번 안 보이게) */
+  #v-home .sec-daily,#dailyHome{display:none}
+  #v-home .dline.m-only{display:flex;gap:10px;align-items:center;margin-top:14px;background:var(--bg2);border-radius:12px;padding:12px 14px;text-decoration:none}
+  #v-home .dline i{font-style:normal;font-size:11.5px;font-weight:700;color:var(--bg);background:var(--ink);border-radius:6px;padding:2px 7px;flex:none}
+  #v-home .dline span{font-size:15px;font-weight:600;color:var(--ink);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  #v-home .dline em{font-style:normal;margin-left:auto;color:var(--sub);flex:none}
+  #v-home .allb.m-only{display:block;margin-top:16px;text-align:center;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:15.5px;font-weight:700;color:var(--ink);text-decoration:none}
+  /* 목록은 제목만: 요약 줄 빼고 사진은 오른쪽 작은 정사각형(모든 기사·튜토리얼 목록) */
+  .list .post{grid-template-columns:minmax(0,1fr) 84px;gap:14px;padding:14px 0;align-items:start}
+  .list .post .thumb{grid-column:2;grid-row:1;width:84px;height:84px;aspect-ratio:1/1;border-radius:8px}
+  .list .post .b{grid-column:1;grid-row:1;gap:3px}
+  .list .post .b>p{display:none}
+  .list .post h3{font-size:17px;line-height:1.42;font-weight:700;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .list .post .cat{font-size:13px}
+  .list .post .meta{font-size:13px;gap:6px}
+  /* 홈 첫 기사만 크게: 사진 + 요약 두 줄 */
+  #homeNews .post:first-child{grid-template-columns:minmax(0,1fr);gap:12px;padding:16px 0 18px}
+  #homeNews .post:first-child .thumb{grid-column:auto;grid-row:auto;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px}
+  #homeNews .post:first-child .b{grid-column:auto;grid-row:auto;gap:6px}
+  #homeNews .post:first-child .b>p{display:-webkit-box;font-size:16px;line-height:1.6}
+  #homeNews .post:first-child h3{font-size:21px;line-height:1.38;font-weight:800}
+  /* 튜토리얼·AI 사전: 옆으로 넘기는 카드, 튜토리얼 설명 문장은 뺌 */
+  #v-home .hbar>p,#v-home .hdesc{display:none}
+  #v-home .hbar{margin-top:14px}
+  #homeTuts,#homeTerms{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-left:calc(-1*var(--gl));margin-right:calc(-1*var(--gr));padding:4px var(--gr) 8px var(--gl);scroll-padding-left:var(--gl)}
+  #homeTuts .tcard{flex:none;width:262px;scroll-snap-align:start;min-height:188px}
+  #homeTuts .tc-deck{display:none}
+  #homeTerms .dcard{flex:none;width:240px;scroll-snap-align:start}
+  #homeTerms .dcard .dd{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:15px}
+  #homeTuts>[hidden],#homeTerms>[hidden]{display:none}
+  #v-home .gchips{border:0;border-radius:0;padding-top:0;padding-bottom:0;margin-top:14px;gap:8px}
+  #v-home .gchips a.all{margin-left:0}
+  /* 무료 도구는 이름만 */
+  #homeTools .tr-t>span{display:none}
+  #homeTools .xrow{padding:12px 4px}
+  #homeTools .tr-t b{font-size:16.5px}
+  /* 소개: 한 줄 설명 + 숫자 한 줄 */
+  #v-home .habout{gap:16px;margin-top:16px}
+  #v-home .habout h3{font-size:22px;line-height:1.3}
+  #v-home .habout p{font-size:15.5px;margin-top:8px}
+  #v-home .habout .acts{margin-top:14px}#v-home .habout .acts .ghost{display:none}
+  #v-home .hstats{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:14px 6px;border-radius:14px;text-align:center}
+  #v-home .hstats b{font-size:24px}
+  #v-home .hstats span{font-size:12px}
+  /* 팔로우 상자: 한 줄 설명 + 버튼 셋 한 줄 */
+  .followbox{gap:12px;padding:18px;margin-top:40px}
+  .followbox h2{display:none}
+  .followbox .k{font-size:16.5px;color:var(--ink)}
+  .followbox .st p{font-size:14.5px;margin-top:2px}
+  .followbox .fbtns{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .followbox .fbtn{justify-content:center;padding:10px 4px}
+  .followbox .fbtn span{display:none}
+  .followbox .fbtn b{font-size:14.5px}
+  /* 바닥: 링크를 한 덩어리로 */
+  footer .fin{padding-top:28px;gap:18px}
+  footer .fcols{display:flex;flex-wrap:wrap;gap:4px 16px}
+  footer .fgrp{display:contents}
+  footer .fgrp>span{display:none}
+  footer .fgrp a{font-size:15px;line-height:1.9}
+  /* 기사: 본문 앞 상자 빼고 첫 문단 뒤 '한눈에' 한 상자, 해 볼 것은 본문 뒤, 핵심 정보·원문은 접기 */
+  .art-news .back,.art-news>.vdbox,.art-news>.trynow:not(.m-only),.art-news>.box,.art-news>.src,.art-news>.ask:not(.m-only),.art-news>.followbox{display:none}
+  .art-news .body .glance{display:block;margin:22px 0 4px;border-radius:14px;background:var(--bg2);padding:16px}
+  .art-news .body .glance .gv{display:block;text-decoration:none}
+  .art-news .body .glance .gv i{display:inline-block;font-style:normal;font-size:12.5px;font-weight:800;border:1px solid currentColor;border-radius:999px;padding:0 8px;margin-bottom:6px}
+  .art-news .body .glance .gv span{display:block;font-size:15.5px;line-height:1.55;color:var(--ink)}
+  .art-news .body .glance ul{margin:12px 0 0;padding:12px 0 0;border-top:1px solid var(--line);list-style:none;display:grid;gap:7px}
+  .art-news .body .glance .gv+ul{margin-top:12px}
+  .art-news .body .glance ul:first-child{margin-top:0;padding-top:0;border-top:0}
+  .art-news .body .glance li{font-size:15.5px;line-height:1.5;padding-left:14px;position:relative;margin:0}
+  .art-news .body .glance li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--brand)}
+  .art-news .body .glance li b{color:var(--ink)}
+  .art-news>.trynow.m-only{display:flex;margin:30px 0 0}
+  .art-news>.mfold.m-only{display:grid;gap:10px;margin-top:14px}
+  .art-news .mfold details{border:1px solid var(--line);border-radius:12px;padding:0 16px}
+  .art-news .mfold summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:16px;font-weight:700;color:var(--ink)}
+  .art-news .mfold summary::-webkit-details-marker{display:none}
+  .art-news .mfold summary::after{content:"펼치기 ⌄";font-size:13.5px;font-weight:500;color:var(--sub)}
+  .art-news .mfold details[open] summary::after{content:"접기 ⌃"}
+  .art-news .mfold .facts{margin:0 0 14px;font-size:15px}
+  .art-news .mfold .srcl{padding-bottom:10px}
+  .art-news .mfold .srcl a{display:block;font-size:14.5px;padding:8px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+  .art-news>.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-top:16px}
+  .art-news>.chips a{flex:none}
+  .art-news>.ask.m-only{display:block;margin-top:16px;padding:16px 18px;font-size:17px}
+  .art-news .links{margin-top:10px;gap:6px}
+  .art-news .links a{font-size:13.5px;padding:7px 12px;border-radius:999px;font-weight:600}
+}
+/* ---- 휴대폰 가독성 끝 ---- */

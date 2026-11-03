@@ -18,11 +18,13 @@
     </div>
   </section>
 
-  <div class="sec"><h2>오늘의 데일리 이슈</h2><a class="more" href="#daily">지난 호 보기</a></div>
+  <div class="sec sec-daily"><h2>오늘의 데일리 이슈</h2><a class="more" href="#daily">지난 호 보기</a></div>
   <div class="dailyhome" id="dailyHome"></div>
 
-  <div class="sec"><h2>최신 기사</h2><a class="more" href="#news"><span class="sr">최신 기사 </span>전체 보기</a></div>
+  <div class="sec"><h2><span class="d-only">최신 기사</span><span class="m-only">오늘의 AI 뉴스</span></h2><a class="more" href="#news"><span class="sr">최신 기사 </span>전체 보기</a></div>
+  <a class="dline m-only" id="hDaily" href="#daily"><i>데일리</i><span id="hDailyT">오늘의 데일리 이슈</span><em aria-hidden="true">›</em></a>
   <div class="list" id="homeNews"></div>
+  <a class="allb m-only" id="hAll" href="#news">AI 뉴스 전체 보기</a>
 
   <div class="sec"><h2>튜토리얼</h2><a class="more" href="#tutorial"><span class="sr">튜토리얼 </span>전체 보기</a></div>
   <div class="hbar"><p>공식 문서로 확인한 내용만 단계별로 정리했습니다. 끝까지 따라 하면 하나가 돌아갑니다.</p><div class="pills" id="tutLv" role="group" aria-label="난이도로 고르기"></div></div>
@@ -41,7 +43,8 @@
   <div class="habout rv">
     <div>
       <h3>원문부터 읽고,<br>써볼 만한지 판정합니다</h3>
-      <p>소식을 모으고 원문을 읽어 기사를 쓰는 일은 AI 에디터가 하고, 무엇을 다룰지와 판정 기준은 사람 에디터가 정합니다. 직접 써 본 것은 써 봤다고 밝히고, 그렇지 않은 것은 공식 자료로 확인한 내용만 씁니다.</p>
+      <p class="m-only">기사는 AI 에디터가 쓰고, 무엇을 다룰지와 판정 기준은 사람 에디터가 정합니다.</p>
+      <p class="d-only">소식을 모으고 원문을 읽어 기사를 쓰는 일은 AI 에디터가 하고, 무엇을 다룰지와 판정 기준은 사람 에디터가 정합니다. 직접 써 본 것은 써 봤다고 밝히고, 그렇지 않은 것은 공식 자료로 확인한 내용만 씁니다.</p>
       <div class="acts"><a class="btn" href="#about">일하는 방식 보기</a><a class="ghost" href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20">틀린 곳 알려 주기</a></div>
     </div>
     <div class="hstats" id="homeStats"></div>

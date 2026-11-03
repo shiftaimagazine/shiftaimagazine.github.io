@@ -161,7 +161,14 @@ def mobile_type(src):
     gen = '\n'.join(out)
     assert gen.count('{') == gen.count('}') and not re.search(r'\}[^{}]*[@}][^{}]*\{font-size', gen), '휴대폰 글자 크기 규칙이 깨짐'
     return src + '\n/* ---- 휴대폰 글자 크기: build.py mobile_type() 가 만든 부분 ---- */\n' + gen + '\n'
-css = mobile_type(css)
+# '휴대폰 가독성' 묶음(11/4~)은 크기를 직접 정한 것이라, 자동으로 키운 규칙보다 뒤에 와야 한다(같은 선택자면 뒤가 이김)
+_m0, _m1 = '/* ---- 휴대폰 가독성(11/4~)', '/* ---- 휴대폰 가독성 끝 ---- */'
+if _m0 in css:
+    _i, _j = css.index(_m0), css.index(_m1) + len(_m1)
+    _late, css = css[_i:_j], css[:_i] + css[_j:]
+    css = mobile_type(css) + '\n' + _late + '\n'
+else:
+    css = mobile_type(css)
 open(OUT + 'assets/data.js', 'w').write(data_js)
 open(OUT + 'assets/app.js', 'w').write(app_js)
 open(OUT + 'assets/site.css', 'w').write(css)
