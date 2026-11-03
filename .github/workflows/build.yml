@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths: ['_src/**', '.github/workflows/build.yml']
+  # 주간 메일 구독 칸 여는 시각(2026-11-11 00:05 한국 시간 = 11-10 15:05 UTC). _src/newsletter/config.json start 와 맞춤
+  schedule:
+    - cron: '5 15 10 11 *'
   workflow_dispatch:
 permissions:
   contents: write
