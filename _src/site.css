@@ -370,6 +370,8 @@ footer .fword{font-size:22vw;line-height:.78;font-weight:800;letter-spacing:-.07
 .subf .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .subf .agree{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--text);cursor:pointer}
 .subf .agree input{margin:3px 0 0;flex:none;width:16px;height:16px;accent-color:var(--ink)}
+.subf .agreenote{margin:-2px 0 0 24px;font-size:12.5px;line-height:1.6;color:var(--sub)}
+.subf .agreenote a{color:inherit}
 .subf .agreed{font-size:13px;color:var(--sub)}
 .subf .agreed summary{cursor:pointer;width:max-content}
 .subf .agreed p{margin:6px 0 0;line-height:1.65}

@@ -3,7 +3,9 @@
   <form class="subf" data-api="{API}" novalidate>
     <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required></label><button class="btn" type="submit">구독하기</button></div>
     <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-    <label class="agree"><input type="checkbox" name="agree" required> <span>[필수] 이메일 주소 수집·이용과 국외 이전에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree" required> <span>[필수] 이메일 주소 수집·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required> <span>[필수] 개인정보 국외 이전(미국 Resend·Cloudflare)에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend·Cloudflare로 전송·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
     <details class="agreed"><summary>동의 내용 보기</summary><p>받는 정보: 이메일 주소 · 쓰는 곳: 주간 메일 발송, 구독·해지 관리 · 보관: 해지할 때까지 · 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
     <p class="submsg" role="status" aria-live="polite"></p>
   </form>
