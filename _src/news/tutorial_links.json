@@ -5,7 +5,8 @@
   "t-verify-numbers": "2026-10-24-kimi-k3-1-pro",
   "t-pdf-to-markdown": "2026-10-07-claude-haiku-5-5",
   "t-reels-script": "2026-10-19-paris-city-tours-ai-satire",
-  "t-meeting-interpreter": "2026-10-20-mistral-voxtral-3"
+  "t-meeting-interpreter": "2026-10-20-mistral-voxtral-3",
+  "t-image-mockups": "2026-10-22-pennsylvania-ai-ad-disclosure"
  },
  "TFIG": {
   "t-redact-before-upload": [
@@ -87,6 +88,70 @@
   "t-n8n-first-automation": [
    "img/ph/t-n8n-first-automation.webp",
    "공장의 컨베이어 · Wikimedia Commons · falco (CC0)"
+  ],
+  "t-hwp-documents": [
+   "img/ph/t-hwp-documents.webp",
+   "서류철에 쌓인 문서 · Wikimedia Commons · Tony Webster (CC BY-SA 2.0)"
+  ],
+  "t-free-vs-paid": [
+   "img/ph/t-free-vs-paid.webp",
+   "지갑과 지폐·동전 · Wikimedia Commons · Santeri Viinamäki (CC BY-SA 4.0)"
+  ],
+  "t-custom-instructions": [
+   "img/ph/t-custom-instructions.webp",
+   "나무 카드 목록함 · Wikimedia Commons · MarkBuckawicki (CC0)"
+  ],
+  "t-excel-data-analysis": [
+   "img/ph/t-excel-data-analysis.webp",
+   "노트북 화면의 통계 차트 · Wikimedia Commons · Carlos Muza (CC0)"
+  ],
+  "t-deep-research": [
+   "img/ph/t-deep-research.webp",
+   "도서관 열람실 · Wikimedia Commons · Asturio Cantabrio (CC BY-SA 4.0)"
+  ],
+  "t-translate-email": [
+   "img/ph/t-translate-email.webp",
+   "17세기 8개 언어 회화 사전 · Wikimedia Commons · 작자 미상 (퍼블릭 도메인)"
+  ],
+  "t-email-thread-todo": [
+   "img/ph/t-email-thread-todo.webp",
+   "공책에 적는 할 일 목록 · Wikimedia Commons · Glenn Carstens-Peters (CC0)"
+  ],
+  "t-report-outline": [
+   "img/ph/t-report-outline.webp",
+   "만년필로 쓰는 글 · Wikimedia Commons · Aaron Burden (CC0)"
+  ],
+  "t-contract-review": [
+   "img/ph/t-contract-review.webp",
+   "계약서와 만년필 · Wikimedia Commons · Blogtrepreneur (CC BY 2.0)"
+  ],
+  "t-recording-to-minutes": [
+   "img/ph/t-recording-to-minutes.webp",
+   "구술 녹음기 Assmann 640 · Wikimedia Commons · Marcin Wichary (CC BY 2.0)"
+  ],
+  "t-image-to-text": [
+   "img/ph/t-image-to-text.webp",
+   "도서관의 문서 스캐너 · Wikimedia Commons · Joe Mabel (CC BY-SA 3.0)"
+  ],
+  "t-ai-tell-edit": [
+   "img/ph/t-ai-tell-edit.webp",
+   "손으로 고친 글자 교정 예시 · Wikimedia Commons · Bill (퍼블릭 도메인)"
+  ],
+  "t-photo-location": [
+   "img/ph/t-photo-location.webp",
+   "GPS를 단 카메라 · Wikimedia Commons · Ricki2020 (CC BY 4.0)"
+  ],
+  "t-claude-code-first": [
+   "img/ph/t-claude-code-first.webp",
+   "노트북 키보드 · Wikimedia Commons · Brion Testaccount (CC BY-SA 3.0)"
+  ],
+  "t-n8n-inquiry-replies": [
+   "img/ph/t-n8n-inquiry-replies.webp",
+   "길가에 늘어선 우편함 · Wikimedia Commons · W.carter (CC BY-SA 4.0)"
+  ],
+  "t-image-mockups": [
+   "img/ph/t-image-mockups.webp",
+   "천 색상 견본 · Wikimedia Commons · CSIRO (CC BY 3.0)"
   ]
  }
 }
