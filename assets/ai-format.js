@@ -128,7 +128,7 @@ function btext(ts, o, depth=0, ctx={}){
 // ---- HTML(한글·워드·메일) ----
 const TD = 'style="border:1px solid #999;padding:4px 8px;vertical-align:top"';
 const TH = 'style="border:1px solid #999;padding:4px 8px;background:#f2f2f2;font-weight:bold;text-align:left"';
-function bhtml(ts, o, ctx){
+function bhtml(ts, o, ctx, depth=0){
   return (ts||[]).map(t=>{
     switch(t.type){
       case "space": return "";
@@ -140,11 +140,17 @@ function bhtml(ts, o, ctx){
       case "hr": return o.hr ? "" : "<hr>";
       case "table": ctx.tab++; ctx.rows += t.rows.length; {
         const al = i=>t.align[i] ? `;text-align:${t.align[i]}` : "";
-        return `<table style="border-collapse:collapse;margin:6px 0"><thead><tr>${t.header.map((c,i)=>`<th ${TH.replace('text-align:left',"text-align:"+(t.align[i]||"left"))}>${ihtml(c.tokens,o)}</th>`).join("")}</tr></thead>`
+        return `<table width="100%" style="border-collapse:collapse;width:100%;margin:6px 0"><thead><tr>${t.header.map((c,i)=>`<th ${TH.replace('text-align:left',"text-align:"+(t.align[i]||"left"))}>${ihtml(c.tokens,o)}</th>`).join("")}</tr></thead>`
           + `<tbody>${t.rows.map(r=>`<tr>${r.map((c,i)=>`<td ${TD.replace('vertical-align:top','vertical-align:top'+al(i))}>${ihtml(c.tokens,o)}</td>`).join("")}</tr>`).join("")}</tbody></table>`; }
       case "list": ctx.list += t.items.length; {
-        const tag = t.ordered ? "ol" : "ul", st = t.ordered && +t.start>1 ? ` start="${+t.start}"` : "";
-        return `<${tag}${st}>${t.items.map(it=>`<li>${it.task?(it.checked?"☑ ":"☐ "):""}${bhtml(it.tokens,o,ctx)}</li>`).join("")}</${tag}>`; }
+        // 목록은 번호·점을 글자로 넣은 문단으로 만든다. 한글(HWP)은 <ol> 안에 하위 목록이 끼면 다음 번호를 빠뜨리기 때문(11/5 실제 한글 2018 확인).
+        let n = +t.start || 1; const pad = 14 + depth*16, mk = ["•","◦","▪"][Math.min(depth,2)];
+        return t.items.map(it=>{
+          let k = 0; while(k<it.tokens.length && !["list","table","code","blockquote","heading"].includes(it.tokens[k].type)) k++;
+          const head = it.tokens.slice(0,k).map(x=>x.tokens ? ihtml(x.tokens,o) : esc(unesc(x.text||""))).filter(Boolean).join("<br>");
+          const lead = (t.ordered ? `${n++}. ` : `${mk} `) + (it.task ? (it.checked?"☑ ":"☐ ") : "");
+          return `<p style="margin:0 0 3px ${pad}pt;text-indent:-10pt">${lead}${head}</p>` + bhtml(it.tokens.slice(k),o,ctx,depth+1);
+        }).join(""); }
       case "html": { const x = t.text.replace(/<br\s*\/?>/gi,"\n").replace(/<[^>]+>/g,"").trim(); return x ? `<p>${esc(x).replace(/\n/g,"<br>")}</p>` : ""; }
       default: return "";
     }
@@ -201,7 +207,7 @@ function run(){
   const f = [c.head||ctx.h ? `제목 ${ctx.h}개` : "", c.bold ? `굵게 표시 ${c.bold}곳` : "", ctx.list ? `목록 ${ctx.list}줄` : "", ctx.tab ? `표 ${ctx.tab}개(${ctx.rows}줄)` : "", o.cite&&c.cite ? `출처 표시 ${c.cite}곳` : ""].filter(Boolean);
   $("fmFound").textContent = f.length ? "찾은 것: " + f.join(" · ") : "마크다운 기호가 거의 없는 글입니다";
   $("fmStatus").textContent = msg;
-  $("fmHint").textContent = o.to==="text" ? "고칠 곳이 있으면 결과 칸에서 바로 고친 뒤 복사하세요." : "글꼴과 글자 크기는 붙여 넣는 문서의 설정을 따릅니다.";
+  $("fmHint").textContent = o.to==="text" ? "고칠 곳이 있으면 결과 칸에서 바로 고친 뒤 복사하세요." : o.to==="rich" ? "한글(HWP)에 붙일 때 'HTML 문서 붙이기' 창이 뜨면 '원본 형식 유지'를 고르세요. 글꼴과 글자 크기는 붙여 넣는 문서의 설정을 따릅니다." : "글꼴과 글자 크기는 붙여 넣는 문서의 설정을 따릅니다.";
   $("fmCopy").disabled = $("fmDown").disabled = false;
 }
 
