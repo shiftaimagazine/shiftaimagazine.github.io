@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=2e7a6b1b"></script>
+<script src="/assets/theme.js?v=c6e8d815"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=2e7a6b1b">
+<link rel="stylesheet" href="/assets/site.css?v=c6e8d815">
 </head>
 <body data-route="a-2026-11-02-talos-volta-infostealer-llm" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -63,16 +63,15 @@
     <a class="back" href="/news/">← AI 뉴스</a>
     <span class="cat">보안·안전</span>
     <h1>인포스틸러 VOLTA, 훔친 정보로 LLM이 피해자 가치 평가…시스코 탈로스 분석</h1><p class="deck">윈도우 대상 정보 탈취 악성코드 · 오픈라우터로 모델 세 개를 차례로 호출</p>
-    
-    <div class="trynow"><b>오늘 바로 해 볼 것</b><span>브라우저에 저장된 비밀번호와 결제 카드 목록을 열어 쓰지 않는 항목을 지우고, 주요 계정에 2단계 인증이 켜져 있는지 확인해 보세요.</span></div>
+    <p class="who"><b>이런 분께 추천합니다</b><span>브라우저에 비밀번호·결제 카드를 저장해 두는 분</span></p>
+    <div class="vcard"><div class="trynow"><b>오늘 바로 해 보세요</b><span>브라우저에 저장된 비밀번호와 결제 카드 목록을 열어 쓰지 않는 항목을 지우고, 주요 계정에 2단계 인증이 켜져 있는지 확인해 보세요.</span></div></div>
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.11.02 06:44</span><span class="dot"></span><span>3분 읽기</span></div>
     <figure class="lead-fig"><img src="img/ph/2026-11-02-talos-volta-infostealer-llm.webp" alt="시스코 탈로스 VOLTA 분석 보고서 대표 이미지" fetchpriority="high"><figcaption>이미지: Cisco Talos</figcaption></figure>
     <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>시스코 탈로스(Cisco Talos), 작성 Ryan Fetterman</td></tr><tr><th>날짜</th><td>2026년 10월 31일(미국 시각)</td></tr><tr><th>무엇</th><td>LLM 피해자 평가 단계가 붙은 인포스틸러 VOLTA</td></tr><tr><th>대상</th><td>윈도우(PE32+ x86-64)</td></tr><tr><th>호출 모델</th><td>claude-opus-4.6 → kimi-k2 → gemini-2.5-flash(오픈라우터 경유)</td></tr><tr><th>원문</th><td>탈로스 블로그</td></tr></tbody></table></div>
     <div class="box keyp"><b>세 줄 요약</b><ul><li><b>브라우저부터 게임 계정까지 수집.</b> 크롬 계열 브라우저, 디스코드, 텔레그램, 스팀 등</li><li><b>AI 평가 단계.</b> 오픈라우터로 최대 3개 모델을 차례로 호출</li><li><b>실행 뒤 스스로 삭제.</b> 표본 첫 발견 2026년 10월 11일(UTC)</li></ul></div>
-    <div class="body"><p class="lead">시스코 탈로스(Cisco Talos)가 10월 31일(미국 시각) 윈도우용 정보 탈취 악성코드 VOLTA의 분석 보고서를 냈습니다. VOLTA는 계정 정보와 세션, 암호화폐 지갑을 훔친 뒤 그 자료를 LLM에 보내 피해자가 표적으로 얼마나 쓸모 있는지 평가하게 합니다. 탈로스는 이 단계에서 모델이 공격자의 선별 분석가 역할을 맡는다고 설명했습니다.</p><div class="glance m-only"><ul><li><b>브라우저부터 게임 계정까지 수집.</b> 크롬 계열 브라우저, 디스코드, 텔레그램, 스팀 등</li><li><b>AI 평가 단계.</b> 오픈라우터로 최대 3개 모델을 차례로 호출</li><li><b>실행 뒤 스스로 삭제.</b> 표본 첫 발견 2026년 10월 11일(UTC)</li></ul></div><h3>카드 끝 네 자리부터 집 주소까지</h3><p>VOLTA가 가져가는 범위는 넓습니다. 크롬 계열 브라우저에 저장된 비밀번호와 쿠키, 결제 카드를 훑고 파이어폭스, 썬더버드, 아웃룩 프로필과 슬랙, 스팀, 배틀넷, 디스코드, 텔레그램, 로블록스 계정, 마이크로소프트 OAuth 토큰도 챙깁니다. 컴퓨터에 저장된 와이파이 비밀번호는 모두 평문으로 빼냅니다. 암호화폐 지갑은 복사로 끝내지 않고 안에 든 크래커로 잠금까지 풀어 봅니다. 훔친 지메일 세션으로는 아마존, 도어대시, 우버이츠 같은 곳의 영수증을 찾아 실제 집 주소를 확인합니다. 모은 자료는 위치와 집 주소, 직장, 추정 출생 연도, 카드 끝 네 자리 등을 담은 신상 보고서로 정리됩니다.</p><h3>모델이 거절하면 다음 모델로</h3><p>신상 보고서가 만들어지면 VOLTA는 오픈라우터(OpenRouter) API로 LLM을 부릅니다. 기본 모델은 anthropic/claude-opus-4.6이고 응답에 “I can't” 같은 거절 문구가 보이면 moonshotai/kimi-k2, google/gemini-2.5-flash 순서로 넘어가 최대 세 모델까지 시도합니다. 시스템 프롬프트는 모델에게 표적 평가서를 쓰는 포렌식 정보 분석가 역할을 줍니다. 결과물에는 돈으로 바꿀 수 있는 자산을 등급별로 늘어놓은 WHAT THEY'RE WORTH 항목과 피해자의 보안 습관을 평가한 THEIR OPSEC 항목이 들어갑니다. API 키가 없으면 AI 단계를 건너뛰고 나머지만 실행합니다.</p><h3>주문받아 찍어 내는 빌더 구조</h3><p>VOLTA에는 빌드할 때 값을 채워 넣는 슬롯 여섯 개가 있습니다. 탈로스는 이를 근거로 제작자가 접근권을 팔고 구매자가 자기 값을 넣으면 주문마다 다른 실행 파일을 만들어 주는 방식으로 봅니다. 관찰된 통신 대상은 모두 제3자 서비스였고 공격자가 직접 운영하는 서버는 없었습니다. 처음에 어떤 경로로 퍼지는지는 보고서에 나오지 않습니다.</p><h3>탈로스가 제시한 방어와 사후 조치</h3><p>탈로스는 어떤 프로세스가 크롬을 --headless 옵션으로 띄울 수 있는지 앱 제어 정책으로 제한하면 VOLTA가 쓰는 크롬 암호 해제 경로를 막을 수 있다고 적었습니다. 이미 감염됐다면 %APPDATA% 아래 volta_debug.txt 파일을 보존해 무엇이 수집됐는지와 LLM 호출이 성공했는지를 확인합니다. 그다음 토큰을 폐기하고 비밀번호를 바꾸고 시드 문구를 평문으로 저장해 둔 지갑은 완전히 털린 것으로 보고 외부망과 분리된 기기에서 시드를 만든 새 지갑으로 자금을 옮기라고 탈로스는 권합니다. 보고서 끝에는 확인된 표본의 SHA-256 해시와 실행 파일 이름 두 개가 실려 있습니다.</p></div>
-    <div class="trynow m-only"><b>오늘 바로 해 볼 것</b><span>브라우저에 저장된 비밀번호와 결제 카드 목록을 열어 쓰지 않는 항목을 지우고, 주요 계정에 2단계 인증이 켜져 있는지 확인해 보세요.</span></div>
+    <div class="body"><p class="lead">시스코 탈로스(Cisco Talos)가 10월 31일(미국 시각) 윈도우용 정보 탈취 악성코드 VOLTA의 분석 보고서를 냈습니다. VOLTA는 계정 정보와 세션, 암호화폐 지갑을 훔친 뒤 그 자료를 LLM에 보내 피해자가 표적으로 얼마나 쓸모 있는지 평가하게 합니다. 탈로스는 이 단계에서 모델이 공격자의 선별 분석가 역할을 맡는다고 설명했습니다.</p><div class="glance m-only"><div class="gt"><b>오늘 바로 해 보세요</b><span>브라우저에 저장된 비밀번호와 결제 카드 목록을 열어 쓰지 않는 항목을 지우고, 주요 계정에 2단계 인증이 켜져 있는지 확인해 보세요.</span></div><ul><li><b>브라우저부터 게임 계정까지 수집.</b> 크롬 계열 브라우저, 디스코드, 텔레그램, 스팀 등</li><li><b>AI 평가 단계.</b> 오픈라우터로 최대 3개 모델을 차례로 호출</li><li><b>실행 뒤 스스로 삭제.</b> 표본 첫 발견 2026년 10월 11일(UTC)</li></ul></div><h3>카드 끝 네 자리부터 집 주소까지</h3><p>VOLTA가 가져가는 범위는 넓습니다. 크롬 계열 브라우저에 저장된 비밀번호와 쿠키, 결제 카드를 훑고 파이어폭스, 썬더버드, 아웃룩 프로필과 슬랙, 스팀, 배틀넷, 디스코드, 텔레그램, 로블록스 계정, 마이크로소프트 OAuth 토큰도 챙깁니다. 컴퓨터에 저장된 와이파이 비밀번호는 모두 평문으로 빼냅니다. 암호화폐 지갑은 복사로 끝내지 않고 안에 든 크래커로 잠금까지 풀어 봅니다. 훔친 지메일 세션으로는 아마존, 도어대시, 우버이츠 같은 곳의 영수증을 찾아 실제 집 주소를 확인합니다. 모은 자료는 위치와 집 주소, 직장, 추정 출생 연도, 카드 끝 네 자리 등을 담은 신상 보고서로 정리됩니다.</p><h3>모델이 거절하면 다음 모델로</h3><p>신상 보고서가 만들어지면 VOLTA는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="오픈라우터">오픈라우터</span>(OpenRouter) API로 LLM을 부릅니다. 기본 모델은 anthropic/claude-opus-4.6이고 응답에 “I can't” 같은 거절 문구가 보이면 moonshotai/kimi-k2, google/gemini-2.5-flash 순서로 넘어가 최대 세 모델까지 시도합니다. <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="시스템 프롬프트">시스템 프롬프트</span>는 모델에게 표적 평가서를 쓰는 포렌식 정보 분석가 역할을 줍니다. 결과물에는 돈으로 바꿀 수 있는 자산을 등급별로 늘어놓은 WHAT THEY'RE WORTH 항목과 피해자의 보안 습관을 평가한 THEIR OPSEC 항목이 들어갑니다. <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="API 키">API 키</span>가 없으면 AI 단계를 건너뛰고 나머지만 실행합니다.</p><h3>주문받아 찍어 내는 빌더 구조</h3><p>VOLTA에는 빌드할 때 값을 채워 넣는 슬롯 여섯 개가 있습니다. 탈로스는 이를 근거로 제작자가 접근권을 팔고 구매자가 자기 값을 넣으면 주문마다 다른 실행 파일을 만들어 주는 방식으로 봅니다. 관찰된 통신 대상은 모두 제3자 서비스였고 공격자가 직접 운영하는 서버는 없었습니다. 처음에 어떤 경로로 퍼지는지는 보고서에 나오지 않습니다.</p><h3>탈로스가 제시한 방어와 사후 조치</h3><p>탈로스는 어떤 프로세스가 크롬을 --headless 옵션으로 띄울 수 있는지 앱 제어 정책으로 제한하면 VOLTA가 쓰는 크롬 암호 해제 경로를 막을 수 있다고 적었습니다. 이미 감염됐다면 %APPDATA% 아래 volta_debug.txt 파일을 보존해 무엇이 수집됐는지와 LLM 호출이 성공했는지를 확인합니다. 그다음 토큰을 폐기하고 비밀번호를 바꾸고 시드 문구를 평문으로 저장해 둔 지갑은 완전히 털린 것으로 보고 외부망과 분리된 기기에서 시드를 만든 새 지갑으로 자금을 옮기라고 탈로스는 권합니다. 보고서 끝에는 확인된 표본의 SHA-256 해시와 실행 파일 이름 두 개가 실려 있습니다.</p></div>
     <div class="ask"><small>생각해 볼 질문</small>브라우저에 결제 카드를 저장해 두고 있나요?</div>
-    <nav class="nxbox" aria-label="이어서 해 볼 것"><b>이어서 해 볼 것</b><a href="/tutorial/auto-update-site/" data-ev="next:/tutorial/auto-update-site/"><span>튜토리얼</span>워드프레스·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는 9단계</a><a href="/tools/redact/" data-ev="next:/tools/redact/"><span>무료 도구</span>개인정보 자동 가리기</a></nav>
+    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은 콘텐츠</b><a href="/tutorial/auto-update-site/" data-ev="next:/tutorial/auto-update-site/"><span>튜토리얼</span>워드프레스·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는 9단계</a><a href="/tools/redact/" data-ev="next:/tools/redact/"><span>무료 도구</span>개인정보 자동 가리기</a><a href="/dict/infostealer/" data-ev="next:/dict/infostealer/"><span>AI 사전</span>인포스틸러 뜻</a></nav>
     <div class="src"><b>원문</b><a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/" target="_blank" rel="noopener">시스코 탈로스 — Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer · https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/</a></div>
     <div class="mfold m-only"><details><summary>핵심 정보 6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>시스코 탈로스(Cisco Talos), 작성 Ryan Fetterman</td></tr><tr><th>날짜</th><td>2026년 10월 31일(미국 시각)</td></tr><tr><th>무엇</th><td>LLM 피해자 평가 단계가 붙은 인포스틸러 VOLTA</td></tr><tr><th>대상</th><td>윈도우(PE32+ x86-64)</td></tr><tr><th>호출 모델</th><td>claude-opus-4.6 → kimi-k2 → gemini-2.5-flash(오픈라우터 경유)</td></tr><tr><th>원문</th><td>탈로스 블로그</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/" target="_blank" rel="noopener">시스코 탈로스 — Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer</a></div></details></div>
     
@@ -106,8 +105,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=2e7a6b1b"></script>
-<script src="/assets/app.js?v=2e7a6b1b"></script>
+<script src="/assets/data-lite.js?v=c6e8d815"></script>
+<script src="/assets/app.js?v=c6e8d815"></script>
 
 
 </body></html>
