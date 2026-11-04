@@ -6,7 +6,7 @@
 - [AI 뉴스](https://shiftaimagazine.com/news/): 오늘의 인공지능 소식
 - [데일리 이슈](https://shiftaimagazine.com/daily/): 날마다 정리하는 AI 뉴스
 - [튜토리얼](https://shiftaimagazine.com/tutorial/): 단계별 AI 실전 가이드
-- [AI 사전](https://shiftaimagazine.com/dict/): AI 용어 187개 뜻
+- [AI 사전](https://shiftaimagazine.com/dict/): AI 용어 255개 뜻
 - [무료 도구](https://shiftaimagazine.com/tools/): 설치 없이 쓰는 AI 도구
 - [복붙 프롬프트 모음](https://shiftaimagazine.com/prompts/): 튜토리얼 프롬프트를 주제별로
 - [AI 판정 모아보기](https://shiftaimagazine.com/verdict/): 써볼 만해요·지켜보세요·과장이에요
@@ -126,6 +126,7 @@
 - [스킬](https://shiftaimagazine.com/dict/skill/): AI 에이전트에게 '이런 일은 이렇게 해'라고 적어 둔 작업 설명서 묶음입니다. 앤트로픽이 표준으로 공개했습니다.
 - [GPU](https://shiftaimagazine.com/dict/gpu/): 원래 그래픽용으로 만든 칩이지만 많은 계산을 동시에 처리할 수 있어 AI 학습·추론의 주력이 됐습니다. 엔비디아가 시장을 이끕니다.
 - [라이선스](https://shiftaimagazine.com/dict/license/): 소프트웨어·모델·콘텐츠를 어디까지 써도 되는지 정한 이용 조건입니다. 오픈소스나 오픈 웨이트라도 상업적 이용을 제한하는 경우가 있어 확인이 필요합니다.
+- [GPT-6](https://shiftaimagazine.com/dict/gpt-6/): 오픈AI의 6세대 GPT 모델 계열입니다. 아스트라·솔·테라·루나처럼 등급마다 이름이 붙는데, 테라는 중간 등급이고 루나는 값이 싼 모델입니다.
 - [AI 표시](https://shiftaimagazine.com/dict/ai-label/): AI가 만들거나 고친 콘텐츠에 붙이는 표시입니다. 이미지·영상·광고부터 의무화가 시작됐고, 글은 기준이 아직 갈립니다.
 - [컨텍스트 윈도우](https://shiftaimagazine.com/dict/context-window/): AI가 한 번에 읽을 수 있는 분량입니다. 토큰으로 셉니다. 길게 넣을수록 단가가 오르는 요금제도 있습니다.
 - [추론 모델](https://shiftaimagazine.com/dict/reasoning-model/): 답하기 전에 생각 과정을 길게 거치는 모델입니다. 수학·코딩처럼 단계가 많은 문제에 강하지만 느리고 비쌉니다.
@@ -142,4 +143,3 @@
 - [광고 타깃팅](https://shiftaimagazine.com/dict/ad-targeting/): 이용자 정보를 바탕으로 광고를 골라 보여 주는 일입니다. 어떤 데이터가 쓰이는지는 개인정보처리방침에 적혀 있습니다.
 - [온디바이스 AI](https://shiftaimagazine.com/dict/on-device-ai/): 서버 대신 스마트폰·노트북 안에서 바로 돌아가는 AI입니다. 데이터가 기기 밖으로 나가지 않는 것이 장점입니다.
 - [API 키](https://shiftaimagazine.com/dict/api-key/): API를 쓸 때 내가 누구인지 증명하는 비밀 문자열입니다. 비밀번호처럼 다뤄야 하며, 코드나 화면에 노출되면 남이 내 돈으로 API를 쓸 수 있습니다.
-- [깃허브](https://shiftaimagazine.com/dict/github/): 코드를 저장하고 여럿이 함께 고치는 웹 서비스입니다. 오픈소스 프로젝트 대부분이 여기에 코드와 새 버전을 공개합니다.
