@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계 · SHIFT AI 튜토리얼</title>
+<meta name="description" content="구글 폼이나 문의 시트에 새 행이 생기면 n8n이 내용을 읽고 AI로 답장 초안을 만들어 지메일 임시보관함에 넣습니다. 보내기는 사람이 확인한 뒤 직접 누르는 구조입니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tutorial/n8n-inquiry-replies/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계 · SHIFT AI 튜토리얼">
+<meta property="og:description" content="구글 폼이나 문의 시트에 새 행이 생기면 n8n이 내용을 읽고 AI로 답장 초안을 만들어 지메일 임시보관함에 넣습니다. 보내기는 사람이 확인한 뒤 직접 누르는 구조입니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tutorial/n8n-inquiry-replies/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/t-n8n-inquiry-replies.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<script src="/assets/theme.js?v=0298336b"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-05T09:00:00+09:00">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계", "description": "구글 폼이나 문의 시트에 새 행이 생기면 n8n이 내용을 읽고 AI로 답장 초안을 만들어 지메일 임시보관함에 넣습니다. 보내기는 사람이 확인한 뒤 직접 누르는 구조입니다.", "image": ["https://shiftaimagazine.com/og/t-n8n-inquiry-replies.jpg"], "datePublished": "2026-11-05T09:00:00+09:00", "dateModified": "2026-11-05T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/tutorial/n8n-inquiry-replies/", "articleSection": "튜토리얼 · 자동화", "keywords": "n8n, 엑셀·시트", "inLanguage": "ko", "proficiencyLevel": "중급", "citation": ["https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/", "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/", "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/", "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/", "https://docs.n8n.io/integrations/builtin/credentials/google/"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "튜토리얼", "item": "https://shiftaimagazine.com/tutorial/"}, {"@type": "ListItem", "position": 3, "name": "구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계", "item": "https://shiftaimagazine.com/tutorial/n8n-inquiry-replies/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=0298336b">
+</head>
+<body data-route="t-n8n-inquiry-replies" id="top" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="true">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow tut-page">
+    <a class="back" href="/tutorial/">← 튜토리얼</a>
+    <span class="cat">튜토리얼 · 자동화 · 중급</span>
+    <h1>구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계</h1><p class="deck">구글 폼이나 문의 시트에 새 행이 생기면 n8n이 내용을 읽고 AI로 답장 초안을 만들어 지메일 임시보관함에 넣습니다. 보내기는 사람이 확인한 뒤 직접 누르는 구조입니다.</p>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.11.05</span><span class="dot"></span><span>읽는 데 5분</span><span class="dot"></span><span>STEP 6개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=n8n">n8n</a><a href="/tutorial/?tool=%EC%97%91%EC%85%80%C2%B7%EC%8B%9C%ED%8A%B8">엑셀·시트</a></div>
+    <figure class="lead-fig"><img src="img/ph/t-n8n-inquiry-replies.webp" alt="" fetchpriority="high"><figcaption>길가에 늘어선 우편함 · Wikimedia Commons · W.carter (CC BY-SA 4.0)</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에 담긴 것</b><span>STEP 6개 · 따라 하는 데 40분</span></div>
+      <ol><li><a href="#s1"><span>STEP 1</span>문의 시트 만들기</a></li><li><a href="#s2"><span>STEP 2</span>새 행을 감시하는 트리거</a></li><li><a href="#s3"><span>STEP 3</span>AI 답장 초안 노드</a></li><li><a href="#s4"><span>STEP 4</span>지메일 임시보관함에 넣기</a></li><li><a href="#s5"><span>STEP 5</span>상태 열 바꾸기</a></li><li><a href="#s6"><span>STEP 6</span>시험하고 켜기</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>문의 시트에 이름·메일·문의 내용·상태 열을 만듭니다.</li><li>Google Sheets Trigger(Row added) → Basic LLM Chain → Gmail Draft Create → Google Sheets Update Row 순서로 잇습니다.</li><li>초안만 만들고 보내기는 사람이 합니다. 자주 묻는 답은 프롬프트에 FAQ로 넣어 둡니다.</li></ol><div class="ql"><a href="https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/" target="_blank" rel="noopener">n8n 문서 · Google Sheets Trigger ↗</a><a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/" target="_blank" rel="noopener">n8n 문서 · Gmail 노드 ↗</a></div></div>
+    <details class="master"><summary><b>통째로 맡기는 프롬프트</b><span>Claude Code에 붙여 넣으면 이 글의 단계를 대신 진행합니다</span></summary><div class="pr"><div class="pt">역할: 너는 n8n 워크플로를 만드는 자동화 도우미야.
+맥락: 구글 시트 [시트 이름]에 고객 문의가 한 행씩 쌓여. 열은 접수시각, 이름, 이메일, 문의내용, 상태야. 새 행이 생기면 AI로 답장 초안을 만들어 지메일 임시보관함에 넣고, 상태 열을 '초안 작성'으로 바꾸고 싶어.
+입력: 우리 가게 FAQ [붙여 넣기], 답장 말투 [존댓말, 5문장 이내], 쓸 채팅 모델 [Google Gemini / OpenAI 등].
+작업: Google Sheets Trigger(Row added) → Basic LLM Chain(Prompt: Define below, 채팅 모델 연결) → Gmail(Resource: Draft, Operation: Create, 받는 사람은 이메일 열) → Google Sheets(Update Row, 상태 열) 순서의 워크플로 JSON을 만들어 줘.
+제약: API 키와 자격 증명은 넣지 말고 비워 둬. 메일을 바로 보내는 Send 동작은 쓰지 마. docs.n8n.io에 있는 노드·설정 이름만 쓰고 모르는 설정은 '확인 필요'로 적어 줘. timezone은 Asia/Seoul.
+출력: JSON 전체, 가져온 뒤 내가 화면에서 할 일 목록.
+검증: Send 동작이 없는지, 프롬프트에 FAQ에 없는 약속을 하지 말라는 규칙이 있는지, 자격 증명이 비어 있는지 마지막에 점검해 줘.</div><button class="copy dark" data-copy="역할: 너는 n8n 워크플로를 만드는 자동화 도우미야.
+맥락: 구글 시트 [시트 이름]에 고객 문의가 한 행씩 쌓여. 열은 접수시각, 이름, 이메일, 문의내용, 상태야. 새 행이 생기면 AI로 답장 초안을 만들어 지메일 임시보관함에 넣고, 상태 열을 '초안 작성'으로 바꾸고 싶어.
+입력: 우리 가게 FAQ [붙여 넣기], 답장 말투 [존댓말, 5문장 이내], 쓸 채팅 모델 [Google Gemini / OpenAI 등].
+작업: Google Sheets Trigger(Row added) → Basic LLM Chain(Prompt: Define below, 채팅 모델 연결) → Gmail(Resource: Draft, Operation: Create, 받는 사람은 이메일 열) → Google Sheets(Update Row, 상태 열) 순서의 워크플로 JSON을 만들어 줘.
+제약: API 키와 자격 증명은 넣지 말고 비워 둬. 메일을 바로 보내는 Send 동작은 쓰지 마. docs.n8n.io에 있는 노드·설정 이름만 쓰고 모르는 설정은 '확인 필요'로 적어 줘. timezone은 Asia/Seoul.
+출력: JSON 전체, 가져온 뒤 내가 화면에서 할 일 목록.
+검증: Send 동작이 없는지, 프롬프트에 FAQ에 없는 약속을 하지 말라는 규칙이 있는지, 자격 증명이 비어 있는지 마지막에 점검해 줘.">복사하기</button></div></details>
+    <div class="prep"><div><b>필요한 것</b>n8n(클라우드 체험 또는 내 PC), 구글 계정(시트·지메일), AI 모델 API 키 또는 n8n 클라우드 Gateway credits</div><div><b>걸리는 시간</b>40분</div><div><b>왜 필요한가요</b>자주 오는 문의(영업시간, 배송, 환불 절차)에 매번 처음부터 답장을 쓰는 시간이 줄어듭니다. 자동 발송이 아니라 초안만 만들게 하면 AI가 틀린 내용을 써도 고객에게 나가기 전에 걸러집니다.</div></div>
+    <div class="intro">첫 n8n 튜토리얼에서 '매일 아침 AI 소식 요약 메일'을 만들었다면 이번에는 시트의 변화에 반응하는 흐름을 만듭니다. Google Sheets Trigger → Basic LLM Chain(+채팅 모델) → Gmail(Draft: Create) → Google Sheets(Update Row) 네 노드를 잇습니다. 노드와 설정 이름은 2026년 11월 5일 n8n 공식 문서 기준이고 편집부는 이번 글을 위해 이 흐름을 실제 계정으로 돌려 보지는 않았습니다. 구글 계정 연결 방법은 n8n의 구글 자격 증명 문서를 따릅니다.</div>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">STEP 1</span>문의 시트 만들기<small>5분</small></h3>
+        <p class="d">n8n이 읽을 열 이름을 먼저 정합니다.</p>
+        
+        <div class="how">1행에 접수시각, 이름, 이메일, 문의내용, 상태를 적습니다. 구글 폼을 쓰면 응답이 연결된 시트에 자동으로 쌓이니 그 시트 오른쪽에 상태 열만 더합니다. 시험할 때는 내 메일 주소로 가짜 문의 두세 줄을 넣어 둡니다.</div>
+        
+        
+        
+        
+        <div class="tbl"><table class="dtable"><thead><tr><th>접수시각</th><th>이름</th><th>이메일</th><th>문의내용</th><th>상태</th></tr></thead><tbody><tr><td>2026-11-05 10:12</td><td>홍길동</td><td>test@example.com</td><td>주말에도 배송하나요?</td><td></td></tr></tbody></table></div>
+        
+        
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">STEP 2</span>새 행을 감시하는 트리거<small>5분</small></h3>
+        <p class="d">시트에 행이 더해질 때 워크플로가 시작되게 합니다.</p>
+        
+        <div class="how">새 워크플로에서 첫 노드로 Google Sheets Trigger를 고르고 이벤트를 Row added로 둡니다. 이벤트는 Row added, Row updated, Row added or updated 세 가지가 있습니다. 구글 계정을 연결하고 문서와 시트를 고른 뒤 Fetch Test Event로 가짜 문의가 들어오는지 봅니다.</div>
+        
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">STEP 3</span>AI 답장 초안 노드<small>10분</small></h3>
+        <p class="d">Basic LLM Chain에 FAQ와 말투 규칙을 넣어 초안을 쓰게 합니다.</p>
+        
+        <div class="how">Basic LLM Chain을 잇고 Prompt를 Define below로 바꾼 뒤 아래 프롬프트를 넣습니다. 노드 아래에 쓸 채팅 모델 노드를 연결합니다. 문의 내용은 트리거에서 넘어온 값을 표현식으로 끼워 넣습니다. FAQ에 없는 질문은 '담당자가 확인 후 답변'으로 쓰게 해야 AI가 지키지 못할 약속을 하지 않습니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">너는 [가게 이름] 고객 문의에 답장 초안을 쓰는 직원이야. 아래 FAQ에 있는 내용으로만 답하고, FAQ에 없는 질문이나 환불·보상 요청은 '담당자가 확인한 뒤 하루 안에 다시 연락드리겠습니다'라고만 써. 존댓말, 5문장 이내, 인사 한 줄로 시작해. 가격·날짜는 FAQ에 적힌 값만 써.
+FAQ: [붙여 넣기]
+고객 이름: {{ $json['이름'] }}
+문의 내용: {{ $json['문의내용'] }}</div><button class="copy dark" data-copy="너는 [가게 이름] 고객 문의에 답장 초안을 쓰는 직원이야. 아래 FAQ에 있는 내용으로만 답하고, FAQ에 없는 질문이나 환불·보상 요청은 '담당자가 확인한 뒤 하루 안에 다시 연락드리겠습니다'라고만 써. 존댓말, 5문장 이내, 인사 한 줄로 시작해. 가격·날짜는 FAQ에 적힌 값만 써.
+FAQ: [붙여 넣기]
+고객 이름: {{ $json['이름'] }}
+문의 내용: {{ $json['문의내용'] }}">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">STEP 4</span>지메일 임시보관함에 넣기<small>5분</small></h3>
+        <p class="d">보내지 않고 초안으로만 저장합니다.</p>
+        
+        <div class="how">Gmail 노드를 잇고 Resource를 Draft, Operation을 Create로 고릅니다. 받는 사람은 트리거의 이메일 값, 제목은 '[가게 이름] 문의 답변드립니다', 본문은 Basic LLM Chain이 낸 글을 표현식으로 넣습니다. Message 쪽의 Send나 Reply를 고르면 바로 발송되니 쓰지 않습니다.</div>
+        
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">STEP 5</span>상태 열 바꾸기<small>5분</small></h3>
+        <p class="d">같은 문의에 초안이 두 번 생기지 않게 처리 표시를 남깁니다.</p>
+        
+        <div class="how">마지막에 Google Sheets 노드를 잇고 Update Row를 골라 해당 행의 상태 열에 '초안 작성'을 적습니다. 행을 찾는 기준으로는 접수시각이나 이메일처럼 행마다 다른 값을 씁니다. 사람이 초안을 확인해 보낸 뒤에는 상태를 '발송'으로 직접 바꿉니다.</div>
+        
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s6"><div class="tb">
+        <h3><span class="sn">STEP 6</span>시험하고 켜기<small>10분</small></h3>
+        <p class="d">가짜 문의로 끝까지 돌려 본 뒤 워크플로를 켭니다.</p>
+        
+        <div class="how">시트에 새 가짜 문의를 한 줄 더하고 워크플로를 실행해 지메일 임시보관함에 초안이 생기는지, 상태 열이 바뀌는지 확인합니다. FAQ에 없는 질문(예: '환불해 주세요')도 넣어 '담당자 확인' 문장이 나오는지 봅니다. 문제가 없으면 저장하고 켭니다. 내 PC에 설치한 n8n은 PC와 n8n이 켜져 있을 때만 동작합니다.</div>
+        
+        
+        
+        
+        
+        
+        
+      </div></section></div>
+    
+    <div class="limits"><b>솔직히 한계</b><ul><li>이 흐름은 공식 문서의 노드 이름으로 구성했고 편집부가 실제 구글 계정으로 돌려 보지는 않았습니다. 노드 버전에 따라 설정 이름이 조금 다를 수 있습니다.</li><li>고객 이름과 문의 내용이 AI 모델 제공사로 전달됩니다. 개인정보처리방침에 외부 처리 위탁 내용이 필요한지 확인하세요.</li><li>모델 API 사용료와 n8n 클라우드 요금은 각 요금표를 따릅니다. 시트 트리거는 일정 간격으로 확인하는 방식이라 몇 분 늦게 반응할 수 있습니다.</li></ul></div>
+    <div class="src"><b>공식 자료</b><a href="https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/" target="_blank" rel="noopener">n8n 문서 · Google Sheets Trigger · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/</a><a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/" target="_blank" rel="noopener">n8n 문서 · Google Sheets 노드 · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/</a><a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/" target="_blank" rel="noopener">n8n 문서 · Gmail 노드 · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/</a><a href="https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/" target="_blank" rel="noopener">n8n 문서 · Basic LLM Chain · https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/</a><a href="https://docs.n8n.io/integrations/builtin/credentials/google/" target="_blank" rel="noopener">n8n 문서 · Google 자격 증명 · https://docs.n8n.io/integrations/builtin/credentials/google/</a></div>
+    
+    
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/n8n-inquiry-replies/" data-copy="https://shiftaimagazine.com/tutorial/n8n-inquiry-replies/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20%EA%B5%AC%EA%B8%80%20%EC%8B%9C%ED%8A%B8%EC%97%90%20%EB%AC%B8%EC%9D%98%EA%B0%80%20%EC%8C%93%EC%9D%B4%EB%A9%B4%20AI%EA%B0%80%20%EB%8B%B5%EC%9E%A5%20%EC%B4%88%EC%95%88%EC%9D%84%20%EC%A7%80%EB%A9%94%EC%9D%BC%EC%97%90%20%EC%8D%A8%20%EB%91%90%EA%B2%8C%2C%20n8n%20%EB%91%90%20%EB%B2%88%EC%A7%B8%20%EC%9E%90%EB%8F%99%ED%99%94%206%EB%8B%A8%EA%B3%84&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Ftutorial%2Fn8n-inquiry-replies%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려 주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/claude-code-first/"><img class="thumb" src="img/cover/t-claude-code-first.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">자동화 · 입문</span><h3>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계</h3><p>터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인한 뒤, 폴더 속 파일 정리와 CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.</p><div class="meta"><span>2026.11.05</span><span class="dot"></span><span>STEP 7개</span><span class="dot"></span><span>읽는 데 6분</span></div></div></a></div></div>
+  </article></main>
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top">맨 위로 ↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=0298336b"></script>
+<script src="/assets/app.js?v=0298336b"></script>
+
+
+</body></html>

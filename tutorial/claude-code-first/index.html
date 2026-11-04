@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계 · SHIFT AI 튜토리얼</title>
+<meta name="description" content="터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인한 뒤, 폴더 속 파일 정리와 CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tutorial/claude-code-first/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계 · SHIFT AI 튜토리얼">
+<meta property="og:description" content="터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인한 뒤, 폴더 속 파일 정리와 CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tutorial/claude-code-first/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/t-claude-code-first.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<script src="/assets/theme.js?v=0298336b"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-05T09:00:00+09:00">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계", "description": "터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인한 뒤, 폴더 속 파일 정리와 CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.", "image": ["https://shiftaimagazine.com/og/t-claude-code-first.jpg"], "datePublished": "2026-11-05T09:00:00+09:00", "dateModified": "2026-11-05T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/tutorial/claude-code-first/", "articleSection": "튜토리얼 · 자동화", "keywords": "Claude Code", "inLanguage": "ko", "proficiencyLevel": "입문", "citation": ["https://code.claude.com/docs/en/quickstart", "https://code.claude.com/docs/en/terminal-guide", "https://code.claude.com/docs/en/permission-modes", "https://claude.com/pricing"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "튜토리얼", "item": "https://shiftaimagazine.com/tutorial/"}, {"@type": "ListItem", "position": 3, "name": "코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계", "item": "https://shiftaimagazine.com/tutorial/claude-code-first/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=0298336b">
+</head>
+<body data-route="t-claude-code-first" id="top" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="true">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow tut-page">
+    <a class="back" href="/tutorial/">← 튜토리얼</a>
+    <span class="cat">튜토리얼 · 자동화 · 입문</span>
+    <h1>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계</h1><p class="deck">터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인한 뒤, 폴더 속 파일 정리와 CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.</p>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.11.05</span><span class="dot"></span><span>읽는 데 6분</span><span class="dot"></span><span>STEP 7개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=Claude%20Code">Claude Code</a></div>
+    <figure class="lead-fig"><img src="img/ph/t-claude-code-first.webp" alt="" fetchpriority="high"><figcaption>노트북 키보드 · Wikimedia Commons · Brion Testaccount (CC BY-SA 3.0)</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에 담긴 것</b><span>STEP 7개 · 따라 하는 데 30분</span></div>
+      <ol><li><a href="#s1"><span>STEP 1</span>어디서 쓸지 고르기</a></li><li><a href="#s2"><span>STEP 2</span>터미널 열기</a></li><li><a href="#s3"><span>STEP 3</span>설치 명령 붙여 넣기</a></li><li><a href="#s4"><span>STEP 4</span>설치 확인</a></li><li><a href="#s5"><span>STEP 5</span>연습용 폴더에서 시작하고 로그인</a></li><li><a href="#s6"><span>STEP 6</span>첫 작업은 읽기만</a></li><li><a href="#s7"><span>STEP 7</span>바꾸는 일은 허락을 보며</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>맥은 터미널, 윈도우는 파워셸을 열고 공식 설치 명령을 붙여 넣습니다.</li><li>새 창에서 claude --version으로 설치를 확인하고, 연습용 폴더에서 claude를 실행해 로그인합니다.</li><li>처음에는 '이 폴더에 뭐가 있어?' 같은 읽기만 시키고, 바꾸는 일은 사본 폴더에서 허락을 확인하며 진행합니다.</li></ol><div class="ql"><a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener">클로드 코드 문서 · 빠른 시작 ↗</a><a href="https://code.claude.com/docs/en/terminal-guide" target="_blank" rel="noopener">클로드 코드 문서 · 터미널 안내 ↗</a></div></div>
+    
+    <div class="prep"><div><b>필요한 것</b>클로드 프로 이상 구독(또는 Claude Console 계정), 윈도우·맥 PC</div><div><b>걸리는 시간</b>30분</div><div><b>왜 필요한가요</b>클로드 코드는 개발 도구로 알려졌지만 내 컴퓨터의 파일을 읽고 고치고 명령을 실행하는 능력은 사무 일에도 그대로 쓰입니다. 파일 수백 개 이름 바꾸기, 엑셀 여러 개 합치기처럼 손으로 하면 한 시간 걸리는 일을 말로 맡길 수 있습니다.</div></div>
+    <div class="intro">공식 빠른 시작 문서 기준으로 클로드 코드는 클로드 프로·맥스·팀·엔터프라이즈 구독이나 Claude Console 계정으로 쓰고 무료 요금제에서는 쓸 수 없습니다. 터미널이 낯설다면 데스크톱 앱의 Code 탭이나 웹(claude.ai/code)에서도 쓸 수 있지만 이 글은 내 PC 폴더를 직접 다루는 터미널 방식을 따라갑니다. 명령은 2026년 11월 5일 공식 문서에 적힌 그대로 옮겼습니다. 한도를 아끼는 법과 스킬·MCP를 붙이는 법은 매거진에 따로 정리한 두 튜토리얼에 있습니다.</div>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">STEP 1</span>어디서 쓸지 고르기<small>2분</small></h3>
+        <p class="d">같은 클로드 코드를 터미널, 데스크톱 앱, 웹에서 쓸 수 있습니다.</p>
+        
+        <div class="how">내 PC의 폴더와 파일을 바로 다루려면 터미널이나 데스크톱 앱이 맞습니다. 웹은 깃허브 저장소처럼 인터넷에 있는 코드를 다룰 때 씁니다.</div>
+        
+        
+        
+        
+        <div class="tbl"><table class="dtable"><thead><tr><th>어디서</th><th>맞는 경우</th><th>준비</th></tr></thead><tbody><tr><td>터미널</td><td>내 PC 폴더를 다루고 명령을 직접 보고 싶을 때</td><td>설치 명령 한 줄</td></tr><tr><td>데스크톱 앱 Code 탭</td><td>터미널 창이 부담스러울 때</td><td>클로드 데스크톱 앱</td></tr><tr><td>웹(claude.ai/code)</td><td>깃허브 저장소 작업</td><td>브라우저</td></tr></tbody></table></div>
+        
+        
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">STEP 2</span>터미널 열기<small>2분</small></h3>
+        <p class="d">명령을 입력하는 검은 창을 엽니다.</p>
+        
+        <div class="how">맥은 Spotlight(⌘+스페이스)에서 '터미널'을 찾아 엽니다. 윈도우는 시작 메뉴에서 'PowerShell'을 찾아 엽니다. 윈도우 창 맨 앞에 PS C:\가 보이면 파워셸이고 PS 없이 C:\만 보이면 명령 프롬프트(CMD)입니다. 공식 문서는 윈도우에 Git for Windows를 함께 설치하길 권합니다.</div>
+        
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">STEP 3</span>설치 명령 붙여 넣기<small>5분</small></h3>
+        <p class="d">운영체제에 맞는 한 줄을 붙여 넣고 Enter를 누릅니다.</p>
+        
+        <div class="how">설치하는 동안에는 진행 표시가 나오지 않으니 끝날 때까지 기다립니다. 이 방식으로 설치하면 이후 업데이트는 자동으로 됩니다. 오류가 나면 공식 문서의 '설치 문제 해결' 페이지에서 오류 문구로 찾습니다.</div>
+        
+        
+        <div class="code"><div class="cl"><span>맥·리눅스(터미널)</span><button class="copy" data-copy="curl -fsSL https://claude.ai/install.sh | bash">복사</button></div><pre>curl -fsSL https://claude.ai/install.sh | bash</pre><p class="ok"><b>확인</b>문서 기준: 진행 표시 없이 내려받은 뒤 설치가 끝납니다</p></div><div class="code"><div class="cl"><span>윈도우(파워셸)</span><button class="copy" data-copy="irm https://claude.ai/install.ps1 | iex">복사</button></div><pre>irm https://claude.ai/install.ps1 | iex</pre><p class="ok"><b>확인</b>문서 기준: 'irm'을 알 수 없다는 오류가 나면 파워셸이 아니라 CMD에 붙여 넣은 것입니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">STEP 4</span>설치 확인<small>1분</small></h3>
+        <p class="d">새 터미널 창에서 버전이 나오는지 봅니다.</p>
+        
+        <div class="how">설치한 창이 아니라 새로 연 창에서 확인해야 합니다. 'claude를 찾을 수 없다'는 메시지가 나오면 공식 문서의 PATH 설정 안내를 따릅니다.</div>
+        
+        
+        <div class="code"><div class="cl"><span>터미널</span><button class="copy" data-copy="claude --version">복사</button></div><pre>claude --version</pre><p class="ok"><b>확인</b>문서 기준: 버전 번호 뒤에 (Claude Code)가 붙어 나옵니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">STEP 5</span>연습용 폴더에서 시작하고 로그인<small>5분</small></h3>
+        <p class="d">클로드 코드는 실행한 폴더 안을 작업 범위로 씁니다.</p>
+        
+        <div class="how">바탕화면에 '클로드연습' 폴더를 만들고 정리해 볼 파일 사본 몇 개를 넣습니다. 터미널에서 cd 명령으로 그 폴더에 들어간 뒤 claude를 입력합니다. 처음 실행하면 브라우저가 열리며 클로드 계정 로그인을 요청하고 한 번 로그인하면 다음부터는 묻지 않습니다.</div>
+        
+        
+        <div class="code"><div class="cl"><span>맥(예시)</span><button class="copy" data-copy="cd ~/Desktop/클로드연습
+claude">복사</button></div><pre>cd ~/Desktop/클로드연습
+claude</pre><p class="ok"><b>확인</b>로그인을 마치면 버전, 현재 모델, 작업 폴더가 위에 표시된 입력 화면이 나옵니다</p></div>
+        
+        
+        
+        
+      </div></section><section class="ti" id="s6"><div class="tb">
+        <h3><span class="sn">STEP 6</span>첫 작업은 읽기만<small>5분</small></h3>
+        <p class="d">파일을 바꾸기 전에 클로드가 폴더를 어떻게 보는지 확인합니다.</p>
+        
+        <div class="how">읽기만 하는 질문은 파일을 바꾸지 않습니다. 결과를 보고 정리 계획이 마음에 들면 다음 단계로 넘어갑니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">이 폴더에 어떤 파일들이 있는지 종류별로 정리해서 알려줘. 파일 이름 규칙이 제각각이면 어떤 규칙으로 통일하면 좋을지 제안만 해 줘. 아직 아무것도 바꾸거나 지우지 마.</div><button class="copy dark" data-copy="이 폴더에 어떤 파일들이 있는지 종류별로 정리해서 알려줘. 파일 이름 규칙이 제각각이면 어떤 규칙으로 통일하면 좋을지 제안만 해 줘. 아직 아무것도 바꾸거나 지우지 마.">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s7"><div class="tb">
+        <h3><span class="sn">STEP 7</span>바꾸는 일은 허락을 보며<small>10분</small></h3>
+        <p class="d">클로드 코드는 파일을 바꾸거나 명령을 실행하기 전에 허락을 묻습니다.</p>
+        
+        <div class="how">허락 요청이 나오면 무엇을 바꾸는지 읽고 Yes를 고릅니다. Shift+Tab으로 허락 방식(권한 모드)을 바꿀 수 있는데, 익숙해질 때까지는 매번 묻는 방식으로 둡니다. 지우기처럼 되돌리기 어려운 일은 처음부터 '지우지 말고 _삭제예정 폴더로 옮겨'라고 적어 둡니다. /help는 명령 목록, /clear는 대화 지우기, /exit는 종료이고 다음 날 이어 하려면 같은 폴더에서 claude -c를 입력합니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">이 폴더의 사진 파일 이름을 '촬영날짜_원래이름' 형식으로 바꿔 줘. 날짜는 사진 정보에서 읽고, 날짜가 없는 파일은 그대로 둬. 바꾸기 전에 바뀔 이름 목록을 먼저 보여 주고, 내가 좋다고 하면 그때 바꿔. 어떤 파일도 지우지 마.</div><button class="copy dark" data-copy="이 폴더의 사진 파일 이름을 '촬영날짜_원래이름' 형식으로 바꿔 줘. 날짜는 사진 정보에서 읽고, 날짜가 없는 파일은 그대로 둬. 바꾸기 전에 바뀔 이름 목록을 먼저 보여 주고, 내가 좋다고 하면 그때 바꿔. 어떤 파일도 지우지 마.">복사하기</button></div>
+        <div class="ex"><div><b>넣는 것 (예시)</b><pre>같은 폴더의 CSV 여러 개를 하나로 합쳐 달라는 요청</pre></div><div><b>나오는 것 (예시)</b><pre>합칠 파일과 열 이름 차이를 먼저 보여 주고, 허락을 받은 뒤 '합친파일.csv'를 새로 만듭니다(원본은 그대로)</pre></div></div>
+      </div></section></div>
+    <div class="bonus"><b>보너스 · 사고를 막는 습관</b><ol><li>처음에는 원본 대신 사본 폴더에서 시킵니다</li><li>'지우지 말고 옮겨'를 요청에 넣습니다</li><li>허락 요청 내용을 읽지 않고 Yes를 누르지 않습니다</li><li>회사 기밀 폴더에서는 회사가 허용한 계정으로만 씁니다</li><li>끝나면 /exit로 닫습니다</li></ol></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>명령은 공식 문서 기준이며 편집부가 이 글을 위해 새로 설치해 보지는 않았습니다. 설치 방식과 화면은 업데이트로 바뀔 수 있습니다.</li><li>클로드 코드는 대화와 같은 사용량 한도를 나눠 씁니다. 오래 작업하면 대화 쪽 한도도 함께 줄어듭니다.</li><li>폴더 안 파일 내용은 처리 과정에서 앤트로픽 서버로 보내집니다. 민감한 파일이 든 폴더에서 실행하지 마세요.</li></ul></div>
+    <div class="src"><b>공식 자료</b><a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener">클로드 코드 문서 · 빠른 시작 · https://code.claude.com/docs/en/quickstart</a><a href="https://code.claude.com/docs/en/terminal-guide" target="_blank" rel="noopener">클로드 코드 문서 · 터미널 안내 · https://code.claude.com/docs/en/terminal-guide</a><a href="https://code.claude.com/docs/en/permission-modes" target="_blank" rel="noopener">클로드 코드 문서 · 권한 모드 · https://code.claude.com/docs/en/permission-modes</a><a href="https://claude.com/pricing" target="_blank" rel="noopener">앤트로픽 · 클로드 요금 · https://claude.com/pricing</a></div>
+    
+    
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/claude-code-first/" data-copy="https://shiftaimagazine.com/tutorial/claude-code-first/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20%EC%BD%94%EB%94%A9%20%EB%AA%B0%EB%9D%BC%EB%8F%84%20%EB%90%98%EB%8A%94%20%ED%81%B4%EB%A1%9C%EB%93%9C%20%EC%BD%94%EB%93%9C%20%EC%B2%AB%20%EC%84%A4%EC%B9%98%EC%99%80%20%EC%B2%AB%20%EC%9E%91%EC%97%85%2C%207%EB%8B%A8%EA%B3%84&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Ftutorial%2Fclaude-code-first%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려 주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/photo-location/"><img class="thumb" src="img/cover/t-photo-location.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">보안·개인정보 · 입문</span><h3>중고 거래⁠·블로그⁠·AI에 사진 올리기 전, 위치 정보 지우는 5단계</h3><p>휴대폰 사진에 숨은 GPS 좌표와 기종, 촬영 시각을 확인하고 아이폰 공유 옵션과 무료 도구로 지웁니다. 앞으로 찍을 사진에 위치가 아예 안 남게 하는 설정까지 다룹니다.</p><div class="meta"><span>2026.11.05</span><span class="dot"></span><span>STEP 5개</span><span class="dot"></span><span>읽는 데 4분</span></div></div></a></div></div>
+  </article></main>
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top">맨 위로 ↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=0298336b"></script>
+<script src="/assets/app.js?v=0298336b"></script>
+
+
+</body></html>

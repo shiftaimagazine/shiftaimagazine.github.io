@@ -62,6 +62,22 @@
 - [아폴로 수석이코노미스트 “AI 성과, 빅테크 밖에선 아직 안 보인다”](https://shiftaimagazine.com/news/2026-10-24-apollo-no-ai-payoff/): 아폴로의 토르스텐 슬록 수석이코노미스트가 기술 업종 밖에서는 AI 투자 성과가 매출·이익률·생산성 어디에서도 아직 보이지 않는다고 밝혔습니다. 그는 AI의 성패가 빅테크 7곳이 아니라 나머지 493개 기업에서 갈린다고 주장합니다.
 
 ## 튜토리얼
+- [AI 이미지로 상세페이지·썸네일 시안 만들기, 올리기 전 표시와 저작권 확인까지 6단계](https://shiftaimagazine.com/tutorial/image-mockups/): 디자이너에게 넘기기 전 시안이나 작은 가게 상세페이지 배경, 유튜브 썸네일 후보를 AI 이미지로 빠르게 만들어 봅니다. 글자는 나중에 얹고 실제 제품 사진은 그대로 쓰고 플랫폼 표시 규칙을 확인하는 순서입니다.
+- [구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계](https://shiftaimagazine.com/tutorial/n8n-inquiry-replies/): 구글 폼이나 문의 시트에 새 행이 생기면 n8n이 내용을 읽고 AI로 답장 초안을 만들어 지메일 임시보관함에 넣습니다. 보내기는 사람이 확인한 뒤 직접 누르는 구조입니다.
+- [코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계](https://shiftaimagazine.com/tutorial/claude-code-first/): 터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인한 뒤, 폴더 속 파일 정리와 CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.
+- [중고 거래·블로그·AI에 사진 올리기 전, 위치 정보 지우는 5단계](https://shiftaimagazine.com/tutorial/photo-location/): 휴대폰 사진에 숨은 GPS 좌표와 기종, 촬영 시각을 확인하고 아이폰 공유 옵션과 무료 도구로 지웁니다. 앞으로 찍을 사진에 위치가 아예 안 남게 하는 설정까지 다룹니다.
+- [AI가 쓴 티 덜 나게 고치는 6단계, 쓰기 전 지시부터 소리 내어 읽기까지](https://shiftaimagazine.com/tutorial/ai-tell-edit/): AI로 쓴 보고서·블로그·자기소개서를 사람이 쓴 글처럼 다듬습니다. 처음부터 티 나는 표현을 막는 지시, 검사기로 버릇 찾기, 꼭 고칠 것부터 손보는 순서로 진행합니다.
+- [사진·스캔본·PDF 속 글자를 AI에 넘기는 6단계, 무료 도구로 서버에 안 올리고](https://shiftaimagazine.com/tutorial/image-to-text/): 아이폰 사진, 화면 캡처, 스캔한 서류, PDF에서 글자를 먼저 뽑아 확인한 뒤 필요한 부분만 AI에 넘깁니다. 파일 종류별로 어떤 도구를 쓰면 되는지 표로 정리했습니다.
+- [회의 녹음 파일에서 회의록과 할 일까지, 받아쓰기부터 정리까지 6단계](https://shiftaimagazine.com/tutorial/recording-to-minutes/): 녹음을 글자로 바꾸고 말한 사람을 나누고 결정 사항과 할 일을 뽑아 공유 가능한 회의록으로 만듭니다. 휴대폰 기능과 AI 앱 가운데 받아쓰기 방법을 고르는 기준도 정리했습니다.
+- [계약서·약관, 서명 전에 위험 조항부터 짚게 하는 프롬프트 8개](https://shiftaimagazine.com/tutorial/contract-review/): 프리랜서 용역 계약, 사무실 임대, 서비스 이용약관을 서명하기 전에 AI로 먼저 훑어 내게 불리한 조항과 빠진 조항을 찾고 상대에게 보낼 수정 요청과 전문가에게 물을 질문을 정리합니다.
+- [보고서·기획서, 목차부터 잡는 프롬프트 9개](https://shiftaimagazine.com/tutorial/report-outline/): 빈 문서 앞에서 막힐 때 읽는 사람이 던질 질문부터 정리하고 목차와 한 줄 요약을 먼저 받은 뒤 칸을 채웁니다. 마지막에는 결재권자 눈으로 다시 읽게 합니다.
+- [긴 메일 스레드·단톡방에서 내 할 일만 뽑는 프롬프트 8개](https://shiftaimagazine.com/tutorial/email-thread-todo/): 답장 서른 개가 쌓인 메일과 하루 종일 쌓인 업무 단톡방에서 결정된 것, 내가 맡은 일, 아직 답하지 않은 질문만 골라냅니다.
+- [영어·일본어·중국어 메일, 번역투 없이 보내는 프롬프트 9개](https://shiftaimagazine.com/tutorial/translate-email/): 받은 외국어 메일을 정확히 읽고 한국어로 쓴 답장을 상대 문화에 맞는 말투로 옮기고 보내기 전에 오해 날 표현을 거릅니다.
+- [딥리서치로 시장·경쟁사 조사 보고서 만들기, 질문 짜기부터 출처 확인까지 7단계](https://shiftaimagazine.com/tutorial/deep-research/): 질문을 보고서 목차처럼 짜서 맡기고 AI가 세운 조사 계획을 고친 뒤, 나온 보고서의 출처를 확인해 한 장짜리 사내 요약으로 바꿉니다.
+- [엑셀 파일 올려서 요약·차트·이상한 숫자 찾기, AI 데이터 분석 프롬프트 8개](https://shiftaimagazine.com/tutorial/excel-data-analysis/): 수식을 몰라도 파일을 올리고 질문하면 AI가 표를 읽고 계산해 차트까지 그려 줍니다. 올리기 전 정리, 그룹별 요약, 추세, 이상치, 계산 검증 순서로 다룹니다.
+- [매번 설명하지 않게: 챗GPT 맞춤 지침·프로젝트, 클로드 지침·프로젝트, 제미나이 젬 설정 7단계](https://shiftaimagazine.com/tutorial/custom-instructions/): '나는 마케터고 존댓말로, 표는 3열 이내로' 같은 설명을 한 번만 적어 두고 모든 대화나 특정 업무 방에만 적용합니다. 세 서비스의 메뉴 위치와 무료 한도를 공식 도움말 기준으로 정리했습니다.
+- [챗GPT·클로드·제미나이, 무료로 어디까지 되고 언제 유료로 바꿀까: 6단계로 고르기](https://shiftaimagazine.com/tutorial/free-vs-paid/): 무료로 한 주 써 보면서 막힌 순간을 적고 그 기능을 여는 가장 싼 요금제 하나만 고릅니다. 이미 여러 개를 구독 중이라면 겹치는 것을 정리하는 단계까지 다룹니다.
+- [한글(HWP) 공문·보고서, AI로 요약하고 회신 초안 잡는 프롬프트 8개](https://shiftaimagazine.com/tutorial/hwp-documents/): 내려온 공문을 한 장으로 요약하고 내가 할 일과 기한을 뽑고 회신 공문과 개조식 보고서 초안까지 잡습니다. 한글 파일을 AI에 안전하게 넘기는 준비부터 다룹니다.
 - [매일 아침 AI 소식 요약이 메일로 오게: n8n 첫 자동화 7단계](https://shiftaimagazine.com/tutorial/n8n-first-automation/): n8n으로 워크플로를 만들어 매일 아침 8시에 RSS 피드의 최신 글을 가져오고 AI가 한국어로 요약한 결과를 내 메일로 보냅니다. 편집부가 n8n 2.45.4를 직접 설치해 찍은 화면으로 따라갑니다.
 - [편집 프로그램 없이 코드로 만드는 15초 쇼츠: 리모션과 클로드 코드 7단계](https://shiftaimagazine.com/tutorial/remotion-motion-video/): 리모션(Remotion)은 리액트(React) 코드로 영상을 만드는 프레임워크입니다. 장면 코드를 Claude Code에게 맡기는 방법을 공식 문서 기준으로 정리했습니다. 확인용 영상은 도형과 한국어 글자만 담은 릴스·쇼츠용 1080×1920 MP4로, Claude Code에게 줄 프롬프트와 같은 조건에서 편집부가 직접 쓴 코드로 렌더링했습니다.
 - [클로드 코드에 스킬·MCP 붙이는 법, 설치부터 떼기까지 8단계](https://shiftaimagazine.com/tutorial/claude-code-skills-mcp/): 스킬은 Claude에게 일하는 방법을 알려 주는 SKILL.md 폴더이고 MCP 서버는 Claude Code를 바깥 도구와 이어 주는 프로그램입니다. 앤트로픽 공식 스킬 저장소와 마이크로소프트 Playwright MCP를 예로 들어 공식 문서에 적힌 명령으로 설치하고 확인하고 지우는 순서를 정리했습니다.
