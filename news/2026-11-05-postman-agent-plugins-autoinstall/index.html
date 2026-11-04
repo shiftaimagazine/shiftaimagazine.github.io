@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>포스트맨 데스크톱, 클로드 코드·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려 · SHIFT AI</title>
+<meta name="description" content="포스트맨(Postman) 데스크톱 앱이 클로드 코드와 코덱스에 자체 플러그인을 사용자 동의 없이 설치했다는 보고가 깃허브 이슈로 올라와 있습니다. 보고자의 로그와 설정 파일 기록, 11월 3일 추가 재현 댓글을 정리했습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/news/2026-11-05-postman-agent-plugins-autoinstall/">
+<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="포스트맨 데스크톱, 클로드 코드·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려 · SHIFT AI">
+<meta property="og:description" content="포스트맨(Postman) 데스크톱 앱이 클로드 코드와 코덱스에 자체 플러그인을 사용자 동의 없이 설치했다는 보고가 깃허브 이슈로 올라와 있습니다. 보고자의 로그와 설정 파일 기록, 11월 3일 추가 재현 댓글을 정리했습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/news/2026-11-05-postman-agent-plugins-autoinstall/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/a-2026-11-05-postman-agent-plugins-autoinstall.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<script src="/assets/theme.js?v=5a237e1c"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-05T06:52:00+09:00">
+<meta property="article:section" content="보안·안전">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "포스트맨 데스크톱, 클로드 코드·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려", "description": "포스트맨(Postman) 데스크톱 앱이 클로드 코드와 코덱스에 자체 플러그인을 사용자 동의 없이 설치했다는 보고가 깃허브 이슈로 올라와 있습니다. 보고자의 로그와 설정 파일 기록, 11월 3일 추가 재현 댓글을 정리했습니다.", "image": ["https://shiftaimagazine.com/og/a-2026-11-05-postman-agent-plugins-autoinstall.jpg"], "datePublished": "2026-11-05T06:52:00+09:00", "dateModified": "2026-11-05T06:52:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-11-05-postman-agent-plugins-autoinstall/", "articleSection": "보안·안전", "inLanguage": "ko", "keywords": "포스트맨, 플러그인, 클로드 코드, 코덱스, 훅, 스킬, CLI, 마켓플레이스, 깃허브", "isBasedOn": ["https://github.com/postmanlabs/postman-app-support/issues/14370"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 뉴스", "item": "https://shiftaimagazine.com/news/"}, {"@type": "ListItem", "position": 3, "name": "포스트맨 데스크톱, 클로드 코드·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려", "item": "https://shiftaimagazine.com/news/2026-11-05-postman-agent-plugins-autoinstall/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=5a237e1c">
+</head>
+<body data-route="a-2026-11-05-postman-agent-plugins-autoinstall" id="top" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
+      <a href="/news/" data-nav="news" aria-current="true">AI 뉴스</a>
+      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
+      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
+      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
+      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
+      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow art-news">
+    <a class="back" href="/news/">← AI 뉴스</a>
+    <span class="cat">보안·안전</span>
+    <h1>포스트맨 데스크톱, 클로드 코드⁠·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려</h1><p class="deck">깃허브 이슈 14370번 · 보고자 indicava · 포스트맨 12.33.4</p>
+    <a class="vdbox vd-watch" href="/verdict/"><b>SHIFT 판정 · 지켜보세요</b><span>보고자 한 명의 기록과 댓글 재현이며 포스트맨의 공식 답변은 확인되지 않았습니다.</span></a>
+    <div class="trynow"><b>오늘 바로 해 볼 것</b><span>맥에서 포스트맨 데스크톱을 쓴다면 ~/.claude/settings.json과 ~/.codex/config.toml을 열어 postman 항목이 있는지 확인해 보세요.</span></div>
+    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>2026.11.05 06:52</span><span class="dot"></span><span>4분 읽기</span></div>
+    <figure class="lead-fig"><img src="img/ph/2026-11-05-postman-agent-plugins-autoinstall.webp" alt="포스트맨 깃허브 이슈 14370번 화면" fetchpriority="high"><figcaption>화면: github.com</figcaption></figure>
+    <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>보고자</th><td>indicava(포스트맨 깃허브 이슈 14370번)</td></tr><tr><th>날짜</th><td>2026년 10월 25일 이슈 열림, 11월 3일 추가 재현 댓글</td></tr><tr><th>무엇</th><td>포스트맨 데스크톱의 클로드 코드·코덱스 플러그인 자동 설치</td></tr><tr><th>버전</th><td>보고자 12.33.4, 댓글 12.31.3에서 12.35.1로 업데이트</td></tr><tr><th>상태</th><td>이슈 열림, 포스트맨 직원 답변은 확인되지 않음</td></tr><tr><th>원문</th><td>포스트맨 저장소 깃허브 이슈</td></tr></tbody></table></div>
+    <div class="box keyp"><b>세 줄 요약</b><ul><li><b>12.33.4에서 기록된 자동 설치.</b> 로그에 auto-existing-upgrade 출처와 claude-code·codex 설치 결과</li><li><b>코덱스 시작 안내문과 훅 신뢰 기록.</b> API 작업 전에 postman:api-engineer 스킬을 불러오라는 문장</li><li><b>보고자가 주장한 범위는 연동과 지시 변경.</b> 데이터 유출은 주장하지 않았고 깨끗한 맥 재현은 아직</li></ul></div>
+    <div class="body"><p class="lead">포스트맨(Postman) 데스크톱 앱이 사용자가 묻지 않았는데 클로드 코드(Claude Code)와 코덱스(Codex)에 포스트맨 플러그인을 설치했다는 보고가 포스트맨 저장소의 깃허브 이슈 14370번에 올라와 있습니다. 보고자 indicava가 10월 25일에 연 이슈에는 11월 3일에도 같은 경로로 설치됐다는 댓글이 달렸고, 확인한 댓글 중에는 포스트맨 직원의 답변이 보이지 않습니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정 · 지켜보세요</i><span>보고자 한 명의 기록과 댓글 재현이며 포스트맨의 공식 답변은 확인되지 않았습니다.</span></a><ul><li><b>12.33.4에서 기록된 자동 설치.</b> 로그에 auto-existing-upgrade 출처와 claude-code·codex 설치 결과</li><li><b>코덱스 시작 안내문과 훅 신뢰 기록.</b> API 작업 전에 postman:api-engineer 스킬을 불러오라는 문장</li><li><b>보고자가 주장한 범위는 연동과 지시 변경.</b> 데이터 유출은 주장하지 않았고 깨끗한 맥 재현은 아직</li></ul></div><h3>로그에 남은 auto-existing-upgrade</h3><p>보고자가 제시한 맥(Mac)의 포스트맨 로그(main.log)에는 10월 24일(UTC) 9시 34분에 auto-existing-upgrade라는 출처 표시와 claude-code, codex가 설치됐다는 결과가 함께 찍혀 있습니다. 당시 포스트맨 데스크톱은 12.33.4, 코덱스 플러그인은 1.1.0, 클로드 플러그인은 2.0.1이었습니다. 클로드 쪽에서는 ~/.claude/settings.json에 postman@claude-plugins-official이 켜진 채로 들어갔고, 포스트맨 CLI 실행 파일도 ~/.local/bin에 생겼습니다.</p><h3>코덱스 설정과 시작 안내문이 바뀐 자리</h3><p>코덱스 쪽에서는 ~/.codex/config.toml에 포스트맨 마켓플레이스가 추가되고 플러그인이 켜졌으며 SessionStart 훅의 신뢰 기록(trusted_hash)도 함께 쓰였다고 보고자는 적었습니다. 이 훅은 세션이 시작될 때 안내문을 출력하는데, 안내문에는 API나 포스트맨 플로 작업을 설계, 구현, 모킹, 테스트, 모니터링, 문서화, 배포하기 전에 postman:api-engineer 스킬을 불러와 따르라는 문장이 들어 있습니다. 설치 프로그램 소스에는 설치 뒤 포스트맨의 훅만 승인한다는 주석과 승인 함수 호출이 있는데, 보고자는 이것이 승인 시도를 보여 줄 뿐 신뢰 기록을 누가 만들었는지는 말해 주지 않는다고 단서를 달았습니다.</p><h3>데이터 유출을 주장한 글은 아닙니다</h3><p>이슈 제목은 [SEVERE]로 시작하지만 보고자가 확립했다고 적은 것은 원치 않은 연동과 지시 변경까지입니다. 데이터 유출은 주장하지 않았고 깨끗한 맥에서는 아직 재현하지 못했습니다. 보고자는 증거를 보존한 뒤 로컬의 포스트맨과 연동을 지웠으며, 기존 데스크톱 사용자에게는 명시적 동의 전까지 에이전트 플러그인과 CLI 자동 설치를 멈추고 설치 프로그램이 스스로 훅을 승인하는 동작을 없애 달라고 요구했습니다. auto-existing-upgrade 뒤에 있는 릴리스나 기능 플래그를 밝히고 전체 제거 방법을 안내해 달라는 요구도 있습니다.</p><h3>11월 3일에도 같은 경로였다는 댓글</h3><p>댓글 작성자 ronthedrummer는 11월 3일 맥OS 26.5.2에서 로그인해 둔 기존 포스트맨을 열자 앱이 12.31.3에서 12.35.1로 업데이트됐고, 그 직후 auto-existing-upgrade가 CLI와 클로드 코드·코덱스 플러그인을 설치했다고 적었습니다. 로그의 시각은 UTC 22시 58분 31초부터 22시 59분 29초까지이며 설치된 CLI는 버전 1.85.0을 출력했습니다. 이슈에 링크된 자료 중 포스트맨의 공식 설명이나 변경 기록은 보이지 않습니다.</p></div>
+    <div class="trynow m-only"><b>오늘 바로 해 볼 것</b><span>맥에서 포스트맨 데스크톱을 쓴다면 ~/.claude/settings.json과 ~/.codex/config.toml을 열어 postman 항목이 있는지 확인해 보세요.</span></div>
+    <div class="ask"><small>생각해 볼 질문</small>쓰고 있는 개발 도구가 내 에이전트 설정 파일을 바꾸기 전에 물어봐 주기를 바라시나요?</div>
+    <nav class="nxbox" aria-label="이어서 해 볼 것"><b>이어서 해 볼 것</b><a href="/tutorial/claude-code-skills-mcp/" data-ev="next:/tutorial/claude-code-skills-mcp/"><span>튜토리얼</span>클로드 코드에 스킬·MCP 붙이는 법, 설치부터 떼기까지 8단계</a><a href="/tools/ai-cost/" data-ev="next:/tools/ai-cost/"><span>무료 도구</span>AI 요금 계산기 (원화)</a></nav>
+    <div class="src"><b>원문</b><a href="https://github.com/postmanlabs/postman-app-support/issues/14370" target="_blank" rel="noopener">포스트맨 깃허브 — 이슈 14370 · https://github.com/postmanlabs/postman-app-support/issues/14370</a></div>
+    <div class="mfold m-only"><details><summary>핵심 정보 6개</summary><table class="facts"><tbody><tr><th>보고자</th><td>indicava(포스트맨 깃허브 이슈 14370번)</td></tr><tr><th>날짜</th><td>2026년 10월 25일 이슈 열림, 11월 3일 추가 재현 댓글</td></tr><tr><th>무엇</th><td>포스트맨 데스크톱의 클로드 코드·코덱스 플러그인 자동 설치</td></tr><tr><th>버전</th><td>보고자 12.33.4, 댓글 12.31.3에서 12.35.1로 업데이트</td></tr><tr><th>상태</th><td>이슈 열림, 포스트맨 직원 답변은 확인되지 않음</td></tr><tr><th>원문</th><td>포스트맨 저장소 깃허브 이슈</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://github.com/postmanlabs/postman-app-support/issues/14370" target="_blank" rel="noopener">포스트맨 깃허브 — 이슈 14370</a></div></details></div>
+    
+    <div class="chips"><a href="/dict/postman/" title="API를 설계하고 시험하는 데 쓰는 데스크톱 앱을 만드는 회사이자 그 제품 이름입니다. 클로드 코드와 코덱스용 플러그인도 내놓고 있습니다.">포스트맨</a><a href="/dict/plugin/" title="기존 프로그램에 기능을 덧붙이는 추가 모듈입니다. 브라우저 확장 프로그램도 같은 개념입니다.">플러그인</a><a href="/dict/claude-code/" title="앤트로픽의 코딩 에이전트입니다. 터미널이나 편집기에서 말로 시키면 코드를 읽고 고치고 명령까지 실행합니다.">클로드 코드</a><a href="/dict/codex/" title="오픈AI의 코딩 에이전트입니다. 코드를 쓰고 고치며 보안 취약점을 찾는 데도 쓰입니다.">코덱스</a><a href="/dict/hook/" title="세션 시작처럼 정해진 순간에 에이전트가 자동으로 실행하는 명령이나 안내문입니다. 코덱스 설정의 SessionStart 훅이 한 예입니다.">훅</a><a href="/dict/skill/" title="AI 에이전트에게 '이런 일은 이렇게 해'라고 적어 둔 작업 설명서 묶음입니다. 앤트로픽이 표준으로 공개했습니다.">스킬</a><a href="/dict/cli/" title="마우스 대신 글자 명령으로 프로그램을 다루는 방식입니다. 코딩 에이전트 상당수가 터미널에서 CLI로 일합니다.">CLI</a><a href="/dict/marketplace/" title="확장 프로그램·플러그인·앱을 모아 내려받게 해 주는 온라인 장터입니다. 2026년 10월 커서 마켓플레이스에는 변조된 클로드 코드 확장이 약 11시간 올라와 있었습니다.">마켓플레이스</a><a href="/dict/github/" title="코드를 저장하고 여럿이 함께 고치는 웹 서비스입니다. 오픈소스 프로젝트 대부분이 여기에 코드와 새 버전을 공개합니다.">깃허브</a></div>
+    <div class="ask m-only"><small>생각해 볼 질문</small>쓰고 있는 개발 도구가 내 에이전트 설정 파일을 바꾸기 전에 물어봐 주기를 바라시나요?</div>
+    <div class="links"><a href="/daily/2026-11-05/">2026.11.05 데일리 이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 영상 보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 의견 남기기</a><a href="/news/2026-11-05-postman-agent-plugins-autoinstall/" data-copy="https://shiftaimagazine.com/news/2026-11-05-postman-agent-plugins-autoinstall/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20%ED%8F%AC%EC%8A%A4%ED%8A%B8%EB%A7%A8%20%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%86%B1%2C%20%ED%81%B4%EB%A1%9C%EB%93%9C%20%EC%BD%94%EB%93%9C%C2%B7%EC%BD%94%EB%8D%B1%EC%8A%A4%20%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%20%EC%9E%90%EB%8F%99%20%EC%84%A4%EC%B9%98%20%EC%9D%98%ED%98%B9%E2%80%A6%EA%B9%83%ED%97%88%EB%B8%8C%20%EC%9D%B4%EC%8A%88%20%EC%97%B4%EB%A0%A4&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Fnews%2F2026-11-05-postman-agent-plugins-autoinstall%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려 주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT AI 팔로우</span><h2>영상으로 보고, 기사로 자세히 읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI · 쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 기사</div><div class="list"><a class="post" href="/news/2026-11-05-google-school-ai-controls-guided-learning/"><img class="thumb" src="img/ph/2026-11-05-google-school-ai-controls-guided-learning.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">모델·제품<span class="vd vd-watch">지켜보세요</span></span><h3>제미나이⁠·구글 검색, K-12 학생 계정은 학교 관리자가 켜기 전까지 꺼진다고 구글 밝혀</h3><p>구글(Google)이 11월 3일 교육 블로그에서 K-12 학생 계정의 제미나이와 구글 검색 접근을 학교 관리자가 명시적으로 켜기 전까지 완전히 꺼 두겠다고 밝혔습니다. 검색과 클래스룸에는 가이디드 러닝 기능도 들어갑니다.</p><div class="meta"><span>2026.11.05</span><span class="dot"></span><span>3분 읽기</span></div></div></a></div></div>
+  </article></main>
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top">맨 위로 ↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=5a237e1c"></script>
+<script src="/assets/app.js?v=5a237e1c"></script>
+
+
+</body></html>

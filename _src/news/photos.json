@@ -282,5 +282,23 @@
   "credit": "이미지: NVIDIA",
   "alt": "엔비디아 블로그의 스마트시티 대표 이미지",
   "auto": true
+ },
+ "2026-11-05-postman-agent-plugins-autoinstall": {
+  "src": "img/ph/2026-11-05-postman-agent-plugins-autoinstall.webp",
+  "credit": "화면: github.com",
+  "alt": "포스트맨 깃허브 이슈 14370번 화면",
+  "auto": true
+ },
+ "2026-11-05-google-school-ai-controls-guided-learning": {
+  "src": "img/ph/2026-11-05-google-school-ai-controls-guided-learning.webp",
+  "credit": "이미지: Google",
+  "alt": "구글 학습용 AI 설계 글 대표 이미지",
+  "auto": true
+ },
+ "2026-11-05-apple-age-rating-dating-companion": {
+  "src": "img/ph/2026-11-05-apple-age-rating-dating-companion.webp",
+  "credit": "이미지: Apple",
+  "alt": "앱 스토어 커넥트 연령 등급 공지 이미지",
+  "auto": true
  }
 }
