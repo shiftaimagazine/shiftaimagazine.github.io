@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head>
+<html lang="ko" data-tpane="guide"><head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=ffeb3412"></script>
+<script src="/assets/theme.js?v=eb4cfc4e"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=ffeb3412">
+<link rel="stylesheet" href="/assets/site.css?v=eb4cfc4e">
 </head>
 <body data-route="tool-prompt" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -67,6 +67,13 @@
   <p class="deck">역할·맥락·자료·할 일·조건·답 형식·확인 방법, 이 일곱 칸을 채우면 챗GPT·클로드·제미나이에 바로 붙여 넣을 프롬프트가 만들어집니다. 다시 물어보는 횟수가 줄어서 사용량도 아낄 수 있습니다.</p>
   <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>쓴 내용은 이 브라우저에만 임시 저장</span></div>
 
+  <div class="ttabs" role="tablist" aria-label="사용법과 도구"><button type="button" role="tab" id="ttGuide" data-tp="guide" aria-controls="tpGuide" aria-selected="true">사용법 <small>사진으로 3단계</small></button><button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool" aria-selected="false">도구 쓰기</button></div>
+  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">
+    <div class="tgwhat"><p class="tglead">역할·맥락·할 일 같은 일곱 칸만 채우면 AI가 잘 알아듣는 프롬프트를 만들어 주는 도구입니다.</p><b>이럴 때 씁니다</b><ul class="plain"><li>AI에게 무엇을 어떻게 부탁할지 막막할 때</li><li>같은 부탁을 자주 해서 잘 만든 프롬프트를 남겨 두고 싶을 때</li></ul></div>
+    <ol class="tgsteps"><li><div class="tgtxt"><span class="tgn">STEP 1</span><h3>상황을 고릅니다</h3><p>메일, 회의록, 요약처럼 비슷한 상황을 누르면 칸마다 예시 문장이 들어갑니다.</p></div><figure><img src="/img/tools/guide/prompt-1.webp" width="1100" height="516" alt="상황을 고릅니다: 프롬프트 만들기 실제 화면" fetchpriority="high"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 2</span><h3>칸을 내 상황으로 채웁니다</h3><p>'할 일'만 꼭 채우고 나머지는 아는 만큼 적습니다. 빈 칸이 있으면 무엇을 적으면 좋은지 알려 줍니다.</p></div><figure><img src="/img/tools/guide/prompt-2.webp" width="1100" height="1375" loading="lazy" alt="칸을 내 상황으로 채웁니다: 프롬프트 만들기 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 3</span><h3>완성된 프롬프트를 복사합니다</h3><p>아래에 프롬프트가 완성됩니다. '프롬프트 복사'를 누르고 AI 대화창에 붙여 넣으세요.</p></div><figure><img src="/img/tools/guide/prompt-3.webp" width="1100" height="1248" loading="lazy" alt="완성된 프롬프트를 복사합니다: 프롬프트 만들기 실제 화면"></figure></li></ol>
+    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러 가기 →</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>
+  </section>
+  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">
   <section class="tstep">
     <h2><i>1</i>상황 고르기</h2>
     <p class="hint">비슷한 상황을 고르면 칸마다 예시가 나옵니다. 처음부터 쓰려면 '직접 쓰기'를 고르세요.</p>
@@ -103,6 +110,7 @@
     <ul class="padvice" id="pAdvice"><li class="no">'할 일'을 채워 주세요. 무엇을 해 달라는지 동사로 쓰면 됩니다.</li><li class="mid">맥락(왜 필요한지, 누가 볼지)을 한 줄만 적어도 답이 훨씬 맞춤형이 됩니다.</li><li class="mid">답 형식(표, 세 줄, 몇 자)을 정하면 다시 물어보는 일이 줄어듭니다.</li></ul>
   </section>
 
+  </div>
   <div class="box">
     <b>왜 이 일곱 칸인가요</b>
     <ul class="plain">
@@ -148,8 +156,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=ffeb3412"></script>
-<script src="/assets/app.js?v=ffeb3412"></script>
+<script src="/assets/data-lite.js?v=eb4cfc4e"></script>
+<script src="/assets/app.js?v=eb4cfc4e"></script>
 
 
 </body></html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head>
+<html lang="ko" data-tpane="guide"><head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=ffeb3412"></script>
+<script src="/assets/theme.js?v=eb4cfc4e"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=ffeb3412">
+<link rel="stylesheet" href="/assets/site.css?v=eb4cfc4e">
 </head>
 <body data-route="tool-pdf-merge" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -68,6 +68,13 @@
   <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
   <nav class="pdfset" aria-label="PDF 도구"><span>PDF 도구</span><a href="/tools/pdf-merge/" aria-current="page">합치기·나누기·쪽 뽑기</a><a href="/tools/pdf-to-text/">글자 뽑기(텍스트·마크다운)</a></nav>
 
+  <div class="ttabs" role="tablist" aria-label="사용법과 도구"><button type="button" role="tab" id="ttGuide" data-tp="guide" aria-controls="tpGuide" aria-selected="true">사용법 <small>사진으로 4단계</small></button><button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool" aria-selected="false">도구 쓰기</button></div>
+  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">
+    <div class="tgwhat"><p class="tglead">PDF 여러 개를 하나로 합치고, 한 파일을 여러 개로 나누고, 필요한 쪽만 골라 새 PDF로 만드는 도구입니다. 파일은 서버에 올라가지 않습니다.</p><b>이럴 때 씁니다</b><ul class="plain"><li>지원 서류·증빙 PDF 여러 개를 한 파일로 내야 할 때</li><li>두꺼운 PDF에서 몇 쪽만 따로 보내고 싶을 때</li><li>AI에 올리기 전에 필요한 쪽만 남기고 싶을 때</li></ul></div>
+    <ol class="tgsteps"><li><div class="tgtxt"><span class="tgn">STEP 1</span><h3>할 일을 고릅니다</h3><p>합치기, 나누기, 쪽 뽑기·빼기 가운데 하나를 고릅니다. 고른 일에 맞게 아래 칸이 바뀝니다.</p></div><figure><img src="/img/tools/guide/pdf-merge-1.webp" width="1100" height="528" alt="할 일을 고릅니다: PDF 합치기·나누기·쪽 뽑기 실제 화면" fetchpriority="high"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 2</span><h3>PDF를 넣고 순서를 맞춥니다</h3><p>합치기는 PDF를 여러 개 넣고 ▲▼ 버튼으로 순서를 바꿉니다. 파일마다 '1-3'처럼 쪽 범위를 적으면 그 쪽만 합칩니다.</p></div><figure><img src="/img/tools/guide/pdf-merge-2.webp" width="1100" height="640" loading="lazy" alt="PDF를 넣고 순서를 맞춥니다: PDF 합치기·나누기·쪽 뽑기 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 3</span><h3>필요한 쪽만 고를 수도 있습니다</h3><p>'쪽 뽑기·빼기'에서는 쪽 미리 보기를 눌러 고릅니다. 고른 쪽은 주황 테두리가 생기고, 위 칸에 쪽 번호가 적힙니다.</p></div><figure><img src="/img/tools/guide/pdf-merge-3.webp" width="1100" height="1024" loading="lazy" alt="필요한 쪽만 고를 수도 있습니다: PDF 합치기·나누기·쪽 뽑기 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 4</span><h3>만들어 내려받습니다</h3><p>아래 버튼을 누르면 새 PDF가 바로 내려받아집니다. 나누기처럼 파일이 여러 개면 ZIP으로 받습니다.</p></div><figure><img src="/img/tools/guide/pdf-merge-4.webp" width="1100" height="212" loading="lazy" alt="만들어 내려받습니다: PDF 합치기·나누기·쪽 뽑기 실제 화면"></figure></li></ol>
+    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러 가기 →</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>
+  </section>
+  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">
   <section class="tstep">
     <h2><i>1</i>무엇을 할까요?</h2>
     <div class="seg" role="radiogroup" aria-label="할 일">
@@ -126,6 +133,7 @@
     <p class="hint" id="pmHint"></p>
   </section>
 
+  </div>
   <div class="box">
     <b>먼저 알아 둘 것</b>
     <ul class="plain">
@@ -168,8 +176,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=ffeb3412"></script>
-<script src="/assets/app.js?v=ffeb3412"></script>
+<script src="/assets/data-lite.js?v=eb4cfc4e"></script>
+<script src="/assets/app.js?v=eb4cfc4e"></script>
 
 
 </body></html>

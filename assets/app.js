@@ -211,6 +211,15 @@ function renderLists(){
   if($("#dailyPreview")) $("#dailyPreview").innerHTML = dailySorted.slice(0,3).map(drowHTML).join("");
 }
 
+// 무료 도구 사용법·도구 탭(11/5~): 첫 화면은 theme.js 가 정한다. 고른 탭은 도구마다 기억한다.
+function tpSync(){ const v = document.documentElement.getAttribute("data-tpane"); document.querySelectorAll(".ttabs [data-tp]").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.tp===v))); }
+document.addEventListener("click", e=>{ const b = e.target.closest("[data-tp]"); if(!b) return;
+  const v = b.dataset.tp; document.documentElement.setAttribute("data-tpane", v); tpSync();
+  try{ localStorage.setItem("shift-tg:"+location.pathname, v); }catch(_){}
+  if(location.hash==="#guide"||location.hash==="#use"){ try{ history.replaceState(null,"",location.pathname+location.search); }catch(_){} }
+  const tb = document.querySelector(".ttabs"); if(tb && tb.getBoundingClientRect().top < 0) tb.scrollIntoView({block:"start"}); });
+window.addEventListener("hashchange", ()=>{ if(location.hash==="#guide"||location.hash==="#use"){ document.documentElement.setAttribute("data-tpane", location.hash==="#use"?"tool":"guide"); tpSync(); } });
+tpSync();
 // 무료 도구 목록(/tools/, 11/5~): 주제 버튼 + 검색. 주소 ?cat=&q=  (주제는 tools.json cats, 검색은 제목·설명·태그·kw)
 const TOOL_CATS = ["AI 활용","글쓰기","PDF·문서","사진·이미지","개인정보","비용 절약","번역·회의"];
 const TOOL_HINTS = ["PDF","사진 용량","마크다운","개인정보","글자 수","엑셀","인스타","번역"];

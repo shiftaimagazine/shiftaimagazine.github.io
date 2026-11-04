@@ -528,6 +528,34 @@ def faq_of(v):
     ab = lambda h: html.unescape(re.sub(r'href="/', f'href="{SITE}/', h))
     return {'@context': 'https://schema.org', '@type': 'FAQPage',
             'mainEntity': [{'@type': 'Question', 'name': html.unescape(re.sub('<[^>]+>', '', q)), 'acceptedAnswer': {'@type': 'Answer', 'text': ab(a)}} for q, a in qa]}
+# 무료 도구 '사용법' 탭(11/5~): news/tool_guides.json 글 + img/tools/guide/<id>-<n>.webp(실제 화면, _src/tool_guide_shots.py).
+# 도구 화면(첫 tstep ~ 먼저 알아 둘 것 앞)을 #tpTool 로 감싸고 그 앞에 탭과 #tpGuide 를 넣는다. 어느 탭을 먼저 보일지는 theme.js 가 그리기 전에 정한다.
+TGUIDES = {k: v for k, v in json.load(open(SRC + 'news/tool_guides.json')).items() if not k.startswith('_')}
+def tool_tabs(v, t):
+    g = TGUIDES.get(t['id'])
+    if not g: return v
+    m = re.search(r'\n  (?:<section class="tstep"|<div class="tfind fafind")', v); e = v.find('\n  <div class="box">')
+    assert m and e > m.start(), ('도구 화면 위치를 못 찾음', t['id'])
+    from PIL import Image as _Im
+    lis = []
+    for i, st in enumerate(g['steps'], 1):
+        src = f"img/tools/guide/{t['id']}-{i}.webp"
+        if os.path.exists(OUT + src):
+            w, h = _Im.open(OUT + src).size
+            fig = f'<figure><img src="/{src}" width="{w}" height="{h}" loading="lazy" alt="{esc(st["h"])}: {esc(t["title"])} 실제 화면"></figure>'
+        else: fig = ''; print('사용법 사진 없음:', src)
+        lis.append(f'<li><div class="tgtxt"><span class="tgn">STEP {i}</span><h3>{esc(st["h"])}</h3><p>{esc(st["d"])}</p></div>{fig}</li>')
+    n = len(g['steps'])
+    tabs = ('  <div class="ttabs" role="tablist" aria-label="사용법과 도구">'
+            f'<button type="button" role="tab" id="ttGuide" data-tp="guide" aria-controls="tpGuide">사용법 <small>사진으로 {n}단계</small></button>'
+            '<button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool">도구 쓰기</button></div>\n')
+    guide = ('  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">\n'
+             f'    <div class="tgwhat"><p class="tglead">{esc(g["what"])}</p><b>이럴 때 씁니다</b><ul class="plain">{"".join(f"<li>{esc(x)}</li>" for x in g["when"])}</ul></div>\n'
+             f'    <ol class="tgsteps">{"".join(lis)}</ol>\n'
+             '    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러 가기 →</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>\n'
+             '  </section>\n')
+    a = m.start() + 1
+    return v[:a] + tabs + guide + '  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">\n' + v[a:e] + '\n  </div>' + v[e:]
 for t in TOOLS:
     sv = SRC + f"views/tool-{t['id']}.html"
     if t['id'] not in TOOL_SEO or not os.path.exists(sv): continue
@@ -545,6 +573,7 @@ for t in TOOLS:
         _sd = {'checked': _v['checked'], 'fx': _fx, 'services': {k: {'name': x['name'], 'plans': x['plans']} for k, x in _v['services'].items()}, 'pairs': [{'id': q['id'], 'a': q['a'], 'b': q['b']} for q in _v['pairs']]}
         assert '<!--SUBDATA-->' in v
         v = v.replace('<!--SUBDATA-->', '<script type="application/json" id="subData">' + json.dumps(_sd, ensure_ascii=False).replace('</', '<\\/') + '</script>')
+    v = tool_tabs(v, t)
     # 페이지 끝: 함께 보면 좋은 글 + 다른 무료 도구(사이트 안 링크)
     rels = [rel_item(r) for r in t.get('rel', [])]
     others = [o for o in TOOLS if o['id'] != t['id']]

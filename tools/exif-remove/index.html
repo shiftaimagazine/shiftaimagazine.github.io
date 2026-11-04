@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head>
+<html lang="ko" data-tpane="guide"><head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=ffeb3412"></script>
+<script src="/assets/theme.js?v=eb4cfc4e"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=ffeb3412">
+<link rel="stylesheet" href="/assets/site.css?v=eb4cfc4e">
 </head>
 <body data-route="tool-exif-remove" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -67,6 +67,13 @@
   <p class="deck">휴대폰으로 찍은 사진에는 찍은 곳의 GPS 좌표, 휴대폰 기종, 찍은 날짜와 시각이 함께 저장됩니다. 사진을 넣으면 어떤 정보가 들어 있는지 먼저 보여 주고, 화질은 그대로 둔 채 그 정보만 지운 사진을 돌려줍니다.</p>
   <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
 
+  <div class="ttabs" role="tablist" aria-label="사용법과 도구"><button type="button" role="tab" id="ttGuide" data-tp="guide" aria-controls="tpGuide" aria-selected="true">사용법 <small>사진으로 4단계</small></button><button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool" aria-selected="false">도구 쓰기</button></div>
+  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">
+    <div class="tgwhat"><p class="tglead">사진 파일 안에 숨은 찍은 위치(GPS), 휴대폰 기종, 찍은 날짜를 보여 주고, 화질은 그대로 둔 채 그 정보만 지워 주는 도구입니다.</p><b>이럴 때 씁니다</b><ul class="plain"><li>중고 거래·블로그·카페에 집에서 찍은 사진을 올리기 전에</li><li>챗GPT·클로드에 사진을 올리기 전에</li><li>사진을 원본 파일로 다른 사람에게 보낼 때</li></ul></div>
+    <ol class="tgsteps"><li><div class="tgtxt"><span class="tgn">STEP 1</span><h3>사진을 넣습니다</h3><p>점선 상자를 눌러 사진을 고르거나, 사진 파일을 상자 위로 끌어다 놓습니다. 한 번에 50장까지 넣을 수 있습니다.</p></div><figure><img src="/img/tools/guide/exif-remove-1.webp" width="1100" height="389" alt="사진을 넣습니다: 사진 위치정보(EXIF) 지우기 실제 화면" fetchpriority="high"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 2</span><h3>지울 범위를 고릅니다</h3><p>보통은 '모두 지우기'를 그대로 두면 됩니다. 사진 정리에 찍은 날짜가 필요하면 '위치만 지우기'를 고르세요.</p></div><figure><img src="/img/tools/guide/exif-remove-2.webp" width="1100" height="329" loading="lazy" alt="지울 범위를 고릅니다: 사진 위치정보(EXIF) 지우기 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 3</span><h3>어떤 정보가 들어 있었는지 봅니다</h3><p>사진마다 들어 있던 정보가 나옵니다. 주황색 줄이 위치·기기 일련번호처럼 남에게 보이면 곤란한 정보입니다.</p></div><figure><img src="/img/tools/guide/exif-remove-3.webp" width="1100" height="778" loading="lazy" alt="어떤 정보가 들어 있었는지 봅니다: 사진 위치정보(EXIF) 지우기 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 4</span><h3>'확인함'을 보고 내려받습니다</h3><p>지운 사진을 다시 읽어 위치가 남지 않은 것을 확인하면 '확인함'이 붙습니다. 한 장씩 내려받거나 아래 버튼으로 한꺼번에 ZIP으로 받으세요.</p></div><figure><img src="/img/tools/guide/exif-remove-4.webp" width="1100" height="778" loading="lazy" alt="'확인함'을 보고 내려받습니다: 사진 위치정보(EXIF) 지우기 실제 화면"></figure></li></ol>
+    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러 가기 →</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>
+  </section>
+  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">
   <section class="tstep">
     <h2><i>1</i>사진 넣기</h2>
     <label class="odrop" id="exDrop" tabindex="0">
@@ -91,6 +98,7 @@
     <p class="hint">지운 사진은 다시 읽어서 위치 정보가 남지 않았는지 확인한 뒤 내려받기 버튼을 보여 줍니다. 화면에 '확인함'이 붙은 사진만 내려받을 수 있습니다.</p>
   </section>
 
+  </div>
   <div class="box">
     <b>먼저 알아 둘 것</b>
     <ul class="plain">
@@ -133,8 +141,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=ffeb3412"></script>
-<script src="/assets/app.js?v=ffeb3412"></script>
+<script src="/assets/data-lite.js?v=eb4cfc4e"></script>
+<script src="/assets/app.js?v=eb4cfc4e"></script>
 
 
 </body></html>

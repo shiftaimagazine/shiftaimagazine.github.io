@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head>
+<html lang="ko" data-tpane="guide"><head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<script src="/assets/theme.js?v=ffeb3412"></script>
+<script src="/assets/theme.js?v=eb4cfc4e"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=ffeb3412">
+<link rel="stylesheet" href="/assets/site.css?v=eb4cfc4e">
 </head>
 <body data-route="tool-ai-cost" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -67,6 +67,13 @@
   <p class="deck">챗GPT·클로드·제미나이 같은 AI를 API로 쓰면 한 달에 얼마가 나오는지, 회사별 공식 가격표로 계산해 원화로 비교합니다.</p>
   <div class="tbadges"><span>무료</span><span>공식 가격표 기준</span><span id="cAsof">가격 기준일 2026-10-27</span></div>
 
+  <div class="ttabs" role="tablist" aria-label="사용법과 도구"><button type="button" role="tab" id="ttGuide" data-tp="guide" aria-controls="tpGuide" aria-selected="true">사용법 <small>사진으로 3단계</small></button><button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool" aria-selected="false">도구 쓰기</button></div>
+  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">
+    <div class="tgwhat"><p class="tglead">챗GPT·클로드·제미나이 API로 서비스를 만들 때 한 달 요금이 얼마나 나오는지 공식 가격표 기준으로 원화로 계산해 주는 도구입니다.</p><b>이럴 때 씁니다</b><ul class="plain"><li>회사에서 AI 챗봇·자동화를 만들기 전에 비용을 어림할 때</li><li>모델을 바꾸면 요금이 얼마나 달라지는지 비교할 때</li></ul></div>
+    <ol class="tgsteps"><li><div class="tgtxt"><span class="tgn">STEP 1</span><h3>비슷한 상황을 고릅니다</h3><p>상담 챗봇, 문서 요약처럼 비슷한 예시를 누르면 숫자가 알아서 채워집니다.</p></div><figure><img src="/img/tools/guide/ai-cost-1.webp" width="1100" height="1038" alt="비슷한 상황을 고릅니다: AI 요금 계산기 (원화) 실제 화면" fetchpriority="high"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 2</span><h3>숫자를 내 상황에 맞춥니다</h3><p>한 번에 넣는 글 양, 받는 답 양, 하루 요청 수를 고치면 아래 표가 바로 다시 계산됩니다.</p></div><figure><img src="/img/tools/guide/ai-cost-2.webp" width="1100" height="1038" loading="lazy" alt="숫자를 내 상황에 맞춥니다: AI 요금 계산기 (원화) 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 3</span><h3>모델별 한 달 요금을 비교합니다</h3><p>모델마다 한 달 요금이 원화로 나옵니다. 위 버튼으로 회사를 골라 볼 수 있습니다.</p></div><figure><img src="/img/tools/guide/ai-cost-3.webp" width="1100" height="1266" loading="lazy" alt="모델별 한 달 요금을 비교합니다: AI 요금 계산기 (원화) 실제 화면"></figure></li></ol>
+    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러 가기 →</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>
+  </section>
+  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">
   <section class="tstep">
     <h2><i>1</i>어떻게 쓸지 고르기</h2>
     <div class="chips" id="cPresets" role="group" aria-label="예시 상황"><button type="button" data-p="chat" aria-pressed="true">고객 상담 챗봇</button><button type="button" data-p="sum" aria-pressed="false">보고서·회의록 요약</button><button type="button" data-p="code" aria-pressed="false">코딩 도우미</button><button type="button" data-p="mail" aria-pressed="false">메일 초안 쓰기</button><button type="button" data-p="blog" aria-pressed="false">글·상품 설명 대량 생성</button></div>
@@ -118,6 +125,7 @@
     <p class="hint warn">API 요금(쓴 만큼 내는 값)입니다. 챗GPT 플러스·클로드 프로 같은 월 구독료와는 다릅니다. 세금, 이미지·음성·검색 같은 추가 기능 요금, 회사별 할인·무료 사용량은 넣지 않았습니다. 실제로 결제하기 전에는 아래 공식 가격표를 꼭 확인하세요.</p>
   </section>
 
+  </div>
   <div class="box">
     <b>가격 출처 (회사 공식 가격표)</b>
     <ul class="plain" id="cSrc"><li>OpenAI — <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">developers.openai.com/api/docs/pricing</a></li><li>Anthropic — <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">platform.claude.com/docs/en/about-claude/pricing</a></li><li>Google — <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">ai.google.dev/gemini-api/docs/pricing</a></li><li>xAI — <a href="https://docs.x.ai/docs/models/grok-4.7" target="_blank" rel="noopener">docs.x.ai/docs/models/grok-4.7</a></li></ul>
@@ -156,8 +164,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=ffeb3412"></script>
-<script src="/assets/app.js?v=ffeb3412"></script>
+<script src="/assets/data-lite.js?v=eb4cfc4e"></script>
+<script src="/assets/app.js?v=eb4cfc4e"></script>
 
 
 </body></html>
