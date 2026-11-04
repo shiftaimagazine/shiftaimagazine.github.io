@@ -6,7 +6,15 @@
   "t-pdf-to-markdown": "2026-10-07-claude-haiku-5-5",
   "t-reels-script": "2026-10-19-paris-city-tours-ai-satire",
   "t-meeting-interpreter": "2026-10-20-mistral-voxtral-3",
-  "t-image-mockups": "2026-10-22-pennsylvania-ai-ad-disclosure"
+  "t-image-mockups": "2026-10-22-pennsylvania-ai-ad-disclosure",
+  "t-skills-marketer": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-designer": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-pm": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-sales": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-data": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-developer": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-researcher": "2026-10-22-anthropic-agent-skills-aaif",
+  "t-skills-creator": "2026-10-22-anthropic-agent-skills-aaif"
  },
  "TFIG": {
   "t-redact-before-upload": [
@@ -152,6 +160,38 @@
   "t-image-mockups": [
    "img/ph/t-image-mockups.webp",
    "천 색상 견본 · Wikimedia Commons · CSIRO (CC BY 3.0)"
+  ],
+  "t-skills-marketer": [
+   "img/ph/t-skills-marketer.webp",
+   "밤의 타임스스퀘어 전광판 · Wikimedia Commons · ScottandYanling (CC BY 2.0)"
+  ],
+  "t-skills-designer": [
+   "img/ph/t-skills-designer.webp",
+   "와이어프레임을 스케치하는 디자이너 · Wikimedia Commons · Green Chameleon (CC0)"
+  ],
+  "t-skills-pm": [
+   "img/ph/t-skills-pm.webp",
+   "칸반 보드 · Wikimedia Commons · Jeff.lasovski (CC BY-SA 3.0)"
+  ],
+  "t-skills-sales": [
+   "img/ph/t-skills-sales.webp",
+   "카페에서 나누는 악수 · Wikimedia Commons · rawpixel.com (CC0)"
+  ],
+  "t-skills-data": [
+   "img/ph/t-skills-data.webp",
+   "데이터센터 서버 랙 · Wikimedia Commons · Carl Lender (CC BY 2.0)"
+  ],
+  "t-skills-developer": [
+   "img/ph/t-skills-developer.webp",
+   "화면 속 CSS 코드 · Wikimedia Commons · Sai Kiran Anagani (CC0)"
+  ],
+  "t-skills-researcher": [
+   "img/ph/t-skills-researcher.webp",
+   "현미경 슬라이드를 맞추는 연구원 · Wikimedia Commons · Shixart1985 (CC BY 2.0)"
+  ],
+  "t-skills-creator": [
+   "img/ph/t-skills-creator.webp",
+   "삼각대로 촬영하는 영상 제작자 · Wikimedia Commons · Joe Mabel (CC BY-SA 3.0)"
   ]
  }
 }
