@@ -18,7 +18,12 @@
   "where": "내 브라우저",
   "date": "2026-11-04",
   "mod": "2026-11-04",
-  "thumb": "img/tools/ai-format.webp"
+  "thumb": "img/tools/ai-format.webp",
+  "cats": [
+   "AI 활용",
+   "글쓰기"
+  ],
+  "kw": "마크다운, 별표, 기호 없애기, 카톡, 한글, hwp, 워드, 복사 붙여넣기, 챗GPT 답변 정리"
  },
  {
   "id": "exif-remove",
@@ -39,7 +44,12 @@
   "where": "내 브라우저",
   "date": "2026-11-04",
   "mod": "2026-11-04",
-  "thumb": "img/tools/exif-remove.webp"
+  "thumb": "img/tools/exif-remove.webp",
+  "cats": [
+   "사진·이미지",
+   "개인정보"
+  ],
+  "kw": "EXIF, GPS, 메타데이터, 사진 정보 삭제, 위치 삭제, 중고거래, 당근"
  },
  {
   "id": "image-resize",
@@ -59,7 +69,11 @@
   "where": "내 브라우저",
   "date": "2026-11-04",
   "mod": "2026-11-04",
-  "thumb": "img/tools/image-resize.webp"
+  "thumb": "img/tools/image-resize.webp",
+  "cats": [
+   "사진·이미지"
+  ],
+  "kw": "용량 줄이기, 압축, 리사이즈, 사이즈, 인스타, 1080, 4:5, 9:16, 스토리, 릴스, 크롭, 자르기"
  },
  {
   "id": "pdf-merge",
@@ -80,7 +94,11 @@
   "where": "내 브라우저",
   "date": "2026-11-04",
   "mod": "2026-11-04",
-  "thumb": "img/tools/pdf-merge.webp"
+  "thumb": "img/tools/pdf-merge.webp",
+  "cats": [
+   "PDF·문서"
+  ],
+  "kw": "병합, 합치기, 분할, 나누기, 페이지 추출, 페이지 삭제, 쪽 빼기, 회전"
  },
  {
   "id": "table-to-markdown",
@@ -101,7 +119,12 @@
   "where": "내 브라우저",
   "date": "2026-11-04",
   "mod": "2026-11-04",
-  "thumb": "img/tools/table-to-markdown.webp"
+  "thumb": "img/tools/table-to-markdown.webp",
+  "cats": [
+   "AI 활용",
+   "PDF·문서"
+  ],
+  "kw": "엑셀, excel, xlsx, csv, 구글 시트, 스프레드시트, 표, markdown, 마크다운"
  },
  {
   "id": "prompt-diff",
@@ -122,7 +145,12 @@
   "where": "내 브라우저",
   "date": "2026-11-04",
   "mod": "2026-11-04",
-  "thumb": "img/tools/prompt-diff.webp"
+  "thumb": "img/tools/prompt-diff.webp",
+  "cats": [
+   "AI 활용",
+   "글쓰기"
+  ],
+  "kw": "diff, 텍스트 비교, 문서 비교, 차이, 바뀐 부분, 수정 전후"
  },
  {
   "id": "ai-subscriptions",
@@ -142,7 +170,11 @@
    "/guide/ai-cost-save/"
   ],
   "mod": "2026-11-03",
-  "glyph": "₩"
+  "glyph": "₩",
+  "cats": [
+   "비용 절약"
+  ],
+  "kw": "구독료, 챗GPT 플러스, 클로드 프로, 제미나이, 요금제, 연간 결제, 절약"
  },
  {
   "id": "pdf-to-text",
@@ -163,7 +195,12 @@
   ],
   "mod": "2026-11-03",
   "glyph": "PDF",
-  "where": "내 브라우저"
+  "where": "내 브라우저",
+  "cats": [
+   "PDF·문서",
+   "AI 활용"
+  ],
+  "kw": "PDF 텍스트 추출, 마크다운 변환, markdown, 토큰 절약, 요약"
  },
  {
   "id": "free-alternatives",
@@ -182,7 +219,11 @@
    "/tools/ai-cost/"
   ],
   "mod": "2026-11-02",
-  "glyph": "0원"
+  "glyph": "0원",
+  "cats": [
+   "비용 절약"
+  ],
+  "kw": "무료 프로그램, 오픈소스, 포토샵, 오피스, 한글, 프리미어, 대체, 공짜"
  },
  {
   "id": "char-count",
@@ -202,7 +243,12 @@
   ],
   "mod": "2026-11-02",
   "glyph": "Aa",
-  "where": "내 브라우저"
+  "where": "내 브라우저",
+  "cats": [
+   "글쓰기",
+   "AI 활용"
+  ],
+  "kw": "글자수 세기, 공백 제외, 바이트, 원고지, 토큰 계산, 자기소개서, 자소서"
  },
  {
   "id": "heic-to-jpg",
@@ -219,7 +265,11 @@
   "rel": [],
   "mod": "2026-11-02",
   "glyph": "JPG",
-  "where": "내 브라우저"
+  "where": "내 브라우저",
+  "cats": [
+   "사진·이미지"
+  ],
+  "kw": "heic, 아이폰 사진, jpg 변환, png, 확장자"
  },
  {
   "id": "redact",
@@ -240,7 +290,12 @@
   ],
   "mod": "2026-11-02",
   "glyph": "***",
-  "where": "내 브라우저"
+  "where": "내 브라우저",
+  "cats": [
+   "개인정보",
+   "AI 활용"
+  ],
+  "kw": "마스킹, 주민번호, 전화번호, 이메일, 개인정보 가리기, 비식별"
  },
  {
   "id": "ai-cost",
@@ -261,7 +316,12 @@
    "dict:API"
   ],
   "mod": "2026-11-02",
-  "glyph": "$"
+  "glyph": "$",
+  "cats": [
+   "비용 절약",
+   "AI 활용"
+  ],
+  "kw": "API 요금, 토큰 가격, 원화, openai, anthropic, gemini, 계산기"
  },
  {
   "id": "interpreter",
@@ -282,7 +342,11 @@
   ],
   "mod": "2026-11-02",
   "glyph": "EN",
-  "where": "받아쓰기는 구글 음성 인식"
+  "where": "받아쓰기는 구글 음성 인식",
+  "cats": [
+   "번역·회의"
+  ],
+  "kw": "실시간 번역, 자막, 통역, 영어 회의, 줌, 구글 미트, 크롬"
  },
  {
   "id": "ocr",
@@ -303,7 +367,12 @@
   ],
   "mod": "2026-11-02",
   "glyph": "OCR",
-  "where": "내 브라우저"
+  "where": "내 브라우저",
+  "cats": [
+   "사진·이미지",
+   "PDF·문서"
+  ],
+  "kw": "OCR, 이미지 텍스트 추출, 글자 인식, 캡처, 스캔, 사진 글자"
  },
  {
   "id": "ai-tell",
@@ -324,7 +393,12 @@
   ],
   "mod": "2026-11-02",
   "glyph": "AI?",
-  "where": "내 브라우저"
+  "where": "내 브라우저",
+  "cats": [
+   "글쓰기",
+   "AI 활용"
+  ],
+  "kw": "AI 티, 챗GPT 티, 사람처럼, 문장 다듬기, 번역투, 탐지"
  },
  {
   "id": "prompt",
@@ -345,6 +419,10 @@
    "dict:프롬프트 엔지니어링"
   ],
   "mod": "2026-11-02",
-  "glyph": "{ }"
+  "glyph": "{ }",
+  "cats": [
+   "AI 활용"
+  ],
+  "kw": "프롬프트 생성기, 프롬프트 작성, 질문 잘하는 법, 템플릿, XML"
  }
 ]

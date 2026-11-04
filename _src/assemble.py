@@ -252,6 +252,8 @@ if __name__ == '__main__':
     for t in TUTS:
         for _, u in (t.get('sources') or []) + ((t.get('quick') or {}).get('links') or []): assert _okurl(u), ('튜토리얼 링크 주소 형식', t['id'], u)
     for t in TOOLS: assert _okurl(t['href']), ('도구 주소 형식', t['id'])
+    TOOL_CATS = ['AI 활용', '글쓰기', 'PDF·문서', '사진·이미지', '개인정보', '비용 절약', '번역·회의']
+    for t in TOOLS: assert t.get('cats') and set(t['cats']) <= set(TOOL_CATS), ('도구 주제(cats)가 없거나 목록에 없음', t['id'], TOOL_CATS)
     os.makedirs(SRC + 'build', exist_ok=True)
     json.dump(DATA, open(SRC + 'build/data.json', 'w'), ensure_ascii=False)
     print('articles', len(out), 'tutorials', len(TUTS), 'columns', len(cols), 'daily', len(DAILY), 'terms', len(TERMS),

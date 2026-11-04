@@ -203,7 +203,7 @@ $("#tutQ") && $("#tutQ").addEventListener("input",e=>{ tutQ=e.target.value.trim(
 function renderLists(){
   if($("#colGrid")) $("#colGrid").innerHTML = COLUMNS.map(colHTML).join("");
   renderTutList();
-  if($("#toolsGrid")) $("#toolsGrid").innerHTML = TOOLS.map(toolHTML).join("");
+  renderTools();
   if($("#resGrid")) $("#resGrid").innerHTML = RESOURCES.map(r=>`<div class="res"><a class="cv" href="${r.pdf}" target="_blank" rel="noopener"><img src="${r.cover}" alt="" loading="lazy"></a>
     <div class="b"><span class="cat">PDF 정리본 · ${r.pages}쪽</span><h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p><div class="meta"><span>${fmtDate(r.date)}</span></div>
     <div class="acts"><a class="btn" href="${r.pdf}" target="_blank" rel="noopener">PDF 열기</a>${r.tut?`<a class="ghost" href="${P(r.tut)}">웹에서 읽기</a>`:""}</div></div></div>`).join("");
@@ -211,6 +211,32 @@ function renderLists(){
   if($("#dailyPreview")) $("#dailyPreview").innerHTML = dailySorted.slice(0,3).map(drowHTML).join("");
 }
 
+// 무료 도구 목록(/tools/, 11/5~): 주제 버튼 + 검색. 주소 ?cat=&q=  (주제는 tools.json cats, 검색은 제목·설명·태그·kw)
+const TOOL_CATS = ["AI 활용","글쓰기","PDF·문서","사진·이미지","개인정보","비용 절약","번역·회의"];
+const TOOL_HINTS = ["PDF","사진 용량","마크다운","개인정보","글자 수","엑셀","인스타","번역"];
+const _tlq = new URLSearchParams(ROUTE==="tools" ? location.search : "");
+let tlCat = TOOL_CATS.includes(_tlq.get("cat")) ? _tlq.get("cat") : "all", tlQ = _tlq.get("q") || "";
+function renderTools(){
+  if(!$("#toolsGrid")) return;
+  if(!$("#tlCats")){ $("#toolsGrid").innerHTML = TOOLS.map(toolHTML).join(""); return; }
+  const n=s=>String(s||"").toLowerCase().replace(/[\s·,.\-→()]/g,"");
+  const cats = TOOL_CATS.filter(c=>TOOLS.some(t=>(t.cats||[]).includes(c)));
+  $("#tlCats").innerHTML = `<span class="flbl">주제</span><button aria-pressed="${tlCat==="all"}" data-tl="all">전체 ${TOOLS.length}</button>`
+    + cats.map(c=>`<button aria-pressed="${tlCat===c}" data-tl="${esc(c)}">${esc(c)} ${TOOLS.filter(t=>(t.cats||[]).includes(c)).length}</button>`).join("");
+  if($("#tlQ").value!==tlQ) $("#tlQ").value = tlQ;
+  const words = tlQ.split(/[\s,]+/).map(n).filter(Boolean);
+  const hay = t=>n([t.title,t.desc,t.tag,(t.cats||[]).join(" "),t.kw].join(" "));
+  const score = t=>words.reduce((a,w)=>a+(n(t.title).includes(w)?3:0)+(n(t.tag+t.kw).includes(w)?2:0),0);
+  let list = TOOLS.filter(t=>(tlCat==="all"||(t.cats||[]).includes(tlCat)) && words.every(w=>hay(t).includes(w)));
+  if(words.length) list = list.map((t,i)=>[t,score(t),i]).sort((a,b)=>b[1]-a[1]||a[2]-b[2]).map(x=>x[0]);
+  $("#tlCount").textContent = `${list.length}개`;
+  $("#toolsGrid").innerHTML = list.length ? list.map(toolHTML).join("")
+    : `<div class="empty">'${esc(tlQ)}'에 맞는 도구가 없습니다. 이런 말로 찾아보세요: ${TOOL_HINTS.map(h=>`<a href="/tools/?q=${encodeURIComponent(h)}" data-tlq="${esc(h)}">${esc(h)}</a>`).join(" · ")}</div>`;
+}
+function tlURL(){ const q=new URLSearchParams(); if(tlCat!=="all") q.set("cat",tlCat); if(tlQ) q.set("q",tlQ); try{ history.replaceState(null,"","/tools/"+(q.toString()?"?"+q:"")); }catch(_){} }
+$("#tlCats") && $("#tlCats").addEventListener("click",e=>{const b=e.target.closest("button[data-tl]"); if(!b) return; tlCat=b.dataset.tl; renderTools(); tlURL(); });
+$("#tlQ") && $("#tlQ").addEventListener("input",e=>{ tlQ=e.target.value.trim(); renderTools(); tlURL(); });
+$("#toolsGrid") && $("#toolsGrid").addEventListener("click",e=>{const a=e.target.closest("a[data-tlq]"); if(!a) return; e.preventDefault(); tlQ=a.dataset.tlq; tlCat="all"; renderTools(); tlURL(); });
 // 복붙 프롬프트 모음(/prompts/, 11/2~): 튜토리얼의 prompt·master 를 한곳에. 주소 ?cat=&q=
 const PROMPTS = (()=>{ const out=[]; [...TUTORIALS].sort((a,b)=>(a.kind==="prompts"?0:1)-(b.kind==="prompts"?0:1)).forEach(t=>{ const slug=t.id.slice(2);  /* 바로 복사해 쓰는 프롬프트 글이 먼저 */
   if(t.master&&t.master.prompt) out.push({id:slug+"-all", h:"통째로 맡기는 프롬프트: "+t.title, d:(t.master.tool||"AI")+"에 붙여 넣으면 이 글의 단계를 대신 진행합니다.", p:t.master.prompt, t});
@@ -605,7 +631,7 @@ const NAV = r=>r.startsWith("tool-")?"tools":r.startsWith("w-")?"dict":r.startsW
 (function(){ const h=location.hash.slice(1); if(!h) return;
   if(h==="reel") return location.replace("/?from=reels");
   if(/^(a|t|c|d)-/.test(h) || ["news","tutorial","column","daily","dict","about","home"].includes(h)) location.replace(P(h)); })();
-const q0 = new URLSearchParams(location.search).get("q"); if(q0 && $("#q") && !/^(prompts|tool-|tutorial$)/.test(ROUTE)) $("#q").value = q0;  // 프롬프트·도구 페이지의 ?q= 는 그 페이지 안 검색어라 머리말 검색칸에 넣지 않는다
+const q0 = new URLSearchParams(location.search).get("q"); if(q0 && $("#q") && !/^(prompts|tools$|tool-|tutorial$)/.test(ROUTE)) $("#q").value = q0;  // 프롬프트·도구 페이지의 ?q= 는 그 페이지 안 검색어라 머리말 검색칸에 넣지 않는다
 if(q0 && ROUTE==="news") location.replace("/search/?q="+encodeURIComponent(q0));  // 예전 검색 주소
 if(ROUTE==="search" && $("#sq")) $("#sq").value = q0 || "";
 // 낮·밤 바꾸기 버튼(11/3~): 고른 값은 이 브라우저에만 저장(shift-theme). 첫 적용은 assets/theme.js 가 한다.
@@ -632,7 +658,7 @@ function init(){
     // 화면 맨 위 그림은 바로 받는다(가장 큰 그림이 늦게 뜨지 않게): 첫 그림의 지연 로딩을 끔
     const lcp = document.querySelector("main img[loading=lazy]"); if(lcp){ lcp.removeAttribute("loading"); lcp.setAttribute("fetchpriority","high"); }
   } else if(q0 || dq0 || catFilter!=="all"){ renderNews(); renderDict(); renderTutList(); }
-  if(PRE && (ROUTE==="prompts"||ROUTE==="verdict") && location.search){ renderPrompts(); renderVerdict(); }
+  if(PRE && (ROUTE==="prompts"||ROUTE==="verdict"||ROUTE==="tools") && location.search){ renderPrompts(); renderVerdict(); renderTools(); }
   if($("#sResults")) renderSearch();
   const from = new URLSearchParams(location.search).get("from");
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
