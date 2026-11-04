@@ -31,8 +31,8 @@ const thumb = im=>`<img class="thumb" src="${im.src}" alt="" loading="lazy">`;
 const updHTML = x=>x.upd&&x.upd.length ? `<div class="upd"><b>수정 기록</b><ul>${x.upd.map(([d,t])=>`<li><time datetime="${esc(d)}">${fmtDate(d)}</time> ${esc(t)}</li>`).join("")}</ul></div>` : "";
 const updMeta = x=>x.upd&&x.upd.length ? `<span class="dot"></span><span>${fmtDate(x.upd[x.upd.length-1][0])} 수정</span>` : "";
 const fixLink = (title, path)=>`<a href="mailto:shiftai.magazine@gmail.com?subject=${encodeURIComponent("[정정 요청] "+title)}&body=${encodeURIComponent("페이지: https://shiftaimagazine.com"+path+"\n틀린 곳:\n바른 내용과 근거(원문 링크):\n")}">틀린 곳 알려 주기</a>`;
-// 이어서 해 볼 것(11/3~): 빌드할 때(assemble.py) 기사·칼럼마다 고른 길잡이·튜토리얼·무료 도구
-const nxHTML = x=>x.nx&&x.nx.length ? `<nav class="nxbox" aria-label="이어서 해 볼 것"><b>이어서 해 볼 것</b>${x.nx.map(([k,h,t])=>`<a href="${esc(h)}" data-ev="next:${esc(h)}"><span>${esc(k)}</span>${esc(t)}</a>`).join("")}</nav>` : "";
+// 함께 보면 좋은 콘텐츠(11/3~, 이름 11/5~): 빌드할 때(assemble.py) 기사·칼럼마다 고른 길잡이·튜토리얼·무료 도구·AI 사전
+const nxHTML = x=>x.nx&&x.nx.length ? `<nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은 콘텐츠</b>${x.nx.map(([k,h,t])=>`<a href="${esc(h)}" data-ev="next:${esc(h)}"><span>${esc(k)}</span>${esc(t)}</a>`).join("")}</nav>` : "";
 const VD = {try:["써볼 만해요","vd-try"], watch:["지켜보세요","vd-watch"], hype:["과장이에요","vd-hype"]};  // 기사 판정(11/2~)
 const vdTag = a=>a.verdict&&VD[a.verdict.v] ? `<span class="vd ${VD[a.verdict.v][1]}">${VD[a.verdict.v][0]}</span>` : "";
 const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
@@ -52,6 +52,9 @@ const colHTML = c=>`<a class="post" href="${P(c.id)}">${thumb(colImg(c))}
 const dayItems = d=>d.items.map(id=>byId[id]).filter(Boolean);
 const dayPhoto = d=>{const its=dayItems(d); return (byId[d.lead]&&!byId[d.lead].image.temp)?byId[d.lead]:(its.find(a=>!a.image.temp)||byId[d.lead]||its[0]);};
 
+// AI가 처음이라면 이 순서로(11/5~): 홈 '처음 오셨나요?'와 튜토리얼 목록 맨 위. [튜토리얼 id, 짧은 제목]
+const START = [["t-free-vs-paid","챗GPT·클로드·제미나이, 무료로 어디까지 될까"],["t-privacy-settings","쓰기 전에 개인정보·학습 설정부터 점검하기"],["t-verify-numbers","AI가 말한 숫자·날짜, 원문으로 확인하기"]];
+const startHTML = ()=>START.filter(([id])=>tutById[id]).map(([id,s],k)=>`<a href="${P(id)}" data-ev="start:${esc(id)}"><i>${k+1}</i><b>${esc(s)}</b><span>${esc(String(tutById[id].time||"").replace(/\s*\(.*$/,""))}</span></a>`).join("");
 // ---- 홈(11/3~ 새 디자인): 검색 첫 화면·튜토리얼 카드·무료 도구 미리보기·AI 사전 분야·소개 숫자 ----
 // 미리 그려 둔 페이지(PRE)에서도 고르기·미리보기가 되도록 카드는 모두 그려 두고 hidden 으로만 바꾼다.
 const LVC = {"입문":"lv1","중급":"lv2"};
@@ -69,6 +72,7 @@ function renderHome2(d){
   const lv = ["입문","중급"].map(k=>[k,k,TUTORIALS.filter(t=>t.level===k).length]).filter(x=>x[2]);
   $("#tutLv").innerHTML = pillsHTML([["전체","",TUTORIALS.length],...lv],"");
   $("#homeTuts").innerHTML = TUTORIALS.map(tcardHTML).join("");
+  if($("#hStart")) $("#hStart").innerHTML = startHTML();
   const tl = TOOLS.slice(0,5);
   $("#toolsMore").innerHTML = `<span class="sr">무료 도구 </span>${TOOLS.length}개 전체 보기`;
   $("#homeTools").innerHTML = `<div class="tex-list">${tl.map((t,i)=>`<a class="xrow${i?"":" on"}" href="${t.href}" data-i="${i}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="tr-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span><span class="chev" aria-hidden="true">›</span></a>`).join("")}</div>
@@ -192,6 +196,7 @@ function renderTutList(){
   let html, n;
   if(tutFilter===TOOL_TAG){ const ts=TOOLS.filter(t=>!tutQ||[t.title,t.desc,t.tag].join(" ").includes(tutQ)); html=ts.map(toolHTML).join(""); n=ts.length; }
   else { const list = TUTORIALS.filter(t=>(tutFilter==="all"||t.cat===tutFilter)&&(tutTool==="all"||(t.tool||[]).includes(tutTool))&&tutMatch(t,tutQ)); html=list.map(tutHTML).join(""); n=list.length; }
+  if($("#tutStart")){ $("#tutStart").hidden = tutFilter!=="all"||tutTool!=="all"||!!tutQ; if(!$("#tutStartL").innerHTML) $("#tutStartL").innerHTML = startHTML(); }
   $("#tutGrid").innerHTML = n ? html : `<div class="empty">조건에 맞는 글이 없습니다. 검색어나 버튼을 바꿔 보세요.</div>`;
   if($("#tutCount")) $("#tutCount").textContent = `${n}편`;
 }
@@ -409,28 +414,55 @@ const factsHTML = f=>f&&f.length?`<div class="box"><b>한눈에 보기</b><table
 const srcHTML = s=>s&&s.length?`<div class="src"><b>원문</b>${s.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)} · ${esc(u)}</a>`).join("")}</div>`:"";
 const linkCopy = (h,label)=>`<a href="${P(h)}" data-copy="${SITE}${P(h)}">${label}</a>`;
 
+// 본문 용어 풀이(11/5~): 기사 terms 에 든 AI 사전 용어를 본문에서 처음 나올 때 한 번만 점선 밑줄로 표시하고,
+// 누르면 뜻과 AI 사전 링크가 뜬다. 링크·굵은 글씨·코드·'한눈에' 상자 안은 건드리지 않는다. 한 글자 용어는 빼고, 최대 5개.
+function markTerms(root, tl){
+  if(!root||!tl||!tl.length) return;
+  const ts = tl.filter(t=>t.t.length>=2).sort((a,b)=>b.t.length-a.t.length); let n=0;
+  for(const t of ts){
+    if(n>=5) break;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode:x=>x.parentElement.closest("a,b,strong,code,pre,.tm,.glance,figure,table,h2,h3")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+    let x; while((x=w.nextNode())){ const k=x.data.indexOf(t.t); if(k<0) continue;
+      const r=x.splitText(k); r.splitText(t.t.length);
+      const sp=document.createElement("span"); sp.className="tm"; sp.tabIndex=0; sp.setAttribute("role","button"); sp.setAttribute("aria-expanded","false"); sp.dataset.t=t.t; sp.textContent=t.t;
+      r.replaceWith(sp); n++; break; }
+  }
+}
+let tmPop=null;
+function tmClose(){ if(tmPop){ tmPop.remove(); tmPop=null; document.querySelectorAll('.tm[aria-expanded="true"]').forEach(e=>e.setAttribute("aria-expanded","false")); } }
+function tmOpen(el){
+  const t=termByName[el.dataset.t]; if(!t) return; const same=el.getAttribute("aria-expanded")==="true"; tmClose(); if(same) return;
+  tmPop=document.createElement("div"); tmPop.className="tmpop"; tmPop.setAttribute("role","note");
+  tmPop.innerHTML=`<b>${esc(t.t)}</b>${t.en&&t.en!==t.t?`<small>${esc(t.en)}</small>`:""}<p>${esc(t.d)}</p><a href="${TP(t)}" data-ev="term:${esc(t.s)}">AI 사전에서 자세히 보기 →</a>`;
+  document.body.appendChild(tmPop); el.setAttribute("aria-expanded","true");
+  const r=el.getBoundingClientRect(), w=Math.min(320, innerWidth-32), left=Math.max(16, Math.min(r.left+scrollX, scrollX+innerWidth-16-w));
+  tmPop.style.width=w+"px"; tmPop.style.left=left+"px"; tmPop.style.top=(r.bottom+scrollY+8)+"px";
+  track("term-tip:"+t.s, t.t);
+}
+document.addEventListener("click",e=>{ const el=e.target.closest(".tm"); if(el){ e.preventDefault(); tmOpen(el); return; } if(tmPop&&!e.target.closest(".tmpop")) tmClose(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") return tmClose(); const el=e.target.closest&&e.target.closest(".tm"); if(el&&(e.key==="Enter"||e.key===" ")){ e.preventDefault(); tmOpen(el); } });
+addEventListener("resize",tmClose);
 function renderArticle(a){
   const i = sorted.findIndex(x=>x.id===a.id); const nx = sorted[(i+1)%sorted.length];
   const tl = (a.terms||[]).map(t=>termByName[t]).filter(Boolean);
   const ul = a.body.find(x=>x.ul); const rest = a.body.filter(x=>!x.ul);
   const day = DAILY.find(d=>d.items.includes(a.id));
-  // 휴대폰(11/4~): 첫 문단 바로 뒤 '한눈에'(판정+세 줄 요약), 본문 뒤 '오늘 바로 해 볼 것', 핵심 정보·원문은 접기
+  // 휴대폰(11/4~): 첫 문단 바로 뒤 '한눈에'(판정+오늘 바로 해 보세요+세 줄 요약, 11/5~ 한 상자), 핵심 정보·원문은 접기
   const lp = rest[0]&&rest[0].lead ? 1 : 0;
   const vd = a.verdict&&VD[a.verdict.v];
-  const glance = (vd||ul) ? `<div class="glance m-only">${vd?`<a class="gv" href="/verdict/"><i class="${VD[a.verdict.v][1]}">SHIFT 판정 · ${VD[a.verdict.v][0]}</i><span>${esc(a.verdict.why)}</span></a>`:""}${ul?`<ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`:""}</div>` : "";
+  const glance = (vd||ul||a.try) ? `<div class="glance m-only">${vd?`<a class="gv" href="/verdict/"><i class="${VD[a.verdict.v][1]}">SHIFT 판정 · ${VD[a.verdict.v][0]}</i><span>${esc(a.verdict.why)}</span></a>`:""}${a.try?`<div class="gt"><b>오늘 바로 해 보세요</b><span>${esc(a.try)}</span></div>`:""}${ul?`<ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`:""}</div>` : "";
   const mfold = (a.facts&&a.facts.length)||(a.sources&&a.sources.length) ? `<div class="mfold m-only">${a.facts&&a.facts.length?`<details><summary>핵심 정보 ${a.facts.length}개</summary><table class="facts"><tbody>${a.facts.map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table></details>`:""}${a.sources&&a.sources.length?`<details><summary>원문 ${a.sources.length}곳</summary><div class="srcl">${a.sources.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}</div></details>`:""}</div>` : "";
   $("#v-article").innerHTML = `<article class="article narrow art-news">
     <a class="back" href="/news/">← AI 뉴스</a>
     <span class="cat">${esc(a.cat)}</span>
     <h1>${esc(a.title)}</h1><p class="deck">${esc(a.sub)}</p>
-    ${a.verdict&&VD[a.verdict.v]?`<a class="vdbox ${VD[a.verdict.v][1]}" href="/verdict/"><b>SHIFT 판정 · ${VD[a.verdict.v][0]}</b><span>${esc(a.verdict.why)}</span></a>`:""}
-    ${a.try?`<div class="trynow"><b>오늘 바로 해 볼 것</b><span>${esc(a.try)}</span></div>`:""}
+    ${a.who?`<p class="who"><b>이런 분께 추천합니다</b><span>${esc(a.who)}</span></p>`:""}
+    ${vd||a.try?`<div class="vcard">${vd?`<a class="vdbox ${vd[1]}" href="/verdict/"><b>SHIFT 판정 · ${vd[0]}</b><span>${esc(a.verdict.why)}</span></a>`:""}${a.try?`<div class="trynow"><b>오늘 바로 해 보세요</b><span>${esc(a.try)}</span></div>`:""}</div>`:""}
     <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span>${updMeta(a)}<span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
     ${fig(imgOf(a),"lead-fig")}
     ${factsHTML(a.facts)}
     ${ul?`<div class="box keyp"><b>세 줄 요약</b><ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul></div>`:""}
     <div class="body">${bodyHTML(rest.slice(0,lp))}${glance}${bodyHTML(rest.slice(lp))}</div>
-    ${a.try?`<div class="trynow m-only"><b>오늘 바로 해 볼 것</b><span>${esc(a.try)}</span></div>`:""}
     <div class="ask"><small>생각해 볼 질문</small>${esc(a.ask)}</div>
     ${nxHTML(a)}
     ${srcHTML(a.sources)}
@@ -442,6 +474,7 @@ function renderArticle(a){
     ${FOLLOWBOX}
     <div class="next"><div class="lbl">다음 기사</div><div class="list">${postHTML(nx)}</div></div>
   </article>`;
+  markTerms($("#v-article .body"), tl);
 }
 function renderColumn(c){
   const i = COLUMNS.findIndex(x=>x.id===c.id); const nx = COLUMNS[(i+1)%COLUMNS.length]; const rel = c.rel && byId[c.rel];
@@ -677,6 +710,11 @@ function init(){
   if(PRE) motion();  // 미리 그리는 중(PRE 아님)에는 숨김·0 이 HTML에 박히지 않게 돌리지 않는다
 }
 init();
+// 휴대폰 위쪽 메뉴(11/5~): 메뉴가 화면보다 길면 오른쪽 끝을 흐리게 해 옆으로 밀 수 있다는 걸 보인다. 끝까지 밀면 흐림을 끈다. 순서는 바꾸지 않는다.
+(function(){ const n=document.querySelector("nav.main"); if(!n) return;
+  const f=()=>{ const o=n.scrollWidth>n.clientWidth+2; n.classList.toggle("ovf",o); n.classList.toggle("end",o&&n.scrollLeft+n.clientWidth>=n.scrollWidth-2); };
+  const cur=n.querySelector('[aria-current="true"]'); if(cur&&n.scrollWidth>n.clientWidth&&cur.offsetLeft+cur.offsetWidth>n.clientWidth) n.scrollLeft=cur.offsetLeft-16;
+  f(); n.addEventListener("scroll",f,{passive:true}); addEventListener("resize",f); })();
 
 // 휴대폰인데 브라우저가 'PC 화면(데스크톱 사이트)'으로 연 경우 알림(11/3~).
 // 이 상태에서는 브라우저가 휴대폰용 화면 폭 설정을 무시하고 980px 폭으로 그려 글자가 작아진다. 사이트가 바꿀 수 없어 끄는 법을 알려 준다.

@@ -26,7 +26,7 @@ server.listen(0, '127.0.0.1', async () => {
   await pg.goto(base + '/', { waitUntil: 'load' });
   const lite = await pg.evaluate(() => {
     const omit = (o, ks) => { const r = { ...o }; ks.forEach(k => delete r[k]); return r; };
-    return { ARTICLES: ARTICLES.map(a => ({ ...omit(a, ['body', 'facts', 'sources', 'ask', 'try', 'sub', 'terms']), rm: readMin(a.body) })),
+    return { ARTICLES: ARTICLES.map(a => ({ ...omit(a, ['body', 'facts', 'sources', 'ask', 'try', 'sub', 'terms', 'who']), rm: readMin(a.body) })),
       TUTORIALS: TUTORIALS.map(t => ({ ...omit(t, ['items', 'limits', 'intro', 'bonus', 'quick', 'sources', 'master', 'why']), n: t.items.length, rd: tutRead(t) })),
       TUT_CATS, TOOLS, AI_PRICES, RESOURCES, COLUMNS: COLUMNS.map(c => ({ ...omit(c, ['body']), rm: readMin(c.body) })), DAILY, TERMS, VS, ABOUT_CARD, FOLLOWBOX };
   });

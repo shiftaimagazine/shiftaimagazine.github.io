@@ -1148,7 +1148,7 @@ header{transition:box-shadow .3s ease}
   footer .fgrp>span{display:none}
   footer .fgrp a{font-size:15px;line-height:1.9}
   /* 기사: 본문 앞 상자 빼고 첫 문단 뒤 '한눈에' 한 상자, 해 볼 것은 본문 뒤, 핵심 정보·원문은 접기 */
-  .art-news .back,.art-news>.vdbox,.art-news>.trynow:not(.m-only),.art-news>.box,.art-news>.src,.art-news>.ask:not(.m-only),.art-news>.followbox{display:none}
+  .art-news .back,.art-news>.vcard,.art-news>.box,.art-news>.src,.art-news>.ask:not(.m-only),.art-news>.followbox{display:none}
   .art-news .body .glance{display:block;margin:22px 0 4px;border-radius:14px;background:var(--bg2);padding:16px}
   .art-news .body .glance .gv{display:block;text-decoration:none}
   .art-news .body .glance .gv i{display:inline-block;font-style:normal;font-size:12.5px;font-weight:800;border:1px solid currentColor;border-radius:999px;padding:0 8px;margin-bottom:6px}
@@ -1322,3 +1322,67 @@ html:not([data-tpane]) .ttabs{display:none}
 .tgend{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:30px 0 8px;padding:16px 18px;background:var(--bg2);border-radius:12px}
 .tgend span{font-size:13.5px;color:var(--sub);flex:1;min-width:220px}
 @media (max-width:640px){.tgtxt h3{font-size:18px}.tgwhat{padding:14px}.tgend .btn{width:100%;text-align:center}}
+
+/* ---- 11/5~: 처음 오신 분 안내·이런 분께 추천·판정과 할 일 한 상자·본문 용어 풀이·휴대폰 메뉴 흐림 ---- */
+/* 홈 '처음 오셨나요?'·튜토리얼 목록 맨 위 입문 3편 */
+.starter{margin:26px auto 0;max-width:680px;text-align:left;border:1px solid var(--line);border-radius:18px;background:var(--bg);padding:20px 22px;box-shadow:0 2px 14px rgba(0,0,0,.04)}
+.starter .st-h b{display:block;font-size:18px;color:var(--ink);letter-spacing:-.02em}
+.starter .st-h span{display:block;margin-top:4px;font-size:14.5px;color:var(--sub);line-height:1.55}
+.starter .gchips{margin:14px 0 0;border:0;padding:0;border-radius:0;gap:8px}
+.starter .st-l{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.starter .st-l small{display:block;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:10px}
+.st-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.st-list a{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:12px;background:var(--bg2);text-decoration:none;color:var(--ink);transition:background .2s,transform .2s}
+.st-list a:hover{background:var(--line)}
+.st-list i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800}
+.st-list b{font-size:14.5px;line-height:1.45;font-weight:700}
+.st-list span{font-size:12.5px;color:var(--sub)}
+.tstart{max-width:none;margin:18px 0 8px;padding:16px 18px}
+.tstart .st-l{margin-top:0;padding-top:0;border-top:0}
+.tstart[hidden]{display:none}
+/* 기사 위 '이런 분께 추천합니다' */
+.article .who{display:flex;gap:4px 10px;flex-wrap:wrap;align-items:baseline;margin:14px 0 0;font-size:15px;line-height:1.55;color:var(--text)}
+.article .who b{flex:none;font-size:12.5px;font-weight:800;color:var(--accent);background:#FFF3EC;border-radius:999px;padding:2px 9px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .article .who b{background:#2a1d16}}
+:root[data-theme="dark"] .article .who b{background:#2a1d16}
+/* 판정 + 오늘 바로 해 보세요 = 한 상자 */
+.vcard{margin:16px 0 18px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.vcard .vdbox{margin:0;border:0;border-radius:0}
+.vcard .trynow{margin:0;border-left:0;border-radius:0}
+.vcard .vdbox+.trynow{border-top:1px dashed var(--line)}
+.vcard .vdbox{border-left:4px solid currentColor}
+.vcard .trynow{border-left:4px solid var(--accent)}
+/* 본문 용어 풀이 */
+.tm{border-bottom:1.5px dotted var(--accent);cursor:help;border-radius:2px}
+.tm:hover,.tm[aria-expanded="true"]{background:#FFF3EC}
+.tm:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tm:hover,:root:not([data-theme="light"]) .tm[aria-expanded="true"]{background:#2a1d16}}
+:root[data-theme="dark"] .tm:hover,:root[data-theme="dark"] .tm[aria-expanded="true"]{background:#2a1d16}
+.tmpop{position:absolute;z-index:60;background:#1f2328;border:1px solid rgba(255,255,255,.12);color:#f1f1ee;border-radius:12px;padding:12px 14px;box-shadow:0 8px 28px rgba(0,0,0,.22);font-size:14px;line-height:1.55;animation:tmIn .16s ease-out}
+.tmpop b{font-size:15px;color:#fff}
+.tmpop small{margin-left:6px;font-size:12px;color:#a9abb0}
+.tmpop p{margin:6px 0 8px;color:#e4e4df}
+.tmpop a{color:#ffb38f;font-weight:700;text-decoration:none}
+.tmpop a:hover{text-decoration:underline}
+@keyframes tmIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tmpop{animation:none}}
+/* 휴대폰 위쪽 메뉴: 옆에 더 있으면 오른쪽 끝을 흐리게 */
+nav.main.ovf{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
+nav.main.ovf.end{-webkit-mask-image:none;mask-image:none}
+@media (min-width:0px) and (max-width:640px){
+  .starter{margin-top:20px;padding:16px;border-radius:16px}
+  .starter .st-h b{font-size:17px}
+  .starter .st-h span{font-size:14px}
+  #v-home .starter .gchips{margin:12px -16px 0;padding:0 16px;flex-wrap:nowrap;overflow-x:auto}
+  .st-list{grid-template-columns:minmax(0,1fr);gap:8px}
+  .st-list a{flex-direction:row;align-items:center;gap:10px;padding:11px 12px}
+  .st-list b{flex:1;font-size:14.5px}
+  .st-list span{flex:none}
+  .tstart{padding:14px}
+  .article .who{font-size:14.5px;margin-top:12px}
+  .art-news .body .glance .gt{margin:12px 0 0;padding:12px 0 0;border-top:1px solid var(--line)}
+  .art-news .body .glance .gt b{display:block;font-size:12.5px;font-weight:800;color:var(--accent);margin-bottom:4px}
+  .art-news .body .glance .gt span{display:block;font-size:15.5px;line-height:1.55;color:var(--ink)}
+  .art-news .body .glance .gt:first-child{margin-top:0;padding-top:0;border-top:0}
+  .art-news .body .glance .gt+ul{margin-top:12px}
+}

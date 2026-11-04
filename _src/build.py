@@ -699,7 +699,7 @@ page('/weekly/', 'weekly', '주간 AI 판정 — 이번 주 써볼 만한 AI, �
      f'<main id="v-weeklyindex"><div class="ph"><h1>주간 AI 판정</h1><p>한 주 동안 나온 AI 소식을 판정별로 묶었습니다. 바쁘면 이번 주 \'써볼 만해요\'만 보셔도 됩니다. 기사 하나하나는 <a href="/verdict/">AI 판정 모아보기</a>에서 봅니다.</p></div>\n'
      f'  <div class="trel-tools vsidx">{_wi}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('주간 AI 판정', '/weekly/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': '주간 AI 판정', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/weekly/{m}/", 'name': f"AI 판정 {_wrange(m)[0]}"} for i, m in enumerate(WEEKS)]}))
-# 길잡이(/guide/, 11/3~): news/guides.json. 이미 확인한 튜토리얼·무료 도구·프롬프트를 일 단위로 묶고, 관련 기사는 기사 끝 '이어서 해 볼 것'이 이 길잡이를 고른 기사로 채운다.
+# 길잡이(/guide/, 11/3~): news/guides.json. 이미 확인한 튜토리얼·무료 도구·프롬프트를 일 단위로 묶고, 관련 기사는 기사 끝 '함께 보면 좋은 콘텐츠'이 이 길잡이를 고른 기사로 채운다.
 GD = json.load(open(SRC + 'news/guides.json'))
 GUIDES = [g for g in GD['guides'] if g.get('page')]
 _TB, _TL = {t['id']: t for t in T}, {t['id']: t for t in TOOLS}

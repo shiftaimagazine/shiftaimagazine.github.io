@@ -46,7 +46,7 @@ if __name__ == '__main__':
         a = dict(a); f = a.pop('_file')
         for k in REQ: assert k in a and a[k], (a['id'], '필수 항목 없음', k, f)
         assert a['cat'] in CATS, (a['id'], '분류 오류', a['cat'])
-        if a['date'] >= '2026-10-28': assert a.get('try') and len(a['try']) <= 120, (a['id'], "'오늘 바로 해 볼 것'(try) 한 문장 필요(120자 이내)")
+        if a['date'] >= '2026-10-28': assert a.get('try') and len(a['try']) <= 120, (a['id'], "'오늘 바로 해 보세요'(try) 한 문장 필요(120자 이내)")
         assert all(len(s) == 2 and s[1].startswith('http') for s in a['sources']), (a['id'], 'sources 형식은 [[이름, 주소], ...]')
         if a['date'] >= STYLE_FROM:
             style_check(a['id'], [a['hook'], a.get('try'), a['ask']] + [b.get('lead') or b.get('p') for b in a['body']] + [x[1] for b in a['body'] for x in b.get('ul', [])])
@@ -145,6 +145,15 @@ if __name__ == '__main__':
         assert v.get('v') in ('try', 'watch', 'hype') and 15 <= len(v.get('why') or '') <= 90, (a['id'], 'verdict 형식: {"v": try|watch|hype, "why": 15~90자}')
         style_check(a['id'] + ' 판정', [v['why']])
         a['verdict'] = {'v': v['v'], 'why': v['why']}
+    # 이런 분께 추천합니다(11/5~): 기사 JSON 의 "who" 또는 news/audience.json {"기사 id": "읽으면 좋을 사람"}. 제목 아래 한 줄.
+    #  명사구 한 줄(8~45자, 마침표 없음). 예: "맥에서 포스트맨과 클로드 코드·코덱스를 함께 쓰는 개발자". 2026-11-06 기사부터 필수. 규칙은 BRIEF.md.
+    AUD = {k: v for k, v in (J('audience.json') if os.path.exists(N + 'audience.json') else {}).items() if not k.startswith('_')}
+    for a in out:
+        w = a.get('who') or AUD.get(a['id'])
+        if a['date'] >= '2026-11-06': assert w, (a['id'], '"who"(이런 분께 추천합니다) 한 줄 필요: 이 기사를 읽으면 좋을 사람을 명사구로(8~45자, 마침표 없음). 예: "맥에서 포스트맨과 클로드 코드·코덱스를 함께 쓰는 개발자"')
+        if not w: continue
+        assert 8 <= len(w) <= 45 and not re.search(r'[.!?。]$', w), (a['id'], 'who 형식: 8~45자 명사구, 마침표 없음', w)
+        a['who'] = w
     # 수정 기록(11/3~): news/updates.json {"/주소/": [["YYYY-MM-DD", "고친 내용"], ...]} → 글 아래 '수정 기록', 사이트맵·dateModified
     UPD = {k: v for k, v in (J('updates.json') if os.path.exists(N + 'updates.json') else {}).items() if not k.startswith('_')}
     for k, v in UPD.items():
@@ -163,7 +172,7 @@ if __name__ == '__main__':
     for t in TOOLS:
         for k in ('id', 'title', 'desc', 'href', 'tag', 'date', 'thumb'): assert t.get(k), ('도구 항목 없음', t.get('id'), k)
     TOOLS.sort(key=lambda t: t['date'], reverse=True)
-    # 길잡이·'이어서 해 볼 것'(11/3~): news/guides.json. 기사·칼럼마다 맞는 주제를 골라 길잡이·튜토리얼·무료 도구를 최대 3개 붙인다(nx).
+    # 길잡이·'함께 보면 좋은 콘텐츠'(11/3~, 이름 11/5~): news/guides.json. 기사·칼럼마다 맞는 주제를 골라 길잡이·튜토리얼·무료 도구를 최대 3개 붙인다(nx).
     GD = J('guides.json') if os.path.exists(N + 'guides.json') else {'guides': [], 'fallback': {}}
     _tid, _tool = {t['id']: t for t in TUTS}, {t['id']: t for t in TOOLS}
     _pids = {f"{t['id'][2:]}-{i + 1}" for t in TUTS for i, it in enumerate(t['items']) if it.get('prompt')}
@@ -226,6 +235,13 @@ if __name__ == '__main__':
         while sl in _seen: sl = f'{base}-{k}'; k += 1
         if sl != base: print('알림: 용어 주소 겹침', t['t'], _seen[base], '→', sl)
         t['s'] = sl; _seen[sl] = t['t']
+    # 함께 보면 좋은 콘텐츠(11/5~): 3개가 안 차면 기사에 붙은 AI 사전 용어 뜻으로 채운다(상관없는 도구를 끼워 넣지 않게).
+    _term = {t['t']: t for t in TERMS}
+    for a in out:
+        for tn in a.get('terms') or []:
+            t = _term.get(tn)
+            if len(a['nx']) >= 3: break
+            if t and len(t['t']) >= 2 and f"/dict/{t['s']}/" not in [x[1] for x in a['nx']]: a['nx'].append(['AI 사전', f"/dict/{t['s']}/", f"{t['t']} 뜻"])
     def _named(t, text):
         names = [t['t']] + ([t['en']] if t.get('en') and len(t['en']) >= 4 and re.fullmatch(r'[A-Za-z0-9 .\-]+', t['en']) else [])
         for n in names:
