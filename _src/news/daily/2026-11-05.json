@@ -1,0 +1,510 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-05-postman-agent-plugins-autoinstall",
+   "cat": "보안·안전",
+   "date": "2026-11-05",
+   "time": "06:52",
+   "title": "포스트맨 데스크톱, 클로드 코드·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려",
+   "sub": "깃허브 이슈 14370번 · 보고자 indicava · 포스트맨 12.33.4",
+   "hook": "포스트맨(Postman) 데스크톱 앱이 클로드 코드와 코덱스에 자체 플러그인을 사용자 동의 없이 설치했다는 보고가 깃허브 이슈로 올라와 있습니다. 보고자의 로그와 설정 파일 기록, 11월 3일 추가 재현 댓글을 정리했습니다.",
+   "try": "맥에서 포스트맨 데스크톱을 쓴다면 ~/.claude/settings.json과 ~/.codex/config.toml을 열어 postman 항목이 있는지 확인해 보세요.",
+   "facts": [
+    [
+     "보고자",
+     "indicava(포스트맨 깃허브 이슈 14370번)"
+    ],
+    [
+     "날짜",
+     "2026년 10월 25일 이슈 열림, 11월 3일 추가 재현 댓글"
+    ],
+    [
+     "무엇",
+     "포스트맨 데스크톱의 클로드 코드·코덱스 플러그인 자동 설치"
+    ],
+    [
+     "버전",
+     "보고자 12.33.4, 댓글 12.31.3에서 12.35.1로 업데이트"
+    ],
+    [
+     "상태",
+     "이슈 열림, 포스트맨 직원 답변은 확인되지 않음"
+    ],
+    [
+     "원문",
+     "포스트맨 저장소 깃허브 이슈"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "포스트맨(Postman) 데스크톱 앱이 사용자가 묻지 않았는데 클로드 코드(Claude Code)와 코덱스(Codex)에 포스트맨 플러그인을 설치했다는 보고가 포스트맨 저장소의 깃허브 이슈 14370번에 올라와 있습니다. 보고자 indicava가 10월 25일에 연 이슈에는 11월 3일에도 같은 경로로 설치됐다는 댓글이 달렸고, 확인한 댓글 중에는 포스트맨 직원의 답변이 보이지 않습니다."
+    },
+    {
+     "ul": [
+      [
+       "12.33.4에서 기록된 자동 설치",
+       "로그에 auto-existing-upgrade 출처와 claude-code·codex 설치 결과"
+      ],
+      [
+       "코덱스 시작 안내문과 훅 신뢰 기록",
+       "API 작업 전에 postman:api-engineer 스킬을 불러오라는 문장"
+      ],
+      [
+       "보고자가 주장한 범위는 연동과 지시 변경",
+       "데이터 유출은 주장하지 않았고 깨끗한 맥 재현은 아직"
+      ]
+     ]
+    },
+    {
+     "h": "로그에 남은 auto-existing-upgrade"
+    },
+    {
+     "p": "보고자가 제시한 맥(Mac)의 포스트맨 로그(main.log)에는 10월 24일(UTC) 9시 34분에 auto-existing-upgrade라는 출처 표시와 claude-code, codex가 설치됐다는 결과가 함께 찍혀 있습니다. 당시 포스트맨 데스크톱은 12.33.4, 코덱스 플러그인은 1.1.0, 클로드 플러그인은 2.0.1이었습니다. 클로드 쪽에서는 ~/.claude/settings.json에 postman@claude-plugins-official이 켜진 채로 들어갔고, 포스트맨 CLI 실행 파일도 ~/.local/bin에 생겼습니다."
+    },
+    {
+     "h": "코덱스 설정과 시작 안내문이 바뀐 자리"
+    },
+    {
+     "p": "코덱스 쪽에서는 ~/.codex/config.toml에 포스트맨 마켓플레이스가 추가되고 플러그인이 켜졌으며 SessionStart 훅의 신뢰 기록(trusted_hash)도 함께 쓰였다고 보고자는 적었습니다. 이 훅은 세션이 시작될 때 안내문을 출력하는데, 안내문에는 API나 포스트맨 플로 작업을 설계, 구현, 모킹, 테스트, 모니터링, 문서화, 배포하기 전에 postman:api-engineer 스킬을 불러와 따르라는 문장이 들어 있습니다. 설치 프로그램 소스에는 설치 뒤 포스트맨의 훅만 승인한다는 주석과 승인 함수 호출이 있는데, 보고자는 이것이 승인 시도를 보여 줄 뿐 신뢰 기록을 누가 만들었는지는 말해 주지 않는다고 단서를 달았습니다."
+    },
+    {
+     "h": "데이터 유출을 주장한 글은 아닙니다"
+    },
+    {
+     "p": "이슈 제목은 [SEVERE]로 시작하지만 보고자가 확립했다고 적은 것은 원치 않은 연동과 지시 변경까지입니다. 데이터 유출은 주장하지 않았고 깨끗한 맥에서는 아직 재현하지 못했습니다. 보고자는 증거를 보존한 뒤 로컬의 포스트맨과 연동을 지웠으며, 기존 데스크톱 사용자에게는 명시적 동의 전까지 에이전트 플러그인과 CLI 자동 설치를 멈추고 설치 프로그램이 스스로 훅을 승인하는 동작을 없애 달라고 요구했습니다. auto-existing-upgrade 뒤에 있는 릴리스나 기능 플래그를 밝히고 전체 제거 방법을 안내해 달라는 요구도 있습니다."
+    },
+    {
+     "h": "11월 3일에도 같은 경로였다는 댓글"
+    },
+    {
+     "p": "댓글 작성자 ronthedrummer는 11월 3일 맥OS 26.5.2에서 로그인해 둔 기존 포스트맨을 열자 앱이 12.31.3에서 12.35.1로 업데이트됐고, 그 직후 auto-existing-upgrade가 CLI와 클로드 코드·코덱스 플러그인을 설치했다고 적었습니다. 로그의 시각은 UTC 22시 58분 31초부터 22시 59분 29초까지이며 설치된 CLI는 버전 1.85.0을 출력했습니다. 이슈에 링크된 자료 중 포스트맨의 공식 설명이나 변경 기록은 보이지 않습니다."
+    }
+   ],
+   "ask": "쓰고 있는 개발 도구가 내 에이전트 설정 파일을 바꾸기 전에 물어봐 주기를 바라시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "보고자 한 명의 기록과 댓글 재현이며 포스트맨의 공식 답변은 확인되지 않았습니다."
+   },
+   "sources": [
+    [
+     "포스트맨 깃허브 — 이슈 14370",
+     "https://github.com/postmanlabs/postman-app-support/issues/14370"
+    ]
+   ],
+   "terms": [
+    "포스트맨",
+    "플러그인",
+    "클로드 코드",
+    "코덱스",
+    "훅",
+    "스킬",
+    "CLI",
+    "마켓플레이스",
+    "깃허브"
+   ],
+   "image": {
+    "page": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+    "og": null,
+    "credit": "화면: github.com",
+    "alt": "포스트맨 깃허브 이슈 14370번 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "제목과 개설 날짜",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "[SEVERE] Desktop auto-installs Codex/Claude plugins; installer attempts to trust its own startup hook"
+    },
+    {
+     "claim": "버전 12.33.4, 플러그인 1.1.0, 클로드 2.0.1",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Postman desktop: 12.33.4. Codex Postman plugin: 1.1.0. Installed source revision: 6c8e452e0f4237f4bcc0901cb1ac442dec707e49. Investigation: October 25, 2026."
+    },
+    {
+     "claim": "로그 기록과 시각",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "\"source\":\"auto-existing-upgrade\",\"results\":[\"claude-code:installed\",\"codex:installed\"],\"installer\":\"script\" (timestamp 2026-10-24T09:34:14.418Z)"
+    },
+    {
+     "claim": "코덱스 설정 변경과 훅 신뢰 기록",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Codex config (~/.codex/config.toml) adds [marketplaces.postman] with source = \"https://github.com/postmanlabs/postman-plugin.git\" and [plugins.\"postman@postman\"] enabled = true; a hook trust record (trusted_hash) for the SessionStart hook was also written."
+    },
+    {
+     "claim": "시작 안내문",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Before responding to any non-trivial API engineering task — designing, implementing, mocking, testing, monitoring, documenting, or deploying an API or Postman Flow — load the `postman:api-engineer` skill and follow it."
+    },
+    {
+     "claim": "설치 프로그램 승인 주석",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Approves only Postman's current hook after installation"
+    },
+    {
+     "claim": "클로드 설정과 CLI",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "~/.claude/settings.json enabled postman@claude-plugins-official; Postman CLI executable and lib directory appeared in ~/.local/bin."
+    },
+    {
+     "claim": "보고자 범위",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "This report establishes unwanted integration and instruction changes; it does not claim to establish data exfiltration."
+    },
+    {
+     "claim": "요구 사항",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Stop automatic agent-plugin/CLI installation for existing desktop users pending explicit opt-in."
+    },
+    {
+     "claim": "11월 3일 댓글",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Same path on a later build. Today I opened an existing signed-in Postman on macOS 26.5.2 (25F84). The app updated from 12.31.3 to 12.35.1 on that launch, then `auto-existing-upgrade` installed the CLI and the Claude Code and Codex plugins. (log 2026-11-03T22:58:31Z through 22:59:29Z; postman --version prints 1.85.0)"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-05-google-school-ai-controls-guided-learning",
+   "cat": "모델·제품",
+   "date": "2026-11-05",
+   "time": "06:51",
+   "title": "제미나이·구글 검색, K-12 학생 계정은 학교 관리자가 켜기 전까지 꺼진다고 구글 밝혀",
+   "sub": "Designing responsible AI for learning · 구글 교육 블로그 · 가이디드 러닝",
+   "hook": "구글(Google)이 11월 3일 교육 블로그에서 K-12 학생 계정의 제미나이와 구글 검색 접근을 학교 관리자가 명시적으로 켜기 전까지 완전히 꺼 두겠다고 밝혔습니다. 검색과 클래스룸에는 가이디드 러닝 기능도 들어갑니다.",
+   "try": "자녀가 다니거나 내가 일하는 학교가 구글 워크스페이스를 쓴다면 학생 계정의 제미나이와 검색 설정이 어떻게 바뀌는지 관리자에게 물어보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "구글 교육 부문(크리스 필립스 부사장)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 3일"
+    ],
+    [
+     "무엇",
+     "학생 계정 AI 통제 개편과 가이디드 러닝 확대"
+    ],
+    [
+     "대상",
+     "K-12 학생 계정(제미나이, 제미나이 노트북, 클래스룸의 제미나이, 구글 검색)"
+    ],
+    [
+     "일정",
+     "검색 파일럿은 이달 미국 일부 학교, 통제 개편은 몇 달 안"
+    ],
+    [
+     "원문",
+     "구글 블로그 교육 섹션"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 3일 교육 블로그 글 '책임 있는 학습용 AI 설계(Designing responsible AI for learning)'에서 학교의 AI 통제 방식을 바꾸겠다고 밝혔습니다. 제미나이(Gemini), 제미나이 노트북, 클래스룸 안의 제미나이, 구글 검색은 K-12 학생 계정에서 학교 관리자가 명시적으로 켜기 전까지 완전히 꺼진 상태가 됩니다. 같은 글에는 검색과 구글 클래스룸(Google Classroom)에 넣는 가이디드 러닝(Guided Learning) 기능도 실렸습니다."
+    },
+    {
+     "ul": [
+      [
+       "학생 계정은 기본값이 꺼짐",
+       "네 제품 모두 관리자가 켜야 사용"
+      ],
+      [
+       "검색용 가이디드 러닝 파일럿",
+       "이달 안에 미국 일부 학교에서 시작"
+      ],
+      [
+       "클래스룸 가이디드 러닝",
+       "11월 3일부터 전 세계에서 사용 가능"
+      ]
+     ]
+    },
+    {
+     "h": "관리자가 켜기 전까지 꺼진 상태로 시작합니다"
+    },
+    {
+     "p": "구글은 학교가 교실 안의 AI를 직접 다룰 수 있어야 한다고 보고 학교, 교사, 연구자, 정책 담당자의 의견을 들은 뒤 접근 방식을 바꿨다고 설명했습니다. 새 방식에서 위 네 제품은 K-12 학생 계정에 대해 관리자가 명시적으로 켜기 전까지 접근이 완전히 막힙니다. 시행 날짜는 글에 없고 구글은 학교가 준비할 시간을 갖도록 앞으로 몇 달 안에 세부 내용을 알리겠다고만 적었습니다. 구글 검색의 어느 기능이 막히는지도 글에 풀이가 없으며 검색은 제품 목록에 이름만 올라 있습니다."
+    },
+    {
+     "h": "검색에는 정답 대신 풀이 과정을 보여 주는 기능이 들어갑니다"
+    },
+    {
+     "p": "구글은 AI 제품이 학생이 지나치게 압도돼 포기하지 않으면서도 적극적으로 도전하게 하는 '생산적 고투(productive struggle)'를 뒷받침해야 한다고 보고, 그 생각을 담은 것이 가이디드 러닝이라고 설명합니다. 제미나이에서는 열린 질문과 단계별 풀이로 학생의 문제 해결을 코치하는 대화형 학습 도구로 쓰입니다. 구글은 자체 연구에서 가이디드 러닝이 측정 가능한 학습 효과를 낸다고 밝혔지만 글 본문에는 연구 이름이나 수치가 없습니다. 검색에서는 시스템이 학생이 특정한 숙제 도움을 찾는다고 판단하면 검색이 주제나 문제를 단계별로 안내합니다. 학생이 복잡한 물리 문제를 붙여 넣거나 독후감 쓰기를 도와 달라고 하면 답을 바로 보여 주는 대신 비판적으로 생각하도록 돕는 질문이 나옵니다. 이달 안에 미국 일부 학교에서 파일럿을 시작해 교사 의견을 반영한 뒤 몇 달에 걸쳐 다른 학군으로 넓힐 계획입니다."
+    },
+    {
+     "h": "클래스룸의 가이디드 러닝은 이미 전 세계에서 열려 있습니다"
+    },
+    {
+     "p": "구글 클래스룸의 가이디드 러닝은 글이 올라온 11월 3일부터 전 세계에서 쓸 수 있습니다. 교사가 낸 가이디드 러닝 활동을 학생이 시작하면 수업 자료에 바탕을 둔 일대일 학습 도구처럼 작동하고, 교사는 반 전체가 어디에서 도움이 더 필요한지 실시간으로 볼 수 있습니다. 출시 전에 학교와 교육자와 함께 기능을 시험하고 의견을 반영했다고 합니다. 한국어 지원 여부와 한국 학교에 적용되는 시점은 글에 나오지 않습니다. 통제 개편의 일정도 같은 글에서는 앞으로 몇 달로만 적혀 있어 구체적인 날짜가 아직 없습니다."
+    }
+   ],
+   "ask": "자녀가 쓰는 학교 계정에서 AI 기능이 기본으로 켜져 있기를 바라시나요, 꺼져 있기를 바라시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "통제 개편은 몇 달 뒤 적용이고 검색 파일럿은 미국 일부 학교에 한정됩니다."
+   },
+   "sources": [
+    [
+     "구글 블로그 — Designing responsible AI for learning",
+     "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/"
+    ]
+   ],
+   "terms": [
+    "제미나이",
+    "제미나이 노트북",
+    "가이디드 러닝",
+    "K-12"
+   ],
+   "image": {
+    "page": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Designing_responsible_AI_for_learning_hero.width-1300.png",
+    "credit": "이미지: Google",
+    "alt": "구글 학습용 AI 설계 글 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "기본값 꺼짐",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "Access to these products will be entirely off for K-12 student accounts until school administrators explicitly turn them on."
+    },
+    {
+     "claim": "대상 제품",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "we are now updating our approach to controls for Gemini, Gemini Notebook, Gemini in Classroom, and Google Search."
+    },
+    {
+     "claim": "의견 청취",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "After listening to schools, teachers, leading researchers, and policymakers"
+    },
+    {
+     "claim": "몇 달 안에 세부 안내",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "We'll share more specifics with schools in the coming months ahead of the changes rolling out so they have time to prepare and enable a smooth transition."
+    },
+    {
+     "claim": "검색용 가이디드 러닝",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "We're building Guided Learning capabilities into Search for student accounts to help them work through problems without skipping straight to answers."
+    },
+    {
+     "claim": "파일럿",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "We're starting with a pilot in select U.S. schools later this month to gather and incorporate educator feedback before expanding to other school districts in the coming months."
+    },
+    {
+     "claim": "단계별 안내",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "When our systems understand a student is looking for certain types of homework help, Search will walk them through the topic or problem step by step."
+    },
+    {
+     "claim": "클래스룸 전 세계",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "Starting today, Guided Learning is globally available in Google Classroom"
+    },
+    {
+     "claim": "생산적 고투",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "We believe AI products should support “productive struggle” — enabling students to be actively challenged without getting so overwhelmed that they give up."
+    },
+    {
+     "claim": "제미나이 가이디드 러닝",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "In Gemini, Guided Learning acts as an interactive study tool that coaches students through the process of problem solving through open-ended questions and step-by-step breakdowns."
+    },
+    {
+     "claim": "자체 연구",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "Our research shows that Guided Learning leads to measurable learning gains for students, and we’re now bringing Guided Learning to more products."
+    },
+    {
+     "claim": "검색 예시",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "if a student pastes a complex physics problem or asks for help writing a book report in Search, they’ll see prompts to help them think critically and work through the concepts, without going directly to the answer."
+    },
+    {
+     "claim": "클래스룸 일대일 도구",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "When a student starts a Guided Learning activity assigned by their teacher, it acts like a 1-1 study tool, anchored in class material to help them stay on task."
+    },
+    {
+     "claim": "교사 실시간 확인",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "It also gives teachers real-time insights to spot where the class might need extra support."
+    },
+    {
+     "claim": "출시 전 시험",
+     "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+     "quote": "Before launching Guided Learning in Google Classroom, we worked closely with schools and educators to test the feature and integrate their feedback."
+    },
+    {
+     "claim": "게시일",
+     "url": "https://blog.google/rss/",
+     "quote": "Tue, 03 Nov 2026 14:00:00 +0000"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-05-apple-age-rating-dating-companion",
+   "cat": "정책·저작권",
+   "date": "2026-11-05",
+   "time": "06:50",
+   "title": "앱스토어 연령 등급에 '데이팅과 관계' 항목 신설, 가상 동반자 기능 앱도 최소 18+",
+   "sub": "앱 스토어 커넥트 연령 등급 설문 · 애플 개발자 뉴스",
+   "hook": "애플(Apple)이 11월 16일부터 앱 스토어 커넥트 연령 등급 설문에 '공유 위치'와 '데이팅과 관계' 항목을 추가합니다. 연애나 성적인 내용으로 사용자와 대화하는 가상 동반자 기능이 있는 앱도 최소 18+ 등급을 받습니다.",
+   "try": "연애나 성적인 대화를 하는 가상 동반자 앱을 쓰고 있다면 11월 16일 이후 앱스토어 상세 페이지의 연령 등급이 18+로 바뀌는지 확인해 보세요.",
+   "facts": [
+    [
+     "발표 주체",
+     "애플(개발자 뉴스)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 2일 공지, 11월 16일 적용"
+    ],
+    [
+     "무엇",
+     "앱 스토어 커넥트 연령 등급 설문에 새 항목 두 개"
+    ],
+    [
+     "핵심 숫자",
+     "데이팅과 관계 항목은 최소 18+, 모든 앱 신고 기한 2027년 1월 12일"
+    ],
+    [
+     "지역",
+     "브라질은 공유 위치 A16, 데이팅과 관계 A18"
+    ],
+    [
+     "원문",
+     "애플 개발자 뉴스"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "애플(Apple)이 11월 2일 개발자 뉴스에서 앱 스토어 커넥트(App Store Connect)의 연령 등급 설문에 새 항목 두 개를 넣는다고 공지했습니다. 11월 16일부터 적용되며, 사람 사이의 데이팅이나 관계 맺기 기능, 또는 연애나 성적인 내용으로 사용자와 대화하는 가상 동반자(virtual companion) 기능이 있는 앱은 최소 연령 등급이 18+가 됩니다. 공지에는 'AI 컴패니언'이라는 말이 직접 나오지 않고 가상 동반자로 적혀 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "새 항목 두 개",
+       "공유 위치(Shared Location), 데이팅과 관계(Dating and Relationships)"
+      ],
+      [
+       "데이팅과 관계 항목은 최소 18+",
+       "사람 사이의 데이팅 기능과 연애·성적 내용의 가상 동반자 기능이 해당"
+      ],
+      [
+       "작성 기한",
+       "앱 업데이트나 설문 변경 때 작성, 모든 앱은 2027년 1월 12일까지"
+      ]
+     ]
+    },
+    {
+     "h": "11월 16일부터 설문이 바뀌고 1월 12일이 마감입니다"
+    },
+    {
+     "p": "새 항목은 11월 16일부터 앱 스토어 커넥트에 나타납니다. 애플은 앱의 연령 등급이 기능을 정확히 반영하고 현지 규정에 맞도록 돕기 위한 조치라고 설명했습니다. 개발자는 앱 업데이트를 제출하거나 연령 등급 설문을 바꿀 때 두 항목을 작성해야 하며, 모든 앱은 2027년 1월 12일까지 작성을 마쳐야 합니다."
+    },
+    {
+     "h": "두 항목이 각각 묻는 것"
+    },
+    {
+     "p": "공유 위치는 실제 위치를 다른 사람이나 집단과 나누는 기능이 있는지 묻습니다. 데이팅과 관계는 실제 사람들 사이의 데이팅이나 관계 연결 기능, 그리고 사용자와 연애나 성적인 내용을 주고받는 가상 동반자 기능이 있는지 묻습니다. 데이팅과 관계에 해당하는 앱은 최소 연령 등급이 18+이고, 공유 위치는 지역에 따라 최소 등급에 영향이 없을 수 있습니다."
+    },
+    {
+     "h": "브라질에서는 A16과 A18이 됩니다"
+    },
+    {
+     "p": "브라질에서는 현지 규정에 따라 공유 위치에 A16, 데이팅과 관계에 A18 등급이 필요합니다. 앱이 더 낮은 등급 대상이라고 판단하는 개발자는 예를 들어 부모와 자녀를 위해 만든 위치 공유 기능이라면 브라질 법무공안부(MJSP)에 직접 공식 등급을 요청할 수 있고, 확인이 끝나면 브라질 앱 스토어에 공식 등급이 표시됩니다. 공지에는 한국을 따로 다룬 문장이 없으며 18+ 최소 등급은 지역 제한 없이 적혀 있습니다."
+    }
+   ],
+   "ask": "자주 쓰는 앱의 연령 등급이 실제 기능과 맞는다고 느끼시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "표시는 11월 16일부터 바뀌지만 앱별 등급은 개발자의 신고 시점에 달렸습니다."
+   },
+   "sources": [
+    [
+     "애플 개발자 뉴스 — Upcoming: New age rating content descriptors in App Store Connect",
+     "https://developer.apple.com/news/?id=yxkh08us"
+    ]
+   ],
+   "terms": [
+    "애플",
+    "앱 스토어 커넥트"
+   ],
+   "image": {
+    "page": "https://developer.apple.com/news/?id=yxkh08us",
+    "og": "https://developer.apple.com/news/images/og/app-store-connect-og.png",
+    "credit": "이미지: Apple",
+    "alt": "앱 스토어 커넥트 연령 등급 공지 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "적용일",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "Starting November 16, 2026, App Store Connect will include new content descriptors to help ensure your app's age ratings accurately reflect its features..."
+    },
+    {
+     "claim": "신고 항목",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "Shared Location: Sharing of real-world location with another person or group."
+    },
+    {
+     "claim": "데이팅과 관계 정의",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "Dating and Relationships: Features that enable dating or relationship connections between real people and/or a virtual companion that engages a user in sexual or romantic content."
+    },
+    {
+     "claim": "기한",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "You must provide these declarations when submitting an app update or making changes to your age rating questionnaire. All apps must have these declarations completed by January 12, 2027."
+    },
+    {
+     "claim": "최소 18+",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "Apps that include Dating and Relationships receive a minimum age rating of 18+."
+    },
+    {
+     "claim": "공유 위치 영향",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "Apps that include Shared Location may not have an impact on their minimum age rating in some regions."
+    },
+    {
+     "claim": "브라질",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "In Brazil, local regulations require an A16 rating for Shared Location and an A18 rating for Dating and Relationships."
+    },
+    {
+     "claim": "조치 목적",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "Starting November 16, 2026, App Store Connect will include new content descriptors to help ensure your app's age ratings accurately reflect its features and are in accordance with local regulations."
+    },
+    {
+     "claim": "브라질 공식 등급 요청",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "If you believe your app qualifies for a lower age rating in Brazil — for example, if your app provides location sharing specifically designed for parents and children — you can request an official rating directly from Brazil's Ministry of Justice and Public Security (MJSP/Ministério da Justiça e Segurança Pública). Once verified, the official rating will display on the App Store in Brazil."
+    },
+    {
+     "claim": "공지 날짜",
+     "url": "https://developer.apple.com/news/?id=yxkh08us",
+     "quote": "November 2, 2026 (Apple Developer News posting date)"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI 'ChatGPT 검색량이 구글의 20%' 발표",
+   "reason": "원문(오픈AI 게시물)을 열지 못하고 더버지 보도만 확인됨"
+  },
+  {
+   "topic": "앤트로픽 RSI 경고",
+   "reason": "원문(앤트로픽 게시물·SEC 서류)을 찾지 못하고 언론 보도만 확인됨"
+  },
+  {
+   "topic": "넷플릭스 AI 디스커버 탭",
+   "reason": "원문 미확인, 언론 보도만 있음"
+  }
+ ]
+}
