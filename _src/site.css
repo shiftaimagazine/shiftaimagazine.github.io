@@ -1076,6 +1076,7 @@ header{transition:box-shadow .3s ease}
   /* 목록은 제목만: 요약 줄 빼고 사진은 오른쪽 작은 정사각형(모든 기사·튜토리얼 목록) */
   .list .post{grid-template-columns:minmax(0,1fr) 84px;gap:14px;padding:14px 0;align-items:start}
   .list .post .thumb{grid-column:2;grid-row:1;width:84px;height:84px;aspect-ratio:1/1;border-radius:8px}
+  .list .post .thumb[src*="img/tools/"]{object-position:right center}  /* 무료 도구 썸네일은 오른쪽 결과 카드가 보이게(제목은 옆 글자로 나온다) */
   .list .post .b{grid-column:1;grid-row:1;gap:3px}
   .list .post .b>p{display:none}
   .list .post h3{font-size:17px;line-height:1.42;font-weight:700;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}

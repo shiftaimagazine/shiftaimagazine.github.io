@@ -1,0 +1,79 @@
+/* 무료 도구 썸네일(C안 · 결과 미리 보기, 11/5~). 왼쪽 제목·소개·로고, 오른쪽 흰 카드에 도구가 만들어 주는 결과를 다시 그린다. */
+@font-face{font-family:P;font-weight:500;src:url(FONT/Pretendard-Medium.woff2)}
+@font-face{font-family:P;font-weight:600;src:url(FONT/Pretendard-SemiBold.woff2)}
+@font-face{font-family:P;font-weight:700;src:url(FONT/Pretendard-Bold.woff2)}
+@font-face{font-family:P;font-weight:800;src:url(FONT/Pretendard-ExtraBold.woff2)}
+@font-face{font-family:P;font-weight:900;src:url(FONT/Pretendard-Black.woff2)}
+:root{--bg:#ECEEF1;--ink:#16171B;--sub:#4B4E55;--mute:#62656C;--faint:#8A8D94;--line:#E4E6EA;--edge:#D9DCE1;--chip:#F1F2F4;--soft:#F6F7F8;
+  --hl:#FFE07A;--hl-edge:#D9A400;--ok:#1D6B3B;--ok-bg:#E3F4E9;--bad:#B3261E;--bad-bg:#FCE8E4;--blue:#2A78D6}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{width:960px;height:540px;overflow:hidden;position:relative;background:var(--bg);color:var(--ink);font-family:P,sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased}
+.lead{position:absolute;left:64px;top:0;bottom:24px;width:350px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.lead h1{margin:0;font-size:64px;line-height:1.06;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+.lead p{margin:0;font-size:23px;line-height:1.45;font-weight:500;color:var(--sub);letter-spacing:-.02em;max-width:336px}
+.logo{position:absolute;left:60px;bottom:38px;height:46px;filter:drop-shadow(0 6px 10px rgba(22,23,27,.14))}
+.card{position:absolute;left:440px;top:56px;width:456px;height:428px;background:#fff;border:1px solid var(--edge);border-radius:22px;
+  box-shadow:0 28px 60px -24px rgba(22,23,27,.28);padding:26px;display:flex;flex-direction:column;gap:16px;overflow:hidden}
+.card.tight{gap:13px}
+
+/* 줄·머리 */
+.row{display:flex;align-items:center;gap:12px;min-width:0}
+.badge{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:7px;color:#fff;font-size:15px;font-weight:800;letter-spacing:.01em;flex:none}
+.b-pdf{background:#C93A24}.b-hwp{background:#1F55C4}.b-jpg{background:#0F7A62}.b-heic{background:#4B4E55}.b-xls{background:#1D6F42}
+.fname{font-size:20px;font-weight:700;letter-spacing:-.01em;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta{font-size:16px;font-weight:600;color:var(--mute);flex:none}
+.label{font-size:16px;font-weight:700;color:var(--mute)}
+.head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.head b{font-size:21px;font-weight:800;letter-spacing:-.02em}
+.hr{border-top:1px solid var(--line)}
+
+/* 칩·버튼 */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:16px;font-weight:700;background:var(--chip);border-radius:999px;padding:7px 14px;white-space:nowrap;line-height:1.25}
+.chips.sm .chip{font-size:15px;padding:6px 12px}
+.chip.on{background:var(--ink);color:#fff}
+.chip.ok{background:var(--ok-bg);color:var(--ok)}
+.chip.miss{background:none;border:2px dashed #B3B6BD;color:var(--sub);padding:5px 12px}
+.chips.sm .chip.miss{padding:4px 10px}
+.chip.bad{background:var(--bad-bg);color:var(--bad)}
+.chip.warn{background:#FFF1C2;color:#6B4E00}
+.btns{margin-top:auto;display:flex;gap:8px}
+.btn{flex:1;height:50px;border-radius:12px;background:var(--ink);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;white-space:nowrap;padding:0 14px}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+.btn.fit{flex:none}
+
+/* 글 표시 */
+mark{background:var(--hl);color:inherit;border-radius:5px;padding:1px 4px;box-shadow:inset 0 -3px var(--hl-edge)}
+.del{color:var(--bad);text-decoration:line-through;text-decoration-thickness:2px;background:var(--bad-bg);border-radius:4px;padding:0 3px}
+.ins{color:var(--ok);background:var(--ok-bg);border-radius:4px;padding:0 3px}
+.sym{color:var(--bad);background:var(--bad-bg);border-radius:4px;padding:0 3px;font-weight:800}
+.lv1{background:var(--bad-bg);box-shadow:inset 0 -2px var(--bad);border-radius:3px;padding:0 2px}
+.lv2{background:#FFF1C2;box-shadow:inset 0 -2px var(--hl-edge);border-radius:3px;padding:0 2px}
+.tok{display:inline-block;background:var(--ink);color:#fff;border-radius:6px;padding:0 7px;font-weight:700;line-height:1.5}
+.dim{color:var(--faint)}
+.box{background:var(--soft);border-radius:12px;padding:12px 16px;font-size:17px;line-height:1.6;font-weight:500}
+.box.line{background:#fff;border:1px solid var(--edge)}
+.box > div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.box.wrap > div{white-space:normal}
+
+/* 표 */
+.tbl{border:1px solid var(--edge);border-radius:10px;overflow:hidden;font-size:16px}
+.tbl .tr{display:grid;grid-template-columns:var(--cols,repeat(3,minmax(0,1fr)))}
+.tbl .tr+.tr{border-top:1px solid var(--line)}
+.tbl .th{background:var(--chip);font-weight:800}
+.tbl span{padding:9px 12px;white-space:nowrap;overflow:hidden}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+
+/* 숫자 칸 */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat{background:var(--soft);border-radius:12px;padding:13px 14px 12px}
+.stat b{display:block;font-size:29px;font-weight:800;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat span{display:block;margin-top:6px;font-size:15px;font-weight:700;color:var(--mute);white-space:nowrap}
+
+/* 그림 조각 */
+.ph{display:block;width:100%;height:100%}
+.page{background:#fff;border:2px solid var(--edge);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:7px;overflow:hidden}
+.page i{display:block;height:7px;border-radius:4px;background:#D9DCE1}
+.page i.t{height:10px;background:#9A9DA4;width:70%}
+.page .pic{border-radius:4px;overflow:hidden;flex:none}
