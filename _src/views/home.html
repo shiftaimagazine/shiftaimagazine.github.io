@@ -30,6 +30,34 @@
     </div>
   </section>
 
+
+
+
+
+
+  <!-- 직무별 입구(11/6~): 첫 화면 바로 아래 둘째 줄. 독자 = 비개발 직장인, 내 직무에 맞는 AI 스킬 튜토리얼로 바로 간다 -->
+  <section class="hsec hroles" id="hRoleSec" aria-labelledby="hRoleH">
+    <div class="hr-in"><h2 class="hr-k" id="hRoleH">내 직무로 바로 가기</h2><nav class="hchips" id="hRoles" aria-label="직무로 고르기"></nav></div>
+  </section>
+
+  <!-- 무료 도구(11/6~ 홈 순서: 무료 도구 → 따라 하기 → 소식): 주제 줄(링크) + 도구 12개 -->
+  <section class="hsec" id="hTools">
+    <div class="hs-h"><div><h2><span class="d-only">설치 없이 쓰는 무료 도구</span><span class="m-only">무료 도구</span></h2><p class="d-only">가입 없이 브라우저에서 바로 쓸 수 있습니다.</p></div><a class="more" href="/tools/" id="toolsMore">무료 도구 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
+    <nav class="hchips d-only" id="hToolCats" aria-label="주제로 보기"></nav>
+    <div class="xgrid" id="homeTools"></div>
+  </section>
+
+  <!-- 따라 하기: 주제 줄(링크) + 튜토리얼 카드 8개. 직무 줄은 첫 화면 바로 아래(#hRoleSec)로 옮김 -->
+  <section class="hsec hband" id="hTuts">
+    <div class="hb-in">
+      <div class="hs-h"><div><h2>따라 하는 튜토리얼</h2><p><span class="d-only">하는 일에 맞춰 골라 보세요. 프롬프트는 복사해서 그대로 쓰면 됩니다.</span><span class="m-only">하는 일에 맞춰 골라 보세요</span></p></div><a class="more d-only" href="#tutorial" id="tutMore">튜토리얼 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
+      <div class="hrows">
+        <nav class="hchips d-only" id="hTopics" aria-label="주제로 고르기"><span class="hk">주제</span></nav>
+      </div>
+      <div class="tgrid2" id="homeTuts"></div>
+    </div>
+  </section>
+
   <!-- 최신 AI 뉴스: PC = 데일리 이슈 큰 카드 + 그 밖의 최신 기사 4개, 휴대폰 = 오늘의 AI 뉴스 목록 -->
   <section class="hsec" id="hNews">
     <div class="hs-h"><div><h2><span class="d-only">최신 AI 뉴스</span><span class="m-only">오늘의 AI 뉴스</span></h2><p class="d-only">원문을 읽고 쓴 기사입니다. 판정 꼬리표는 편집부가 붙였습니다.</p></div><a class="more" href="#news"><span class="sr">최신 기사 </span>AI 뉴스 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
@@ -38,24 +66,5 @@
     <div class="ngrid d-only" id="homeNews"></div>
     <div class="list m-only" id="homeNewsM"></div>
     <a class="allb m-only" id="hAll" href="#news">AI 뉴스 전체 보기</a>
-  </section>
-
-  <!-- 튜토리얼: 직무·주제 줄(링크) + 카드 8개 -->
-  <section class="hsec hband" id="hTuts">
-    <div class="hb-in">
-      <div class="hs-h"><div><h2>따라 하는 튜토리얼</h2><p><span class="d-only">하는 일에 맞춰 골라 보세요. 프롬프트는 복사해서 그대로 쓰면 됩니다.</span><span class="m-only">하는 일에 맞춰 골라 보세요</span></p></div><a class="more d-only" href="#tutorial" id="tutMore">튜토리얼 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
-      <div class="hrows">
-        <nav class="hchips" id="hRoles" aria-label="직무로 고르기"><span class="hk d-only">직무</span></nav>
-        <nav class="hchips d-only" id="hTopics" aria-label="주제로 고르기"><span class="hk">주제</span></nav>
-      </div>
-      <div class="tgrid2" id="homeTuts"></div>
-    </div>
-  </section>
-
-  <!-- 무료 도구: 주제 줄(링크) + 도구 12개 -->
-  <section class="hsec" id="hTools">
-    <div class="hs-h"><div><h2><span class="d-only">설치 없이 쓰는 무료 도구</span><span class="m-only">무료 도구</span></h2><p class="d-only">가입 없이 브라우저에서 바로 쓸 수 있습니다.</p></div><a class="more" href="/tools/" id="toolsMore">무료 도구 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
-    <nav class="hchips d-only" id="hToolCats" aria-label="주제로 보기"></nav>
-    <div class="xgrid" id="homeTools"></div>
   </section>
 </main>

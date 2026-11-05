@@ -32,7 +32,8 @@ sh _src/build.sh           # 전체 빌드(Pillow, Node+Playwright 필요)
 - 검색: /search/?q=검색어 (기사·칼럼·데일리 이슈·튜토리얼·AI 사전 한 번에, 브라우저 안에서 data.js 로 찾음, 색인 제외). 위쪽 검색칸·휴대폰 검색 버튼이 이리로 온다. 예전 /news/?q= 는 여기로 넘김. AI 사전은 자체 검색칸(/dict/?t=용어)
 - 뉴스레터(beehiiv)는 없앰(10/26). 대신 인스타그램·유튜브·쓰레드 팔로우 상자. 개인정보처리방침은 views/privacy.html
 - 주간 메일 '이번 주 AI 핫 이슈'(11/4 공지 · 11/11 시행, 첫 발송 11/16 월): 직접 구축(무료). 구독 칸은 모든 페이지 맨 아래(views/subscribe-box.html, build.py page() 가 바닥글 위에 넣음), 팝업은 페이지를 열 때마다 한 번(app.js, 닫기 쉬움·구독한 브라우저엔 안 뜸), 구독 페이지 /subscribe/(views/subscribe.html, 확인 링크 ?t= 로 와서 버튼으로 확정). 구독 서버 Cloudflare Worker `_src/newsletter/worker/`, 명단·발송 Resend, 발송 `.github/workflows/newsletter.yml`(일요일 밤에 지난주 기사로 월요일 07:00 예약, 편집부 선택은 `_src/newsletter/weekly/`). 설정·문제 해결은 `_src/newsletter/SETUP.md`. 서버 주소(`_src/newsletter/config.json` api)가 비어 있거나 start 전이면 구독 칸·팝업이 안 나오고 /subscribe/ 는 첫 화면으로 넘어간다.
-- 위쪽 메뉴 순서 = 첫 화면 순서: 데일리 이슈 · AI 뉴스(칼럼 포함) · 튜토리얼 · AI 사전 · 소개
+- 위쪽 메뉴(11/6~): 큰 분류 4개 AI 소식(데일리 이슈·AI 뉴스·칼럼·주간 판정·판정 모아보기) · 따라 하기(튜토리얼·하고 싶은 일로 찾기·복붙 프롬프트·AI 서비스 비교) · 무료 도구(전체·주제별) · 소개(소개·판정 기준·개인정보처리방침·SNS). 누르면 아래 한 줄이 펼쳐지고, 지금 페이지가 속한 줄은 처음부터 펼쳐 둔다(views/header.html, app.js 「위쪽 메뉴 두 줄」, site.css 같은 이름 묶음). 분류·현재 표시는 ROUTE 로 정한다 — 새 페이지 종류를 만들면 거기 grp·sub 를 추가. AI 사전은 메뉴에 없고 검색·기사 속 용어 링크·바닥글로 들어간다.
+- 첫 화면 순서(11/6~): 첫 화면 → 내 직무로 바로 가기(#hRoleSec) → 무료 도구 → 따라 하는 튜토리얼 → 최신 AI 뉴스
 - 말투(10/27~): 사이트 모든 글·화면 문구는 **습니다체**(질문은 ~나요?/~ㄹ까요?). 따옴표 안 인용·복사용 프롬프트(items.prompt)·예시(example)는 그대로. AI 티 나는 표현 금지 목록은 news/BRIEF.md 2장. assemble.py 가 2026-10-28 이후 기사·데일리·칼럼에서 한다체 문장 끝을 찾으면 멈춘다.
 - 11/2 추가 페이지:
   - 복붙 프롬프트 모음 `/prompts/`(views/prompts.html, app.js PROMPTS·renderPrompts): 튜토리얼의 item.prompt·master.prompt 를 자동으로 모음. 프롬프트 글(kind prompts)이 앞. 주소 ?cat=&q=, 프롬프트마다 #<튜토리얼주소>-<번호>.
