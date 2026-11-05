@@ -300,5 +300,23 @@
   "credit": "이미지: Apple",
   "alt": "앱 스토어 커넥트 연령 등급 공지 이미지",
   "auto": true
+ },
+ "2026-11-06-anthropic-flashprove": {
+  "src": "img/ph/2026-11-06-anthropic-flashprove.webp",
+  "credit": "이미지: Anthropic",
+  "alt": "앤트로픽 증명 가능한 추론 글 대표 이미지",
+  "auto": true
+ },
+ "2026-11-06-phonon-tts-on-device": {
+  "src": "img/ph/2026-11-06-phonon-tts-on-device.webp",
+  "credit": "이미지: Gradium·Hugging Face",
+  "alt": "Phonon TTS 허깅페이스 블로그 대표 이미지",
+  "auto": true
+ },
+ "2026-11-06-google-agile-deliberation": {
+  "src": "img/ph/2026-11-06-google-agile-deliberation.webp",
+  "credit": "이미지: Google Research",
+  "alt": "구글 리서치 Agile Deliberation 대표 이미지",
+  "auto": true
  }
 }
