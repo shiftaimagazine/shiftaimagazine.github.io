@@ -1358,15 +1358,15 @@ nav.main.ovf.end{-webkit-mask-image:none;mask-image:none}
 /* ==== 리디자인(11/5~): The Rundown AI 구성 참고, 색은 로고에서(아이보리 바탕). 글자는 낮 검정 · 밤 흰색(무채색), 색은 바탕·칩에만 ====
    이 묶음은 '휴대폰 가독성' 묶음 안(끝 표시 바로 앞)에 있어 build.py 가 CSS 맨 뒤로 옮긴다 = 앞의 규칙을 덮고, 휴대폰 글자 자동 키우기에서 빠진다.
    다크 규칙은 반드시 두 벌(@media prefers-color-scheme + :root[data-theme="dark"]) */
-:root{--bg:#F6F2EA;--bg2:#EFE9DE;--card:#FFFDF8;--inset:#F6F2EA;--ivory:#EAE3D5;--on-ivory:#111111;--chip2:#EAE3D5;
-  --ink:#111111;--text:#1E1E1E;--sub:#5E5E5E;--line:#E4DCCD;--line-strong:#111111;--nav:#3A3A3A;--ft:#F1ECE2;
+:root{--bg:#FCFBF8;--bg2:#F4F0E8;--card:#FFFFFF;--inset:#F7F4EE;--hdr:#F4F0E8;--ivory:#EAE3D5;--on-ivory:#111111;--chip2:#EAE3D5;
+  --ink:#111111;--text:#1E1E1E;--sub:#5E5E5E;--line:#E7E1D5;--line-strong:#111111;--nav:#3A3A3A;--ft:#F4F0E8;
   --btn:#111111;--on-btn:#FFFFFF;--btn-sh:inset 0 1px 0 rgba(255,255,255,.16),0 2px 0 #000;--orb:#EAE3D5;
   --vtry:#DCEBE1;--vwatch:#F5E9D3;--vhype:#F6E1DE}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16181B;--bg2:#1B1E22;--card:#1F2226;--inset:#262A2F;--ivory:#EAE3D5;--on-ivory:#111111;--chip2:#2E3238;
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16181B;--bg2:#1B1E22;--card:#1F2226;--inset:#262A2F;--hdr:#1F2226;--ivory:#EAE3D5;--on-ivory:#111111;--chip2:#2E3238;
   --ink:#FFFFFF;--text:#F0F0F0;--sub:#A6A6A6;--line:#2E3238;--line-strong:#FFFFFF;--nav:#D4D4D4;--ft:#121417;
   --btn:#EAE3D5;--on-btn:#111111;--btn-sh:inset 0 1px 0 rgba(255,255,255,.8),0 2px 0 #A89F8E;--orb:#23272C;
   --vtry:#1F3328;--vwatch:#3B301D;--vhype:#3D2220}}
-:root[data-theme="dark"]{--bg:#16181B;--bg2:#1B1E22;--card:#1F2226;--inset:#262A2F;--ivory:#EAE3D5;--on-ivory:#111111;--chip2:#2E3238;
+:root[data-theme="dark"]{--bg:#16181B;--bg2:#1B1E22;--card:#1F2226;--inset:#262A2F;--hdr:#1F2226;--ivory:#EAE3D5;--on-ivory:#111111;--chip2:#2E3238;
   --ink:#FFFFFF;--text:#F0F0F0;--sub:#A6A6A6;--line:#2E3238;--line-strong:#FFFFFF;--nav:#D4D4D4;--ft:#121417;
   --btn:#EAE3D5;--on-btn:#111111;--btn-sh:inset 0 1px 0 rgba(255,255,255,.8),0 2px 0 #A89F8E;--orb:#23272C;
   --vtry:#1F3328;--vwatch:#3B301D;--vhype:#3D2220}
@@ -1379,7 +1379,8 @@ p,li{text-wrap:pretty}
 .annc .go{color:#FFFFFF}.annc:hover .go{color:#FFFFFF}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .annc{background:#EAE3D5;color:#111111;border-bottom:0}:root:not([data-theme="light"]) .annc .nb{background:#111111;color:#EAE3D5}:root:not([data-theme="light"]) .annc .go,:root:not([data-theme="light"]) .annc:hover .go{color:#111111}}
 :root[data-theme="dark"] .annc{background:#EAE3D5;color:#111111;border-bottom:0}:root[data-theme="dark"] .annc .nb{background:#111111;color:#EAE3D5}:root[data-theme="dark"] .annc .go,:root[data-theme="dark"] .annc:hover .go{color:#111111}
-/* 머리말 */
+/* 머리말: 바탕과 다른 톤(낮 아이보리 · 밤 한 단계 밝은 회색) */
+header{background:var(--hdr);background:color-mix(in srgb,var(--hdr) 94%,transparent)}
 .logo img{height:38px}
 nav.main a{font-size:15px;padding:7px 12px;border-radius:999px;color:var(--nav)}
 nav.main a:hover{background:var(--bg2);color:var(--ink)}
