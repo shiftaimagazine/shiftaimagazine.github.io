@@ -52,8 +52,7 @@ def with_follow(v, before='</main>'):
     i = v.rindex(before); return v[:i] + FOLLOWBOX + '\n' + v[i:]
 
 home = fix_links(view('home'))
-home = home.replace('<div class="sec"><h2>무료 도구</h2>', FOLLOWBOX + '\n  <div class="sec"><h2>무료 도구</h2>', 1)
-assert FOLLOWBOX in home
+# 홈(11/5 리디자인)에는 팔로우 상자를 넣지 않는다(머리말 '팔로우'·바닥 링크로 대신)
 _ng = sum(1 for g in json.load(open(SRC + 'news/guides.json'))['guides'] if g.get('page'))
 home = home.replace('AI 길잡이 전체 <span class="ar">→</span>', f'AI 길잡이 {_ng}개 <span class="ar">→</span>')
 about = fix_links(view('about'))
@@ -252,7 +251,7 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#F6F2EA">
 <script src="/assets/theme.js?v={VER}"></script>
 <meta name="robots" content="{robots}">
 {VERIFY}{extra}{ANALYTICS}<link rel="icon" type="image/png" href="/favicon.png">

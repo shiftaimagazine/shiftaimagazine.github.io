@@ -55,40 +55,44 @@ const dayPhoto = d=>{const its=dayItems(d); return (byId[d.lead]&&!byId[d.lead].
 // AI가 처음이라면 이 순서로(11/5~): 홈 '처음 오셨나요?'와 튜토리얼 목록 맨 위. [튜토리얼 id, 짧은 제목]
 const START = [["t-free-vs-paid","챗GPT·클로드·제미나이, 무료로 어디까지 될까"],["t-privacy-settings","쓰기 전에 개인정보·학습 설정부터 점검하기"],["t-verify-numbers","AI가 말한 숫자·날짜, 원문으로 확인하기"]];
 const startHTML = ()=>START.filter(([id])=>tutById[id]).map(([id,s],k)=>`<a href="${P(id)}" data-ev="start:${esc(id)}"><i>${k+1}</i><b>${esc(s)}</b><span>${esc(String(tutById[id].time||"").replace(/\s*\(.*$/,""))}</span></a>`).join("");
-// ---- 홈(11/3~ 새 디자인): 검색 첫 화면·튜토리얼 카드·무료 도구 미리보기·AI 사전 분야·소개 숫자 ----
-// 미리 그려 둔 페이지(PRE)에서도 고르기·미리보기가 되도록 카드는 모두 그려 두고 hidden 으로만 바꾼다.
+// ---- 홈(11/5 리디자인): 첫 화면 숫자·카드 2장, 최신 AI 뉴스(데일리 큰 카드 + 겹치지 않는 기사 4개), 튜토리얼(직무·주제 줄 + 카드 8개), 무료 도구 12개 ----
+// 줄(칩)은 모두 링크다. 미리 그려 둔 페이지(PRE)에서도 그대로 동작한다.
 const LVC = {"입문":"lv1","중급":"lv2"};
 const tUnit = t=>{ const n=t.n??(t.items||[]).length; return t.kind==="steps" ? `STEP ${n}` : `프롬프트 ${n}`; };
-const tcardHTML = (t,i)=>`<a class="tcard" href="${P(t.id)}" data-lv="${esc(t.level)}"${i>=6?" hidden":""}><span class="tc-top"><span class="tc-cat">${esc(t.cat||"튜토리얼")}</span><span class="mono">${tUnit(t)}</span></span><b>${esc(t.title)}</b><span class="tc-deck">${esc(t.deck)}</span><span class="tc-foot"><span class="lv ${LVC[t.level]||""}">${esc(t.level)}</span>${t.time?`<span>따라 하는 데 ${esc(t.time)}</span>`:""}</span></a>`;
 const pillsHTML = (xs,on)=>xs.map(([k,v,n])=>`<button type="button" data-v="${esc(v)}" aria-pressed="${v===on}">${esc(k)} <span>${n}</span></button>`).join("");
 const toolName = t=>t.title.replace(/\s*\(.*?\)\s*$/,"");
 const firstSent = s=>{ const m=String(s||"").match(/^.*?다\.(?=\s|$)/); return m?m[0]:s; };
+const VC = {try:"v-try", watch:"v-watch", hype:"v-hype"};
+const vchip = a=>a.verdict&&VD[a.verdict.v] ? `<span class="vchip ${VC[a.verdict.v]}">${VD[a.verdict.v][0]}</span>` : "";
+const mdShort = d=>{ const [y,m,dd]=d.split("-").map(Number); return `${m}월 ${dd}일`; };
+const chipA = (href,label,on,ev)=>`<a href="${href}"${on?' aria-current="true"':""}${ev?` data-ev="${esc(ev)}"`:""}>${esc(label)}</a>`;
+const ROLES = [["마케터","marketer"],["디자이너","designer"],["기획자·PM","pm"],["영업","sales"],["데이터 분석","data"],["개발자","developer"],["연구자","researcher"],["크리에이터","creator"]];
+const ncardHTML = a=>`<a class="ncard" href="${P("a-"+a.id)}">${thumb(imgOf(a))}<span class="nc-b"><span class="nc-m"><span class="nc-cat">${esc(a.cat)}</span>${vchip(a)}</span><b>${esc(a.title)}</b><span class="nc-d">${mdShort(a.date)}</span></span></a>`;
+const tc2HTML = t=>`<a class="tc2" href="${P(t.id)}">${thumb({src:t.thumb})}<span class="tc2-b"><span class="tc2-t"><span class="lvc">${esc(t.level)}</span>${(t.tool||[]).length?`<span class="tlc">${esc(t.tool.slice(0,2).join(" · "))}</span>`:""}</span><b>${esc(t.title)}</b><span class="tc2-m">${tUnit(t)} · ${esc(t.cat||"튜토리얼")}</span></span></a>`;
+const xcardHTML = t=>`<a class="xcard" href="${t.href}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="xc-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span></a>`;
+// 홈 튜토리얼 카드: 최신순으로 고르되 한 분류에서 2편까지만(같은 묶음이 화면을 다 차지하지 않게), 모자라면 나머지 최신순
+const homeTutPick = (n=8)=>{ const xs=[...TUTORIALS].sort((a,b)=>b.date.localeCompare(a.date)), out=[], c={};
+  for(const t of xs){ const k=t.cat||""; if((c[k]||0)<2){ out.push(t); c[k]=(c[k]||0)+1; } if(out.length===n) return out; }
+  for(const t of xs){ if(!out.includes(t)) out.push(t); if(out.length===n) break; } return out; };
 function renderHome2(d){
-  if(d){ const [y,m,dd]=d.date.split("-").map(Number); $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${m}월 ${dd}일 데일리 이슈가 올라왔습니다`;
-    if($("#hDaily")){ $("#hDaily").href=P("d-"+d.date); $("#hDailyT").textContent=`${m}월 ${dd}일 · ${d.title}`; } }
+  if(d){ $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${mdShort(d.date)} 기사 ${dayItems(d).length}건`; }
   if($("#hAll")) $("#hAll").textContent = `AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기`;
-  $("#hq").placeholder = `기사·튜토리얼·AI 용어 ${ARTICLES.length+COLUMNS.length+TUTORIALS.length+TERMS.length}개에서 찾기`;
-  $("#hStat").innerHTML = `기사 ${ARTICLES.length} · 튜토리얼 ${TUTORIALS.length} · AI 용어 ${TERMS.length}<span class="desk"> · 매일 아침 업데이트</span>`;
-  const lv = ["입문","중급"].map(k=>[k,k,TUTORIALS.filter(t=>t.level===k).length]).filter(x=>x[2]);
-  $("#tutLv").innerHTML = pillsHTML([["전체","",TUTORIALS.length],...lv],"");
-  $("#homeTuts").innerHTML = TUTORIALS.map(tcardHTML).join("");
+  $("#hNums").innerHTML = [[TUTORIALS.length,"튜토리얼"],[TOOLS.length,"무료 도구"],[TERMS.length,"AI 용어"]].map(([n,k])=>`<div><b data-n="${n}">${n}</b><span>${k}</span></div>`).join("");
   if($("#hStart")) $("#hStart").innerHTML = startHTML();
-  const tl = TOOLS.slice(0,5);
-  $("#toolsMore").innerHTML = `<span class="sr">무료 도구 </span>${TOOLS.length}개 전체 보기`;
-  $("#homeTools").innerHTML = `<div class="tex-list">${tl.map((t,i)=>`<a class="xrow${i?"":" on"}" href="${t.href}" data-i="${i}"><span class="tglyph" aria-hidden="true">${esc(t.glyph||t.tag.slice(0,2))}</span><span class="tr-t"><b>${esc(toolName(t))}</b><span>${esc((t.cover&&t.cover.line||t.tag).replace(/\n/g," "))}</span></span><span class="chev" aria-hidden="true">›</span></a>`).join("")}</div>
-    <div class="tex-panel" aria-hidden="true"><div class="tex-bar"><span class="dots"><i></i><i></i><i></i></span><span class="mono" id="texPath">shiftaimagazine.com / tools / ${esc(tl[0]?tl[0].id:"")}</span></div>
-    ${tl.map((t,i)=>`<div class="tex-pv" data-i="${i}" data-id="${esc(t.id)}"${i?" hidden":""}><a href="${t.href}" tabindex="-1"><img src="${t.thumb}" alt="" loading="lazy"></a><h3>${esc(toolName(t))}</h3><p>${esc(t.desc)}</p>
-      <div class="tex-facts"><span><i>${t.where?"처리 위치":"요금"}</i><b>${esc(t.where||"무료")}</b></span><span><i>가입</i><b>필요 없음</b></span></div><a class="go" href="${t.href}" tabindex="-1">바로 써 보기 <span class="ar">→</span></a></div>`).join("")}</div>`;
-  const gs = Object.entries(TERMS.reduce((o,t)=>(o[t.g||"기타"]=(o[t.g||"기타"]||0)+1,o),{})).sort((a,b)=>b[1]-a[1]);
-  const g0 = gs.length?gs[0][0]:"";
-  $("#dictMore").textContent = `용어 ${TERMS.length}개 전체`;
-  $("#dictG").innerHTML = pillsHTML(gs.map(([g,n])=>[g,g,n]),g0);
-  const rank = t=>(t.arts||[]).length+(t.tuts||[]).length;
-  $("#homeTerms").innerHTML = gs.map(([g])=>TERMS.filter(t=>(t.g||"기타")===g).sort((a,b)=>rank(b)-rank(a)).slice(0,4)
-    .map(t=>`<a class="dcard" href="${TP(t)}" data-g="${esc(g)}"${g===g0?"":" hidden"}><b>${esc(t.t)}</b>${t.en?`<span class="mono">${esc(t.en)}</span>`:""}<span class="dd">${esc(firstSent(t.d))}</span></a>`).join("")).join("");
-  const nv = ARTICLES.filter(a=>a.verdict&&a.verdict.why).length;
-  $("#homeStats").innerHTML = [[ARTICLES.length,"원문을 확인한 기사","기사"],[nv,"판정과 한 줄 이유","판정"],[TUTORIALS.length,"따라 하는 튜토리얼","튜토리얼"],[TOOLS.length,"무료 도구","무료 도구"]]
-    .map(([n,k,ks],i)=>`<div${i===3?' class="y"':""}><b data-n="${n}">${n}</b><span><span class="d-only">${k}</span><span class="m-only">${ks}</span></span></div>`).join("");
+  const va = sorted.find(a=>a.verdict&&VD[a.verdict.v]);
+  if(va){ $("#hC1").href=P("a-"+va.id); $("#hC1").setAttribute("data-ev","hero-card:"+va.id); $("#hC1").innerHTML=`${vchip(va)}<b>${esc(va.title)}</b>`; }
+  const tn = [...TUTORIALS].sort((a,b)=>b.date.localeCompare(a.date))[0];
+  if(tn){ $("#hC2").href=P(tn.id); $("#hC2").setAttribute("data-ev","hero-card:"+tn.id); $("#hC2").innerHTML=`<span class="k">튜토리얼 · ${esc(tn.level)} · ${tUnit(tn)}</span><b>${esc(tn.title)}</b>`; }
+  const cats = CATS.filter(c=>c!=="칼럼").sort((a,b)=>ARTICLES.filter(x=>x.cat===b).length-ARTICLES.filter(x=>x.cat===a).length);
+  $("#hNewsCats").innerHTML = chipA("/news/","전체",true) + cats.map(c=>chipA("/news/?cat="+encodeURIComponent(c),c,false,"home-cat:"+c)).join("") + chipA("/news/?cat="+encodeURIComponent("칼럼"),"칼럼",false,"home-cat:칼럼");
+  $("#tutMore").innerHTML = `튜토리얼 ${TUTORIALS.length}편 전체 보기 <span class="ne" aria-hidden="true">↗</span>`;
+  $("#hRoles").insertAdjacentHTML("beforeend", chipA("/tutorial/","전체",true) + ROLES.filter(([,s])=>tutById["t-skills-"+s]).map(([k,s])=>chipA(P("t-skills-"+s),k,false,"home-role:"+s)).join(""));
+  const tc = (Array.isArray(TUT_CATS)?TUT_CATS:[]).filter(c=>TUTORIALS.some(t=>t.cat===c));
+  $("#hTopics").insertAdjacentHTML("beforeend", chipA("/tutorial/","전체",true) + tc.map(c=>chipA("/tutorial/?cat="+encodeURIComponent(c),c,false,"home-topic:"+c)).join(""));
+  $("#homeTuts").innerHTML = homeTutPick(8).map(tc2HTML).join("");
+  $("#toolsMore").innerHTML = `<span class="d-only">무료 도구 ${TOOLS.length}개 전체 보기 <span class="ne" aria-hidden="true">↗</span></span><span class="m-only">${TOOLS.length}개 전체</span>`;
+  $("#hToolCats").innerHTML = chipA("/tools/","전체",true) + TOOL_CATS.filter(c=>TOOLS.some(t=>(t.cats||[]).includes(c))).map(c=>chipA("/tools/?cat="+encodeURIComponent(c),c,false,"home-tcat:"+c)).join("");
+  $("#homeTools").innerHTML = TOOLS.slice(0,12).map(xcardHTML).join("");
 }
 // 고르기·미리보기·숫자 올라가기·스크롤 등장(미리 그린 페이지에서도 동작)
 const RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -109,7 +113,7 @@ document.addEventListener("keydown",e=>{ if(e.key!=="/"||e.ctrlKey||e.metaKey||e
   if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return; const f=$("#hq")||$("#sq"); if(f){ e.preventDefault(); f.focus(); } });
 // 움직임(11/3 시안): 머리말 그림자·읽기 진행 막대·스크롤 등장(차례로)·섹션 줄 긋기·큰 제호 글자 올라오기·숫자 올라가기.
 // 미리 그린 페이지(PRE)에서만 돌려 숨김 상태가 HTML에 박히지 않게 한다. '동작 줄이기' 설정이면 등장 효과는 모두 끈다.
-const STAG = ".list > .post, .tgrid > .tcard, .dgrid > .dcard, .dailyhome ol li, .tex-list > .xrow, .dlist > a, .sterms > a, .hubs > a, .tcards > a";
+const STAG = ".list > .post, .ngrid > a, .tgrid2 > a, .xgrid > a, .tgrid > .tcard, .dgrid > .dcard, .dailyhome ol li, .tex-list > .xrow, .dlist > a, .sterms > a, .hubs > a, .tcards > a";
 function motion(){
   const H = document.documentElement; let t1=0, t2=0;
   const hs = ()=>{ t1=0; H.classList.toggle("scrolled", scrollY>8); };
@@ -127,16 +131,17 @@ function motion(){
     setTimeout(()=>{ el.classList.remove("rvi","stg"); el.style.removeProperty("--d"); }, d+1700); }); },{rootMargin:"0px 0px -6% 0px"});
   document.querySelectorAll(".rv, .sec, .fword").forEach(el=>{ if(below(el)){ el.classList.add("rv-pre"); io.observe(el); } });
   document.querySelectorAll(STAG).forEach(el=>{ if(below(el) && !el.hidden){ el.classList.add("rv-pre","stg"); io.observe(el); } });
-  document.querySelectorAll("#homeStats [data-n]").forEach(el=>{ if(below(el)){ el.textContent="0"; io.observe(el); } });
+  document.querySelectorAll("#hNums [data-n]").forEach(el=>{ if(below(el)){ el.textContent="0"; io.observe(el); } });
 }
 
 function renderHome(){
-  const d = dailySorted[0];
-  if(d){ const its=dayItems(d); const lead=dayPhoto(d);
-    $("#dailyHome").innerHTML = `<div><span class="k">AI 데일리 · ${korDate(d.date)}</span><h3>${esc(d.title)}</h3>
-      <ol>${its.slice(0,5).map((a,i)=>`<li><a href="${P("a-"+a.id)}"><i>${String(i+1).padStart(2,"0")}</i><div><span>${esc(a.cat)}</span><b>${esc(a.title)}</b></div></a></li>`).join("")}</ol>
-      <a class="go" href="${P("d-"+d.date)}">이날 소식 ${its.length}건 전체 보기</a></div>${lead?fig(imgOf(lead)):""}`; }
-  $("#homeNews").innerHTML = sorted.slice(0,6).map(postHTML).join("");
+  if($("#hRoles") && $("#hRoles").children.length>1) return;  // 미리 그려 둔 페이지는 이미 채워져 있다
+  const d = dailySorted[0], its = d ? dayItems(d) : [];
+  if(d){ const lead=dayPhoto(d), im=lead?imgOf(lead):null; const [y,m,dd]=d.date.split("-").map(Number); const w=new Date(Date.UTC(y,m-1,dd)).getUTCDay();
+    $("#dailyHome").href = P("d-"+d.date);
+    $("#dailyHome").innerHTML = `${im?`<span class="df-fig"><img src="${im.src}" alt="${esc(im.alt||"")}" loading="lazy">${im.credit?`<span class="df-cr">${esc(im.credit)}</span>`:""}</span>`:""}<span class="df-b"><span class="df-k">데일리 이슈 · ${m}월 ${dd}일 ${WD[w]}요일</span><b>${esc(d.title)}</b><ol>${its.slice(0,3).map(a=>`<li>${esc(a.title)}</li>`).join("")}</ol><span class="df-go">이날 소식 ${its.length}건 보기 <span class="ar">→</span></span></span>`; }
+  $("#homeNews").innerHTML = sorted.filter(a=>!its.includes(a)).slice(0,4).map(ncardHTML).join("");
+  $("#homeNewsM").innerHTML = sorted.slice(0,4).map(postHTML).join("");
   renderHome2(d);
   const rl = sorted.slice(0,3);
   $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT AI 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${esc(a.title)}</a>`).join("")}</div>`;
@@ -680,7 +685,7 @@ if(ROUTE==="search" && $("#sq")) $("#sq").value = q0 || "";
 const sysDark = ()=>!!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
 const isDark = ()=>{ const t=document.documentElement.getAttribute("data-theme"); return t ? t==="dark" : sysDark(); };
 function themeSync(){ const b=$("#themeBtn"), d=isDark(); if(b) b.setAttribute("aria-pressed", String(d));
-  const m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute("content", d?"#121315":"#ffffff"); }
+  const m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute("content", d?"#16181B":"#F6F2EA"); }
 document.addEventListener("click",e=>{ if(!e.target.closest("#themeBtn")) return;
   const next = isDark() ? "light" : "dark", h=document.documentElement;
   if(!RM){ h.classList.add("theme-anim"); setTimeout(()=>h.classList.remove("theme-anim"),400); }
@@ -706,7 +711,7 @@ function init(){
   if($("#reelwelcome")) $("#reelwelcome").hidden = !["reels","reel","ig","instagram"].includes(from||"");
   document.querySelectorAll("[data-nav]").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===NAV(r) ? "true":"false"));
   themeSync();
-  if($("#hq") && matchMedia("(max-width:640px)").matches) $("#hq").placeholder = "기사·튜토리얼·용어 찾기";
+  if($("#hq") && matchMedia("(max-width:640px)").matches) $("#hq").placeholder = "기사·튜토리얼·도구 검색";
   if(PRE) motion();  // 미리 그리는 중(PRE 아님)에는 숨김·0 이 HTML에 박히지 않게 돌리지 않는다
 }
 init();

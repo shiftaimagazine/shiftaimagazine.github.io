@@ -1,55 +1,61 @@
 <main id="v-home">
   <div class="reelwelcome" id="reelwelcome" hidden></div>
 
+  <!-- 첫 화면(11/5 리디자인): 왼쪽 검색·처음 오셨나요·숫자, 오른쪽 원형 로고와 최신 판정 기사·최신 튜토리얼 카드 -->
   <section class="hero">
     <div class="hero-in">
-      <a class="hpill" id="hPill" href="#daily"><span class="pdot" aria-hidden="true"></span><span id="hPillT">오늘의 데일리 이슈</span></a>
-      <h1>AI 소식은 쉽게 읽고<br>배운 건 바로 <span class="hl">SHIFT</span></h1>
-      <p class="hsub">매일 아침 AI 소식을 원문부터 확인해 쉽게 풀어 드립니다. 따라 하는 튜토리얼과 쉬운 용어 풀이로 바로 써 보세요.</p>
-      <form class="hsearch" role="search" action="/search/" method="get">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <label class="sr" for="hq">검색어</label>
-        <input id="hq" name="q" type="search" placeholder="기사·튜토리얼·AI 용어에서 찾기" autocomplete="off" enterkeyhint="search">
-        <kbd aria-hidden="true">/</kbd>
-        <button type="submit">검색</button>
-      </form>
-      <div class="starter" id="hStarter">
-        <div class="st-h"><b>처음 오셨나요?</b><span>하고 싶은 일을 고르면 맞는 튜토리얼과 무료 도구를 한 번에 볼 수 있습니다.</span></div>
-        <nav class="gchips" aria-label="하고 싶은 일로 찾기"><a href="/guide/meeting-notes/">회의록 정리</a><a href="/guide/pdf-summary/">PDF 요약</a><a href="/guide/email-reply/">메일 답장</a><a href="/guide/excel-ai/">엑셀 수식</a><a href="/guide/privacy/">개인정보 지키기</a><a href="/guide/ai-cost-save/">구독료 줄이기</a><a class="all" href="/guide/">AI 길잡이 전체 <span class="ar">→</span></a></nav>
-        <div class="st-l"><small>AI가 처음이라면 이 순서로 보세요</small><div class="st-list" id="hStart"></div></div>
+      <div class="h-l">
+        <div class="h-top"><img class="h-mlogo m-only" src="img/logo.webp" alt="" width="44" height="45"><a class="hpill" id="hPill" href="#daily"><span class="pdot" aria-hidden="true"></span><span id="hPillT">오늘의 데일리 이슈</span></a></div>
+        <h1>AI 소식은 쉽게 읽고<br>배운 건 바로 SHIFT</h1>
+        <p class="hsub"><span class="d-only">AI 소식은 원문을 먼저 확인하고 씁니다.<br>읽고 바로 해 볼 수 있게 튜토리얼과 무료 도구도 같이 둡니다.</span><span class="m-only">AI 소식은 원문을 먼저 확인하고 씁니다.<br>튜토리얼과 무료 도구도 같이 둡니다.</span></p>
+        <form class="hsearch" role="search" action="/search/" method="get">
+          <label class="sr" for="hq">검색어</label>
+          <input id="hq" name="q" type="search" placeholder="기사·튜토리얼·도구·용어 검색" autocomplete="off" enterkeyhint="search">
+          <kbd aria-hidden="true">/</kbd>
+          <button type="submit" aria-label="검색"><span class="d-only">검색</span><svg class="m-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        </form>
+        <div class="starter" id="hStarter">
+          <div class="st-h"><b>처음 오셨나요?</b><span>하고 싶은 일을 고르면 <br class="m-only">맞는 튜토리얼과 무료 도구를 모아 보여 드립니다.</span></div>
+          <nav class="gchips" aria-label="하고 싶은 일로 찾기"><a href="/guide/meeting-notes/">회의록 정리</a><a href="/guide/pdf-summary/">PDF 요약</a><a href="/guide/email-reply/">메일 답장</a><a href="/guide/excel-ai/">엑셀 수식</a><a href="/guide/privacy/">개인정보 지키기</a><a href="/guide/ai-cost-save/">구독료 줄이기</a><a class="all" href="/guide/">AI 길잡이 전체 <span class="ar">→</span></a></nav>
+          <div class="st-l"><small>AI가 처음이라면 이 순서로 보세요</small><div class="st-list" id="hStart"></div></div>
+        </div>
+        <div class="hnums d-only" id="hNums"></div>
       </div>
-      <p class="hstat" id="hStat"></p>
+      <div class="h-r d-only">
+        <span class="h-orb" aria-hidden="true"></span>
+        <img class="h-logo" src="img/logo.webp" alt="" width="300" height="306">
+        <a class="h-c h-c1" id="hC1" href="#news"></a>
+        <a class="h-c h-c2" id="hC2" href="#tutorial"></a>
+      </div>
     </div>
   </section>
 
-  <div class="sec sec-daily"><h2>오늘의 데일리 이슈</h2><a class="more" href="#daily">지난 호 보기</a></div>
-  <div class="dailyhome" id="dailyHome"></div>
+  <!-- 최신 AI 뉴스: PC = 데일리 이슈 큰 카드 + 그 밖의 최신 기사 4개, 휴대폰 = 오늘의 AI 뉴스 목록 -->
+  <section class="hsec" id="hNews">
+    <div class="hs-h"><div><h2><span class="d-only">최신 AI 뉴스</span><span class="m-only">오늘의 AI 뉴스</span></h2><p class="d-only">원문을 읽고 쓴 기사입니다. 판정 꼬리표는 편집부가 붙였습니다.</p></div><a class="more" href="#news"><span class="sr">최신 기사 </span>AI 뉴스 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
+    <nav class="hchips d-only" id="hNewsCats" aria-label="분류로 보기"></nav>
+    <div class="d-only"><a class="dfeat" id="dailyHome" href="#daily"></a></div>
+    <div class="ngrid d-only" id="homeNews"></div>
+    <div class="list m-only" id="homeNewsM"></div>
+    <a class="allb m-only" id="hAll" href="#news">AI 뉴스 전체 보기</a>
+  </section>
 
-  <div class="sec"><h2><span class="d-only">최신 기사</span><span class="m-only">오늘의 AI 뉴스</span></h2><a class="more" href="#news"><span class="sr">최신 기사 </span>전체 보기</a></div>
-  <a class="dline m-only" id="hDaily" href="#daily"><i>데일리</i><span id="hDailyT">오늘의 데일리 이슈</span><em aria-hidden="true">›</em></a>
-  <div class="list" id="homeNews"></div>
-  <a class="allb m-only" id="hAll" href="#news">AI 뉴스 전체 보기</a>
-
-  <div class="sec"><h2>튜토리얼</h2><a class="more" href="#tutorial"><span class="sr">튜토리얼 </span>전체 보기</a></div>
-  <div class="hbar"><p>공식 문서로 확인한 내용만 단계별로 정리했습니다. 끝까지 따라 하면 하나가 돌아갑니다.</p><div class="pills" id="tutLv" role="group" aria-label="난이도로 고르기"></div></div>
-  <div class="tgrid" id="homeTuts"></div>
-
-  <div class="sec"><h2>무료 도구</h2><a class="more" href="/tools/" id="toolsMore"><span class="sr">무료 도구 </span>전체 보기</a></div>
-  <p class="hdesc">설치·가입 없이 브라우저에서 바로 씁니다.<span class="desk"> 왼쪽에 마우스를 올리면 실제 화면이 바뀝니다.</span></p>
-  <div class="tex rv" id="homeTools"></div>
-
-  <div class="sec"><h2>AI 사전</h2><a class="more" href="#dict" id="dictMore">전체 용어</a></div>
-  <div class="pills dg" id="dictG" role="group" aria-label="분야로 고르기"></div>
-  <div class="dgrid" id="homeTerms"></div>
-
-  <div class="sec"><h2>소개</h2><a class="more" href="#about"><span class="sr">소개 </span>자세히 보기</a></div>
-  <div class="habout rv">
-    <div>
-      <h3>원문부터 읽고,<br>써볼 만한지 판정합니다</h3>
-      <p class="m-only">기사는 AI 에디터가 쓰고, 무엇을 다룰지와 판정 기준은 사람 에디터가 정합니다.</p>
-      <p class="d-only">소식을 모으고 원문을 읽어 기사를 쓰는 일은 AI 에디터가 하고, 무엇을 다룰지와 판정 기준은 사람 에디터가 정합니다. 직접 써 본 것은 써 봤다고 밝히고, 그렇지 않은 것은 공식 자료로 확인한 내용만 씁니다.</p>
-      <div class="acts"><a class="btn" href="#about">일하는 방식 보기</a><a class="ghost" href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20">틀린 곳 알려 주기</a></div>
+  <!-- 튜토리얼: 직무·주제 줄(링크) + 카드 8개 -->
+  <section class="hsec hband" id="hTuts">
+    <div class="hb-in">
+      <div class="hs-h"><div><h2>따라 하는 튜토리얼</h2><p><span class="d-only">하는 일에 맞춰 골라 보세요. 프롬프트는 복사해서 그대로 쓰면 됩니다.</span><span class="m-only">하는 일에 맞춰 골라 보세요</span></p></div><a class="more d-only" href="#tutorial" id="tutMore">튜토리얼 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
+      <div class="hrows">
+        <nav class="hchips" id="hRoles" aria-label="직무로 고르기"><span class="hk d-only">직무</span></nav>
+        <nav class="hchips d-only" id="hTopics" aria-label="주제로 고르기"><span class="hk">주제</span></nav>
+      </div>
+      <div class="tgrid2" id="homeTuts"></div>
     </div>
-    <div class="hstats" id="homeStats"></div>
-  </div>
+  </section>
+
+  <!-- 무료 도구: 주제 줄(링크) + 도구 12개 -->
+  <section class="hsec" id="hTools">
+    <div class="hs-h"><div><h2><span class="d-only">설치 없이 쓰는 무료 도구</span><span class="m-only">무료 도구</span></h2><p class="d-only">가입 없이 브라우저에서 바로 쓸 수 있습니다.</p></div><a class="more" href="/tools/" id="toolsMore">무료 도구 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
+    <nav class="hchips d-only" id="hToolCats" aria-label="주제로 보기"></nav>
+    <div class="xgrid" id="homeTools"></div>
+  </section>
 </main>
