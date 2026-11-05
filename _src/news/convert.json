@@ -1,0 +1,56 @@
+{
+  "_설명": "파일 변환표(11/5~). /tools/convert/ 페이지와, 변환 도구 페이지의 <!--CVNAV-->(위쪽 바로가기)·<!--CVTABLE-->(아래 변환표)에 build.py 가 넣는다. from = 가진 파일(줄), to = 바꿀 결과(열), cells = 칸. 칸에 href 가 있으면 링크, tip 만 있으면 '프로그램에서 직접' 안내(링크 없음). nav = 위쪽 바로가기 순서(href, 짧은 이름).",
+  "from": [
+    {"k": "img", "name": "사진", "sub": "JPG·PNG·WebP"},
+    {"k": "heic", "name": "아이폰 사진", "sub": "HEIC"},
+    {"k": "pdf", "name": "PDF", "sub": ""},
+    {"k": "hwp", "name": "한글 문서", "sub": "HWP·HWPX"},
+    {"k": "docx", "name": "워드 문서", "sub": "DOCX"},
+    {"k": "pptx", "name": "파워포인트", "sub": "PPTX"},
+    {"k": "xlsx", "name": "엑셀 표", "sub": "XLSX·CSV·복사한 칸"},
+    {"k": "shot", "name": "화면 캡처", "sub": "글자가 든 사진"}
+  ],
+  "to": [
+    {"k": "pdf", "name": "PDF"},
+    {"k": "img", "name": "사진", "sub": "JPG·PNG"},
+    {"k": "txt", "name": "텍스트·마크다운"},
+    {"k": "tbl", "name": "마크다운 표"},
+    {"k": "chart", "name": "차트 그림"}
+  ],
+  "cells": [
+    {"from": "img", "to": "pdf", "label": "JPG → PDF", "href": "/tools/jpg-to-pdf/"},
+    {"from": "img", "to": "img", "label": "용량 줄이기·크기 자르기", "href": "/tools/image-resize/"},
+    {"from": "img", "to": "txt", "label": "사진 속 글자 → 텍스트", "href": "/tools/ocr/"},
+    {"from": "heic", "to": "pdf", "label": "HEIC → PDF", "href": "/tools/jpg-to-pdf/"},
+    {"from": "heic", "to": "img", "label": "HEIC → JPG", "href": "/tools/heic-to-jpg/"},
+    {"from": "heic", "to": "txt", "label": "사진 속 글자 → 텍스트", "href": "/tools/ocr/"},
+    {"from": "pdf", "to": "pdf", "label": "합치기·나누기·쪽 뽑기", "href": "/tools/pdf-merge/"},
+    {"from": "pdf", "to": "img", "label": "PDF → JPG·PNG", "href": "/tools/pdf-to-jpg/"},
+    {"from": "pdf", "to": "txt", "label": "PDF → 텍스트", "href": "/tools/pdf-to-text/"},
+    {"from": "hwp", "to": "pdf", "tip": "한글에서 '파일 → PDF로 저장하기'"},
+    {"from": "hwp", "to": "txt", "label": "HWP → 텍스트", "href": "/tools/doc-to-text/"},
+    {"from": "hwp", "to": "tbl", "label": "HWP 속 표 → 마크다운 표", "href": "/tools/doc-to-text/"},
+    {"from": "docx", "to": "pdf", "tip": "워드에서 '다른 이름으로 저장 → PDF'"},
+    {"from": "docx", "to": "txt", "label": "DOCX → 텍스트", "href": "/tools/doc-to-text/"},
+    {"from": "docx", "to": "tbl", "label": "워드 속 표 → 마크다운 표", "href": "/tools/doc-to-text/"},
+    {"from": "pptx", "to": "pdf", "tip": "파워포인트에서 '다른 이름으로 저장 → PDF'"},
+    {"from": "pptx", "to": "img", "tip": "파워포인트에서 '내보내기 → JPEG'"},
+    {"from": "pptx", "to": "txt", "label": "PPTX → 텍스트", "href": "/tools/doc-to-text/"},
+    {"from": "xlsx", "to": "tbl", "label": "엑셀 → 마크다운 표", "href": "/tools/table-to-markdown/"},
+    {"from": "xlsx", "to": "chart", "label": "표 → 차트 그림", "href": "/tools/table-to-chart/"},
+    {"from": "shot", "to": "pdf", "label": "캡처 → PDF", "href": "/tools/jpg-to-pdf/"},
+    {"from": "shot", "to": "img", "label": "용량 줄이기·크기 자르기", "href": "/tools/image-resize/"},
+    {"from": "shot", "to": "txt", "label": "이미지 → 텍스트(OCR)", "href": "/tools/ocr/"}
+  ],
+  "nav": [
+    ["/tools/jpg-to-pdf/", "JPG → PDF"],
+    ["/tools/pdf-to-jpg/", "PDF → JPG"],
+    ["/tools/pdf-merge/", "PDF 합치기·나누기"],
+    ["/tools/pdf-to-text/", "PDF → 텍스트"],
+    ["/tools/doc-to-text/", "한글·워드·PPT → 텍스트"],
+    ["/tools/heic-to-jpg/", "HEIC → JPG"],
+    ["/tools/table-to-markdown/", "엑셀 → 마크다운 표"],
+    ["/tools/table-to-chart/", "표 → 차트"],
+    ["/tools/ocr/", "사진 → 텍스트"]
+  ]
+}

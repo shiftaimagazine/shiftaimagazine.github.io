@@ -108,6 +108,12 @@
 - [AI가 말한 숫자·날짜·가격, 원문으로 확인하는 프롬프트 9개](https://shiftaimagazine.com/tutorial/verify-numbers/): AI 답변에 나오는 숫자는 그럴듯해서 더 위험합니다. 출처 붙이기부터 단위·기준일·자체 발표 구분까지, 숫자를 믿기 전에 던질 질문을 모았습니다.
 
 ## 무료 도구
+- [한글·워드·PPT 글자 뽑기 (HWP·DOCX·PPTX → 텍스트)](https://shiftaimagazine.com/tools/doc-to-text/): 한글(HWP·HWPX)·워드·파워포인트 파일 속 글과 표를 복사할 수 있는 텍스트·마크다운으로 바꿉니다. 한글 프로그램이 없어도 읽고, 표는 칸을 지켜 AI에 붙여 넣기 좋습니다.
+- [JPG → PDF 변환 (사진 여러 장을 PDF 한 파일로)](https://shiftaimagazine.com/tools/jpg-to-pdf/): JPG·PNG·HEIC 사진 여러 장을 고른 순서대로 PDF 한 파일로 묶습니다. A4·여백·용량을 골라 서류 제출용 PDF를 만들고, 사진은 서버에 올리지 않습니다.
+- [PDF → JPG 변환 (쪽마다 사진으로 저장)](https://shiftaimagazine.com/tools/pdf-to-jpg/): PDF 쪽을 JPG·PNG 사진으로 바꿉니다. 필요한 쪽만 고르고 선명도를 정하며, 여러 쪽을 세로로 이어 한 장으로 만들 수도 있습니다.
+- [표 → 차트 그림 만들기 (보고서·PPT용)](https://shiftaimagazine.com/tools/table-to-chart/): 엑셀에서 복사한 표나 AI가 준 마크다운 표로 막대·꺾은선·도넛 차트 그림을 만듭니다. PPT 16:9·보고서 4:3 크기 PNG로 받거나 복사해 바로 붙입니다.
+- [내 프롬프트함 (빈칸 채워 바로 복사)](https://shiftaimagazine.com/tools/prompt-box/): 자주 쓰는 프롬프트를 모아 두고 [회사명]·[날짜] 같은 빈칸만 채워 바로 복사합니다. 한 번 적은 값은 기억하고, 가입 없이 이 브라우저에 저장합니다.
+- [프롬프트 점검기 (빠진 것·흐린 말 찾기)](https://shiftaimagazine.com/tools/prompt-check/): 내가 쓴 프롬프트에서 빠진 역할·맥락·답 형식과 '잘·적당히·간단하게' 같은 흐린 말, 남은 빈칸, 개인정보를 찾아 표시하고 고친 틀을 만들어 줍니다.
 - [AI 답변 서식 정리기 (마크다운 기호 지우기)](https://shiftaimagazine.com/tools/ai-format/): 챗GPT·클로드 답을 카톡·한글에 붙이면 생기는 **, #, 표 기호를 지우고 제목·목록·표를 붙일 곳에 맞게 정리합니다. 한글·워드에는 서식째, 엑셀에는 칸이 나뉜 표로 복사합니다.
 - [사진 위치정보(EXIF) 지우기](https://shiftaimagazine.com/tools/exif-remove/): 사진에 숨은 GPS 위치·휴대폰 기종·찍은 날짜를 보여 주고, 화질은 그대로 둔 채 그 정보만 지웁니다. 중고 거래·블로그에 집에서 찍은 사진을 올리기 전에 쓰세요.
 - [이미지 압축·인스타 규격 자르기](https://shiftaimagazine.com/tools/image-resize/): 사진 용량을 1MB·500KB 이하로 줄이거나 인스타그램 피드 1080×1350, 스토리·릴스 1080×1920 크기로 여러 장을 한 번에 자릅니다. 자를 자리는 끌어서 고릅니다.

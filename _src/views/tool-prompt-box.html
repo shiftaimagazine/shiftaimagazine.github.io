@@ -1,0 +1,71 @@
+<main id="v-tool-prompt-box">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 프롬프트</span>
+  <h1>내 프롬프트함 (빈칸 채워 바로 복사)</h1>
+  <p class="deck">자주 쓰는 프롬프트를 모아 두고, [회사명]·[날짜]처럼 바꿔 쓸 자리만 채워 바로 복사합니다. 한 번 적은 값은 기억해 두니 매번 같은 말을 다시 칠 필요가 없습니다. 가입 없이 이 브라우저에 저장하고, 백업 파일로 다른 컴퓨터에 옮길 수 있습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>이 브라우저에만 저장 · 어디에도 보내지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>프롬프트 담기</h2>
+    <p class="hint">바꿔 쓸 자리를 <code>[회사명]</code>처럼 대괄호로 감싸 두면, 쓸 때 그 자리가 채우는 칸으로 바뀝니다. <a href="/prompts/">복붙 프롬프트 모음</a>에서 '내 함에 담기'를 눌러 가져올 수도 있습니다.</p>
+    <div class="trow">
+      <input id="pbTitle" type="text" placeholder="이름 (예: 거래처 납기 지연 사과 메일)" aria-label="프롬프트 이름">
+      <input id="pbTag" type="text" list="pbTags" placeholder="분류 (예: 메일)" aria-label="분류" style="max-width:200px;min-width:120px"><datalist id="pbTags"></datalist>
+    </div>
+    <label class="sr" for="pbBody">프롬프트 내용</label>
+    <textarea id="pbBody" rows="7" spellcheck="false" placeholder="예) 당신은 [회사명] 고객지원 담당자입니다. 아래 고객 메일에 정중하게 답장을 써 주세요.&#10;- 사과는 한 번만, 해결 방법과 [처리 기한]을 분명히&#10;- 300자 이내&#10;&#10;[고객 메일 붙여 넣기]"></textarea>
+    <div class="trow">
+      <button class="btn" type="button" id="pbSave">함에 저장</button>
+      <button class="ghost" type="button" id="pbNew">새로 쓰기</button>
+      <button class="ghost" type="button" id="pbStarter">예시 4개 담기</button>
+      <span class="meta" id="pbFound"></span>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>내 프롬프트 <small id="pbCount"></small></h2>
+    <div class="trow">
+      <input id="pbQ" type="search" placeholder="이름·내용으로 찾기" aria-label="내 프롬프트 찾기">
+      <label class="inl">줄 세우기 <select id="pbSort"><option value="used">최근 쓴 순</option><option value="n">자주 쓴 순</option><option value="at">새로 담은 순</option><option value="t">이름순</option></select></label>
+    </div>
+    <div class="filters pbtags" id="pbTagF" role="group" aria-label="분류"></div>
+    <div class="pblist" id="pbList"></div>
+  </section>
+
+  <section class="tstep" id="pbUse">
+    <h2><i>3</i>빈칸 채워 복사</h2>
+    <p class="hint" id="pbUseHint">위 목록에서 '쓰기'를 누르면 여기에 빈칸이 나옵니다.</p>
+    <div class="pbfields" id="pbFields"></div>
+    <div class="pbprev" id="pbPrev" aria-live="polite"></div>
+    <div class="trow">
+      <button class="btn" type="button" id="pbCopy" data-ev="tool-done:/tools/prompt-box/" disabled>복사하기</button>
+      <button class="ghost" type="button" id="pbReset" disabled>채운 값 지우기</button>
+      <a class="ghost" id="pbCheck" href="/tools/prompt-check/">프롬프트 점검기로 →</a>
+    </div>
+    <p class="hint" id="pbLeft"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>프롬프트와 채운 값은 이 브라우저(이 컴퓨터의 이 브라우저)에만 저장됩니다. 브라우저 방문 기록·사이트 데이터를 지우거나 시크릿 창을 닫으면 사라지니 가끔 '백업 파일 받기'를 눌러 두세요.</li>
+      <li>다른 컴퓨터나 휴대폰에서 쓰려면 백업 파일을 옮겨 '백업 불러오기'로 넣으세요. 이미 있는 프롬프트는 두 번 들어가지 않습니다.</li>
+      <li>채운 값에 고객 이름·전화번호 같은 개인정보가 들어가면 그 값도 이 브라우저에 남습니다. 공용 컴퓨터에서는 '채운 값 지우기'를 누르고 나가세요.</li>
+    </ul>
+    <div class="trow">
+      <button class="ghost" type="button" id="pbExport">백업 파일 받기</button>
+      <label class="ghost" for="pbImport" style="cursor:pointer">백업 불러오기</label><input type="file" id="pbImport" accept=".json,application/json" hidden>
+      <button class="ghost" type="button" id="pbMd">글로 모두 받기(.md)</button>
+    </div>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>저장한 프롬프트가 서버로 가나요?</summary><p>가지 않습니다. 프롬프트와 채운 값은 이 브라우저의 저장 공간(로컬 저장소)에만 두고 어디에도 보내지 않습니다. 그래서 가입이 필요 없는 대신, 다른 기기와 자동으로 맞춰지지는 않습니다.</p></details>
+    <details><summary>빈칸은 어떻게 만드나요?</summary><p>바꿔 쓸 자리를 [회사명], [날짜], [고객 메일 붙여 넣기]처럼 대괄호로 감싸세요. 같은 이름의 빈칸이 여러 번 나오면 한 번만 채우면 모두 바뀝니다. {{이름}}처럼 중괄호 두 개로 감싼 것도 빈칸으로 봅니다.</p></details>
+    <details><summary>한 번 채운 값은 기억하나요?</summary><p>기억합니다. [회사명]을 한 번 채우면 다른 프롬프트의 [회사명] 칸에도 같은 값이 먼저 들어갑니다. 지우려면 '채운 값 지우기'를 누르세요.</p></details>
+    <details><summary>다른 컴퓨터로 옮기려면요?</summary><p>'백업 파일 받기'로 받은 .json 파일을 다른 컴퓨터로 옮겨 이 페이지의 '백업 불러오기'로 넣으면 됩니다. 메일이나 메신저로 보내면 그 서비스에 파일이 남으니, 회사 정보가 든 프롬프트라면 USB나 사내 드라이브를 쓰세요.</p></details>
+    <details><summary>어떤 프롬프트를 담아 두면 좋나요?</summary><p>매주 반복하는 일에 쓰는 프롬프트가 좋습니다. 주간 보고 정리, 고객 메일 답장, 회의록 정리처럼 자료만 바뀌고 요청은 같은 일입니다. <a href="/prompts/">복붙 프롬프트 모음</a>에서 골라 담은 뒤 내 일에 맞게 고쳐 쓰세요.</p></details>
+  </section>
+</article>
+</main>

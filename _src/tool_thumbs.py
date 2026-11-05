@@ -128,7 +128,33 @@ def cap_diff(p, base):
     p.goto(base + '/tools/prompt-diff/'); p.add_style_tag(content=HIDE); p.click('#pdSample'); poll(p, '#pdStatus', '바뀐 곳')
     p.check('input[name=pdView][value=inline]'); p.wait_for_timeout(800)
     return shot_range(p, 'section.tstep >> nth=2', 'section.tstep >> nth=2')
-CAP = {'ai-format': cap_ai_format, 'exif-remove': cap_exif, 'image-resize': cap_image, 'pdf-merge': cap_pdf_merge, 'table-to-markdown': cap_table, 'prompt-diff': cap_diff, 'pdf-to-text': cap_pdf, 'ai-subscriptions': cap_subs, 'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt}
+def cap_doc(p, base):
+    p.goto(base + '/tools/doc-to-text/#use'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#dtFile', SRC + 'thumbs/guide/주간업무보고.hwpx'); poll(p, '#dtStatus', '다 읽었습니다'); p.wait_for_timeout(200)
+    return shot_range(p, 'section.tstep >> nth=1', 'section.tstep >> nth=1')
+def cap_jpg(p, base):
+    p.goto(base + '/tools/jpg-to-pdf/#use'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#ipFile', [SRC + 'thumbs/guide/책상사진.jpg', SRC + 'thumbs/ocr-sample.png', SRC + 'thumbs/insta-sample.jpg']); poll(p, '#ipStatus', '장'); p.wait_for_timeout(500)
+    return shot_range(p, '#ipList', 'section.tstep >> nth=1')
+def cap_pj(p, base):
+    p.goto(base + '/tools/pdf-to-jpg/#use'); p.add_style_tag(content=HIDE)
+    p.set_input_files('#pjFile', SRC + 'thumbs/sample.pdf'); p.wait_for_selector('.pmpg.done'); p.wait_for_timeout(1500)
+    p.locator('.pmpg').nth(0).click(); p.locator('.pmpg').nth(2).click(); p.wait_for_timeout(200)
+    return shot_range(p, '#pjPickRow', '#pjPages')
+def cap_chart(p, base):
+    p.goto(base + '/tools/table-to-chart/#use'); p.add_style_tag(content=HIDE); p.click('#tcSample'); p.wait_for_timeout(400)
+    return shot(p.locator('#tcPrev svg'))
+def cap_box(p, base):
+    p.goto(base + '/tools/prompt-box/#use'); p.add_style_tag(content=HIDE)
+    p.evaluate('()=>{try{localStorage.removeItem("shift-promptbox-v1")}catch(e){}}'); p.reload(); p.add_style_tag(content=HIDE)
+    p.click('#pbStarter'); p.locator('.pbc', has_text='고객 메일').locator('button[data-use]').click(); p.wait_for_timeout(200)
+    f = p.locator('#pbFields [data-b]'); f.nth(0).fill('SHIFT 상사'); f.nth(0).dispatch_event('input'); f.nth(1).fill('11월 14일까지'); f.nth(1).dispatch_event('input'); p.wait_for_timeout(200)
+    return shot_range(p, '#pbFields', '#pbPrev')
+def cap_check(p, base):
+    p.goto(base + '/tools/prompt-check/#use'); p.add_style_tag(content=HIDE); p.click('#kcSample'); p.wait_for_timeout(300)
+    return shot_range(p, '#kcSlots', '#kcList')
+CAP = {'ai-format': cap_ai_format, 'exif-remove': cap_exif, 'image-resize': cap_image, 'pdf-merge': cap_pdf_merge, 'table-to-markdown': cap_table, 'prompt-diff': cap_diff, 'pdf-to-text': cap_pdf, 'ai-subscriptions': cap_subs, 'redact': cap_redact, 'ai-cost': cap_ai_cost, 'interpreter': cap_interpreter, 'ocr': cap_ocr, 'ai-tell': cap_ai_tell, 'prompt': cap_prompt, 'char-count': cap_char_count, 'heic-to-jpg': cap_heic, 'free-alternatives': cap_free_alt,
+       'doc-to-text': cap_doc, 'jpg-to-pdf': cap_jpg, 'pdf-to-jpg': cap_pj, 'table-to-chart': cap_chart, 'prompt-box': cap_box, 'prompt-check': cap_check}
 
 # ---------- 그리기 ----------
 def card(im, w, h, pad=20):

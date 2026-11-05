@@ -1,0 +1,77 @@
+<main id="v-tool-pdf-to-jpg">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 파일 변환</span>
+  <h1>PDF → JPG 변환 (쪽마다 사진으로 저장)</h1>
+  <p class="deck">PDF의 쪽을 JPG나 PNG 사진으로 바꿉니다. 필요한 쪽만 고르고 선명도를 정할 수 있고, 여러 쪽을 세로로 이어 한 장으로 만들어 카톡·블로그·발표 자료에 바로 붙일 수 있습니다. 파일은 서버에 올리지 않고 이 브라우저 안에서만 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+  <!--CVNAV-->
+
+  <section class="tstep">
+    <h2><i>1</i>PDF 넣기 <small id="pjStatus" aria-live="polite"></small></h2>
+    <label class="odrop" id="pjDrop" tabindex="0">
+      <input type="file" id="pjFile" accept="application/pdf,.pdf">
+      <b>여기를 눌러 PDF를 고르거나 끌어다 놓으세요</b>
+      <span id="pjDropS">한 번에 PDF 하나</span>
+    </label>
+    <div class="trow" id="pjPickRow" hidden>
+      <input id="pjSel" type="text" inputmode="numeric" placeholder="바꿀 쪽: 예 1-3, 7 (비우면 모든 쪽, 아래 쪽을 눌러 고를 수도 있습니다)">
+      <button class="ghost" type="button" id="pjAll">모두 고르기</button><button class="ghost" type="button" id="pjNone">고른 것 풀기</button>
+    </div>
+    <div class="pmpages" id="pjPages"></div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>사진 모양 고르기</h2>
+    <div class="seg" role="radiogroup" aria-label="선명도">
+      <label><input type="radio" name="pjDpi" value="110"><span><b>가볍게</b>화면으로 볼 사진. 카톡·메신저로 보내기 좋습니다.</span></label>
+      <label><input type="radio" name="pjDpi" value="160" checked><span><b>보통 (추천)</b>글자가 또렷해 발표 자료·블로그에 맞습니다.</span></label>
+      <label><input type="radio" name="pjDpi" value="300"><span><b>선명하게</b>인쇄하거나 크게 확대해 볼 때. 용량이 큽니다.</span></label>
+    </div>
+    <div class="trow">
+      <span class="meta">파일 형식</span>
+      <div class="seg mini" role="radiogroup" aria-label="파일 형식">
+        <label><input type="radio" name="pjType" value="jpg" checked><span><b>JPG</b></span></label>
+        <label><input type="radio" name="pjType" value="png"><span><b>PNG</b></span></label>
+      </div>
+      <span class="meta">묶기</span>
+      <div class="seg mini" role="radiogroup" aria-label="묶는 방법">
+        <label><input type="radio" name="pjJoin" value="each" checked><span><b>쪽마다 한 장</b></span></label>
+        <label><input type="radio" name="pjJoin" value="long"><span><b>세로로 이어 한 장</b></span></label>
+      </div>
+    </div>
+    <p class="hint" id="pjHintFmt">JPG는 용량이 작고, PNG는 글자·선이 번지지 않지만 용량이 큽니다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>사진으로 바꾸기</h2>
+    <div class="trow">
+      <button class="btn" type="button" id="pjGo" data-ev="tool-done:/tools/pdf-to-jpg/" disabled>사진으로 바꾸기</button>
+      <button class="ghost" type="button" id="pjZip" disabled>모두 ZIP으로 받기</button>
+    </div>
+    <div class="obar" id="pjBar" hidden><i></i></div>
+    <div class="hlist" id="pjOut"></div>
+    <p class="hint" id="pjHint"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>쪽을 그림으로 그려 저장하므로 사진 속 글자는 복사할 수 없습니다. 글자가 필요하면 <a href="/tools/pdf-to-text/">PDF 글자 뽑기</a>를 쓰세요.</li>
+      <li>'세로로 이어 한 장'은 브라우저가 그릴 수 있는 크기에 한계가 있어, 쪽이 많으면 선명도를 자동으로 낮추고 그래도 넘치면 40쪽에서 끊습니다.</li>
+      <li>열람 암호가 걸린 PDF는 열 수 없습니다. PDF 프로그램에서 암호를 푼 사본을 만든 뒤 넣어 주세요.</li>
+      <li>PDF는 모질라의 오픈소스 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener">PDF.js</a>(Apache-2.0)로 그립니다. 프로그램은 처음 한 번 SHIFT AI 서버에서 받아 오고, 파일은 이 페이지 밖으로 나가지 않습니다.</li>
+    </ul>
+    <p>다음 단계: 만든 사진의 용량을 더 줄이거나 인스타 크기로 자르려면 <a href="/tools/image-resize/">이미지 압축·인스타 규격 자르기</a>, 사진을 다시 PDF로 묶으려면 <a href="/tools/jpg-to-pdf/">JPG → PDF 변환</a>을 쓰세요.</p>
+  </div>
+  <!--CVTABLE-->
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>PDF 파일이 서버로 올라가나요?</summary><p>올라가지 않습니다. 쪽을 그리고 사진으로 저장하는 일은 모두 이 브라우저 안에서 합니다.</p></details>
+    <details><summary>PDF에서 몇 쪽만 사진으로 바꾸려면요?</summary><p>PDF를 넣은 뒤 쪽 미리 보기를 누르거나 '1-3, 7'처럼 쪽 번호를 적으세요. 고른 쪽만 사진으로 바뀌고, 아무것도 고르지 않으면 모든 쪽을 바꿉니다.</p></details>
+    <details><summary>JPG와 PNG 중 무엇을 고를까요?</summary><p>사진이나 그림이 많은 쪽, 메신저로 보낼 사진은 JPG가 가볍습니다. 표·도면·작은 글자가 많은 쪽을 또렷하게 남기려면 PNG가 낫지만 용량이 몇 배 커집니다.</p></details>
+    <details><summary>여러 쪽을 한 장의 긴 사진으로 만들 수 있나요?</summary><p>'세로로 이어 한 장'을 고르면 고른 쪽을 위에서 아래로 이어 붙인 사진 한 장이 나옵니다. 카톡이나 블로그에 문서를 한 번에 보여 줄 때 씁니다.</p></details>
+    <details><summary>선명도는 어떻게 정하나요?</summary><p>'보통'은 A4 한 쪽을 가로 약 1,300픽셀로 그려 화면에서 글자를 읽기 좋습니다. '선명하게'는 300dpi(가로 약 2,480픽셀)로 그려 인쇄용으로 쓰고, '가볍게'는 가로 약 900픽셀입니다.</p></details>
+  </section>
+</article>
+</main>

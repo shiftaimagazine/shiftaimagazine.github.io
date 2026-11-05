@@ -1,0 +1,91 @@
+<main id="v-tool-table-to-chart">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 차트</span>
+  <h1>표 → 차트 그림 만들기 (보고서·PPT용)</h1>
+  <p class="deck">엑셀·구글 시트에서 복사한 표나 챗GPT·클로드가 준 마크다운 표를 붙여 넣으면 막대·꺾은선·원 차트 그림을 만듭니다. PPT 16:9, 보고서 4:3 크기로 PNG를 받거나 복사해 파워포인트·한글에 바로 붙여 넣을 수 있습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>표는 이 브라우저 안에서만 처리 · 어디에도 보내지 않음</span></div>
+  <!--CVNAV-->
+
+  <section class="tstep">
+    <h2><i>1</i>표 넣기 <small id="tcStatus" aria-live="polite"></small></h2>
+    <p class="hint">첫 줄은 항목 이름(예: 월, 1팀, 2팀), 첫 열은 가로축에 놓을 이름(예: 1월, 2월)으로 둡니다. 숫자에 붙은 쉼표·원·%는 알아서 뺍니다.</p>
+    <label class="sr" for="tcIn">차트로 만들 표</label>
+    <textarea id="tcIn" rows="8" placeholder="엑셀에서 표를 복사해 붙여 넣거나, AI 답 속 마크다운 표를 붙여 넣으세요.&#10;예)&#10;월	1팀	2팀&#10;1월	120	95&#10;2월	138	102"></textarea>
+    <div class="trow">
+      <label class="ghost" for="tcFile" style="cursor:pointer">파일 열기 (.xlsx · .csv)</label><input type="file" id="tcFile" accept=".xlsx,.csv,.tsv,.txt,text/csv" hidden>
+      <button class="ghost" type="button" id="tcSample">예시 넣어 보기</button>
+      <button class="ghost" type="button" id="tcFlip">행과 열 바꾸기</button>
+      <button class="ghost" type="button" id="tcClear">지우기</button>
+      <label class="inl" id="tcSheetW" hidden>시트 <select id="tcSheet"></select></label>
+    </div>
+    <div class="trow" id="tcColsW" hidden>
+      <label class="inl">가로축 이름 <select id="tcLab"></select></label>
+      <span class="meta">그릴 숫자</span><div class="tcchips" id="tcSeries"></div>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>차트 모양 고르기</h2>
+    <div class="seg tcseg" role="radiogroup" aria-label="차트 종류">
+      <label><input type="radio" name="tcType" value="bar" checked><span><b>세로 막대</b>항목끼리 크기 비교</span></label>
+      <label><input type="radio" name="tcType" value="hbar"><span><b>가로 막대</b>이름이 길거나 항목이 많을 때</span></label>
+      <label><input type="radio" name="tcType" value="line"><span><b>꺾은선</b>달·연도처럼 시간에 따른 변화</span></label>
+      <label><input type="radio" name="tcType" value="stack"><span><b>누적 막대</b>합계와 구성을 함께</span></label>
+      <label><input type="radio" name="tcType" value="pie"><span><b>도넛(원)</b>한 숫자의 비율, 6개 이하</span></label>
+    </div>
+    <div class="trow">
+      <input id="tcTitle" type="text" placeholder="차트 제목 (예: 팀별 월 매출)" aria-label="차트 제목">
+      <input id="tcUnit" type="text" placeholder="단위 (예: 만 원, %, 명)" aria-label="단위" style="max-width:220px;min-width:140px">
+    </div>
+    <div class="trow">
+      <span class="meta">크기</span>
+      <div class="seg mini" role="radiogroup" aria-label="그림 크기">
+        <label><input type="radio" name="tcSize" value="169" checked><span><b>PPT 16:9</b></span></label>
+        <label><input type="radio" name="tcSize" value="43"><span><b>보고서 4:3</b></span></label>
+        <label><input type="radio" name="tcSize" value="11"><span><b>정사각형</b></span></label>
+        <label><input type="radio" name="tcSize" value="45"><span><b>인스타 4:5</b></span></label>
+      </div>
+    </div>
+    <div class="ochecks tcopts">
+      <label><input type="checkbox" id="tcVal" checked> 막대·점 끝에 숫자 적기</label>
+      <label><input type="checkbox" id="tcSort"> 큰 값부터 줄 세우기 <small>(꺾은선은 원래 순서 유지)</small></label>
+      <label><input type="checkbox" id="tcBig"> 글자 크게 <small>(발표 화면용)</small></label>
+      <label><input type="checkbox" id="tcGray"> 흑백 인쇄용 색</label>
+      <label><input type="checkbox" id="tcClearBg"> 배경 투명하게 <small>(PNG만, 색 있는 슬라이드에 얹을 때)</small></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>그림 받기</h2>
+    <div class="tcprev" id="tcPrev"><p class="hint">표를 넣으면 여기에 차트가 그려집니다.</p></div>
+    <div class="trow">
+      <button class="btn" type="button" id="tcPng" data-ev="tool-done:/tools/table-to-chart/" disabled>PNG 내려받기</button>
+      <button class="ghost" type="button" id="tcCopy" data-ev="tool-done:/tools/table-to-chart/" disabled>그림 복사 (PPT·한글에 붙여 넣기)</button>
+      <button class="ghost" type="button" id="tcSvg" disabled>SVG 내려받기</button>
+    </div>
+    <p class="hint" id="tcHint"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>숫자 칸의 쉼표, ₩·$ 기호, 원·명·건·% 같은 단위 글자는 빼고 읽습니다. 괄호로 감싼 숫자 (1,200)은 회계식 음수로 봅니다. 빈칸과 '-'는 값이 없는 칸입니다.</li>
+      <li>'1.2억', '8,000만'처럼 단위가 섞인 칸은 모두 같은 단위로 바꿔 그리고, 바꾼 단위를 '단위' 칸에 적어 둡니다. 차트를 쓰기 전에 원래 표와 숫자를 한 번 맞춰 보세요.</li>
+      <li>막대는 늘 0에서 시작합니다. 0에서 시작하지 않는 막대는 차이를 실제보다 크게 보이게 하기 때문입니다. 꺾은선은 숫자 범위에 맞춰 세로축을 잡습니다.</li>
+      <li>색은 색각 이상이 있는 사람도 나란한 색을 구별하도록 검사한 순서로 씁니다. 숫자 묶음은 8개까지, 도넛 차트 조각은 6개까지 그리고 나머지는 '기타'로 묶습니다.</li>
+      <li>'그림 복사'는 크롬·엣지·사파리에서 됩니다. 복사가 안 되는 브라우저에서는 PNG로 받아 넣으세요.</li>
+    </ul>
+    <p>다음 단계: 같은 표를 AI에 함께 보내려면 <a href="/tools/table-to-markdown/">엑셀·CSV → 마크다운 표 변환</a>으로 바꿔 붙이면 숫자를 잘못 읽는 일이 줄어듭니다.</p>
+  </div>
+  <!--CVTABLE-->
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>엑셀 표로 차트를 만들려면요?</summary><p>엑셀에서 표를 드래그해 복사(Ctrl+C)한 뒤 첫 칸에 붙여 넣으면 바로 그려집니다. .xlsx·.csv 파일을 '파일 열기'로 열어도 되고, 시트가 여럿이면 시트를 고를 수 있습니다.</p></details>
+    <details><summary>챗GPT가 준 표로도 되나요?</summary><p>됩니다. 답에 있는 마크다운 표(| 기호로 칸을 나눈 표)를 그대로 복사해 붙여 넣으면 칸을 읽어 차트를 만듭니다.</p></details>
+    <details><summary>파워포인트에 넣으려면 어떻게 하나요?</summary><p>크기에서 'PPT 16:9'를 고르고 '그림 복사'를 누른 뒤 슬라이드에서 붙여 넣으세요. 복사가 안 되면 'PNG 내려받기'로 받은 파일을 '삽입 → 그림'으로 넣습니다. 받는 PNG는 1920×1080처럼 화면보다 두 배 큰 크기라 확대해도 또렷합니다.</p></details>
+    <details><summary>표가 서버로 올라가나요?</summary><p>올라가지 않습니다. 표를 읽고 차트를 그리는 일은 모두 이 브라우저 안에서 합니다.</p></details>
+    <details><summary>막대 차트와 꺾은선 차트는 언제 쓰나요?</summary><p>팀별·제품별처럼 서로 다른 항목의 크기를 비교할 때는 막대, 1월·2월·3월처럼 시간에 따라 어떻게 바뀌는지 볼 때는 꺾은선이 알맞습니다. 전체 중 차지하는 비율 하나를 보여 줄 때만 도넛을 쓰세요.</p></details>
+  </section>
+</article>
+</main>

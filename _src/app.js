@@ -231,8 +231,8 @@ document.addEventListener("click", e=>{ const b = e.target.closest("[data-tp]");
 window.addEventListener("hashchange", ()=>{ if(location.hash==="#guide"||location.hash==="#use"){ document.documentElement.setAttribute("data-tpane", location.hash==="#use"?"tool":"guide"); tpSync(); } });
 tpSync();
 // 무료 도구 목록(/tools/, 11/5~): 주제 버튼 + 검색. 주소 ?cat=&q=  (주제는 tools.json cats, 검색은 제목·설명·태그·kw)
-const TOOL_CATS = ["AI 활용","글쓰기","PDF·문서","사진·이미지","개인정보","비용 절약","번역·회의"];
-const TOOL_HINTS = ["PDF","사진 용량","마크다운","개인정보","글자 수","엑셀","인스타","번역"];
+const TOOL_CATS = ["AI 활용","파일 변환","글쓰기","PDF·문서","사진·이미지","개인정보","비용 절약","번역·회의"];
+const TOOL_HINTS = ["PDF","JPG","한글","차트","프롬프트","사진 용량","개인정보","엑셀"];
 const _tlq = new URLSearchParams(ROUTE==="tools" ? location.search : "");
 let tlCat = TOOL_CATS.includes(_tlq.get("cat")) ? _tlq.get("cat") : "all", tlQ = _tlq.get("q") || "";
 function renderTools(){
@@ -273,7 +273,7 @@ function renderPrompts(){
   $("#prCount").textContent = `${list.length}개`;
   $("#prList").innerHTML = list.length ? list.map(x=>`<article class="prc" id="${x.id}">
     <div class="prh"><span class="cat">${esc(x.t.cat)}</span><h2>${esc(x.h)}</h2>${x.d?`<p>${esc(x.d)}</p>`:""}</div>
-    <div class="pr${x.p.length>420?" clip":""}"><div class="pt">${esc(x.p)}</div><div class="pra"><button class="copy dark" data-copy="${esc(x.p)}">복사하기</button>${x.p.length>420?`<button class="copy dark prmore" type="button">전체 보기</button>`:""}</div></div>
+    <div class="pr${x.p.length>420?" clip":""}"><div class="pt">${esc(x.p)}</div><div class="pra"><button class="copy dark" data-copy="${esc(x.p)}">복사하기</button><button class="copy dark" type="button" data-pbox="${x.id}">내 함에 담기</button>${x.p.length>420?`<button class="copy dark prmore" type="button">전체 보기</button>`:""}</div></div>
     <a class="prsrc" href="${P(x.t.id)}">이 프롬프트가 나온 글: ${esc(x.t.title)}</a></article>`).join("")
     : `<div class="empty">조건에 맞는 프롬프트가 없습니다. 검색어나 주제를 바꿔 보세요.</div>`;
 }
@@ -610,6 +610,18 @@ document.addEventListener("click",e=>{
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(fallback);}else fallback();
   function fallback(){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(_){toast("길게 눌러 복사해 주세요");}ta.remove();}
 });
+// 내 프롬프트함(11/5~): 어느 페이지에서든 담을 수 있게. 저장은 이 브라우저 localStorage 에만(/tools/prompt-box/ 와 같은 열쇠·모양)
+const PBOX_KEY = "shift-promptbox-v1";
+function pboxAdd(t, p, tag, src){
+  try{ const d = JSON.parse(localStorage.getItem(PBOX_KEY)||"null") || {v:1, items:[], vals:{}}; if(!Array.isArray(d.items)) d.items = [];
+    if(d.items.some(x=>x.p===p)){ toast("이미 내 프롬프트함에 있습니다"); return false; }
+    d.items.push({id: Date.now().toString(36)+Math.random().toString(36).slice(2,7), t: String(t||p.slice(0,40)).slice(0,120), p, tag: tag||"", star:false, n:0, at:Date.now(), used:0, src: src||""});
+    localStorage.setItem(PBOX_KEY, JSON.stringify(d)); track("pbox-add:"+location.pathname, "내 프롬프트함에 담기"); toast("내 프롬프트함에 담았습니다 · 무료 도구 → 내 프롬프트함"); return true;
+  }catch(_){ toast("이 브라우저에서는 저장할 수 없습니다"); return false; }
+}
+window.SHIFT_PBOX_ADD = pboxAdd;
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-pbox]"); if(!b) return; e.preventDefault();
+  const x = PROMPTS.find(q=>q.id===b.dataset.pbox); if(x) pboxAdd(x.h, x.p, x.t.cat, "/prompts/#"+x.id); });
 let toastT; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),1600);}
 
 // 주간 메일 구독(11/11~). 구독 칸(.subf)은 build.py 가 구독 서버 주소(data-api)를 넣어 모든 페이지 맨 아래에 붙인다. 팝업은 그 양식을 복사해 쓴다.

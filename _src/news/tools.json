@@ -1,5 +1,164 @@
 [
  {
+  "id": "doc-to-text",
+  "title": "한글·워드·PPT 글자 뽑기 (HWP·DOCX·PPTX → 텍스트)",
+  "desc": "한글(HWP·HWPX)·워드·파워포인트 파일 속 글과 표를 복사할 수 있는 텍스트·마크다운으로 바꿉니다. 한글 프로그램이 없어도 읽고, 표는 칸을 지켜 AI에 붙여 넣기 좋습니다.",
+  "href": "/tools/doc-to-text/",
+  "tag": "문서 변환",
+  "cover": {
+   "t": "한글 파일\n글자 뽑기",
+   "line": "HWP·워드·PPT 속 글과 표를\nAI에 붙일 마크다운으로"
+  },
+  "rel": [
+   "/tutorial/hwp-documents/",
+   "/tools/redact/",
+   "/tools/convert/"
+  ],
+  "glyph": "HWP",
+  "where": "내 브라우저",
+  "date": "2026-11-05",
+  "mod": "2026-11-05",
+  "thumb": "img/tools/doc-to-text.webp",
+  "cats": [
+   "파일 변환",
+   "PDF·문서",
+   "AI 활용"
+  ],
+  "kw": "한글 파일, hwp, hwpx, 한글 텍스트 변환, hwp 텍스트 추출, 한글 뷰어 없이, 워드, docx, 파워포인트, pptx, ppt, 문서 텍스트, 마크다운 변환, 표 추출"
+ },
+ {
+  "id": "jpg-to-pdf",
+  "title": "JPG → PDF 변환 (사진 여러 장을 PDF 한 파일로)",
+  "desc": "JPG·PNG·HEIC 사진 여러 장을 고른 순서대로 PDF 한 파일로 묶습니다. A4·여백·용량을 골라 서류 제출용 PDF를 만들고, 사진은 서버에 올리지 않습니다.",
+  "href": "/tools/jpg-to-pdf/",
+  "tag": "파일 변환",
+  "cover": {
+   "t": "JPG → PDF\n변환",
+   "line": "사진 여러 장을 A4 PDF 한 파일로\n서류 제출용 용량까지"
+  },
+  "rel": [
+   "/tools/pdf-merge/",
+   "/tools/pdf-to-jpg/",
+   "/tools/convert/"
+  ],
+  "glyph": "JPG",
+  "where": "내 브라우저",
+  "date": "2026-11-05",
+  "mod": "2026-11-05",
+  "thumb": "img/tools/jpg-to-pdf.webp",
+  "cats": [
+   "파일 변환",
+   "PDF·문서",
+   "사진·이미지"
+  ],
+  "kw": "jpg pdf 변환, 사진 pdf 변환, 이미지 pdf, png pdf, heic pdf, 사진 여러장 pdf, 사진 합치기 pdf, 서류 사진 pdf, 스캔 pdf, 캡처 pdf"
+ },
+ {
+  "id": "pdf-to-jpg",
+  "title": "PDF → JPG 변환 (쪽마다 사진으로 저장)",
+  "desc": "PDF 쪽을 JPG·PNG 사진으로 바꿉니다. 필요한 쪽만 고르고 선명도를 정하며, 여러 쪽을 세로로 이어 한 장으로 만들 수도 있습니다.",
+  "href": "/tools/pdf-to-jpg/",
+  "tag": "파일 변환",
+  "cover": {
+   "t": "PDF → JPG\n변환",
+   "line": "쪽마다 사진으로, 또는\n세로로 이어 한 장으로"
+  },
+  "rel": [
+   "/tools/jpg-to-pdf/",
+   "/tools/pdf-to-text/",
+   "/tools/convert/"
+  ],
+  "glyph": "JPG",
+  "where": "내 브라우저",
+  "date": "2026-11-05",
+  "mod": "2026-11-05",
+  "thumb": "img/tools/pdf-to-jpg.webp",
+  "cats": [
+   "파일 변환",
+   "PDF·문서",
+   "사진·이미지"
+  ],
+  "kw": "pdf jpg 변환, pdf 이미지 변환, pdf png 변환, pdf 사진으로, pdf 캡처, pdf 한 장 이미지, pdf 이어 붙이기"
+ },
+ {
+  "id": "table-to-chart",
+  "title": "표 → 차트 그림 만들기 (보고서·PPT용)",
+  "desc": "엑셀에서 복사한 표나 AI가 준 마크다운 표로 막대·꺾은선·도넛 차트 그림을 만듭니다. PPT 16:9·보고서 4:3 크기 PNG로 받거나 복사해 바로 붙입니다.",
+  "href": "/tools/table-to-chart/",
+  "tag": "차트",
+  "cover": {
+   "t": "표 → 차트\n그림 만들기",
+   "line": "엑셀·AI 표를 붙여 넣으면\nPPT·보고서용 그림으로"
+  },
+  "rel": [
+   "/tutorial/excel-data-analysis/",
+   "/tools/table-to-markdown/",
+   "/tutorial/presentation/"
+  ],
+  "glyph": "▮▮",
+  "where": "내 브라우저",
+  "date": "2026-11-05",
+  "mod": "2026-11-05",
+  "thumb": "img/tools/table-to-chart.webp",
+  "cats": [
+   "파일 변환",
+   "AI 활용"
+  ],
+  "kw": "차트 만들기, 그래프 만들기, 엑셀 차트, 막대 그래프, 꺾은선 그래프, 원 그래프, 도넛 차트, 보고서 차트, ppt 그래프, 표 그래프 변환"
+ },
+ {
+  "id": "prompt-box",
+  "title": "내 프롬프트함 (빈칸 채워 바로 복사)",
+  "desc": "자주 쓰는 프롬프트를 모아 두고 [회사명]·[날짜] 같은 빈칸만 채워 바로 복사합니다. 한 번 적은 값은 기억하고, 가입 없이 이 브라우저에 저장합니다.",
+  "href": "/tools/prompt-box/",
+  "tag": "프롬프트",
+  "cover": {
+   "t": "내 프롬프트함",
+   "line": "자주 쓰는 프롬프트를 모아\n빈칸만 채워 바로 복사"
+  },
+  "rel": [
+   "/prompts/",
+   "/tools/prompt-check/",
+   "/tutorial/custom-instructions/"
+  ],
+  "glyph": "[ ]",
+  "where": "내 브라우저",
+  "date": "2026-11-05",
+  "mod": "2026-11-05",
+  "thumb": "img/tools/prompt-box.webp",
+  "cats": [
+   "AI 활용",
+   "글쓰기"
+  ],
+  "kw": "프롬프트 저장, 프롬프트 관리, 프롬프트 모음, 프롬프트 템플릿, 빈칸 채우기, 자주 쓰는 프롬프트, 프롬프트 북마크"
+ },
+ {
+  "id": "prompt-check",
+  "title": "프롬프트 점검기 (빠진 것·흐린 말 찾기)",
+  "desc": "내가 쓴 프롬프트에서 빠진 역할·맥락·답 형식과 '잘·적당히·간단하게' 같은 흐린 말, 남은 빈칸, 개인정보를 찾아 표시하고 고친 틀을 만들어 줍니다.",
+  "href": "/tools/prompt-check/",
+  "tag": "프롬프트",
+  "cover": {
+   "t": "프롬프트\n점검기",
+   "line": "빠진 칸과 흐린 말을 찾아\n고친 틀까지 바로"
+  },
+  "rel": [
+   "/tools/prompt/",
+   "/tools/prompt-box/",
+   "/tutorial/crosscheck-prompts/"
+  ],
+  "glyph": "✓?",
+  "where": "내 브라우저",
+  "date": "2026-11-05",
+  "mod": "2026-11-05",
+  "thumb": "img/tools/prompt-check.webp",
+  "cats": [
+   "AI 활용",
+   "글쓰기"
+  ],
+  "kw": "프롬프트 검사, 프롬프트 첨삭, 프롬프트 개선, 프롬프트 잘 쓰는 법, 프롬프트 평가, 프롬프트 고치기"
+ },
+ {
   "id": "ai-format",
   "title": "AI 답변 서식 정리기 (마크다운 기호 지우기)",
   "desc": "챗GPT·클로드 답을 카톡·한글에 붙이면 생기는 **, #, 표 기호를 지우고 제목·목록·표를 붙일 곳에 맞게 정리합니다. 한글·워드에는 서식째, 엑셀에는 칸이 나뉜 표로 복사합니다.",
@@ -93,7 +252,7 @@
   "glyph": "PDF+",
   "where": "내 브라우저",
   "date": "2026-11-04",
-  "mod": "2026-11-04",
+  "mod": "2026-11-05",
   "thumb": "img/tools/pdf-merge.webp",
   "cats": [
    "PDF·문서"
@@ -118,11 +277,12 @@
   "glyph": "| |",
   "where": "내 브라우저",
   "date": "2026-11-04",
-  "mod": "2026-11-04",
+  "mod": "2026-11-05",
   "thumb": "img/tools/table-to-markdown.webp",
   "cats": [
    "AI 활용",
-   "PDF·문서"
+   "PDF·문서",
+   "파일 변환"
   ],
   "kw": "엑셀, excel, xlsx, csv, 구글 시트, 스프레드시트, 표, markdown, 마크다운"
  },
@@ -193,12 +353,13 @@
    "/tutorial/notebooklm/",
    "/guide/pdf-summary/"
   ],
-  "mod": "2026-11-03",
+  "mod": "2026-11-05",
   "glyph": "PDF",
   "where": "내 브라우저",
   "cats": [
    "PDF·문서",
-   "AI 활용"
+   "AI 활용",
+   "파일 변환"
   ],
   "kw": "PDF 텍스트 추출, 마크다운 변환, markdown, 토큰 절약, 요약"
  },
@@ -263,11 +424,12 @@
    "line": "아이폰 사진을 JPG·PNG로\n여러 장 한 번에, 업로드 없이"
   },
   "rel": [],
-  "mod": "2026-11-02",
+  "mod": "2026-11-05",
   "glyph": "JPG",
   "where": "내 브라우저",
   "cats": [
-   "사진·이미지"
+   "사진·이미지",
+   "파일 변환"
   ],
   "kw": "heic, 아이폰 사진, jpg 변환, png, 확장자"
  },
@@ -365,12 +527,13 @@
    "dict:OCR",
    "dict:멀티모달"
   ],
-  "mod": "2026-11-02",
+  "mod": "2026-11-05",
   "glyph": "OCR",
   "where": "내 브라우저",
   "cats": [
    "사진·이미지",
-   "PDF·문서"
+   "PDF·문서",
+   "파일 변환"
   ],
   "kw": "OCR, 이미지 텍스트 추출, 글자 인식, 캡처, 스캔, 사진 글자"
  },
@@ -418,7 +581,7 @@
    "dict:프롬프트",
    "dict:프롬프트 엔지니어링"
   ],
-  "mod": "2026-11-02",
+  "mod": "2026-11-05",
   "glyph": "{ }",
   "cats": [
    "AI 활용"

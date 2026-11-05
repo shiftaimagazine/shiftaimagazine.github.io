@@ -1,0 +1,91 @@
+<main id="v-tool-jpg-to-pdf">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 파일 변환</span>
+  <h1>JPG → PDF 변환 (사진 여러 장을 PDF 한 파일로)</h1>
+  <p class="deck">JPG·PNG·WebP 사진과 아이폰 HEIC 사진을 PDF로 바꿉니다. 여러 장을 고른 순서대로 한 파일에 담고, A4 크기·여백·용량을 골라 서류 제출용 PDF를 만들 수 있습니다. 사진은 서버에 올리지 않고 이 브라우저 안에서만 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+  <!--CVNAV-->
+
+  <section class="tstep">
+    <h2><i>1</i>사진 넣기 <small id="ipStatus" aria-live="polite"></small></h2>
+    <label class="odrop" id="ipDrop" tabindex="0">
+      <input type="file" id="ipFile" accept="image/*,.heic,.heif" multiple>
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>JPG · PNG · WebP · HEIC · 한 번에 100장까지 · 화면 캡처는 Ctrl+V로 붙여 넣기</span>
+    </label>
+    <ol class="pmlist iplist" id="ipList"></ol>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>쪽 모양 고르기</h2>
+    <div class="seg" role="radiogroup" aria-label="쪽 크기">
+      <label><input type="radio" name="ipSize" value="a4" checked><span><b>A4</b>서류 제출·인쇄용. 사진을 A4 쪽 안에 맞춰 넣습니다.</span></label>
+      <label><input type="radio" name="ipSize" value="fit"><span><b>사진 비율 그대로</b>쪽 모양을 사진에 맞춰 흰 여백 없이 만듭니다.</span></label>
+      <label><input type="radio" name="ipSize" value="letter"><span><b>레터(미국)</b>해외 제출 서류에 씁니다.</span></label>
+    </div>
+    <div class="trow" id="ipPageRow">
+      <span class="meta">방향</span>
+      <div class="seg mini" role="radiogroup" aria-label="쪽 방향">
+        <label><input type="radio" name="ipOri" value="auto" checked><span><b>사진에 맞게</b></span></label>
+        <label><input type="radio" name="ipOri" value="p"><span><b>세로</b></span></label>
+        <label><input type="radio" name="ipOri" value="l"><span><b>가로</b></span></label>
+      </div>
+    </div>
+    <div class="trow" id="ipPageRow2">
+      <span class="meta">여백</span>
+      <div class="seg mini" role="radiogroup" aria-label="여백">
+        <label><input type="radio" name="ipMargin" value="0"><span><b>없음</b></span></label>
+        <label><input type="radio" name="ipMargin" value="20" checked><span><b>좁게</b></span></label>
+        <label><input type="radio" name="ipMargin" value="40"><span><b>보통</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <span class="meta">화질·용량</span>
+      <div class="seg mini" role="radiogroup" aria-label="화질과 용량">
+        <label><input type="radio" name="ipQ" value="orig"><span><b>원본 화질</b></span></label>
+        <label><input type="radio" name="ipQ" value="mid" checked><span><b>보통 (추천)</b></span></label>
+        <label><input type="radio" name="ipQ" value="low"><span><b>가볍게</b></span></label>
+      </div>
+    </div>
+    <p class="hint" id="ipQHint">보통: 긴 변을 2,480픽셀(A4를 300dpi로 인쇄하는 크기)까지 줄이고 JPG로 다시 저장합니다. 글자가 든 서류 사진도 또렷합니다.</p>
+    <div class="trow">
+      <div class="seg mini" role="radiogroup" aria-label="파일 나누기">
+        <label><input type="radio" name="ipOut" value="one" checked><span><b>PDF 한 파일로</b></span></label>
+        <label><input type="radio" name="ipOut" value="each"><span><b>사진마다 PDF 하나씩(ZIP)</b></span></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>PDF 만들기</h2>
+    <div class="trow">
+      <button class="btn" type="button" id="ipGo" data-ev="tool-done:/tools/jpg-to-pdf/" disabled>PDF 만들기</button>
+      <label class="inl">파일 이름 <input id="ipName" type="text" value="사진모음" style="width:180px"></label>
+    </div>
+    <div class="obar" id="ipBar" hidden><i></i></div>
+    <div class="hlist" id="ipOutList"></div>
+    <p class="hint" id="ipHint"></p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>'원본 화질'은 JPG 사진을 다시 압축하지 않고 그대로 PDF에 넣습니다. 휴대폰 사진은 한 장에 3~5MB라 PDF가 커질 수 있으니, 제출처에 용량 제한이 있으면 '보통'이나 '가볍게'를 고르세요.</li>
+      <li>휴대폰으로 찍어 옆으로 누운 사진은 사진 속 방향 정보를 읽어 바로 세웁니다. 그래도 돌아가 있으면 목록의 ↻ 버튼으로 90°씩 돌리세요.</li>
+      <li>아이폰 HEIC 사진은 변환 프로그램(heic-to, LGPL-3.0)을 처음 한 번 SHIFT AI 서버에서 받아 바꾼 뒤 넣습니다. PDF는 오픈소스 <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener">pdf-lib</a>(MIT)로 만듭니다.</li>
+      <li>만든 PDF에는 사진의 위치·기종 정보(EXIF)가 들어가지 않습니다. 사진 파일 자체를 보내야 한다면 <a href="/tools/exif-remove/">사진 위치정보 지우기</a>를 먼저 쓰세요.</li>
+    </ul>
+    <p>다음 단계: 다른 PDF와 하나로 묶으려면 <a href="/tools/pdf-merge/">PDF 합치기</a>, 거꾸로 PDF를 사진으로 바꾸려면 <a href="/tools/pdf-to-jpg/">PDF → JPG 변환</a>을 쓰세요.</p>
+  </div>
+  <!--CVTABLE-->
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 사진을 읽고 PDF로 묶는 일은 모두 이 브라우저 안에서 합니다. 신분증·통장 사본처럼 남에게 보이면 안 되는 사진도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>사진 여러 장을 PDF 한 파일로 만들려면요?</summary><p>사진을 모두 넣은 뒤 ▲▼ 버튼이나 끌어 놓기로 순서를 맞추고 'PDF 만들기'를 누르세요. 한 장이 한 쪽이 되고, 넣은 순서대로 쪽이 이어집니다.</p></details>
+    <details><summary>PDF 용량이 너무 커요.</summary><p>화질·용량에서 '가볍게'를 고르면 긴 변을 1,600픽셀까지 줄이고 JPG로 더 압축해 한 장에 수백 KB 정도로 줄어듭니다. 사진 수가 많다면 '보통'과 '가볍게'를 차례로 만들어 보고 제출처 용량에 맞는 쪽을 쓰세요.</p></details>
+    <details><summary>아이폰 사진(HEIC)도 되나요?</summary><p>됩니다. HEIC 사진을 넣으면 브라우저 안에서 JPG로 바꾼 뒤 PDF에 넣습니다. 처음 한 번은 변환 프로그램을 받느라 몇 초 걸립니다.</p></details>
+    <details><summary>화면 캡처를 바로 넣을 수 있나요?</summary><p>됩니다. 캡처한 뒤 이 페이지에서 Ctrl+V(맥은 ⌘+V)를 누르면 사진 목록에 들어갑니다.</p></details>
+  </section>
+</article>
+</main>

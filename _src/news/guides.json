@@ -108,7 +108,9 @@
     "pdf-merge",
     "pdf-to-text",
     "char-count",
-    "ocr"
+    "ocr",
+    "doc-to-text",
+    "pdf-to-jpg"
    ],
    "prompts": [
     "pdf-to-markdown-6",
@@ -171,7 +173,9 @@
     "ai-format",
     "prompt",
     "ai-tell",
-    "redact"
+    "redact",
+    "prompt-box",
+    "prompt-check"
    ],
    "prompts": [
     "email-replies-1",
@@ -227,7 +231,8 @@
    ],
    "tools": [
     "table-to-markdown",
-    "redact"
+    "redact",
+    "table-to-chart"
    ],
    "prompts": [
     "spreadsheet-formulas-1",
@@ -343,7 +348,9 @@
     "t-crosscheck-prompts",
     "t-premortem"
    ],
-   "tools": [],
+   "tools": [
+    "prompt-check"
+   ],
    "prompts": [
     "verify-numbers-1",
     "verify-numbers-4",
@@ -513,7 +520,9 @@
    ],
    "tools": [
     "ai-format",
-    "prompt"
+    "prompt",
+    "table-to-chart",
+    "pdf-to-jpg"
    ],
    "prompts": [
     "presentation-1",
@@ -569,7 +578,8 @@
     "t-notebooklm"
    ],
    "tools": [
-    "pdf-to-text"
+    "pdf-to-text",
+    "doc-to-text"
    ],
    "prompts": [
     "ai-tutor-1",

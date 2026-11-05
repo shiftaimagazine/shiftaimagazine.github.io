@@ -104,5 +104,8 @@ $("pCopy").addEventListener("click", async ()=>{
   try{ await navigator.clipboard.writeText(t); toast("복사했습니다. 챗GPT·클로드·제미나이에 붙여 넣으세요"); }
   catch(_){ $("pOut").select(); try{ document.execCommand("copy"); toast("복사했습니다"); }catch(__){ toast("길게 눌러 복사해 주세요"); } }
 });
+$("pBox") && $("pBox").addEventListener("click", ()=>{ const t=$("pOut").value.trim(); if(!t) return toast("먼저 칸을 채워 주세요");
+  const v = values(), title = (v.task || T[tpl].name || "내 프롬프트").replace(/\s+/g," ").slice(0,40);
+  if(typeof window.SHIFT_PBOX_ADD==="function") window.SHIFT_PBOX_ADD(title, t, tpl!=="free" ? T[tpl].name : "", "/tools/prompt/"); });
 load(); render();
 })();

@@ -290,7 +290,7 @@ LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 
          'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.'),
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에 모았습니다. 제목 한 줄과 요점 세 줄, 소식 목록과 숫자를 한 번에 봅니다.'),
          'dict': ('AI 사전 — AI 용어 뜻 쉽게 풀이', f'AI 용어 {len(TERMS)}개의 뜻을 쉬운 말로 풀었습니다. 에이전트·RAG·MCP·토큰 같은 AI 용어부터 API·GPU 같은 IT 용어, 클로드·챗GPT·제미나이 같은 제품 이름까지 관련 기사와 함께 봅니다.'),
-         'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", 'AI 답변 서식 정리, 사진 위치정보 지우기, 이미지 압축·인스타 사이즈 자르기, PDF 합치기·나누기, 엑셀 마크다운 표 변환, 프롬프트 비교, 유료 프로그램 무료 대체 찾기, 글자 수·토큰 세기, HEIC JPG 변환, 이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
+         'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", 'JPG PDF 변환, PDF JPG 변환, 한글 HWP·워드·PPT 텍스트 변환, 표로 차트 만들기, 프롬프트 저장·점검, AI 답변 서식 정리, 사진 위치정보 지우기, 이미지 압축·인스타 사이즈 자르기, PDF 합치기·나누기, 엑셀 마크다운 표 변환, 프롬프트 비교, 유료 프로그램 무료 대체 찾기, 글자 수·토큰 세기, HEIC JPG 변환, 이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
          'prompts': (f"복붙 프롬프트 모음 {_NPROMPT}개 — 챗GPT·클로드·제미나이에 바로 쓰는 업무 프롬프트", f"메일 답장, 회의록 정리, 긴 자료 요약, 이력서·자기소개서 검토, 엑셀 수식, 공부까지 바로 복사해 쓰는 프롬프트 {_NPROMPT}개를 주제별로 모았습니다. 챗GPT·클로드·제미나이에 그대로 붙여 넣으면 됩니다."),
          'verdict': ('AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요', 'SHIFT AI가 원문을 읽고 기사마다 붙인 판정을 모았습니다. 지금 써 볼 만한 AI 도구, 조금 더 지켜볼 발표, 근거보다 부풀려진 발표를 골라 봅니다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 확인하고 써 볼 만한지 판정하는 AI 매거진입니다.'),
@@ -411,6 +411,30 @@ TOOLS = D.get('TOOLS', [])
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
 TOOL_SEO = {
+    'doc-to-text': dict(js='doc-text.js', title='한글 HWP 텍스트 변환 무료 — HWP·HWPX·워드·PPT 글자와 표 추출(한글 프로그램 없이)',
+                desc='한글(HWP·HWPX)·워드(DOCX)·파워포인트(PPTX) 파일 속 글과 표를 텍스트·마크다운으로 바꿉니다. 한글 프로그램 없이 열고, 표는 칸을 지켜 챗GPT·클로드·제미나이에 붙여 넣기 좋습니다. 파일은 서버에 올리지 않습니다.',
+                alt=['한글 파일 텍스트 변환', 'HWP 텍스트 추출', 'HWPX 변환', '워드 텍스트 추출', 'PPT 텍스트 추출', 'HWP 마크다운 변환'],
+                feat=['HWP(5.0)·HWPX·DOCX·PPTX 읽기', '표를 마크다운 표로(합친 칸 처리)', '자동 문단 번호·글머리표 다시 붙이기', '각주·발표자 메모·머리말 넣기', '여러 파일 한 번에(20개)', 'GPT 토큰 수 표시', '텍스트·마크다운 저장']),
+    'jpg-to-pdf': dict(js='img-pdf.js', title='JPG PDF 변환 무료 — 사진 여러 장을 PDF 한 파일로(HEIC·PNG, 업로드 없이)',
+                desc='JPG·PNG·WebP 사진과 아이폰 HEIC 사진 여러 장을 고른 순서대로 PDF 한 파일로 묶습니다. A4·여백·화질을 골라 서류 제출용 PDF를 만들고, 사진은 서버에 올리지 않고 브라우저 안에서만 처리합니다.',
+                alt=['JPG PDF 변환', '사진 PDF 변환', '이미지 PDF 변환', 'PNG PDF 변환', 'HEIC PDF 변환', '사진 여러장 PDF'],
+                feat=['JPG·PNG·WebP·HEIC를 PDF로', '여러 장을 순서대로 한 파일에(100장)', 'A4·레터·사진 비율 쪽', '여백·방향 고르기', '원본 화질·보통·가볍게 용량 조절', '사진 방향 자동 바로잡기·90° 돌리기', '캡처 붙여 넣기(Ctrl+V)']),
+    'pdf-to-jpg': dict(js='img-pdf.js', title='PDF JPG 변환 무료 — PDF 쪽을 사진(JPG·PNG)으로, 한 장으로 이어 붙이기까지',
+                desc='PDF 쪽을 JPG나 PNG 사진으로 바꿉니다. 필요한 쪽만 고르고 선명도를 정하며, 여러 쪽을 세로로 이어 한 장으로 만들 수 있습니다. 파일은 서버에 올리지 않고 브라우저 안에서만 처리합니다.',
+                alt=['PDF JPG 변환', 'PDF 이미지 변환', 'PDF PNG 변환', 'PDF 사진 변환'],
+                feat=['PDF 쪽을 JPG·PNG로', '쪽 미리 보기로 골라 바꾸기', '선명도 3단계(약 110·160·300dpi)', '여러 쪽을 세로로 이어 한 장', 'ZIP으로 한 번에 받기']),
+    'table-to-chart': dict(js='table-chart.js', title='차트 만들기 무료 — 엑셀 표·AI 표를 막대·꺾은선·원 그래프 그림으로(PPT·보고서용)',
+                desc='엑셀·구글 시트에서 복사한 표나 챗GPT가 준 마크다운 표를 붙여 넣으면 막대·꺾은선·누적 막대·도넛 차트 그림을 만듭니다. PPT 16:9·보고서 4:3 크기 PNG로 받거나 복사해 파워포인트·한글에 바로 붙입니다.',
+                alt=['차트 만들기', '그래프 만들기', '엑셀 차트 만들기', '막대 그래프 만들기', '원 그래프 만들기', '표 그래프 변환'],
+                feat=['엑셀 붙여 넣기·.xlsx·.csv·마크다운 표 읽기', '세로·가로 막대·꺾은선·누적 막대·도넛', '쉼표·원·%·만·억 단위 알아서 읽기', 'PPT 16:9·4:3·정사각형·4:5 크기', 'PNG(2배 크기)·SVG 저장', '그림 복사해 PPT·한글에 붙여 넣기', '흑백 인쇄용 색·투명 배경']),
+    'prompt-box': dict(js='prompt-box.js', title='프롬프트 저장·관리 무료 — 내 프롬프트함, [빈칸]만 채워 바로 복사',
+                desc='자주 쓰는 챗GPT·클로드·제미나이 프롬프트를 모아 두고 [회사명]·[날짜] 같은 빈칸만 채워 바로 복사합니다. 한 번 적은 값은 기억하고, 가입 없이 이 브라우저에 저장하며 백업 파일로 옮길 수 있습니다.',
+                alt=['프롬프트 저장', '프롬프트 관리', '프롬프트 템플릿', '프롬프트 보관함'],
+                feat=['프롬프트 저장·분류·검색', '[빈칸]·{{빈칸}} 채워 복사', '채운 값 기억', '즐겨찾기·자주 쓴 순', '백업 파일 받기·불러오기', '프롬프트 모음에서 바로 담기']),
+    'prompt-check': dict(js='prompt-check.js', title='프롬프트 점검기 무료 — 챗GPT 프롬프트 빠진 것·흐린 말 찾아 고치기',
+                desc='내가 쓴 프롬프트를 붙여 넣으면 역할·맥락·자료·할 일·조건·답 형식·확인 일곱 칸 가운데 빠진 것과 잘·적당히·간단하게 같은 흐린 말, 남은 빈칸, 개인정보를 찾아 표시하고 고친 틀을 만들어 줍니다.',
+                alt=['프롬프트 검사', '프롬프트 첨삭', '프롬프트 개선', '프롬프트 평가'],
+                feat=['일곱 칸(역할·맥락·자료·할 일·조건·답 형식·확인) 확인', '흐린 말 찾기와 고치는 법', '남은 빈칸·개인정보 표시', '하지 말라는 말·섞인 할 일 알림', '빠진 칸을 붙인 고친 틀', 'AI에게 고쳐 달라는 프롬프트 복사']),
     'ai-format': dict(js='ai-format.js', title='AI 답변 서식 정리기 — 챗GPT 답 카톡·한글에 붙일 때 ** # 마크다운 기호 지우기(무료)',
                 desc='챗GPT·클로드·제미나이 답을 카톡이나 한글에 붙이면 생기는 **, #, | 같은 마크다운 기호를 지우고 제목·목록·표를 정리합니다. 카톡용 글자, 한글·워드용 서식 글, 엑셀용 표로 골라 복사하고 글은 어디에도 보내지 않습니다.',
                 alt=['마크다운 기호 지우기', '챗GPT 별표 없애기', '마크다운 한글 변환', 'AI 답변 정리'],
@@ -517,6 +541,8 @@ def rel_item(r):  # tools.json rel: 사이트 안 주소(/tutorial/·/column/·/
     if r in _tutBy: return r, _tutBy[r], '튜토리얼'
     if r in _colBy: return r, _colBy[r], '칼럼'
     if r == '/vs/': return r, '챗GPT·클로드·제미나이·그록 둘씩 비교', 'AI 서비스 비교'
+    if r == '/tools/convert/': return r, '파일 변환표 — JPG·PDF·한글·워드·엑셀을 무엇으로 바꿀까', '무료 도구'
+    if r == '/prompts/': return r, '복붙 프롬프트 모음', '프롬프트'
     if r.startswith('/guide/'):
         g = next(x for x in json.load(open(SRC + 'news/guides.json'))['guides'] if f"/guide/{x['id']}/" == r); return r, g['h1'], 'AI 길잡이'
     o = next(x for x in TOOLS if x['href'] == r); return r, o['title'], '무료 도구'
@@ -555,6 +581,33 @@ def tool_tabs(v, t):
              '  </section>\n')
     a = m.start() + 1
     return v[:a] + tabs + guide + '  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">\n' + v[a:e] + '\n  </div>' + v[e:]
+# 파일 변환표(11/5~): news/convert.json → 변환 도구 페이지 위쪽 바로가기(<!--CVNAV-->)·아래 변환표(<!--CVTABLE-->)와 /tools/convert/.
+CV = json.load(open(SRC + 'news/convert.json'))
+_CVH = {c['href'] for c in CV['cells'] if c.get('href')}
+def cv_nav(cur):
+    return ('<nav class="cvset" aria-label="파일 변환"><span>파일 변환</span>'
+            + ''.join(f'<a href="{h}#use"{" aria-current=\"page\"" if h == cur else ""}>{esc(n)}</a>' for h, n in CV['nav'])
+            + '<a class="cvall" href="/tools/convert/">전체 변환표 →</a></nav>')
+def cv_table(cur=None, h2='다른 파일로 바꾸기'):
+    cell = {(c['from'], c['to']): c for c in CV['cells']}
+    head = '<tr><th scope="col">가진 파일 ＼ 바꿀 결과</th>' + ''.join(f'<th scope="col">{esc(t["name"])}{"<small>" + esc(t["sub"]) + "</small>" if t.get("sub") else ""}</th>' for t in CV['to']) + '</tr>'
+    rows = []
+    for f in CV['from']:
+        tds = []
+        for t in CV['to']:
+            c = cell.get((f['k'], t['k'])); lab = f' data-to="{esc(t["name"])}"'
+            if c and c.get('href'): tds.append(f'<td{lab}><a href="{c["href"]}#use"{" aria-current=\"page\"" if c["href"] == cur else ""} data-ev="convert:{c["href"]}">{esc(c["label"])}</a></td>')
+            elif c and c.get('tip'): tds.append(f'<td{lab} class="cvtip"><span>{esc(c["tip"])}</span></td>')
+            else: tds.append('<td class="cvno"><span aria-label="없음">–</span></td>')
+        rows.append(f'<tr><th scope="row">{esc(f["name"])}{"<small>" + esc(f["sub"]) + "</small>" if f.get("sub") else ""}</th>{"".join(tds)}</tr>')
+    return (f'<section class="cvtbl" id="convert" aria-label="파일 변환표">\n    <h2>{h2}</h2>\n    <p>가진 파일(왼쪽)과 바꾸고 싶은 결과(위)가 만나는 칸을 누르면 그 도구로 갑니다. 모두 설치·가입 없이 브라우저 안에서 처리합니다.</p>\n'
+            f'    <div class="cvwrap"><table><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table></div>\n  </section>\n')
+def cv_fill(v, t):
+    if t['href'] not in _CVH and '<!--CVNAV-->' not in v: return v
+    v = re.sub(r'\s*<nav class="pdfset".*?</nav>', '\n  <!--CVNAV-->', v, flags=re.S) if '<!--CVNAV-->' not in v else v
+    if '<!--CVNAV-->' not in v: v = re.sub(r'(<div class="tbadges">.*?</div>)', r'\1\n  <!--CVNAV-->', v, count=1, flags=re.S)
+    if '<!--CVTABLE-->' not in v: v = v.replace('  <section class="tfaq"', '  <!--CVTABLE-->\n  <section class="tfaq"', 1)
+    return v.replace('<!--CVNAV-->', cv_nav(t['href'])).replace('<!--CVTABLE-->', cv_table(t['href']))
 for t in TOOLS:
     sv = SRC + f"views/tool-{t['id']}.html"
     if t['id'] not in TOOL_SEO or not os.path.exists(sv): continue
@@ -565,7 +618,7 @@ for t in TOOLS:
           'browserRequirements': S.get('os', 'JavaScript를 켠 최신 브라우저'), 'featureList': S['feat'], 'inLanguage': 'ko', 'isAccessibleForFree': True,
           'datePublished': t['date'], 'dateModified': max([t.get('mod') or t['date']] + [x[0] for x in UPD.get(t['href'], [])]),
           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'}, 'publisher': {'@type': 'Organization', 'name': 'SHIFT AI', 'url': SITE + '/'}}
-    v = fix_links(view('tool-' + t['id']))
+    v = cv_fill(fix_links(view('tool-' + t['id'])), t)
     if t['id'] == 'free-alternatives': v = fa_render(v)
     if t['id'] == 'ai-subscriptions':  # 요금은 news/vs.json plans(10/29 공식 페이지), 환율은 ai_prices.json 과 같은 값
         _v, _fx = json.load(open(SRC + 'news/vs.json')), json.load(open(SRC + 'news/ai_prices.json'))['fx']
@@ -584,7 +637,7 @@ for t in TOOLS:
     fq = faq_of(v)
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
     if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
-    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr') else None)
+    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf') else None)
 # AI 서비스 비교(/vs/, 11/2~): news/vs.json — 요금제 칼럼(10/29 각 사 공식 페이지 확인)에 실린 사실만 쓴다. 칼럼을 고칠 때 같이 고칠 것.
 VS = json.load(open(SRC + 'news/vs.json'))
 _VS, _vsc = VS['services'], next((c for c in C if c['id'] == 'c-ai-plans-compare'), None)
@@ -739,6 +792,24 @@ page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀
      LD(crumbs(('AI 길잡이', '/guide/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 길잡이', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/guide/{g['id']}/", 'name': g['h1']} for i, g in enumerate(GUIDES)]}))
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
+# 파일 변환 모음(/tools/convert/, 11/5~): 변환표 + 변환 도구 카드 + 자주 묻는 질문. 변환표 칸은 news/convert.json.
+_cvtools = [x for x in TOOLS if x['href'] in _CVH]
+_cvfaq = [('파일이 서버로 올라가나요?', '올라가지 않습니다. 이 표에 있는 변환은 모두 내 브라우저 안에서 합니다. 변환 프로그램만 처음 한 번 SHIFT AI 서버에서 받아 오고, 넣은 파일은 어디에도 보내지 않습니다.'),
+          ('한글(HWP)·워드를 PDF로 바꾸는 칸은 왜 링크가 없나요?', '한글·워드 문서를 쪽 모양 그대로 PDF로 만들려면 글꼴과 쪽 배치를 그 프로그램처럼 그려야 해서 브라우저만으로는 정확히 만들 수 없습니다. 한글은 \'파일 → PDF로 저장하기\', 워드·파워포인트는 \'다른 이름으로 저장 → PDF\'를 쓰는 편이 가장 정확합니다. 글자와 표만 필요하면 <a href="/tools/doc-to-text/">한글·워드·PPT 글자 뽑기</a>를 쓰세요.'),
+          ('JPG를 PDF로, PDF를 JPG로 바꾸려면요?', '사진을 PDF로 묶을 때는 <a href="/tools/jpg-to-pdf/">JPG → PDF 변환</a>, PDF 쪽을 사진으로 저장할 때는 <a href="/tools/pdf-to-jpg/">PDF → JPG 변환</a>을 쓰세요. 둘 다 여러 장을 한 번에 처리합니다.'),
+          ('AI에 올리기 좋은 형식은 무엇인가요?', '챗GPT·클로드·제미나이에는 글자로 바꾼 마크다운이 가장 가볍고 정확합니다. PDF는 <a href="/tools/pdf-to-text/">PDF 글자 뽑기</a>, 한글·워드·파워포인트는 <a href="/tools/doc-to-text/">글자 뽑기</a>, 엑셀은 <a href="/tools/table-to-markdown/">마크다운 표 변환</a>으로 바꾼 뒤 붙여 넣으면 표가 깨지지 않습니다.')]
+_cvmain = ('<main id="v-convert">\n<article class="article tool">\n  <a class="back" href="/tools/">← 무료 도구</a>\n  <span class="cat">무료 도구 · 파일 변환</span>\n'
+           '  <h1>파일 변환표 — JPG·PDF·한글·워드·엑셀 무료 변환</h1>\n'
+           '  <p class="deck">가진 파일과 바꾸고 싶은 결과를 고르면 맞는 무료 도구로 바로 갑니다. JPG를 PDF로, PDF를 JPG나 텍스트로, 한글(HWP)·워드·파워포인트를 텍스트로, 엑셀 표를 마크다운 표나 차트 그림으로 바꿉니다. 모두 설치·가입 없이 이 브라우저 안에서 처리합니다.</p>\n'
+           '  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>\n'
+           + cv_table(None, '파일 변환표')
+           + '  <div class="sec"><h2>변환 도구 모두 보기</h2></div>\n  <div class="trel-tools">' + ''.join(f'<a href="{o["href"]}"><b>{esc(o["title"])}</b><span>{esc(o["desc"])}</span></a>' for o in _cvtools) + '</div>\n'
+           + _faq(_cvfaq).replace('<section class="tfaq"', '  <section class="tfaq"', 1) + FOLLOWBOX + '\n</article>\n</main>')
+_cvld = {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'SHIFT AI 무료 파일 변환', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + x['href'], 'name': x['title']} for i, x in enumerate(_cvtools)]}
+_cvq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': html.unescape(re.sub(r'href="/', f'href="{SITE}/', a))}} for q, a in _cvfaq]}
+page('/tools/convert/', 'tool-convert', '파일 변환 무료 — JPG PDF 변환, PDF JPG 변환, 한글 HWP·워드·PPT 텍스트 변환 · SHIFT AI',
+     'JPG를 PDF로, PDF를 JPG·텍스트로, 한글(HWP·HWPX)·워드·파워포인트를 텍스트로, 엑셀 표를 마크다운 표·차트 그림으로 바꾸는 무료 변환표입니다. 설치·가입 없이 브라우저 안에서 처리하고 파일은 서버에 올리지 않습니다.',
+     _cvmain, OG_SITE, 'website', LD(crumbs(('무료 도구', '/tools/'), ('파일 변환표', '/tools/convert/')), _cvld, _cvq))
 # ---- 사이트맵·RSS·robots ----
 last = {'/': max(a['date'] for a in A)}
 for a in A: last[f"/news/{a['id']}/"] = a['date']
@@ -749,6 +820,7 @@ last.update(termLast)
 for t in TOOLS: last[t['href']] = t.get('mod') or t['date']
 for _p in ['/vs/'] + [f"/vs/{q['id']}/" for q in VS['pairs']]: last[_p] = '2026-11-02'
 if TOOLS: last['/tools/'] = max(t.get('mod') or t['date'] for t in TOOLS)
+if _cvtools: last['/tools/convert/'] = max(t.get('mod') or t['date'] for t in _cvtools)
 for _p, _d in WEEK_LAST.items(): last[_p] = _d
 for _p, _d in GUIDE_LAST.items(): last[_p] = _d
 if GUIDE_LAST: last['/guide/'] = max(GUIDE_LAST.values())
