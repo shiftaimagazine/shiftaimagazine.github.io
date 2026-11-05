@@ -1,0 +1,574 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-06-anthropic-flashprove",
+   "cat": "보안·안전",
+   "date": "2026-11-06",
+   "time": "07:58",
+   "title": "앤트로픽 플래시프루브, AI 답변이 약속한 모델에서 나왔는지 암호로 증명한다",
+   "sub": "FlashProve · 증명 가능한 추론 · 앤트로픽 프런티어 레드팀",
+   "hook": "앤트로픽(Anthropic)이 AI 답변이 개발사가 말한 바로 그 모델에서 나왔는지 영지식 증명으로 확인하는 프로토타입 플래시프루브(FlashProve)를 오픈소스로 공개했습니다. H100 한 대에서 초당 약 110토큰의 증명을 만들지만 아직 연구용입니다.",
+   "try": "내가 쓰는 AI 서비스의 도움말에서 답변을 만든 모델 이름을 어디서 확인하는지 찾아보고, 앤트로픽 원문의 한계 목록도 읽어 보세요.",
+   "who": "AI 모델을 API로 사다 쓰는 기업 담당자와 개발자",
+   "facts": [
+    [
+     "발표 주체",
+     "앤트로픽 프런티어 레드팀"
+    ],
+    [
+     "날짜",
+     "2026년 11월 2일(미국 시각 게시, 3일 수정)"
+    ],
+    [
+     "무엇",
+     "플래시프루브, 모델 응답의 출처를 증명하는 프로토타입"
+    ],
+    [
+     "핵심 숫자",
+     "H100 1대에서 초당 약 110토큰, 요청당 증명 약 19MB"
+    ],
+    [
+     "공개 범위",
+     "Apache 2.0 오픈소스(코드·Lean 증명·문서)"
+    ],
+    [
+     "원문",
+     "앤트로픽 리서치 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "앤트로픽(Anthropic)의 프런티어 레드팀(Frontier Red Team)이 AI 답변이 개발사가 말한 특정 모델에서 나왔다는 것을 암호로 증명하는 프로토타입 '플래시프루브(FlashProve)'를 공개했습니다. 글은 미국 시각 11월 2일에 올라와 3일에 고쳐졌고, 코드는 Apache 2.0 라이선스의 오픈소스입니다."
+    },
+    {
+     "ul": [
+      [
+       "모델 가중치에 대한 약속값을 먼저 공개",
+       "응답마다 '약속한 모델이 이 토큰을 냈다'는 증명을 붙임"
+      ],
+      [
+       "H100 한 대에서 초당 약 110토큰",
+       "요청 하나(1,024토큰)당 증명은 약 19MB"
+      ],
+      [
+       "아직 연구용 프로토타입",
+       "MoE 구조와 맥락 1,024토큰까지만 증명"
+      ]
+     ]
+    },
+    {
+     "h": "답변을 만든 모델을 사용자가 확인할 방법이 없었습니다"
+    },
+    {
+     "p": "글은 지금의 AI 서비스에서 사용자가 응답이 개발사가 주장하는 특정 모델에서 나왔는지 직접 확인할 수 없다는 문제에서 출발합니다. 플래시프루브는 영지식 증명(zkSNARK) 방식으로 이 문제를 푸는 '증명 가능한 추론(provable inference)' 시스템이고, 앤트로픽은 각주에서 앞으로 '추론 검증(inference verification)'이라는 말을 쓰겠다고 적었습니다. 모델 구조는 가중치를 뺀 나머지가 감춰지지 않습니다."
+    },
+    {
+     "h": "약속값 한 번, 증명은 요청마다"
+    },
+    {
+     "p": "준비 단계에서는 모델을 돌리는 쪽이 가중치에 대한 약속값(commitment)을 공개하며, 모델 하나에 약 39분이 걸리고 약 1,600만 건의 요청을 덮습니다. 요청이 들어오면 약속한 모델이 이 출력 토큰을 낸다는 증명을 만들고, 사용자 쪽 검증은 GPU 없이 CPU로 합니다. 내려받을 데이터는 모두 합쳐 약 6.5MB에 요청마다 증명 하나이고, 검증에는 24스레드로 17초, 스레드 하나로 21초가 걸렸습니다."
+    },
+    {
+     "h": "4000억 개 모델에서 잰 속도와 비용"
+    },
+    {
+     "p": "시험에는 메타의 라마 4 매버릭(Llama 4 Maverick)을 4비트로 바꾼 버전을 썼습니다. 전체 파라미터가 4,000억 개이고 토큰마다 약 170억 개를 쓰는 MoE 모델입니다. 80GB GPU 한 대와 호스트 메모리 약 290GB에서 초당 약 110토큰의 증명이 나왔고, 1,024토큰 요청 하나의 증명은 약 19MB(18.78MB)였습니다. 같은 모델을 H100 여덟 대에서 vLLM FP8로 돌릴 때와 비교한 계산량은 GPU당 약 72배(실행마다 66~77배)이고, 부하가 가장 높은 조건에서는 약 94배였습니다(자체 발표 기준)."
+    },
+    {
+     "table": {
+      "head": [
+       "항목",
+       "값",
+       "조건"
+      ],
+      "rows": [
+       [
+        "증명 생성 속도",
+        "약 110토큰/초",
+        "H100 1대"
+       ],
+       [
+        "증명 크기",
+        "약 19MB",
+        "1,024토큰 요청 1건"
+       ],
+       [
+        "일반 추론 대비 계산량",
+        "약 72배",
+        "24건 묶음, GPU당"
+       ],
+       [
+        "검증 시간",
+        "17초",
+        "CPU 24스레드"
+       ],
+       [
+        "준비 단계",
+        "약 39분",
+        "모델 1개"
+       ]
+      ],
+      "note": "출처 앤트로픽 리서치 블로그(2026-11-02), 자체 발표 기준"
+     }
+    },
+    {
+     "h": "글이 직접 적은 한계"
+    },
+    {
+     "p": "앤트로픽은 이번 공개가 연구 프로토타입이라고 밝히고 한계를 나열했습니다. 빠른 실행 코드에는 형식 검증 보장이 없고(Lean 검증기는 있지만 C++ 검증기는 보장이 없습니다), 증명 대상은 정수 모델의 탐욕적 디코딩이라 부동소수점이나 샘플링 응답은 어느 위치에서 어긋날 수 있습니다. MoE 구조만 지원하고 맥락은 1,024토큰까지이며 부채널 공격은 이번 범위 밖입니다. 모델 가중치는 포함되지 않아서 사용자가 허깅페이스에서 메타의 라마 4 라이선스로 따로 받아야 합니다. 기술 보고서와 프로토콜 명세, 코드는 앤트로픽의 깃허브(anthropics/FlashProve)에 올라와 있고 한국어 지원이나 서비스 적용 일정은 글에 없습니다."
+    }
+   ],
+   "ask": "쓰고 있는 AI 서비스가 실제로 어떤 모델로 답하는지 확인할 방법을 알고 계신가요?",
+   "verdict": {
+    "v": "watch",
+    "why": "연구용 프로토타입이라 MoE 구조와 맥락 1,024토큰까지만 증명할 수 있습니다."
+   },
+   "sources": [
+    [
+     "앤트로픽 리서치 — Progress on provable inference for large language models",
+     "https://www.anthropic.com/research/provable-inference"
+    ]
+   ],
+   "terms": [
+    "앤트로픽",
+    "영지식 증명",
+    "혼합 전문가(MoE)",
+    "양자화",
+    "GPU",
+    "CPU",
+    "레드팀",
+    "가중치",
+    "오픈소스",
+    "토큰",
+    "컨텍스트 윈도우",
+    "아파치 2.0"
+   ],
+   "image": {
+    "page": "https://www.anthropic.com/research/provable-inference",
+    "og": "https://www-cdn.anthropic.com/images/4zrzovbb/website/2eba335a28661a8253187053fa36add230af728b-2000x1125.jpg",
+    "credit": "이미지: Anthropic",
+    "alt": "앤트로픽 증명 가능한 추론 글 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "사용자가 어떤 모델이 답했는지 확인 못 함",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "A user querying a model today cannot check that the responses came from the specific model that a developer claims is responding."
+    },
+    {
+     "claim": "초당 약 110토큰, 증명 약 19MB",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "a single H100 GPU generates proofs at around 110 tokens/second, with a proof size of ~19 MB per 1,024-token request."
+    },
+    {
+     "claim": "72배(66~77), 94배",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "about 72x per GPU for a batch of 24 requests (66 to 77 across runs) against vLLM FP8 on eight H100s, and about 94x at the highest load tried"
+    },
+    {
+     "claim": "준비 단계 39분, 1,600만 요청",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "about 39 minutes per model. The commitment covers about 16 million requests."
+    },
+    {
+     "claim": "검증 6.5MB, 17초·21초",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "~6.5 MB in all; 17 seconds on 24 threads (and 21 seconds on a single thread)"
+    },
+    {
+     "claim": "모델 구성, 하드웨어",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "Llama 4 Maverick, 400B-parameter MoE, about 17B parameters used per token, third-party 4-bit conversion; a single 80 GB GPU, with ~290 GB of host memory beside it."
+    },
+    {
+     "claim": "증명 크기 18.78MB",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "each proof is 18.78 MB"
+    },
+    {
+     "claim": "한계 목록",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "This release is a research prototype, and has the following technical limitations: The proof is about an integer model under greedy decoding. Our system assumes the served model uses a Mixture-of-Experts (MoE) architecture. The system currently proves inference over contexts of up to 1,024 tokens."
+    },
+    {
+     "claim": "Apache 2.0, 가중치는 라마 4 라이선스",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "We release our code, Lean proofs, and documentation under the Apache 2.0 license. (weights from Hugging Face under Meta's Llama 4 license)"
+    },
+    {
+     "claim": "게시일 11월 2일, 수정 11월 3일",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "article:published_time 2026-11-02; modified 2026-11-03T19:10:19Z"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-06-phonon-tts-on-device",
+   "cat": "모델·제품",
+   "date": "2026-11-06",
+   "time": "07:57",
+   "title": "Phonon TTS, 65MB 안팎 온디바이스 음성 합성은 첫 소리까지 28ms",
+   "sub": "Gradium · 허깅페이스 블로그 · 한국어는 맞춤 학습 상담",
+   "hook": "Phonon TTS는 약 65MB와 75MB 크기의 온디바이스 음성 합성 모델입니다. 서버 없이 CPU에서 돌고 첫 소리까지 28ms가 걸린다고 하지만, 지원 언어는 영어·프랑스어·독일어·스페인어·포르투갈어이고 한국어는 없습니다.",
+   "try": "허깅페이스 스페이스의 Phonon 데모에서 영어 문장을 넣어 소리를 들어 보고, 내 용도에 언어와 라이선스가 맞는지 확인해 보세요.",
+   "who": "영어·유럽어 음성을 앱이나 기기에서 직접 돌리려는 개발자",
+   "facts": [
+    [
+     "발표 주체",
+     "Gradium(허깅페이스 블로그 게시)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 5일"
+    ],
+    [
+     "무엇",
+     "온디바이스 음성 합성 모델 Phonon 31m·40m"
+    ],
+    [
+     "핵심 숫자",
+     "크기 약 65MB·75MB, 첫 소리까지 28ms"
+    ],
+    [
+     "지원 언어",
+     "영어·프랑스어·독일어·스페인어·포르투갈어"
+    ],
+    [
+     "원문",
+     "허깅페이스 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "음성 AI 업체 Gradium이 허깅페이스(Hugging Face) 블로그에 11월 5일 올린 글에서 온디바이스 음성 합성 모델 'Phonon TTS'를 자세히 소개했습니다. 크기는 약 65MB와 75MB로 서버나 네트워크 없이 돌고 입력한 글이 기기 밖으로 나가지 않으며, 두 주 전 공개 뒤 내려받기가 20만 회를 넘었습니다."
+    },
+    {
+     "ul": [
+      [
+       "작은 모델 두 가지",
+       "Phonon 31m(영어, Apache 2.0)과 Phonon 40m(5개 언어, 비상업)"
+      ],
+      [
+       "CPU 스트리밍 첫 소리까지 28ms",
+       "Phonon 31m 기준, 비교 모델 Pocket TTS는 165ms"
+      ],
+      [
+       "한국어는 지원 언어에 없음",
+       "원하면 맞춤 학습을 해 준다고 글에 적혀 있음"
+      ]
+     ]
+    },
+    {
+     "h": "기기 안에서 돌아가는 65MB"
+    },
+    {
+     "p": "Phonon은 약 65MB와 75MB 두 가지 크기로 나옵니다. 내장 목소리가 100개가 넘고 Gradium Studio에서 나만의 목소리를 만들 수 있으며, 실행 프레임워크 ptts는 CPU(인텔, 암, 웹어셈블리), GPU(CUDA, Vulkan, Metal, WebGPU), NPU(애플 Core ML, 스냅드래곤)까지 10개가 넘는 환경을 지원합니다. 트랜스포머스(Transformers) v5.21부터는 라이브러리에서 바로 불러 쓸 수 있습니다."
+    },
+    {
+     "h": "첫 소리까지 28ms, 순위는 상위권"
+    },
+    {
+     "p": "CPU에서 스트리밍할 때 첫 오디오가 나오기까지의 시간(95번째 백분위수)은 Phonon 31m 영어판이 28ms로 1위, 40m 영어판이 38ms로 2위였고 Pocket TTS는 165ms였습니다. 오픈 TTS 리더보드는 23개 언어에서 알아듣기 쉬움, 속도, 자연스러움을 재는데 Phonon은 독일어와 스페인어에서 알아듣기 쉬움 1위, 평가한 모든 언어에서 상위 3위에 들었고 비교 대상에는 크기가 최대 100배인 모델도 있습니다. 허깅페이스 허브에 올라온 음성 합성 모델은 9,000개가 넘습니다(자체 발표 기준)."
+    },
+    {
+     "table": {
+      "head": [
+       "모델",
+       "언어",
+       "라이선스",
+       "첫 소리 시간"
+      ],
+      "rows": [
+       [
+        "Phonon 31m",
+        "영어",
+        "Apache 2.0(상업 이용 가능)",
+        "28ms"
+       ],
+       [
+        "Phonon 40m",
+        "5개 언어",
+        "비상업",
+        "38ms(영어판 기준)"
+       ]
+      ],
+      "note": "출처 허깅페이스 블로그(2026-11-05), 자체 발표 기준"
+     }
+    },
+    {
+     "h": "한국어를 쓰려면 알아 둘 언어와 라이선스"
+    },
+    {
+     "p": "상업 제품에 무료로 쓸 수 있는 모델은 영어 전용 Phonon 31m 하나이고, 다섯 언어를 다 말하는 Phonon 40m은 비상업 라이선스(CC BY-NC)입니다. 리더보드의 자연스러움 지표에는 한국어용 KOMOS가 들어 있지만 Phonon이 말하는 언어에 한국어는 없습니다. 글은 한국어, 아랍어, 일본어가 필요하면 맞춰 학습해 줄 수 있다고 적었는데 디자인 파트너를 통해 하는 일이고 공개된 모델은 아닙니다. 글에는 점수 값이 아니라 순위만 나와 있고 기기별 실제 속도 표도 없습니다."
+    }
+   ],
+   "ask": "앱이나 업무 도구에서 글을 읽어 주는 기능이 필요하다면 서버 없이 기기에서 돌리는 쪽을 고려하시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "한국어는 지원하지 않고 상업 이용이 가능한 모델은 영어판 하나뿐입니다."
+   },
+   "sources": [
+    [
+     "허깅페이스 블로그 — A Closer Look at Phonon TTS",
+     "https://huggingface.co/blog/phonon-tts"
+    ]
+   ],
+   "terms": [
+    "음성 합성",
+    "온디바이스 AI",
+    "허깅페이스",
+    "오픈소스",
+    "라이선스",
+    "아파치 2.0",
+    "CPU",
+    "NPU",
+    "GPU"
+   ],
+   "image": {
+    "page": "https://huggingface.co/blog/phonon-tts",
+    "og": "https://huggingface.co/blog/assets/phonon-closer-look/thumbnail.png",
+    "credit": "이미지: Gradium·Hugging Face",
+    "alt": "Phonon TTS 허깅페이스 블로그 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Published November 5, 2026"
+    },
+    {
+     "claim": "두 가지 크기",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Phonon comes in two sizes, at about 65 MB and 75 MB."
+    },
+    {
+     "claim": "서버·네트워크 없음",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "It needs no server and no network, and what you type stays with you."
+    },
+    {
+     "claim": "다운로드 20만 회, 두 주 전 공개",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Phonon was downloaded more than 200,000 times in its first two weeks. / Two weeks ago, we opened up Phonon."
+    },
+    {
+     "claim": "목소리 100개 이상",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "There are more than 100 built-in voices, and you can create your own in Gradium Studio."
+    },
+    {
+     "claim": "10개 넘는 환경",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "supports more than 10 backends: CPU (Intel, Arm, WebAssembly), GPU (CUDA, Vulkan, Metal, WebGPU), and NPU (Apple Core ML, Snapdragon®)."
+    },
+    {
+     "claim": "트랜스포머스 v5.21",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Phonon is also available in 🤗 Transformers, from v5.21."
+    },
+    {
+     "claim": "첫 소리 시간",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Phonon 31m en is first at 28 ms and Phonon 40m en is second at 38 ms, ahead of Pocket TTS at 165 ms. Lower is better."
+    },
+    {
+     "claim": "리더보드 23개 언어, KOMOS",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Across 23 languages, models are evaluated on intelligibility..., speed..., and naturalness (UTMOS for English and KOMOS for Korean)."
+    },
+    {
+     "claim": "독일어·스페인어 1위, 상위 3위, 100배",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Phonon ranks first in German and Spanish, and in the top three in every language we evaluated, next to models up to 100 times its size."
+    },
+    {
+     "claim": "허브 9,000개",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "more than 9,000 TTS models on the Hugging Face Hub"
+    },
+    {
+     "claim": "라이선스",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Phonon 31m is Apache 2.0, so you can use it for free, even in a commercial product. The other models are CC BY-NC, so they're free for non-commercial projects. Phonon 40m covers all five languages under a non-commercial license."
+    },
+    {
+     "claim": "지원 언어",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "Together they speak English, French, German, Spanish and Portuguese."
+    },
+    {
+     "claim": "한국어 맞춤 학습",
+     "url": "https://huggingface.co/blog/phonon-tts",
+     "quote": "If you need Korean, Arabic or Japanese, we can train for that too."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-06-google-agile-deliberation",
+   "cat": "연구",
+   "date": "2026-11-06",
+   "time": "07:56",
+   "title": "구글 Agile Deliberation, 주관적인 기준의 이미지 분류기를 AI와 함께 다듬는다",
+   "sub": "구글 리서치 · CVPR 2026 · 18번의 실제 사용자 세션",
+   "hook": "구글 리서치(Google Research)가 '건강한 음식'처럼 기준이 사람마다 다른 개념의 이미지 분류기를 만드는 방법 Agile Deliberation을 소개했습니다. 사용자가 프롬프트를 직접 고치지 않고 AI가 보여 주는 애매한 이미지에 답하며 기준을 다듬습니다.",
+   "try": "분류하고 싶은 이미지 기준이 하나 있다면 깃허브의 Healthy Food 콜랩 데모를 열어 기준을 쪼개고 애매한 사례를 고르는 과정을 따라가 보세요.",
+   "who": "사진·이미지를 기준에 따라 분류해야 하는 콘텐츠·광고 운영 담당자",
+   "facts": [
+    [
+     "발표 주체",
+     "구글 리서치(오틸리아 스트레추, 레이지에 왕)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 4일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "주관적 개념을 위한 이미지 분류기 제작 프레임워크"
+    ],
+    [
+     "핵심 숫자",
+     "1.5시간짜리 실제 세션 18번"
+    ],
+    [
+     "공개 범위",
+     "CVPR 2026 논문, 깃허브 코드, 콜랩 데모"
+    ],
+    [
+     "원문",
+     "구글 리서치 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글 리서치(Google Research)가 11월 4일(미국 시각) 블로그에서 '건강한 음식'이나 '감동을 주는 예술 작품'처럼 기준이 사람마다 다른 개념을 가려내는 이미지 분류기를 만드는 방법 'Agile Deliberation'을 소개했습니다. 사용자는 라벨을 일일이 붙이는 대신 AI가 보여 주는 애매한 이미지에 답하면서 자기 기준을 다듬습니다."
+    },
+    {
+     "ul": [
+      [
+       "두 단계 작업",
+       "개념을 하위 개념과 제외 항목으로 쪼갠 뒤 애매한 이미지로 기준을 다듬음"
+      ],
+      [
+       "비전 언어 모델이 애매한 이미지를 제시",
+       "답은 프롬프트 최적화 루프에 들어가 분류기를 자동으로 만듦"
+      ],
+      [
+       "1.5시간짜리 실제 세션 18번",
+       "수동 방식보다 모든 참가자가 이 방식을 선호했다고 글에 적힘"
+      ]
+     ]
+    },
+    {
+     "h": "건강한 음식을 샐러드와 곡물 볼로 쪼갭니다"
+    },
+    {
+     "p": "첫 단계는 개념 범위 정하기입니다. 글의 예시에서 '건강한 음식(Healthy Food)'은 샐러드, 곡물 볼, 저지방 단백질 같은 하위 개념으로 나뉘고, 가공식품이나 손질하지 않은 날 재료는 제외 항목으로 들어갑니다. 사용자가 기준을 직접 글로 풀어 쓰는 부담을 AI가 나눠 지는 단계입니다."
+    },
+    {
+     "h": "과일 스무디는 건강한 식단일까요"
+    },
+    {
+     "p": "두 번째 단계에서는 비전 언어 모델(VLM)이 기준 경계에 걸친 이미지를 골라 보여 줍니다. 글이 든 예는 과일 스무디를 '건강한 식단' 개념에 맞는지 묻는 장면이고, 사용자의 답이 모이면 자동 프롬프트 최적화 루프가 분류 지시문을 고쳐 갑니다. 사용자는 프롬프트 엔지니어가 될 필요가 없다는 것이 글의 설명입니다."
+    },
+    {
+     "h": "실제 사람 18명 세션에서 본 차이"
+    },
+    {
+     "p": "주관적인 개념에는 정답 기준이 되는 정적 데이터가 없어서 연구진은 모의 시험을 건너뛰고 1.5시간짜리 실제 세션 18번으로 평가했습니다. 개념은 '건강한 음식'과 '페이투플레이(Pay-to-Play, 온라인 오락·게임에서 금전적 보상을 미끼로 거는 낚시성 이미지)' 두 가지였고, 비교 대상은 제로샷 분류기와 'Modeling collaborator', 사람이 직접 다듬는 방식이었습니다. 수동 방식은 정확도를 높이지 못하거나 오히려 떨어뜨리는 경우가 많았고 참가자들은 스트레스와 답답함이 훨씬 덜하다고 답했으며 모든 참가자가 Agile Deliberation을 더 좋아했습니다. 차이가 가장 컸던 곳은 가장 판단하기 어려운 이미지이고, 막대그래프의 수치는 본문 글에 적혀 있지 않습니다."
+    },
+    {
+     "h": "공개된 코드와 아직 좁은 시험 범위"
+    },
+    {
+     "p": "논문은 CVPR 2026에 실렸고 arXiv와 깃허브에 코드가 올라와 있으며 Healthy Food 예제를 따라가는 콜랩 데모도 있습니다. 글은 이 작업이 구글 리서치와 구글 광고(Google Ads)의 협업으로 나왔고 기능을 갖춘 프로토타입을 사용자 실험으로 평가한 단계라고 적었습니다. 시험한 분야는 두 곳뿐이며 코드의 라이선스는 글에 명시되어 있지 않습니다."
+    }
+   ],
+   "ask": "팀에서 쓰는 이미지 분류 기준을 말로 정확히 설명해 본 적이 있나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "코드와 데모는 공개됐지만 두 분야를 18번 시험한 연구 단계입니다."
+   },
+   "sources": [
+    [
+     "구글 리서치 블로그 — Agile Deliberation: How AI helps humans define the gray areas",
+     "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/"
+    ]
+   ],
+   "terms": [
+    "구글 리서치",
+    "분류기",
+    "비전 언어 모델(VLM)",
+    "프롬프트 엔지니어링",
+    "프롬프트",
+    "오픈소스"
+   ],
+   "image": {
+    "page": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+    "og": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
+    "credit": "이미지: Google Research",
+    "alt": "구글 리서치 Agile Deliberation 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일, 저자",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "November 4, 2026; Otilia Stretcu, Research Scientist and Leijie Wang, Student Researcher, Google Research"
+    },
+    {
+     "claim": "프레임워크 요약",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "Agile Deliberation addresses the challenges of building AI image classifiers for subjective categories by guiding users through an interactive deliberation workflow, from scoping sub-categories to resolving edge cases, using an LLM-driven optimization loop to automatically build an accurate, aligned classifier."
+    },
+    {
+     "claim": "실제 세션 18번",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "we bypassed simulated testing and evaluated Agile Deliberation across 18 live, 1.5-hour sessions with human participants."
+    },
+    {
+     "claim": "예시 하위 개념",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "\"Healthy Food\" split into \"Salads,\" \"Grain Bowls,\" and \"Lean Proteins,\" with exclusions such as \"Processed Foods\" or \"Raw, Unprepared Ingredients.\""
+    },
+    {
+     "claim": "수동 방식 정확도",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "manual deliberation methods often fail to improve or even degrade classifier accuracy"
+    },
+    {
+     "claim": "참가자 반응",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "reported feeling significantly less stressed, less frustrated, and less mentally drained ... with every participant expressing a preference for Agile Deliberation over the manual methods."
+    },
+    {
+     "claim": "프롬프트 엔지니어 불필요",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "Users don't need to be prompt engineers"
+    },
+    {
+     "claim": "Google Ads 협업",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "was made possible through a close partnership between Google Research and Google Ads."
+    },
+    {
+     "claim": "논문·코드 공개",
+     "url": "https://research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/",
+     "quote": "CVPR 2026 paper; open-source code at github.com/google-research/google-research/tree/master/agile_deliberation; Demo.ipynb Colab"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "OpenAI 이미지 2.6·피에르 인수·'루트 경로' 글 (openai.com)",
+   "reason": "원문 페이지가 WebFetch 로 열리지 않음(client_error). 언론 보도만 있어 쓰지 않음"
+  },
+  {
+   "topic": "Dharma Field Extractor (허깅페이스)",
+   "reason": "원문은 확인했으나 오늘 분류(모델·제품)가 Phonon 과 겹치고 라이선스·모델 저장소가 글에 없어 제외"
+  }
+ ]
+}

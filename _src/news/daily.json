@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-11-06",
+  "lead": "2026-11-06-anthropic-flashprove",
+  "title": "앤트로픽 AI 답변 출처 증명, 온디바이스 음성 합성 Phonon, 구글 이미지 분류기 만들기",
+  "summary": "앤트로픽은 AI 답변이 약속한 모델에서 나왔는지 암호로 증명하는 프로토타입을 공개했고, Gradium은 65MB 안팎의 온디바이스 음성 합성 모델 Phonon을 소개했으며, 구글 리서치는 주관적 기준의 이미지 분류기를 AI와 함께 만드는 방법을 내놓았습니다.",
+  "three": [
+   "플래시프루브는 H100 한 대에서 초당 약 110토큰의 증명을 만듦",
+   "Phonon 31m은 CPU에서 첫 소리까지 28ms, 한국어는 미지원",
+   "Agile Deliberation은 1.5시간짜리 실제 세션 18번으로 평가"
+  ],
+  "items": [
+   "2026-11-06-anthropic-flashprove",
+   "2026-11-06-phonon-tts-on-device",
+   "2026-11-06-google-agile-deliberation"
+  ]
+ },
+ {
   "date": "2026-11-05",
   "lead": "2026-11-05-postman-agent-plugins-autoinstall",
   "title": "포스트맨 플러그인 자동 설치 의혹, 구글 학교용 AI 통제 개편, 애플 연령 등급 신설",
