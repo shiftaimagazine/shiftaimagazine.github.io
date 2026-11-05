@@ -86,7 +86,7 @@ function renderHome2(d){
   const cats = CATS.filter(c=>c!=="칼럼").sort((a,b)=>ARTICLES.filter(x=>x.cat===b).length-ARTICLES.filter(x=>x.cat===a).length);
   $("#hNewsCats").innerHTML = chipA("/news/","전체",true) + cats.map(c=>chipA("/news/?cat="+encodeURIComponent(c),c,false,"home-cat:"+c)).join("") + chipA("/news/?cat="+encodeURIComponent("칼럼"),"칼럼",false,"home-cat:칼럼");
   $("#tutMore").innerHTML = `튜토리얼 ${TUTORIALS.length}편 전체 보기 <span class="ne" aria-hidden="true">↗</span>`;
-  $("#hRoles").insertAdjacentHTML("beforeend", chipA("/tutorial/","전체",true) + ROLES.filter(([,s])=>tutById["t-skills-"+s]).map(([k,s])=>chipA(P("t-skills-"+s),k,false,"home-role:"+s)).join(""));
+  $("#hRoles").insertAdjacentHTML("beforeend", ROLES.filter(([,s])=>tutById["t-skills-"+s]).map(([k,s])=>chipA(P("t-skills-"+s),k,false,"home-role:"+s)).join("") + chipA("/tutorial/","전체 튜토리얼 →",false,"home-role:all"));
   const tc = (Array.isArray(TUT_CATS)?TUT_CATS:[]).filter(c=>TUTORIALS.some(t=>t.cat===c));
   $("#hTopics").insertAdjacentHTML("beforeend", chipA("/tutorial/","전체",true) + tc.map(c=>chipA("/tutorial/?cat="+encodeURIComponent(c),c,false,"home-topic:"+c)).join(""));
   $("#homeTuts").innerHTML = homeTutPick(8).map(tc2HTML).join("");
@@ -732,6 +732,42 @@ init();
   const f=()=>{ const o=n.scrollWidth>n.clientWidth+2; n.classList.toggle("ovf",o); n.classList.toggle("end",o&&n.scrollLeft+n.clientWidth>=n.scrollWidth-2); };
   const cur=n.querySelector('[aria-current="true"]'); if(cur&&n.scrollWidth>n.clientWidth&&cur.offsetLeft+cur.offsetWidth>n.clientWidth) n.scrollLeft=cur.offsetLeft-16;
   f(); n.addEventListener("scroll",f,{passive:true}); addEventListener("resize",f); })();
+
+// 위쪽 메뉴 두 줄(11/6~): 큰 분류 4개(AI 소식·따라 하기·무료 도구·소개)를 누르면 그 분류의 메뉴가 아래 한 줄로 펼쳐진다.
+// 지금 보는 페이지가 속한 분류의 줄은 처음부터 펼쳐 두고, 그 안에서 지금 페이지를 표시한다. 같은 분류를 다시 누르면 접는다.
+// 미리 그릴 때 펼친 상태가 HTML에 박혀서 JS 없이도 지금 분류의 줄이 보인다. 누르기 동작은 미리 그린 페이지(PRE)에서도 붙인다.
+(function(){
+  const nav=document.querySelector("nav.main"), box=$("#subnav"); if(!nav||!box) return;
+  const r=ROUTE, cat=new URLSearchParams(location.search).get("cat")||"";
+  const grp = /^(daily|news|verdict)$|^(a|c|d)-|^weekly/.test(r) ? "news"
+    : /^(tutorial|prompts|guide|vs)$|^t-|^guide-|^vs-/.test(r) ? "learn"
+    : r==="tools"||r.startsWith("tool-") ? "tools"
+    : /^(about|privacy|subscribe)$/.test(r) ? "about" : "";
+  const sub = r==="daily"||r.startsWith("d-") ? "daily"
+    : r.startsWith("c-")||(r==="news"&&cat==="칼럼") ? "column"
+    : r==="news"||r.startsWith("a-") ? "news"
+    : r.startsWith("weekly") ? "weekly" : r==="verdict" ? "verdict"
+    : r==="tutorial"||r.startsWith("t-") ? "tutorial" : r.startsWith("guide") ? "guide"
+    : r==="prompts" ? "prompts" : r.startsWith("vs") ? "vs"
+    : r==="tools" ? (cat?"tc:"+cat:"tools") : r.startsWith("tool-") ? "tools"
+    : r==="about" ? "about" : r==="privacy" ? "privacy" : "";
+  const tabs=[...nav.querySelectorAll("[data-grp]")], rows=[...box.querySelectorAll(".sub")];
+  const show=g=>{ rows.forEach(x=>x.hidden = x.dataset.grp!==g); tabs.forEach(a=>a.setAttribute("aria-expanded", a.dataset.grp===g?"true":"false"));
+    document.body.classList.toggle("has-sub", !!g); };
+  tabs.forEach(a=>a.setAttribute("aria-current", a.dataset.grp===grp?"true":"false"));
+  box.querySelectorAll("[data-sub]").forEach(a=>{ if(a.dataset.sub===sub) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  show(grp);
+  let open=grp;
+  nav.addEventListener("click",e=>{ const a=e.target.closest("[data-grp]"); if(!a) return;
+    e.preventDefault(); const g=a.dataset.grp, row0=$("#sub-"+g), seen=row0&&!row0.hidden&&row0.offsetHeight>0;
+    open = seen ? "" : g; show(open);
+    document.documentElement.classList.toggle("sub-user", !!open);  // 직접 연 줄은 스크롤해도 접지 않는다
+    track("nav-open:"+(open||"close"), a.textContent.trim());
+    const row=open&&$("#sub-"+open); if(row){ const c=row.querySelector('[aria-current="page"]'); const f=row.querySelector(".sub-in"); if(c&&f&&f.scrollWidth>f.clientWidth) f.scrollLeft=c.offsetLeft-16; } });
+  const back=()=>{ open=grp; show(grp); document.documentElement.classList.remove("sub-user"); };
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&open!==grp) back(); });
+  document.addEventListener("click",e=>{ if(open!==grp && !e.target.closest("header")) back(); });
+})();
 
 // 휴대폰인데 브라우저가 'PC 화면(데스크톱 사이트)'으로 연 경우 알림(11/3~).
 // 이 상태에서는 브라우저가 휴대폰용 화면 폭 설정을 무시하고 980px 폭으로 그려 글자가 작아진다. 사이트가 바꿀 수 없어 끄는 법을 알려 준다.

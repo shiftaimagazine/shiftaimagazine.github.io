@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4F0E8">
-<script src="/assets/theme.js?v=654c2fdc"></script>
+<script src="/assets/theme.js?v=a3a3d7c5"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -32,27 +32,59 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=654c2fdc">
+<link rel="stylesheet" href="/assets/site.css?v=a3a3d7c5">
 </head>
 <body data-route="home" id="top" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
 <header class="bleed">
   <div class="topbar">
     <a class="logo" href="/" data-nav="home" aria-current="true"><img src="img/logo-wide.webp" alt="SHIFT AI"></a>
+    <!-- 위쪽 메뉴(11/6~): 큰 분류 4개. 누르면 아래에 한 줄(분류 안의 메뉴)이 펼쳐진다. 지금 보는 페이지의 줄은 처음부터 펼쳐 둔다. JS 가 없으면 링크로 그 분류 첫 페이지에 간다 -->
     <nav class="main" aria-label="목차">
-      <a href="/daily/" data-nav="daily" aria-current="false">데일리 이슈</a>
-      <a href="/news/" data-nav="news" aria-current="false">AI 뉴스</a>
-      <a href="/tutorial/" data-nav="tutorial" aria-current="false">튜토리얼</a>
-      <a href="/prompts/" data-nav="prompts" aria-current="false">프롬프트</a>
-      <a href="/tools/" data-nav="tools" aria-current="false">무료 도구</a>
-      <a href="/dict/" data-nav="dict" aria-current="false">AI 사전</a>
-      <a href="/about/" data-nav="about" aria-current="false">소개</a>
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="false" aria-current="false">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
     </nav>
     <div class="tools">
       <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
       <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
       <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT AI 팔로우">팔로우</a>
     </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴" hidden=""><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로 찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/vs/" data-sub="vs">AI 서비스 비교</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT AI 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
   </div>
 </header>
 
@@ -89,11 +121,39 @@
     </div>
   </section>
 
+
+
+
+
+
+  <!-- 직무별 입구(11/6~): 첫 화면 바로 아래 둘째 줄. 독자 = 비개발 직장인, 내 직무에 맞는 AI 스킬 튜토리얼로 바로 간다 -->
+  <section class="hsec hroles" id="hRoleSec" aria-labelledby="hRoleH">
+    <div class="hr-in"><h2 class="hr-k" id="hRoleH">내 직무로 바로 가기</h2><nav class="hchips" id="hRoles" aria-label="직무로 고르기"><a href="/tutorial/skills-marketer/" data-ev="home-role:marketer">마케터</a><a href="/tutorial/skills-designer/" data-ev="home-role:designer">디자이너</a><a href="/tutorial/skills-pm/" data-ev="home-role:pm">기획자·PM</a><a href="/tutorial/skills-sales/" data-ev="home-role:sales">영업</a><a href="/tutorial/skills-data/" data-ev="home-role:data">데이터 분석</a><a href="/tutorial/skills-developer/" data-ev="home-role:developer">개발자</a><a href="/tutorial/skills-researcher/" data-ev="home-role:researcher">연구자</a><a href="/tutorial/skills-creator/" data-ev="home-role:creator">크리에이터</a><a href="/tutorial/" data-ev="home-role:all">전체 튜토리얼 →</a></nav></div>
+  </section>
+
+  <!-- 무료 도구(11/6~ 홈 순서: 무료 도구 → 따라 하기 → 소식): 주제 줄(링크) + 도구 12개 -->
+  <section class="hsec" id="hTools">
+    <div class="hs-h"><div><h2><span class="d-only">설치 없이 쓰는 무료 도구</span><span class="m-only">무료 도구</span></h2><p class="d-only">가입 없이 브라우저에서 바로 쓸 수 있습니다.</p></div><a class="more" href="/tools/" id="toolsMore"><span class="d-only">무료 도구 23개 전체 보기 <span class="ne" aria-hidden="true">↗</span></span><span class="m-only">23개 전체</span></a></div>
+    <nav class="hchips d-only" id="hToolCats" aria-label="주제로 보기"><a href="/tools/" aria-current="true">전체</a><a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-ev="home-tcat:AI 활용">AI 활용</a><a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-ev="home-tcat:파일 변환">파일 변환</a><a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-ev="home-tcat:글쓰기">글쓰기</a><a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-ev="home-tcat:PDF·문서">PDF·문서</a><a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-ev="home-tcat:사진·이미지">사진·이미지</a><a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-ev="home-tcat:개인정보">개인정보</a><a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-ev="home-tcat:비용 절약">비용 절약</a><a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-ev="home-tcat:번역·회의">번역·회의</a></nav>
+    <div class="xgrid" id="homeTools"><a class="xcard" href="/tools/doc-to-text/"><span class="tglyph" aria-hidden="true">HWP</span><span class="xc-t"><b>한글⁠·워드⁠·PPT 글자 뽑기</b><span>HWP·워드·PPT 속 글과 표를 AI에 붙일 마크다운으로</span></span></a><a class="xcard" href="/tools/jpg-to-pdf/"><span class="tglyph" aria-hidden="true">JPG</span><span class="xc-t"><b>JPG → PDF 변환</b><span>사진 여러 장을 A4 PDF 한 파일로 서류 제출용 용량까지</span></span></a><a class="xcard" href="/tools/pdf-to-jpg/"><span class="tglyph" aria-hidden="true">JPG</span><span class="xc-t"><b>PDF → JPG 변환</b><span>쪽마다 사진으로, 또는 세로로 이어 한 장으로</span></span></a><a class="xcard" href="/tools/table-to-chart/"><span class="tglyph" aria-hidden="true">▮▮</span><span class="xc-t"><b>표 → 차트 그림 만들기</b><span>엑셀·AI 표를 붙여 넣으면 PPT·보고서용 그림으로</span></span></a><a class="xcard" href="/tools/prompt-box/"><span class="tglyph" aria-hidden="true">[ ]</span><span class="xc-t"><b>내 프롬프트함</b><span>자주 쓰는 프롬프트를 모아 빈칸만 채워 바로 복사</span></span></a><a class="xcard" href="/tools/prompt-check/"><span class="tglyph" aria-hidden="true">✓?</span><span class="xc-t"><b>프롬프트 점검기</b><span>빠진 칸과 흐린 말을 찾아 고친 틀까지 바로</span></span></a><a class="xcard" href="/tools/ai-format/"><span class="tglyph" aria-hidden="true">**</span><span class="xc-t"><b>AI 답변 서식 정리기</b><span>카톡·한글에 붙이면 생기는 ** # | 기호를 한 번에 정리</span></span></a><a class="xcard" href="/tools/exif-remove/"><span class="tglyph" aria-hidden="true">GPS</span><span class="xc-t"><b>사진 위치정보(EXIF) 지우기</b><span>사진 속 GPS·기종·날짜 확인하고 화질 그대로 정보만 삭제</span></span></a><a class="xcard" href="/tools/image-resize/"><span class="tglyph" aria-hidden="true">4:5</span><span class="xc-t"><b>이미지 압축⁠·인스타 규격 자르기</b><span>1080×1350 · 1080×1920으로 여러 장 한 번에</span></span></a><a class="xcard" href="/tools/pdf-merge/"><span class="tglyph" aria-hidden="true">PDF+</span><span class="xc-t"><b>PDF 합치기⁠·나누기⁠·쪽 뽑기</b><span>필요한 쪽만 뽑기까지 서버에 올리지 않고</span></span></a><a class="xcard" href="/tools/table-to-markdown/"><span class="tglyph" aria-hidden="true">| |</span><span class="xc-t"><b>엑셀⁠·CSV → 마크다운 표 변환</b><span>AI에 표를 올리기 전에 열 고르고 토큰 줄이기</span></span></a><a class="xcard" href="/tools/prompt-diff/"><span class="tglyph" aria-hidden="true">±</span><span class="xc-t"><b>프롬프트 비교</b><span>고치기 전과 뒤, 바뀐 말만 색으로 표시</span></span></a></div>
+  </section>
+
+  <!-- 따라 하기: 주제 줄(링크) + 튜토리얼 카드 8개. 직무 줄은 첫 화면 바로 아래(#hRoleSec)로 옮김 -->
+  <section class="hsec hband" id="hTuts">
+    <div class="hb-in">
+      <div class="hs-h"><div><h2>따라 하는 튜토리얼</h2><p><span class="d-only">하는 일에 맞춰 골라 보세요. 프롬프트는 복사해서 그대로 쓰면 됩니다.</span><span class="m-only">하는 일에 맞춰 골라 보세요</span></p></div><a class="more d-only" href="/tutorial/" id="tutMore">튜토리얼 44편 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
+      <div class="hrows">
+        <nav class="hchips d-only" id="hTopics" aria-label="주제로 고르기"><span class="hk">주제</span><a href="/tutorial/" aria-current="true">전체</a><a href="/tutorial/?cat=%EC%97%85%EB%AC%B4" data-ev="home-topic:업무">업무</a><a href="/tutorial/?cat=%EC%9E%90%EB%8F%99%ED%99%94" data-ev="home-topic:자동화">자동화</a><a href="/tutorial/?cat=%EC%8A%A4%ED%82%AC%C2%B7MCP" data-ev="home-topic:스킬·MCP">스킬·MCP</a><a href="/tutorial/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-ev="home-topic:비용 절약">비용 절약</a><a href="/tutorial/?cat=%EC%98%81%EC%83%81%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-ev="home-topic:영상·이미지">영상·이미지</a><a href="/tutorial/?cat=AI%20%EB%8B%B5%20%EA%B2%80%EC%A6%9D" data-ev="home-topic:AI 답 검증">AI 답 검증</a><a href="/tutorial/?cat=%EB%B3%B4%EC%95%88%C2%B7%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-ev="home-topic:보안·개인정보">보안·개인정보</a><a href="/tutorial/?cat=%EA%B3%B5%EB%B6%80%C2%B7%EB%A6%AC%EC%84%9C%EC%B9%98" data-ev="home-topic:공부·리서치">공부·리서치</a><a href="/tutorial/?cat=%EC%BD%98%ED%85%90%EC%B8%A0%C2%B7%EC%BB%A4%EB%A6%AC%EC%96%B4" data-ev="home-topic:콘텐츠·커리어">콘텐츠·커리어</a></nav>
+      </div>
+      <div class="tgrid2" id="homeTuts"><a class="tc2" href="/tutorial/skills-creator/"><img class="thumb" src="img/cover/t-skills-creator.webp" alt="" fetchpriority="high"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">Claude Code · Claude</span></span><b>유튜버⁠·크리에이터가 깔아 두면 좋은 AI 스킬 7개, 내 말투 학습⁠·훅⁠·썸네일⁠·영상 제작까지</b><span class="tc2-m">STEP 8 · 스킬·MCP</span></span></a><a class="tc2" href="/tutorial/skills-researcher/"><img class="thumb" src="img/cover/t-skills-researcher.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">중급</span><span class="tlc">Claude Code · Claude</span></span><b>연구자⁠·대학원생이 깔아 두면 좋은 AI 스킬 7개, 문헌 조사⁠·통계⁠·논문 쓰기⁠·동료 평가까지</b><span class="tc2-m">STEP 8 · 스킬·MCP</span></span></a><a class="tc2" href="/tutorial/image-mockups/"><img class="thumb" src="img/cover/t-image-mockups.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · 제미나이</span></span><b>AI 이미지로 상세페이지⁠·썸네일 시안 만들기, 올리기 전 표시와 저작권 확인까지 6단계</b><span class="tc2-m">STEP 6 · 영상·이미지</span></span></a><a class="tc2" href="/tutorial/n8n-inquiry-replies/"><img class="thumb" src="img/cover/t-n8n-inquiry-replies.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">중급</span><span class="tlc">n8n · 엑셀·시트</span></span><b>구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계</b><span class="tc2-m">STEP 6 · 자동화</span></span></a><a class="tc2" href="/tutorial/claude-code-first/"><img class="thumb" src="img/cover/t-claude-code-first.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">Claude Code</span></span><b>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계</b><span class="tc2-m">STEP 7 · 자동화</span></span></a><a class="tc2" href="/tutorial/photo-location/"><img class="thumb" src="img/cover/t-photo-location.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · Claude</span></span><b>중고 거래⁠·블로그⁠·AI에 사진 올리기 전, 위치 정보 지우는 5단계</b><span class="tc2-m">STEP 5 · 보안·개인정보</span></span></a><a class="tc2" href="/tutorial/ai-tell-edit/"><img class="thumb" src="img/cover/t-ai-tell-edit.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · Claude</span></span><b>AI가 쓴 티 덜 나게 고치는 6단계, 쓰기 전 지시부터 소리 내어 읽기까지</b><span class="tc2-m">STEP 6 · 콘텐츠·커리어</span></span></a><a class="tc2" href="/tutorial/image-to-text/"><img class="thumb" src="img/cover/t-image-to-text.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · Claude</span></span><b>사진⁠·스캔본⁠·PDF 속 글자를 AI에 넘기는 6단계, 무료 도구로 서버에 안 올리고</b><span class="tc2-m">STEP 6 · 업무</span></span></a></div>
+    </div>
+  </section>
+
   <!-- 최신 AI 뉴스: PC = 데일리 이슈 큰 카드 + 그 밖의 최신 기사 4개, 휴대폰 = 오늘의 AI 뉴스 목록 -->
   <section class="hsec" id="hNews">
     <div class="hs-h"><div><h2><span class="d-only">최신 AI 뉴스</span><span class="m-only">오늘의 AI 뉴스</span></h2><p class="d-only">원문을 읽고 쓴 기사입니다. 판정 꼬리표는 편집부가 붙였습니다.</p></div><a class="more" href="/news/"><span class="sr">최신 기사 </span>AI 뉴스 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
     <nav class="hchips d-only" id="hNewsCats" aria-label="분류로 보기"><a href="/news/" aria-current="true">전체</a><a href="/news/?cat=%EB%AA%A8%EB%8D%B8%C2%B7%EC%A0%9C%ED%92%88" data-ev="home-cat:모델·제품">모델·제품</a><a href="/news/?cat=%EB%B3%B4%EC%95%88%C2%B7%EC%95%88%EC%A0%84" data-ev="home-cat:보안·안전">보안·안전</a><a href="/news/?cat=%EC%97%B0%EA%B5%AC" data-ev="home-cat:연구">연구</a><a href="/news/?cat=%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%C2%B7%EC%9D%BC%EC%9E%90%EB%A6%AC" data-ev="home-cat:비즈니스·일자리">비즈니스·일자리</a><a href="/news/?cat=%EC%A0%95%EC%B1%85%C2%B7%EC%A0%80%EC%9E%91%EA%B6%8C" data-ev="home-cat:정책·저작권">정책·저작권</a><a href="/news/?cat=%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%C2%B7%EB%AC%B8%ED%99%94" data-ev="home-cat:커뮤니티·문화">커뮤니티·문화</a><a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-ev="home-cat:칼럼">칼럼</a></nav>
-    <div class="d-only"><a class="dfeat" id="dailyHome" href="/daily/2026-11-06/"><span class="df-fig"><img src="img/ph/2026-11-06-anthropic-flashprove.webp" alt="앤트로픽 증명 가능한 추론 글 대표 이미지" fetchpriority="high"><span class="df-cr">이미지: Anthropic</span></span><span class="df-b"><span class="df-k">데일리 이슈 · 11월 6일 금요일</span><b>앤트로픽 AI 답변 출처 증명, 온디바이스 음성 합성 Phonon, 구글 이미지 분류기 만들기</b><ol><li>앤트로픽 플래시프루브, AI 답변이 약속한 모델에서 나왔는지 암호로 증명한다</li><li>Phonon TTS, 65MB 안팎 온디바이스 음성 합성은 첫 소리까지 28ms</li><li>구글 Agile Deliberation, 주관적인 기준의 이미지 분류기를 AI와 함께 다듬는다</li></ol><span class="df-go">이날 소식 3건 보기 <span class="ar">→</span></span></span></a></div>
+    <div class="d-only"><a class="dfeat" id="dailyHome" href="/daily/2026-11-06/"><span class="df-fig"><img src="img/ph/2026-11-06-anthropic-flashprove.webp" alt="앤트로픽 증명 가능한 추론 글 대표 이미지" loading="lazy"><span class="df-cr">이미지: Anthropic</span></span><span class="df-b"><span class="df-k">데일리 이슈 · 11월 6일 금요일</span><b>앤트로픽 AI 답변 출처 증명, 온디바이스 음성 합성 Phonon, 구글 이미지 분류기 만들기</b><ol><li>앤트로픽 플래시프루브, AI 답변이 약속한 모델에서 나왔는지 암호로 증명한다</li><li>Phonon TTS, 65MB 안팎 온디바이스 음성 합성은 첫 소리까지 28ms</li><li>구글 Agile Deliberation, 주관적인 기준의 이미지 분류기를 AI와 함께 다듬는다</li></ol><span class="df-go">이날 소식 3건 보기 <span class="ar">→</span></span></span></a></div>
     <div class="ngrid d-only" id="homeNews"><a class="ncard" href="/news/2026-11-05-postman-agent-plugins-autoinstall/"><img class="thumb" src="img/ph/2026-11-05-postman-agent-plugins-autoinstall.webp" alt="" loading="lazy"><span class="nc-b"><span class="nc-m"><span class="nc-cat">보안·안전</span><span class="vchip v-watch">지켜보세요</span></span><b>포스트맨 데스크톱, 클로드 코드⁠·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려</b><span class="nc-d">11월 5일</span></span></a><a class="ncard" href="/news/2026-11-05-google-school-ai-controls-guided-learning/"><img class="thumb" src="img/ph/2026-11-05-google-school-ai-controls-guided-learning.webp" alt="" loading="lazy"><span class="nc-b"><span class="nc-m"><span class="nc-cat">모델·제품</span><span class="vchip v-watch">지켜보세요</span></span><b>제미나이⁠·구글 검색, K-12 학생 계정은 학교 관리자가 켜기 전까지 꺼진다고 구글 밝혀</b><span class="nc-d">11월 5일</span></span></a><a class="ncard" href="/news/2026-11-05-apple-age-rating-dating-companion/"><img class="thumb" src="img/ph/2026-11-05-apple-age-rating-dating-companion.webp" alt="" loading="lazy"><span class="nc-b"><span class="nc-m"><span class="nc-cat">정책·저작권</span><span class="vchip v-watch">지켜보세요</span></span><b>앱스토어 연령 등급에 '데이팅과 관계' 항목 신설, 가상 동반자 기능 앱도 최소 18+</b><span class="nc-d">11월 5일</span></span></a><a class="ncard" href="/news/2026-11-04-hf-transformers-mic/"><img class="thumb" src="img/ph/2026-11-04-hf-transformers-mic.webp" alt="" loading="lazy"><span class="nc-b"><span class="nc-m"><span class="nc-cat">연구</span><span class="vchip v-watch">지켜보세요</span></span><b>허깅페이스 트랜스포머스 MIC 제안, 줄인 모델로 PR 단계에서 버그 찾는다</b><span class="nc-d">11월 4일</span></span></a></div>
     <div class="list m-only" id="homeNewsM"><a class="post" href="/news/2026-11-06-anthropic-flashprove/"><img class="thumb" src="img/ph/2026-11-06-anthropic-flashprove.webp" alt="" loading="lazy">
   <div class="b"><span class="cat">보안·안전<span class="vd vd-watch">지켜보세요</span></span><h3>앤트로픽 플래시프루브, AI 답변이 약속한 모델에서 나왔는지 암호로 증명한다</h3><p>앤트로픽(Anthropic)이 AI 답변이 개발사가 말한 바로 그 모델에서 나왔는지 영지식 증명으로 확인하는 프로토타입 플래시프루브(FlashProve)를 오픈소스로 공개했습니다. H100 한 대에서 초당 약 110토큰의 증명을 만들지만 아직 연구용입니다.</p><div class="meta"><span>2026.11.06</span><span class="dot"></span><span>3분 읽기</span></div></div></a><a class="post" href="/news/2026-11-06-phonon-tts-on-device/"><img class="thumb" src="img/ph/2026-11-06-phonon-tts-on-device.webp" alt="" loading="lazy">
@@ -101,25 +161,6 @@
   <div class="b"><span class="cat">연구<span class="vd vd-watch">지켜보세요</span></span><h3>구글 Agile Deliberation, 주관적인 기준의 이미지 분류기를 AI와 함께 다듬는다</h3><p>구글 리서치(Google Research)가 '건강한 음식'처럼 기준이 사람마다 다른 개념의 이미지 분류기를 만드는 방법 Agile Deliberation을 소개했습니다. 사용자가 프롬프트를 직접 고치지 않고 AI가 보여 주는 애매한 이미지에 답하며 기준을 다듬습니다.</p><div class="meta"><span>2026.11.06</span><span class="dot"></span><span>3분 읽기</span></div></div></a><a class="post" href="/news/2026-11-05-postman-agent-plugins-autoinstall/"><img class="thumb" src="img/ph/2026-11-05-postman-agent-plugins-autoinstall.webp" alt="" loading="lazy">
   <div class="b"><span class="cat">보안·안전<span class="vd vd-watch">지켜보세요</span></span><h3>포스트맨 데스크톱, 클로드 코드⁠·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려</h3><p>포스트맨(Postman) 데스크톱 앱이 클로드 코드와 코덱스에 자체 플러그인을 사용자 동의 없이 설치했다는 보고가 깃허브 이슈로 올라와 있습니다. 보고자의 로그와 설정 파일 기록, 11월 3일 추가 재현 댓글을 정리했습니다.</p><div class="meta"><span>2026.11.05</span><span class="dot"></span><span>4분 읽기</span></div></div></a></div>
     <a class="allb m-only" id="hAll" href="/news/">AI 뉴스 79개 전체 보기</a>
-  </section>
-
-  <!-- 튜토리얼: 직무·주제 줄(링크) + 카드 8개 -->
-  <section class="hsec hband" id="hTuts">
-    <div class="hb-in">
-      <div class="hs-h"><div><h2>따라 하는 튜토리얼</h2><p><span class="d-only">하는 일에 맞춰 골라 보세요. 프롬프트는 복사해서 그대로 쓰면 됩니다.</span><span class="m-only">하는 일에 맞춰 골라 보세요</span></p></div><a class="more d-only" href="/tutorial/" id="tutMore">튜토리얼 44편 전체 보기 <span class="ne" aria-hidden="true">↗</span></a></div>
-      <div class="hrows">
-        <nav class="hchips" id="hRoles" aria-label="직무로 고르기"><span class="hk d-only">직무</span><a href="/tutorial/" aria-current="true">전체</a><a href="/tutorial/skills-marketer/" data-ev="home-role:marketer">마케터</a><a href="/tutorial/skills-designer/" data-ev="home-role:designer">디자이너</a><a href="/tutorial/skills-pm/" data-ev="home-role:pm">기획자·PM</a><a href="/tutorial/skills-sales/" data-ev="home-role:sales">영업</a><a href="/tutorial/skills-data/" data-ev="home-role:data">데이터 분석</a><a href="/tutorial/skills-developer/" data-ev="home-role:developer">개발자</a><a href="/tutorial/skills-researcher/" data-ev="home-role:researcher">연구자</a><a href="/tutorial/skills-creator/" data-ev="home-role:creator">크리에이터</a></nav>
-        <nav class="hchips d-only" id="hTopics" aria-label="주제로 고르기"><span class="hk">주제</span><a href="/tutorial/" aria-current="true">전체</a><a href="/tutorial/?cat=%EC%97%85%EB%AC%B4" data-ev="home-topic:업무">업무</a><a href="/tutorial/?cat=%EC%9E%90%EB%8F%99%ED%99%94" data-ev="home-topic:자동화">자동화</a><a href="/tutorial/?cat=%EC%8A%A4%ED%82%AC%C2%B7MCP" data-ev="home-topic:스킬·MCP">스킬·MCP</a><a href="/tutorial/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-ev="home-topic:비용 절약">비용 절약</a><a href="/tutorial/?cat=%EC%98%81%EC%83%81%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-ev="home-topic:영상·이미지">영상·이미지</a><a href="/tutorial/?cat=AI%20%EB%8B%B5%20%EA%B2%80%EC%A6%9D" data-ev="home-topic:AI 답 검증">AI 답 검증</a><a href="/tutorial/?cat=%EB%B3%B4%EC%95%88%C2%B7%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-ev="home-topic:보안·개인정보">보안·개인정보</a><a href="/tutorial/?cat=%EA%B3%B5%EB%B6%80%C2%B7%EB%A6%AC%EC%84%9C%EC%B9%98" data-ev="home-topic:공부·리서치">공부·리서치</a><a href="/tutorial/?cat=%EC%BD%98%ED%85%90%EC%B8%A0%C2%B7%EC%BB%A4%EB%A6%AC%EC%96%B4" data-ev="home-topic:콘텐츠·커리어">콘텐츠·커리어</a></nav>
-      </div>
-      <div class="tgrid2" id="homeTuts"><a class="tc2" href="/tutorial/skills-creator/"><img class="thumb" src="img/cover/t-skills-creator.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">Claude Code · Claude</span></span><b>유튜버⁠·크리에이터가 깔아 두면 좋은 AI 스킬 7개, 내 말투 학습⁠·훅⁠·썸네일⁠·영상 제작까지</b><span class="tc2-m">STEP 8 · 스킬·MCP</span></span></a><a class="tc2" href="/tutorial/skills-researcher/"><img class="thumb" src="img/cover/t-skills-researcher.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">중급</span><span class="tlc">Claude Code · Claude</span></span><b>연구자⁠·대학원생이 깔아 두면 좋은 AI 스킬 7개, 문헌 조사⁠·통계⁠·논문 쓰기⁠·동료 평가까지</b><span class="tc2-m">STEP 8 · 스킬·MCP</span></span></a><a class="tc2" href="/tutorial/image-mockups/"><img class="thumb" src="img/cover/t-image-mockups.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · 제미나이</span></span><b>AI 이미지로 상세페이지⁠·썸네일 시안 만들기, 올리기 전 표시와 저작권 확인까지 6단계</b><span class="tc2-m">STEP 6 · 영상·이미지</span></span></a><a class="tc2" href="/tutorial/n8n-inquiry-replies/"><img class="thumb" src="img/cover/t-n8n-inquiry-replies.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">중급</span><span class="tlc">n8n · 엑셀·시트</span></span><b>구글 시트에 문의가 쌓이면 AI가 답장 초안을 지메일에 써 두게, n8n 두 번째 자동화 6단계</b><span class="tc2-m">STEP 6 · 자동화</span></span></a><a class="tc2" href="/tutorial/claude-code-first/"><img class="thumb" src="img/cover/t-claude-code-first.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">Claude Code</span></span><b>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업, 7단계</b><span class="tc2-m">STEP 7 · 자동화</span></span></a><a class="tc2" href="/tutorial/photo-location/"><img class="thumb" src="img/cover/t-photo-location.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · Claude</span></span><b>중고 거래⁠·블로그⁠·AI에 사진 올리기 전, 위치 정보 지우는 5단계</b><span class="tc2-m">STEP 5 · 보안·개인정보</span></span></a><a class="tc2" href="/tutorial/ai-tell-edit/"><img class="thumb" src="img/cover/t-ai-tell-edit.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · Claude</span></span><b>AI가 쓴 티 덜 나게 고치는 6단계, 쓰기 전 지시부터 소리 내어 읽기까지</b><span class="tc2-m">STEP 6 · 콘텐츠·커리어</span></span></a><a class="tc2" href="/tutorial/image-to-text/"><img class="thumb" src="img/cover/t-image-to-text.webp" alt="" loading="lazy"><span class="tc2-b"><span class="tc2-t"><span class="lvc">입문</span><span class="tlc">ChatGPT · Claude</span></span><b>사진⁠·스캔본⁠·PDF 속 글자를 AI에 넘기는 6단계, 무료 도구로 서버에 안 올리고</b><span class="tc2-m">STEP 6 · 업무</span></span></a></div>
-    </div>
-  </section>
-
-  <!-- 무료 도구: 주제 줄(링크) + 도구 12개 -->
-  <section class="hsec" id="hTools">
-    <div class="hs-h"><div><h2><span class="d-only">설치 없이 쓰는 무료 도구</span><span class="m-only">무료 도구</span></h2><p class="d-only">가입 없이 브라우저에서 바로 쓸 수 있습니다.</p></div><a class="more" href="/tools/" id="toolsMore"><span class="d-only">무료 도구 23개 전체 보기 <span class="ne" aria-hidden="true">↗</span></span><span class="m-only">23개 전체</span></a></div>
-    <nav class="hchips d-only" id="hToolCats" aria-label="주제로 보기"><a href="/tools/" aria-current="true">전체</a><a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-ev="home-tcat:AI 활용">AI 활용</a><a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-ev="home-tcat:파일 변환">파일 변환</a><a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-ev="home-tcat:글쓰기">글쓰기</a><a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-ev="home-tcat:PDF·문서">PDF·문서</a><a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-ev="home-tcat:사진·이미지">사진·이미지</a><a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-ev="home-tcat:개인정보">개인정보</a><a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-ev="home-tcat:비용 절약">비용 절약</a><a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-ev="home-tcat:번역·회의">번역·회의</a></nav>
-    <div class="xgrid" id="homeTools"><a class="xcard" href="/tools/doc-to-text/"><span class="tglyph" aria-hidden="true">HWP</span><span class="xc-t"><b>한글⁠·워드⁠·PPT 글자 뽑기</b><span>HWP·워드·PPT 속 글과 표를 AI에 붙일 마크다운으로</span></span></a><a class="xcard" href="/tools/jpg-to-pdf/"><span class="tglyph" aria-hidden="true">JPG</span><span class="xc-t"><b>JPG → PDF 변환</b><span>사진 여러 장을 A4 PDF 한 파일로 서류 제출용 용량까지</span></span></a><a class="xcard" href="/tools/pdf-to-jpg/"><span class="tglyph" aria-hidden="true">JPG</span><span class="xc-t"><b>PDF → JPG 변환</b><span>쪽마다 사진으로, 또는 세로로 이어 한 장으로</span></span></a><a class="xcard" href="/tools/table-to-chart/"><span class="tglyph" aria-hidden="true">▮▮</span><span class="xc-t"><b>표 → 차트 그림 만들기</b><span>엑셀·AI 표를 붙여 넣으면 PPT·보고서용 그림으로</span></span></a><a class="xcard" href="/tools/prompt-box/"><span class="tglyph" aria-hidden="true">[ ]</span><span class="xc-t"><b>내 프롬프트함</b><span>자주 쓰는 프롬프트를 모아 빈칸만 채워 바로 복사</span></span></a><a class="xcard" href="/tools/prompt-check/"><span class="tglyph" aria-hidden="true">✓?</span><span class="xc-t"><b>프롬프트 점검기</b><span>빠진 칸과 흐린 말을 찾아 고친 틀까지 바로</span></span></a><a class="xcard" href="/tools/ai-format/"><span class="tglyph" aria-hidden="true">**</span><span class="xc-t"><b>AI 답변 서식 정리기</b><span>카톡·한글에 붙이면 생기는 ** # | 기호를 한 번에 정리</span></span></a><a class="xcard" href="/tools/exif-remove/"><span class="tglyph" aria-hidden="true">GPS</span><span class="xc-t"><b>사진 위치정보(EXIF) 지우기</b><span>사진 속 GPS·기종·날짜 확인하고 화질 그대로 정보만 삭제</span></span></a><a class="xcard" href="/tools/image-resize/"><span class="tglyph" aria-hidden="true">4:5</span><span class="xc-t"><b>이미지 압축⁠·인스타 규격 자르기</b><span>1080×1350 · 1080×1920으로 여러 장 한 번에</span></span></a><a class="xcard" href="/tools/pdf-merge/"><span class="tglyph" aria-hidden="true">PDF+</span><span class="xc-t"><b>PDF 합치기⁠·나누기⁠·쪽 뽑기</b><span>필요한 쪽만 뽑기까지 서버에 올리지 않고</span></span></a><a class="xcard" href="/tools/table-to-markdown/"><span class="tglyph" aria-hidden="true">| |</span><span class="xc-t"><b>엑셀⁠·CSV → 마크다운 표 변환</b><span>AI에 표를 올리기 전에 열 고르고 토큰 줄이기</span></span></a><a class="xcard" href="/tools/prompt-diff/"><span class="tglyph" aria-hidden="true">±</span><span class="xc-t"><b>프롬프트 비교</b><span>고치기 전과 뒤, 바뀐 말만 색으로 표시</span></span></a></div>
   </section>
 </main>
 
@@ -140,8 +181,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=654c2fdc"></script>
-<script src="/assets/app.js?v=654c2fdc"></script>
+<script src="/assets/data-lite.js?v=a3a3d7c5"></script>
+<script src="/assets/app.js?v=a3a3d7c5"></script>
 
 
 </body></html>
