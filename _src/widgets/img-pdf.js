@@ -154,7 +154,7 @@ if($("ipDrop")) (function(){
   L0.addEventListener("dragover", e=>{ if(dragI!=null) e.preventDefault(); });
   L0.addEventListener("drop", e=>{ if(dragI==null) return; e.preventDefault(); e.stopPropagation(); const li = e.target.closest("li"); if(li){ const to = +li.dataset.i, [m] = items.splice(dragI, 1); items.splice(to, 0, m); } dragI = null; clearOut(); draw(); });
   L0.addEventListener("dragend", ()=>{ dragI = null; draw(); });
-  document.querySelectorAll("input[name=ipSize],input[name=ipOri],input[name=ipMargin],input[name=ipQ],input[name=ipOut]").forEach(r=>r.addEventListener("change", ()=>{ clearOut(); draw(); }));
+  document.querySelectorAll("input[name=ipSize],input[name=ipOri],input[name=ipMargin],input[name=ipQ],input[name=ipOut]").forEach(r=>r.addEventListener("change", ()=>{ if(busy) return; clearOut(); draw(); }));   // 만드는 중에 바꾸면 결과를 지우지 않는다(다음에 만들 때 반영)
   $("ipGo").addEventListener("click", go);
   window.addEventListener("pagehide", ()=>{ items.forEach(i=>i.thumb && URL.revokeObjectURL(i.thumb)); items = []; });
   draw();
@@ -249,11 +249,11 @@ if($("pjDrop")) (function(){
   drop.addEventListener("drop", e=>{ if(!busy) open([...e.dataTransfer.files].find(f=>/\.pdf$/i.test(f.name)||f.type==="application/pdf") || e.dataTransfer.files[0]); });
   drop.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); $("pjFile").click(); } });
   $("pjPages").addEventListener("click", e=>{ const b = e.target.closest(".pmpg"); if(!b || busy) return; const p = +b.dataset.p; sel.has(p) ? sel.delete(p) : sel.add(p); clearOut(); sync(); });
-  $("pjSel").addEventListener("input", ()=>{ const ps = ranges($("pjSel").value); $("pjSel").classList.toggle("bad", ps==null); if(ps){ sel = new Set(ps); clearOut(); sync(); } });
+  $("pjSel").addEventListener("input", ()=>{ if(busy) return; const ps = ranges($("pjSel").value); $("pjSel").classList.toggle("bad", ps==null); if(ps){ sel = new Set(ps); clearOut(); sync(); } });
   $("pjSel").addEventListener("blur", sync);
-  $("pjAll").addEventListener("click", ()=>{ sel = new Set(Array.from({length:n}, (_,i)=>i+1)); clearOut(); sync(); });
-  $("pjNone").addEventListener("click", ()=>{ sel.clear(); clearOut(); sync(); });
-  document.querySelectorAll("input[name=pjDpi],input[name=pjType],input[name=pjJoin]").forEach(r=>r.addEventListener("change", ()=>{ clearOut(); sync(); }));
+  $("pjAll").addEventListener("click", ()=>{ if(busy) return; sel = new Set(Array.from({length:n}, (_,i)=>i+1)); clearOut(); sync(); });
+  $("pjNone").addEventListener("click", ()=>{ if(busy) return; sel.clear(); clearOut(); sync(); });
+  document.querySelectorAll("input[name=pjDpi],input[name=pjType],input[name=pjJoin]").forEach(r=>r.addEventListener("change", ()=>{ if(busy) return; clearOut(); sync(); }));
   $("pjGo").addEventListener("click", go);
   $("pjZip").addEventListener("click", ()=>{ if(outs.length) zipAll(outs, safeName(fname) + "-사진.zip"); });
   // 다른 페이지에서 ?to=png 로 오면 PNG 를 먼저 고른다
