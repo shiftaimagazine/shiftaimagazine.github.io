@@ -1,0 +1,72 @@
+SHIFT AI 주간 방문 통계  2026-10-30 ~ 2026-11-05 (한국 시간)  · 비교: 2026-10-23 ~ 2026-10-29
+
+== 페이지 조회수: 120 (지난주 0, 새로)
+== 전체 합계(/stats/total): 조회 152 · 이벤트 32
+   날짜별: 10-30 0 · 10-31 0 · 11-01 0 · 11-02 0 · 11-03 49 · 11-04 17 · 11-05 86 · 11-06 0
+== 많이 본 페이지 상위 20 (조회수 · 지난주 대비)
+      30      새로  /  SHIFT AI(시프트 AI) — 오늘의 AI 뉴스, 원문부터 읽는 인공지능 매거진
+       8      새로  /tutorial  튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+       7      새로  /tools  무료 AI 도구 11가지 — 설치·가입 없이 브라우저에서 바로 · SHIFT AI
+       6      새로  /daily  AI 데일리 뉴스 — 날마다 정리하는 AI 이슈 · SHIFT AI
+       6      새로  /dict  AI 사전 — AI 용어 뜻 쉽게 풀이 · SHIFT AI
+       5      새로  /news  AI 뉴스 — 오늘의 인공지능 소식 · SHIFT AI
+       5      새로  /prompts  복붙 프롬프트 모음 141개 — 챗GPT·클로드·제미나이에 바로 쓰는 업무 프롬프트 · S
+       4      새로  /dict/copilot  코파일럿(Copilot) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       4      새로  /about  소개 · SHIFT AI
+       2      새로  /tutorial/skills-creator  유튜버·크리에이터가 깔아 두면 좋은 AI 스킬 7개, 내 말투 학습·훅·썸네일·영상 제작까
+       2      새로  /tools/ai-format  AI 답변 서식 정리기 — 챗GPT 답 카톡·한글에 붙일 때 ** # 마크다운 기호 지우기
+       2      새로  /dict/deepfake  딥페이크(Deepfake) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       2      새로  /search  ‘클로드 코드 한도’ 검색 결과 · SHIFT AI
+       2      새로  /tools/pdf-to-text  PDF 텍스트 추출 무료 — PDF를 텍스트·마크다운으로 변환 (업로드 없음) · SHIF
+       2      새로  /tutorial/n8n-first-automation  매일 아침 AI 소식 요약이 메일로 오게: n8n 첫 자동화 7단계 · SHIFT AI 튜
+       2      새로  /tutorial/meeting-interpreter  영어 회의, 이제 못 알아들어도 됩니다. 무료 실시간 크롬 번역 · SHIFT AI 튜토리
+       1      새로  /tutorial/contract-review  계약서·약관, 서명 전에 위험 조항부터 짚게 하는 프롬프트 8개 · SHIFT AI 튜토리
+       1      새로  /tutorial/redact-before-upload  회사 엑셀, 개인정보 가리고 AI에 올리는 3단계와 프롬프트 9개 · SHIFT AI 튜토
+       1      새로  /daily/2026-11-05  2026년 11월 5일 AI 데일리 뉴스 — 포스트맨 플러그인 자동 설치 의혹, 구글 학교
+       1      새로  /news/2026-11-05-postman-agent-plugins-autoinstall  포스트맨 데스크톱, 클로드 코드·코덱스 플러그인 자동 설치 의혹…깃허브 이슈 열려 · SH
+== 종류별 조회수: 첫 화면 30 · 튜토리얼 17 · AI 사전 16 · 기타 14 · 뉴스·기사 14 · 무료 도구 11 · 데일리 10 · 프롬프트 모음 5 · AI 길잡이 2 · 칼럼 1
+
+== 행동(이벤트) 이번 주 · 지난주
+-- 무료 도구 사용(페이지에서 처음 넣거나 누름): 8 (지난주 0)
+         2  /tools/
+         2  /tools/ai-format/
+         1  /tools/ai-subscriptions/
+         1  /tools/table-to-markdown/
+         1  /tools/prompt-diff/
+         1  /tools/exif-remove/
+-- 무료 도구 실행 버튼: 0 (지난주 0)
+-- 무료 도구 결과 가져감(복사·저장): 1 (지난주 0)
+         1  /tools/ai-format/
+-- 프롬프트 복사: 1 (지난주 0)
+         1  /prompts/#contract-review-3
+-- 링크 복사: 0 (지난주 0)
+-- 무료 대체 프로그램 찾음: 0 (지난주 0)
+-- 대체 프로그램 못 찾음: 0 (지난주 0)
+-- 기사 끝 '함께 보면 좋은 콘텐츠' 클릭(간 곳): 0 (지난주 0)
+-- 밖으로 나간 링크(사이트): 0 (지난주 0)
+-- 틀린 곳 알려 주기 누름: 1 (지난주 0)
+         1  /
+
+== 들어온 곳 상위 20 (조회수)
+      36  shiftaimagazine.com
+      22  (직접 들어옴·알 수 없음)
+      21  shiftaimagazine.com/tools
+      14  Google
+      13  shiftaimagazine.com/tutorial
+       9  ig
+       5  shiftaimagazine.com/prompts
+       4  search.daum.net/search
+       4  shiftaimagazine.com/dict
+       4  shiftaimagazine.com/news
+       3  www.instagram.com
+       3  shiftaimagazine.com/daily
+       2  l.instagram.com
+       2  m.search.daum.net/search
+       1  search.daum.net
+       1  threads
+       1  shiftaimagazine.com/about
+       1  shiftaimagazine.com/dict/copilot
+       1  shiftaimagazine.com/tools/interpreter
+       1  shiftaimagazine.com/guide/pdf-summary
+
+== 화면 크기: 휴대폰 26% · 태블릿·작은 노트북 4% · 컴퓨터 47% · 큰 모니터 22%
