@@ -32,9 +32,10 @@ def rng(p):  # 한국 날짜 하루 전체를 UTC 시각(정시)으로
     return {'start': a.strftime('%Y-%m-%dT%H:%M:%SZ'), 'end': b.strftime('%Y-%m-%dT%H:%M:%SZ')}
 def cnt(h): return h.get('count') if h.get('count') is not None else (h.get('count_unique') or sum((s.get('daily') or 0) for s in h.get('stats') or []))
 
-MORE = []
+MORE = []; RAW = {}
 def hits(p):  # 상위 100개 경로(페이지·이벤트). 그보다 많으면 보고서에 적는다
     d = api('/stats/hits', limit=100, **rng(p))
+    RAW[p] = d
     if d.get('more'): MORE.append(f'{p[0]}~{p[1]}')
     return d.get('hits') or []
 
@@ -49,6 +50,16 @@ try:
     ev = lambda hs: [h for h in hs if h.get('event')]
     tc, tp = sum(cnt(h) for h in pv(hc)), sum(cnt(h) for h in pv(hp))
     say(f'== 페이지 조회수: {tc:,} (지난주 {tp:,}, {pct(tc, tp)})')
+    try:   # 날짜별 합계(/stats/total). 페이지 목록과 따로 읽어 서로 맞는지 볼 수 있다
+        t = api('/stats/total', **rng(cur)) or {}
+        say(f'== 전체 합계(/stats/total): 조회 {t.get("total", 0):,} · 이벤트 {t.get("total_events", 0):,}')
+        days = [(s.get('day'), s.get('daily', 0)) for s in t.get('stats') or []]
+        if days: say('   날짜별: ' + ' · '.join(f'{d[5:]} {n:,}' for d, n in days))
+    except Exception as e:
+        say(f'== 전체 합계를 못 읽음: {str(e)[:160]}')
+    if not hc:
+        d = RAW.get(cur) or {}
+        say(f'   (페이지 목록이 비어 있음 — 응답 키 {sorted(d.keys())}, total={d.get("total")}, more={d.get("more")})')
     pm = {h['path']: cnt(h) for h in pv(hp)}
     say('== 많이 본 페이지 상위 20 (조회수 · 지난주 대비)')
     for h in sorted(pv(hc), key=cnt, reverse=True)[:20]:
