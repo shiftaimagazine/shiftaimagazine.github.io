@@ -1400,6 +1400,37 @@ nav.main{margin-left:8px;justify-content:flex-start}
 #v-home .hroles .hchips{margin:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
 #v-home .hroles .hchips::-webkit-scrollbar{display:none}
 @media (max-width:820px){#v-home .hr-in{flex-direction:column;align-items:stretch;gap:8px;padding:12px}#v-home .hroles .hchips{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}}
+/* ---- 색 시안 1(11/6~ 사용자 결정): 흰 바탕 + 노랑 한 점. 베이지는 모두 빼고 흰색·옅은 회색 하나로.
+   노랑은 톤을 낮춰(사용자 요청 '노란색이 너무 강함') 넓은 면에는 아주 옅은 #FCF1CC, 버튼은 부드러운 #F6DD8E, 선·점에만 #EFC955.
+   검정은 글자와 로고에만. 밤 화면은 무채색 + 한 톤 낮은 노랑 #E3C876 ---- */
+:root{--bg:#FFFFFF;--bg2:#F5F5F4;--card:#FFFFFF;--inset:#F7F7F6;--hdr:#FFFFFF;--ivory:#F1F1EF;--on-ivory:#111111;--chip2:#F1F1EF;--line:#EAEAE7;--ft:#F7F7F6;--orb:#FBF3DC;
+  --btn:#F6DD8E;--on-btn:#111111;--btn-sh:none;--y:#EFC955;--y-soft:#FCF1CC;--vwatch:#FBF0CF;--nav:#3A3A3A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141518;--bg2:#1B1D21;--card:#1E2024;--inset:#24272B;--hdr:#141518;--ivory:#2A2D32;--on-ivory:#FFFFFF;--chip2:#2A2D32;--line:#2A2D31;--ft:#101114;--orb:#202227;
+  --btn:#E3C876;--on-btn:#111111;--btn-sh:none;--y:#E3C876;--y-soft:rgba(227,200,118,.16);--vwatch:#3A3222}}
+:root[data-theme="dark"]{--bg:#141518;--bg2:#1B1D21;--card:#1E2024;--inset:#24272B;--hdr:#141518;--ivory:#2A2D32;--on-ivory:#FFFFFF;--chip2:#2A2D32;--line:#2A2D31;--ft:#101114;--orb:#202227;
+  --btn:#E3C876;--on-btn:#111111;--btn-sh:none;--y:#E3C876;--y-soft:rgba(227,200,118,.16);--vwatch:#3A3222}
+.annc{background:var(--y-soft);color:#111111}
+.annc .nb{background:#111111;color:#FCF1CC}
+.annc .go,.annc:hover .go{color:#111111}
+header{background:var(--hdr);background:color-mix(in srgb,var(--hdr) 94%,transparent);border-bottom:1px solid var(--line)}
+nav.main a[aria-current="true"]{background:transparent;color:var(--ink);border-radius:8px 8px 0 0;box-shadow:inset 0 -3px 0 var(--y)}
+.sub-in a[aria-current="page"]{background:var(--y-soft);color:#111111;font-weight:700}
+.subnav .sub{border-top-color:var(--line)}
+header .btn.pill{background:var(--btn);color:var(--on-btn)}
+header .btn.pill:hover{filter:brightness(.97)}
+.gchips a{background:var(--bg2)}
+.hchips a[aria-current="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.subbox .btn{background:#F6DD8E;color:#111111;box-shadow:none}
+.subbox .subrow input:focus{outline-color:#F6DD8E}
+.subbox .subf .agree input{accent-color:#F6DD8E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .annc{background:#1E2024!important;color:#EDEDED!important;border-bottom:1px solid #2A2D31!important}}
+:root[data-theme="dark"] .annc{background:#1E2024!important;color:#EDEDED!important;border-bottom:1px solid #2A2D31!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .annc .nb{background:#E3C876!important;color:#111111!important}}
+:root[data-theme="dark"] .annc .nb{background:#E3C876!important;color:#111111!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .annc .go,.annc:hover .go{color:#EDEDED!important}}
+:root[data-theme="dark"] .annc .go,.annc:hover .go{color:#EDEDED!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sub-in a[aria-current="page"]{color:#FFFFFF}}
+:root[data-theme="dark"] .sub-in a[aria-current="page"]{color:#FFFFFF}
 /* ---- 휴대폰 가독성 끝 ---- */
 
 /* ---- 무료 도구 6개(11/4~): AI 답변 서식 정리기 · 사진 위치정보 지우기 · 이미지 압축·인스타 자르기 · PDF 합치기 · 표 → 마크다운 · 프롬프트 비교 ---- */

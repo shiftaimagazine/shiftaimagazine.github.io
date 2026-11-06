@@ -697,7 +697,7 @@ if(ROUTE==="search" && $("#sq")) $("#sq").value = q0 || "";
 const sysDark = ()=>!!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
 const isDark = ()=>{ const t=document.documentElement.getAttribute("data-theme"); return t ? t==="dark" : sysDark(); };
 function themeSync(){ const b=$("#themeBtn"), d=isDark(); if(b) b.setAttribute("aria-pressed", String(d));
-  const m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute("content", d?"#1F2226":"#F4F0E8"); }
+  const m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute("content", d?"#141518":"#FFFFFF"); }
 document.addEventListener("click",e=>{ if(!e.target.closest("#themeBtn")) return;
   const next = isDark() ? "light" : "dark", h=document.documentElement;
   if(!RM){ h.classList.add("theme-anim"); setTimeout(()=>h.classList.remove("theme-anim"),400); }

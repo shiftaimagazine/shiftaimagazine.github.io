@@ -251,7 +251,7 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F0E8">
+<meta name="theme-color" content="#FFFFFF">
 <script src="/assets/theme.js?v={VER}"></script>
 <meta name="robots" content="{robots}">
 {VERIFY}{extra}{ANALYTICS}<link rel="icon" type="image/png" href="/favicon.png">
