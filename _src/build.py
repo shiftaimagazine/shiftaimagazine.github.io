@@ -93,7 +93,7 @@ def og_brand():
     logo = Image.open(OUT + 'img/logo-wide.webp').convert('RGBA'); s = 520 / logo.width
     logo = logo.resize((520, round(logo.height * s)), Image.LANCZOS); c.paste(logo, ((W - 520) // 2, 150), logo)
     fb = ImageFont.truetype(FONT_B, 50, index=1); fr = ImageFont.truetype(FONT_R, 28, index=1)
-    t1 = '오늘의 AI, 내 일에 쓰는 법까지'; t2 = '검색 말고 SHIFT · 매일 AI 소식 · 무료 도구 · 튜토리얼'
+    t1 = 'AI 소식은 짧게, 쓰는 법은 끝까지'; t2 = '검색 말고 SHIFT · 일하는 사람을 위한 AI 매거진'
     y = 150 + logo.height + 56
     d.text(((W - d.textlength(t1, font=fb)) / 2, y), t1, font=fb, fill=(17, 18, 20))
     d.text(((W - d.textlength(t2, font=fr)) / 2, y + 78), t2, font=fr, fill=(111, 112, 118))
@@ -277,14 +277,14 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
     PAGES.append(path)
 
 PAGES = []
-TAG = '검색 말고 SHIFT — 오늘의 AI, 내 일에 쓰는 법까지'
+TAG = '검색 말고 SHIFT — AI 소식은 짧게, 쓰는 법은 끝까지'
 HOME_LD = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'SHIFT AI MAGAZINE', 'alternateName': BRAND_ALT, 'url': SITE + '/', 'inLanguage': 'ko',
             'potentialAction': {'@type': 'SearchAction', 'target': SITE + '/search/?q={search_term_string}', 'query-input': 'required name=search_term_string'}},
            {'@context': 'https://schema.org', '@type': 'NewsMediaOrganization', 'name': 'SHIFT AI MAGAZINE', 'alternateName': BRAND_ALT, 'url': SITE + '/', 'logo': SITE + '/img/brand/logo-800.png', 'email': 'shiftai.magazine@gmail.com',
-            'description': '오늘의 AI 소식을 원문부터 확인해 쉽게 풀고, 내 일에 쓰는 튜토리얼과 가입 없는 무료 도구를 함께 두는 한국어 AI 매거진', 'inLanguage': 'ko', 'publishingPrinciples': SITE + '/about/',
+            'description': '일하는 사람을 위한 한국어 AI 매거진. 매일 AI 소식을 원문부터 확인해 전하고, 실무에 쓰는 튜토리얼과 가입 없이 쓰는 무료 도구를 만듭니다.', 'inLanguage': 'ko', 'publishingPrinciples': SITE + '/about/',
             'sameAs': [IG, 'https://www.threads.com/@shift_ai_magazine', 'https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw']}]
 HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in HOME_LD)
-page('/', 'home', 'SHIFT AI(시프트 AI) — 오늘의 AI 뉴스와 내 일에 쓰는 법, 무료 AI 도구', '오늘 나온 AI 뉴스를 원문부터 확인해 쉽게 풀고, 내 일에 바로 쓰는 튜토리얼과 가입 없는 무료 AI 도구를 함께 둡니다. 챗GPT, 클로드, 제미나이 같은 인공지능 소식과 AI 데일리 이슈, 프롬프트, 칼럼을 싣습니다.', STATIC['home'], OG_SITE, 'website', HOME_EXTRA)
+page('/', 'home', 'SHIFT AI MAGAZINE(시프트 AI 매거진) — 일하는 사람을 위한 AI 매거진', 'AI 소식은 짧게, 쓰는 법은 끝까지. 매일 아침 AI 뉴스와 데일리 이슈, 회의록·메일·엑셀에 바로 쓰는 튜토리얼과 프롬프트, 설치 없이 쓰는 무료 AI 도구를 싣습니다. 챗GPT·클로드·제미나이 소식은 원문부터 확인합니다.', STATIC['home'], OG_SITE, 'website', HOME_EXTRA)
 _NPROMPT = sum(1 for t in T for it in t['items'] if it.get('prompt')) + sum(1 for t in T if (t.get('master') or {}).get('prompt'))
 LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 AI 뉴스와 인공지능 기사. 회사 발표·논문·공식 게시물 같은 원문을 읽고 쓰며, 모든 기사 끝에 원문 링크가 있습니다.'),
          'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.'),
