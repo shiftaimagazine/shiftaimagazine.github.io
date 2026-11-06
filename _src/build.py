@@ -272,6 +272,8 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 </body>
 </html>
 '''
+    # 작업 메모(<!-- -->)는 방문자 페이지 소스에 남기지 않는다(11/7~)
+    doc = re.sub(r'[ \t]*<!--(?!\[).*?-->[ \t]*\n?', '', doc, flags=re.S)
     d = OUT + path.strip('/'); os.makedirs(d, exist_ok=True) if path != '/' else None
     open((d + '/' if path != '/' else OUT) + 'index.html', 'w').write(doc)
     PAGES.append(path)
@@ -287,12 +289,12 @@ HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_
 page('/', 'home', 'SHIFT AI MAGAZINE(시프트 AI 매거진) — 일하는 사람을 위한 AI 매거진', 'AI 소식은 짧게, 쓰는 법은 끝까지. 매일 아침 AI 뉴스와 데일리 이슈, 회의록·메일·엑셀에 바로 쓰는 튜토리얼과 프롬프트, 설치 없이 쓰는 무료 AI 도구를 싣습니다. 챗GPT·클로드·제미나이 소식은 원문부터 확인합니다.', STATIC['home'], OG_SITE, 'website', HOME_EXTRA)
 _NPROMPT = sum(1 for t in T for it in t['items'] if it.get('prompt')) + sum(1 for t in T if (t.get('master') or {}).get('prompt'))
 LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 AI 뉴스와 인공지능 기사. 회사 발표·논문·공식 게시물 같은 원문을 읽고 쓰며, 모든 기사 끝에 원문 링크가 있습니다.'),
-         'tutorial': ('튜토리얼 · AI 실전 꿀팁', '오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.'),
+         'tutorial': ('튜토리얼 — 따라만 하면 되는 AI 활용법', '따라만 하면 되는 순서에 복사해서 쓰는 프롬프트를 붙였습니다. 메일·회의록·엑셀부터 클로드 코드·n8n 설정까지, 공식 문서로 확인한 것만 씁니다.'),
          'daily': ('AI 데일리 뉴스 — 날마다 정리하는 AI 이슈', '그날 나온 AI 뉴스를 한 장에 모았습니다. 제목 한 줄과 요점 세 줄, 소식 목록과 숫자를 한 번에 봅니다.'),
          'dict': ('AI 사전 — AI 용어 뜻 쉽게 풀이', f'AI 용어 {len(TERMS)}개의 뜻을 쉬운 말로 풀었습니다. 에이전트·RAG·MCP·토큰 같은 AI 용어부터 API·GPU 같은 IT 용어, 클로드·챗GPT·제미나이 같은 제품 이름까지 관련 기사와 함께 봅니다.'),
          'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", 'JPG PDF 변환, PDF JPG 변환, 한글 HWP·워드·PPT 텍스트 변환, 표로 차트 만들기, 프롬프트 저장·점검, AI 답변 서식 정리, 사진 위치정보 지우기, 이미지 압축·인스타 사이즈 자르기, PDF 합치기·나누기, 엑셀 마크다운 표 변환, 프롬프트 비교, 유료 프로그램 무료 대체 찾기, 글자 수·토큰 세기, HEIC JPG 변환, 이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
          'prompts': (f"복붙 프롬프트 모음 {_NPROMPT}개 — 챗GPT·클로드·제미나이에 바로 쓰는 업무 프롬프트", f"메일 답장, 회의록 정리, 긴 자료 요약, 이력서·자기소개서 검토, 엑셀 수식, 공부까지 바로 복사해 쓰는 프롬프트 {_NPROMPT}개를 주제별로 모았습니다. 챗GPT·클로드·제미나이에 그대로 붙여 넣으면 됩니다."),
-         'verdict': ('AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요', 'SHIFT AI가 원문을 읽고 기사마다 붙인 판정을 모았습니다. 지금 써 볼 만한 AI 도구, 조금 더 지켜볼 발표, 근거보다 부풀려진 발표를 골라 봅니다.'),
+         'verdict': ('AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요', '원문을 읽고 기사마다 붙인 판정만 따로 봅니다. 지금 써 볼 만한 AI 도구, 조금 더 지켜볼 발표, 근거보다 부풀려진 발표를 골라 봅니다.'),
          'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 확인하고 써 볼 만한지 판정하는 AI 매거진입니다.'),
          'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
 LIST_NAME = {'prompts': '복붙 프롬프트 모음', 'verdict': 'AI 판정 모아보기', 'news': 'AI 뉴스', 'tutorial': '튜토리얼', 'daily': '데일리 이슈', 'dict': 'AI 사전', 'tools': '무료 도구', 'about': '소개', 'privacy': '개인정보처리방침'}
@@ -690,7 +692,7 @@ for pr in VS['pairs']:
           'about': [{'@type': 'SoftwareApplication', 'name': xn, 'applicationCategory': 'AI 챗봇'}, {'@type': 'SoftwareApplication', 'name': yn, 'applicationCategory': 'AI 챗봇'}]}
     fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub(r'href="/', f'href="{SITE}/', a)}} for q, a in qa]}
     page(u, 'vs-' + pr['id'], title, pr['deck'], main, _vsog, 'article', LD(ld, crumbs(('AI 서비스 비교', '/vs/'), (f"{xn} vs {yn}", u)), fq))
-_vsi = (f'<main id="v-vsindex"><div class="ph"><h1>AI 서비스 비교</h1><p>챗GPT·클로드·제미나이·그록을 둘씩 놓고 한 달 요금, 무료로 되는 기능, 돈을 내야 하는 순간, 잘 맞는 사람을 비교했습니다. 모든 값은 {_ymd(VS["checked"])} 각 사 공식 페이지에서 확인했습니다.</p></div>\n'
+_vsi = (f'<main id="v-vsindex"><div class="ph"><span class="hk2">AI VS</span><h1>AI 서비스 비교</h1><p><span class="nw">챗GPT·클로드·제미나이·그록을</span> <span class="nw">둘씩 놓고 요금과 무료 범위,</span> <span class="nw">잘 맞는 사람을 비교했습니다.</span> <span class="nw">모든 값은 {_ymd(VS["checked"])}</span> <span class="nw">각 사 공식 페이지에서 확인했습니다.</span></p></div>\n'
         f'  <div class="trel-tools vsidx">{"".join(_vscard(q) for q in VS["pairs"])}</div>\n'
         f'  <div class="box vsall"><b>네 서비스를 한 번에 보려면</b><p><a href="{VS["column"]}">챗GPT·클로드·제미나이·그록 요금제 비교, 무료로 어디까지 되고 언제 돈을 내야 할까</a> · API로 쓸 때 비용은 <a href="/tools/ai-cost/">AI 요금 계산기</a></p></div>\n'
         f'{FOLLOWBOX}\n</main>')
@@ -714,6 +716,13 @@ def _wpost(a):
             f'<div class="b"><span class="cat">{esc(a["cat"])}{tag}</span><h3>{esc(a["title"])}</h3><p class="vwhy">{esc(v.get("why") or a["hook"])}</p>'
             f'<div class="meta"><span>{a["date"].replace("-", ".")}</span></div></div></a>')
 PIMG_W, WEEK_LAST = {}, {}
+# 호수·편집부의 한마디(11/7~): 오래된 주부터 No.01. 'N월 첫째 주'는 그 주 목요일이 든 달 기준. 한마디는 news/weekly_notes.json.
+_WNO = {m: i + 1 for i, m in enumerate(sorted(WEEKS))}
+_WNOTE = {k: v for k, v in json.load(open(SRC + 'news/weekly_notes.json')).items() if not k.startswith('_')}
+def _wnth(m):
+    th = datetime.date.fromisoformat(m) + datetime.timedelta(days=3)
+    return f"{th.month}월 {['첫째', '둘째', '셋째', '넷째', '다섯째'][(th.day - 1) // 7]} 주"
+_wno = lambda m: f"No.{_WNO[m]:02d}"
 def _wcount(xs): return {k: sum(1 for a in xs if (a.get('verdict') or {}).get('v') == k) for k, *_ in _VDN}
 for i, m in enumerate(WEEKS):
     xs = sorted(_W[m], key=lambda a: a['date'] + (a.get('time') or ''), reverse=True)
@@ -733,22 +742,24 @@ for i, m in enumerate(WEEKS):
     if more: secs += f'  <div class="sec"><h2>이 주에 새로 나온 것</h2></div>\n  <ul class="plain wkrest">{"".join(more)}</ul>\n'
     nav = ''.join(f'<a href="/weekly/{w}/"><b>{lab}</b><span>{_wrange(w)[0]}</span></a>' for w, lab in ((WEEKS[i + 1] if i + 1 < len(WEEKS) else None, '← 지난 주'), (WEEKS[i - 1] if i else None, '다음 주 →')) if w)
     h1 = f"이번 주 AI 판정 <small>{rg}</small>" if now else f"{rg} AI 판정"
+    note = _WNOTE.get(m)
+    note = f'  <aside class="wknote" aria-label="편집부의 한마디"><span class="hk2">EDITOR\'S NOTE</span><p>{esc(note)}</p><b>SHIFT 편집부</b></aside>\n' if note else ''
     main = (f'<main id="v-weekly"><article class="article narrow weekly">\n  <a class="back" href="/weekly/">← 주간 AI 판정</a>\n'
-            f'  <span class="cat">주간 AI 판정 · {m[:4]}년 {rg}</span>\n  <h1>{h1}</h1>\n  <p class="deck">{esc(deck)}</p>\n{secs}'
+            f'  <span class="cat wkno"><b>{_wno(m)}</b> · {_wnth(m)}</span>\n  <h1>{h1}</h1>\n  <p class="deck">{esc(deck)}</p>\n{note}{secs}'
             f'  <div class="box"><b>판정은 이렇게 붙입니다</b><p>AI 에디터가 회사 발표·논문 같은 원문을 읽고 정해진 기준에 따라 판정과 한 줄 이유를 붙이고, 사람 에디터가 기준을 정하고 틀린 판정을 고칩니다. '
             f'모든 기사 끝에 원문 링크가 있습니다. <a href="/verdict/">판정 전체 모아보기</a> · <a href="/about/">SHIFT AI가 일하는 방식</a></p></div>\n'
             + (f'  <nav class="trel wknav" aria-label="다른 주"><div class="trel-tools">{nav}</div></nav>\n' if nav else '') + f'{FOLLOWBOX}\n</article></main>')
-    title = f"{'이번 주 ' if now else ''}AI 판정 {rg}" + (f" — {summ}" if summ else '') + ' · SHIFT AI'
+    title = f"{'이번 주 ' if now else ''}AI 판정 {_wno(m)} · {rg}" + (f" — {summ}" if summ else '') + ' · SHIFT AI'
     top = next((a for k, *_ in _VDN for a in xs if (a.get('verdict') or {}).get('v') == k), xs[0])
     og = f"og/a-{top['id']}.jpg" if os.path.exists(OUT + f"og/a-{top['id']}.jpg") else OG_SITE
-    ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f"주간 AI 판정 {m[:4]}년 {rg}", 'description': deck, 'url': SITE + u, 'inLanguage': 'ko', 'publisher': PUBLISHER,
+    ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f"주간 AI 판정 {_wno(m)} {m[:4]}년 {rg}", 'description': deck, 'url': SITE + u, 'inLanguage': 'ko', 'publisher': PUBLISHER,
           'datePublished': kst(m), 'dateModified': kst(max(a['date'] for a in xs)),
           'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(xs), 'itemListElement': [{'@type': 'ListItem', 'position': j + 1, 'name': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for j, a in enumerate(xs)]}}
     page(u, 'weekly-' + m, title, deck, main, og, 'website', LD(ld, crumbs(('주간 AI 판정', '/weekly/'), (rg, u))))
     PIMG_W[u] = img_of(top); WEEK_LAST[u] = max(a['date'] for a in xs)
-_wi = ''.join(f'<a href="/weekly/{m}/"><b>{"이번 주 · " if m == _wk(_today) else ""}{_wrange(m)[0]}</b><span>기사 {len(_W[m])}개 · ' + ' · '.join(f'{nm} {c}' for (k, nm, *_), c in zip(_VDN, _wcount(_W[m]).values()) if c) + '</span></a>' for m in WEEKS)
+_wi = ''.join(f'<a href="/weekly/{m}/"><b><i class="wkn">{_wno(m)}</i> {"이번 주 · " if m == _wk(_today) else ""}{_wnth(m)} <small>{_wrange(m)[0]}</small></b><span>기사 {len(_W[m])}개 · ' + ' · '.join(f'{nm} {c}' for (k, nm, *_), c in zip(_VDN, _wcount(_W[m]).values()) if c) + '</span></a>' for m in WEEKS)
 page('/weekly/', 'weekly', '주간 AI 판정 — 이번 주 써볼 만한 AI, 지켜볼 AI, 과장된 AI · SHIFT AI', '한 주 동안 나온 AI 소식을 원문부터 읽고 써볼 만해요·지켜보세요·과장이에요로 판정해 주마다 묶었습니다. 판정마다 한 줄 이유와 원문 링크가 있습니다.',
-     f'<main id="v-weeklyindex"><div class="ph"><h1>주간 AI 판정</h1><p>한 주 동안 나온 AI 소식을 판정별로 묶었습니다. 바쁘면 이번 주 \'써볼 만해요\'만 보셔도 됩니다. 기사 하나하나는 <a href="/verdict/">AI 판정 모아보기</a>에서 봅니다.</p></div>\n'
+     f'<main id="v-weeklyindex"><div class="ph"><span class="hk2">WEEKLY VERDICT</span><h1>주간 AI 판정</h1><p><span class="nw">한 주의 AI 소식을 판정별로 묶어</span> <span class="nw">매주 한 호씩 냅니다.</span> <span class="nw">바쁘다면 이번 호의</span> <span class="nw">\'써볼 만해요\'만 보셔도 됩니다.</span></p></div>\n'
      f'  <div class="trel-tools vsidx">{_wi}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('주간 AI 판정', '/weekly/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': '주간 AI 판정', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/weekly/{m}/", 'name': f"AI 판정 {_wrange(m)[0]}"} for i, m in enumerate(WEEKS)]}))
 # 길잡이(/guide/, 11/3~): news/guides.json. 이미 확인한 튜토리얼·무료 도구·프롬프트를 일 단위로 묶고, 관련 기사는 기사 끝 '함께 보면 좋은 콘텐츠'이 이 길잡이를 고른 기사로 채운다.
@@ -786,8 +797,8 @@ for g in GUIDES:
           'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko'}
     fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': _abs(a)}} for q, a in faq]}
     page(u, 'guide-' + g['id'], g['title'] + ' · SHIFT AI', g['deck'], main, og, 'article', LD(*([ld, crumbs(('AI 길잡이', '/guide/'), (g['h1'], u))] + ([fq] if faq else []))))
-page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀, 일 단위로 찾는 AI 활용법 · SHIFT AI', '회의록 정리, PDF 요약, 메일 답장, 엑셀 수식, 이력서 검토처럼 하려는 일을 고르면 따라 할 순서와 복사해 쓰는 프롬프트, 무료 도구를 한곳에서 봅니다.',
-     f'<main id="v-guideindex"><div class="ph"><h1>AI 길잡이</h1><p>하려는 일을 고르세요. 따라 할 순서와 복사해 쓰는 프롬프트, 설치 없이 쓰는 무료 도구, 관련 기사를 한곳에 모았습니다. 모두 공식 자료로 확인한 튜토리얼에서 가져왔습니다.</p></div>\n'
+page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀, 일 단위로 찾는 AI 활용법 · SHIFT AI', '회의록 정리, PDF 요약, 메일 답장, 엑셀 수식, 이력서 검토처럼 하려는 일을 고르면 따라 할 순서와 복사해 쓰는 프롬프트, 무료 도구를 함께 봅니다.',
+     f'<main id="v-guideindex"><div class="ph"><span class="hk2">GUIDE</span><h1>AI 길잡이</h1><p><span class="nw">하려는 일부터 고르세요.</span> <span class="nw">따라 할 순서와 프롬프트,</span> <span class="nw">무료 도구와 관련 기사가</span> <span class="nw">함께 붙어 있습니다.</span></p></div>\n'
      f'  <div class="trel-tools vsidx">{"".join(_card("/guide/" + g["id"] + "/", g["h1"], g["card"]) for g in GUIDES)}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('AI 길잡이', '/guide/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 길잡이', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/guide/{g['id']}/", 'name': g['h1']} for i, g in enumerate(GUIDES)]}))
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')

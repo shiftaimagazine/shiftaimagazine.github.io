@@ -147,6 +147,11 @@ if __name__ == '__main__':
         a['verdict'] = {'v': v['v'], 'why': v['why']}
     # 이런 분께 추천합니다(11/5~): 기사 JSON 의 "who" 또는 news/audience.json {"기사 id": "읽으면 좋을 사람"}. 제목 아래 한 줄.
     #  명사구 한 줄(8~45자, 마침표 없음). 예: "맥에서 포스트맨과 클로드 코드·코덱스를 함께 쓰는 개발자". 2026-11-06 기사부터 필수. 규칙은 BRIEF.md.
+    # 제목은 짧게, 아래 한 줄 부제(11/7 사용자 확정): 제목 28자 이내, 부제 25~72자·마침표 없음. 11/7 기사부터 검사. 규칙은 BRIEF.md.
+    for a in out:
+        if a['date'] < '2026-11-07': continue
+        assert len(a['title']) <= 28, (a['id'], f'제목은 28자 이내(지금 {len(a["title"])}자). 못 넣은 내용은 부제(sub)로 내린다', a['title'])
+        assert 25 <= len(a['sub']) <= 72 and not re.search(r'[.!?。]$', a['sub']), (a['id'], f'부제는 한 줄 데크 25~72자, 마침표 없음(지금 {len(a["sub"])}자)', a['sub'])
     AUD = {k: v for k, v in (J('audience.json') if os.path.exists(N + 'audience.json') else {}).items() if not k.startswith('_')}
     for a in out:
         w = a.get('who') or AUD.get(a['id'])
