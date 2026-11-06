@@ -295,7 +295,7 @@ LISTS = {'news': ('AI 뉴스 — 오늘의 인공지능 소식', '오늘 나온 
          'tools': (f"무료 AI 도구 {len(D.get('TOOLS', []))}가지 — 설치·가입 없이 브라우저에서 바로", 'JPG PDF 변환, PDF JPG 변환, 한글 HWP·워드·PPT 텍스트 변환, 표로 차트 만들기, 프롬프트 저장·점검, AI 답변 서식 정리, 사진 위치정보 지우기, 이미지 압축·인스타 사이즈 자르기, PDF 합치기·나누기, 엑셀 마크다운 표 변환, 프롬프트 비교, 유료 프로그램 무료 대체 찾기, 글자 수·토큰 세기, HEIC JPG 변환, 이미지 텍스트 추출(OCR), AI 티 검사기, 프롬프트 생성기, 개인정보 마스킹, AI API 요금 계산기, 실시간 번역 자막을 설치·가입 없이 무료로 씁니다. 넣은 사진과 글은 내 브라우저 안에서만 처리합니다.'),
          'prompts': (f"복붙 프롬프트 모음 {_NPROMPT}개 — 챗GPT·클로드·제미나이에 바로 쓰는 업무 프롬프트", f"메일 답장, 회의록 정리, 긴 자료 요약, 이력서·자기소개서 검토, 엑셀 수식, 공부까지 바로 복사해 쓰는 프롬프트 {_NPROMPT}개를 주제별로 모았습니다. 챗GPT·클로드·제미나이에 그대로 붙여 넣으면 됩니다."),
          'verdict': ('AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요', '원문을 읽고 기사마다 붙인 판정만 따로 봅니다. 지금 써 볼 만한 AI 도구, 조금 더 지켜볼 발표, 근거보다 부풀려진 발표를 골라 봅니다.'),
-         'about': ('소개', 'SHIFT AI는 AI 소식을 원문부터 확인하고 써 볼 만한지 판정하는 AI 매거진입니다.'),
+         'about': ('소개', 'SHIFT AI MAGAZINE은 AI 소식을 원문부터 확인하고 써 볼 만한지 판정하는 AI 매거진입니다.'),
          'privacy': ('개인정보처리방침', 'SHIFT AI 매거진 개인정보처리방침.')}
 LIST_NAME = {'prompts': '복붙 프롬프트 모음', 'verdict': 'AI 판정 모아보기', 'news': 'AI 뉴스', 'tutorial': '튜토리얼', 'daily': '데일리 이슈', 'dict': 'AI 사전', 'tools': '무료 도구', 'about': '소개', 'privacy': '개인정보처리방침'}
 TERMSET = {'@type': 'DefinedTermSet', 'name': 'SHIFT AI AI 사전', 'url': SITE + '/dict/', 'inLanguage': 'ko'}
@@ -747,7 +747,7 @@ for i, m in enumerate(WEEKS):
     main = (f'<main id="v-weekly"><article class="article narrow weekly">\n  <a class="back" href="/weekly/">← 주간 AI 판정</a>\n'
             f'  <span class="cat wkno"><b>{_wno(m)}</b> · {_wnth(m)}</span>\n  <h1>{h1}</h1>\n  <p class="deck">{esc(deck)}</p>\n{note}{secs}'
             f'  <div class="box"><b>판정은 이렇게 붙입니다</b><p>AI 에디터가 회사 발표·논문 같은 원문을 읽고 정해진 기준에 따라 판정과 한 줄 이유를 붙이고, 사람 에디터가 기준을 정하고 틀린 판정을 고칩니다. '
-            f'모든 기사 끝에 원문 링크가 있습니다. <a href="/verdict/">판정 전체 모아보기</a> · <a href="/about/">SHIFT AI가 일하는 방식</a></p></div>\n'
+            f'모든 기사 끝에 원문 링크가 있습니다. <a href="/verdict/">판정 전체 모아보기</a> · <a href="/about/">SHIFT가 일하는 방식</a></p></div>\n'
             + (f'  <nav class="trel wknav" aria-label="다른 주"><div class="trel-tools">{nav}</div></nav>\n' if nav else '') + f'{FOLLOWBOX}\n</article></main>')
     title = f"{'이번 주 ' if now else ''}AI 판정 {_wno(m)} · {rg}" + (f" — {summ}" if summ else '') + ' · SHIFT AI'
     top = next((a for k, *_ in _VDN for a in xs if (a.get('verdict') or {}).get('v') == k), xs[0])
@@ -801,7 +801,7 @@ page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀
      f'<main id="v-guideindex"><div class="ph"><span class="hk2">GUIDE</span><h1>AI 길잡이</h1><p><span class="nw">하려는 일부터 고르세요.</span> <span class="nw">따라 할 순서와 프롬프트,</span> <span class="nw">무료 도구와 관련 기사가</span> <span class="nw">함께 붙어 있습니다.</span></p></div>\n'
      f'  <div class="trel-tools vsidx">{"".join(_card("/guide/" + g["id"] + "/", g["h1"], g["card"]) for g in GUIDES)}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('AI 길잡이', '/guide/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 길잡이', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/guide/{g['id']}/", 'name': g['h1']} for i, g in enumerate(GUIDES)]}))
-page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT AI의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
+page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # 파일 변환 모음(/tools/convert/, 11/5~): 변환표 + 변환 도구 카드 + 자주 묻는 질문. 변환표 칸은 news/convert.json.
 _cvtools = [x for x in TOOLS if x['href'] in _CVH]

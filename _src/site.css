@@ -1582,6 +1582,15 @@ footer .fm-t img{height:.7em;width:.7em}
   .article h1 .tph{display:inline}
   .article .deck{font-size:16px;line-height:1.6;margin-top:10px}
 }
+/* 줄바꿈(11/7~): 모든 글에 마지막 줄 외톨이를 줄이는 pretty(상속됨). 제목은 위에서 balance */
+body{text-wrap:pretty}
+/* 상자 안 목록의 굵은 낱말은 문장 안에 둔다('역할: …'이 두 줄로 갈라지지 않게) */
+.box li b,.tool .box li b{display:inline;margin:0;font-size:inherit}
+/* 튜토리얼 단계 안의 긴 코드·표가 휴대폰 화면을 옆으로 밀지 않게(11/7~) */
+.ti,.ti>*,.tb,.tb>*,.tut-page .vs>*{min-width:0}
+main pre{max-width:100%;overflow-x:auto}
+/* 주소·경로처럼 끊을 곳 없는 긴 낱말만 화면 끝에서 접는다(한국어 낱말 단위 줄바꿈은 그대로) */
+main{overflow-wrap:break-word}
 /* ---- 휴대폰 가독성 끝 ---- */
 
 /* ---- 무료 도구 6개(11/4~): AI 답변 서식 정리기 · 사진 위치정보 지우기 · 이미지 압축·인스타 자르기 · PDF 합치기 · 표 → 마크다운 · 프롬프트 비교 ---- */

@@ -50,11 +50,11 @@
       <li>표는 칸 구분 없이 한 줄씩 글자로 나올 수 있습니다. 숫자가 중요한 표는 원본 PDF와 직접 맞춰 보세요.</li>
       <li>마크다운의 제목(#)은 글자 크기로 짐작해 붙인 것이라 틀릴 수 있습니다. 여러 단으로 된 문서는 읽는 순서가 섞일 수 있습니다.</li>
     </ul>
-    <p>PDF는 모질라의 오픈소스 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener">PDF.js</a>(Apache-2.0)로 읽습니다. 프로그램은 처음 한 번 SHIFT AI 서버에서 받아 오고, 파일은 이 페이지 밖으로 나가지 않습니다.</p>
+    <p>PDF는 모질라의 오픈소스 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener">PDF.js</a>(Apache-2.0)로 읽습니다. 프로그램은 처음 한 번 SHIFT 서버에서 받아 오고, 파일은 이 페이지 밖으로 나가지 않습니다.</p>
   </div>
   <section class="tfaq" id="faq">
     <h2>자주 묻는 질문</h2>
-    <details><summary>PDF 파일이 서버로 올라가나요?</summary><p>올라가지 않습니다. 파일은 내 브라우저 안에서만 읽고, 글자를 뽑는 프로그램만 처음 한 번 SHIFT AI 서버에서 받아 옵니다. 페이지를 닫으면 결과도 사라집니다.</p></details>
+    <details><summary>PDF 파일이 서버로 올라가나요?</summary><p>올라가지 않습니다. 파일은 내 브라우저 안에서만 읽고, 글자를 뽑는 프로그램만 처음 한 번 SHIFT 서버에서 받아 옵니다. 페이지를 닫으면 결과도 사라집니다.</p></details>
     <details><summary>스캔한 PDF는 왜 글자가 안 나오나요?</summary><p>스캔한 PDF는 글자가 아니라 사진으로 들어 있어서 뽑을 글자 정보가 없습니다. 글자가 거의 없는 쪽은 결과 아래에 쪽 번호로 알려 드리니, 그 쪽을 이미지로 저장해 <a href="/tools/ocr/">사진 속 글자 뽑기</a>에 넣으면 됩니다.</p></details>
     <details><summary>텍스트와 마크다운은 무엇이 다른가요?</summary><p>텍스트는 글자만 있는 결과입니다. 마크다운은 큰 글씨로 된 줄 앞에 #을, 목록 앞에 -를 붙여 제목과 목록 구조를 함께 남깁니다. 챗GPT·클로드·제미나이에 붙여 넣을 때는 둘 다 쓸 수 있고, 구조가 중요한 문서라면 마크다운이 낫습니다.</p></details>
     <details><summary>AI에 PDF를 그대로 올리면 안 되나요?</summary><p>올려도 되지만 표가 깨지거나 머리글과 쪽 번호가 본문에 섞일 수 있습니다. 글자를 먼저 뽑아 보면 AI에게 무엇이 전달되는지 확인하고 필요한 부분만 골라 보낼 수 있습니다. 자세한 방법은 <a href="/tutorial/pdf-to-markdown/">PDF를 마크다운으로 바꿔 AI에 올리는 7단계</a>에 있습니다.</p></details>
