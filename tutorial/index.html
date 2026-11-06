@@ -5,21 +5,21 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
-<title>튜토리얼 · AI 실전 꿀팁 · SHIFT AI</title>
-<meta name="description" content="오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.">
+<title>튜토리얼 — 따라만 하면 되는 AI 활용법 · SHIFT AI</title>
+<meta name="description" content="따라만 하면 되는 순서에 복사해서 쓰는 프롬프트를 붙였습니다. 메일·회의록·엑셀부터 클로드 코드·n8n 설정까지, 공식 문서로 확인한 것만 씁니다.">
 <link rel="canonical" href="https://shiftaimagazine.com/tutorial/">
 <meta property="og:site_name" content="SHIFT AI MAGAZINE">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="website">
-<meta property="og:title" content="튜토리얼 · AI 실전 꿀팁 · SHIFT AI">
-<meta property="og:description" content="오늘 바로 따라 할 수 있는 AI 실전 꿀팁. 프롬프트 모음부터 클로드 코드·n8n·리모션 설정까지, 공식 문서로 확인한 내용만 단계별로 정리했습니다.">
+<meta property="og:title" content="튜토리얼 — 따라만 하면 되는 AI 활용법 · SHIFT AI">
+<meta property="og:description" content="따라만 하면 되는 순서에 복사해서 쓰는 프롬프트를 붙였습니다. 메일·회의록·엑셀부터 클로드 코드·n8n 설정까지, 공식 문서로 확인한 것만 씁니다.">
 <meta property="og:url" content="https://shiftaimagazine.com/tutorial/">
 <meta property="og:image" content="https://shiftaimagazine.com/og/site.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=19d8cf1e"></script>
+<script src="/assets/theme.js?v=ebab8c2c"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -31,14 +31,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=19d8cf1e">
+<link rel="stylesheet" href="/assets/site.css?v=ebab8c2c">
 </head>
 <body data-route="tutorial" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
 <header class="bleed">
   <div class="topbar">
     <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
-    <!-- 위쪽 메뉴(11/6~): 큰 분류 4개. 누르면 아래에 한 줄(분류 안의 메뉴)이 펼쳐진다. 지금 보는 페이지의 줄은 처음부터 펼쳐 둔다. JS 가 없으면 링크로 그 분류 첫 페이지에 간다 -->
     <nav class="main" aria-label="목차">
       <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
       <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
@@ -89,7 +88,7 @@
 
 <div class="wrap">
 <main id="v-tutorial">
-  <div class="ph"><h1>튜토리얼</h1><p>오늘 바로 따라 할 수 있는 AI 실전 꿀팁을 모았습니다. 공식 문서로 확인한 내용만 단계별로 정리했습니다. 프롬프트만 골라 쓰려면 <a href="/prompts/">복붙 프롬프트 모음</a>을 보세요.</p></div>
+  <div class="ph"><span class="hk2">HOW-TO</span><h1>튜토리얼</h1><p><span class="nw">따라만 하면 되는 순서에</span> <span class="nw">복사해서 쓰는 프롬프트를 붙였습니다.</span> <span class="nw">공식 문서로 확인한 것만 씁니다.</span></p></div>
   <div class="tfind"><input id="tutQ" type="search" placeholder="튜토리얼 검색 (예: 엑셀, 회의, 클로드 코드)" aria-label="튜토리얼 검색"><span id="tutCount" class="tcount">44편</span></div>
   <div class="filters" id="tutTools" role="group" aria-label="도구"><span class="flbl">도구</span><button aria-pressed="true" data-tt="all">전체</button><button aria-pressed="false" data-tt="Claude">Claude 34</button><button aria-pressed="false" data-tt="제미나이">제미나이 29</button><button aria-pressed="false" data-tt="ChatGPT">ChatGPT 28</button><button aria-pressed="false" data-tt="Claude Code">Claude Code 12</button><button aria-pressed="false" data-tt="엑셀·시트">엑셀·시트 5</button><button aria-pressed="false" data-tt="크롬">크롬 3</button><button aria-pressed="false" data-tt="Remotion">Remotion 2</button><button aria-pressed="false" data-tt="n8n">n8n 2</button><button aria-pressed="false" data-tt="그록">그록 1</button></div>
   <div class="filters" id="tutFilters" role="group" aria-label="주제"><span class="flbl">주제</span><button aria-pressed="true" data-tc="all">전체</button><button class="tooltag" aria-pressed="false" data-tc="무료 도구">무료 도구 23</button><button aria-pressed="false" data-tc="업무">업무 15</button><button aria-pressed="false" data-tc="자동화">자동화 3</button><button aria-pressed="false" data-tc="스킬·MCP">스킬·MCP 9</button><button aria-pressed="false" data-tc="비용 절약">비용 절약 2</button><button aria-pressed="false" data-tc="영상·이미지">영상·이미지 2</button><button aria-pressed="false" data-tc="AI 답 검증">AI 답 검증 3</button><button aria-pressed="false" data-tc="보안·개인정보">보안·개인정보 4</button><button aria-pressed="false" data-tc="공부·리서치">공부·리서치 3</button><button aria-pressed="false" data-tc="콘텐츠·커리어">콘텐츠·커리어 3</button></div>
@@ -172,8 +171,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=19d8cf1e"></script>
-<script src="/assets/app.js?v=19d8cf1e"></script>
+<script src="/assets/data.js?v=ebab8c2c"></script>
+<script src="/assets/app.js?v=ebab8c2c"></script>
 
 
 </body></html>
