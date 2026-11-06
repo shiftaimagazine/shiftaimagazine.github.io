@@ -502,10 +502,10 @@
    ],
    "image": {
     "page": "https://research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors/",
-    "og": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
+    "og": null,
     "credit": "이미지: Google Research",
     "alt": "스마트워치 고혈압 연구 대표 이미지",
-    "mode": null
+    "mode": "screenshot"
    },
    "verify": [
     {
