@@ -8,7 +8,7 @@ ROOT = os.path.dirname(SRC.rstrip('/')) + '/'
 FONT_B = os.environ.get('KR_FONT_BOLD', '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc')
 FONT_M = os.environ.get('KR_FONT_MED', '/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc')
 F = lambda path, size: ImageFont.truetype(path, size, index=1 if path.endswith('.ttc') else 0)
-ACCENT = (212, 88, 31)
+ACCENT = (162, 59, 44)
 W, H = 960, 540
 LOGO = {'t-pdf-to-markdown'}
 BUSY = {'t-meeting-interpreter', 't-redact-before-upload', 't-spreadsheet-formulas', 't-resume-review', 't-pdf-to-markdown'}

@@ -87,7 +87,7 @@ def build_mail(send, A, DY, T):
         badge = f'<span style="display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:700;color:{VD[v][1]};background:{VD[v][2]}">{VD[v][0]}</span>' if v in VD else ''
         u = link(f"/news/{a['id']}/"); d = datetime.date.fromisoformat(a['date'])
         return f'''<tr><td style="padding:20px 28px 0">
-<div style="font-size:12.5px;font-weight:700;color:#d4581f">{i:02d} · {esc(a['cat'])} <span style="font-weight:500;color:#8a8b90">· {md(d)}</span>{badge}</div>
+<div style="font-size:12.5px;font-weight:700;color:#A23B2C">{i:02d} · {esc(a['cat'])} <span style="font-weight:500;color:#8a8b90">· {md(d)}</span>{badge}</div>
 <a href="{esc(u)}" style="display:block;margin-top:6px;font-size:17px;font-weight:700;line-height:1.45;color:#111214;text-decoration:none">{esc(a['title'])}</a>
 <div style="margin-top:6px;font-size:14.5px;line-height:1.75;color:#3f4046">{esc(a['hook'])}</div>
 {f'<div style="margin-top:6px;font-size:13.5px;line-height:1.6;color:#6f7076">판정 이유: {esc(why)}</div>' if why else ''}

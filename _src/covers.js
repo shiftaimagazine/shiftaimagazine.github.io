@@ -11,7 +11,7 @@ const COLORS = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100'];
 const html = c => `<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
 *{box-sizing:border-box;margin:0}
 body{width:1600px;height:900px;background:#f6f4ef;font-family:"Noto Sans CJK KR","Noto Sans KR",sans-serif;color:#111214;padding:84px 96px 70px;display:flex;flex-direction:column}
-.k{font-size:30px;font-weight:700;color:#d4581f;letter-spacing:.01em}
+.k{font-size:30px;font-weight:700;color:#A23B2C;letter-spacing:.01em}
 h1{font-size:${c.size || 76}px;line-height:1.22;font-weight:800;margin-top:22px;letter-spacing:-.02em;white-space:pre-line}
 .tiles{display:grid;grid-template-columns:repeat(${c.tiles.length},1fr);gap:22px;margin-top:auto}
 .t{background:#fff;border-radius:22px;padding:28px 28px 26px;border-top:12px solid var(--c);box-shadow:0 1px 0 #e6e6e3}
