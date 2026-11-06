@@ -110,7 +110,7 @@ def day_img(d):
     return img_of(lead)
 
 # favicon
-lg = Image.open(OUT + 'img/logo.webp').convert('RGBA')
+lg = Image.open(OUT + 'img/brand/icon-512.png').convert('RGBA')  # 11/6~ 새 로고(노란 둥근 사각 + 검정 화살표)
 for size, name in [(64, 'favicon.png'), (180, 'apple-touch-icon.png')]:
     bg = Image.new('RGBA', lg.size, (255, 255, 255, 255)); bg.alpha_composite(lg)
     bg.convert('RGB').resize((size, size), Image.LANCZOS).save(OUT + name, 'PNG', optimize=True)
@@ -226,8 +226,8 @@ def crumbs(*items):  # (이름, 경로) … → BreadcrumbList (첫 화면이 �
     its = [('SHIFT AI', '/')] + list(items)
     return {'@context': 'https://schema.org', '@type': 'BreadcrumbList',
             'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': SITE + u} for i, (n, u) in enumerate(its)]}
-BRAND_ALT = ['SHIFT AI 매거진', '시프트 AI', '시프트 AI 매거진', 'SHIFT AI Magazine']
-PUBLISHER = {'@type': 'NewsMediaOrganization', 'name': 'SHIFT AI', 'url': SITE + '/', 'logo': {'@type': 'ImageObject', 'url': SITE + '/img/brand/logo-800.png'}}
+BRAND_ALT = ['SHIFT AI', 'SHIFT AI 매거진', '시프트 AI 매거진', '시프트 AI', 'SHIFT AI Magazine']
+PUBLISHER = {'@type': 'NewsMediaOrganization', 'name': 'SHIFT AI MAGAZINE', 'url': SITE + '/', 'logo': {'@type': 'ImageObject', 'url': SITE + '/img/brand/logo-800.png'}}
 AUTHOR = {'@type': 'Organization', 'name': 'SHIFT AI 편집부', 'url': SITE + '/about/'}
 
 def page(path, route, title, desc, main, og, typ='website', extra='', robots='index,follow,max-image-preview:large', secmeta=None):
@@ -241,7 +241,7 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{url}">
-<meta property="og:site_name" content="SHIFT AI">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="{typ}">
 <meta property="og:title" content="{esc(title)}">
@@ -278,9 +278,9 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 
 PAGES = []
 TAG = '검색 말고 SHIFT — 오늘의 AI, 내 일에 쓰는 법까지'
-HOME_LD = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'SHIFT AI', 'alternateName': BRAND_ALT, 'url': SITE + '/', 'inLanguage': 'ko',
+HOME_LD = [{'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'SHIFT AI MAGAZINE', 'alternateName': BRAND_ALT, 'url': SITE + '/', 'inLanguage': 'ko',
             'potentialAction': {'@type': 'SearchAction', 'target': SITE + '/search/?q={search_term_string}', 'query-input': 'required name=search_term_string'}},
-           {'@context': 'https://schema.org', '@type': 'NewsMediaOrganization', 'name': 'SHIFT AI', 'alternateName': BRAND_ALT, 'url': SITE + '/', 'logo': SITE + '/img/brand/logo-800.png', 'email': 'shiftai.magazine@gmail.com',
+           {'@context': 'https://schema.org', '@type': 'NewsMediaOrganization', 'name': 'SHIFT AI MAGAZINE', 'alternateName': BRAND_ALT, 'url': SITE + '/', 'logo': SITE + '/img/brand/logo-800.png', 'email': 'shiftai.magazine@gmail.com',
             'description': '오늘의 AI 소식을 원문부터 확인해 쉽게 풀고, 내 일에 쓰는 튜토리얼과 가입 없는 무료 도구를 함께 두는 한국어 AI 매거진', 'inLanguage': 'ko', 'publishingPrinciples': SITE + '/about/',
             'sameAs': [IG, 'https://www.threads.com/@shift_ai_magazine', 'https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw']}]
 HOME_EXTRA = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in HOME_LD)
