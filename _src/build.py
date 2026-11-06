@@ -97,7 +97,7 @@ def og_brand():
     y = 150 + logo.height + 56
     d.text(((W - d.textlength(t1, font=fb)) / 2, y), t1, font=fb, fill=(17, 18, 20))
     d.text(((W - d.textlength(t2, font=fr)) / 2, y + 78), t2, font=fr, fill=(111, 112, 118))
-    d.rectangle((0, H - 10, W, H), fill=(242, 201, 76))
+    d.rectangle((0, H - 10, W, H), fill=(239, 201, 85))
     c.save(OUT + out, 'JPEG', quality=86, optimize=True); return out
 OG_SITE = og_brand() if os.path.exists(FONT_B) or not os.path.exists(OUT + 'og/site.jpg') else 'og/site.jpg'
 img_of = lambda a: (a.get('image') or {}).get('src') or 'img/logo.webp'
