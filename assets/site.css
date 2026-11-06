@@ -1830,7 +1830,7 @@ footer .fbrand p span{display:block}
 footer .fgrp span{color:#8A8A87}
 footer .fgrp a,footer .ftop,footer .flegal a{color:#FFFFFF}
 footer .flegal{color:#8A8A87;border-top-color:#2A2A2A}
-footer .fword{display:none}
+footer .fword{display:block;color:#FFFFFF}
 footer .fmarq{overflow:hidden;padding:24px 0 6px;margin:0 calc(-1*var(--gr)) 0 calc(-1*var(--gl))}
 footer .fm-t{display:flex;width:max-content;animation:h2MarqL 60s linear infinite}
 footer .fm-t>span{display:flex;align-items:center;gap:.12em;padding-right:.5em;font-family:"SAI Display",var(--font);font-weight:900;font-size:clamp(96px,14vw,210px);line-height:.95;color:#FFFFFF;white-space:nowrap;letter-spacing:-.005em}

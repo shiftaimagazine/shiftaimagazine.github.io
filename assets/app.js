@@ -82,6 +82,12 @@ const hcardHTML = t=>`<a class="hcard" href="${t.href}" data-ev="home-tool:${esc
 // 썸네일 띠: 같은 줄을 두 번 이어 붙여 끊김 없이 흐르게(두 번째 줄은 화면 읽기·탭 이동에서 뺌)
 const wallRow = xs=>{ const one=(x,h,k)=>`<a href="${x.href}"${h?' tabindex="-1" aria-hidden="true"':` data-ev="home-wall:${esc(x.id)}"`}><img src="${x.src}" alt="${h?"":esc(x.alt)}"${!h&&k<5?' fetchpriority="low"':' loading="lazy"'} decoding="async"></a>`;
   return xs.map((x,k)=>one(x,false,k)).join("") + xs.map((x,k)=>one(x,true,k)).join(""); };  // 첫 화면에 보이는 앞쪽 5장은 바로 불러 빈 칸이 안 보이게
+// 흐르는 띠 속도 맞추기(11/6~ 사용자 요청): 도구·튜토리얼·판정 띠 모두 같은 속도(초당 23px, 처음 도구 띠의 절반)로 흐른다.
+// 줄마다 길이가 달라도 같은 빠르기가 되도록 길이(복제 포함의 절반) ÷ 속도로 시간을 정한다.
+const MARQ_PX = 23;
+const syncMarq = ()=>document.querySelectorAll(".hwall .wl-t, .hticker .tk-t").forEach(el=>{ const half=el.scrollWidth/2; if(half>0) el.style.animationDuration=(half/MARQ_PX).toFixed(1)+"s"; });
+let marqT=0; addEventListener("resize",()=>{ clearTimeout(marqT); marqT=setTimeout(syncMarq,200); });
+addEventListener("load",syncMarq); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(syncMarq);  // 미리 그린 페이지도 열 때마다 화면 폭에 맞춰 다시 잰다
 function renderHome2(d){
   if(d){ $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${mdShort(d.date)} · 오늘 기사 ${dayItems(d).length}건`; }
   if($("#hAll")) $("#hAll").textContent = `AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기`;
@@ -92,6 +98,7 @@ function renderHome2(d){
   if($("#hWall2")) $("#hWall2").innerHTML = wallRow(uw);
   if($("#hTicker")){ const xs = sorted.slice(0,6), one = (a,h)=>`<a href="${P("a-"+a.id)}"${h?' tabindex="-1" aria-hidden="true"':` data-ev="home-ticker:${esc(a.id)}"`}>${vchip(a)}<span>${tp(a.title)}</span></a>`;
     const row = h=>`<div class="tk-g"><b class="tk-k">SHIFT 판정</b>${xs.map(a=>one(a,h)).join("")}</div>`; $("#hTicker").innerHTML = row(false)+row(true); }
+  requestAnimationFrame(syncMarq); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(syncMarq);
   $("#tutMore").innerHTML = `튜토리얼 ${TUTORIALS.length}편 전체 보기 <span class="ne" aria-hidden="true">↗</span>`;
   $("#hRoles").insertAdjacentHTML("beforeend", ROLES.filter(([,s])=>tutById["t-skills-"+s]).map(([k,s])=>chipA(P("t-skills-"+s),k,false,"home-role:"+s)).join("") + chipA("/tutorial/","전체 튜토리얼 →",false,"home-role:all"));
   $("#homeTuts").innerHTML = homeTutPick(4).map(tc2HTML).join("");
