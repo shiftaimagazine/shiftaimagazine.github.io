@@ -1746,4 +1746,13 @@ header .btn.pill:hover{filter:brightness(.97)}
 :root[data-theme="dark"] .annc .go,.annc:hover .go{color:#EDEDED!important}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sub-in a[aria-current="page"]{color:#FFFFFF}}
 :root[data-theme="dark"] .sub-in a[aria-current="page"]{color:#FFFFFF}
+/* ---- 새 로고(11/6~): SHIFT AI MAGAZINE 글자 로고는 검정 한 색이라 밤 화면에서는 뒤집어 흰색으로 ---- */
+.logo img{height:40px;width:auto}
+footer .fbrand img{height:44px;width:auto}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo img,:root:not([data-theme="light"]) footer .fbrand img{filter:invert(1)}}
+:root[data-theme="dark"] .logo img,:root[data-theme="dark"] footer .fbrand img{filter:invert(1)}
+.h-logo{width:260px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.14))}
+.h-mlogo{border-radius:50%}
+@media (max-width:820px){.logo img{height:34px}}
+@media (min-width:0px) and (max-width:640px){footer .fbrand img{height:36px}}
 /* ---- 휴대폰 가독성 끝 ---- */
