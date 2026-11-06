@@ -1433,13 +1433,7 @@ header .btn.pill:hover{filter:brightness(.97)}
 :root[data-theme="dark"] .sub-in a[aria-current="page"]{color:#FFFFFF}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pdnote{color:#111111}}
 :root[data-theme="dark"] .pdnote{color:#111111}
-/* 원형 로고: 낮 = 빨간 원 + 검정 화살표 + 흰 글자, 밤 = 빨간 원 + 흰 화살표 + 검정 글자 (11/6 사용자 결정) */
-.lg-n{display:none!important}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lg-d{display:none!important}:root:not([data-theme="light"]) .lg-n:not(.m-only){display:revert!important}}
-:root[data-theme="dark"] .lg-d{display:none!important}
-:root[data-theme="dark"] .lg-n:not(.m-only){display:revert!important}
-@media (max-width:640px){@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lg-n.m-only{display:revert!important}}
-  :root[data-theme="dark"] .lg-n.m-only{display:revert!important}}
+/* 원형 로고: 빨간 원 + 흰 화살표 한 벌(낮·밤 공통, 11/6 사용자 결정) */
 /* ---- 새 로고(11/6~): SHIFT AI MAGAZINE 글자 로고는 검정 한 색이라 밤 화면에서는 뒤집어 흰색으로 ---- */
 .logo img{height:40px;width:auto}
 footer .fbrand img{height:44px;width:auto}
