@@ -155,7 +155,7 @@ function renderHome(){
   $("#homeNewsM").innerHTML = sorted.slice(0,4).map(postHTML).join("");
   renderHome2(d);
   const rl = sorted.slice(0,3);
-  $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT AI 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${tp(a.title)}</a>`).join("")}</div>`;
+  $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${tp(a.title)}</a>`).join("")}</div>`;
 }
 
 // AI 뉴스 목록 = 기사 + 칼럼(분류 "칼럼")
@@ -474,7 +474,7 @@ function renderArticle(a){
     <h1>${tp(a.title)}</h1><p class="deck">${esc(a.sub)}</p>
     ${a.who?`<p class="who"><b>이런 분께 추천합니다</b><span>${esc(a.who)}</span></p>`:""}
     ${vd||a.try?`<div class="vcard">${vd?`<a class="vdbox ${vd[1]}" href="/verdict/"><b>SHIFT 판정 · ${vd[0]}</b><span>${esc(a.verdict.why)}</span></a>`:""}${a.try?`<div class="trynow"><b>오늘 바로 해 보세요</b><span>${esc(a.try)}</span></div>`:""}</div>`:""}
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span>${updMeta(a)}<span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>${fmtDate(a.date)} ${a.time}</span>${updMeta(a)}<span class="dot"></span><span>${readMin(a.body)}분 읽기</span></div>
     ${fig(imgOf(a),"lead-fig")}
     ${factsHTML(a.facts)}
     ${ul?`<div class="box keyp"><b>세 줄 요약</b><ul>${ul.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul></div>`:""}
@@ -498,7 +498,7 @@ function renderColumn(c){
     <a class="back" href="/news/?cat=칼럼">← AI 뉴스 · 칼럼</a>
     <span class="cat">칼럼</span>
     <h1>${tp(c.title)}</h1><p class="deck">${esc(c.deck)}</p>
-    <div class="meta"><span>SHIFT AI 편집장 기획 · AI 에디터 작성</span><span class="dot"></span><span>${fmtDate(c.date)}</span>${updMeta(c)}<span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div>
+    <div class="meta"><span>SHIFT 편집장 기획 · AI 에디터 작성</span><span class="dot"></span><span>${fmtDate(c.date)}</span>${updMeta(c)}<span class="dot"></span><span>${readMin(c.body)}분 읽기</span></div>
     ${fig(colImg(c),"lead-fig")}
     <div class="body">${bodyHTML(c.body)}</div>
     ${nxHTML(c)}
@@ -536,7 +536,7 @@ function renderTutorial(t){
     <a class="back" href="/tutorial/">← 튜토리얼</a>
     <span class="cat">튜토리얼 · ${esc(t.cat||"")} · ${esc(t.level)}</span>
     <h1>${tp(t.title)}</h1><p class="deck">${esc(t.deck)}</p>
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span>${updMeta(t)}<span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span><span class="dot"></span><span>${tutUnit(t)}</span></div>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>${fmtDate(t.date)}</span>${updMeta(t)}<span class="dot"></span><span>읽는 데 ${tutRead(t)}분</span><span class="dot"></span><span>${tutUnit(t)}</span></div>
     ${(t.tool||[]).length?`<div class="ttags">${t.tool.map(x=>`<a href="/tutorial/?tool=${encodeURIComponent(x)}">${esc(x)}</a>`).join("")}</div>`:""}
     ${t.pdf?`<div class="pdfbox"><div class="pages">${t.pdf.pages.map((p,k)=>`<img src="${p}" alt="정리본 ${k+1}쪽" loading="lazy">`).join("")}</div>
       <div class="pdfmeta"><div><b>PDF 정리본 · ${t.pdf.count}쪽</b>이 글을 그대로 담은 PDF입니다. 저장해 두고 필요할 때 꺼내 보세요.</div><a class="btn" href="${t.pdf.url}" target="_blank" rel="noopener">PDF 열기</a></div></div>`:fig({src:t.cover||t.thumb, credit:t.coverCredit||""},"lead-fig")}
@@ -565,7 +565,7 @@ function renderDaily(d){
     <a class="back" href="/daily/">← 데일리 이슈</a>
     <span class="dk">AI 데일리 · ${korDate(d.date)}</span>
     <h1>${tp(d.title)}</h1>${d.summary?`<p class="deck">${esc(d.summary)}</p>`:""}
-    <div class="meta"><span>SHIFT AI 편집부</span><span class="dot"></span><span>소식 ${its.length}건</span></div>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>소식 ${its.length}건</span></div>
     ${lead?fig(imgOf(lead),"lead-fig"):""}
     ${d.three&&d.three.length?`<div class="box three"><b>오늘의 3줄</b><ol>${d.three.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
     <div class="items">${its.map((a,k)=>`<a class="it" href="${P("a-"+a.id)}"><span class="n">${String(k+1).padStart(2,"0")}</span><div><span class="cat">${esc(a.cat)}</span><h3>${tp(a.title)}</h3><p>${esc(a.hook)}</p></div><figure>${thumb(imgOf(a))}</figure></a>`).join("")}</div>
@@ -791,4 +791,57 @@ init();
   n.innerHTML='<p><b>PC 화면으로 열려 있어 글자가 작게 보여요.</b> 브라우저 메뉴(⋮)에서 <b>‘데스크톱 사이트’</b>를 끄면 휴대폰 화면으로 바뀝니다.</p><button type="button">닫기</button>';
   n.querySelector("button").addEventListener("click",()=>{ n.remove(); try{ localStorage.setItem("shift-pd-off","1"); }catch(_){} track("pd-note-close","PC 화면 알림 닫기"); });
   document.body.prepend(n); track("pd-note","PC 화면 알림");
+})();
+
+// 한국어 줄바꿈 다듬기(11/7~): 화면에 보이는 글자에만 보이지 않는 이음표를 넣어 이상한 곳에서 줄이 바뀌지 않게 한다.
+//  ① 가운뎃점(·)으로 줄이 시작하지 않게(점 앞을 붙임)  ② ']을', ')이'처럼 괄호 뒤 조사가 떨어지지 않게
+//  ③ '1) 날짜별'처럼 번호가 줄 끝에 홀로 남지 않게  ④ '[ ]' 빈칸 괄호가 갈라지지 않게
+//  ⑤ 문단 마지막 줄에 '줘.', '빼 줘.'처럼 한두 글자만 남지 않게 마지막 낱말을 앞 낱말과 붙임.
+//  복사되는 글(data-copy)·입력칸·코드는 건드리지 않는다. 처음 한 번 + 목록이 다시 그려질 때마다 돈다.
+(function(){
+  const SKIP="script,style,textarea,input,select,pre,code,svg,[contenteditable],.hwall,.hticker,.fword";
+  const done=new WeakSet(), INL=/^(inline|contents)$/;
+  const blockOf=n=>{ let e=n.parentElement; while(e&&e!==document.body&&INL.test(getComputedStyle(e).display)) e=e.parentElement; return e; };
+  const letters=s=>(s.match(/[\p{L}\p{N}]/gu)||[]).length;
+  function inner(s){
+    return s.replace(/([^\s⁠])·/g,"$1⁠·")
+            .replace(/ · /g," · ")
+            .replace(/([\]\)』」’”])(?=[가-힣])/g,"$1⁠")
+            .replace(/\[ \]/g,"[ ]")
+            .replace(/(^|[ \n(])(\d{1,2}\)|[①-⑳]) /g,"$1$2 ")
+            .replace(/([^\s\u2060])\/([가-힣A-Za-z]{1,2})(?![가-힣A-Za-z])/g,"$1\u2060/\u2060$2")
+            .replace(/ (\.[a-z][\w-]{0,15})/g,"\u00a0$1")
+            .replace(/--(?=[a-z])/g,"-\u2060-\u2060")
+            .replace(/ \(([^()\s]{1,6})\)/g,"\u00a0($1)")
+            .replace(/([^\s\u2060])\((?=[^()\s]{1,6}\))/g,"$1\u2060(")
+            .replace(/([A-Za-z])-(?=\d)/g,"$1-\u2060")
+            .replace(/([A-Za-z가-힣]) (\d+(?:\.\d+)+)(?![\d.])/g,"$1\u00a0$2")
+            .replace(/([\d+%]) ([가-힣]{1,2})(?![가-힣])/g,"$1\u00a0$2");
+  }
+  function tail(s){ // 마지막 낱말이 너무 짧으면 앞 낱말과 붙인다(붙인 꼬리는 12자 이내)
+    const m=s.match(/^([\s\S]*?)((?:[^ \n]+ )*[^ \n]+)\s*$/); if(!m) return s;
+    const ws=s.replace(/\s+$/,"").split(" "); if(ws.length<3) return s;
+    let k=1; while(k<4 && letters(ws.slice(-k).join(""))<4 && ws.slice(-(k+1)).join(" ").length<=12) k++;
+    if(k===1) return s;
+    return ws.slice(0,-k).join(" ")+" "+ws.slice(-k).join(" ")+s.slice(s.replace(/\s+$/,"").length);
+  }
+  function run(root){
+    if(!root||!root.querySelectorAll) return;
+    const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT); const last=new Map(); let n;
+    while((n=w.nextNode())){
+      if(done.has(n)||!n.data.trim()) continue;
+      const p=n.parentElement; if(!p||p.closest(SKIP)) continue;
+      done.add(n); const v=inner(n.data); if(v!==n.data) n.data=v;
+      const b=blockOf(n); if(b) last.set(b,n);
+    }
+    last.forEach(t=>{ const v=tail(t.data); if(v!==t.data) t.data=v; });
+    // 표의 짧은 칸('만드는 곳', '5개 언어')은 한 줄로. 넘치면 표가 옆으로 밀린다(.tbl 가로 스크롤)
+    root.querySelectorAll("td,th,.vz-l").forEach(c=>{ if(c.closest(SKIP)||c.textContent.trim().length>16||(c.matches("td,th")&&!c.closest(".tbl"))) return;
+      const w2=document.createTreeWalker(c,NodeFilter.SHOW_TEXT); let x; while((x=w2.nextNode())) { const v=x.data.replace(/ /g,"\u00a0").replace(/·(?!\u2060)/g,"·\u2060").replace(/([^\s\u2060])\(/g,"$1\u2060(").replace(/-(?!\u2060)(?=\S)/g,"-\u2060"); if(v!==x.data) x.data=v; } });
+  }
+  window.fixBreaks=run;
+  const go=()=>{ run(document.body); };
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go); else go();
+  let q=[]; const mo=new MutationObserver(ms=>{ for(const m of ms) m.addedNodes.forEach(x=>q.push(x.nodeType===3?x.parentElement:x)); requestAnimationFrame(()=>{ const xs=q; q=[]; xs.forEach(x=>x&&x.isConnected&&run(x)); }); });
+  mo.observe(document.body,{childList:true,subtree:true});
 })();
