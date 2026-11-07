@@ -607,6 +607,17 @@ document.addEventListener("click",e=>{
   if(h.startsWith("mailto:")) return track("fix-report:"+location.pathname, "틀린 곳 알려 주기");
   if(/^https?:/i.test(h) && el.hostname && el.hostname!==location.hostname) track("out:"+el.hostname.replace(/^www\./,""), "나가는 링크");
 },true);
+// 같은 페이지 안 링크(튜토리얼 목차 #s1·바닥글 '맨 위로' #top 등, 11/7~): <base href="/"> 때문에 첫 화면으로 나가지 않게 이 페이지 안에서 움직인다
+document.addEventListener("click",e=>{
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+  const a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a||a.dataset.nav||a.hasAttribute("data-copy")) return;
+  const h=a.getAttribute("href"), id=decodeURIComponent(h.slice(1)); if(!id) return;
+  const el = id==="top" ? document.body : document.getElementById(id); if(!el) return;
+  e.preventDefault(); const bh = RM ? "auto" : "smooth";
+  if(id==="top") scrollTo({top:0,behavior:bh}); else { el.scrollIntoView({behavior:bh,block:"start"}); if(!el.hasAttribute("tabindex")) el.setAttribute("tabindex","-1"); el.focus({preventScroll:true});
+    setTimeout(()=>{ const want=parseFloat(getComputedStyle(el).scrollMarginTop)||0, top=el.getBoundingClientRect().top; if(Math.abs(top-want)>12) el.scrollIntoView({block:"start"}); }, bh==="smooth"?900:200); }
+  try{ history.replaceState(history.state,"",location.pathname+location.search+(id==="top"?"":h)); }catch(_){}
+});
 // 무료 도구: 페이지를 연 뒤 처음으로 무언가를 넣거나 누르면 '사용'으로 한 번 센다
 let toolUsed=false;
 const firstUse=e=>{ if(toolUsed) return; const t=e.target; if(!t||!t.closest) return;
