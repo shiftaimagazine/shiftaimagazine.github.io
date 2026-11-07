@@ -206,7 +206,7 @@ figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 @media (max-width:600px){.prep{grid-template-columns:1fr}}
 .tut-page .intro{background:var(--bg2);border-radius:12px;padding:18px 22px;font-size:16px;line-height:1.8;margin:0 0 34px;color:var(--ink)}
 .tut-page .items{display:grid;gap:36px}
-.tut-page .ti{display:block;scroll-margin-top:80px}
+.tut-page .ti{display:block;scroll-margin-top:132px}
 .tut-page .ti .tb{display:grid;gap:12px;min-width:0}
 .tut-page .ti h3{font-size:22px;line-height:1.35;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
 .tut-page .ti h3 .sn{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;white-space:nowrap}
@@ -1900,3 +1900,4 @@ mark.pbno{background:#FFF3EC;color:#a3400f;font-weight:700}
 .kclist b{font-size:14.5px;color:var(--ink)}
 .kclist span{font-size:13.5px;color:var(--text);line-height:1.6}
 .seg.mini{flex-wrap:wrap}
+[tabindex="-1"]:focus{outline:none}
