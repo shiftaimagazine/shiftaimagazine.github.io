@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=d4d9e14d"></script>
+<script src="/assets/theme.js?v=9a56693f"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=d4d9e14d">
+<link rel="stylesheet" href="/assets/site.css?v=9a56693f">
 </head>
 <body data-route="prompts" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -561,7 +561,7 @@
 3)&nbsp;화면 위에 제목 [클로드로 만드는 애니메이션 스타일 10], 왼쪽에 01~10&nbsp;번호 목록, 오른쪽에 휴대폰 모양 틀을 둔다. 1.25초마다 다음 스타일로 바뀌고 목록의 현재 번호가 강조된다.
 4)&nbsp;마지막&nbsp;3.5초는 10개를 5×2 격자로 한꺼번에 보여 준다.
 제약: 외부 이미지⁠·라이브러리 없이 코드로만. 실존 캐릭터⁠·브랜드 로고는 그리지 않는다. 아래쪽 300px은 SNS 화면 버튼에 가려지니 비워 둔다.
-출력: 바로 재생되는 아티팩트 하나.
+출력: 바로 재생되는 아티팩트 하나와 같은 내용의 HTML 파일.
 검증: 스타일 10개가 모두 같은 장면⁠·같은 움직임인지, 글자가 틀 밖으로 넘치지 않는지 스스로 확인하고 고친 뒤&nbsp;보여&nbsp;줘.</div><div class="pra"><button class="copy dark" data-copy="역할: 너는 세로 숏폼 영상용 모션 그래픽을 코드로 만드는 디자이너야.
 맥락: 같은 장면을 스타일 10가지로 바꿔 보여 주는 16초 비교 영상을 만들려고 해.
 입력: 장면 = [빨간 버스 한 대가 아침 도시를 지나간다. 바퀴가 돌고 뒤로 건물이 흘러간다.]
@@ -571,7 +571,7 @@
 3) 화면 위에 제목 [클로드로 만드는 애니메이션 스타일 10], 왼쪽에 01~10 번호 목록, 오른쪽에 휴대폰 모양 틀을 둔다. 1.25초마다 다음 스타일로 바뀌고 목록의 현재 번호가 강조된다.
 4) 마지막 3.5초는 10개를 5×2 격자로 한꺼번에 보여 준다.
 제약: 외부 이미지·라이브러리 없이 코드로만. 실존 캐릭터·브랜드 로고는 그리지 않는다. 아래쪽 300px은 SNS 화면 버튼에 가려지니 비워 둔다.
-출력: 바로 재생되는 아티팩트 하나.
+출력: 바로 재생되는 아티팩트 하나와 같은 내용의 HTML 파일.
 검증: 스타일 10개가 모두 같은 장면·같은 움직임인지, 글자가 틀 밖으로 넘치지 않는지 스스로 확인하고 고친 뒤 보여 줘.">복사하기</button><button class="copy dark" type="button" data-pbox="claude-animation-styles-all">내 함에&nbsp;담기</button><button class="copy dark prmore" type="button">전체 보기</button></div></div>
     <a class="prsrc" href="/tutorial/claude-animation-styles/">이 프롬프트가 나온 글: 클로드로 만드는 애니메이션 스타일 10가지, 프롬프트&nbsp;모음</a></article><article class="prc" id="claude-animation-styles-1">
     <div class="prh"><span class="cat">영상⁠·이미지</span><h2>장면 하나 정하고 기본 애니메이션&nbsp;만들기</h2><p>스타일을 바꾸기 전에 모든 스타일에서 똑같이 움직일 장면 하나부터 정합니다.</p></div>
@@ -581,13 +581,15 @@
 - 외부 이미지⁠·라이브러리⁠·글꼴 없이 코드로만 그려 줘
 - 처음 스타일은 깔끔한 플랫 일러스트로 해 줘
 - 코드를 '장면(무엇이 어디서 어떻게 움직이는지)'과 '그리기(어떻게 보이는지)' 두 부분으로 나눠서, 나중에 그리기 부분만 바꿔도 같은 움직임이 나오게 해 줘
-- 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><div class="pra"><button class="copy dark" data-copy="HTML 파일 하나로 9:16 세로 애니메이션을 만들어 줘.
+- 어떤 창 크기에서도 9:16&nbsp;비율 그대로 가운데에 꽉 차게 보여 줘
+- 아티팩트로 바로 재생되게 보여 주고, 같은 내용을 HTML 파일로도 내려받을 수 있게&nbsp;해&nbsp;줘</div><div class="pra"><button class="copy dark" data-copy="HTML 파일 하나로 9:16 세로 애니메이션을 만들어 줘.
 - 캔버스 1080×1920, 12초 동안 끊김 없이 반복 재생
 - 장면: [빨간 버스 한 대가 아침 도시를 지나간다. 버스는 화면 가운데에 있고 바퀴가 돈다. 뒤로 건물이 천천히 흘러가고 길 위 차선이 지나간다.]
 - 외부 이미지·라이브러리·글꼴 없이 코드로만 그려 줘
 - 처음 스타일은 깔끔한 플랫 일러스트로 해 줘
 - 코드를 '장면(무엇이 어디서 어떻게 움직이는지)'과 '그리기(어떻게 보이는지)' 두 부분으로 나눠서, 나중에 그리기 부분만 바꿔도 같은 움직임이 나오게 해 줘
-- 아티팩트로 바로 재생되게 보여 줘">복사하기</button><button class="copy dark" type="button" data-pbox="claude-animation-styles-1">내 함에&nbsp;담기</button></div></div>
+- 어떤 창 크기에서도 9:16 비율 그대로 가운데에 꽉 차게 보여 줘
+- 아티팩트로 바로 재생되게 보여 주고, 같은 내용을 HTML 파일로도 내려받을 수 있게 해 줘">복사하기</button><button class="copy dark" type="button" data-pbox="claude-animation-styles-1">내 함에&nbsp;담기</button></div></div>
     <a class="prsrc" href="/tutorial/claude-animation-styles/">이 프롬프트가 나온 글: 클로드로 만드는 애니메이션 스타일 10가지, 프롬프트&nbsp;모음</a></article><article class="prc" id="claude-animation-styles-2">
     <div class="prh"><span class="cat">영상⁠·이미지</span><h2>픽셀 아트&nbsp;스타일</h2><p>옛 게임기 화면처럼 네모난 점이 보이는 그림입니다. 작게 그린 뒤 크게 키우는 것이 핵심입니다.</p></div>
     <div class="pr"><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '픽셀 아트' 스타일로 바꿔 줘.
@@ -732,7 +734,7 @@
 - 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button><button class="copy dark" type="button" data-pbox="claude-animation-styles-11">내 함에&nbsp;담기</button></div></div>
     <a class="prsrc" href="/tutorial/claude-animation-styles/">이 프롬프트가 나온 글: 클로드로 만드는 애니메이션 스타일 10가지, 프롬프트&nbsp;모음</a></article><article class="prc" id="claude-animation-styles-12">
     <div class="prh"><span class="cat">영상⁠·이미지</span><h2>영상 파일로&nbsp;받기</h2><p>아티팩트는 브라우저 속 애니메이션이라 릴스⁠·쇼츠에 올리려면 영상 파일로 한 번 바꾸는 과정이 필요합니다.</p></div>
-    <div class="pr"><div class="pt">이 애니메이션에 '녹화' 버튼을 붙여 줘. 누르면 캔버스를 captureStream 과 MediaRecorder 로 12초 동안 녹화하고 끝나면 webm 파일로 내려받게 해 줘. 녹화하는 동안에는 버튼을&nbsp;숨겨&nbsp;줘.</div><div class="pra"><button class="copy dark" data-copy="이 애니메이션에 '녹화' 버튼을 붙여 줘. 누르면 캔버스를 captureStream 과 MediaRecorder 로 12초 동안 녹화하고 끝나면 webm 파일로 내려받게 해 줘. 녹화하는 동안에는 버튼을 숨겨 줘.">복사하기</button><button class="copy dark" type="button" data-pbox="claude-animation-styles-12">내 함에&nbsp;담기</button></div></div>
+    <div class="pr"><div class="pt">이 애니메이션에 '녹화' 버튼을 붙여 줘. 누르면 캔버스를 captureStream 과 MediaRecorder 로 12초 동안 녹화하고, 끝나면 파일로 내려받게 해 줘. MediaRecorder.isTypeSupported 로 확인해서 브라우저가 MP4&nbsp;를 지원하면 MP4&nbsp;로, 안 되면 WebM 으로 저장해 줘. 녹화하는 동안에는 버튼을&nbsp;숨겨&nbsp;줘.</div><div class="pra"><button class="copy dark" data-copy="이 애니메이션에 '녹화' 버튼을 붙여 줘. 누르면 캔버스를 captureStream 과 MediaRecorder 로 12초 동안 녹화하고, 끝나면 파일로 내려받게 해 줘. MediaRecorder.isTypeSupported 로 확인해서 브라우저가 MP4 를 지원하면 MP4 로, 안 되면 WebM 으로 저장해 줘. 녹화하는 동안에는 버튼을 숨겨 줘.">복사하기</button><button class="copy dark" type="button" data-pbox="claude-animation-styles-12">내 함에&nbsp;담기</button></div></div>
     <a class="prsrc" href="/tutorial/claude-animation-styles/">이 프롬프트가 나온 글: 클로드로 만드는 애니메이션 스타일 10가지, 프롬프트&nbsp;모음</a></article><article class="prc" id="skills-creator-2">
     <div class="prh"><span class="cat">스킬⁠·MCP</span><h2>내 말투 학습&nbsp;· voice-builder</h2><p>짧은 인터뷰와 내 글 3~5편으로 '나에 대한 문서'와 '말투 문서'를 만듭니다.</p></div>
     <div class="pr"><div class="pt">voice-builder 스킬로 내 말투 문서를 만들어 줘. 아래는 내가 쓴 영상 대본 3편과 커뮤니티 글 2편이야. 인터뷰 질문은 한 번에 하나씩 해 줘. 샘플: [붙여&nbsp;넣기]</div><div class="pra"><button class="copy dark" data-copy="voice-builder 스킬로 내 말투 문서를 만들어 줘. 아래는 내가 쓴 영상 대본 3편과 커뮤니티 글 2편이야. 인터뷰 질문은 한 번에 하나씩 해 줘. 샘플: [붙여 넣기]">복사하기</button><button class="copy dark" type="button" data-pbox="skills-creator-2">내 함에&nbsp;담기</button></div></div>
@@ -1205,8 +1207,8 @@ FAQ: [붙여 넣기]
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v=d4d9e14d"></script>
-<script src="/assets/app.js?v=d4d9e14d"></script>
+<script src="/assets/data.js?v=9a56693f"></script>
+<script src="/assets/app.js?v=9a56693f"></script>
 
 
 </body></html>
