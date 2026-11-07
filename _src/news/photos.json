@@ -336,5 +336,23 @@
   "credit": "화면: research.google",
   "alt": "스마트워치 고혈압 연구 대표 이미지",
   "auto": true
+ },
+ "2026-11-08-meta-muse-spaces": {
+  "src": "img/ph/2026-11-08-meta-muse-spaces.webp",
+  "credit": "이미지: Meta",
+  "alt": "메타 뮤즈 앱 스페이스 소개 대표 이미지",
+  "auto": true
+ },
+ "2026-11-08-ai2-toyblocks": {
+  "src": "img/ph/2026-11-08-ai2-toyblocks.webp",
+  "credit": "이미지: Ai2",
+  "alt": "토이블록스 로봇 팔과 블록 환경 대표 이미지",
+  "auto": true
+ },
+ "2026-11-08-amazon-alexa-text-shopping": {
+  "src": "img/ph/2026-11-08-amazon-alexa-text-shopping.webp",
+  "credit": "이미지: Amazon",
+  "alt": "아마존 알렉사 포 쇼핑 문자 이용 대표 이미지",
+  "auto": true
  }
 }
