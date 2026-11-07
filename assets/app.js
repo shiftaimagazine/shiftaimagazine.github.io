@@ -614,7 +614,7 @@ document.addEventListener("click",e=>{
   const h=a.getAttribute("href"), id=decodeURIComponent(h.slice(1)); if(!id) return;
   const el = id==="top" ? document.body : document.getElementById(id); if(!el) return;
   e.preventDefault(); const bh = RM ? "auto" : "smooth";
-  if(id==="top") scrollTo({top:0,behavior:bh}); else { el.scrollIntoView({behavior:bh,block:"start"}); if(!el.hasAttribute("tabindex")) el.setAttribute("tabindex","-1"); el.focus({preventScroll:true});
+  if(id==="top"){ scrollTo({top:0,behavior:bh}); setTimeout(()=>{ if(scrollY>12) scrollTo(0,0); }, bh==="smooth"?900:200); } else { el.scrollIntoView({behavior:bh,block:"start"}); if(!el.hasAttribute("tabindex")) el.setAttribute("tabindex","-1"); el.focus({preventScroll:true});
     setTimeout(()=>{ const want=parseFloat(getComputedStyle(el).scrollMarginTop)||0, top=el.getBoundingClientRect().top; if(Math.abs(top-want)>12) el.scrollIntoView({block:"start"}); }, bh==="smooth"?900:200); }
   try{ history.replaceState(history.state,"",location.pathname+location.search+(id==="top"?"":h)); }catch(_){}
 });
