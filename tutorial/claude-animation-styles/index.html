@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음 · SHIFT AI 튜토리얼</title>
+<meta name="description" content="장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이 됩니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tutorial/claude-animation-styles/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음 · SHIFT AI 튜토리얼">
+<meta property="og:description" content="장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이 됩니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tutorial/claude-animation-styles/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/t-claude-animation-styles.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=3375856a"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-07T09:00:00+09:00">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음", "description": "장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이 됩니다.", "image": ["https://shiftaimagazine.com/og/t-claude-animation-styles.jpg"], "datePublished": "2026-11-07T09:00:00+09:00", "dateModified": "2026-11-07T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI MAGAZINE", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/tutorial/claude-animation-styles/", "articleSection": "튜토리얼 · 영상·이미지", "keywords": "Claude", "inLanguage": "ko", "proficiencyLevel": "입문", "citation": ["https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude", "https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them", "https://developer.mozilla.org/docs/Web/API/MediaRecorder"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "튜토리얼", "item": "https://shiftaimagazine.com/tutorial/"}, {"@type": "ListItem", "position": 3, "name": "클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음", "item": "https://shiftaimagazine.com/tutorial/claude-animation-styles/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=3375856a">
+</head>
+<body data-route="t-claude-animation-styles" id="top" class="has-sub" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 6개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT 팔로우">팔로우</a>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴" hidden=""><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴"><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial" aria-current="page">튜토리얼</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow tut-page">
+    <a class="back" href="/tutorial/">← 튜토리얼</a>
+    <span class="cat">튜토리얼&nbsp;· 영상⁠·이미지&nbsp;·&nbsp;입문</span>
+    <h1><span class="tphw"><span class="tph">클로드로 만드는 애니메이션 스타일 10가지,</span> <span class="tph">프롬프트 모음</span></span></h1><p class="deck">장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이&nbsp;됩니다.</p>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>2026.11.07</span><span class="dot"></span><span>읽는 데&nbsp;13분</span><span class="dot"></span><span>STEP 12개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=Claude">Claude</a></div>
+    <figure class="lead-fig"><img src="img/ph/claude-animation-styles.webp" alt="" fetchpriority="high"><figcaption>SHIFT가 클로드와 직접 만든 장면 10개&nbsp;· SHIFT 직접&nbsp;캡처</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에&nbsp;담긴&nbsp;것</b><span>STEP 12개&nbsp;· 따라 하는 데&nbsp;30분</span></div>
+      <ol><li><a href="#s1"><span>STEP 1</span>장면 하나 정하고 기본 애니메이션&nbsp;만들기</a></li><li><a href="#s2"><span>STEP 2</span>스타일 01. 픽셀&nbsp;아트</a></li><li><a href="#s3"><span>STEP 3</span>스타일 02. 칠판&nbsp;분필</a></li><li><a href="#s4"><span>STEP 4</span>스타일 03. 네온&nbsp;스케치</a></li><li><a href="#s5"><span>STEP 5</span>스타일 04. 레트로&nbsp;3D</a></li><li><a href="#s6"><span>STEP 6</span>스타일 05.&nbsp;만화&nbsp;컷</a></li><li><a href="#s7"><span>STEP 7</span>스타일 06. 플랫 일러스트</a></li><li><a href="#s8"><span>STEP 8</span>스타일 07. 미니멀&nbsp;흰&nbsp;선</a></li><li><a href="#s9"><span>STEP 9</span>스타일 08. 시네마틱&nbsp;3D</a></li><li><a href="#s10"><span>STEP 10</span>스타일 09. 장난감&nbsp;블록</a></li><li><a href="#s11"><span>STEP 11</span>스타일 10. 3D 설명&nbsp;영상</a></li><li><a href="#s12"><span>STEP 12</span>영상 파일로&nbsp;받기</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>설정 → Capabilities에서 '코드 실행 및 파일 만들기'를&nbsp;켭니다.</li><li>STEP 1 프롬프트로 기본 장면을 만들고, 스타일 프롬프트를 하나씩 이어서 붙여 넣습니다.</li><li>마음에 드는 스타일을 전체 화면으로 띄워 화면 녹화합니다.</li></ol><div class="ql"><a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude" target="_blank" rel="noopener">클로드 도움말: 파일 만들기와 코드&nbsp;실행&nbsp;↗</a><a href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener">클로드 도움말: 아티팩트&nbsp;↗</a></div></div>
+    <details class="master"><summary><b>통째로 맡기는 프롬프트</b><span>Claude에 붙여 넣으면 이 글의 단계를 대신 진행합니다</span></summary><div class="pr"><div class="pt">역할: 너는 세로 숏폼 영상용 모션 그래픽을 코드로 만드는 디자이너야.
+맥락: 같은 장면을 스타일 10가지로 바꿔 보여 주는 16초 비교 영상을 만들려고 해.
+입력: 장면 = [빨간 버스 한 대가 아침 도시를 지나간다. 바퀴가 돌고 뒤로 건물이 흘러간다.]
+작업:
+1)&nbsp;HTML 파일 하나, 캔버스 1080×1920에 장면을 '장면'과 '그리기'로 나눠 만든다.
+2)&nbsp;그리기를 10가지로 만든다: 픽셀 아트, 칠판 분필, 네온 스케치, 레트로 3D, 만화 컷, 플랫 일러스트, 미니멀 흰 선, 시네마틱 3D, 장난감 블록, 3D 설명 영상.
+3)&nbsp;화면 위에 제목 [클로드로 만드는 애니메이션 스타일 10], 왼쪽에 01~10&nbsp;번호 목록, 오른쪽에 휴대폰 모양 틀을 둔다. 1.25초마다 다음 스타일로 바뀌고 목록의 현재 번호가 강조된다.
+4)&nbsp;마지막&nbsp;3.5초는 10개를 5×2 격자로 한꺼번에 보여 준다.
+제약: 외부 이미지⁠·라이브러리 없이 코드로만. 실존 캐릭터⁠·브랜드 로고는 그리지 않는다. 아래쪽 300px은 SNS 화면 버튼에 가려지니 비워 둔다.
+출력: 바로 재생되는 아티팩트 하나.
+검증: 스타일 10개가 모두 같은 장면⁠·같은 움직임인지, 글자가 틀 밖으로 넘치지 않는지 스스로 확인하고 고친 뒤&nbsp;보여&nbsp;줘.</div><button class="copy dark" data-copy="역할: 너는 세로 숏폼 영상용 모션 그래픽을 코드로 만드는 디자이너야.
+맥락: 같은 장면을 스타일 10가지로 바꿔 보여 주는 16초 비교 영상을 만들려고 해.
+입력: 장면 = [빨간 버스 한 대가 아침 도시를 지나간다. 바퀴가 돌고 뒤로 건물이 흘러간다.]
+작업:
+1) HTML 파일 하나, 캔버스 1080×1920에 장면을 '장면'과 '그리기'로 나눠 만든다.
+2) 그리기를 10가지로 만든다: 픽셀 아트, 칠판 분필, 네온 스케치, 레트로 3D, 만화 컷, 플랫 일러스트, 미니멀 흰 선, 시네마틱 3D, 장난감 블록, 3D 설명 영상.
+3) 화면 위에 제목 [클로드로 만드는 애니메이션 스타일 10], 왼쪽에 01~10 번호 목록, 오른쪽에 휴대폰 모양 틀을 둔다. 1.25초마다 다음 스타일로 바뀌고 목록의 현재 번호가 강조된다.
+4) 마지막 3.5초는 10개를 5×2 격자로 한꺼번에 보여 준다.
+제약: 외부 이미지·라이브러리 없이 코드로만. 실존 캐릭터·브랜드 로고는 그리지 않는다. 아래쪽 300px은 SNS 화면 버튼에 가려지니 비워 둔다.
+출력: 바로 재생되는 아티팩트 하나.
+검증: 스타일 10개가 모두 같은 장면·같은 움직임인지, 글자가 틀 밖으로 넘치지 않는지 스스로 확인하고 고친 뒤 보여 줘.">복사하기</button></div></details>
+    <div class="prep"><div><b>필요한 것</b>클로드 계정(무료 요금제도 가능), 크롬 같은 브라우저, 화면 녹화&nbsp;기능</div><div><b>걸리는 시간</b>30분</div><div><b>왜 필요한가요</b>요즘 릴스에서 같은 장면을 스타일만 바꿔 보여 주는 영상이 많이 보입니다. 영상 생성 AI가 아니어도 클로드의 아티팩트만으로 비슷한 결과를 만들 수 있고 장면이 코드라서 색⁠·속도⁠·문구를 말로 고칠 수 있습니다.</div></div>
+    <div class="intro">이 글의 방법은 그림을 생성하는 것이 아니라 클로드가 HTML 캔버스 코드를 짜서 장면을 그리게 하는 것이라서, 같은 장면을 몇 번이고 똑같이 다시 그릴 수 있고 스타일만 바꾸는 일도 어렵지 않습니다. 먼저 플랫 일러스트로 기본 장면을 만들고 스타일 프롬프트 10개를 하나씩 붙여 넣은 뒤 마음에 드는 것을 영상으로 녹화합니다. SHIFT 릴스 '클로드 애니메이션 스타일 10'의 장면도 이 순서로 만들었습니다.</div>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">STEP 1</span>장면 하나 정하고 기본 애니메이션&nbsp;만들기<small>5분</small></h3>
+        <p class="d">스타일을 바꾸기 전에 모든 스타일에서 똑같이 움직일 장면 하나부터 정합니다.</p>
+        <figure class="tfig"><img src="img/ph/claude-animation-styles-grid.webp" alt="같은 버스 장면을 10가지 스타일로 그린 결과 화면 10개" loading="lazy"><figcaption>SHIFT가 이 글의 프롬프트 방식으로 클로드와 직접 만든 결과 화면&nbsp;· SHIFT 직접&nbsp;캡처</figcaption></figure>
+        <div class="how">클로드(claude.ai) 새 대화를 열고 아래 프롬프트를 붙여 넣습니다. 대괄호 안의 장면만 내 주제로 바꿉니다. 버스⁠·종이비행기⁠·커피잔처럼 모양이 단순한 사물이 잘 나옵니다. 사람 얼굴이나 손처럼 복잡한 대상은 코드로 그리면 어색해지기 쉽습니다.</div>
+        <p class="tp">설정 → Capabilities에서 '코드 실행 및 파일 만들기(Code execution and file creation)'가 켜져 있어야 합니다. 새 설정 화면에서는 'Create and edit files'로 보입니다. 앤트로픽 도움말 기준으로 무료⁠·프로⁠·맥스 요금제는 이 설정에서&nbsp;켭니다.</p><p class="tp">장면과 그리기를 나눠 달라고 하는 부분이 가장 중요합니다. 이렇게 나눠 두면 다음 단계부터 스타일 프롬프트 한 번에 그리는 방식만 바뀌고 움직임은 그대로 남습니다.</p>
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">HTML 파일 하나로 9:16&nbsp;세로 애니메이션을 만들어 줘.
+- 캔버스 1080×1920, 12초 동안 끊김 없이 반복 재생
+- 장면: [빨간 버스 한 대가 아침 도시를 지나간다. 버스는 화면 가운데에 있고 바퀴가 돈다. 뒤로 건물이 천천히 흘러가고 길 위 차선이 지나간다.]
+- 외부 이미지⁠·라이브러리⁠·글꼴 없이 코드로만 그려 줘
+- 처음 스타일은 깔끔한 플랫 일러스트로 해 줘
+- 코드를 '장면(무엇이 어디서 어떻게 움직이는지)'과 '그리기(어떻게 보이는지)' 두 부분으로 나눠서, 나중에 그리기 부분만 바꿔도 같은 움직임이 나오게 해 줘
+- 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="HTML 파일 하나로 9:16 세로 애니메이션을 만들어 줘.
+- 캔버스 1080×1920, 12초 동안 끊김 없이 반복 재생
+- 장면: [빨간 버스 한 대가 아침 도시를 지나간다. 버스는 화면 가운데에 있고 바퀴가 돈다. 뒤로 건물이 천천히 흘러가고 길 위 차선이 지나간다.]
+- 외부 이미지·라이브러리·글꼴 없이 코드로만 그려 줘
+- 처음 스타일은 깔끔한 플랫 일러스트로 해 줘
+- 코드를 '장면(무엇이 어디서 어떻게 움직이는지)'과 '그리기(어떻게 보이는지)' 두 부분으로 나눠서, 나중에 그리기 부분만 바꿔도 같은 움직임이 나오게 해 줘
+- 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">STEP 2</span>스타일 01. 픽셀&nbsp;아트<small>2분</small></h3>
+        <p class="d">옛 게임기 화면처럼 네모난 점이 보이는 그림입니다. 작게 그린 뒤 크게 키우는 것이 핵심입니다.</p>
+        
+        <div class="how">점이 너무 잘면 그냥 흐린 그림처럼 보입니다. 작은 캔버스 너비를 60~120px 사이에서 바꿔 보며 맞춥니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '픽셀 아트' 스타일로 바꿔 줘.
+- 가로 90px 정도의 작은 캔버스에 먼저 그린 뒤 화면 크기로 확대해 줘
+- 확대할 때 imageSmoothingEnabled 를 꺼서 점이 뭉개지지 않게 해 줘
+- 색은 16개 이하로 줄여 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '픽셀 아트' 스타일로 바꿔 줘.
+- 가로 90px 정도의 작은 캔버스에 먼저 그린 뒤 화면 크기로 확대해 줘
+- 확대할 때 imageSmoothingEnabled 를 꺼서 점이 뭉개지지 않게 해 줘
+- 색은 16개 이하로 줄여 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">STEP 3</span>스타일 02. 칠판&nbsp;분필<small>2분</small></h3>
+        <p class="d">초록 칠판에 분필로 그린 수업 시간 그림입니다. 선이 매 프레임 조금씩 떨리면 손으로 그린 느낌이&nbsp;납니다.</p>
+        
+        <div class="how">떨림이 너무 크면 어지러우니 떨림 폭을 2~4px로 적어 두면 무난합니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '칠판 분필' 스타일로 바꿔 줘.
+- 짙은 초록 칠판 바탕에 나무 테두리를 둘러 줘
+- 면은 칠하지 말고 흰색⁠·연한 노랑⁠·연한 분홍 분필 선으로만 그려 줘
+- 선은 살짝 삐뚤고 군데군데 끊기게, 1초에 열 번쯤 모양이 조금씩 바뀌게 해 줘
+- 왼쪽 위에 손글씨 메모 한 줄을 넣어 줘: [출근길 = 버스]
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '칠판 분필' 스타일로 바꿔 줘.
+- 짙은 초록 칠판 바탕에 나무 테두리를 둘러 줘
+- 면은 칠하지 말고 흰색·연한 노랑·연한 분홍 분필 선으로만 그려 줘
+- 선은 살짝 삐뚤고 군데군데 끊기게, 1초에 열 번쯤 모양이 조금씩 바뀌게 해 줘
+- 왼쪽 위에 손글씨 메모 한 줄을 넣어 줘: [출근길 = 버스]
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">STEP 4</span>스타일 03. 네온&nbsp;스케치<small>2분</small></h3>
+        <p class="d">어두운 밤에 빛나는 선으로만 그린 그림으로, 선에 빛 번짐을 주는 것이 전부입니다.</p>
+        
+        <div class="how">빛 번짐은 무거운 효과라 휴대폰에서 끊길 수 있습니다. 끊기면 번짐 세기를 줄여 달라고&nbsp;합니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '네온 스케치' 스타일로 바꿔 줘.
+- 거의 검은 남색 바탕에, 면을 칠하지 않고 선으로만 그려 줘
+- 선 색은 청록⁠·분홍⁠·보라 세 가지만 쓰고 shadowBlur 로 빛이 번지게 해 줘
+- 선이 아주 살짝 일렁이게 하고, 길 아래 바닥에 분홍빛 반사를 넣어 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '네온 스케치' 스타일로 바꿔 줘.
+- 거의 검은 남색 바탕에, 면을 칠하지 않고 선으로만 그려 줘
+- 선 색은 청록·분홍·보라 세 가지만 쓰고 shadowBlur 로 빛이 번지게 해 줘
+- 선이 아주 살짝 일렁이게 하고, 길 아래 바닥에 분홍빛 반사를 넣어 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">STEP 5</span>스타일 04. 레트로&nbsp;3D<small>2분</small></h3>
+        <p class="d">2000년대 초 게임기에서 보던 각진 3D 화면입니다. 면 몇 개짜리 상자와 낮은 해상도가 그 느낌을 만듭니다.</p>
+        
+        <div class="how">실제 3D 엔진을 쓰지 않고 상자를 비스듬히 그려 입체처럼 보이게 하는 방식입니다. 그래서 카메라를 돌리는 장면은 어렵습니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '레트로 3D' 스타일로 바꿔 줘.
+- 건물과 버스를 앞면⁠·옆면⁠·윗면 세 면짜리 상자로 그리고 면마다 명암을 다르게 해 줘
+- 바퀴와 해는 둥근 원 대신 팔각형으로 그려 줘
+- 하늘은 노을색 띠 여섯 줄로 나누고, 화면 전체를 절반 해상도로 그린 뒤 확대해 줘
+- 화면 위에 게임 점수판(STAGE 1-1, SCORE)⁠과 가는 가로줄⁠(주사선)⁠을 얹어 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '레트로 3D' 스타일로 바꿔 줘.
+- 건물과 버스를 앞면·옆면·윗면 세 면짜리 상자로 그리고 면마다 명암을 다르게 해 줘
+- 바퀴와 해는 둥근 원 대신 팔각형으로 그려 줘
+- 하늘은 노을색 띠 여섯 줄로 나누고, 화면 전체를 절반 해상도로 그린 뒤 확대해 줘
+- 화면 위에 게임 점수판(STAGE 1-1, SCORE)과 가는 가로줄(주사선)을 얹어 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s6"><div class="tb">
+        <h3><span class="sn">STEP 6</span>스타일 05.&nbsp;만화&nbsp;컷<small>2분</small></h3>
+        <p class="d">미국 만화책 한 컷처럼 굵은 외곽선과 원색, 망점을 씁니다. 효과음 글자가 들어가면 확 살아납니다.</p>
+        
+        <div class="how">말풍선 글자를 한국어로 넣으면 글꼴이 기본 글꼴로 나옵니다. 굵게⁠(900) 지정해 달라고 하면 만화 느낌이&nbsp;납니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '만화 컷' 스타일로 바꿔 줘.
+- 모든 물체에 굵은 검은 외곽선을 두르고 원색으로 납작하게 칠해 줘
+- 하늘에는 아래로 갈수록 커지는 점무늬⁠(망점)⁠를 깔아 줘
+- 버스 뒤에 가로 속도선을, 앞쪽에 노란 별 모양 말풍선과 '부릉!' 글자를 넣어 줘
+- 화면 가장자리에 굵은 검은 컷 테두리를 그려 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '만화 컷' 스타일로 바꿔 줘.
+- 모든 물체에 굵은 검은 외곽선을 두르고 원색으로 납작하게 칠해 줘
+- 하늘에는 아래로 갈수록 커지는 점무늬(망점)를 깔아 줘
+- 버스 뒤에 가로 속도선을, 앞쪽에 노란 별 모양 말풍선과 '부릉!' 글자를 넣어 줘
+- 화면 가장자리에 굵은 검은 컷 테두리를 그려 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s7"><div class="tb">
+        <h3><span class="sn">STEP 7</span>스타일 06. 플랫 일러스트<small>2분</small></h3>
+        <p class="d">외곽선 없이 색면으로만 그린 깔끔한 그림입니다. 설명 영상이나 서비스 소개에 가장 무난합니다.</p>
+        
+        <div class="how">가장 단순한 스타일이라 처음 장면을 만들 때 이 스타일로 시작하면 다른 스타일로 바꾸기가 쉽습니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '플랫 일러스트' 스타일로 바꿔 줘.
+- 외곽선 없이 파스텔 색면으로만 그려 줘
+- 건물 모서리는 둥글게, 창문은 반투명 흰색 네모로 해 줘
+- 버스 아래에 옅은 그림자 하나만 넣고 나머지 효과는 빼 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '플랫 일러스트' 스타일로 바꿔 줘.
+- 외곽선 없이 파스텔 색면으로만 그려 줘
+- 건물 모서리는 둥글게, 창문은 반투명 흰색 네모로 해 줘
+- 버스 아래에 옅은 그림자 하나만 넣고 나머지 효과는 빼 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s8"><div class="tb">
+        <h3><span class="sn">STEP 8</span>스타일 07. 미니멀&nbsp;흰&nbsp;선<small>2분</small></h3>
+        <p class="d">검은 바탕에 흰 선 몇 개만 남긴 그림입니다. 문장 한 줄과 함께 쓰면 동기 부여 영상 느낌이&nbsp;납니다.</p>
+        
+        <div class="how">줄일수록 좋아지는 스타일입니다. 어색하면 '요소를 절반으로 줄여 줘'라고 하면 대부분 나아집니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '미니멀 흰 선' 스타일로 바꿔 줘.
+- 검은 바탕에 같은 굵기의 흰 선 하나로만 그려 줘
+- 건물은 흐린 선 몇 개로 윤곽만, 해는 빈 원 하나로 해 줘
+- 빈 공간을 넉넉히 두고, 위쪽 가운데에 짧은 문장 두 줄을 넣어 줘: [매일 같은 길도, / 다르게 볼 수 있다.]
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '미니멀 흰 선' 스타일로 바꿔 줘.
+- 검은 바탕에 같은 굵기의 흰 선 하나로만 그려 줘
+- 건물은 흐린 선 몇 개로 윤곽만, 해는 빈 원 하나로 해 줘
+- 빈 공간을 넉넉히 두고, 위쪽 가운데에 짧은 문장 두 줄을 넣어 줘: [매일 같은 길도, / 다르게 볼 수 있다.]
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s9"><div class="tb">
+        <h3><span class="sn">STEP 9</span>스타일 08. 시네마틱&nbsp;3D<small>2분</small></h3>
+        <p class="d">영화 한 장면처럼 빛과 색으로 분위기를 만드는 방식입니다. 효과를 여러 겹 쌓는 대신 처리 시간이&nbsp;깁니다.</p>
+        
+        <div class="how">필름 그레인을 프레임마다 새로 만들면 느려집니다. 노이즈 그림을 한 번만 만들고 위치만 옮기라고 덧붙입니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '시네마틱 3D' 스타일로 바꿔 줘.
+- 하늘은 짙은 남색에서 주황으로 바뀌는 노을 그라디언트, 지평선 근처에 큰 햇빛 번짐을 넣어 줘
+- 건물은 어두운 실루엣에 따뜻한 창문 불빛을 군데군데 켜 줘
+- 버스는 위가 밝고 아래가 어두운 그라디언트에 옆면 반사광, 앞쪽 전조등 빛줄기를 넣어 줘
+- 화면 가장자리를 어둡게⁠(비네트), 필름 그레인, 위아래 검은 띠를 넣어 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '시네마틱 3D' 스타일로 바꿔 줘.
+- 하늘은 짙은 남색에서 주황으로 바뀌는 노을 그라디언트, 지평선 근처에 큰 햇빛 번짐을 넣어 줘
+- 건물은 어두운 실루엣에 따뜻한 창문 불빛을 군데군데 켜 줘
+- 버스는 위가 밝고 아래가 어두운 그라디언트에 옆면 반사광, 앞쪽 전조등 빛줄기를 넣어 줘
+- 화면 가장자리를 어둡게(비네트), 필름 그레인, 위아래 검은 띠를 넣어 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s10"><div class="tb">
+        <h3><span class="sn">STEP 10</span>스타일 09. 장난감&nbsp;블록<small>2분</small></h3>
+        <p class="d">모든 것을 조립 블록으로 쌓아 만든 장면입니다. 블록 위쪽 돌기만 있어도 장난감처럼 보입니다.</p>
+        
+        <div class="how">실제 장난감 회사의 이름을 프롬프트에 넣으면 상표 문제가 생길 수 있습니다. 모양으로만 설명하는 편이 안전합니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '장난감 블록' 스타일로 바꿔 줘.
+- 건물⁠·버스⁠·땅을 모두 직사각형 블록을 쌓아서 만들어 줘
+- 블록마다 윗면에 작은 돌기, 아래⁠·오른쪽에 어두운 면, 위쪽에 밝은 줄을 넣어 줘
+- 땅은 초록 판에 돌기가 줄지어 있게, 버스는 빨간 블록과 흰 블록 줄로 쌓아 줘
+- 특정 회사의 로고나 제품 이름은 넣지 말아 줘
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '장난감 블록' 스타일로 바꿔 줘.
+- 건물·버스·땅을 모두 직사각형 블록을 쌓아서 만들어 줘
+- 블록마다 윗면에 작은 돌기, 아래·오른쪽에 어두운 면, 위쪽에 밝은 줄을 넣어 줘
+- 땅은 초록 판에 돌기가 줄지어 있게, 버스는 빨간 블록과 흰 블록 줄로 쌓아 줘
+- 특정 회사의 로고나 제품 이름은 넣지 말아 줘
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s11"><div class="tb">
+        <h3><span class="sn">STEP 11</span>스타일 10. 3D 설명&nbsp;영상<small>2분</small></h3>
+        <p class="d">'이건 어떻게 움직일까?'를 보여 주는 과학 설명 영상 스타일입니다. 물체 일부를 투명하게 잘라 속을 보여&nbsp;줍니다.</p>
+        
+        <div class="how">라벨 내용은 내가 보여 주고 싶은 설명으로 바꿉니다. 사실 설명이 들어가는 만큼 라벨 문장은 직접 확인합니다.</div>
+        
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '3D 설명 영상' 스타일로 바꿔 줘.
+- 밝은 회청색 스튜디오 바탕에, 점토처럼 부드러운 그라디언트 명암으로 그려 줘
+- 버스 뒤쪽 일부를 투명하게 잘라서 안에 엔진과 돌아가는 톱니바퀴가 보이게 해 줘
+- 가는 선과 흰 말풍선 라벨로 [엔진], [바퀴]⁠를 가리키고, 라벨은 천천히 나타나게 해 줘
+- 왼쪽 위에 질문 제목을 넣어 줘: [버스는 어떻게 갈까?]
+- 외부 이미지⁠·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게&nbsp;보여&nbsp;줘</div><button class="copy dark" data-copy="앞에서 만든 애니메이션의 장면과 움직임은 그대로 두고, 그리는 방식만 '3D 설명 영상' 스타일로 바꿔 줘.
+- 밝은 회청색 스튜디오 바탕에, 점토처럼 부드러운 그라디언트 명암으로 그려 줘
+- 버스 뒤쪽 일부를 투명하게 잘라서 안에 엔진과 돌아가는 톱니바퀴가 보이게 해 줘
+- 가는 선과 흰 말풍선 라벨로 [엔진], [바퀴]를 가리키고, 라벨은 천천히 나타나게 해 줘
+- 왼쪽 위에 질문 제목을 넣어 줘: [버스는 어떻게 갈까?]
+- 외부 이미지·라이브러리 없이 코드로만 그려 줘
+- 다 되면 아티팩트로 바로 재생되게 보여 줘">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s12"><div class="tb">
+        <h3><span class="sn">STEP 12</span>영상 파일로&nbsp;받기<small>5분</small></h3>
+        <p class="d">아티팩트는 브라우저 속 애니메이션이라 릴스⁠·쇼츠에 올리려면 영상 파일로 한 번 바꾸는 과정이 필요합니다.</p>
+        
+        <div class="how">가장 확실한 방법은 화면 녹화입니다. 아티팩트를 전체 화면으로 띄우고 윈도우는 Win+Alt+R(Xbox Game Bar), 맥은 Command+Shift+5, 휴대폰은 제어 센터의 화면 녹화를 씁니다. 녹화한 뒤 편집 앱에서 세로 9:16으로 잘라&nbsp;냅니다.</div>
+        <p class="tp">캔버스를 바로 영상으로 저장하는 버튼을 붙여 달라고 할 수도 있습니다. 브라우저에 따라 아티팩트 안에서 내려받기가 막힐 수 있으니, 안 되면 화면 녹화로 돌아갑니다.</p><p class="tp">여러 스타일을 한 영상에 이어 붙이고 싶다면 아래 '통째로 맡기는 프롬프트'를&nbsp;씁니다.</p>
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">이 애니메이션에 '녹화' 버튼을 붙여 줘. 누르면 캔버스를 captureStream 과 MediaRecorder 로 12초 동안 녹화하고 끝나면 webm 파일로 내려받게 해 줘. 녹화하는 동안에는 버튼을&nbsp;숨겨&nbsp;줘.</div><button class="copy dark" data-copy="이 애니메이션에 '녹화' 버튼을 붙여 줘. 누르면 캔버스를 captureStream 과 MediaRecorder 로 12초 동안 녹화하고 끝나면 webm 파일로 내려받게 해 줘. 녹화하는 동안에는 버튼을 숨겨 줘.">복사하기</button></div>
+        
+      </div></section></div>
+    <div class="bonus"><b>보너스&nbsp;· 스타일이 마음에&nbsp;안&nbsp;들&nbsp;때</b><ol><li>한 번에 하나만 고칩니다. '색은 두고 선만 더 굵게'처럼 바꿀 것 하나를 말하면 잘 고쳐집니다.</li><li>대화가 길어져 코드가 꼬이면 마지막으로 잘 되던 코드를 새 대화에 붙여 넣고 다시 시작합니다.</li><li>스타일 이름보다 눈에 보이는 특징(선 굵기, 색 수, 바탕색, 빛 번짐)⁠을 적을수록 결과가 비슷하게 나옵니다.</li><li>움직임이 버벅이면 '효과를 줄여서 휴대폰에서도 부드럽게'라고 덧붙입니다.</li></ol></div>
+    <div class="limits"><b>솔직히 한계</b><ul><li>코드로 그리는 방식이라 사람 얼굴, 동물 털처럼 복잡한 대상은 어색하게 나옵니다. 모양이 단순한 사물을 주인공으로 고르는 편이 좋습니다.</li><li>같은 프롬프트라도 대화마다 결과가 조금씩 다릅니다. 마음에 드는 결과가 나오면 그 코드를 따로 저장해&nbsp;둡니다.</li><li>긴 애니메이션 코드를 여러 번 고치면 사용 한도를 빨리 씁니다. 스타일마다 새 대화를 여는 편이 한도를 아낍니다.</li><li>유명 캐릭터나 특정 크리에이터⁠·브랜드의 화풍을 이름으로 따라 그리게 하면 저작권⁠·상표 문제가 생길 수 있습니다. 이 글의 프롬프트는 일부러 이름 대신 특징으로 적었습니다.</li></ul></div>
+    <div class="src"><b>공식 자료</b><a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude" target="_blank" rel="noopener">Create and edit files with Claude (Claude 도움말)&nbsp;· https://support.claude.com⁠/⁠en/articles/12111783-create-and-edit-files-with-claude</a><a href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener">What are artifacts and how do I use them? (Claude 도움말)&nbsp;· https://support.claude.com⁠/⁠en/articles/9487310-what-are-artifacts-and-how-do-i-use-them</a><a href="https://developer.mozilla.org/docs/Web/API/MediaRecorder" target="_blank" rel="noopener">MediaRecorder&nbsp;(MDN)&nbsp;· https://developer.mozilla.org/docs/Web/API/MediaRecorder</a></div>
+    
+    
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/claude-animation-styles/" data-copy="https://shiftaimagazine.com/tutorial/claude-animation-styles/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20%ED%81%B4%EB%A1%9C%EB%93%9C%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%20%EC%8A%A4%ED%83%80%EC%9D%BC%2010%EA%B0%80%EC%A7%80%2C%20%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%20%EB%AA%A8%EC%9D%8C&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Ftutorial%2Fclaude-animation-styles%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려&nbsp;주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI&nbsp;·&nbsp;쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/skills-creator/"><img class="thumb" src="img/cover/t-skills-creator.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">스킬⁠·MCP&nbsp;· 입문</span><h3><span class="tphw"><span class="tph">유튜버⁠⁠·크리에이터가 깔아 두면 좋은 AI 스킬&nbsp;7개,</span> <span class="tph">내 말투 학습⁠⁠·훅⁠⁠·썸네일⁠⁠·영상 제작까지</span></span></h3><p>내 말투 학습, 첫 줄 훅과 릴스 대본, 썸네일 기획, 코드로 만드는 영상, AI 음성 입히기에 쓰는 스킬을 골랐습니다. 크리에이터가 만든 소셜 미디어 스킬과 리모션⁠·일레븐랩스 공식 스킬이 중심입니다.</p><div class="meta"><span>2026.11.05</span><span class="dot"></span><span>STEP 8개</span><span class="dot"></span><span>읽는 데&nbsp;11분</span></div></div></a></div></div>
+  </article></main>
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=3375856a"></script>
+<script src="/assets/app.js?v=3375856a"></script>
+
+
+</body></html>
