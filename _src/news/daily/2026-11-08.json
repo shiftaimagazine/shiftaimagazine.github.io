@@ -1,0 +1,578 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-08-meta-muse-spaces",
+   "cat": "모델·제품",
+   "date": "2026-11-08",
+   "time": "06:46",
+   "title": "메타 뮤즈 스페이스, 말로 앱을 만든다",
+   "sub": "설명하면 뮤즈가 맞춤 화면을 만들어 줌 · 사이드바·탭에 배치 · 뮤즈 제공 지역에서 오늘부터",
+   "hook": "메타가 11월 6일(미국 시각) 뮤즈(Muse) 앱에 '스페이스'를 추가했습니다. 만들고 싶은 화면을 말로 설명하면 뮤즈가 만들어 주며, 뮤즈가 제공되는 모든 곳에서 오늘부터 쓸 수 있습니다.",
+   "try": "뮤즈를 쓸 수 있는 곳이라면 메모 앱에 반쯤 적어 둔 목록 하나를 한 문장으로 설명해서 스페이스로 만들어 보세요.",
+   "who": "메타 뮤즈 앱으로 일정·목록·계획을 정리하는 이용자",
+   "facts": [
+    [
+     "발표 주체",
+     "메타(Meta)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 6일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "뮤즈 앱의 맞춤 화면 기능 '스페이스(spaces)'"
+    ],
+    [
+     "제공 범위",
+     "뮤즈가 제공되는 모든 곳(나라 이름은 원문에 없음)"
+    ],
+    [
+     "원문",
+     "메타 뉴스룸 글"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "메타(Meta)가 11월 6일(미국 시각) 개인 AI 에이전트 뮤즈(Muse) 앱에 '스페이스(spaces)'라는 기능을 넣었습니다. 이용자가 만들고 싶은 화면을 말로 설명하면 뮤즈가 그 화면을 만들어 앱 안에 두는 방식이며, 오늘부터 뮤즈가 제공되는 모든 곳에서 쓸 수 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "말로 설명하면 화면이 생깁니다",
+       "휴일 선물 목록 같은 아이디어를 적으면 뮤즈가 만들어 줌"
+      ],
+      [
+       "사이드바와 탭에 둘 수 있습니다",
+       "필요 없는 스페이스는 숨기기도 가능"
+      ],
+      [
+       "연결한 앱으로 스스로 갱신됩니다",
+       "백그라운드에서 최신 상태를 유지"
+      ]
+     ]
+    },
+    {
+     "h": "아이디어 한 줄에서 시작하는 화면"
+    },
+    {
+     "p": "스페이스는 이용자가 아이디어를 설명하면 뮤즈 안에 생기는 맞춤 경험입니다. 메타가 든 예는 휴일 선물 목록, 매일 하는 단어 게임, 집 꾸미기 계획판, 쇼핑 허브, 학교 대시보드, 결혼식 플래너, 여행 플래너 같은 것들입니다. 메모 앱에 반쯤 적어 둔 생각이나 정리하려던 스프레드시트, 해 보고 싶은 취미도 출발점이 될 수 있다고 소개했습니다. 처음 낸 아이디어는 시작일 뿐이라고 메타는 적었습니다. 메타는 스페이스가 일을 처리하고, 가볍게 즐기고, 창작 프로젝트가 머물 집이 되어 줄 수 있다고 소개했습니다."
+    },
+    {
+     "h": "사이드바, 탭, 숨기기"
+    },
+    {
+     "p": "만든 스페이스는 뮤즈의 일부가 되어 원하는 자리에 둘 수 있습니다. 사이드바에 넣거나 메인 탭으로 옮기고, 지금 필요 없는 것은 숨길 수 있습니다. 원문의 예로는 평일에 주간 플래너를 맨 앞에 두었다가 토요일에 주말 계획으로 바꿔 놓는 식이 있습니다."
+    },
+    {
+     "h": "연결한 앱이 알아서 갱신합니다"
+    },
+    {
+     "p": "스페이스는 처음부터 개인용으로 만들어지고, 이용자가 쓰는 앱을 연결하면 백그라운드에서 스스로 최신 상태를 유지합니다. 이 글에서 확인한 문장에는 연결할 수 있는 앱의 이름이 나오지 않습니다."
+    },
+    {
+     "h": "어느 나라에서 쓸 수 있는지는 적혀 있지 않습니다"
+    },
+    {
+     "p": "원문은 '뮤즈가 제공되는 모든 곳'이라고만 적었고 나라 이름이나 아이폰·안드로이드 같은 기기 구분은 없습니다. 한국에서 뮤즈를 쓸 수 있는지도 이 글로는 알 수 없습니다. 메타는 스페이스를 다른 사람과 나누는 방법을 찾고 있다고 밝혔으며, 뮤즈에 들어가는 모델의 전문화 버전도 함께 배포하고 있습니다. 공유 기능이 언제 나오는지는 공개되지 않았습니다."
+    }
+   ],
+   "ask": "자주 쓰는 목록이나 계획표를 말 한 줄로 앱 화면으로 만들 수 있다면 가장 먼저 무엇을 만들어 보시겠습니까?",
+   "verdict": {
+    "v": "watch",
+    "why": "뮤즈가 제공되는 곳에서만 쓸 수 있고 한국에서 쓸 수 있는지는 원문에 없습니다."
+   },
+   "sources": [
+    [
+     "메타 뉴스룸 — Design the Muse App, Just for You",
+     "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/"
+    ]
+   ],
+   "terms": [
+    "메타",
+    "뮤즈",
+    "에이전트"
+   ],
+   "image": {
+    "page": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+    "og": "https://about.fb.com/wp-content/uploads/2026/11/Design-the-Muse-App_Just-for-You_Social-Share.png?w=1200",
+    "credit": "이미지: Meta",
+    "alt": "메타 뮤즈 앱 스페이스 소개 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "스페이스 소개",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Today, we're introducing spaces, an interactive way to build a more customized experience in the Muse app."
+    },
+    {
+     "claim": "게시일",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "November 6, 2026"
+    },
+    {
+     "claim": "말로 설명해 만든다",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Have an idea you've been meaning to try? Tell Muse about it, and it builds it for you."
+    },
+    {
+     "claim": "뮤즈의 일부",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Every space you create becomes part of Muse, so you can keep it where you want and come back to it any time."
+    },
+    {
+     "claim": "처음 아이디어는 출발점",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Your initial idea is just the starting point."
+    },
+    {
+     "claim": "위치 선택",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "You can also choose where your spaces live in Muse."
+    },
+    {
+     "claim": "사이드바·탭·숨기기",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Add them to your sidebar, move them into your main tabs, hide the ones you don't need right now,"
+    },
+    {
+     "claim": "개인용",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Your spaces are personal from the start."
+    },
+    {
+     "claim": "앱 연결과 갱신",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Connect the apps you use, and your spaces keep themselves up to date in the background,"
+    },
+    {
+     "claim": "제공 범위",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Starting today, spaces are available everywhere Muse is available."
+    },
+    {
+     "claim": "공유 탐색",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "We're also exploring ways for you to share your spaces with others to build a more collaborative experience in Muse."
+    },
+    {
+     "claim": "전문화 모델",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "We're also rolling out specialized versions of our models to Muse, trained with learnings from Muse Wonder,"
+    },
+    {
+     "claim": "메모·스프레드시트·취미",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Got a half-finished idea sitting in your notes app, a spreadsheet you keep meaning to clean up, or a hobby you want to dive into?"
+    },
+    {
+     "claim": "예시와 평일·주말 플래너",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "keep your weekly planner up front during the workweek, then swap it for your weekend plans on Saturday"
+    },
+    {
+     "claim": "용도",
+     "url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/",
+     "quote": "Spaces can help you get things done, have a little fun, or give your creative projects a home."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-08-ai2-toyblocks",
+   "cat": "연구",
+   "date": "2026-11-08",
+   "time": "06:45",
+   "title": "Ai2 토이블록스, 로봇 학습 시험장",
+   "sub": "로봇 팔과 블록 시뮬레이션을 오픈으로 공개 · 시연 85,336개 · 약 1,600시간 분량",
+   "hook": "Ai2가 11월 6일(미국 시각) 로봇 학습과 평가를 실험처럼 따져 볼 수 있는 시뮬레이션 틀 토이블록스(ToyBlocks)를 공개했습니다. 시연 85,336개와 학습된 모델, 코드가 함께 나왔습니다.",
+   "try": "로봇 연구에 관심이 있다면 허깅페이스 글에서 데이터와 모델 링크를 열어 공개 범위와 라이선스를 직접 확인해 보세요.",
+   "who": "로봇 학습과 시뮬레이션 연구를 따라가는 개발자·연구자",
+   "facts": [
+    [
+     "발표 주체",
+     "Ai2"
+    ],
+    [
+     "날짜",
+     "2026년 11월 6일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "로봇 팔과 블록으로 만든 오픈 시뮬레이션 틀"
+    ],
+    [
+     "공개된 것",
+     "시연 85,336개, 모델 2종, 코드"
+    ],
+    [
+     "분량",
+     "약 1,600시간, 1억 4,400만 프레임"
+    ],
+    [
+     "원문",
+     "허깅페이스 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "Ai2가 11월 6일(미국 시각) 로봇 학습과 평가를 통제된 실험처럼 다룰 수 있게 해 주는 시뮬레이션 틀 토이블록스(ToyBlocks)를 허깅페이스(Hugging Face)에 공개했습니다. 책상 위 로봇 팔과 블록으로 이루어진 환경으로, 시뮬레이션에서 만든 시연 기록 85,336개가 함께 풀렸습니다."
+    },
+    {
+     "ul": [
+      [
+       "파운데이션월드의 첫 사례",
+       "Ai2가 이런 통제된 환경을 부르는 이름"
+      ],
+      [
+       "시연을 자동으로 생성",
+       "사람이 로봇을 조종해 녹화하지 않음"
+      ],
+      [
+       "데이터와 모델 공개",
+       "약 1,600시간, 1억 4,400만 프레임 분량"
+      ]
+     ]
+    },
+    {
+     "h": "사람이 조종하지 않고 만든 시연 기록"
+    },
+    {
+     "p": "토이블록스는 먼저 엔비디아(NVIDIA)의 오픈소스 로봇 학습 도구인 아이작 랩(Isaac Lab)에서 밀기나 뒤집기 같은 동작을 익힙니다. 이 동작들을 계획기가 이어 붙여 긴 작업의 시연을 만들고, 수백 개의 계획을 한꺼번에 돌려서 시연 기록을 모읍니다. 처음 공개된 데이터는 긴 작업 시연 85,336개이고 약 1,600시간의 로봇 실행 기록과 1억 4,400만 프레임에 해당합니다."
+    },
+    {
+     "h": "시뮬레이션과 실제 로봇의 성공률"
+    },
+    {
+     "p": "기본 동작을 하는 ManiFlow 모델의 성공률은 시뮬레이션에서 80.0%, 실제 로봇에서 81.1%로 비슷했습니다. 말로 목표를 정하는 Molmo 2와 ManiFlow를 합친 계층형 시스템은 시뮬레이션 200번 가운데 111번인 55.5%를 해냈습니다. 실제 로봇 실험은 시도 횟수가 적어서 작업별로 통계적 확신을 얻으려면 더 많은 시도가 필요하다고 Ai2는 적었습니다."
+    },
+    {
+     "h": "블록 글자 맞추기에서 드러난 시각 오류"
+    },
+    {
+     "p": "블록으로 단어를 만드는 시험에서는 최신 모델들도 비슷한 모양의 글자를 헷갈리는 등 시각 오류를 자주 냈다고 합니다. 이 시험에서 장면의 50%는 필요한 글자 블록이 없어 애초에 풀 수 없는 문제였습니다. 이미 대규모로 사전 학습한 행동 모델들도 초기 결과에서는 새로운 조건에 잘 일반화하지 못했습니다."
+    },
+    {
+     "h": "공개 범위와 아직 비어 있는 것"
+    },
+    {
+     "p": "시뮬레이션 자산, 작업과 시연 생성기, 만들어 낸 시연 데이터, 학습된 Molmo 2와 ManiFlow 모델, 학습·평가 코드가 공개됐습니다. 환경은 일부러 단순하게 잡은 탁상 블록 작업이고 Ai2는 행동 모델의 일반화가 아직 풀리지 않았다고 적었습니다. 더 큰 두 번째 데이터셋은 몇 주 뒤에 나옵니다."
+    }
+   ],
+   "ask": "로봇이 실제로 쓸모 있어지려면 시뮬레이션에서 어떤 작업까지 믿을 만하게 해내야 한다고 보시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "탁상 블록 작업에 한정된 연구용 환경이고 Ai2도 일반화는 풀리지 않았다고 적었습니다."
+   },
+   "sources": [
+    [
+     "허깅페이스 블로그 — ToyBlocks (Ai2)",
+     "https://huggingface.co/blog/allenai/toyblocks"
+    ]
+   ],
+   "terms": [
+    "허깅페이스",
+    "엔비디아",
+    "피지컬 AI",
+    "시뮬레이션",
+    "Ai2",
+    "데이터셋",
+    "비전 언어 모델(VLM)"
+   ],
+   "image": {
+    "page": "https://huggingface.co/blog/allenai/toyblocks",
+    "og": "https://cdn-uploads.huggingface.co/production/uploads/638e39b249de7ae552d977b5/OAJMu2jr7i5jVAbmsKdZW.jpeg",
+    "credit": "이미지: Ai2",
+    "alt": "토이블록스 로봇 팔과 블록 환경 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "November 6, 2026"
+    },
+    {
+     "claim": "파운데이션월드",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Today we're introducing a framework for creating these environments; we call them FoundationWorlds."
+    },
+    {
+     "claim": "토이블록스 정의",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Our first foundation world is ToyBlocks: an open simulation framework built around a robot arm and blocks on a tabletop."
+    },
+    {
+     "claim": "자동 시연",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "ToyBlocks automatically generates demonstrations, which are recordings of a robot completing tasks in simulation"
+    },
+    {
+     "claim": "아이작 랩",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Skill training takes place in Isaac Lab, Nvidia's open-source framework for robot learning in simulation."
+    },
+    {
+     "claim": "병렬 계획",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "ToyBlocks scales data generation through generating and executing hundreds of such plans in parallel"
+    },
+    {
+     "claim": "50% 불가능",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Importantly, 50% of the scenes did not have blocks with all the required letters, rendering the task infeasible."
+    },
+    {
+     "claim": "시각 오류",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Surprisingly, current frontier models often make similar perceptual errors"
+    },
+    {
+     "claim": "일반화",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Despite large-scale pretraining, these popular action models generalize poorly in the initial results."
+    },
+    {
+     "claim": "80.0%·81.1%",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "ManiFlow's atomic-skill success rates were similar in simulation and the real world (80.0% and 81.1%)."
+    },
+    {
+     "claim": "55.5%",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "The hierarchical Molmo 2 + ManiFlow system succeeded in 55.5% of simulated episodes (111/200)"
+    },
+    {
+     "claim": "통계 확신",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "further trials are needed to establish statistical confidence across tasks."
+    },
+    {
+     "claim": "일반화 미해결",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "We believe action model generalization remains far from solved"
+    },
+    {
+     "claim": "85,336개",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "Our initial data release is a proof point with 85,336 long-horizon demonstrations"
+    },
+    {
+     "claim": "1,600시간·1억 4,400만 프레임",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "The initial datasets cover nearly 1,600 hours of robot execution data and 144 million frames."
+    },
+    {
+     "claim": "두 번째 데이터셋",
+     "url": "https://huggingface.co/blog/allenai/toyblocks",
+     "quote": "In a few weeks"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-08-amazon-alexa-text-shopping",
+   "cat": "비즈니스·일자리",
+   "date": "2026-11-08",
+   "time": "06:44",
+   "title": "아마존 알렉사, 문자로 쇼핑한다",
+   "sub": "초대받은 미국 고객부터 시작 · 검색·비교·구매까지 문자로 · 몇 주 안에 수백만 명 확대",
+   "hook": "아마존이 11월 6일(미국 시각) 쇼핑 AI 에이전트 알렉사 포 쇼핑(Alexa for Shopping)을 문자 메시지로도 쓸 수 있게 한다고 발표했습니다. 오늘은 초대한 일부 미국 고객에게만 열리고 앞으로 몇 주 안에 수백만 명 더 늘어납니다.",
+   "try": "미국 아마존 계정이 있다면 쇼핑 앱의 알렉사 아이콘으로 최근 산 물건의 재주문이나 가격 알림을 말로 요청해 보세요.",
+   "who": "미국 아마존 계정으로 장보기와 재주문을 자주 하는 이용자",
+   "facts": [
+    [
+     "발표 주체",
+     "아마존(Amazon)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 6일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "알렉사 포 쇼핑의 문자 메시지 이용"
+    ],
+    [
+     "대상·지역",
+     "초대받은 미국 고객, 몇 주 안에 수백만 명 확대"
+    ],
+    [
+     "시작 방법",
+     "약관 동의, 전화번호 연결"
+    ],
+    [
+     "원문",
+     "아마존 뉴스룸 글"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "아마존(Amazon)이 11월 6일(미국 시각) 쇼핑 AI 에이전트 알렉사 포 쇼핑(Alexa for Shopping)을 문자 메시지로도 쓸 수 있게 한다고 발표했습니다. 오늘부터 초대 문자를 받은 일부 미국 고객에게만 열리고, 앞으로 몇 주 안에 수백만 명이 더 쓰게 됩니다."
+    },
+    {
+     "ul": [
+      [
+       "문자로 검색·비교·구매",
+       "휴대폰 문자창에서 쇼핑을 끝냄"
+      ],
+      [
+       "초대받은 미국 고객만",
+       "약관에 동의하고 전화번호를 연결"
+      ],
+      [
+       "재주문은 이용자 승인으로",
+       "물건을 찾아 사기 전에 확인을 받음"
+      ]
+     ]
+    },
+    {
+     "h": "문자창에서 하는 일"
+    },
+    {
+     "p": "이용자가 평소 문자를 쓰듯 요청하면 알렉사 포 쇼핑이 상품을 찾고 비교한 뒤 장바구니에 담고, 준비가 되면 구매까지 대신 마칩니다. 원문의 예시는 '지난달에 산 세탁 세제를 다시 주문해 줘'라고 보내면 찾아서 이용자 승인을 받고 사 주는 식입니다. 채식 제품만 보고 싶다고 말해 두면 기억합니다."
+    },
+    {
+     "h": "초대 문자를 받으면 이렇게 시작합니다"
+    },
+    {
+     "p": "초대받은 고객은 약관에 동의하고 전화번호를 연결한 뒤 바로 문자로 쇼핑하면 됩니다. 휴대폰 연락처에는 'Alexa Shopping'이라는 이름으로 나타나고 시간이 지나면 주문 소식과 배송 알림, 할인 소식도 이 연락처로 오게 됩니다. 초대를 받지 못한 고객은 아마존 소식과 혜택을 문자로 받는 신청 페이지를 이용할 수 있습니다."
+    },
+    {
+     "h": "이미 앱과 웹에서 쓰던 기능의 연장입니다"
+    },
+    {
+     "p": "알렉사 포 쇼핑은 아마존 쇼핑 앱과 웹사이트에서 이미 쓰이고 있었고 최근 12개월 동안 4억 명이 넘는 고객이 이용했다고 아마존은 밝혔습니다. 문자는 여기에 더해지는 통로입니다. 앱·웹·알렉사 기기에서 대화가 이어지는 기능도 순차적으로 나옵니다."
+    },
+    {
+     "h": "한국에서는 쓸 수 없고 조건도 비어 있습니다"
+    },
+    {
+     "p": "원문에 나오는 대상은 미국 고객뿐이고 다른 나라 이야기는 없습니다. 가격이나 수수료, 하루 메시지 수 제한은 적혀 있지 않으며 문자를 보낼 전화번호도 공개되지 않았습니다."
+    }
+   ],
+   "ask": "쇼핑 앱을 열지 않고 문자로 물건을 찾고 결제까지 맡길 수 있다면 어떤 물건부터 맡기시겠습니까?",
+   "verdict": {
+    "v": "watch",
+    "why": "초대받은 일부 미국 고객에게만 열리고 확대는 몇 주 뒤로 예고됐습니다."
+   },
+   "sources": [
+    [
+     "아마존 뉴스룸 — Text, shop, done: Alexa for Shopping is now just a text away",
+     "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop"
+    ],
+    [
+     "아마존 뉴스룸 — Alexa for Shopping adds 100+ new capabilities",
+     "https://www.aboutamazon.com/news/retail/alexa-for-shopping-new-capabilities"
+    ]
+   ],
+   "terms": [
+    "에이전트",
+    "아마존",
+    "알렉사"
+   ],
+   "image": {
+    "page": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+    "og": "https://assets.aboutamazon.com/dims4/default/337bc09/2147483647/strip/true/crop/2000x1000+0+63/resize/1200x600!/quality/90/?url=https%3A%2F%2Fassets.aboutamazon.com%2Fbe%2F8c%2F45ff003a4e1ea2e9a9fd4d6438d9%2Funtitled-november-06-2026-at-13-44-08.jpeg",
+    "credit": "이미지: Amazon",
+    "alt": "아마존 알렉사 포 쇼핑 문자 이용 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "2026-11-06T13:55:08.095Z"
+    },
+    {
+     "claim": "문자 이용, 초대",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Select customers can text Alexa for Shopping to search, compare, and buy products—right from their phone."
+    },
+    {
+     "claim": "미국 소수 초대",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Texting with Alexa for Shopping starts rolling out today to a small group of U.S. customers by invitation only,"
+    },
+    {
+     "claim": "앱·웹·문자",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Alexa for Shopping—in the Amazon Shopping app, on the website, and now by text—doesn't just answer questions."
+    },
+    {
+     "claim": "초대 문자",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Beginning today, a subset of U.S. customers will receive a text message inviting them to try the experience."
+    },
+    {
+     "claim": "몇 주 안에 확대",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "The option to text Alexa for Shopping will roll out to millions more customers in the coming weeks."
+    },
+    {
+     "claim": "시작 방법",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "To get started, simply accept the terms, link your phone number, and start shopping—all from your text messages."
+    },
+    {
+     "claim": "연락처 이름",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "The contact will appear in your phone as “Alexa Shopping.”"
+    },
+    {
+     "claim": "구매 대행",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "When you’re ready, it can add items to your cart and seamlessly complete the purchase on your behalf."
+    },
+    {
+     "claim": "채식 기억",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Tell it you only want to see vegan products, and it remembers."
+    },
+    {
+     "claim": "재주문 승인",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Text “reorder the laundry detergent I bought last month,” and Alexa for Shopping finds it and buys it with your approval."
+    },
+    {
+     "claim": "주문·배송 소식",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Over time, your Alexa Shopping contact will also include your Amazon order updates, delivery notifications, and deals"
+    },
+    {
+     "claim": "4억 명",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "More than 400 million customers have used Alexa for Shopping in the last 12 months,"
+    },
+    {
+     "claim": "미초대 고객",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop",
+     "quote": "Customers who haven’t yet received an invitation can sign up to get news and offers from Amazon by text"
+    },
+    {
+     "claim": "앱 아이콘(미국 전체 고객)",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-new-capabilities",
+     "quote": "You can get started by tapping the Alexa icon in the Amazon Shopping app"
+    },
+    {
+     "claim": "미국 고객 제공",
+     "url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-new-capabilities",
+     "quote": "These capabilities are available now to all U.S. Amazon customers."
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "OpenAI·Hacktron 취약점 협력",
+   "reason": "원문(openai.com) 열람이 실패해 숫자와 날짜를 확인하지 못함"
+  },
+  {
+   "topic": "OpenAI 습식 실험 과학 에이전트 평가",
+   "reason": "원문(openai.com) 열람이 실패해 확인하지 못함"
+  },
+  {
+   "topic": "메타 상업 약관 개정 철회",
+   "reason": "메타 원문을 찾지 못하고 언론 보도만 있음"
+  }
+ ]
+}
