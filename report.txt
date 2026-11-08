@@ -1,0 +1,71 @@
+SHIFT AI 구글 검색 성과  2026-10-09 ~ 2026-11-05 (28일) · 비교: 2026-09-11 ~ 2026-10-08 · 속성 sc-domain:shiftaimagazine.com
+== 전체: 클릭 24 (전 0, 새로) · 노출 640 (전 0, 새로) · 클릭률 3.8% · 평균 순위 13.1
+
+== 검색어 상위 30 (노출순: 노출 · 클릭 · 클릭률 · 평균 순위)
+      24 ·    0 ·  0.0% ·  10.2  pbc 뜻
+      12 ·    0 ·  0.0% ·   8.2  training
+      11 ·    0 ·  0.0% ·   5.7  release
+      11 ·    0 ·  0.0% ·   5.4  리더보드
+      10 ·    0 ·  0.0% ·   7.7  타이니피쉬
+       9 ·    0 ·  0.0% ·  11.1  cohere 뜻
+       9 ·    0 ·  0.0% ·   9.1  vulnerability
+       8 ·    0 ·  0.0% ·  11.0  에이전트 영어로
+       7 ·    0 ·  0.0% ·  13.9  젬마
+       6 ·    0 ·  0.0% ·  10.2  lean
+       6 ·    0 ·  0.0% ·  10.8  빅테크
+       6 ·    0 ·  0.0% ·   8.8  카나나
+       5 ·    0 ·  0.0% ·   7.6  algorithm
+       5 ·    0 ·  0.0% ·   9.6  alignment
+       5 ·    0 ·  0.0% ·   8.8  kanana
+       5 ·    0 ·  0.0% ·   6.2  에이전트 스펠링
+       5 ·    0 ·  0.0% ·  18.4  파라미터
+       4 ·    0 ·  0.0% ·   6.8  big tech
+       4 ·    0 ·  0.0% ·  23.0  cloud
+       4 ·    0 ·  0.0% ·  62.0  diffusion model
+       4 ·    0 ·  0.0% ·   8.5  semiconductor
+       4 ·    0 ·  0.0% ·   9.2  라이브러리
+       3 ·    0 ·  0.0% ·   7.7  aisi
+       3 ·    0 ·  0.0% ·  75.7  api키
+       3 ·    0 ·  0.0% ·   7.0  그록
+       3 ·    0 ·  0.0% ·  70.3  노트북lm
+       3 ·    0 ·  0.0% ·   8.7  리더보드 뜻
+       3 ·    0 ·  0.0% ·  11.0  솔라 뜻
+       3 ·    0 ·  0.0% ·  10.7  지연시간 영어로
+       2 ·    0 ·  0.0% ·  48.0  ai 코파일럿
+
+== 기회 검색어 (노출 20회 이상, 순위 5~20위, 클릭률 3% 미만 → 제목·설명·내용을 보강하면 클릭이 늘 수 있는 것)
+      24 ·  10.2위  pbc 뜻
+
+== 페이지 상위 30 (노출순: 노출 · 클릭 · 지난 28일 대비 노출)
+      37 ·   17 ·     새로  /
+      23 ·    1 ·     새로  /news/2026-10-19-tinyfish-students/
+      21 ·    0 ·     새로  /dict/artificial-intelligence-ai/
+      20 ·    0 ·     새로  /dict/big-tech/
+      19 ·    0 ·     새로  /about/
+      16 ·    0 ·     새로  /dict/agent/
+       8 ·    0 ·     새로  /dict/algorithm/
+       7 ·    1 ·     새로  /dict/alignment/
+       7 ·    1 ·     새로  /news/2026-10-21-why-ai-text-hard-to-read/
+       7 ·    0 ·     새로  /column/gemini-family/
+       7 ·    0 ·     새로  /dict/
+       6 ·    0 ·     새로  /column/ai-plans-compare/
+       6 ·    0 ·     새로  /dict/api-key/
+       5 ·    0 ·     새로  /dict/ai-security-institute-aisi/
+       3 ·    1 ·     새로  /news/2026-10-29-meta-muse-singapore/
+       2 ·    1 ·     새로  /dict/liquid-ai/
+       2 ·    1 ·     새로  /news/2026-11-02-talos-volta-infostealer-llm/
+       2 ·    1 ·     새로  /tutorial/redact-before-upload/
+       2 ·    0 ·     새로  /column/claude-cowork-claude-code/
+       2 ·    0 ·     새로  /daily/2026-10-30/
+       2 ·    0 ·     새로  /dict/app/
+       2 ·    0 ·     새로  /dict/b2b-b2c/
+       1 ·    0 ·     새로  /column/ai-payoff-outside-tech/
+       1 ·    0 ·     새로  /column/grok-family/
+       1 ·    0 ·     새로  /daily/
+       1 ·    0 ·     새로  /daily/2026-10-23/
+       1 ·    0 ·     새로  /dict/ad-targeting/
+       1 ·    0 ·     새로  /dict/bank-of-england/
+       1 ·    0 ·     새로  /dict/beta/
+       1 ·    0 ·     새로  /dict/canva/
+
+== 기기: desktop 클릭 18/노출 439 · mobile 클릭 6/노출 182 · tablet 클릭 0/노출 19
