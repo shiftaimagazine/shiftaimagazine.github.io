@@ -354,5 +354,23 @@
   "credit": "이미지: Amazon",
   "alt": "아마존 알렉사 포 쇼핑 문자 이용 대표 이미지",
   "auto": true
+ },
+ "2026-11-09-metr-anthropic-acceleration": {
+  "src": "img/ph/2026-11-09-metr-anthropic-acceleration.webp",
+  "credit": "이미지: METR",
+  "alt": "METR 앤트로픽 AI 연구개발 가속 평가 보고서 대표 이미지",
+  "auto": true
+ },
+ "2026-11-09-anthropic-scientists-use-claude": {
+  "src": "img/ph/2026-11-09-anthropic-scientists-use-claude.webp",
+  "credit": "이미지: Anthropic",
+  "alt": "앤트로픽 과학자의 클로드 사용 연구 대표 이미지",
+  "auto": true
+ },
+ "2026-11-09-censys-artex-exposed": {
+  "src": "img/ph/2026-11-09-censys-artex-exposed.webp",
+  "credit": "이미지: Censys",
+  "alt": "센시스 ARTEX 조사 글 대표 이미지",
+  "auto": true
  }
 }
