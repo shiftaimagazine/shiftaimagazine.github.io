@@ -1,0 +1,520 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-09-metr-anthropic-acceleration",
+   "cat": "연구",
+   "date": "2026-11-09",
+   "time": "06:48",
+   "title": "METR, 앤트로픽 개발 속도 2배 추정",
+   "sub": "벤치마크 향상 속도 1.9배(1.5~2.8배) · 가속의 약 80%는 AI 덕분으로 추정 · 증거 대부분은 가려짐",
+   "hook": "METR이 11월 5일(미국 시각) 앤트로픽의 AI 연구개발 속도를 독립적으로 평가한 보고서를 냈습니다. 2026년 10월 기준 AI 능력 향상 속도가 이전보다 약 2배 빠르다고 보지만 핵심 증거 대부분은 앤트로픽이 가렸습니다.",
+   "try": "METR 원문에서 한계 항목을 열어 앤트로픽이 가린 증거와 METR이 접근하지 못한 자료가 무엇인지 직접 확인해 보세요.",
+   "who": "AI 개발 속도와 안전 논의를 따라가는 연구자·기획자",
+   "facts": [
+    [
+     "발표 주체",
+     "METR(독립 평가)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 5일(미국 시각)"
+    ],
+    [
+     "평가 대상",
+     "앤트로픽의 2026년 10월 AI 연구개발 속도"
+    ],
+    [
+     "핵심 숫자",
+     "벤치마크 향상 1.9배, 95% 신뢰구간 1.5~2.8배"
+    ],
+    [
+     "평가 기간",
+     "2026년 8월 12일~10월 29일, METR 인력 2.5명분"
+    ],
+    [
+     "원문",
+     "METR 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "METR이 11월 5일(미국 시각) 앤트로픽(Anthropic)의 AI 연구개발 속도를 독립적으로 평가한 보고서를 공개했습니다. 이 작업에 참여한 METR 직원 대부분은 2026년 10월 기준 앤트로픽의 AI 능력 향상 속도가 2024년 3월부터 2025년 10월까지의 약 2배라고 봅니다."
+    },
+    {
+     "ul": [
+      [
+       "벤치마크 향상 속도 1.9배",
+       "2025년 10월 이후, 95% 신뢰구간은 1.5~2.8배"
+      ],
+      [
+       "가속의 약 80%는 AI 덕분으로 추정",
+       "METR은 불확실성이 크다고 적음"
+      ],
+      [
+       "핵심 증거 대부분은 가려짐",
+       "앤트로픽이 일방적 삭제권을 가짐"
+      ]
+     ]
+    },
+    {
+     "h": "벤치마크로 잰 향상 속도는 1.9배"
+    },
+    {
+     "p": "METR은 앤트로픽 모델들의 벤치마크 점수 추세를 2025년 10월 전후로 나눠 비교했습니다. 점수가 오르는 속도는 연 15포인트에서 연 29포인트로 빨라졌고 METR은 이를 1.9배 가속으로 계산했습니다. 지난 1년 동안의 진전이 2023년 10월부터 2025년 10월까지 2년 동안의 진전(대략 클로드 2.1에서 소넷 4.5까지)과 비슷한 수준입니다. 앤트로픽이 하이쿠 5.5 시스템 카드에 적은 1.7배보다 큰 값인데 METR은 아직 공개되지 않은 최신 모델이 반영됐기 때문이라고 설명합니다. 계산 방식을 바꿔 본 분석에서는 1.1배에서 2.9배까지 값이 흩어졌습니다."
+    },
+    {
+     "h": "가속의 80%를 AI 덕분으로 보는 추정"
+    },
+    {
+     "p": "보고서는 2026년 10월 가속의 과반, 아마 약 80%가 AI 덕분이라고 추측하면서 불확실성이 크다고 덧붙였습니다. 2025년 후반의 가속에는 AI 말고 다른 요인이 영향을 줬을 가능성이 있다는 설명이 붙습니다. 훈련 연산량 증가는 원인이 아니라는 설득력 있는 증거를 받았지만 세부 내용은 가려졌습니다. 앤트로픽 직원이 Slack 설문에 답한 AI 활용 체감 효과는 2026년 10월에 12배까지 올랐으나 METR은 이를 아주 느슨한 증거로만 취급했습니다."
+    },
+    {
+     "h": "METR이 직접 적은 한계"
+    },
+    {
+     "p": "METR은 비공개 모델을 직접 써 볼 접근을 요청하지도 받지도 않았고 직원 수준의 접근이 있었다면 훨씬 깊은 평가가 가능했을 것이라고 적었습니다. 앤트로픽은 보고서 내용을 일방적으로 가릴 권리를 가졌으며 METR이 가장 유익하다고 본 증거 대부분이 가려졌습니다. 가속이 명확히 정의된 작업에만 해당할 수 있고 실제 가속은 1.3배일 수도 3배일 수도 있다는 점도 함께 밝혔습니다. AI가 학습 과정의 가장 중요한 부분에 완전히 자율적으로 기여하는 단계는 아직 아니지만 가능성의 조짐은 있다는 평가입니다. 앤트로픽이 연산량 배분 검증 작업을 도중에 취소해서 이 부분은 결론이 나오지 않았습니다."
+    }
+   ],
+   "ask": "AI 회사가 평가 내용 일부를 가리는 조건에서 나온 독립 평가를 얼마나 믿을 수 있다고 보시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "METR도 확신하지 못한다고 적었고 앤트로픽이 핵심 증거 대부분을 가렸습니다."
+   },
+   "sources": [
+    [
+     "METR — Independent Assessment of AI R&D Acceleration at Anthropic in October 2026",
+     "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment"
+    ]
+   ],
+   "terms": [
+    "앤트로픽",
+    "벤치마크",
+    "METR",
+    "클로드"
+   ],
+   "image": {
+    "page": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+    "og": "https://metr.org/assets/images/ai-rd-acceleration-assessment/home-card.png",
+    "credit": "이미지: METR",
+    "alt": "METR 앤트로픽 AI 연구개발 가속 평가 보고서 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "November 5, 2026"
+    },
+    {
+     "claim": "약 2배",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "twice the rate they did between March 2024 and October 2025."
+    },
+    {
+     "claim": "1.9배",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "have accelerated 1.9x [95% confidence interval: 1.5–2.8x] since October 2025."
+    },
+    {
+     "claim": "1년 진전",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "Anthropic appears to have made as much progress on benchmarks in the past year as they did between October 2023 and October 2025 (roughly, Claude 2.1 to Sonnet 4.5)."
+    },
+    {
+     "claim": "1.7배",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "Our estimated acceleration is greater than that reported in the Haiku 5.5 system card (1.7x)"
+    },
+    {
+     "claim": "1.1~2.9배",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "Robustness analyses find acceleration rates between 1.1x and 2.9x."
+    },
+    {
+     "claim": "연 15·29포인트",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "+15 points/year before Oct 2025 to +29 points/year after (figure caption)"
+    },
+    {
+     "claim": "80%",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "We guess that a majority (perhaps ≈80%) of the current (October 2026) acceleration is due to AI."
+    },
+    {
+     "claim": "연산량",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "We received convincing evidence that the acceleration was not due to an acceleration in the scale of training compute."
+    },
+    {
+     "claim": "12배",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "very high levels (reaching 12x in October 2026)"
+    },
+    {
+     "claim": "접근",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "we did not request or receive access to sample from non-public models"
+    },
+    {
+     "claim": "삭제권",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "Anthropic redacted a majority of the evidence we found most informative."
+    },
+    {
+     "claim": "1.3배·3배",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "we would not be surprised if the true acceleration was closer to 1.3x or 3x the historical rate."
+    },
+    {
+     "claim": "완전 자율",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "highly significant and fully autonomous contributions"
+    },
+    {
+     "claim": "평가 기간·인력",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "2.5 full-time equivalents; eleven weeks; Aug 12–Oct 29, 2026"
+    },
+    {
+     "claim": "배분 검증 취소",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment",
+     "quote": "canceled"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-09-anthropic-scientists-use-claude",
+   "cat": "연구",
+   "date": "2026-11-09",
+   "time": "06:47",
+   "title": "과학자는 클로드를 어디에 쓰나",
+   "sub": "앤트로픽이 세션 207,049개 분석 · 데이터 분석 33.7%, 가설 세우기 4.2% · 11월 5일 공개",
+   "hook": "앤트로픽이 11월 5일(미국 시각) 연구자들이 클로드를 어떤 과학 작업에 쓰는지 분석한 글을 냈습니다. 2026년 8월 2일부터 9월 30일까지 세션 207,049개 가운데 데이터 분석이 가장 많았고 가설 세우기는 4.2%였습니다.",
+   "try": "내가 AI에 맡기는 일을 데이터 분석·글쓰기·자료 모으기·아이디어 내기로 나눠 이번 글의 비중과 비교해 보세요.",
+   "who": "논문·보고서 작업에 AI를 쓰는 연구자와 대학원생",
+   "facts": [
+    [
+     "발표 주체",
+     "앤트로픽(Anthropic) 경제팀"
+    ],
+    [
+     "날짜",
+     "2026년 11월 5일(미국 시각)"
+    ],
+    [
+     "분석 대상",
+     "소비자 요금제 세션 207,049개(8월 2일~9월 30일)"
+    ],
+    [
+     "핵심 숫자",
+     "데이터 분석 33.7%, 글쓰기 32.0%, 가설 세우기 4.2%"
+    ],
+    [
+     "설문",
+     "과학자 528명"
+    ],
+    [
+     "원문",
+     "앤트로픽 리서치"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "앤트로픽(Anthropic)이 11월 5일(미국 시각) 연구자들이 클로드를 어떤 과학 작업에 쓰는지 분석한 글을 냈습니다. 2026년 8월 2일부터 9월 30일까지 소비자 요금제에서 나온 세션 207,049개를 분류했고 가장 큰 비중은 데이터 분석이었습니다."
+    },
+    {
+     "ul": [
+      [
+       "데이터 분석 33.7%",
+       "클로드 세션 기준이며 연구자 시간 비중은 27.6%"
+      ],
+      [
+       "가설 세우기 4.2%",
+       "연구자 시간 비중 7.1%보다 낮음"
+      ],
+      [
+       "자료 모으기 11.5%",
+       "연구자 시간 비중 28.6%에 크게 못 미침"
+      ]
+     ]
+    },
+    {
+     "h": "분석과 글쓰기에 몰린 사용"
+    },
+    {
+     "p": "분석 표본은 채팅과 코워크에서 나온 세션 128,914개와 클로드 코드에서 나온 세션 78,135개입니다. 클로드 세션에서 분야별 비중이 큰 곳은 컴퓨터과학 11.9%, 공학 8.4%, 의학 7.7% 순이었습니다. 데이터 분석은 클로드에서 33.7%, 클로드 코드에서 48.1%를 차지해 연구자가 이 일에 쓰는 시간 27.6%보다 많았습니다. 글쓰기와 소통도 클로드에서 32.0%로 연구자 시간 16.0%의 두 배입니다. 컴퓨터과학은 전 세계 연구자의 4.3%인데 클로드 코드 세션에서는 32.7%를 차지했습니다."
+    },
+    {
+     "h": "가설 세우기와 자료 모으기는 적었습니다"
+    },
+    {
+     "p": "가설 세우기와 아이디어 내기는 클로드 세션의 4.2%, 클로드 코드 세션의 2.1%이고 연구자 시간 7.1%보다 작습니다. 앤트로픽은 아이디어 내기가 다른 작업 속에 섞여 있어 실제보다 적게 잡혔을 수 있다고 적었습니다. 자료 모으기는 두 곳 모두 11% 안팎이었고 연구자 시간 28.6%에는 한참 못 미칩니다. 과학자 528명에게 물은 설문에서는 네 작업의 중요도를 100점으로 나눴을 때 아이디어 내기가 35.6점으로 가장 높았습니다."
+    },
+    {
+     "h": "몸을 움직여야 하는 연구는 덜 쓰입니다"
+    },
+    {
+     "p": "AI가 잘할 것으로 평가된 과제 상위 20%에는 기대치의 두 배에서 네 배 가까이 사용이 몰렸고 하위 20%에는 거의 쓰이지 않았습니다. 물리적 작업이 많은 과제일수록 사용이 적었고 상관계수는 -0.57이었습니다. 생명과학 연구용 클로드 사이언스(Claude Science) 표본에서는 생의학이 31.1%, 생물학이 24.1%를 차지했습니다. 이 표본의 80% 넘는 세션이 박사급 훈련이 필요한 내용으로 추정되고 70% 넘는 세션이 AI에 높은 자율성을 맡겼습니다. 설문 응답자 가운데 약 40%는 2030년까지 AI 모델이 연구 프로젝트 전체를 혼자 수행할 것으로 예상했습니다."
+    },
+    {
+     "p": "분석에는 대화 내용을 보관하지 않고 분류 결과만 남기는 방식이 쓰였고 최소 계정 수를 채운 칸만 집계해 공개했습니다."
+    }
+   ],
+   "ask": "내 일에서 AI에 가장 많이 맡기는 작업과 가장 안 맡기는 작업은 각각 무엇인가요?",
+   "sources": [
+    [
+     "앤트로픽 리서치 — AI for scientific discovery: How researchers use Claude",
+     "https://www.anthropic.com/research/how-researchers-use-claude"
+    ]
+   ],
+   "terms": [
+    "앤트로픽",
+    "클로드",
+    "클로드 코드",
+    "데이터셋"
+   ],
+   "image": {
+    "page": "https://www.anthropic.com/research/how-researchers-use-claude",
+    "og": "https://www-cdn.anthropic.com/images/4zrzovbb/website/0c1a04cc7042949252ee54565755780fe21d5ecf-1200x630.jpg",
+    "credit": "이미지: Anthropic",
+    "alt": "앤트로픽 과학자의 클로드 사용 연구 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Nov 5, 2026"
+    },
+    {
+     "claim": "표본",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Our main sample consists of 207,049 sessions on consumer plans from August 2 to September 30, 2026."
+    },
+    {
+     "claim": "세션 분할",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "128,914 from Chat and Cowork; 78,135 from Claude Code"
+    },
+    {
+     "claim": "분야 비중",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "computer science 11.9%, engineering 8.4%, medicine 7.7%"
+    },
+    {
+     "claim": "데이터 분석",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Data analysis accounts for 33.7% of sessions on Claude and 48.1% on Claude Code, compared with 27.6% of researcher time."
+    },
+    {
+     "claim": "글쓰기",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Writing and communication: 32.0% / 17.6% (16.0% of researcher time)"
+    },
+    {
+     "claim": "컴퓨터과학",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Computer science is 4.3% of the world's researchers but 32.7% of Claude Code sessions."
+    },
+    {
+     "claim": "가설 세우기",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Ideation and hypothesis generation: 4.2% / 2.1% (7.1% of researcher time)"
+    },
+    {
+     "claim": "자료 모으기",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Data gathering: 11.5% / 11.9% (28.6% of researcher time)"
+    },
+    {
+     "claim": "설문 528명",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "we conducted a survey of 528 scientists"
+    },
+    {
+     "claim": "중요도 35.6",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "ideation 35.6; data gathering 23.6; data analysis 23.3; writing 17.5"
+    },
+    {
+     "claim": "상위·하위 20%",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "two to four times as much Claude use"
+    },
+    {
+     "claim": "물리 상관",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "physical −0.57"
+    },
+    {
+     "claim": "클로드 사이언스",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "biomedical sciences 31.1%, biology 24.1%"
+    },
+    {
+     "claim": "박사급·자율성",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Over 80% of Claude Science use is estimated to require doctoral-level training"
+    },
+    {
+     "claim": "자율성 70%",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "Over 70% of Claude Science sessions are performed with a high degree of AI autonomy."
+    },
+    {
+     "claim": "40%",
+     "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+     "quote": "about 40% expect AI models to carry out full research projects on their own by 2030."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-09-censys-artex-exposed",
+   "cat": "보안·안전",
+   "date": "2026-11-09",
+   "time": "06:46",
+   "title": "ARTEX 노출 서버 1,465대 확인",
+   "sub": "센시스가 찾은 AI 자동 침투 도구 콘솔 · 미국 726대·한국 21대 · 11월 4일 기준",
+   "hook": "센시스(Censys)가 11월 5일(미국 시각) AI가 스스로 침투 시험을 수행하는 오픈소스 도구 ARTEX의 관리 화면이 열려 있는 서버 1,465대를 찾았다고 밝혔습니다. 한국 금융사 공격에 쓰인 도구입니다.",
+   "try": "회사 로그에 낯선 AI 모델 중계 서비스나 재판매 업체로 나가는 접속이 있는지 보안 담당자에게 확인을 요청해 보세요.",
+   "who": "서버·클라우드를 운영하는 보안 담당자와 IT 관리자",
+   "facts": [
+    [
+     "발표 주체",
+     "센시스(Censys) 연구팀"
+    ],
+    [
+     "날짜",
+     "2026년 11월 5일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "ARTEX 관리 화면이 열린 서버 조사"
+    ],
+    [
+     "핵심 숫자",
+     "1,465대(11월 4일 기준), 미국 726대·한국 21대"
+    ],
+    [
+     "대상",
+     "오픈소스 AI 침투 시험 프레임워크 ARTEX"
+    ],
+    [
+     "원문",
+     "센시스 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "보안 업체 센시스(Censys)가 11월 5일(미국 시각) 오픈소스 AI 침투 시험 도구 ARTEX의 관리 화면이 인터넷에 열려 있는 서버를 1,465대 찾았다고 공개했습니다. 11월 4일 기준 수치이며 이 도구는 한국 금융사를 노린 공격에도 쓰였습니다."
+    },
+    {
+     "ul": [
+      [
+       "노출 콘솔 1,465대",
+       "약 650대는 설정이 같은 두 묶음이라 구분되는 배포는 약 815개"
+      ],
+      [
+       "미국 726대, 홍콩 387대, 중국 177대",
+       "한국은 21대"
+      ],
+      [
+       "155대는 다른 위협 탐지와 겹침",
+       "전체의 10.6%"
+      ]
+     ]
+    },
+    {
+     "h": "목표만 주면 AI가 도구를 돌립니다"
+    },
+    {
+     "p": "ARTEX는 2026년 7월 26일 깃허브(GitHub)에 AGPL-3.0 라이선스로 올라온 프레임워크입니다. 사용자가 범위와 목표를 입력하면 플래너 에이전트가 공격 의도를 짜고 워커 에이전트가 포트 스캔 도구 같은 프로그램을 실행해 결과를 되돌려 주는 일을 목표가 이뤄질 때까지 반복합니다. 앤트로픽과 오픈AI(OpenAI) 모델이나 호환 서버를 연결할 수 있습니다. 개발자는 10월 8일 자신이 공격에 관여하지 않았고 도구는 허가받은 시험용이라고 밝히며 비공개 전환을 예고했고 저장소는 지금 내려갔습니다. 복사본과 이름을 바꾼 버전은 아직 돌아다닙니다."
+    },
+    {
+     "h": "이미 한국 금융사 공격에 쓰였습니다"
+    },
+    {
+     "p": "센시스는 크라우드스트라이크(CrowdStrike)의 10월 7일 보고서를 인용해 정체가 밝혀지지 않은 행위자가 9월 말부터 10월 초까지 한국 금융사를 노렸다고 적었습니다. 은행 한 곳의 대출 문의 서비스와 다른 은행의 직원 모바일 시스템이 뚫려 데이터가 빠져나갔고 주 모델은 재판매업체를 거쳐 산 딥시크(DeepSeek) v4.1-flash였습니다. 마이크로소프트가 10월 21일 낸 보고서에는 Storm-0940이라는 집단이 커넥트와이즈 클라우드 백업 공급망 침해에 ARTEX를 썼다고 나옵니다. 이 집단은 2,250개가 넘는 테넌트에 로그인을 시도했고 분당 최대 2,900회까지 올라갔습니다."
+    },
+    {
+     "h": "열린 폴더에 남은 공격 도구와 기록"
+    },
+    {
+     "p": "ARTEX 서버 중 32곳은 파일 목록이 그대로 공개된 열린 폴더를 갖고 있었습니다. 11월 3일부터 5일 사이에 10곳이 닫히고 15곳이 새로 생겼습니다. 크라우드스트라이크가 지목한 서버의 열린 폴더는 보고서보다 약 7주 앞선 8월 18일의 스캔 기록에도 남아 있었습니다. 다른 서버에서는 공격용 실행 파일, 윈도 내부 이동 도구, 중간자 공격용 인증서 개인키가 보였습니다. 일부 서버는 허가받은 시험 담당자가 운영할 수 있고 실제 배포 수는 더 많을 수 있다는 것이 센시스의 단서입니다."
+    }
+   ],
+   "ask": "우리 회사 네트워크에서 처음 보는 AI 모델 중계 서비스로 나가는 접속을 마지막으로 확인한 때는 언제인가요?",
+   "sources": [
+    [
+     "센시스 — ARTEX: Agentic Asbestos",
+     "https://censys.com/blog/artex-agentic-asbestos/"
+    ]
+   ],
+   "terms": [
+    "오픈소스",
+    "에이전트",
+    "깃허브",
+    "딥시크",
+    "마이크로소프트",
+    "공급망 공격",
+    "센시스",
+    "침투 테스트",
+    "오픈 디렉터리",
+    "크라우드스트라이크"
+   ],
+   "image": {
+    "page": "https://censys.com/blog/artex-agentic-asbestos/",
+    "og": "https://censys.com/wp-content/uploads/Glowing-Fibers-of-the-Data-Tree-1030x526.png",
+    "credit": "이미지: Censys",
+    "alt": "센시스 ARTEX 조사 글 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일·1,465대",
+     "url": "https://censys.com/blog/artex-agentic-asbestos/",
+     "quote": "Censys detects 1,465 hosts running exposed ARTEX instances, an open-source LLM-driven autonomous pentesting framework linked to malicious activity from multiple threat groups."
+    },
+    {
+     "claim": "게시일",
+     "url": "https://censys.com/blog/artex-agentic-asbestos/",
+     "quote": "2026-11-05T21:38:21+00:00 (article:published_time)"
+    },
+    {
+     "claim": "세부 수치(요지, 영문 원문 문장은 하위 에이전트가 인용 제한으로 옮기지 못함)",
+     "url": "https://censys.com/blog/artex-agentic-asbestos/",
+     "quote": "약 650대 동일 설정 두 묶음·약 815개 / 155대 10.6% / 미국 726·홍콩 387·중국 177·한국 21 / 열린 폴더 32곳(10곳 닫힘·15곳 신규) / 8월 18일 / 11월 4일 기준 — 센시스 글 요지"
+    },
+    {
+     "claim": "깃허브 7월 26일·AGPL-3.0",
+     "url": "https://censys.com/blog/artex-agentic-asbestos/",
+     "quote": "Autumn-27/ARTEX, July 26, 2026, AGPL-3.0 (요지)"
+    },
+    {
+     "claim": "크라우드스트라이크 10월 7일",
+     "url": "https://censys.com/blog/artex-agentic-asbestos/",
+     "quote": "CrowdStrike (Oct 7, 2026): South Korean finance company, late September to early October (요지)"
+    },
+    {
+     "claim": "마이크로소프트 10월 21일",
+     "url": "https://censys.com/blog/artex-agentic-asbestos/",
+     "quote": "Microsoft (Oct 21, 2026): Storm-0940, more than 2,250 tenants, peaking at 2,900 attempts per minute (요지)"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "메타 상업 약관 개정 중단",
+   "reason": "메타 공식 약관 페이지를 열 수 없었고 언론 보도만 확인됨"
+  },
+  {
+   "topic": "마이크로소프트 리서치 AI Frontiers 그룹 종료(hunch.net)",
+   "reason": "원문 페이지를 열 수 없어 확인하지 못함"
+  },
+  {
+   "topic": "오픈AI 기업가치 1.25조 달러, 앤트로픽 IPO 관련 보도",
+   "reason": "언론 보도뿐이고 공식 원문 없음"
+  }
+ ]
+}
