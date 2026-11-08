@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko" data-tpane="guide"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>PDF 서명 넣기 무료 — 손글씨 서명·이름 도장·도장 사진을 PDF에(배경 제거) · SHIFT AI</title>
+<meta name="description" content="PDF에 손으로 그린 서명, 이름으로 만든 도장, 도장 사진, 날짜를 원하는 자리에 끌어다 넣습니다. 도장 사진의 흰 바탕은 지워 주고, 여러 쪽에 한 번에 찍을 수 있습니다. 파일은 서버에 올리지 않고 브라우저 안에서만 처리합니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tools/pdf-sign/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF 서명 넣기 무료 — 손글씨 서명·이름 도장·도장 사진을 PDF에(배경 제거) · SHIFT AI">
+<meta property="og:description" content="PDF에 손으로 그린 서명, 이름으로 만든 도장, 도장 사진, 날짜를 원하는 자리에 끌어다 넣습니다. 도장 사진의 흰 바탕은 지워 주고, 여러 쪽에 한 번에 찍을 수 있습니다. 파일은 서버에 올리지 않고 브라우저 안에서만 처리합니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tools/pdf-sign/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/tool-pdf-sign.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=983123fc"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF 서명·도장 넣기 (손글씨 서명·이름 도장)", "alternateName": ["PDF 서명", "PDF 도장 찍기", "PDF 사인 넣기", "도장 만들기", "도장 배경 제거", "계약서 서명"], "url": "https://shiftaimagazine.com/tools/pdf-sign/", "description": "PDF에 손으로 그린 서명, 이름으로 만든 도장, 도장 사진, 날짜를 원하는 자리에 끌어다 넣습니다. 도장 사진의 흰 바탕은 지워 주고, 여러 쪽에 한 번에 찍을 수 있습니다. 파일은 서버에 올리지 않고 브라우저 안에서만 처리합니다.", "image": "https://shiftaimagazine.com/og/tool-pdf-sign.jpg", "screenshot": "https://shiftaimagazine.com/img/tools/pdf-sign.webp", "applicationCategory": "UtilitiesApplication", "operatingSystem": "웹 브라우저", "browserRequirements": "JavaScript를 켠 최신 브라우저", "featureList": ["손으로 그려 서명 만들기", "이름으로 원형·사각 도장 만들기", "도장 사진 흰 바탕 지우기", "날짜·이름 글자 넣기", "끌어서 자리 옮기기·크기 바꾸기", "모든 쪽 같은 자리에 찍기", "원본 화질 그대로 PDF 저장"], "inLanguage": "ko", "isAccessibleForFree": true, "datePublished": "2026-11-09", "dateModified": "2026-11-09", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "SHIFT AI", "url": "https://shiftaimagazine.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "무료 도구", "item": "https://shiftaimagazine.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "PDF 서명·도장 넣기 (손글씨 서명·이름 도장)", "item": "https://shiftaimagazine.com/tools/pdf-sign/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "계약서 PDF가 서버로 가나요?", "acceptedAnswer": {"@type": "Answer", "text": "가지 않습니다. PDF를 여는 일, 서명을 그리는 일, 저장하는 일 모두 이 브라우저 안에서만 합니다. PDF를 읽고 쓰는 프로그램(PDF.js·pdf-lib)만 처음 한 번 SHIFT 서버에서 받아 옵니다."}}, {"@type": "Question", "name": "휴대폰에서도 서명할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "됩니다. 서명 칸에 손가락으로 그리고, 쪽을 눌러 서명을 놓은 뒤 끌어서 옮기면 됩니다. 화면이 작으면 서명을 놓은 다음 두 손가락으로 쪽을 확대해 자리를 맞추세요."}}, {"@type": "Question", "name": "도장 사진의 흰 바탕은 어떻게 지우나요?", "acceptedAnswer": {"@type": "Answer", "text": "'흰 바탕 지우기'는 밝은 바탕을 투명하게 바꿉니다. 바탕에 검은 글씨가 섞여 있으면 '빨간 도장만 남기기'를 고르세요. 덜 지워지면 '지우는 정도'를 왼쪽으로, 도장까지 흐려지면 오른쪽으로 옮깁니다."}}, {"@type": "Question", "name": "만든 서명이 저장되나요?", "acceptedAnswer": {"@type": "Answer", "text": "저장하지 않습니다. 페이지를 닫으면 그린 서명과 만든 도장은 사라집니다. 다음에도 쓰려면 다시 그리거나, 담은 것을 오른쪽 클릭해 그림으로 저장해 두었다가 '도장·서명 사진'으로 넣으세요."}}, {"@type": "Question", "name": "법적 효력이 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "서명 그림의 효력은 계약 상대와 계약 종류에 따라 다릅니다. 이 도구는 효력을 판단하지 않으니, 중요한 계약은 상대가 정한 서명 방법과 전문가의 안내를 따르세요."}}]}</script>
+<script defer="" src="/assets/pdf-sign.js?v=5090ca3d"></script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=983123fc">
+</head>
+<body data-route="tool-pdf-sign" id="top" class="has-sub" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="false" aria-current="false">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="true" aria-current="true">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <a class="btn pill" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" aria-label="스레드에서 SHIFT 팔로우">팔로우</a>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴" hidden=""><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴"><div class="sub-in">
+      <a href="/tools/" data-sub="tools" aria-current="page">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-tool-pdf-sign">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료&nbsp;도구</a>
+  <span class="cat">무료 도구&nbsp;·&nbsp;PDF</span>
+  <h1>PDF 서명⁠⁠·도장 넣기 (손글씨 서명⁠⁠·이름&nbsp;도장)</h1>
+  <p class="deck">PDF에 손으로 그린 서명, 이름으로 만든 도장, 도장 사진, 날짜를 원하는 자리에 끌어다 놓고 저장합니다. 도장 사진의 흰 바탕은 지워 주고, 같은 자리에 모든 쪽 한 번에 찍을 수도 있습니다. 계약서⁠·신청서도 서버에 올리지 않고 이 브라우저 안에서 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치⁠·가입 없음</span><span>파일은 이 브라우저 안에서만 처리&nbsp;· 어디에도 올리지&nbsp;않음</span></div>
+  <nav class="pdfset" aria-label="PDF 도구"><span>PDF 도구</span><a href="/tools/pdf-merge/">합치기⁠·나누기⁠·쪽 뽑기</a><a href="/tools/pdf-to-text/">글자 뽑기(텍스트⁠·마크다운)</a><a href="/tools/pdf-sign/" aria-current="page">서명⁠·도장 넣기</a></nav>
+
+  <div class="ttabs" role="tablist" aria-label="사용법과 도구"><button type="button" role="tab" id="ttGuide" data-tp="guide" aria-controls="tpGuide" aria-selected="true">사용법 <small>사진으로 5단계</small></button><button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool" aria-selected="false">도구 쓰기</button></div>
+  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">
+    <div class="tgwhat"><p class="tglead">PDF에 손으로 그린 서명, 이름 도장, 도장 사진, 날짜를 원하는 자리에 넣어 저장하는 도구입니다. 파일은 서버에 올라가지 않습니다.</p><b>이럴 때&nbsp;씁니다</b><ul class="plain"><li>계약서⁠·동의서 PDF에 서명해서 메일로 돌려보낼&nbsp;때</li><li>신청서에 도장을 찍어야 하는데 프린터⁠·스캐너가 없을&nbsp;때</li><li>여러 쪽 문서의 같은 자리에 도장을 한 번에&nbsp;찍을&nbsp;때</li></ul></div>
+    <ol class="tgsteps"><li><div class="tgtxt"><span class="tgn">STEP 1</span><h3>PDF를 넣습니다</h3><p>서명할 PDF 파일을 고르거나 끌어다 놓습니다. 아래 3번에 쪽 미리 보기가 나옵니다.</p></div><figure><img src="/img/tools/guide/pdf-sign-1.webp" width="1100" height="347" alt="PDF를 넣습니다: PDF 서명·도장 넣기 (손글씨 서명·이름 도장) 실제 화면" fetchpriority="high"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 2</span><h3>서명이나 도장을 만듭니다</h3><p>서명은 칸에 직접 그리고, 도장은 이름을 적어 만듭니다. 종이에 찍은 도장 사진을 넣으면 흰 바탕을 지워 줍니다. 다 되면 '담기'를 누릅니다.</p></div><figure><img src="/img/tools/guide/pdf-sign-2.webp" width="1100" height="1158" loading="lazy" alt="서명이나 도장을 만듭니다: PDF 서명·도장 넣기 (손글씨 서명·이름 도장) 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 3</span><h3>담은 것 가운데 넣을 것을 고릅니다</h3><p>담은 서명⁠·도장⁠·날짜가 한 줄로 모입니다. 넣을 것을 누르면 빨간 테두리가 생깁니다.</p></div><figure><img src="/img/tools/guide/pdf-sign-3.webp" width="1100" height="284" loading="lazy" alt="담은 것 가운데 넣을 것을 고릅니다: PDF 서명·도장 넣기 (손글씨 서명·이름 도장) 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 4</span><h3>쪽을 눌러 넣고 자리를 맞춥니다</h3><p>넣을 자리를 누르면 서명이 들어갑니다. 끌어서 옮기고 모서리로 크기를 바꿉니다. '모든 쪽에 같은 자리로'를 누르면 모든 쪽에 찍습니다.</p></div><figure><img src="/img/tools/guide/pdf-sign-4.webp" width="1100" height="1375" loading="lazy" alt="쪽을 눌러 넣고 자리를 맞춥니다: PDF 서명·도장 넣기 (손글씨 서명·이름 도장) 실제 화면"></figure></li><li><div class="tgtxt"><span class="tgn">STEP 5</span><h3>서명한 PDF를 받습니다</h3><p>'서명한 PDF 받기'를 누르면 원래 PDF에 서명을 얹은 새 파일이 내려받아집니다.</p></div><figure><img src="/img/tools/guide/pdf-sign-5.webp" width="1100" height="358" loading="lazy" alt="서명한 PDF를 받습니다: PDF 서명·도장 넣기 (손글씨 서명·이름 도장) 실제 화면"></figure></li></ol>
+    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러&nbsp;가기&nbsp;→</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>
+  </section>
+  <div class="tpane" id="tpTool" role="tabpanel" aria-labelledby="ttTool">
+  <section class="tstep">
+    <h2><i>1</i>PDF 넣기 <small id="psStatus" aria-live="polite"></small></h2>
+    <label class="odrop" id="psDrop" tabindex="0">
+      <input type="file" id="psFile" accept="application/pdf,.pdf">
+      <b>여기를 눌러 PDF를 고르거나 끌어다 놓으세요</b>
+      <span>서명할 계약서⁠·신청서 PDF&nbsp;한&nbsp;개</span>
+    </label>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>서명⁠⁠·도장 만들기</h2>
+    <div class="seg mini pskind" role="radiogroup" aria-label="만들 것">
+      <label><input type="radio" name="psKind" value="draw" checked=""><span><b>서명 그리기</b></span></label>
+      <label><input type="radio" name="psKind" value="seal"><span><b>이름 도장</b></span></label>
+      <label><input type="radio" name="psKind" value="img"><span><b>도장⁠⁠·서명 사진</b></span></label>
+      <label><input type="radio" name="psKind" value="text"><span><b>날짜⁠⁠·글자</b></span></label>
+    </div>
+
+    <div class="pspane" id="psDraw">
+      <div class="pspad"><canvas id="psPad" aria-label="서명 그리는 칸: 마우스나 손가락으로 그리세요"></canvas><span class="psline" aria-hidden="true"></span><span class="psph" id="psPadPh">여기에 마우스나 손가락으로 서명하세요</span></div>
+      <div class="trow">
+        <span class="meta">굵기</span>
+        <div class="seg mini" role="radiogroup" aria-label="펜 굵기">
+          <label><input type="radio" name="psPen" value="3"><span><b>가늘게</b></span></label>
+          <label><input type="radio" name="psPen" value="5" checked=""><span><b>보통</b></span></label>
+          <label><input type="radio" name="psPen" value="8"><span><b>굵게</b></span></label>
+        </div>
+        <span class="meta">색</span>
+        <div class="seg mini" role="radiogroup" aria-label="펜 색">
+          <label><input type="radio" name="psInk" value="#111111" checked=""><span><b>검정</b></span></label>
+          <label><input type="radio" name="psInk" value="#1f3fae"><span><b>파랑</b></span></label>
+        </div>
+        <button class="ghost" type="button" id="psPadUndo">한 획&nbsp;지우기</button>
+        <button class="ghost" type="button" id="psPadClear">다시 그리기</button>
+      </div>
+      <div class="trow"><button class="btn" type="button" id="psPadUse">이 서명&nbsp;담기</button></div>
+    </div>
+
+    <div class="pspane" id="psSeal" hidden="">
+      <div class="psrow2">
+        <div class="psprev"><canvas id="psSealC" width="480" height="480" aria-label="도장 미리 보기"></canvas></div>
+        <div class="psform">
+          <label>도장에 넣을&nbsp;이름 <input id="psName" type="text" maxlength="6" placeholder="예: 홍길동" autocomplete="name"></label>
+          <div class="trow">
+            <span class="meta">모양</span>
+            <div class="seg mini" role="radiogroup" aria-label="도장 모양">
+              <label><input type="radio" name="psShape" value="circle" checked=""><span><b>원형</b></span></label>
+              <label><input type="radio" name="psShape" value="square"><span><b>사각</b></span></label>
+            </div>
+          </div>
+          <label class="inl"><input type="checkbox" id="psInju" checked=""> 인주로 찍은 느낌(가장자리&nbsp;거칠게)</label>
+          <p class="hint">이름은 1~4글자가 가장 보기 좋습니다. 4글자는 오른쪽 줄부터 위에서 아래로 읽게 놓습니다.</p>
+          <button class="btn" type="button" id="psSealUse">이 도장&nbsp;담기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pspane" id="psImg" hidden="">
+      <div class="psrow2">
+        <div class="psprev chk"><canvas id="psImgC" width="480" height="480" aria-label="사진 미리 보기"></canvas></div>
+        <div class="psform">
+          <label class="odrop psmini" id="psImgDrop" tabindex="0">
+            <input type="file" id="psImgFile" accept="image/png,image/jpeg,image/webp">
+            <b>도장⁠⁠·서명 사진&nbsp;고르기</b><span>흰 종이에 찍은 도장이나 서명을 찍은 사진(JPG⁠·PNG)</span>
+          </label>
+          <div class="seg mini" role="radiogroup" aria-label="바탕 처리">
+            <label><input type="radio" name="psBg" value="white" checked=""><span><b>흰 바탕&nbsp;지우기</b></span></label>
+            <label><input type="radio" name="psBg" value="red"><span><b>빨간 도장만&nbsp;남기기</b></span></label>
+            <label><input type="radio" name="psBg" value="none"><span><b>그대로</b></span></label>
+          </div>
+          <label class="psrange">지우는 정도 <input id="psCut" type="range" min="40" max="95" value="72"></label>
+          <button class="btn" type="button" id="psImgUse" disabled="">이 그림&nbsp;담기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pspane" id="psText" hidden="">
+      <div class="psform">
+        <label>넣을 글자 <input id="psTxt" type="text" maxlength="60"></label>
+        <div class="trow"><button class="ghost" type="button" data-fmt="ko">오늘 날짜(2026년 11월&nbsp;8일)</button><button class="ghost" type="button" data-fmt="dot">오늘 날짜(2026. 11.&nbsp;8.)</button><button class="ghost" type="button" data-fmt="dash">오늘 날짜(2026-11-08)</button></div>
+        <div class="trow">
+          <span class="meta">색</span>
+          <div class="seg mini" role="radiogroup" aria-label="글자 색">
+            <label><input type="radio" name="psTInk" value="#111111" checked=""><span><b>검정</b></span></label>
+            <label><input type="radio" name="psTInk" value="#1f3fae"><span><b>파랑</b></span></label>
+          </div>
+          <button class="btn" type="button" id="psTextUse">이 글자&nbsp;담기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pstrayw" id="psTrayW" hidden="">
+      <b>담은 것 <small>고른 뒤 아래 PDF 쪽을 누르면 그 자리에 들어갑니다</small></b>
+      <div class="pstray" id="psTray"></div>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>자리 정하기 <small id="psHint" aria-live="polite">PDF를 넣고 서명⁠⁠·도장을 담으면 쪽을 눌러 넣을 수 있습니다.</small></h2>
+    <p class="hint">넣은 서명은 끌어서 옮기고, 오른쪽 아래 모서리를 끌어 크기를 바꿉니다. 하나를 누르면 '모든 쪽에 같은 자리로'⁠·'빼기' 버튼이 나옵니다. 키보드로는 화살표로 옮기고 Delete로&nbsp;뺍니다.</p>
+    <div class="pspages" id="psPages"></div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>4</i>저장하기</h2>
+    <div class="trow"><label class="inl">파일 이름 <input id="psOutName" type="text" value="" placeholder="서명한파일" style="width:200px"></label></div>
+    <div class="trow"><button class="btn" type="button" id="psGo" data-ev="tool-done:/tools/pdf-sign/" disabled="">서명한 PDF&nbsp;받기</button></div>
+    <p class="hint">원래 PDF의 글자⁠·화질은 그대로 두고 그 위에 서명 그림만 얹습니다.</p>
+  </section>
+
+  </div>
+  <div class="box">
+    <b>먼저 알아&nbsp;둘&nbsp;것</b>
+    <ul class="plain">
+      <li>이 도구로 넣은 서명⁠·도장은 PDF 위에 얹은 그림입니다. 인증서로 하는 전자서명(공동인증서⁠·전자계약 서비스의 서명)⁠이 아니니, 상대가 그런 서명을 요구하면 그 방법을 따르세요.</li>
+      <li>이름 도장은 본인 이름으로만 만드세요. 다른 사람 이름의 도장을 만들어 찍으면 안&nbsp;됩니다.</li>
+      <li>암호가 걸린 PDF는 열 수 없습니다. 암호를 푼 PDF로 다시 저장해 넣으세요.</li>
+      <li>도장 사진은 밝은 곳에서 흰 종이 위 도장을 정면으로 찍으면 바탕이 깨끗하게 지워집니다.</li>
+    </ul>
+    <p>함께 쓰면 좋은 도구: <a href="/tools/pdf-merge/">PDF 합치기⁠·나누기</a>&nbsp;· <a href="/tools/jpg-to-pdf/">JPG → PDF</a>&nbsp;· <a href="/tools/doc-compare/">문서 비교</a></p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는&nbsp;질문</h2>
+    <details><summary>계약서 PDF가 서버로&nbsp;가나요?</summary><p>가지 않습니다. PDF를 여는 일, 서명을 그리는 일, 저장하는 일 모두 이 브라우저 안에서만 합니다. PDF를 읽고 쓰는 프로그램(PDF.js⁠·pdf-lib)⁠만 처음 한 번 SHIFT 서버에서 받아&nbsp;옵니다.</p></details>
+    <details><summary>휴대폰에서도 서명할 수&nbsp;있나요?</summary><p>됩니다. 서명 칸에 손가락으로 그리고, 쪽을 눌러 서명을 놓은 뒤 끌어서 옮기면 됩니다. 화면이 작으면 서명을 놓은 다음 두 손가락으로 쪽을 확대해 자리를 맞추세요.</p></details>
+    <details><summary>도장 사진의 흰 바탕은 어떻게 지우나요?</summary><p>'흰 바탕 지우기'는 밝은 바탕을 투명하게 바꿉니다. 바탕에 검은 글씨가 섞여 있으면 '빨간 도장만 남기기'를 고르세요. 덜 지워지면 '지우는 정도'를 왼쪽으로, 도장까지 흐려지면 오른쪽으로 옮깁니다.</p></details>
+    <details><summary>만든 서명이 저장되나요?</summary><p>저장하지 않습니다. 페이지를 닫으면 그린 서명과 만든 도장은 사라집니다. 다음에도 쓰려면 다시 그리거나, 담은 것을 오른쪽 클릭해 그림으로 저장해 두었다가 '도장⁠·서명 사진'으로 넣으세요.</p></details>
+    <details><summary>법적 효력이&nbsp;있나요?</summary><p>서명 그림의 효력은 계약 상대와 계약 종류에 따라 다릅니다. 이 도구는 효력을 판단하지 않으니, 중요한 계약은 상대가 정한 서명 방법과 전문가의 안내를 따르세요.</p></details>
+  </section>
+<nav class="trel" aria-label="함께 보면 좋은 글과 다른 무료 도구">
+  <h2>함께 보면&nbsp;좋은&nbsp;글</h2>
+  <ul class="plain"><li><a href="/tutorial/contract-review/">계약서⁠·약관, 서명 전에 위험 조항부터 짚게 하는 프롬프트 8개</a> <span>튜토리얼</span></li><li><a href="/tools/pdf-merge/">PDF 합치기⁠·나누기⁠·쪽 뽑기</a> <span>무료 도구</span></li><li><a href="/tools/jpg-to-pdf/">JPG → PDF 변환 (사진 여러 장을 PDF 한 파일로)</a> <span>무료 도구</span></li></ul>
+  <h2>다른 무료&nbsp;도구</h2>
+  <div class="trel-tools"><a href="/tools/doc-compare/"><b>문서 비교 (두 파일에서 바뀐&nbsp;곳&nbsp;찾기)</b><span>계약서⁠·보고서의 원본과 수정본을 넣으면 바뀐 곳을 색으로 표시하고 목록으로 정리합니다. 한글⁠(HWP)⁠·워드⁠·PDF를 바로 넣고, 금액⁠·날짜처럼 숫자가 바뀐 곳은 따로 표시합니다.</span></a><a href="/tools/excel-merge/"><b>엑셀 합치기 (여러 파일⁠⁠·시트를 한&nbsp;표로)</b><span>엑셀⁠(.xlsx)⁠·CSV 파일 여러 개나 시트 여러 장을 한 시트로 이어 붙이거나 한 파일에 모읍니다. 열 이름이 같은 칸끼리 맞추고, 어느 파일에서 온 줄인지 표시합니다.</span></a><a href="/tools/doc-to-text/"><b>한글⁠⁠·워드⁠⁠·PPT 글자 뽑기 (HWP⁠⁠·DOCX⁠⁠·PPTX →&nbsp;텍스트)</b><span>한글(HWP⁠·HWPX)⁠·워드⁠·파워포인트 파일 속 글과 표를 복사할 수 있는 텍스트⁠·마크다운으로 바꿉니다. 한글 프로그램이 없어도 읽고, 표는 칸을 지켜 AI에 붙여 넣기 좋습니다.</span></a><a href="/tools/jpg-to-pdf/"><b>JPG → PDF 변환 (사진 여러 장을 PDF 한&nbsp;파일로)</b><span>JPG⁠·PNG⁠·HEIC 사진 여러 장을 고른 순서대로 PDF 한 파일로 묶습니다. A4⁠·여백⁠·용량을 골라 서류 제출용 PDF를 만들고, 사진은 서버에 올리지 않습니다.</span></a><a href="/tools/pdf-to-jpg/"><b>PDF → JPG 변환 (쪽마다 사진으로&nbsp;저장)</b><span>PDF 쪽을 JPG⁠·PNG 사진으로 바꿉니다. 필요한 쪽만 고르고 선명도를 정하며, 여러 쪽을 세로로 이어 한 장으로 만들 수도 있습니다.</span></a><a href="/tools/table-to-chart/"><b>표 → 차트 그림 만들기 (보고서⁠⁠·PPT용)</b><span>엑셀에서 복사한 표나 AI가 준 마크다운 표로 막대⁠·꺾은선⁠·도넛 차트 그림을 만듭니다. PPT 16:9⁠·보고서 4:3&nbsp;크기 PNG로 받거나 복사해 바로 붙입니다.</span></a><a href="/tools/prompt-box/"><b>내 프롬프트함 (빈칸 채워 바로&nbsp;복사)</b><span>자주 쓰는 프롬프트를 모아 두고 [회사명]⁠·[날짜] 같은 빈칸만 채워 바로 복사합니다. 한 번 적은 값은 기억하고, 가입 없이 이 브라우저에 저장합니다.</span></a><a href="/tools/prompt-check/"><b>프롬프트 점검기 (빠진 것⁠⁠·흐린&nbsp;말&nbsp;찾기)</b><span>내가 쓴 프롬프트에서 빠진 역할⁠·맥락⁠·답 형식과 '잘⁠·적당히⁠·간단하게' 같은 흐린 말, 남은 빈칸, 개인정보를 찾아 표시하고 고친 틀을 만들어&nbsp;줍니다.</span></a><a href="/tools/ai-format/"><b>AI 답변 서식 정리기 (마크다운 기호&nbsp;지우기)</b><span>챗GPT⁠·클로드 답을 카톡⁠·한글에 붙이면 생기는 **, #, 표 기호를 지우고 제목⁠·목록⁠·표를 붙일 곳에 맞게 정리합니다. 한글⁠·워드에는 서식째, 엑셀에는 칸이 나뉜 표로 복사합니다.</span></a><a href="/tools/exif-remove/"><b>사진 위치정보⁠(EXIF) 지우기</b><span>사진에 숨은 GPS 위치⁠·휴대폰 기종⁠·찍은 날짜를 보여 주고, 화질은 그대로 둔 채 그 정보만 지웁니다. 중고 거래⁠·블로그에 집에서 찍은 사진을 올리기 전에&nbsp;쓰세요.</span></a><a href="/tools/image-resize/"><b>이미지 압축⁠⁠·인스타 규격&nbsp;자르기</b><span>사진 용량을 1MB⁠·500KB 이하로 줄이거나 인스타그램 피드 1080×1350, 스토리⁠·릴스 1080×1920 크기로 여러 장을 한 번에 자릅니다. 자를 자리는 끌어서 고릅니다.</span></a><a href="/tools/pdf-merge/"><b>PDF 합치기⁠⁠·나누기⁠⁠·쪽 뽑기</b><span>PDF 여러 개를 하나로 합치고, 쪽마다⁠·범위마다 나누고, 필요한 쪽만 골라 새 PDF로 만듭니다. 계약서⁠·지원 서류도 서버에 올리지 않고 브라우저 안에서 처리합니다.</span></a><a href="/tools/table-to-markdown/"><b>엑셀⁠⁠·CSV → 마크다운&nbsp;표&nbsp;변환</b><span>엑셀⁠·구글 시트에서 복사한 칸이나&nbsp;.xlsx⁠·CSV 파일을 AI가 잘 읽는 마크다운 표로 바꿉니다. 필요한 열만 고르고 빈 줄을 빼서 AI에 보낼 양과 토큰을 줄입니다.</span></a><a href="/tools/prompt-diff/"><b>프롬프트 비교 (바뀐 부분&nbsp;표시)</b><span>고치기 전과 고친 뒤의 프롬프트를 나란히 놓고 더한 말은 초록, 뺀 말은 빨강으로 표시합니다. 낱말⁠·글자⁠·줄 단위로 보고 토큰 수 변화까지 확인합니다.</span></a><a href="/tools/ai-subscriptions/"><b>AI 구독료&nbsp;계산기</b><span>챗GPT⁠·클로드⁠·제미나이⁠·그록 요금제를 고르면 한 달⁠·1년 구독료를 원화로 더하고, 겹치는 챗봇 구독과 연간 결제로 아끼는 돈을 보여&nbsp;줍니다.</span></a><a href="/tools/pdf-to-text/"><b>PDF 글자 뽑기 (텍스트⁠⁠·마크다운)</b><span>PDF 속 글자를 복사할 수 있는 텍스트와 마크다운으로 바꿉니다. 머리글⁠·쪽 번호를 빼고 끊긴 줄을 문단으로 이어 AI에 올리기 좋게 정리합니다.</span></a><a href="/tools/free-alternatives/"><b>유료 프로그램 무료 대체&nbsp;찾기</b><span>포토샵⁠·한글⁠·MS 오피스⁠·프리미어처럼 돈 내고 쓰던 프로그램 대신 쓸 무료 프로그램을 찾아 줍니다. 무료 범위와 원래 파일을 여는지까지 공식 페이지 기준으로 정리했습니다.</span></a><a href="/tools/char-count/"><b>글자 수⁠⁠·토큰&nbsp;세기</b><span>자기소개서⁠·보고서 글자 수를 공백 포함⁠·제외로 세고 바이트, 줄⁠·문단, 목표까지 남은 글자 수와 GPT 토큰 수를 한 번에 보여&nbsp;줍니다.</span></a><a href="/tools/heic-to-jpg/"><b>HEIC → JPG&nbsp;변환</b><span>아이폰 HEIC 사진을 JPG⁠·PNG로 바꿉니다. 여러 장을 한 번에 바꿔 ZIP으로 받을 수 있고, 사진은 서버로 올리지 않습니다.</span></a><a href="/tools/ocr/"><b>사진 속 글자 뽑기 (한국어&nbsp;OCR)</b><span>화면 캡처나 문서 사진에서 글자를 뽑아 복사할 수 있게 바꿔 줍니다. 한국어와 영어를 함께 읽고, 사진은 내 컴퓨터 밖으로 나가지 않습니다.</span></a><a href="/tools/ai-tell/"><b>AI 티&nbsp;검사기</b><span>글을 붙여 넣으면 AI가 자주 쓰는 표현과 문장 버릇을 찾아 표시하고 고치는 방법을 알려 줍니다. AI가 썼는지 판정하는 도구는 아닙니다.</span></a><a href="/tools/prompt/"><b>프롬프트 만들기</b><span>역할⁠·맥락⁠·자료⁠·할 일⁠·조건⁠·답 형식⁠·확인 방법 일곱 칸만 채우면 챗GPT⁠·클로드⁠·제미나이에 바로 붙여 넣을 프롬프트가 완성됩니다.</span></a><a href="/tools/redact/"><b>개인정보 자동&nbsp;가리기</b><span>글이나 엑셀 표에 들어 있는 주민등록번호⁠·전화번호⁠·이메일⁠·카드번호를 찾아 가립니다. 이름표로 바꿔 두면 나중에 AI 답을 원래 값으로 되돌릴 수도 있습니다.</span></a><a href="/tools/ai-cost/"><b>AI 요금 계산기&nbsp;(원화)</b><span>챗GPT⁠·클로드⁠·제미나이 등 주요 AI API를 쓰면 한 달에 얼마가 드는지 공식 가격표를 기준으로 원화로 바로 비교합니다.</span></a><a href="/tools/interpreter/"><b>무료 실시간 크롬 번역 (회의&nbsp;통역창)</b><span>영어⁠·중국어⁠·일본어⁠·프랑스어로 진행되는 회의나 영상을 바로 한국어 자막으로 바꿔 줍니다. 크롬만 있으면 쓸 수 있습니다.</span></a></div>
+</nav>
+</article>
+</main>
+
+</div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span>A</span><span>I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=983123fc"></script>
+<script src="/assets/app.js?v=983123fc"></script>
+
+
+</body></html>
