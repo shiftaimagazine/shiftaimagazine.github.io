@@ -1711,6 +1711,107 @@ main{overflow-wrap:break-word}
 .pdskip{font-size:12.5px;color:var(--sub);text-align:center;padding:4px;background:var(--bg2);border-bottom:1px solid var(--line)}
 @media (max-width:640px){.pdout.side .pdrow{grid-template-columns:1fr}.pdout.side .pdrow>div+div{border-left:0;border-top:1px dashed var(--line)}}
 .inl input[type=checkbox]{width:auto;accent-color:var(--accent)}
+/* PDF 서명·도장 넣기(/tools/pdf-sign/, 11/9~) */
+.pskind{flex-wrap:wrap;margin-bottom:12px}
+.pspane{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.pspad{position:relative;border:1px dashed var(--line);border-radius:10px;background:#fff;height:200px;margin-bottom:10px;overflow:hidden}
+.pspad canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;z-index:1}
+.psline{position:absolute;left:8%;right:8%;bottom:28%;border-bottom:1.5px solid #d5d2cb}
+.psph{position:absolute;left:0;right:0;top:40%;text-align:center;font-size:14px;color:#9a968e;pointer-events:none}
+.psrow2{display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:16px;align-items:start}
+@media (max-width:640px){.psrow2{grid-template-columns:1fr}.psprev{max-width:220px}}
+.psprev{border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px}
+.psprev.chk{background:repeating-conic-gradient(#efefec 0 25%,#fff 0 50%) 0 0/14px 14px}
+.psprev canvas{display:block;width:100%;height:auto;max-height:260px;object-fit:contain}
+.psform{display:flex;flex-direction:column;gap:10px;min-width:0}
+.psform>label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.psform>label input[type=text]{font:inherit;font-size:16px;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.psform>label.inl{flex-direction:row;align-items:center;gap:8px;font-weight:500;font-size:14.5px}
+.psform .hint{margin:0}
+.psform .btn{align-self:flex-start}
+.odrop.psmini{padding:16px 12px}
+.psrange{display:flex!important;flex-direction:row!important;align-items:center;gap:10px;font-weight:600!important}
+.psrange input{flex:1;accent-color:var(--accent)}
+.pstrayw{margin-top:14px}
+.pstrayw>b{display:block;font-size:14px;color:var(--ink);margin-bottom:8px}
+.pstrayw>b small{font-weight:500;color:var(--sub);margin-left:6px}
+.pstray{display:flex;flex-wrap:wrap;gap:8px}
+.pstk{position:relative}
+.pstk>button:first-child{display:flex;flex-direction:column;align-items:center;gap:4px;width:108px;height:96px;padding:8px;border:2px solid var(--line);border-radius:10px;background:repeating-conic-gradient(#f3f3f1 0 25%,#fff 0 50%) 0 0/12px 12px;cursor:pointer}
+.pstk>button:first-child img{flex:1;min-height:0;max-width:100%;object-fit:contain}
+.pstk>button:first-child span{font-size:12px;font-weight:700;color:#333;background:#fff;border-radius:4px;padding:0 4px}
+.pstk.on>button:first-child{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.psdel{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:11px;cursor:pointer;line-height:1}
+.pspages{display:flex;flex-direction:column;gap:18px;align-items:center;max-height:80vh;overflow:auto;padding:12px;background:var(--bg2);border-radius:12px}
+.pspages:empty{display:none}
+.pspage{position:relative;width:100%;max-width:760px;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.15);cursor:copy;flex:none}
+.pspage canvas{display:block;width:100%;height:auto}
+.pspage:not(.done){min-height:200px}
+.psitems{position:absolute;inset:0}
+.psno{position:absolute;right:6px;bottom:6px;font-size:11.5px;color:#555;background:rgba(255,255,255,.85);border-radius:4px;padding:1px 6px;pointer-events:none}
+.psit{position:absolute;cursor:move;touch-action:none;outline:1px dashed rgba(200,16,46,.55);outline-offset:1px}
+.psit img{width:100%;height:100%;display:block;pointer-events:none;user-select:none}
+.psit.on,.psit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.psrz{position:absolute;right:-8px;bottom:-8px;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid #fff;cursor:nwse-resize;touch-action:none}
+.psbar{position:absolute;left:0;top:calc(100% + 8px);display:flex;gap:4px;z-index:3;white-space:nowrap}
+.psbar button{font:inherit;font-size:12.5px;font-weight:700;border:0;border-radius:6px;padding:5px 9px;background:#111;color:#fff;cursor:pointer}
+/* 엑셀 합치기(/tools/excel-merge/, 11/9~): 파일 목록은 .pmlist, 미리 보기는 .tmscroll 을 같이 쓴다 */
+.xmgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 6px}
+.xmgrid label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.xmgrid select{font:inherit;font-size:14px;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
+@media (max-width:640px){.xmgrid{grid-template-columns:1fr}}
+.xmlist li.xm{grid-template-columns:1fr auto}
+.xmwarn{margin:0 0 10px;padding:10px 14px;border-radius:10px;background:var(--bg2);border-left:4px solid var(--accent);font-size:14px;line-height:1.6}
+.xmwarn li+li{margin-top:4px}
+.xmprev{max-height:460px}
+.xmprev td{white-space:nowrap}
+.xmprev td.num{text-align:right;font-variant-numeric:tabular-nums}
+.xmmore{margin:8px 10px!important}
+/* 문서 비교(/tools/doc-compare/, 11/9~): 프롬프트 비교의 .pdout·.pdrow·.pdstats 를 같이 쓰고, 파일 칸·바뀐 곳 목록·인쇄만 더한다 */
+.dcin{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dcside{display:flex;flex-direction:column;gap:8px;min-width:0}
+.dclab{font-size:15px;color:var(--ink)}
+.dclab small{color:var(--sub);font-weight:500;margin-left:4px;overflow-wrap:anywhere}
+.odrop.dcdrop{padding:16px 12px;gap:2px}
+.odrop.dcdrop b{font-size:15px}
+.dcside textarea{min-height:180px}
+@media (max-width:640px){.dcin{grid-template-columns:1fr}}
+.dclist{border:1px solid var(--line);border-radius:10px;padding:12px 14px 6px;margin:0 0 12px;background:var(--bg)}
+.dclist>b{display:block;font-size:14px;color:var(--ink);margin-bottom:6px}
+.dclist>b small{font-weight:500;color:var(--sub);margin-left:6px}
+.dclist ol{margin:0;padding:0 0 0 22px;max-height:300px;overflow:auto;font-size:14px}
+.dclist li{margin:0 0 6px}
+.dclist button{all:unset;cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;line-height:1.55;color:var(--text);width:100%}
+.dclist button:hover .dcw,.dclist button:focus-visible .dcw{text-decoration:underline}
+.dclist button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.dck,.dcnum{font-size:11.5px;font-weight:800;border-radius:5px;padding:1px 6px;white-space:nowrap}
+.dck-a{background:var(--addbg);color:var(--addfg)}
+.dck-d{background:var(--delbg);color:var(--delfg)}
+.dck-c{background:var(--bg2);color:var(--ink)}
+.dcnum{border:1.5px solid var(--delfg);color:var(--delfg)}
+.dcw{font-weight:600;color:var(--ink)}
+.dcd{flex-basis:100%;color:var(--sub);font-size:13.5px}
+.dclist ins,.dclist del,#dcPrint ins,#dcPrint del{border-radius:3px;padding:0 2px}
+.dclist ins,#dcPrint ins{text-decoration:none;background:var(--addbg);color:var(--addfg)}
+.dclist del,#dcPrint del{background:var(--delbg);color:var(--delfg)}
+.pdout ins.num,.pdout del.num{box-shadow:0 0 0 1.5px currentColor;font-weight:700}
+.pdrow.flash{animation:dcflash 1.4s ease-out}
+@keyframes dcflash{0%{box-shadow:inset 0 0 0 3px var(--accent)}100%{box-shadow:inset 0 0 0 3px transparent}}
+@media (prefers-reduced-motion:reduce){.pdrow.flash{animation:none;box-shadow:inset 0 0 0 3px var(--accent)}}
+#dcPrint{display:none}
+@media print{
+  html.dcp body>*:not(#dcPrint){display:none!important}
+  html.dcp #dcPrint{display:block!important;color:#000;font:12pt/1.6 var(--font)}
+  html.dcp #dcPrint h1{font-size:18pt;margin:0 0 4pt}
+  html.dcp #dcPrint h2{font-size:13pt;margin:14pt 0 6pt}
+  html.dcp #dcPrint .dcpm{color:#444;font-size:10pt}
+  html.dcp #dcPrint ol li{margin-bottom:4pt;break-inside:avoid}
+  html.dcp #dcPrint .pdout{max-height:none;overflow:visible;border:1px solid #999}
+  html.dcp #dcPrint .pdrow{break-inside:avoid}
+  html.dcp #dcPrint ins{background:#dff2e3;color:#0b4a20;text-decoration:underline}
+  html.dcp #dcPrint del{background:#fbe0dc;color:#8a160c}
+  html.dcp{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 .pmlist li.one{grid-template-columns:1fr auto}
 #tmOut{white-space:pre;overflow-wrap:normal;overflow-x:auto}
 

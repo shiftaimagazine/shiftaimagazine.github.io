@@ -1,0 +1,84 @@
+<main id="v-tool-excel-merge">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 엑셀</span>
+  <h1>엑셀 합치기 (여러 파일·시트를 한 표로)</h1>
+  <p class="deck">부서별·지점별·월별로 따로 받은 엑셀(.xlsx)·CSV 파일을 한 시트로 이어 붙이거나, 엑셀 파일 하나에 시트로 모읍니다. 열 이름이 같은 칸끼리 맞추고, 어느 파일에서 온 줄인지 표시합니다. 회사 자료도 서버에 올리지 않고 이 브라우저 안에서 합칩니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>파일은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>어떻게 합칠까요?</h2>
+    <div class="seg" role="radiogroup" aria-label="합치는 방법">
+      <label><input type="radio" name="xmJob" value="stack" checked><span><b>한 시트로 이어 붙이기</b>같은 양식의 표를 위아래로 이어 한 표로 만듭니다. 취합·집계할 때 씁니다.</span></label>
+      <label><input type="radio" name="xmJob" value="book"><span><b>한 파일에 시트로 모으기</b>파일마다 시트 한 장씩, 엑셀 파일 하나에 모읍니다. 표 모양은 그대로 둡니다.</span></label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>엑셀·CSV 파일 넣기 <small id="xmStatus" aria-live="polite"></small></h2>
+    <label class="odrop" id="xmDrop" tabindex="0">
+      <input type="file" id="xmFile" accept=".xlsx,.xlsm,.csv,.tsv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv" multiple>
+      <b>여기를 눌러 파일을 고르거나 끌어다 놓으세요</b>
+      <span>.xlsx·.xlsm·.csv 50개까지 · 넣은 순서대로 합칩니다(▲▼로 바꾸기)</span>
+    </label>
+    <ol class="pmlist xmlist" id="xmList"></ol>
+    <div class="trow"><button class="ghost" type="button" id="xmSample">예시 파일 3개 넣기</button><button class="ghost" type="button" id="xmClear" hidden>모두 빼기</button></div>
+  </section>
+
+  <section class="tstep" id="xmOpts">
+    <h2><i>3</i>합치는 방법 정하기</h2>
+    <div class="xmgrid">
+      <label>합칠 시트
+        <select id="xmSheets"><option value="all">모든 시트</option><option value="first">파일마다 첫 시트만</option></select>
+      </label>
+      <label>열 이름이 있는 줄
+        <select id="xmHead"><option value="auto">자동으로 찾기</option><option value="1">1번째 줄</option><option value="2">2번째 줄</option><option value="3">3번째 줄</option><option value="4">4번째 줄</option><option value="5">5번째 줄</option><option value="0">열 이름 없음</option></select>
+      </label>
+      <label>열 맞추기
+        <select id="xmMatch"><option value="name">열 이름이 같은 칸끼리</option><option value="pos">열 순서대로(A열은 A열끼리)</option></select>
+      </label>
+    </div>
+    <div class="ochecks">
+      <label><input type="checkbox" id="xmSrcF" checked> 맨 앞에 '파일 이름' 열 붙이기</label>
+      <label><input type="checkbox" id="xmSrcS"> 맨 앞에 '시트 이름' 열 붙이기</label>
+      <label><input type="checkbox" id="xmEmpty" checked> 빈 줄 빼기</label>
+      <label><input type="checkbox" id="xmTotal" checked> 합계·소계 줄 빼기 <small>(첫 칸이 '합계'·'소계'·'총계'인 줄)</small></label>
+      <label><input type="checkbox" id="xmDup"> 완전히 같은 줄은 하나만 남기기</label>
+    </div>
+    <p class="hint" id="xmBookHint" hidden>'한 파일에 시트로 모으기'는 표를 고치지 않고 시트째 옮깁니다. 시트 이름은 '파일 이름'이고, 한 파일에 시트가 여러 장이면 '파일 이름-시트 이름'으로 붙입니다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>4</i>미리 보고 내려받기 <small id="xmSum" aria-live="polite"></small></h2>
+    <ul class="plain xmwarn" id="xmWarn" hidden></ul>
+    <div class="tmscroll xmprev" id="xmPrev" hidden></div>
+    <div class="trow">
+      <label class="inl">파일 이름 <input id="xmName" type="text" value="합친파일" style="width:180px"></label>
+    </div>
+    <div class="trow">
+      <button class="btn" type="button" id="xmGo" data-ev="tool-done:/tools/excel-merge/" disabled>엑셀(.xlsx)로 받기</button>
+      <button class="ghost" type="button" id="xmCsv" disabled>CSV로 받기</button>
+    </div>
+    <p class="hint">CSV는 한글이 깨지지 않게 UTF-8(BOM)로 저장합니다. 엑셀에서 바로 열 수 있습니다.</p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>값만 합칩니다. 글꼴·색·칸 너비 같은 서식과 차트·그림은 옮기지 않고, 수식은 마지막으로 계산된 값으로 바뀝니다. 날짜·시간은 날짜 형식을 지킵니다.</li>
+      <li>합친 칸(병합된 셀)은 풀어서 첫 칸에만 값을 둡니다.</li>
+      <li>옛 엑셀 형식(.xls)은 읽지 못합니다. 엑셀에서 '다른 이름으로 저장'으로 .xlsx로 바꿔 넣으세요. 암호가 걸린 파일도 읽지 못합니다.</li>
+      <li>열 이름의 앞뒤 띄어쓰기는 무시하고 맞춥니다. '담당자'와 '담당 자'처럼 글자가 다르면 다른 열로 봅니다.</li>
+    </ul>
+    <p>함께 쓰면 좋은 도구: <a href="/tools/table-to-markdown/">엑셀 → 마크다운 표(AI에 올리기)</a> · <a href="/tools/table-to-chart/">표 → 차트 그림</a> · <a href="/tools/redact/">개인정보 자동 가리기</a></p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>회사 엑셀 파일이 서버로 가나요?</summary><p>가지 않습니다. 파일을 여는 일과 합치는 일 모두 이 브라우저 안에서만 합니다. 엑셀 압축을 푸는 프로그램(JSZip, MIT)만 처음 한 번 SHIFT 서버에서 받아 옵니다.</p></details>
+    <details><summary>열 순서가 파일마다 달라도 되나요?</summary><p>됩니다. '열 이름이 같은 칸끼리'로 두면 열 순서가 달라도 같은 이름의 열에 값이 들어갑니다. 한 파일에만 있는 열은 끝에 붙고, 그 열이 없는 파일의 줄은 빈칸이 됩니다. 어느 열이 몇 파일에만 있는지 미리 보기 위에 알려 줍니다.</p></details>
+    <details><summary>표 위에 제목 줄이 있는 양식도 되나요?</summary><p>됩니다. '열 이름이 있는 줄'을 '자동으로 찾기'로 두면 위쪽 10줄 가운데 칸이 가장 많이 찬 줄을 열 이름으로 보고 그 위 제목 줄은 뺍니다. 잘못 찾으면 몇 번째 줄인지 직접 고르세요.</p></details>
+    <details><summary>엑셀 파일 몇 개까지, 몇 줄까지 합칠 수 있나요?</summary><p>한 번에 50개 파일까지 넣을 수 있습니다. 줄 수는 엑셀 한 시트의 한도인 1,048,576줄까지 저장합니다. 수십만 줄이 넘으면 컴퓨터 메모리에 따라 느려질 수 있습니다.</p></details>
+    <details><summary>CSV 파일의 한글이 깨져 보여요.</summary><p>엑셀에서 저장한 한국어 CSV(EUC-KR)와 UTF-8 CSV를 모두 알아서 읽습니다. 그래도 깨지면 원래 파일을 엑셀에서 열어 .xlsx로 저장한 뒤 넣어 주세요.</p></details>
+  </section>
+</article>
+</main>

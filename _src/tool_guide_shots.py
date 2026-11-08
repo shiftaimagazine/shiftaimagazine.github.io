@@ -204,10 +204,40 @@ def g_check(p):
     hl(p, '#kcMark'); yield cap(p, '#kcMark', '#kcList', maxh=760)
     hl(p, '#kcCopy'); yield cap(p, T(2), maxh=760)
 
+def g_doc_compare(p):
+    p.click('#dcSample'); poll(p, '#dcStatus', '바뀐 곳')
+    hl(p, '.dcin'); yield cap(p, T(0), maxh=640)
+    hl(p, '#tpTool section.tstep:nth-of-type(2) .trow'); yield cap(p, T(1))
+    hl(p, '#dcListW'); yield cap(p, '#dcStats', '#dcListW', maxh=760)
+    p.locator('#dcList button').nth(2).click(); p.wait_for_timeout(600)
+    hl(p, '#dcR2'); yield cap(p, '#dcOut', maxh=560)
+    hl(p, '#dcCopy >> xpath=..'); yield cap(p, '#dcCopy >> xpath=..', '#tpTool section.tstep:nth-of-type(3) p.hint')
+
+def g_excel_merge(p):
+    hl(p, '#tpTool .seg'); yield cap(p, T(0))
+    p.click('#xmSample'); poll(p, '#xmSum', '줄')
+    hl(p, '#xmList'); yield cap(p, T(1))
+    hl(p, '.xmgrid'); yield cap(p, T(2))
+    hl(p, '#xmPrev', '#xmGo'); yield cap(p, T(3), maxh=900)
+
+def g_pdf_sign(p):
+    hl(p, '#psDrop'); yield cap(p, T(0))
+    p.check('input[name=psKind][value=seal]'); p.fill('#psName', '김하늘'); p.dispatch_event('#psName', 'input'); p.wait_for_timeout(700)
+    hl(p, '#psSeal'); yield cap(p, T(1), maxh=640)
+    p.click('#psSealUse'); p.check('input[name=psKind][value=text]'); p.click('#psTextUse'); p.click('.pstk:nth-child(1) > button:first-child'); p.wait_for_timeout(300)
+    hl(p, '#psTrayW'); yield cap(p, '#psTrayW')
+    p.set_input_files('#psFile', TH + 'guide/지원서.pdf'); p.wait_for_selector('.pspage.done'); p.wait_for_timeout(800)
+    pg = p.locator('.pspage').first; bb = pg.bounding_box()
+    pg.click(position={'x': bb['width'] * 0.72, 'y': bb['height'] * 0.82}); p.wait_for_timeout(300)
+    p.evaluate('()=>{const s=document.querySelector(".psit.on");if(s)s.scrollIntoView({block:"center"})}'); p.wait_for_timeout(300)
+    hl(p, '.psit.on'); yield cap(p, '#psPages', maxh=760)
+    hl(p, '#psGo'); yield cap(p, T(3))
+
 G = {'ai-format': g_ai_format, 'exif-remove': g_exif, 'image-resize': g_image, 'pdf-merge': g_pdf_merge, 'table-to-markdown': g_table,
      'prompt-diff': g_diff, 'ai-subscriptions': g_subs, 'ai-cost': g_ai_cost, 'pdf-to-text': g_pdf, 'free-alternatives': g_free,
      'char-count': g_char, 'heic-to-jpg': g_heic, 'ocr': g_ocr, 'ai-tell': g_ai_tell, 'prompt': g_prompt, 'redact': g_redact,
-     'doc-to-text': g_doc, 'jpg-to-pdf': g_jpg, 'pdf-to-jpg': g_pj, 'table-to-chart': g_chart, 'prompt-box': g_box, 'prompt-check': g_check}
+     'doc-to-text': g_doc, 'jpg-to-pdf': g_jpg, 'pdf-to-jpg': g_pj, 'table-to-chart': g_chart, 'prompt-box': g_box, 'prompt-check': g_check,
+     'doc-compare': g_doc_compare, 'excel-merge': g_excel_merge, 'pdf-sign': g_pdf_sign}
 
 if __name__ == '__main__':
     guides = {k: v for k, v in json.load(open(SRC + 'news/tool_guides.json')).items() if not k.startswith('_')}

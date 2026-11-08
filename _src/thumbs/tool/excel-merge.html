@@ -1,0 +1,18 @@
+t: 엑셀 합치기\n파일·시트
+sub: 지점별 엑셀 여러 개를\n열 이름 맞춰 한 표로
+---
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+  <div class="row" style="background:var(--soft);border-radius:10px;padding:7px 10px"><span class="badge b-xls">XLSX</span><span class="fname" style="font-size:15px">서울지점.xlsx</span></div>
+  <div class="row" style="background:var(--soft);border-radius:10px;padding:7px 10px"><span class="badge b-xls">XLSX</span><span class="fname" style="font-size:15px">부산지점.xlsx</span></div>
+  <div class="row" style="background:var(--soft);border-radius:10px;padding:7px 10px"><span class="badge b-xls">CSV</span><span class="fname" style="font-size:15px">대구지점.csv</span></div>
+</div>
+<div class="box" style="font-size:15.5px;line-height:1.6;padding:10px 12px;font-variant-numeric:tabular-nums">
+  <div style="display:grid;grid-template-columns:auto auto 1fr auto auto;column-gap:14px;row-gap:4px;white-space:nowrap">
+    <b>파일 이름</b><b>날짜</b><b>상품</b><b style="text-align:right">수량</b><b style="text-align:right">금액</b>
+    <span>서울지점</span><span>11-02</span><span>무선 이어폰</span><span style="text-align:right">12</span><span style="text-align:right">1,068,000</span>
+    <span>서울지점</span><span>11-03</span><span>충전 케이블</span><span style="text-align:right">30</span><span style="text-align:right">270,000</span>
+    <span>부산지점</span><span>11-02</span><span>보조 배터리</span><span style="text-align:right">10</span><span style="text-align:right">390,000</span>
+  </div>
+</div>
+<div class="chips sm"><span class="chip ok">✓ 열 이름 맞추기</span><span class="chip ok">✓ 합계 줄 빼기</span></div>
+<div class="btns"><span class="btn">엑셀(.xlsx)로 받기</span><span class="btn ghost">CSV로 받기</span></div>

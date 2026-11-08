@@ -110,7 +110,8 @@
     "char-count",
     "ocr",
     "doc-to-text",
-    "pdf-to-jpg"
+    "pdf-to-jpg",
+    "pdf-sign"
    ],
    "prompts": [
     "pdf-to-markdown-6",
@@ -232,7 +233,8 @@
    "tools": [
     "table-to-markdown",
     "redact",
-    "table-to-chart"
+    "table-to-chart",
+    "excel-merge"
    ],
    "prompts": [
     "spreadsheet-formulas-1",
@@ -349,7 +351,8 @@
     "t-premortem"
    ],
    "tools": [
-    "prompt-check"
+    "prompt-check",
+    "doc-compare"
    ],
    "prompts": [
     "verify-numbers-1",

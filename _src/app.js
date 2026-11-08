@@ -810,7 +810,7 @@ init();
 //  ⑤ 문단 마지막 줄에 '줘.', '빼 줘.'처럼 한두 글자만 남지 않게 마지막 낱말을 앞 낱말과 붙임.
 //  복사되는 글(data-copy)·입력칸·코드는 건드리지 않는다. 처음 한 번 + 목록이 다시 그려질 때마다 돈다.
 (function(){
-  const SKIP="script,style,textarea,input,select,pre,code,svg,[contenteditable],.hwall,.hticker,.fword";
+  const SKIP="script,style,textarea,input,select,pre,code,svg,[contenteditable],.hwall,.hticker,.fword,.pdout,.dclist,#dcPrint";   // 비교 결과(.pdout·.dclist)는 글자를 그대로 보여야 한다
   const done=new WeakSet(), INL=/^(inline|contents)$/;
   const blockOf=n=>{ let e=n.parentElement; while(e&&e!==document.body&&INL.test(getComputedStyle(e).display)) e=e.parentElement; return e; };
   const letters=s=>(s.match(/[\p{L}\p{N}]/gu)||[]).length;

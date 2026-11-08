@@ -1,5 +1,84 @@
 [
  {
+  "id": "doc-compare",
+  "title": "문서 비교 (두 파일에서 바뀐 곳 찾기)",
+  "desc": "계약서·보고서의 원본과 수정본을 넣으면 바뀐 곳을 색으로 표시하고 목록으로 정리합니다. 한글(HWP)·워드·PDF를 바로 넣고, 금액·날짜처럼 숫자가 바뀐 곳은 따로 표시합니다.",
+  "href": "/tools/doc-compare/",
+  "tag": "문서 비교",
+  "cover": {
+   "t": "문서 비교\n바뀐 곳 찾기",
+   "line": "계약서 수정본에서\n말없이 바뀐 조항까지"
+  },
+  "rel": [
+   "/tutorial/contract-review/",
+   "/tools/redact/",
+   "/tools/prompt-diff/"
+  ],
+  "thumb": "img/tools/doc-compare.webp",
+  "date": "2026-11-09",
+  "mod": "2026-11-09",
+  "glyph": "A≠B",
+  "where": "내 브라우저",
+  "kw": "문서 비교, 텍스트 비교, 파일 비교, 계약서 비교, 한글 문서 비교, hwp 비교, 워드 비교, pdf 비교, 수정본 비교, 변경 사항, 차이 찾기, diff",
+  "cats": [
+   "PDF·문서",
+   "글쓰기",
+   "AI 활용"
+  ]
+ },
+ {
+  "id": "excel-merge",
+  "title": "엑셀 합치기 (여러 파일·시트를 한 표로)",
+  "desc": "엑셀(.xlsx)·CSV 파일 여러 개나 시트 여러 장을 한 시트로 이어 붙이거나 한 파일에 모읍니다. 열 이름이 같은 칸끼리 맞추고, 어느 파일에서 온 줄인지 표시합니다.",
+  "href": "/tools/excel-merge/",
+  "tag": "엑셀",
+  "cover": {
+   "t": "엑셀 합치기\n파일·시트",
+   "line": "부서별 엑셀 수십 개를\n열 이름 맞춰 한 표로"
+  },
+  "rel": [
+   "/tutorial/excel-data-analysis/",
+   "/tools/table-to-markdown/",
+   "/tools/table-to-chart/"
+  ],
+  "thumb": "img/tools/excel-merge.webp",
+  "date": "2026-11-09",
+  "mod": "2026-11-09",
+  "glyph": "XLS+",
+  "where": "내 브라우저",
+  "kw": "엑셀 합치기, 엑셀 파일 합치기, 엑셀 시트 합치기, 여러 엑셀 파일 하나로, 엑셀 병합, csv 합치기, 시트 통합, xlsx 합치기, 엑셀 취합, 엑셀 데이터 합치기",
+  "cats": [
+   "파일 변환",
+   "PDF·문서"
+  ]
+ },
+ {
+  "id": "pdf-sign",
+  "title": "PDF 서명·도장 넣기 (손글씨 서명·이름 도장)",
+  "desc": "PDF에 손으로 그린 서명, 이름으로 만든 도장, 도장 사진, 날짜를 원하는 자리에 넣습니다. 도장 사진의 흰 바탕은 지워 주고, 파일은 서버에 올리지 않습니다.",
+  "href": "/tools/pdf-sign/",
+  "tag": "PDF",
+  "cover": {
+   "t": "PDF 서명\n도장 넣기",
+   "line": "손글씨 서명·이름 도장을\n원하는 자리에 끌어다 놓기"
+  },
+  "rel": [
+   "/tutorial/contract-review/",
+   "/tools/pdf-merge/",
+   "/tools/jpg-to-pdf/"
+  ],
+  "thumb": "img/tools/pdf-sign.webp",
+  "date": "2026-11-09",
+  "mod": "2026-11-09",
+  "glyph": "印",
+  "where": "내 브라우저",
+  "kw": "pdf 서명, pdf 서명 넣기, pdf 도장, pdf 도장 찍기, 전자 서명 pdf, pdf 사인, 도장 만들기, 이름 도장, 도장 배경 제거, 계약서 서명",
+  "cats": [
+   "PDF·문서",
+   "사진·이미지"
+  ]
+ },
+ {
   "id": "doc-to-text",
   "title": "한글·워드·PPT 글자 뽑기 (HWP·DOCX·PPTX → 텍스트)",
   "desc": "한글(HWP·HWPX)·워드·파워포인트 파일 속 글과 표를 복사할 수 있는 텍스트·마크다운으로 바꿉니다. 한글 프로그램이 없어도 읽고, 표는 칸을 지켜 AI에 붙여 넣기 좋습니다.",
