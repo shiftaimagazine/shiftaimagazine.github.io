@@ -464,10 +464,10 @@
    ],
    "image": {
     "page": "https://censys.com/blog/artex-agentic-asbestos/",
-    "og": "https://censys.com/wp-content/uploads/Glowing-Fibers-of-the-Data-Tree-1030x526.png",
+    "og": null,
     "credit": "이미지: Censys",
     "alt": "센시스 ARTEX 조사 글 대표 이미지",
-    "mode": null
+    "mode": "screenshot"
    },
    "verify": [
     {
