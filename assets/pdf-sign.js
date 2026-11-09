@@ -180,6 +180,14 @@ async function openPdf(f){
     if(!pdfjs){ pdfjs = await import("/lib/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = "/lib/pdfjs/pdf.worker.min.js"; }
     const buf = await f.arrayBuffer();
     const doc = await pdfjs.getDocument({data: buf.slice(0), isEvalSupported:false, cMapUrl:"/lib/pdfjs/cmaps/", cMapPacked:true}).promise;
+    // 편집이 막힌(암호로 보호된) PDF 는 열람은 되어도 서명을 얹어 저장할 수 없다 → 미리 알린다
+    const tail = new TextDecoder("latin1").decode(new Uint8Array(buf, Math.max(0, buf.byteLength - 65536)));
+    const head = new TextDecoder("latin1").decode(new Uint8Array(buf, 0, Math.min(buf.byteLength, 4096)));
+    if(/\/Encrypt\s/.test(tail) || /\/Encrypt\s/.test(head)){
+      pdf = null; $("psPages").innerHTML = "";
+      $("psStatus").textContent = "편집이 막힌(보호된) PDF라 서명을 넣을 수 없습니다. PDF를 연 뒤 '인쇄 → PDF로 저장'으로 사본을 만들어 넣어 주세요.";
+      hint(); return;
+    }
     pdf = doc; pdfBuf = buf; pdfName = f.name.replace(/\.pdf$/i,""); items = []; sel = null; pages = [];
     if(!$("psOutName").dataset.touched) $("psOutName").value = pdfName + "-서명";
     for(let n=1;n<=doc.numPages;n++){ const pg = await doc.getPage(n), vp = pg.getViewport({scale:1}); pages.push({n, w:vp.width, h:vp.height, rot:pg.rotate, pg}); }
