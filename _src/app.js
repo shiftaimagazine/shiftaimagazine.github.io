@@ -607,6 +607,20 @@ document.addEventListener("click",e=>{
   if(h.startsWith("mailto:")) return track("fix-report:"+location.pathname, "틀린 곳 알려 주기");
   if(/^https?:/i.test(h) && el.hostname && el.hostname!==location.hostname) track("out:"+el.hostname.replace(/^www\./,""), "나가는 링크");
 },true);
+// 머리말 '팔로우' 메뉴(11/9~, <details class="fol">): 밖을 누르거나 Esc·링크를 누르면 닫고, 열 때 첫 항목으로 초점을 옮긴다. 화살표 위·아래로 항목 사이를 움직인다
+(()=>{ const d=document.getElementById("fol"); if(!d) return; const sm=d.querySelector("summary"), items=()=>[...d.querySelectorAll(".folm a")];
+  sm.setAttribute("aria-haspopup","true"); sm.setAttribute("aria-expanded","false");
+  d.addEventListener("toggle",()=>{ sm.setAttribute("aria-expanded", d.open?"true":"false"); if(d.open){ track("follow:open","팔로우 메뉴"); if(d._kb){ const a=items()[0]; if(a) a.focus(); } } d._kb=false; });
+  sm.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "||e.key==="ArrowDown"){ d._kb=true; if(e.key==="ArrowDown"&&!d.open){ e.preventDefault(); d.open=true; } } });
+  document.addEventListener("click",e=>{ if(d.open && !d.contains(e.target)) d.open=false; });
+  d.addEventListener("click",e=>{ if(e.target.closest(".folm a")) setTimeout(()=>{ d.open=false; },0); });
+  d.addEventListener("keydown",e=>{
+    if(e.key==="Escape" && d.open){ d.open=false; sm.focus(); return; }
+    const xs=items(), i=xs.indexOf(document.activeElement); if(i<0) return;
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault(); xs[(i+(e.key==="ArrowDown"?1:-1)+xs.length)%xs.length].focus(); }
+  });
+  d.addEventListener("focusout",e=>{ if(d.open && e.relatedTarget && !d.contains(e.relatedTarget)) d.open=false; });
+})();
 // 같은 페이지 안 링크(튜토리얼 목차 #s1·바닥글 '맨 위로' #top 등, 11/7~): <base href="/"> 때문에 첫 화면으로 나가지 않게 이 페이지 안에서 움직인다
 document.addEventListener("click",e=>{
   if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;

@@ -42,6 +42,10 @@ def _annc():
     else: msg, href = f'새 무료 도구 {len(new)}개가 나왔습니다', '/tools/'
     return f'<a class="annc bleed" href="{href}" data-ev="annc:{href}"><span class="nb">NEW</span><span>{esc(msg)}</span><span class="go">써 보기 <span class="ar">→</span></span></a>'
 header = fix_links(view('header')).replace('<!--ANNC-->', _annc())
+# 머리말 '팔로우' 메뉴: 주간 메일이 시작되면(NL_LIVE) 맨 아래에 '주간 메일'을 더한다
+_folmail = ('<a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.8 7 8.2 6 8.2-6"/></svg></i>'
+            '<span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식 한 통</small></span></a>') if NL_LIVE else ''
+assert '<!--FOLMAIL-->' in header; header = header.replace('<!--FOLMAIL-->', _folmail)
 footer = fix_links(view('footer'))
 assert '/privacy/' in footer and '<!--ANNC-->' not in header
 if NL_LIVE:
