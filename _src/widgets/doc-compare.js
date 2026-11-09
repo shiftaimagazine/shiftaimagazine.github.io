@@ -16,7 +16,9 @@ const names = {A:"", B:""};
 let pdfLib = null;
 async function pdfText(buf){
   if(!pdfLib){ pdfLib = await import("/lib/pdfjs/pdf.min.js"); pdfLib.GlobalWorkerOptions.workerSrc = "/lib/pdfjs/pdf.worker.min.js"; }
-  const doc = await pdfLib.getDocument({data: buf, isEvalSupported:false, cMapUrl:"/lib/pdfjs/cmaps/", cMapPacked:true, useSystemFonts:false, disableFontFace:true}).promise;
+  let doc;
+  try{ doc = await pdfLib.getDocument({data: buf, isEvalSupported:false, cMapUrl:"/lib/pdfjs/cmaps/", cMapPacked:true, useSystemFonts:false, disableFontFace:true}).promise; }
+  catch(e){ throw new Error(/password/i.test((e&&e.name||"")+(e&&e.message||"")) ? "암호가 걸린 PDF는 열 수 없습니다. 암호를 푼 PDF로 저장해 넣어 주세요." : "PDF를 열지 못했습니다. 손상된 파일일 수 있습니다."); }
   const out = [];
   for(let n=1; n<=doc.numPages; n++){
     const pg = await doc.getPage(n), tc = await pg.getTextContent(), rows = [];

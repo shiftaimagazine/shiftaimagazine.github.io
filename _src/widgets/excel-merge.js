@@ -90,7 +90,8 @@ async function readXlsx(buf){
       const row = rows[rn] = rows[rn] || [];
       kids(r,"c").forEach((c, ci)=>{
         const ref = c.getAttribute("r"), col = ref ? colN(ref.replace(/\d+/g,"")) : ci, t = c.getAttribute("t"), sIdx = +(c.getAttribute("s")||0);
-        const v = kids(c,"v")[0], is = kids(c,"is")[0]; let val = "";
+        let v = kids(c,"v")[0]; const is = kids(c,"is")[0]; let val = "";
+        if(v && v.textContent==="") v = null;   // 계산값이 없는 수식 칸은 빈칸으로
         if(t==="s") val = v ? ss[+v.textContent] ?? "" : "";
         else if(t==="inlineStr") val = is ? kids(is,"t").map(x=>x.textContent).join("") : "";
         else if(t==="b") val = v ? v.textContent==="1" : "";
@@ -109,6 +110,8 @@ async function readFile(f){
   if(u[0]===0xD0 && u[1]===0xCF) throw new Error("옛 엑셀(.xls)이거나 암호가 걸린 파일입니다. 엑셀에서 .xlsx로 저장해 넣어 주세요.");
   if(u[0]===0x50 && u[1]===0x4B) return await readXlsx(buf);
   if(["csv","tsv","txt"].includes(ext)) return [{name: f.name.replace(/\.[^.]+$/,""), rows: parseDelim(decode(buf), ext==="tsv")}];
+  if(["xlsx","xlsm"].includes(ext)) throw new Error("엑셀 파일을 열지 못했습니다. 손상되었거나 이름만 .xlsx인 파일일 수 있습니다.");
+  if(ext==="xls") throw new Error("옛 엑셀(.xls)은 읽지 못합니다. 엑셀에서 .xlsx로 저장해 넣어 주세요.");
   throw new Error(".xlsx·.xlsm·.csv 파일만 넣을 수 있습니다.");
 }
 
