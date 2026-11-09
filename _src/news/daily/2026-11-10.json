@@ -1,0 +1,464 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-10-meta-teen-age-estimation",
+   "cat": "보안·안전",
+   "date": "2026-11-10",
+   "time": "06:52",
+   "title": "메타, 청소년 계정 AI 연령 추정 확대",
+   "sub": "성인 생일을 적은 청소년도 보호 대상으로 · 인스타그램 먼저, 스레드는 올해 안 · 호주는 애플 연령대 신호 활용",
+   "hook": "메타가 11월 9일(미국 시각) AI 연령 추정 기술을 전 세계로 넓혀 인스타그램에서 청소년 수백만 명을 청소년 계정 보호 안에 더 넣겠다고 밝혔습니다. 한국 적용 일정은 원문에 나오지 않습니다.",
+   "try": "자녀나 가족 중 청소년이 인스타그램을 쓴다면 청소년 계정 보호 설정이 적용돼 있는지 앱 설정에서 확인해 보세요.",
+   "who": "자녀나 조카의 인스타그램·페이스북 사용이 걱정되는 보호자",
+   "facts": [
+    [
+     "발표 주체",
+     "메타(Meta) 뉴스룸"
+    ],
+    [
+     "날짜",
+     "2026년 11월 9일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "AI 연령 추정 기술의 전 세계 확대"
+    ],
+    [
+     "대상",
+     "인스타그램 우선, 페이스북 적용 중, 스레드는 올해 안"
+    ],
+    [
+     "핵심 숫자",
+     "청소년 ‘수백만 명’ 추가 보호(자체 발표 기준)"
+    ],
+    [
+     "원문",
+     "메타 뉴스룸"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "메타(Meta)가 11월 9일(미국 시각) 인공지능으로 이용자의 나이를 추정하는 기술을 전 세계로 넓힌다고 발표했습니다. 인스타그램에서 생일을 성인으로 적었더라도 청소년으로 의심되는 계정을 청소년 계정(Teen Accounts)의 보호 안에 넣는 기술이며, 메타는 이로써 청소년 수백만 명이 더 보호받게 된다고 설명합니다(자체 발표 기준)."
+    },
+    {
+     "ul": [
+      [
+       "AI 연령 추정을 전 세계로 확대",
+       "인스타그램이 중심이고 페이스북에서도 적용을 이어 가는 중"
+      ],
+      [
+       "스레드는 올해 안에",
+       "비슷한 기술을 전 세계에 내놓을 예정"
+      ],
+      [
+       "미국 부모에게 인스타그램 알림",
+       "메타의 연령 확인 방식을 설명하는 안내"
+      ]
+     ]
+    },
+    {
+     "h": "성인 생일을 적어도 걸러 내는 기술"
+    },
+    {
+     "p": "청소년 계정은 인스타그램·페이스북·메신저에 들어 있는 보호 설정으로, 청소년에게 연락할 수 있는 사람과 볼 수 있는 콘텐츠, 앱 사용 시간을 자동으로 제한합니다. 새 기술은 생일을 성인으로 적은 계정 가운데 청소년으로 의심되는 계정을 찾아 이 보호 안으로 옮깁니다. 메타는 13세 미만 어린이의 계정으로 의심되는 계정을 미리 찾아내는 기술과 13~17세 계정을 가려내는 기술을 함께 강화하고 있으며, 이 투자는 미국 주 검찰총장 52명과 맺은 합의에 따른 것입니다."
+    },
+    {
+     "h": "미국은 알림, 호주는 애플 신호"
+    },
+    {
+     "p": "미국에서는 부모들이 인스타그램에서 연령 확인 방식을 알리는 알림을 받기 시작합니다. 호주에서는 애플(Apple)의 연령대 신호를 추가 방법으로 쓰고 있습니다. 부모가 자녀의 휴대폰을 설정하면 앱스토어가 연령대를 확인하고, 앱을 내려받을 때 그 정보를 개발사에 넘기는 방식입니다. 메타는 이 사용이 자발적이라고 밝히면서 앱스토어 단계에서 연령 확인과 부모 동의를 의무로 하는 법을 원합니다."
+    },
+    {
+     "h": "스레드와 경쟁 앱에 요구한 것"
+    },
+    {
+     "p": "스레드(Threads)에는 올해 안에 비슷한 기술을 전 세계로 내놓을 계획입니다. 틱톡(TikTok)과 유튜브(YouTube)에는 같은 방식을 도입하라고 요구했습니다."
+    },
+    {
+     "h": "한국 일정은 원문에 없습니다"
+    },
+    {
+     "p": "원문 본문에는 한국이 언급되지 않고 국가별 적용 목록도 없습니다. ‘전 세계’는 메타가 쓴 표현입니다. 페이스북 확대와 호주의 애플 신호 사용이 언제 시작됐는지도 적혀 있지 않습니다."
+    }
+   ],
+   "ask": "청소년이 나이를 속여 가입하는 문제를 AI 추정과 앱스토어 확인 중 어느 쪽이 더 잘 막을 수 있다고 보시나요?",
+   "verdict": {
+    "v": "watch",
+    "why": "한국 적용 일정이 원문에 없고 추가 보호 규모도 메타가 밝힌 ‘수백만 명’뿐입니다."
+   },
+   "sources": [
+    [
+     "메타 뉴스룸 — Expanding Teen Account Protections to Teens Around the World",
+     "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/"
+    ]
+   ],
+   "terms": [
+    "메타",
+    "인스타그램",
+    "연령 추정",
+    "애플"
+   ],
+   "image": {
+    "page": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+    "og": "https://about.fb.com/wp-content/uploads/2026/11/Expanding-Teen-Account-Protections-to-Teens-Around-the-World_socialShare.jpg?w=1200",
+    "credit": "이미지: Meta",
+    "alt": "메타 청소년 계정 보호 확대 발표 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "November 9, 2026"
+    },
+    {
+     "claim": "전 세계 확대",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "expanding our AI age-estimation technology globally to place millions more teens in Teen Account protections on Instagram."
+    },
+    {
+     "claim": "미국 부모 알림",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "parents in the United States will begin receiving a notification on Instagram"
+    },
+    {
+     "claim": "호주 애플 신호",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "In Australia, we’re using Apple’s age-range signal as an additional method to understand age."
+    },
+    {
+     "claim": "13세 미만",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "we’re investing in even stronger technology to proactively catch accounts that may belong to children under 13."
+    },
+    {
+     "claim": "13~17세",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "strengthening the technology we use to identify accounts that may belong to teens between the ages of 13 and 17"
+    },
+    {
+     "claim": "스레드",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "later this year, we’ll begin launching similar technology globally on Threads."
+    },
+    {
+     "claim": "청소년 계정 보호 내용",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "built-in protections that automatically limit who can contact them, the content they see, and their time on our apps"
+    },
+    {
+     "claim": "틱톡·유튜브",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "we’re also calling on our industry peers, TikTok and YouTube, to adopt these same practices to keep teens safe."
+    },
+    {
+     "claim": "검찰총장 52명 합의",
+     "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+     "quote": "agreement with 52 bipartisan state attorneys general (원문 본문 요지, 합의 링크는 2026/08)"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-10-nvidia-korea-startup-investments",
+   "cat": "비즈니스·일자리",
+   "date": "2026-11-10",
+   "time": "06:51",
+   "title": "엔비디아, 한국 스타트업 4곳에 투자",
+   "sub": "Point2 투자 발표 · 모티프·RLWRLD·업스테이지는 추가 투자 예정 · 금액과 시점은 비공개",
+   "hook": "엔비디아가 11월 9일 코엑스에서 열린 MSIT-NVIDIA AI 스타트업 파트너십 포럼에서 Point2 투자를 발표하고 모티프·RLWRLD·업스테이지에 추가 투자할 계획이라고 밝혔습니다. 금액은 공개되지 않았습니다.",
+   "try": "엔비디아 블로그 원문에서 네 회사의 소개를 읽고 그중 한 곳의 공개 모델이나 제품 페이지를 직접 열어 보세요.",
+   "who": "국내 AI 스타트업 동향을 따라가는 투자·기획 담당자",
+   "facts": [
+    [
+     "발표 주체",
+     "엔비디아(NVIDIA) 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 9일"
+    ],
+    [
+     "행사",
+     "MSIT-NVIDIA AI 스타트업 파트너십 포럼(코엑스)"
+    ],
+    [
+     "투자 발표",
+     "Point2 Technology 1곳"
+    ],
+    [
+     "추가 투자 예정",
+     "모티프, RLWRLD, 업스테이지"
+    ],
+    [
+     "원문",
+     "엔비디아 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "엔비디아(NVIDIA)가 11월 9일 코엑스에서 열린 ‘MSIT-NVIDIA AI 스타트업 파트너십 포럼’에서 한국 스타트업 투자 계획을 밝혔습니다. 포럼은 과학기술정보통신부와 엔비디아가 함께 열었고, 류제명(Ryu Je-myung) 과기정통부 차관이 엔비디아 경영진과 함께 20곳이 넘는 스타트업을 만났습니다."
+    },
+    {
+     "ul": [
+      [
+       "투자 발표는 Point2 한 곳",
+       "AI 공장 안에서 칩 사이 데이터를 옮기는 연결 기술 회사"
+      ],
+      [
+       "모티프·RLWRLD·업스테이지는 추가 투자 예정",
+       "원문은 ‘계획’이라고 적음"
+      ],
+      [
+       "투자 금액·지분·시점은 공개 안 됨",
+       "원문에 수치가 없음"
+      ]
+     ]
+    },
+    {
+     "h": "투자를 발표한 곳은 한 곳입니다"
+    },
+    {
+     "p": "원문 제목에는 ‘계획된 투자’라고 적혀 있지만 본문에서 투자를 발표했다고 쓴 곳은 Point2 Technology 하나입니다. Point2는 AI 공장에서 칩과 랙 사이로 데이터를 옮기는 무선주파수 기반 연결 기술을 만들며, 구리나 광 방식의 대안으로 소개됩니다."
+    },
+    {
+     "h": "추가 투자가 예정된 세 회사"
+    },
+    {
+     "p": "모티프 테크놀로지스(Motif Technologies)는 서울에 있는 AI 연구소로, AI 에이전트용 파운데이션 모델을 만듭니다. 오픈 웨이트로 공개한 대규모 언어 모델 Motif-3가 대표 모델로 소개됩니다. RLWRLD는 샌프란시스코와 서울, 도쿄에 거점을 둔 피지컬 AI 스타트업이며 휴머노이드와 산업용 로봇을 위한 로봇 파운데이션 모델을 개발하고 다섯 손가락을 쓰는 정교한 작업도 다룹니다. 업스테이지(Upstage)는 솔라(Solar) 언어 모델과 문서 AI 도구를 만드는 기업용 AI 회사입니다."
+    },
+    {
+     "h": "엔비디아 인셉션 한국 회원 1,000곳 넘게"
+    },
+    {
+     "p": "원문은 이번 계획이 한국 스타트업·벤처 업계와 해 온 협력 위에 놓인다고 적고, 엔비디아 인셉션(Inception)에 한국 회원이 1,000곳 넘게 있다고 밝혔습니다. 인셉션은 우대 가격과 기술 자문, 투자자 소개를 제공하는 프로그램으로 설명됩니다. 추가 투자의 금액과 시점은 원문에 나와 있지 않습니다."
+    }
+   ],
+   "ask": "엔비디아가 국내 AI 스타트업에 투자하는 일이 한국 AI 생태계에 어떤 변화를 가져올 것 같나요?",
+   "sources": [
+    [
+     "엔비디아 블로그 — NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
+     "https://blogs.nvidia.com/blog/korean-startup-investments-msit/"
+    ]
+   ],
+   "terms": [
+    "엔비디아",
+    "스타트업",
+    "파운데이션 모델",
+    "오픈 웨이트",
+    "피지컬 AI",
+    "업스테이지"
+   ],
+   "image": {
+    "page": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+    "og": "https://blogs.nvidia.com/wp-content/uploads/2026/11/korea-startups-msit-1920x1080-1.jpg",
+    "credit": "이미지: NVIDIA",
+    "alt": "엔비디아 한국 스타트업 투자 발표 포럼 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+     "quote": "published 2026-11-09 (NVIDIA Writers)"
+    },
+    {
+     "claim": "포럼 개최",
+     "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+     "quote": "Korea's Ministry of Science and ICT and NVIDIA hosted the MSIT-NVIDIA AI Startup Partnership Forum at COEX."
+    },
+    {
+     "claim": "차관과 스타트업 20곳",
+     "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+     "quote": "Ryu Je-myung, vice minister of science and ICT, joined NVIDIA leaders to meet with over 20 Korean startups"
+    },
+    {
+     "claim": "Point2 투자",
+     "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+     "quote": "NVIDIA also announced an investment in Korean startup Point2"
+    },
+    {
+     "claim": "계획된 투자",
+     "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+     "quote": "The planned investments build on NVIDIA's work with Korea's startup and venture community"
+    },
+    {
+     "claim": "인셉션 회원 1,000곳",
+     "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+     "quote": "including more than 1,000 Korea-based members of NVIDIA Inception"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-10-hope-moe-expert-pruning",
+   "cat": "연구",
+   "date": "2026-11-10",
+   "time": "06:50",
+   "title": "HOPE, MoE 전문가를 절반 덜어 낸다",
+   "sub": "전문가끼리의 짝을 보고 지울 곳 고름 · 50% 가지치기에서 평균 순위 1.58 · 아마존 연구진 블로그",
+   "hook": "아마존 연구진이 11월 9일 허깅페이스 블로그에 MoE 언어 모델의 전문가를 영구히 지우는 방법 HOPE를 소개했습니다. 전문가 쌍의 상호작용까지 계산해 50% 가지치기에서 평균 순위 1위라고 합니다(자체 평가 기준).",
+   "try": "원문 글의 SWE-Bench Pro 결과 그림을 열어 가지치기 비율별로 어떤 방법이 앞서는지 직접 확인해 보세요.",
+   "who": "MoE 모델을 직접 돌리거나 줄이는 AI 엔지니어·연구자",
+   "facts": [
+    [
+     "발표 주체",
+     "아마존 연구진(허깅페이스 블로그)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 9일"
+    ],
+    [
+     "무엇",
+     "MoE 전문가 가지치기 방법 HOPE"
+    ],
+    [
+     "핵심 숫자",
+     "50% 가지치기 평균 순위 1.58(2위 REAP 2.42, 자체 평가)"
+    ],
+    [
+     "시험 모델",
+     "Qwen3.5-35B-A3B 등"
+    ],
+    [
+     "공개",
+     "논문 arXiv 2609.18916, 코드 awslabs/HOPE"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "아마존(Amazon) 연구진이 11월 9일 허깅페이스(Hugging Face) 블로그에 MoE(전문가 혼합) 언어 모델에서 전문가를 영구히 지우는 방법 HOPE(Higher-Order Pruning of Experts)를 소개했습니다. 전문가를 하나씩 따로 점수 매기던 기존 방법과 달리, 두 전문가가 함께 일하는 정도까지 계산에 넣어 지울 전문가를 고릅니다."
+    },
+    {
+     "ul": [
+      [
+       "전문가 쌍의 상호작용을 점수에 반영",
+       "기존 1차 방법은 전문가를 하나씩 평가"
+      ],
+      [
+       "50% 가지치기에서 평균 순위 1.58",
+       "다음 방법인 REAP은 2.42(자체 평가 기준)"
+      ],
+      [
+       "표준 허깅페이스 체크포인트로 저장",
+       "vLLM·SGLang을 고칠 필요 없음"
+      ]
+     ]
+    },
+    {
+     "h": "전문가는 혼자 일하지 않습니다"
+    },
+    {
+     "p": "MoE는 층마다 전문가 여러 개를 두고 입력마다 일부만 켜는 구조라서 모델 크기에 비해 계산량이 적습니다. 글은 전문가들이 꾸준히 함께 켜지는 안정적인 협력 집단을 이룬다고 보고, 이 관계를 무시한 채 전문가를 하나씩 지우면 짝을 잃은 전문가가 남는다고 설명합니다. HOPE는 전문가 쌍마다 함께 켜졌을 때의 기여도를 모은 행렬을 만들고, 지울 개수를 정해 두면 그 행렬의 값이 최소가 되는 조합을 찾습니다."
+    },
+    {
+     "h": "계산은 한 번, 층마다 몇 초"
+    },
+    {
+     "p": "보정 데이터를 한 번 통과시켜 전문가별 출력 크기와 동시 활성 통계를 기록하고, 이 값으로 층마다 몇 초 안에 지울 전문가를 정합니다. 결과는 표준 허깅페이스 체크포인트로 저장되며 코드는 GitHub awslabs/HOPE에 공개됐습니다. 행렬의 대각선 값은 기존 방법 REAP의 전문가 순위와 거의 같아서(스피어만 상관 0.988) 성능 차이는 대각선 밖의 상호작용 항에서 나온다는 것이 저자들의 설명입니다."
+    },
+    {
+     "h": "SWE-Bench Pro에서 지운 모델과 원본을 비교"
+    },
+    {
+     "p": "평가는 Tulu3 모음과 에이전트 코딩 시험 SWE-Bench Pro로 했고, 가지치기 비율은 10%에서 50%까지 바꿨으며 REAP·MAN·EAN·Frequency 네 방법과 겨뤘습니다. 모든 조건의 평균 순위는 HOPE가 2.07이고 1위가 39%, 2위 이내가 67%입니다. Qwen3.5-35B-A3B의 전문가를 50% 지웠을 때 SWE-Bench Pro 점수는 HOPE가 42.3으로 지우지 않은 모델의 41.8과 비슷했고 REAP은 36.2였습니다."
+    },
+    {
+     "h": "10~20%에서는 차이가 줄어듭니다"
+    },
+    {
+     "p": "저자들은 가지치기 비율이 10~20%일 때 REAP과 MAN이 HOPE와 겨룰 만하다고 적었습니다. HOPE는 층을 하나씩 따로 계산해서 층 사이의 상호작용을 보지 못하고, 세 개 이상 전문가가 묶인 효과도 계산하지 않습니다. 글은 Qwen3.5-122B의 구조를 설명하지만 이 모델의 가지치기 결과는 싣지 않았습니다."
+    }
+   ],
+   "ask": "모델을 절반으로 줄이는 방법이 나온다면 내 업무용 AI를 직접 돌려 볼 의향이 있으신가요?",
+   "verdict": {
+    "v": "watch",
+    "why": "저자들이 자체 평가한 결과이고 메모리 절감량 수치는 글에 없습니다."
+   },
+   "sources": [
+    [
+     "허깅페이스 블로그(아마존) — Your Experts Have Partners. There's HOPE for Keeping Them Together",
+     "https://huggingface.co/blog/amazon/higher-order-pruning-experts"
+    ],
+    [
+     "arXiv — HOPE 논문",
+     "https://arxiv.org/abs/2609.18916"
+    ],
+    [
+     "GitHub — awslabs/HOPE",
+     "https://github.com/awslabs/HOPE"
+    ]
+   ],
+   "terms": [
+    "혼합 전문가(MoE)",
+    "가지치기",
+    "아마존",
+    "허깅페이스",
+    "깃허브",
+    "벤치마크"
+   ],
+   "image": {
+    "page": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+    "og": "https://cdn-uploads.huggingface.co/production/uploads/6ab2f79bd8000a811c648a32/xZT8tg4be3bgZIx2EQS_m.png",
+    "credit": "이미지: Amazon / Hugging Face",
+    "alt": "HOPE 전문가 가지치기 방법 설명 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "Published November 9, 2026"
+    },
+    {
+     "claim": "50% 평균 순위",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "At 50% pruning, HOPE achieves the best average rank of any method"
+    },
+    {
+     "claim": "협력 집단",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "Experts form stable cooperative groups that get consistently co-activated together."
+    },
+    {
+     "claim": "REAP 대각선",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "The diagonal of F recovers REAP's expert rankings almost perfectly (Spearman ρ=0.988)."
+    },
+    {
+     "claim": "SWE-Bench Pro",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "On Qwen3.5-35B-A3B at 50% pruning, HOPE achieved 42.3 on SWE-Bench Pro, matching the unpruned model's 41.8"
+    },
+    {
+     "claim": "REAP 36.2·평균 순위 2.07·1위 39%·2위 67%·1.58 대 2.42",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "(본문 수치와 표 요지, 원문 그림에서 확인) REAP 36.2; average rank 2.07; top-1 39%; top-2 67%; 50% pruning 1.58 vs 2.42"
+    },
+    {
+     "claim": "저비율 한계",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "HOPE's advantage shrinks at 10–20% pruning, where REAP and MAN are sometimes competitive."
+    },
+    {
+     "claim": "코드 공개",
+     "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+     "quote": "https://github.com/awslabs/HOPE"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "젠슨 황 관련 보도",
+   "reason": "언론 보도뿐이고 1차 원문이 없어 제외"
+  },
+  {
+   "topic": "앤트로픽 한국 기업 계정 개인정보 유출 신고",
+   "reason": "전자신문 보도만 확인되고 원문을 찾지 못함"
+  },
+  {
+   "topic": "엔비디아 한국 협력 블로그 연작(소버린 AI·피지컬 AI)",
+   "reason": "스타트업 투자 글과 같은 행사 소식이라 한 편으로 묶음"
+  }
+ ]
+}

@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-11-10",
+  "lead": "2026-11-10-meta-teen-age-estimation",
+  "title": "메타의 AI 연령 추정 확대, 엔비디아의 한국 투자, MoE 가지치기 HOPE",
+  "summary": "메타는 AI 연령 추정으로 청소년 계정 보호를 전 세계로 넓힌다고 밝혔고, 엔비디아는 한국 스타트업 Point2 투자와 세 곳의 추가 투자 계획을 내놓았으며, 아마존 연구진은 MoE 모델의 전문가를 절반 지우는 HOPE를 소개했습니다.",
+  "three": [
+   "메타는 성인 생일을 적은 청소년도 AI로 찾아 청소년 계정에 넣고, 스레드에는 올해 안에 비슷한 기술을 내놓습니다.",
+   "엔비디아가 투자를 발표한 한국 스타트업은 Point2 한 곳이고 모티프·RLWRLD·업스테이지는 추가 투자 예정입니다.",
+   "HOPE는 MoE 전문가를 50% 지울 때 평균 순위 1.58로 REAP의 2.42보다 앞섰다고 저자들이 밝혔습니다."
+  ],
+  "items": [
+   "2026-11-10-meta-teen-age-estimation",
+   "2026-11-10-nvidia-korea-startup-investments",
+   "2026-11-10-hope-moe-expert-pruning"
+  ]
+ },
+ {
   "date": "2026-11-09",
   "lead": "2026-11-09-metr-anthropic-acceleration",
   "title": "METR의 앤트로픽 평가, 과학자의 클로드 사용, ARTEX 노출 서버",
