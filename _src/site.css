@@ -2021,3 +2021,5 @@ mark.pbno{background:#FFF3EC;color:#a3400f;font-weight:700}
 .kclist span{font-size:13.5px;color:var(--text);line-height:1.6}
 .seg.mini{flex-wrap:wrap}
 [tabindex="-1"]:focus{outline:none}
+/* 바닥 큰 글자: 'AI' 만 SHIFT 빨강(11/9 사용자 — PLAY 바닥의 연두 'PLAY' 와 짝). 바닥은 늘 검정이라 밤 강조색 #D06A58 */
+footer .fword .ai{color:#D06A58}
