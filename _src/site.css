@@ -2023,3 +2023,13 @@ mark.pbno{background:#FFF3EC;color:#a3400f;font-weight:700}
 [tabindex="-1"]:focus{outline:none}
 /* 바닥 큰 글자: 'AI' 만 SHIFT 빨강(11/9 사용자 — PLAY 바닥의 연두 'PLAY' 와 짝). 바닥은 늘 검정이라 밤 강조색 #D06A58 */
 footer .fword .ai{color:#D06A58}
+/* 바닥 'SHIFT 매거진 바꾸기'(11/9 사용자: 소개와 메뉴 사이에 SHIFT AI ↔ SHIFT PLAY 오가는 버튼. PLAY 바닥에도 같은 것) */
+footer .fsw{display:grid;gap:10px;align-content:start}
+footer .fsw-k{font-family:var(--mono);font-size:11px;color:#8A8A87}
+footer .fsw-t{display:inline-flex;justify-self:start;border:1px solid #2E2E2E;border-radius:999px;padding:4px;background:#1A1A1A}
+footer .fsw-t a,footer .fsw-t span{padding:9px 16px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:-.01em;white-space:nowrap;line-height:1.2}
+footer .fsw-t a{color:#BDBDBA}
+footer .fsw-t a:hover{color:#111111;background:#CCFF00;text-decoration:none}
+footer .fsw-t .on-ai{background:#A23B2C;color:#FFFFFF}
+footer .fsw p{margin:0;font-size:12.5px;color:#8A8A87}
+@media (max-width:640px){footer .fsw p{display:none}}
