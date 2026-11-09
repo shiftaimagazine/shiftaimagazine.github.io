@@ -372,5 +372,23 @@
   "credit": "화면: censys.com",
   "alt": "센시스 ARTEX 조사 글 대표 이미지",
   "auto": true
+ },
+ "2026-11-10-meta-teen-age-estimation": {
+  "src": "img/ph/2026-11-10-meta-teen-age-estimation.webp",
+  "credit": "이미지: Meta",
+  "alt": "메타 청소년 계정 보호 확대 발표 대표 이미지",
+  "auto": true
+ },
+ "2026-11-10-nvidia-korea-startup-investments": {
+  "src": "img/ph/2026-11-10-nvidia-korea-startup-investments.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 한국 스타트업 투자 발표 포럼 대표 이미지",
+  "auto": true
+ },
+ "2026-11-10-hope-moe-expert-pruning": {
+  "src": "img/ph/2026-11-10-hope-moe-expert-pruning.webp",
+  "credit": "이미지: Amazon / Hugging Face",
+  "alt": "HOPE 전문가 가지치기 방법 설명 이미지",
+  "auto": true
  }
 }
