@@ -390,5 +390,23 @@
   "credit": "이미지: Amazon / Hugging Face",
   "alt": "HOPE 전문가 가지치기 방법 설명 이미지",
   "auto": true
+ },
+ "2026-11-11-claude-fable-5-2": {
+  "src": "img/ph/2026-11-11-claude-fable-5-2.webp",
+  "credit": "이미지: Anthropic",
+  "alt": "클로드 페이블 5.2와 미토스 5.2 발표 이미지",
+  "auto": true
+ },
+ "2026-11-11-claude-code-settings-secrets": {
+  "src": "img/ph/2026-11-11-claude-code-settings-secrets.webp",
+  "credit": "화면: labs.cloudsecurityalliance.org",
+  "alt": "클라우드 보안 연합 연구 노트 화면",
+  "auto": true
+ },
+ "2026-11-11-alphaproof-code-signal": {
+  "src": "img/ph/2026-11-11-alphaproof-code-signal.webp",
+  "credit": "이미지: Google DeepMind",
+  "alt": "알파프루프 코드와 시그널 프로토콜 검증 이미지",
+  "auto": true
  }
 }
