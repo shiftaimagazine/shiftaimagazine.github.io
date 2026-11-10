@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com https://shift-newsletter.shiftaimagazine.workers.dev; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <base href="/">
@@ -55,7 +55,7 @@
           <a role="menuitem" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-ev="follow:ig"><i class="fi fi-ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></i><span><b>인스타그램</b><small>30초 영상으로 보는 AI&nbsp;소식</small></span></a>
           <a role="menuitem" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-ev="follow:yt"><i class="fi fi-yt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"></rect><path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"></path></svg></i><span><b>유튜브</b><small>쇼츠로 보는 AI&nbsp;소식</small></span></a>
           <a role="menuitem" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-ev="follow:th"><i class="fi fi-th" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"></circle><path d="M15.6 12v1.4a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.6 7.1"></path></svg></i><span><b>스레드</b><small>그날 나온 소식을 가장&nbsp;먼저</small></span></a>
-          
+          <a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></i><span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식&nbsp;한&nbsp;통</small></span></a>
         </div>
       </details>
     </div>
@@ -126,7 +126,18 @@
   </div>
 </section>
   </article></main>
-</div>
+<section class="subbox" aria-label="주간 메일 구독">
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다.</p></div>
+  <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
+    <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
+    <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <label class="agree"><input type="checkbox" name="agree" required=""> <span>[필수] 이메일 주소 수집⁠·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required=""> <span>[필수] 개인정보 국외 이전(미국 Resend⁠·Cloudflare)⁠에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend⁠·Cloudflare로 전송⁠·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
+    <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
+    <p class="submsg" role="status" aria-live="polite"></p>
+  </form>
+</section></div>
 <footer class="bleed">
   <div class="fin">
     <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
@@ -135,7 +146,7 @@
       <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
       <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
       <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
-      <div class="fgrp"><span>팔로우</span><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="/subscribe/">주간 메일</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
     </div>
     <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
   </div>
