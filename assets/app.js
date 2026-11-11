@@ -786,7 +786,7 @@ init();
   const nav=document.querySelector("nav.main"), box=$("#subnav"); if(!nav||!box) return;
   const r=ROUTE, cat=new URLSearchParams(location.search).get("cat")||"";
   const grp = /^(daily|news|verdict)$|^(a|c|d)-|^weekly/.test(r) ? "news"
-    : /^(tutorial|prompts|guide|vs)$|^t-|^guide-|^vs-/.test(r) ? "learn"
+    : /^(tutorial|prompts|guide|vs|tips)$|^t-|^guide-|^vs-/.test(r) ? "learn"
     : r==="tools"||r.startsWith("tool-") ? "tools"
     : /^(about|privacy|subscribe)$/.test(r) ? "about" : "";
   const sub = r==="daily"||r.startsWith("d-") ? "daily"
@@ -794,7 +794,7 @@ init();
     : r==="news"||r.startsWith("a-") ? "news"
     : r.startsWith("weekly") ? "weekly" : r==="verdict" ? "verdict"
     : r==="tutorial"||r.startsWith("t-") ? "tutorial" : r==="guide-start" ? "guide-start" : r.startsWith("guide") ? "guide"
-    : r==="prompts" ? "prompts" : r.startsWith("vs") ? "vs"
+    : r==="prompts" ? "prompts" : r==="tips" ? "tips" : r.startsWith("vs") ? "vs"
     : r==="tools" ? (cat?"tc:"+cat:"tools") : r.startsWith("tool-") ? "tools"
     : r==="about" ? "about" : r==="privacy" ? "privacy" : "";
   const tabs=[...nav.querySelectorAll("[data-grp]")], rows=[...box.querySelectorAll(".sub")];
