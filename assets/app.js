@@ -585,7 +585,8 @@ function renderTerm(t){
     <a class="back" href="/dict/">← AI 사전</a>
     <span class="cat">AI 사전 · ${esc(t.g)}</span>
     <h1>${esc(t.t)}${t.en&&t.en!==t.t?`<small>${esc(t.en)}</small>`:""}</h1>
-    <div class="tdef"><b>${brand?"한 줄 소개":"뜻"}</b><p>${esc(t.d)}</p></div>
+    <div class="tdef"><b>${brand?"한 줄 소개":"뜻"}</b><p>${esc(t.d)}</p>${!brand&&t.en&&/[가-힣]/.test(t.t)&&!t.t.toLowerCase().includes(t.en.toLowerCase())?`<p class="ten"><span>영어 표기</span><i lang="en">${esc(t.en)}</i></p>`:""}</div>
+    ${t.use&&t.use.length?`<nav class="nxbox usebox" aria-label="바로 써 보기"><b>‘${esc(t.t)}’ 바로 써 보기</b>${t.use.map(([k,h,n])=>`<a href="${esc(h)}" data-ev="dict-use:${esc(h)}"><span>${esc(k)}</span>${esc(n)}</a>`).join("")}</nav>`:""}
     ${arts.length?`<div class="sec"><h2>${esc(t.t)} ${brand?"최신 소식":"관련 기사"} <small>${arts.length}건</small></h2></div><div class="list">${arts.map(postHTML).join("")}</div>`:""}
     ${tuts.length?`<div class="sec"><h2>${esc(t.t)} 튜토리얼</h2></div><div class="list">${tuts.map(tutHTML).join("")}</div>`:""}
     ${co.length?`<div class="sec"><h2>함께 보면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
