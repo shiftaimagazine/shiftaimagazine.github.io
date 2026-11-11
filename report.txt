@@ -1,0 +1,89 @@
+SHIFT AI 주간 방문 통계  2026-11-05 ~ 2026-11-11 (한국 시간)  · 비교: 2026-10-29 ~ 2026-11-04
+
+== 페이지 조회수: 185 (지난주 57, +225%)
+== 전체 합계(/stats/total): 조회 278 · 이벤트 93
+   날짜별: 11-05 110 · 11-06 48 · 11-07 24 · 11-08 17 · 11-09 39 · 11-10 18 · 11-11 22 · 11-12 0
+== 많이 본 페이지 상위 20 (조회수 · 지난주 대비)
+      52   +148%  /  SHIFT AI(시프트 AI) — 오늘의 AI 뉴스와 내 일에 쓰는 법, 무료 AI 도구
+      12   +500%  /tools  무료 AI 도구 11가지 — 설치·가입 없이 브라우저에서 바로 · SHIFT AI
+      11      새로  /news  AI 뉴스 — 오늘의 인공지능 소식 · SHIFT AI
+       9   +200%  /daily  AI 데일리 뉴스 — 날마다 정리하는 AI 이슈 · SHIFT AI
+       7   +133%  /tutorial  튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+       6   +100%  /about  소개 · SHIFT AI
+       5   +150%  /dict  AI 사전 — AI 용어 뜻 쉽게 풀이 · SHIFT AI
+       4   +300%  /prompts  복붙 프롬프트 모음 141개 — 챗GPT·클로드·제미나이에 바로 쓰는 업무 프롬프트 · S
+       3      새로  /dict/nvidia  엔비디아(NVIDIA) — 뜻과 최신 소식 · SHIFT AI 사전
+       3      새로  /tutorial/claude-animation-styles  클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음 · SHIFT AI 튜토리얼
+       3     +0%  /dict/copilot  코파일럿(Copilot) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       2      새로  /tutorial/skills-pm  기획자·PM이 깔아 두면 좋은 AI 스킬 7개, 기획서·인터뷰 정리·로드맵·보고까지 · S
+       2      새로  /dict/data-center  데이터센터(Data center) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       2      새로  /tutorial/skills-data  데이터 분석가가 깔아 두면 좋은 AI 스킬 7개, 데이터 훑기·SQL·통계·차트·검증까지 
+       2      새로  /privacy  개인정보처리방침 · SHIFT AI
+       2      새로  /guide  AI 길잡이 — 회의록·PDF 요약·메일·엑셀, 일 단위로 찾는 AI 활용법 · SHIFT
+       2      새로  /tools/pdf-to-jpg  PDF JPG 변환 무료 — PDF 쪽을 사진(JPG·PNG)으로, 한 장으로 이어 붙이기
+       2      새로  /tutorial/skills-creator  유튜버·크리에이터가 깔아 두면 좋은 AI 스킬 7개, 내 말투 학습·훅·썸네일·영상 제작까
+       2      새로  /tools/interpreter  실시간 번역 자막 무료 — 영어 회의·유튜브를 한국어 자막으로(크롬) · SHIFT AI
+       2      새로  /tools/ai-format  AI 답변 서식 정리기 — 챗GPT 답 카톡·한글에 붙일 때 ** # 마크다운 기호 지우기
+== 종류별 조회수: 첫 화면 52 · 기타 23 · 튜토리얼 23 · 무료 도구 23 · AI 사전 21 · 뉴스·기사 15 · 데일리 15 · AI 길잡이 5 · 프롬프트 모음 4 · 판정 3 · 칼럼 1
+
+== 행동(이벤트) 이번 주 · 지난주
+-- 무료 도구 사용(페이지에서 처음 넣거나 누름): 17 (지난주 0)
+         2  /tools/
+         2  /tools/ai-format/
+         1  /tools/pdf-sign/
+         1  /tools/excel-merge/
+         1  /tools/doc-compare/
+         1  /tools/prompt-check/
+         1  /tools/prompt-box/
+         1  /tools/table-to-chart/
+         1  /tools/pdf-to-jpg/
+         1  /tools/jpg-to-pdf/
+         1  /tools/doc-to-text/
+         1  /tools/ai-subscriptions/
+-- 무료 도구 실행 버튼: 1 (지난주 0)
+         1  /tools/interpreter/
+-- 무료 도구 결과 가져감(복사·저장): 7 (지난주 0)
+         1  /tools/pdf-sign/
+         1  /tools/excel-merge/
+         1  /tools/table-to-chart/
+         1  /tools/pdf-to-jpg/
+         1  /tools/jpg-to-pdf/
+         1  /tools/doc-to-text/
+         1  /tools/ai-format/
+-- 프롬프트 복사: 1 (지난주 0)
+         1  /prompts/#contract-review-3
+-- 링크 복사: 0 (지난주 0)
+-- 무료 대체 프로그램 찾음: 0 (지난주 0)
+-- 대체 프로그램 못 찾음: 0 (지난주 0)
+-- 기사 끝 '함께 보면 좋은 콘텐츠' 클릭(간 곳): 0 (지난주 0)
+-- AI 사전 '바로 써 보기' 클릭(간 곳): 0 (지난주 0)
+-- 밖으로 나간 링크(사이트): 8 (지난주 0)
+         3  play.shiftaimagazine.com
+         2  threads.com
+         2  instagram.com
+         1  support.claude.com
+-- 틀린 곳 알려 주기 누름: 0 (지난주 1)
+
+== 들어온 곳 상위 20 (조회수)
+      80  (직접 들어옴·알 수 없음)
+      51  Google
+      40  shiftaimagazine.com
+      22  shiftaimagazine.com/tools
+      15  shiftaimagazine.com/tutorial
+       8  m.search.daum.net/search
+       6  search.daum.net/search
+       6  shiftaimagazine.com/news
+       5  shiftaimagazine.com/daily
+       5  shiftaimagazine.com/prompts
+       4  ig
+       4  play.shiftaimagazine.com
+       3  threads
+       3  www.instagram.com
+       3  shiftaimagazine.com/tutorial/skills-data
+       3  shiftaimagazine.com/weekly
+       2  shiftaimagazine.com/dict
+       2  shiftaimagazine.com/guide/study
+       1  YouTube
+       1  daum.net
+
+== 화면 크기: 휴대폰 19% · 태블릿·작은 노트북 3% · 컴퓨터 48% · 큰 모니터 29% · 알 수 없음 1%
