@@ -323,9 +323,45 @@ for r, (t, ds) in LISTS.items():
 
 ART = '<main id="v-article"></main>'
 # 주간 메일 구독 페이지(/subscribe/): 구독 신청 + 확인 메일 링크(?t=)로 들어와 구독을 확정하는 곳. 구독을 열기 전에는 첫 화면으로 넘긴다.
+# 메일 견본(11/11~): 실제 발송과 같은 코드(newsletter/send.py)로 가장 최근 한 주(월~일) 기사로 메일을 만들어 구독 페이지에 보여 준다.
+#  '보냈다'고 적지 않는다(기사가 적어 건너뛴 주, 편집부가 고른 주가 있을 수 있음). 같은 내용을 메일 모양 그대로 /subscribe/sample/ 에도 둔다(검색 제외).
+def _mail_sample():
+    import importlib.util
+    sp = importlib.util.spec_from_file_location('nl_send', SRC + 'newsletter/send.py'); S = importlib.util.module_from_spec(sp); sp.loader.exec_module(S)
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date()
+    send = today - datetime.timedelta(days=today.weekday())
+    for _ in range(4):
+        mon, week, hot, rest, tuts, _n, _s = S.pick(send, A, DY, T)
+        if hot and len(week) >= int(NL.get('min_articles', 4)): break
+        send -= datetime.timedelta(days=7)
+    else: return ''
+    subject, body, text, week, hot = S.build_mail(send, A, DY, T)
+    lab = S.week_label(mon); intro = text.split('\n')[3]
+    vd = {'try': ('써볼 만해요', 'vd-try'), 'watch': ('지켜보세요', 'vd-watch'), 'hype': ('과장이에요', 'vd-hype')}
+    def li(i, x):
+        v = (x.get('verdict') or {}).get('v')
+        return (f'<li><span class="msk">{i:02d} · {esc(x["cat"])}' + (f'<i class="vd {vd[v][1]}">{vd[v][0]}</i>' if v in vd else '') + '</span>'
+                f'<a href="/news/{x["id"]}/">{esc(x["title"])}</a><p>{esc(x["hook"])}</p></li>')
+    more = ' · '.join(([f"‘한 줄로 보는 다른 소식’ {len(rest)}개"] if rest else []) + ([f"‘이번 주 따라 해 볼 것’ {len(tuts)}개"] if tuts else []))
+    box = (f'<section class="mailsample" id="sample" aria-label="주간 메일 견본">\n  <div class="sec"><h2>이런 메일이 갑니다</h2></div>\n'
+           f'  <p class="msnote">{lab} 기사로 만든 견본입니다. 실제 메일도 같은 틀로 갑니다.</p>\n'
+           f'  <div class="msframe"><div class="mshead"><span>제목</span>{esc(subject)}</div>\n  <p class="msintro">{esc(intro)}</p>\n'
+           f'  <ol class="mslist">{"".join(li(i + 1, x) for i, x in enumerate(hot))}</ol>\n'
+           + (f'  <p class="msmore">이어서 {more}가 실립니다.</p>\n' if more else '')
+           + '  </div>\n  <p class="mslink"><a href="/subscribe/sample/" data-ev="subscribe:sample-full">메일 모양 그대로 보기</a></p>\n</section>')
+    full = re.sub(r'\?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=weekly-[0-9-]+', '', body).replace('{{{RESEND_UNSUBSCRIBE_URL}}}', '#')
+    assert 'utm_' not in full and 'RESEND_' not in full, '메일 견본 정리 실패'
+    full = full.replace('<head><meta charset="utf-8">', f'<head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="{SITE}/subscribe/">', 1)
+    full = re.sub(r'<title>.*?</title>', '<title>주간 메일 견본 · SHIFT AI</title>', full, count=1)
+    full = re.sub(r'(<body[^>]*>)', lambda m: m.group(1) + f'<div style="background:#111214;color:#fff;font-size:14px;line-height:1.6;padding:10px 16px;text-align:center">견본 · {lab} 기사로 만든 메일 모습입니다. <a href="/subscribe/" style="color:#fff;font-weight:700">구독 페이지로 돌아가기</a></div>', full, count=1)
+    os.makedirs(OUT + 'subscribe/sample', exist_ok=True); open(OUT + 'subscribe/sample/index.html', 'w').write(full)
+    return box
 if NL_LIVE:
     _sv = view('subscribe').replace('<!--SUBBOX-->', SUBBOX, 1)
     assert SUBBOX in _sv
+    try: _smp = _mail_sample()
+    except Exception as e: print('알림: 메일 견본을 못 만듦 →', repr(e)[:200]); _smp = ''
+    assert '<!--SAMPLE-->' in _sv; _sv = _sv.replace('<!--SAMPLE-->', _smp, 1)
     page('/subscribe/', 'subscribe', '주간 메일 구독 — 매주 월요일 이번 주 AI 핫 이슈 · SHIFT AI',
          '한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 매주 월요일 아침 7시에 메일 한 통으로 보냅니다. 기사마다 판정과 원문 링크. 무료이고 언제든 해지할 수 있습니다.',
          _sv.replace('</div>\n</main>', FOLLOWBOX + '\n</div>\n</main>'), OG_SITE, 'website', LD(crumbs(('주간 메일 구독', '/subscribe/'))))

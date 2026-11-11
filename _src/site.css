@@ -381,6 +381,27 @@ footer .fword{font-size:22vw;line-height:.78;font-weight:800;letter-spacing:-.07
 .submsg.bad{color:var(--accent)}
 .article .subbox,.narrow .subbox{grid-template-columns:1fr;gap:16px}
 @media (max-width:760px){.subbox{grid-template-columns:1fr;gap:16px;padding:22px}}
+.subbox .st p a.smpl{color:inherit;font-weight:600;white-space:nowrap;text-decoration:underline}
+.subconfirm .nxbox{margin:18px 0 0;background:var(--bg)}
+.mailsample{margin:44px 0 0}
+.mailsample .sec{margin-bottom:8px}
+.mailsample .msnote{margin:0 0 14px;color:var(--sub);font-size:15px}
+.mailsample .msframe{border:1px solid var(--line-strong);border-radius:14px;padding:6px 22px 16px;background:var(--bg)}
+.mailsample .mshead{display:flex;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:15.5px;line-height:1.5}
+.mailsample .mshead span{flex:none;font-size:12px;font-weight:700;color:var(--sub)}
+.mailsample .msintro{margin:14px 0 0;font-size:15.5px;line-height:1.75;color:var(--sub)}
+.mailsample .mslist{list-style:none;margin:6px 0 0;padding:0}
+.mailsample .mslist li{padding:16px 0;border-top:1px solid var(--line)}
+.mailsample .mslist li:first-child{border-top:0}
+.mailsample .msk{display:block;font-size:12.5px;font-weight:700;color:var(--accent)}
+.mailsample .msk .vd{font-style:normal;margin-left:8px}
+.mailsample .mslist a{display:block;margin-top:5px;font-size:17px;font-weight:700;line-height:1.45;color:var(--ink);text-decoration:none}
+.mailsample .mslist a:hover{text-decoration:underline}
+.mailsample .mslist p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:var(--sub)}
+.mailsample .msmore{margin:0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;color:var(--sub)}
+.mailsample .mslink{margin:12px 0 0;font-size:15px}
+.mailsample .mslink a{color:var(--ink);font-weight:600}
+@media (max-width:640px){.mailsample .msframe{padding:4px 16px 14px}}
 .subconfirm{background:var(--bg2);border-left:4px solid var(--accent);border-radius:10px;padding:20px 22px;margin:20px 0 0}
 .subconfirm h2{font-size:21px;margin:0 0 6px}
 .subconfirm p{margin:0 0 14px;color:var(--text);font-size:15px;line-height:1.7}
