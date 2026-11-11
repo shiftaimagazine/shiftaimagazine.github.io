@@ -16,7 +16,7 @@ lines = []
 say = lines.append
 
 def api(path, **q):
-    url = f'https://{SITE}.goatcounter.com/api/v0{path}?' + urllib.parse.urlencode(q)
+    url = f'https://{SITE}.goatcounter.com/api/v0{path}?' + urllib.parse.urlencode(q, doseq=True)
     for i in range(4):
         req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json', 'User-Agent': 'shift-stats-report'})
         try:
@@ -24,7 +24,7 @@ def api(path, **q):
         except urllib.error.HTTPError as e:
             if e.code == 429 and i < 3: time.sleep(int(e.headers.get('X-Rate-Limit-Reset') or 5) + 1); continue
             if e.code == 404:   # 그 기간에 기록이 하나도 없으면 GoatCounter 가 404 를 준다. 무슨 404 인지는 DIAG 에 남긴다
-                DIAG.append(f'{path}?{urllib.parse.urlencode(q)} → 404 {e.read()[:160]!r}'); return {}
+                DIAG.append(f'{path}?{urllib.parse.urlencode(q, doseq=True)} → 404 {e.read()[:160]!r}'); return {}
             raise RuntimeError(f'{path} → HTTP {e.code} {e.read()[:200]!r}')
     raise RuntimeError(f'{path} → 너무 많은 요청')
 
@@ -43,8 +43,16 @@ def hits(p):  # 상위 100개 경로(페이지·이벤트). 그보다 많으면 
             if d2.get('hits'): DIAG.append(f'대체 요청 {sorted(alt)} 로 목록 {len(d2["hits"])}개 받음'); d = d2; break
             DIAG.append(f'대체 요청 {sorted(alt)} 도 빈 값(키 {sorted(d2.keys())})')
     RAW[p] = d
+    out = list(d.get('hits') or [])
+    for _ in range(9):   # 경로가 100개를 넘으면 이미 받은 것을 빼고 이어서 받는다(최대 1,000개)
+        if not d.get('more') or not out: break
+        try: d = api('/stats/hits', limit=100, daily='true', exclude_paths=[h['path_id'] for h in out if h.get('path_id') is not None], **rng(p))
+        except Exception as e: DIAG.append(f'이어 받기 실패: {str(e)[:120]}'); break
+        new = [h for h in d.get('hits') or [] if h.get('path_id') not in {x.get('path_id') for x in out}]
+        if not new: break
+        out += new
     if d.get('more'): MORE.append(f'{p[0]}~{p[1]}')
-    return d.get('hits') or []
+    return out
 
 def pct(a, b): return '새로' if not b else f'{(a - b) / b * 100:+.0f}%'
 
@@ -98,7 +106,7 @@ try:
     say('== 들어온 곳 상위 20 (조회수)')
     for r in refs: say(f'  {r.get("count", 0):>6,}  {r.get("name") or "(직접 들어옴·알 수 없음)"}')
     say('')
-    if MORE: say('(경로가 100개를 넘어 상위 100개만 셌습니다: ' + ', '.join(MORE) + ')')
+    if MORE: say('(경로가 1,000개를 넘어 상위 1,000개만 셌습니다: ' + ', '.join(MORE) + ')')
     sizes = api('/stats/sizes', **rng(cur)).get('stats') or []
     st = sum(s.get('count', 0) for s in sizes) or 1
     SZ = {'phone': '휴대폰', 'largephone': '큰 휴대폰·작은 태블릿', 'tablet': '태블릿·작은 노트북', 'desktop': '컴퓨터', 'desktophd': '큰 모니터', 'unknown': '알 수 없음'}
