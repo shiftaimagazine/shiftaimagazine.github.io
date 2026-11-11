@@ -279,6 +279,18 @@ if __name__ == '__main__':
         ps = [x['href'] for x in sorted(TOOLS, key=lambda x: x['id']) if 'dict:' + t['t'] in (x.get('rel') or [])]
         ps = list(dict.fromkeys(list(TU.get(t['t'], [])) + ps))
         t['use'] = [_use(p) for p in ps if not (p.startswith('/tutorial/') and 't-' + p.split('/')[2] in t['tuts'])][:3]
+    # 용어 깊은 풀이(11/11~): news/term_more.json → t['more'] = {ex, diff[[말, 설명, 주소]], faq[[질문, 답]], src[[이름, 주소]]}
+    TM = J('term_more.json') if os.path.exists(N + 'term_more.json') else {}
+    _untag = lambda x: re.sub(r'<[^>]+>', '', x)
+    for k, m in TM.items():
+        if k == '_설명': continue
+        assert k in _term, ('term_more: AI 사전에 없는 용어', k)
+        assert set(m) <= {'ex', 'diff', 'faq', 'src'} and m.get('ex'), ('term_more 항목', k)
+        for _, ans in m.get('faq', []): assert not re.search(r'<(?!/?a\b)|<a (?!href="/[^"]*">)', ans), ('term_more FAQ 에는 <a href="/..."> 만', k)
+        for x in m.get('src', []): assert len(x) == 2 and x[1].startswith('https://'), ('term_more src 형식', k)
+        style_check('용어 풀이 ' + k, [m['ex']] + [x[1] for x in m.get('diff', [])] + [_untag(x[1]) for x in m.get('faq', [])])
+        _term[k]['more'] = {'ex': m['ex'], 'diff': [[n, d, (f"/dict/{_term[n]['s']}/" if n in _term else '')] for n, d in m.get('diff', [])],
+                            'faq': m.get('faq', []), 'src': m.get('src', [])}
     _vs = J('vs.json'); _vsv = _vs['services']
     VSL = [{'id': q['id'], 't': f"{_vsv[q['a']]['name']} vs {_vsv[q['b']]['name']}", 'k': [_vsv[q['a']]['dict'], _vsv[q['b']]['dict']]} for q in _vs['pairs']]
     DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS, 'VS': VSL,

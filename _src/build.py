@@ -445,7 +445,10 @@ for t in TERMS:
     if arts: ld['subjectOf'] = [{'@type': 'NewsArticle', 'headline': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for a in arts[:10]]
     og = og_from(img_of(arts[0]), 'a-' + arts[0]['id']) if arts else OG_SITE
     termLast[u] = max([a['date'] for a in arts] + [TERM_START])
-    page(u, 'w-' + t['s'], title, desc, ART, og, 'article' if arts else 'website', LD(ld, crumbs(('AI 사전', '/dict/'), (t['t'], u))))
+    _fq = (t.get('more') or {}).get('faq') or []
+    _fqld = [{'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub(r'href="/', f'href="{SITE}/', x)}} for q, x in _fq]}] if _fq else []
+    if t.get('more'): termLast[u] = max(termLast[u], '2026-11-11')
+    page(u, 'w-' + t['s'], title, desc, ART, og, 'article' if arts else 'website', LD(ld, crumbs(('AI 사전', '/dict/'), (t['t'], u)), *_fqld))
 
 # 404
 nf = '''<main id="v-404"><div class="notfound narrow"><h1>찾는 페이지가 없습니다</h1><p>주소가 바뀌었거나 지워진 글입니다. 아래에서 다시 찾아보세요.</p>
@@ -848,9 +851,9 @@ for g in GUIDES:
             + f'  <nav class="trel" aria-label="다른 길잡이"><h2>다른 일 찾기</h2><div class="trel-tools">{"".join(_card("/guide/" + x["id"] + "/", x["h1"], x["card"]) for x in GUIDES if x is not g)}</div></nav>\n'
             + f'{FOLLOWBOX}\n</article></main>')
     og = og_from(tuts[0]['thumb'], 'g-' + g['id']) if tuts and os.path.exists(OUT + tuts[0]['thumb']) else OG_SITE
-    mod = max([t.get('mod') or t['date'] for t in tuts] + [t.get('mod') or t['date'] for t in tools] + ['2026-11-03'])
+    mod = max([t.get('mod') or t['date'] for t in tuts] + [t.get('mod') or t['date'] for t in tools] + [g.get('date') or '2026-11-03'])
     GUIDE_LAST[u] = max([mod] + [a['date'] for a in rel])
-    ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': g['h1'], 'description': g['deck'], 'image': [f'{SITE}/{og}'], 'datePublished': kst('2026-11-03'), 'dateModified': kst(mod),
+    ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': g['h1'], 'description': g['deck'], 'image': [f'{SITE}/{og}'], 'datePublished': kst(g.get('date') or '2026-11-03'), 'dateModified': kst(mod),
           'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko'}
     fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': _abs(a)}} for q, a in faq]}
     page(u, 'guide-' + g['id'], g['title'] + ' · SHIFT AI', g['deck'], main, og, 'article', LD(*([ld, crumbs(('AI 길잡이', '/guide/'), (g['h1'], u))] + ([fq] if faq else []))))

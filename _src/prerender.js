@@ -28,7 +28,7 @@ server.listen(0, '127.0.0.1', async () => {
     const omit = (o, ks) => { const r = { ...o }; ks.forEach(k => delete r[k]); return r; };
     return { ARTICLES: ARTICLES.map(a => ({ ...omit(a, ['body', 'facts', 'sources', 'ask', 'try', 'sub', 'terms', 'who']), rm: readMin(a.body) })),
       TUTORIALS: TUTORIALS.map(t => ({ ...omit(t, ['items', 'limits', 'intro', 'bonus', 'quick', 'sources', 'master', 'why']), n: t.items.length, rd: tutRead(t) })),
-      TUT_CATS, TOOLS, AI_PRICES, RESOURCES, COLUMNS: COLUMNS.map(c => ({ ...omit(c, ['body']), rm: readMin(c.body) })), DAILY, TERMS, VS, ABOUT_CARD, FOLLOWBOX };
+      TUT_CATS, TOOLS, AI_PRICES, RESOURCES, COLUMNS: COLUMNS.map(c => ({ ...omit(c, ['body']), rm: readMin(c.body) })), DAILY, TERMS: TERMS.map(t => omit(t, ['more'])), VS, ABOUT_CARD, FOLLOWBOX };
   });
   fs.writeFileSync(path.join(OUT, 'assets/data-lite.js'), Object.entries(lite).map(([k, v]) => `const ${k} = ${JSON.stringify(v)};\n`).join(''));
   for (const p of pages) {

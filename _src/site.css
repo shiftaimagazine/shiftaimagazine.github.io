@@ -612,6 +612,22 @@ html.theme-anim,html.theme-anim *{transition:background-color .35s ease,border-c
 .term-page .tdef p.ten span{flex:none;font-size:13px;color:var(--sub)}
 .term-page .tdef p.ten i{font-style:normal;font-weight:600}
 .term-page .usebox{margin-top:16px}
+.term-page .tmore .sec{margin-top:30px}
+.term-page .tmore .tex{margin:0;font-size:17px;line-height:1.85;color:var(--ink)}
+.term-page .tdiff{margin:0}
+.term-page .tdiff>div{padding:14px 0;border-top:1px solid var(--line)}
+.term-page .tdiff>div:first-child{border-top:0;padding-top:4px}
+.term-page .tdiff dt{font-weight:700;font-size:16px}
+.term-page .tdiff dt a{color:var(--ink)}
+.term-page .tdiff dd{margin:5px 0 0;font-size:15.5px;line-height:1.75;color:var(--sub)}
+.term-page .tfaq details{border-top:1px solid var(--line);padding:14px 0}
+.term-page .tfaq details:first-child{border-top:0;padding-top:4px}
+.term-page .tfaq summary{cursor:pointer;font-weight:700;font-size:16px;line-height:1.5}
+.term-page .tfaq p{margin:8px 0 0;font-size:15.5px;line-height:1.75;color:var(--sub)}
+.term-page .tfaq p a{color:var(--ink)}
+.term-page .tsrc{margin:22px 0 0;font-size:13.5px;color:var(--sub);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.term-page .tsrc b{font-size:12.5px}
+.term-page .tsrc a{color:var(--sub)}
 .term-page .sec h2 small{font-size:14px;color:var(--sub);font-weight:600;margin-left:6px}
 .term-page .sec{margin-top:36px}
 .term dt a{color:inherit;text-decoration:none}
