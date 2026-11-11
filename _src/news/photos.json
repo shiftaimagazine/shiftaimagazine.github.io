@@ -408,5 +408,23 @@
   "credit": "이미지: Google DeepMind",
   "alt": "알파프루프 코드와 시그널 프로토콜 검증 이미지",
   "auto": true
+ },
+ "2026-11-12-gemini-intelligence-pixel-motorola": {
+  "src": "img/ph/2026-11-12-gemini-intelligence-pixel-motorola.webp",
+  "credit": "이미지: Google",
+  "alt": "제미나이 인텔리전스 모토로라 시그니처 27 대표 이미지",
+  "auto": true
+ },
+ "2026-11-12-gemini-robotics-2-5": {
+  "src": "img/ph/2026-11-12-gemini-robotics-2-5.webp",
+  "credit": "이미지: Google DeepMind",
+  "alt": "제미나이 로보틱스 2.5 대표 이미지",
+  "auto": true
+ },
+ "2026-11-12-nvidia-openshell-cncf": {
+  "src": "img/ph/2026-11-12-nvidia-openshell-cncf.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 쿠버콘 오픈셸 기증 대표 이미지",
+  "auto": true
  }
 }
