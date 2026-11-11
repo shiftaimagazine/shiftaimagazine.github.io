@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=b3fda7fe"></script>
+<script src="/assets/theme.js?v=165141ce"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -32,16 +32,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=b3fda7fe">
+<link rel="stylesheet" href="/assets/site.css?v=165141ce">
 </head>
-<body data-route="w-api" id="top" data-pre="1">
+<body data-route="w-api" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
 <header class="bleed">
   <div class="topbar">
     <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
     <nav class="main" aria-label="목차">
       <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
-      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="false" aria-current="false">따라 하기</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
       <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
       <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
     </nav>
@@ -68,13 +68,14 @@
       <a href="/weekly/" data-sub="weekly">주간 판정</a>
       <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
     </div></nav>
-    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴"><div class="sub-in">
       <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
       <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
       <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
       <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
       <a href="/tips/" data-sub="tips">실용 팁</a>
       <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+      <a href="/dict/" data-sub="dict" aria-current="page">AI 사전</a>
     </div></nav>
     <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
       <a href="/tools/" data-sub="tools">전체 도구</a>
@@ -106,6 +107,7 @@
     <div class="tdef"><b>뜻</b><p>프로그램끼리 기능을 주고받는 창구입니다. AI 회사는 모델을 API로 팔고, 개발자는 이를 불러 자기 앱에 AI 기능을 붙입니다. 보통 쓴 만큼(토큰 단위) 돈을&nbsp;냅니다.</p></div>
     <nav class="nxbox usebox" aria-label="바로 써 보기"><b>‘API’ 바로&nbsp;써&nbsp;보기</b><a href="/tools/ai-cost/" data-ev="dict-use:/tools/ai-cost/"><span>무료 도구</span>AI 요금 계산기&nbsp;(원화)</a></nav>
     
+    <p class="tdl"><b>비교해서 보기</b><a href="/dict/diff/api-vs-mcp/" data-ev="dict-diff:/dict/diff/api-vs-mcp/">API와 MCP&nbsp;차이</a></p>
     <div class="sec"><h2>API 관련 기사 <small>4건</small></h2></div><div class="list"><a class="post" href="/news/2026-11-07-gemini-omni-1-2-flash/"><img class="thumb" src="img/ph/2026-11-07-gemini-omni-1-2-flash.webp" alt="제미나이 옴니 1.2 플래시 소개 대표 이미지" fetchpriority="high">
   <div class="b"><span class="cat">모델⁠·제품<span class="vd vd-watch">지켜보세요</span></span><h3><span class="tphw"><span class="tph">제미나이 옴니&nbsp;1.2&nbsp;플래시,</span> <span class="tph">15초 영상</span></span></h3><p>제미나이 옴니&nbsp;1.2 플래시(Gemini Omni&nbsp;1.2 Flash)⁠는 구글 딥마인드가 11월 5일 정식 출시한 동영상 생성⁠·편집 모델입니다. 영상은 최대 15초로 늘었고 720p 가격은 초당&nbsp;0.07달러로 내려갔습니다.</p><div class="meta"><span>2026.11.07</span><span class="dot"></span><span>3분 읽기</span></div></div></a><a class="post" href="/news/2026-10-31-mistral-large-4-open-weights/"><img class="thumb" src="img/ph/2026-10-31-mistral-large-4-open-weights.webp" alt="미스트랄 라지 4 발표 표지 이미지" loading="lazy">
   <div class="b"><span class="cat">모델⁠·제품<span class="vd vd-watch">지켜보세요</span></span><h3><span class="tphw"><span class="tph"> 미스트랄&nbsp;라지&nbsp;4,</span> <span class="tph">1조 파라미터 가중치&nbsp;공개</span></span></h3><p>미스트랄 라지 4(Mistral Large 4)⁠의 가중치가 허깅페이스에 올라왔습니다. 10월 6일 미리 보기로 나온 1조 파라미터 멀티모달 모델을 이제 직접 내려받아 자기 서버에서 돌리거나 API로 쓸 수 있습니다.</p><div class="meta"><span>2026.10.31</span><span class="dot"></span><span>3분 읽기</span></div></div></a><a class="post" href="/news/2026-10-27-gpt-6-1-terra/"><img class="thumb" src="img/ph/2026-10-27-gpt-6-1-terra.webp" alt="오픈AI GPT-6.1 테라 공식 대표 이미지" loading="lazy">
@@ -153,8 +155,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=b3fda7fe"></script>
-<script src="/assets/app.js?v=b3fda7fe"></script>
+<script src="/assets/data-lite.js?v=165141ce"></script>
+<script src="/assets/app.js?v=165141ce"></script>
 
 
 </body></html>

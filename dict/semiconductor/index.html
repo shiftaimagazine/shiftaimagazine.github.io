@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=b3fda7fe"></script>
+<script src="/assets/theme.js?v=165141ce"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -33,16 +33,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=b3fda7fe">
+<link rel="stylesheet" href="/assets/site.css?v=165141ce">
 </head>
-<body data-route="w-semiconductor" id="top" data-pre="1">
+<body data-route="w-semiconductor" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
 <header class="bleed">
   <div class="topbar">
     <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
     <nav class="main" aria-label="목차">
       <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
-      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="false" aria-current="false">따라 하기</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
       <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
       <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
     </nav>
@@ -69,13 +69,14 @@
       <a href="/weekly/" data-sub="weekly">주간 판정</a>
       <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
     </div></nav>
-    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴"><div class="sub-in">
       <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
       <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
       <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
       <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
       <a href="/tips/" data-sub="tips">실용 팁</a>
       <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+      <a href="/dict/" data-sub="dict" aria-current="page">AI 사전</a>
     </div></nav>
     <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
       <a href="/tools/" data-sub="tools">전체 도구</a>
@@ -112,6 +113,7 @@
     <div class="sec"><h2>자주 묻는&nbsp;질문</h2></div><div class="tfaq"><details><summary>반도체는 영어로 어떻게&nbsp;쓰나요?</summary><p>Semiconductor라고 씁니다. 칩⁠(chip)⁠이라고도 부릅니다.</p></details><details><summary>AI와 반도체는 왜 같이 나오나요?</summary><p>모델을 학습시키고 돌리는 GPU와 메모리가 모두 반도체이기 때문입니다.</p></details></div>
     
   </section>
+    
     
     
     <div class="sec"><h2>함께 보면 좋은&nbsp;용어</h2></div><dl class="terms"><div class="term"><dt><a href="/dict/data-center/">데이터센터</a><small>Data center</small></dt><dd>AI 모델이 실제로 돌아가는 서버 건물입니다. 큰 모델은 칩 여러 장에 나눠 실어야 해서 칩 사이 통신 속도가 성능을 좌우합니다.</dd></div><div class="term"><dt><a href="/dict/digital-twin/">디지털 트윈</a><small>Digital Twin</small></dt><dd>실제 공장이나 도시, 건물을 컴퓨터 안에 똑같이 옮겨 놓고 시뮬레이션하는 모델입니다. 계획을 현실에 적용하기 전에 결과를 미리 확인하는 데&nbsp;씁니다.</dd></div><div class="term"><dt><a href="/dict/server/">서버</a><small>Server</small></dt><dd>요청을 받아 계산하고 결과를 돌려주는 컴퓨터입니다. 챗봇에 질문하면 답은 회사 서버(대개 데이터센터 안)⁠에서 만들어집니다.</dd></div><div class="term"><dt><a href="/dict/on-device-ai/">온디바이스 AI</a><small>On-device AI</small></dt><dd>서버 대신 스마트폰⁠·노트북 안에서 바로 돌아가는 AI입니다. 데이터가 기기 밖으로 나가지 않는 것이 장점입니다.</dd></div><div class="term"><dt><a href="/dict/wearable/">웨어러블</a><small>Wearable</small></dt><dd>스마트워치나 스마트 링처럼 몸에 착용하고 심박 같은 신체 신호를 재는 기기입니다.</dd></div><div class="term"><dt><a href="/dict/wafer/">웨이퍼</a><small>Wafer</small></dt><dd>반도체 칩을 찍어 내는 얇고 둥근 실리콘 판입니다. 세레브라스는 웨이퍼 한 장을 통째로 칩 하나로 써서 모델을 빠르게 돌립니다.</dd></div><div class="term"><dt><a href="/dict/web-hosting/">웹 호스팅</a><small>Web hosting</small></dt><dd>웹사이트 파일을 올려 두고 인터넷에 24시간 보여 주는 서버를 빌려주는 서비스입니다. 업체에 따라 PHP⁠·워드프레스 업데이트를 대신 해 주기도&nbsp;합니다.</dd></div><div class="term"><dt><a href="/dict/latency/">지연 시간</a><small>Latency</small></dt><dd>요청을 보내고 응답이 오기까지 걸리는 시간입니다. 음성 비서처럼 실시간 대화에서는 몇백 밀리초 차이도 체감됩니다.</dd></div></dl>
@@ -155,8 +157,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=b3fda7fe"></script>
-<script src="/assets/app.js?v=b3fda7fe"></script>
+<script src="/assets/data-lite.js?v=165141ce"></script>
+<script src="/assets/app.js?v=165141ce"></script>
 
 
 </body></html>

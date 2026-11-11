@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com https://shift-newsletter.shiftaimagazine.workers.dev; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>머신러닝과 딥러닝 차이 — 데이터로 배우는 방법, 그중 신경망을 깊게 쌓는 방식 · SHIFT AI 사전</title>
+<meta name="description" content="머신러닝은 데이터에서 규칙을 스스로 찾게 하는 방법 전체이고 딥러닝은 그 가운데 여러 층의 신경망을 쓰는 방식입니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/dict/diff/machine-learning-vs-deep-learning/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="머신러닝과 딥러닝 차이 — 데이터로 배우는 방법, 그중 신경망을 깊게 쌓는 방식 · SHIFT AI 사전">
+<meta property="og:description" content="머신러닝은 데이터에서 규칙을 스스로 찾게 하는 방법 전체이고 딥러닝은 그 가운데 여러 층의 신경망을 쓰는 방식입니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/dict/diff/machine-learning-vs-deep-learning/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/site.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=165141ce"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "머신러닝과 딥러닝 차이", "description": "머신러닝은 데이터에서 규칙을 스스로 찾게 하는 방법 전체이고 딥러닝은 그 가운데 여러 층의 신경망을 쓰는 방식입니다.", "image": ["https://shiftaimagazine.com/og/site.jpg"], "datePublished": "2026-11-11T09:00:00+09:00", "dateModified": "2026-11-11T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI MAGAZINE", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "mainEntityOfPage": "https://shiftaimagazine.com/dict/diff/machine-learning-vs-deep-learning/", "inLanguage": "ko", "about": [{"@type": "DefinedTerm", "name": "머신러닝", "url": "https://shiftaimagazine.com/dict/machine-learning/"}, {"@type": "DefinedTerm", "name": "딥러닝", "url": "https://shiftaimagazine.com/dict/deep-learning/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 사전", "item": "https://shiftaimagazine.com/dict/"}, {"@type": "ListItem", "position": 3, "name": "헷갈리는 말", "item": "https://shiftaimagazine.com/dict/diff/"}, {"@type": "ListItem", "position": 4, "name": "머신러닝과 딥러닝 차이", "item": "https://shiftaimagazine.com/dict/diff/machine-learning-vs-deep-learning/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI, 머신러닝, 딥러닝 가운데 가장 넓은 말은 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "인공지능이 가장 넓습니다. 그 안에 머신러닝이 있고 다시 그 안에 딥러닝이 있습니다."}}, {"@type": "Question", "name": "딥러닝의 딥은 무슨 뜻인가요?", "acceptedAnswer": {"@type": "Answer", "text": "신경망의 층을 깊게, 곧 여러 겹으로 쌓았다는 뜻입니다."}}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=165141ce">
+</head>
+<body data-route="diff-machine-learning-vs-deep-learning" id="top" class="has-sub" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <div class="sw" role="group" aria-label="SHIFT 매거진 바꾸기"><span aria-current="true">AI</span><a href="https://play.shiftaimagazine.com/?from=ai-header" title="SHIFT PLAY · 게임 뉴스·칼럼 매거진" data-ev="switch:play">PLAY</a></div>
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <details class="fol" id="fol">
+        <summary class="btn pill" aria-label="SHIFT 팔로우: 인스타그램·유튜브·스레드 고르기" aria-haspopup="true" aria-expanded="false">팔로우</summary>
+        <div class="folm" role="menu" aria-label="SHIFT 팔로우">
+          <a role="menuitem" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-ev="follow:ig"><i class="fi fi-ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></i><span><b>인스타그램</b><small>30초 영상으로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-ev="follow:yt"><i class="fi fi-yt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"></rect><path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"></path></svg></i><span><b>유튜브</b><small>쇼츠로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-ev="follow:th"><i class="fi fi-th" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"></circle><path d="M15.6 12v1.4a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.6 7.1"></path></svg></i><span><b>스레드</b><small>그날 나온 소식을 가장&nbsp;먼저</small></span></a>
+          <a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></i><span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식&nbsp;한&nbsp;통</small></span></a>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴" hidden=""><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴"><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/tips/" data-sub="tips">실용 팁</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+      <a href="/dict/" data-sub="dict" aria-current="page">AI 사전</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-diff"><article class="article narrow guide tdiffp">
+  <a class="back" href="/dict/diff/">← 헷갈리는 AI&nbsp;용어</a>
+  <span class="cat">AI 사전&nbsp;· 헷갈리는&nbsp;말</span>
+  <h1>머신러닝과 딥러닝, 무엇이 다른가요</h1>
+  <p class="deck">머신러닝은 데이터에서 규칙을 스스로 찾게 하는 방법 전체이고 딥러닝은 그 가운데 여러 층의 신경망을 쓰는 방식입니다.</p>
+  <div class="tbl"><table class="dtable tdifft"><thead><tr><th></th><th>머신러닝</th><th>딥러닝</th></tr></thead><tbody><tr><td>범위</td><td>데이터로&nbsp;학습하는&nbsp;방법&nbsp;전체</td><td>&nbsp;머신러닝의&nbsp;한&nbsp;갈래</td></tr><tr><td>배우는&nbsp;방식</td><td>사람이 고른 특징을 보고 규칙을 찾는 방법이&nbsp;많음</td><td>여러 층의 신경망이 특징까지 스스로&nbsp;찾음</td></tr><tr><td>필요한&nbsp;것</td><td>비교적 적은 데이터와 계산으로도&nbsp;가능</td><td>많은 데이터와 GPU 같은 계산&nbsp;자원</td></tr><tr><td>쓰이는&nbsp;곳</td><td>스팸&nbsp;분류,&nbsp;수요&nbsp;예측,&nbsp;추천</td><td>이미지 인식, 번역, 음성 인식,&nbsp;챗봇</td></tr></tbody></table></div>
+  <p class="tdiffb">포함 관계로 보면 인공지능 안에 머신러닝이 있고 머신러닝 안에 딥러닝이 있습니다. 챗GPT 같은 LLM은 딥러닝으로 만든 모델입니다.</p>
+  <p class="tdiffb">딥러닝이 언제나 더 나은 선택은 아닙니다. 표로 정리된 숫자 데이터처럼 양이 많지 않고 구조가 분명한 문제에서는 가벼운 머신러닝 방법이 더 빠르고 싸게 쓰입니다.</p>
+  <div class="sec"><h2> 한&nbsp;줄&nbsp;뜻</h2></div>
+  <dl class="terms"><div class="term"><dt><a href="/dict/machine-learning/">머신러닝</a><small>Machine learning</small></dt><dd>사람이 규칙을 일일이 짜 주는 대신 컴퓨터가 데이터에서 규칙을 스스로 찾게 하는 방법입니다. AI를 만드는 가장 대표적인 방식입니다.</dd></div><div class="term"><dt><a href="/dict/deep-learning/">딥러닝</a><small>Deep learning</small></dt><dd>여러 층으로 쌓은 신경망으로 학습하는 머신러닝입니다. 이미지 인식⁠·번역⁠·챗봇 같은 최근 AI 대부분이 딥러닝입니다.</dd></div></dl>
+<section class="tfaq" id="faq">
+    <h2>자주 묻는&nbsp;질문</h2>
+    <details><summary>AI, 머신러닝, 딥러닝 가운데 가장 넓은 말은 무엇인가요?</summary><p>인공지능이 가장 넓습니다. 그 안에 머신러닝이 있고 다시 그 안에 딥러닝이 있습니다.</p></details>
+    <details><summary>딥러닝의 딥은 무슨 뜻인가요?</summary><p>신경망의 층을 깊게, 곧 여러 겹으로 쌓았다는 뜻입니다.</p></details>
+  </section>
+  <div class="sec"><h2>이어서 보기</h2></div>
+  <div class="trel-tools"><a href="/dict/neural-network/"><b>신경망 뜻</b><span>뇌의 신경세포 연결을 본떠 만든 계산 구조입니다. 숫자를 층층이 주고받으며 패턴을 배웁니다.</span></a><a href="/dict/artificial-intelligence-ai/"><b>인공지능 뜻</b><span>사람처럼 보고 듣고 말하고 판단하는 일을 컴퓨터가 하도록 만드는 기술 전체를 이르는 말입니다. 요즘 'AI'라고 하면 대개 챗GPT 같은 생성형 AI를 가리킵니다.</span></a><a href="/dict/llm/"><b>LLM 뜻</b><span>대규모 언어 모델입니다. 방대한 글로 학습해 글을 읽고 쓰는 AI로, 챗GPT⁠·클로드⁠·제미나이가 대표적입니다.</span></a></div>
+  <nav class="trel" aria-label="다른 비교"><h2>다른 헷갈리는&nbsp;말</h2><div class="trel-tools"><a href="/dict/diff/agent-vs-chatbot/"><b>에이전트와 챗봇&nbsp;차이</b><span>챗봇은 질문에 답을 돌려주는 데서 끝나고 에이전트는 목표를 받아 필요한 일을 여러 단계로 직접 처리합니다.</span></a><a href="/dict/diff/rag-vs-fine-tuning/"><b>RAG와 파인튜닝&nbsp;차이</b><span>RAG는 답할 때마다 자료를 찾아 읽게 하는 방식이고 파인튜닝은 모델 자체를 추가로 학습시키는 방식입니다.</span></a><a href="/dict/diff/llm-vs-generative-ai/"><b>LLM과 생성형 AI&nbsp;차이</b><span>생성형 AI는 새 콘텐츠를 만들어 내는 AI 전체를 가리키고 LLM은 그 가운데 글을 읽고 쓰는 모델입니다.</span></a><a href="/dict/diff/api-vs-mcp/"><b>API와 MCP&nbsp;차이</b><span>API는 프로그램끼리 기능을 주고받는 창구 전반을 말하고 MCP는 AI가 바깥 앱과 도구에 접속할 때 쓰는 공통 규격입니다.</span></a></div></nav>
+<section class="followbox">
+  <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI&nbsp;·&nbsp;쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+</article></main>
+<section class="subbox" aria-label="주간 메일 구독">
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다. <a class="smpl" href="/subscribe/#sample" data-ev="subscribe:sample-link">어떤 메일인지 먼저&nbsp;보기</a></p></div>
+  <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
+    <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
+    <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <label class="agree"><input type="checkbox" name="agree" required=""> <span>[필수] 이메일 주소 수집⁠·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required=""> <span>[필수] 개인정보 국외 이전(미국 Resend⁠·Cloudflare)⁠에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend⁠·Cloudflare로 전송⁠·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
+    <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
+    <p class="submsg" role="status" aria-live="polite"></p>
+  </form>
+</section></div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fsw"><span class="fsw-k">SHIFT 매거진&nbsp;바꾸기</span><div class="fsw-t" role="group" aria-label="SHIFT 매거진 바꾸기"><span class="on-ai" aria-current="true">SHIFT AI</span><a class="to-play" href="https://play.shiftaimagazine.com/?from=ai-footer">SHIFT PLAY</a></div><p>지금 보는 곳&nbsp;· 일하는 사람을 위한 AI&nbsp;매거진</p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/tips/">실용 팁</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="/subscribe/">주간 메일</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span class="ai">A</span><span class="ai">I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=165141ce"></script>
+<script src="/assets/app.js?v=165141ce"></script>
+
+
+</body></html>

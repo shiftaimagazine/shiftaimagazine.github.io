@@ -596,6 +596,7 @@ function renderTerm(t){
     <div class="tdef"><b>${brand?"한 줄 소개":"뜻"}</b><p>${esc(t.d)}</p>${!brand&&t.en&&/[가-힣]/.test(t.t)&&!t.t.toLowerCase().includes(t.en.toLowerCase())?`<p class="ten"><span>영어 표기</span><i lang="en">${esc(t.en)}</i></p>`:""}</div>
     ${t.use&&t.use.length?`<nav class="nxbox usebox" aria-label="바로 써 보기"><b>‘${esc(t.t)}’ 바로 써 보기</b>${t.use.map(([k,h,n])=>`<a href="${esc(h)}" data-ev="dict-use:${esc(h)}"><span>${esc(k)}</span>${esc(n)}</a>`).join("")}</nav>`:""}
     ${termMore(t)}
+    ${t.dl&&t.dl.length?`<p class="tdl"><b>비교해서 보기</b>${t.dl.map(([n,h])=>`<a href="${esc(h)}" data-ev="dict-diff:${esc(h)}">${esc(n)}</a>`).join("")}</p>`:""}
     ${arts.length?`<div class="sec"><h2>${esc(t.t)} ${brand?"최신 소식":"관련 기사"} <small>${arts.length}건</small></h2></div><div class="list">${arts.map(postHTML).join("")}</div>`:""}
     ${tuts.length?`<div class="sec"><h2>${esc(t.t)} 튜토리얼</h2></div><div class="list">${tuts.map(tutHTML).join("")}</div>`:""}
     ${co.length?`<div class="sec"><h2>함께 보면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
@@ -786,7 +787,7 @@ init();
   const nav=document.querySelector("nav.main"), box=$("#subnav"); if(!nav||!box) return;
   const r=ROUTE, cat=new URLSearchParams(location.search).get("cat")||"";
   const grp = /^(daily|news|verdict)$|^(a|c|d)-|^weekly/.test(r) ? "news"
-    : /^(tutorial|prompts|guide|vs|tips)$|^t-|^guide-|^vs-/.test(r) ? "learn"
+    : /^(tutorial|prompts|guide|vs|tips|dict|diff)$|^t-|^guide-|^vs-|^w-|^diff-/.test(r) ? "learn"
     : r==="tools"||r.startsWith("tool-") ? "tools"
     : /^(about|privacy|subscribe)$/.test(r) ? "about" : "";
   const sub = r==="daily"||r.startsWith("d-") ? "daily"
@@ -794,7 +795,7 @@ init();
     : r==="news"||r.startsWith("a-") ? "news"
     : r.startsWith("weekly") ? "weekly" : r==="verdict" ? "verdict"
     : r==="tutorial"||r.startsWith("t-") ? "tutorial" : r==="guide-start" ? "guide-start" : r.startsWith("guide") ? "guide"
-    : r==="prompts" ? "prompts" : r==="tips" ? "tips" : r.startsWith("vs") ? "vs"
+    : r==="prompts" ? "prompts" : r==="tips" ? "tips" : r==="dict"||r.startsWith("w-")||r.startsWith("diff") ? "dict" : r.startsWith("vs") ? "vs"
     : r==="tools" ? (cat?"tc:"+cat:"tools") : r.startsWith("tool-") ? "tools"
     : r==="about" ? "about" : r==="privacy" ? "privacy" : "";
   const tabs=[...nav.querySelectorAll("[data-grp]")], rows=[...box.querySelectorAll(".sub")];
