@@ -23,7 +23,8 @@ def api(path, **q):
             with urllib.request.urlopen(req, timeout=40) as r: return json.load(r)
         except urllib.error.HTTPError as e:
             if e.code == 429 and i < 3: time.sleep(int(e.headers.get('X-Rate-Limit-Reset') or 5) + 1); continue
-            if e.code == 404: return {}   # 그 기간에 기록이 하나도 없으면 GoatCounter 가 404 를 준다
+            if e.code == 404:   # 그 기간에 기록이 하나도 없으면 GoatCounter 가 404 를 준다. 무슨 404 인지는 DIAG 에 남긴다
+                DIAG.append(f'{path}?{urllib.parse.urlencode(q)} → 404 {e.read()[:160]!r}'); return {}
             raise RuntimeError(f'{path} → HTTP {e.code} {e.read()[:200]!r}')
     raise RuntimeError(f'{path} → 너무 많은 요청')
 
@@ -32,9 +33,15 @@ def rng(p):  # 한국 날짜 하루 전체를 UTC 시각(정시)으로
     return {'start': a.strftime('%Y-%m-%dT%H:%M:%SZ'), 'end': b.strftime('%Y-%m-%dT%H:%M:%SZ')}
 def cnt(h): return h.get('count') if h.get('count') is not None else (h.get('count_unique') or sum((s.get('daily') or 0) for s in h.get('stats') or []))
 
-MORE = []; RAW = {}
+MORE = []; RAW = {}; DIAG = []
 def hits(p):  # 상위 100개 경로(페이지·이벤트). 그보다 많으면 보고서에 적는다
     d = api('/stats/hits', limit=100, **rng(p))
+    if not d.get('hits'):   # 2026-11-09: 합계는 있는데 목록이 비어 옴 → 다른 요청 모양으로 다시 받아 본다
+        for alt in ({'limit': 100, 'daily': 'true', **rng(p)}, {'limit': 20, **rng(p)}, rng(p), {'limit': 100}):
+            try: d2 = api('/stats/hits', **alt)
+            except Exception as e: DIAG.append(f'대체 요청 {sorted(alt)} 실패: {str(e)[:120]}'); continue
+            if d2.get('hits'): DIAG.append(f'대체 요청 {sorted(alt)} 로 목록 {len(d2["hits"])}개 받음'); d = d2; break
+            DIAG.append(f'대체 요청 {sorted(alt)} 도 빈 값(키 {sorted(d2.keys())})')
     RAW[p] = d
     if d.get('more'): MORE.append(f'{p[0]}~{p[1]}')
     return d.get('hits') or []
@@ -60,6 +67,7 @@ try:
     if not hc:
         d = RAW.get(cur) or {}
         say(f'   (페이지 목록이 비어 있음 — 응답 키 {sorted(d.keys())}, total={d.get("total")}, more={d.get("more")})')
+    for x in DIAG[:12]: say(f'   [진단] {x}')
     pm = {h['path']: cnt(h) for h in pv(hp)}
     say('== 많이 본 페이지 상위 20 (조회수 · 지난주 대비)')
     for h in sorted(pv(hc), key=cnt, reverse=True)[:20]:
