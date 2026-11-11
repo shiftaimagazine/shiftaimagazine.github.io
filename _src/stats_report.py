@@ -71,7 +71,7 @@ try:
     say(f'== 페이지 조회수: {tc:,} (지난주 {tp:,}, {pct(tc, tp)})')
     try:   # 날짜별 합계(/stats/total). 페이지 목록과 따로 읽어 서로 맞는지 볼 수 있다
         t = api('/stats/total', **rng(cur)) or {}
-        say(f'== 전체 합계(/stats/total): 조회 {t.get("total", 0):,} · 이벤트 {t.get("total_events", 0):,}')
+        say(f'== 전체 합계(/stats/total): {t.get("total", 0):,} = 페이지 조회 {t.get("total", 0) - t.get("total_events", 0):,} + 이벤트 {t.get("total_events", 0):,}  (위 페이지 조회수와 같아야 맞음)')
         days = [(s.get('day'), s.get('daily', 0)) for s in t.get('stats') or []]
         if days: say('   날짜별: ' + ' · '.join(f'{d[5:]} {n:,}' for d, n in days))
     except Exception as e:
