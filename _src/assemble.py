@@ -293,6 +293,11 @@ if __name__ == '__main__':
                             'faq': m.get('faq', []), 'src': m.get('src', [])}
     # 헷갈리는 용어 비교(11/11~): news/term_diff.json → /dict/diff/<id>/ (build.py 가 그림). 두 용어 페이지에 이 글로 가는 링크(t['dl'])를 붙인다.
     TD = J('term_diff.json')['diffs'] if os.path.exists(N + 'term_diff.json') else []
+    for x in (J('term_diff.json').get('also') or []) if os.path.exists(N + 'term_diff.json') else []:
+        assert x.get('t') and re.fullmatch(r'/column/[a-z0-9-]+/', x.get('u', '')) and any('c-' + x['u'].split('/')[2] == c['id'] for c in cols), ('term_diff also: 없는 칼럼 주소', x.get('u'))
+        for k in x['terms']:
+            assert k in _term, ('term_diff also: 사전에 없는 용어', k)
+            _term[k].setdefault('dl', []).append([x['t'], x['u']])
     assert len({d['id'] for d in TD}) == len(TD), 'term_diff id 겹침'
     for d in TD:
         assert re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', d.get('id', '')) and d.get('a') in _term and d.get('b') in _term, ('term_diff: id 형식이나 사전에 없는 용어', d.get('id'))
