@@ -87,7 +87,7 @@ try:
     for h in ev(hp): ep[h['path']] += cnt(h)
     groups = [('tool-use:', '무료 도구 사용(페이지에서 처음 넣거나 누름)'), ('tool-run:', '무료 도구 실행 버튼'), ('tool-done:', '무료 도구 결과 가져감(복사·저장)'),
               ('copy-prompt:', '프롬프트 복사'), ('copy-link:', '링크 복사'), ('fa-find:', '무료 대체 프로그램 찾음'), ('fa-none', '대체 프로그램 못 찾음'),
-              ('next:', '기사 끝 \'함께 보면 좋은 콘텐츠\' 클릭(간 곳)'), ('out:', '밖으로 나간 링크(사이트)'), ('fix-report:', '틀린 곳 알려 주기 누름')]
+              ('next:', '기사 끝 \'함께 보면 좋은 콘텐츠\' 클릭(간 곳)'), ('dict-use:', 'AI 사전 \'바로 써 보기\' 클릭(간 곳)'), ('out:', '밖으로 나간 링크(사이트)'), ('fix-report:', '틀린 곳 알려 주기 누름')]
     for pre, label in groups:
         items = [(k, v) for k, v in em.items() if k.startswith(pre)]
         tot, totp = sum(v for _, v in items), sum(v for k, v in ep.items() if k.startswith(pre))

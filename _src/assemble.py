@@ -262,6 +262,23 @@ if __name__ == '__main__':
         t['arts'] = arts[:20]
         t['tuts'] = [x['id'] for x in TUTS if any(n and n.lower() == k.lower() for k in x['tool'] for n in (t['t'], t.get('en')))
                      or (t['g'] == '제품·회사' and _named(t, x['title']))][:6]
+    # 용어 페이지 '바로 써 보기'(11/11~): news/term_use.json + tools.json rel 의 'dict:용어' 를 거꾸로. 이미 '튜토리얼' 칸에 나오는 것은 뺀다. 최대 3개.
+    TU = J('term_use.json') if os.path.exists(N + 'term_use.json') else {}
+    _gpage = {f"/guide/{g['id']}/": g for g in GD['guides'] if g.get('page')}
+    _thref = {x['href']: x for x in TOOLS}
+    def _use(p):
+        if p.startswith('/tutorial/') and 't-' + p.split('/')[2] in _tid: return ['튜토리얼', p, _tid['t-' + p.split('/')[2]]['title']]
+        if p in _thref: return ['무료 도구', p, _thref[p]['title']]
+        if p in _gpage: return ['AI 길잡이', p, _gpage[p]['h1']]
+        if p == '/prompts/': return ['프롬프트', p, '복붙 프롬프트 모음']
+        if p == '/vs/': return ['AI 서비스 비교', p, '챗GPT·클로드·제미나이·그록 둘씩 비교']
+        raise AssertionError(('term_use 에 없는 주소', p))
+    for k in TU:
+        assert k == '_설명' or k in _term, ('term_use: AI 사전에 없는 용어', k)
+    for t in TERMS:
+        ps = [x['href'] for x in sorted(TOOLS, key=lambda x: x['id']) if 'dict:' + t['t'] in (x.get('rel') or [])]
+        ps = list(dict.fromkeys(list(TU.get(t['t'], [])) + ps))
+        t['use'] = [_use(p) for p in ps if not (p.startswith('/tutorial/') and 't-' + p.split('/')[2] in t['tuts'])][:3]
     _vs = J('vs.json'); _vsv = _vs['services']
     VSL = [{'id': q['id'], 't': f"{_vsv[q['a']]['name']} vs {_vsv[q['b']]['name']}", 'k': [_vsv[q['a']]['dict'], _vsv[q['b']]['dict']]} for q in _vs['pairs']]
     DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS, 'VS': VSL,

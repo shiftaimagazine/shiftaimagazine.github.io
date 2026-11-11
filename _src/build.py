@@ -397,8 +397,13 @@ termLast = {}
 for t in TERMS:
     u = f"/dict/{t['s']}/"; arts = [byId[i] for i in t['arts'] if i in byId]; brand = t['g'] == '제품·회사'
     en = f"({t['en']})" if t.get('en') and t['en'] != t['t'] else ''
-    title = (f"{t['t']}{en} — 뜻과 최신 소식" if brand and arts else f"{t['t']}{en} 뜻 — 쉽게 풀이한 AI 용어") + ' · SHIFT AI 사전'
-    desc = (f"{t['t']}{en}: " if brand else f"{t['t']}{en} 뜻: ") + t['d'] + (f" 관련 기사 {len(arts)}건을 함께 모았습니다." if arts else ' SHIFT AI 사전에서 쉬운 말로 풀었습니다.')
+    # 11/11: 이름에 이미 괄호가 있으면(공익법인(PBC) …) 괄호를 겹치지 않고 영어 이름을 뒤에 둔다. 한글 용어는 설명에 '영어로 …' 를 넣는다("에이전트 영어로" 같은 검색).
+    par = '(' in t['t'] and bool(en); ko = bool(en) and bool(re.search('[가-힣]', t['t']))
+    ent = '' if t.get('en', '').lower() in t['t'].lower() else t['en'] + ', '   # 린(Lean) 처럼 이름에 영어가 이미 있으면 다시 적지 않는다
+    if par: title = (f"{t['t']} — {ent}뜻과 최신 소식" if brand and arts else f"{t['t']} 뜻 — {ent}쉽게 풀이한 AI 용어") + ' · SHIFT AI 사전'
+    else: title = (f"{t['t']}{en} — 뜻과 최신 소식" if brand and arts else f"{t['t']}{en} 뜻 — 쉽게 풀이한 AI 용어") + ' · SHIFT AI 사전'
+    head = (f"{t['t']}{'' if par else en}: " if brand else f"{t['t']} 뜻(영어로 {t['en']}): " if ko and ent else f"{t['t']}{'' if par else en} 뜻: ")
+    desc = head + t['d'] + (f" 관련 기사 {len(arts)}건을 함께 모았습니다." if arts else ' SHIFT AI 사전에서 쉬운 말로 풀었습니다.')
     ld = {'@context': 'https://schema.org', '@type': 'DefinedTerm', 'name': t['t'], 'description': t['d'], 'url': SITE + u, 'inDefinedTermSet': TERMSET, 'inLanguage': 'ko'}
     if t.get('en') and t['en'] != t['t']: ld['alternateName'] = t['en']
     if arts: ld['subjectOf'] = [{'@type': 'NewsArticle', 'headline': a['title'], 'url': f"{SITE}/news/{a['id']}/"} for a in arts[:10]]
