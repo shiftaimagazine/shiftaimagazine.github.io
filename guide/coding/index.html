@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com https://shift-newsletter.shiftaimagazine.workers.dev; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>클로드 코드 시작하기 — 설치·스킬·MCP·한도 아끼기(코딩 몰라도) · SHIFT AI</title>
+<meta name="description" content="클로드 코드(Claude Code)는 말로 시키면 코드를 읽고 고치고 명령까지 실행하는 앤트로픽의 코딩 에이전트입니다. 터미널을 처음 여는 사람 기준으로 설치하고, 스킬과 MCP 서버를 붙이고, 한도를 아끼는 순서로 묶었습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/guide/coding/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="클로드 코드 시작하기 — 설치·스킬·MCP·한도 아끼기(코딩 몰라도) · SHIFT AI">
+<meta property="og:description" content="클로드 코드(Claude Code)는 말로 시키면 코드를 읽고 고치고 명령까지 실행하는 앤트로픽의 코딩 에이전트입니다. 터미널을 처음 여는 사람 기준으로 설치하고, 스킬과 MCP 서버를 붙이고, 한도를 아끼는 순서로 묶었습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/guide/coding/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/g-coding.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=f4f751ed"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "클로드 코드, 처음부터 시작하기", "description": "클로드 코드(Claude Code)는 말로 시키면 코드를 읽고 고치고 명령까지 실행하는 앤트로픽의 코딩 에이전트입니다. 터미널을 처음 여는 사람 기준으로 설치하고, 스킬과 MCP 서버를 붙이고, 한도를 아끼는 순서로 묶었습니다.", "image": ["https://shiftaimagazine.com/og/g-coding.jpg"], "datePublished": "2026-11-11T09:00:00+09:00", "dateModified": "2026-11-11T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI MAGAZINE", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "mainEntityOfPage": "https://shiftaimagazine.com/guide/coding/", "inLanguage": "ko"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 길잡이", "item": "https://shiftaimagazine.com/guide/"}, {"@type": "ListItem", "position": 3, "name": "클로드 코드, 처음부터 시작하기", "item": "https://shiftaimagazine.com/guide/coding/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "코딩을 몰라도 쓸 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "첫 튜토리얼은 터미널을 처음 여는 사람 기준으로 썼습니다. 폴더 속 파일 정리나 CSV 합치기 같은 사무 작업부터 맡겨 봅니다."}}, {"@type": "Question", "name": "스킬과 MCP 서버는 무엇이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "스킬은 Claude에게 일하는 방법을 알려 주는 SKILL.md 폴더입니다. MCP 서버는 Claude Code를 바깥 도구와 이어 주는 프로그램입니다. 뜻은 AI 사전의 <a href=\"https://shiftaimagazine.com/dict/skill/\">스킬</a>과 <a href=\"https://shiftaimagazine.com/dict/mcp/\">MCP</a>에서도 볼 수 있습니다."}}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=f4f751ed">
+</head>
+<body data-route="guide-coding" id="top" class="has-sub" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <div class="sw" role="group" aria-label="SHIFT 매거진 바꾸기"><span aria-current="true">AI</span><a href="https://play.shiftaimagazine.com/?from=ai-header" title="SHIFT PLAY · 게임 뉴스·칼럼 매거진" data-ev="switch:play">PLAY</a></div>
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <details class="fol" id="fol">
+        <summary class="btn pill" aria-label="SHIFT 팔로우: 인스타그램·유튜브·스레드 고르기" aria-haspopup="true" aria-expanded="false">팔로우</summary>
+        <div class="folm" role="menu" aria-label="SHIFT 팔로우">
+          <a role="menuitem" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-ev="follow:ig"><i class="fi fi-ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></i><span><b>인스타그램</b><small>30초 영상으로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-ev="follow:yt"><i class="fi fi-yt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"></rect><path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"></path></svg></i><span><b>유튜브</b><small>쇼츠로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-ev="follow:th"><i class="fi fi-th" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"></circle><path d="M15.6 12v1.4a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.6 7.1"></path></svg></i><span><b>스레드</b><small>그날 나온 소식을 가장&nbsp;먼저</small></span></a>
+          <a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></i><span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식&nbsp;한&nbsp;통</small></span></a>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴" hidden=""><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴"><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
+      <a href="/guide/" data-sub="guide" aria-current="page">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-guide"><article class="article narrow guide">
+  <a class="back" href="/guide/">← AI&nbsp;길잡이</a>
+  <span class="cat">AI 길잡이&nbsp;· 일 단위로&nbsp;찾기</span>
+  <h1>클로드 코드, 처음부터 시작하기</h1>
+  <p class="deck">클로드 코드(Claude Code)⁠는 말로 시키면 코드를 읽고 고치고 명령까지 실행하는 앤트로픽의 코딩 에이전트입니다. 터미널을 처음 여는 사람 기준으로 설치하고, 스킬과 MCP 서버를 붙이고, 한도를 아끼는 순서로 묶었습니다.</p>
+  <div class="sec"><h2>이 순서로 하면&nbsp;됩니다</h2></div>
+  <ol class="gsteps"><li><b>설치하고 읽기 작업부터</b><p>터미널을 열어 설치하고 연습용 폴더에서 로그인합니다. 첫 작업은 읽기만 시키고, 파일을 바꾸는 일은 허락을 묻는 화면을 보면서 맡깁니다. <a href="/tutorial/claude-code-first/"> 자세히&nbsp;보기&nbsp;→</a></p></li><li><b>스킬과 MCP 서버&nbsp;붙이기</b><p>스킬은 일하는 방법을 알려 주는 SKILL.md 폴더이고 MCP 서버는 클로드 코드를 바깥 도구와 이어 주는 프로그램입니다. 공식 문서의 명령으로 설치부터 삭제까지 따라갑니다. <a href="/tutorial/claude-code-skills-mcp/"> 자세히&nbsp;보기&nbsp;→</a></p></li><li><b>한도와 토큰&nbsp;아끼기</b><p>따로 설치하는 도구 없이 클로드 코드에 들어 있는 명령과 설정만으로 한도를 아낍니다. 어디에 많이 쓰는지부터 보고 대화와 지시 파일을 가볍게 유지합니다. <a href="/tutorial/claude-code-save-usage/"> 자세히&nbsp;보기&nbsp;→</a></p></li><li><b>내 직무에 맞는 스킬&nbsp;고르기</b><p>개발자용은 계획 세우기, 테스트 먼저 짜기, 디버깅 습관을 잡는 스킬을 골랐습니다. 마케터⁠·기획자⁠·디자이너용 글도 튜토리얼에 따로 있습니다. <a href="/tutorial/skills-developer/"> 자세히&nbsp;보기&nbsp;→</a></p></li></ol>
+  <div class="sec"><h2>복사해서 바로 쓰는 프롬프트</h2><a class="more" href="/prompts/"> 프롬프트&nbsp;모음&nbsp;→</a></div>
+  <div class="gprs"><div class="pr gpr"><b>첫 작업은&nbsp;읽기만</b><div class="pt">이 폴더에 어떤 파일들이 있는지 종류별로 정리해서 알려줘. 파일 이름 규칙이 제각각이면 어떤 규칙으로 통일하면 좋을지 제안만 해 줘. 아직 아무것도 바꾸거나 지우지&nbsp;마.</div><div class="pra"><button class="copy dark" data-copy="이 폴더에 어떤 파일들이 있는지 종류별로 정리해서 알려줘. 파일 이름 규칙이 제각각이면 어떤 규칙으로 통일하면 좋을지 제안만 해 줘. 아직 아무것도 바꾸거나 지우지 마.">복사하기</button><a href="/tutorial/claude-code-first/">나온 글: 코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업,&nbsp;7단계</a></div></div><div class="pr gpr"><b>바꾸는 일은 허락을&nbsp;보며</b><div class="pt">이 폴더의 사진 파일 이름을 '촬영날짜_원래이름' 형식으로 바꿔 줘. 날짜는 사진 정보에서 읽고, 날짜가 없는 파일은 그대로 둬. 바꾸기 전에 바뀔 이름 목록을 먼저 보여 주고, 내가 좋다고 하면 그때 바꿔. 어떤 파일도 지우지&nbsp;마.</div><div class="pra"><button class="copy dark" data-copy="이 폴더의 사진 파일 이름을 '촬영날짜_원래이름' 형식으로 바꿔 줘. 날짜는 사진 정보에서 읽고, 날짜가 없는 파일은 그대로 둬. 바꾸기 전에 바뀔 이름 목록을 먼저 보여 주고, 내가 좋다고 하면 그때 바꿔. 어떤 파일도 지우지 마.">복사하기</button><a href="/tutorial/claude-code-first/">나온 글: 코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업,&nbsp;7단계</a></div></div></div>
+  <div class="sec"><h2>자세히 따라&nbsp;하기</h2></div>
+  <div class="trel-tools"><a href="/tutorial/claude-code-first/"><b>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업,&nbsp;7단계</b><span>터미널을 처음 여는 사람 기준으로 클로드 코드를 설치하고 로그인합니다. 폴더 속 파일 정리, CSV 합치기 같은 사무 작업을 맡겨 봅니다. 허락을 묻는 방식과 되돌리기 어려운 일을 막는 습관도 함께 다룹니다.</span></a><a href="/tutorial/claude-code-skills-mcp/"><b>클로드 코드에 스킬⁠⁠·MCP 붙이는 법, 설치부터 떼기까지&nbsp;8단계</b><span>스킬은 Claude에게 일하는 방법을 알려 주는 SKILL.md 폴더입니다. MCP 서버는 Claude Code를 바깥 도구와 이어 주는 프로그램입니다. 앤트로픽 공식 스킬 저장소와 Playwright MCP를 예로 설치부터 삭제까지 공식 문서의 명령으로 따라갑니다.</span></a><a href="/tutorial/claude-code-save-usage/"><b>클로드 코드 한도가 금방 바닥난다면, 기본 기능만으로 오래 쓰는&nbsp;7단계</b><span>따로 설치하는 도구 없이 클로드 코드에 들어 있는 명령과 설정만으로 한도와 토큰을 아낍니다. 어디에 많이 쓰는지부터 보고 대화와 지시 파일을 가볍게 유지하는 순서로 갑니다. 모두 공식 문서에서 확인했습니다.</span></a><a href="/tutorial/skills-developer/"><b>개발자가 깔아 두면 좋은 AI 스킬 7개, 계획⁠⁠·테스트⁠⁠·디버깅⁠⁠·보안 점검까지</b><span>계획 세우기, 테스트 먼저 짜기, 체계적인 디버깅, 끝내기 전 확인까지 코딩 에이전트의 습관을 잡는 스킬을 골랐습니다. 별 30만 개의 superpowers와 앤트로픽⁠·버셀⁠·트레일 오브 비츠 공식 스킬이 중심입니다.</span></a><a href="/tutorial/skills-pm/"><b>기획자⁠⁠·PM이 깔아 두면 좋은 AI 스킬 7개, 기획서⁠⁠·인터뷰 정리⁠⁠·로드맵⁠⁠·보고까지</b><span>기획서⁠(PRD) 쓰기, 사용자 인터뷰 정리, 로드맵, 이해관계자 보고에 쓰는 스킬을 골랐습니다. 앤트로픽 공식 product-management 플러그인과 별 2만 8천 개의 PM 스킬 모음이 중심입니다.</span></a><a href="/tutorial/skills-marketer/"><b>마케터가 깔아 두면 좋은 AI 스킬 7개, 카피⁠⁠·SEO⁠⁠·캠페인⁠⁠·브랜드 검수까지</b><span>랜딩 페이지 카피, SEO 점검, 광고 소재, 이메일 시퀀스, 캠페인 기획, 브랜드 톤 검수에 쓰는 GitHub 스킬을 골랐습니다. 앤트로픽 공식 마케팅 플러그인과 별 4만 개가 넘는 마케팅 스킬 모음이 중심입니다.</span></a></div>
+  <div class="box"><b>먼저 알아&nbsp;둘&nbsp;것</b><ul class="plain"><li>명령은 공식 문서 기준이며 편집부가 이 글을 위해 새로 설치해 보지는 않았습니다. 설치 방식과 화면은 업데이트로 바뀔 수 있습니다.</li><li>편집부는 이 작업 공간에서 claude 명령을 실행할 수 없어서 claude, /plugin, /mcp 명령은 2026년 10월 27일 기준 공식 문서와 README에서 옮겼고 실행해 보지는 못했습니다. 7단계의 claude mcp remove playwright처럼 문서의 문법에 이 글의 이름을 넣은 명령도 마찬가지입니다. 화면 이름과 출력은 버전에 따라 달라질 수 있습니다.</li><li>명령과 설정은 2026년 10월 27일 공식 문서에서 확인했고 직접 실행해 보지는 않았습니다. 화면이나 이름이 다르면 claude -⁠-⁠version으로 버전을 확인하고 공식 문서를 다시&nbsp;봅니다.</li></ul></div>
+  <div class="sec"><h2>관련 기사와&nbsp;판정</h2></div>
+  <ul class="plain wkrest"><li><a href="/news/2026-11-11-claude-code-settings-secrets/">클로드 코드 설정 파일 1,122개에 비밀 노출</a>&nbsp;· 지켜보세요</li><li><a href="/news/2026-11-09-anthropic-scientists-use-claude/">과학자는 클로드를 어디에&nbsp;쓰나</a></li><li><a href="/news/2026-11-05-postman-agent-plugins-autoinstall/">포스트맨, 클로드 코드 플러그인 자동 설치 의혹</a>&nbsp;· 지켜보세요</li><li><a href="/news/2026-11-05-apple-age-rating-dating-companion/">앱스토어 연령 등급에 ‘데이팅과 관계’ 신설</a>&nbsp;· 지켜보세요</li><li><a href="/news/2026-11-03-linux-7-4-rc1-ai-fixes/">리눅스&nbsp;7.4-rc1&nbsp;공개, AI 수정이&nbsp;한몫</a></li><li><a href="/news/2026-11-02-deepseek-dsh-superagent/">딥시크 dsh-superagent 공개</a>&nbsp;· 지켜보세요</li></ul>
+<section class="tfaq" id="faq">
+    <h2>자주 묻는&nbsp;질문</h2>
+    <details><summary>코딩을 몰라도 쓸 수&nbsp;있나요?</summary><p>첫 튜토리얼은 터미널을 처음 여는 사람 기준으로 썼습니다. 폴더 속 파일 정리나 CSV 합치기 같은 사무 작업부터 맡겨&nbsp;봅니다.</p></details>
+    <details><summary>스킬과 MCP 서버는 무엇이 다른가요?</summary><p>스킬은 Claude에게 일하는 방법을 알려 주는 SKILL.md 폴더입니다. MCP 서버는 Claude Code를 바깥 도구와 이어 주는 프로그램입니다. 뜻은 AI 사전의 <a href="/dict/skill/">스킬</a>과 <a href="/dict/mcp/">MCP</a>에서도 볼 수 있습니다.</p></details>
+  </section>
+  <nav class="trel" aria-label="다른 길잡이"><h2> 다른&nbsp;일&nbsp;찾기</h2><div class="trel-tools"><a href="/guide/start/"><b>AI 처음이라면, 이&nbsp;순서로</b><span>용어부터 첫 프롬프트, 답 확인, 설정까지&nbsp;7단계</span></a><a href="/guide/meeting-notes/"><b>회의록 정리, AI로&nbsp;하는&nbsp;법</b><span>녹취록을 결정⁠·할 일⁠·미결로 나누고 영어 회의는 한국어 자막으로</span></a><a href="/guide/pdf-summary/"><b>PDF⁠⁠·긴 자료, AI로 요약하고 근거 확인하기</b><span>PDF 글자를 먼저 뽑아 보고 자료 안에서만 답하게&nbsp;묻기</span></a><a href="/guide/email-reply/"><b>곤란한 메일 답장, AI로 초안&nbsp;잡기</b><span>거절⁠·사과⁠·독촉 메일을 상황별 프롬프트로 초안부터</span></a><a href="/guide/excel-ai/"><b>엑셀⁠⁠·구글 시트, AI로 수식 만들고 데이터 정리하기</b><span>표 구조를 설명해 수식을 받고 개인정보는 가린 사본으로</span></a><a href="/guide/privacy/"><b>개인정보 지키며 AI&nbsp;쓰기</b><span>학습 설정을 점검하고 올리기 전에&nbsp;가리기</span></a><a href="/guide/verify-ai/"><b>AI 답, 믿기 전에 확인하는&nbsp;법</b><span>숫자마다 출처를 붙이게 하고 다른 AI로 교차&nbsp;검증</span></a><a href="/guide/resume/"><b>이력서⁠⁠·자기소개서, AI로 검토받기</b><span>공고와 맞대 보고 글자 수와 AI 티까지&nbsp;점검</span></a><a href="/guide/ai-cost-save/"><b>AI 구독료⁠⁠·사용료&nbsp;줄이기</b><span>지금 내는 구독료 합계와 무료로 되는 기능부터&nbsp;확인</span></a><a href="/guide/presentation/"><b>발표 자료, AI로 뼈대&nbsp;잡기</b><span>청중과 남길 한 문장을 정하고 목차⁠·반론⁠·대본 순서로</span></a><a href="/guide/study/"><b>AI로 공부하기</b><span>답 대신 질문을 받고 오답 노트와 퀴즈로&nbsp;복습</span></a><a href="/guide/automation/"><b>n8n으로 반복 업무 자동화하기</b><span>매일 아침 요약 메일부터 문의 답장 초안까지</span></a><a href="/guide/video/"><b>AI로 쇼츠⁠⁠·영상&nbsp;만들기</b><span>대본은 프롬프트로, 화면은 코드와 AI 이미지로</span></a><a href="/guide/security/"><b>내 사이트와 AI 계정, 보안 점검하기</b><span>자동 업데이트 켜고 학습 설정⁠·사진 위치까지</span></a></div></nav>
+<section class="followbox">
+  <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI&nbsp;·&nbsp;쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+</article></main>
+<section class="subbox" aria-label="주간 메일 구독">
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다. <a class="smpl" href="/subscribe/#sample" data-ev="subscribe:sample-link">어떤 메일인지 먼저&nbsp;보기</a></p></div>
+  <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
+    <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
+    <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <label class="agree"><input type="checkbox" name="agree" required=""> <span>[필수] 이메일 주소 수집⁠·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required=""> <span>[필수] 개인정보 국외 이전(미국 Resend⁠·Cloudflare)⁠에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend⁠·Cloudflare로 전송⁠·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
+    <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
+    <p class="submsg" role="status" aria-live="polite"></p>
+  </form>
+</section></div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fsw"><span class="fsw-k">SHIFT 매거진&nbsp;바꾸기</span><div class="fsw-t" role="group" aria-label="SHIFT 매거진 바꾸기"><span class="on-ai" aria-current="true">SHIFT AI</span><a class="to-play" href="https://play.shiftaimagazine.com/?from=ai-footer">SHIFT PLAY</a></div><p>지금 보는 곳&nbsp;· 일하는 사람을 위한 AI&nbsp;매거진</p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="/subscribe/">주간 메일</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span class="ai">A</span><span class="ai">I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=f4f751ed"></script>
+<script src="/assets/app.js?v=f4f751ed"></script>
+
+
+</body></html>

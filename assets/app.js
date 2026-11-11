@@ -578,6 +578,14 @@ function renderDaily(d){
 // AI 사전 용어 한 개 = 한 페이지(/dict/<s>/): 뜻 + 관련 기사·튜토리얼 + 함께 보면 좋은 용어
 const termCo = t=>{ const mine=new Set(t.arts); const sc=TERMS.filter(x=>x!==t).map(x=>[x, x.arts.filter(i=>mine.has(i)).length*3 + (x.g===t.g?1:0)]);
   return sc.filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1] || a[0].t.localeCompare(b[0].t,"ko")).slice(0,8).map(([x])=>x); };
+// 용어 깊은 풀이(11/11~, news/term_more.json): 쉽게 말하면 · 헷갈리는 말 · 자주 묻는 질문 · 확인한 곳. 답(faq)은 assemble 이 <a href="/..."> 만 남게 검사한 글이라 그대로 넣는다.
+const termMore = t=>{ const m=t.more; if(!m) return "";
+  return `<section class="tmore">
+    <div class="sec"><h2>쉽게 말하면</h2></div><p class="tex">${esc(m.ex)}</p>
+    ${m.diff.length?`<div class="sec"><h2>헷갈리는 말</h2></div><dl class="tdiff">${m.diff.map(([n,d,h])=>`<div><dt>${h?`<a href="${esc(h)}">${esc(n)}</a>`:esc(n)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl>`:""}
+    ${m.faq.length?`<div class="sec"><h2>자주 묻는 질문</h2></div><div class="tfaq">${m.faq.map(([q,ans])=>`<details><summary>${esc(q)}</summary><p>${ans}</p></details>`).join("")}</div>`:""}
+    ${m.src.length?`<p class="tsrc"><b>확인한 곳</b>${m.src.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")}</p>`:""}
+  </section>`; };
 function renderTerm(t){
   const arts=t.arts.map(i=>byId[i]).filter(Boolean), tuts=t.tuts.map(i=>tutById[i]).filter(Boolean), co=termCo(t);
   const brand = t.g==="제품·회사";
@@ -587,6 +595,7 @@ function renderTerm(t){
     <h1>${esc(t.t)}${t.en&&t.en!==t.t?`<small>${esc(t.en)}</small>`:""}</h1>
     <div class="tdef"><b>${brand?"한 줄 소개":"뜻"}</b><p>${esc(t.d)}</p>${!brand&&t.en&&/[가-힣]/.test(t.t)&&!t.t.toLowerCase().includes(t.en.toLowerCase())?`<p class="ten"><span>영어 표기</span><i lang="en">${esc(t.en)}</i></p>`:""}</div>
     ${t.use&&t.use.length?`<nav class="nxbox usebox" aria-label="바로 써 보기"><b>‘${esc(t.t)}’ 바로 써 보기</b>${t.use.map(([k,h,n])=>`<a href="${esc(h)}" data-ev="dict-use:${esc(h)}"><span>${esc(k)}</span>${esc(n)}</a>`).join("")}</nav>`:""}
+    ${termMore(t)}
     ${arts.length?`<div class="sec"><h2>${esc(t.t)} ${brand?"최신 소식":"관련 기사"} <small>${arts.length}건</small></h2></div><div class="list">${arts.map(postHTML).join("")}</div>`:""}
     ${tuts.length?`<div class="sec"><h2>${esc(t.t)} 튜토리얼</h2></div><div class="list">${tuts.map(tutHTML).join("")}</div>`:""}
     ${co.length?`<div class="sec"><h2>함께 보면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
@@ -784,7 +793,7 @@ init();
     : r.startsWith("c-")||(r==="news"&&cat==="칼럼") ? "column"
     : r==="news"||r.startsWith("a-") ? "news"
     : r.startsWith("weekly") ? "weekly" : r==="verdict" ? "verdict"
-    : r==="tutorial"||r.startsWith("t-") ? "tutorial" : r.startsWith("guide") ? "guide"
+    : r==="tutorial"||r.startsWith("t-") ? "tutorial" : r==="guide-start" ? "guide-start" : r.startsWith("guide") ? "guide"
     : r==="prompts" ? "prompts" : r.startsWith("vs") ? "vs"
     : r==="tools" ? (cat?"tc:"+cat:"tools") : r.startsWith("tool-") ? "tools"
     : r==="about" ? "about" : r==="privacy" ? "privacy" : "";

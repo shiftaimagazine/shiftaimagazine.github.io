@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=6f4b72bb"></script>
+<script src="/assets/theme.js?v=f4f751ed"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=6f4b72bb">
+<link rel="stylesheet" href="/assets/site.css?v=f4f751ed">
 </head>
 <body data-route="a-2026-11-06-anthropic-flashprove" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -72,6 +72,7 @@
     </div></nav>
     <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
       <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
       <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
       <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
       <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
@@ -111,7 +112,7 @@
     <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>모델 가중치에 대한 약속값을 먼저 공개.</b> 응답마다 '약속한 모델이 이 토큰을 냈다'는 증명을&nbsp;붙임</li><li><b>H100&nbsp;한 대에서 초당 약 110토큰.</b> 요청 하나(1,024토큰)⁠당 증명은 약 19MB</li><li><b>아직 연구용 프로토타입.</b> MoE 구조와 맥락 1,024토큰까지만 증명</li></ul></div>
     <div class="body"><p class="lead"><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="앤트로픽">앤트로픽</span>(Anthropic)⁠의 프런티어 레드팀(Frontier Red Team)⁠이 AI 답변이 개발사가 말한 특정 모델에서 나왔다는 것을 암호로 증명하는 프로토타입 '플래시프루브(FlashProve)'를 공개했습니다. 글은 미국 시각 11월 2일에 올라와 3일에 고쳐졌고, 코드는 Apache&nbsp;2.0 라이선스의 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="오픈소스">오픈소스</span>입니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정&nbsp;· 지켜보세요</i><span>연구용 프로토타입이라 MoE 구조와 맥락 1,024토큰까지만 증명할 수 있습니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>내가 쓰는 AI 서비스의 도움말에서 답변을 만든 모델 이름을 어디서 확인하는지 찾아보고, 앤트로픽 원문의 한계 목록도 읽어&nbsp;보세요.</span></div><ul><li><b>모델 가중치에 대한 약속값을 먼저 공개.</b> 응답마다 '약속한 모델이 이 토큰을 냈다'는 증명을&nbsp;붙임</li><li><b>H100&nbsp;한 대에서 초당 약 110토큰.</b> 요청 하나(1,024토큰)⁠당 증명은 약 19MB</li><li><b>아직 연구용 프로토타입.</b> MoE 구조와 맥락 1,024토큰까지만 증명</li></ul></div><h3>답변을 만든 모델을 사용자가 확인할 방법이 없었습니다</h3><p>글은 지금의 AI 서비스에서 사용자가 응답이 개발사가 주장하는 특정 모델에서 나왔는지 직접 확인할 수 없다는 문제에서 출발합니다. 플래시프루브는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="영지식 증명">영지식 증명</span>(zkSNARK) 방식으로 이 문제를 푸는 '증명 가능한 추론(provable inference)' 시스템이고, 앤트로픽은 각주에서 앞으로 '추론 검증(inference verification)'이라는 말을 쓰겠다고 적었습니다. 모델 구조는 가중치를 뺀 나머지가 감춰지지 않습니다.</p><h3>약속값 한 번, 증명은 요청마다</h3><p>준비 단계에서는 모델을 돌리는 쪽이 가중치에 대한 약속값(commitment)⁠을 공개하며, 모델 하나에 약 39분이 걸리고 약 1,600만 건의 요청을 덮습니다. 요청이 들어오면 약속한 모델이 이 출력 토큰을 낸다는 증명을 만들고, 사용자 쪽 검증은 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="GPU">GPU</span> 없이 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="CPU">CPU</span>로 합니다. 내려받을 데이터는 모두 합쳐 약&nbsp;6.5MB에 요청마다 증명 하나이고, 검증에는 24스레드로 17초, 스레드 하나로 21초가 걸렸습니다.</p><h3>4000억 개 모델에서 잰 속도와&nbsp;비용</h3><p>시험에는 메타의 라마 4 매버릭(Llama 4 Maverick)⁠을 4비트로 바꾼 버전을 썼습니다. 전체 파라미터가 4,000억 개이고 토큰마다 약 170억 개를 쓰는 MoE 모델입니다. 80GB GPU 한 대와 호스트 메모리 약 290GB에서 초당 약 110토큰의 증명이 나왔고, 1,024토큰 요청 하나의 증명은 약 19MB(18.78MB)⁠였습니다. 같은 모델을 H100&nbsp;여덟 대에서 vLLM FP8로 돌릴 때와 비교한 계산량은 GPU당 약 72배(실행마다 66~77배)⁠이고, 부하가 가장 높은 조건에서는 약 94배였습니다(자체 발표&nbsp;기준).</p><div class="tbl"><table class="dtable"><thead><tr><th>항목</th><th>값</th><th>조건</th></tr></thead><tbody><tr><td>증명&nbsp;생성&nbsp;속도</td><td>약&nbsp;110토큰⁠/⁠초</td><td>H100&nbsp;1대</td></tr><tr><td>증명&nbsp;크기</td><td>약&nbsp;19MB</td><td>1,024토큰&nbsp;요청&nbsp;1건</td></tr><tr><td>일반&nbsp;추론&nbsp;대비&nbsp;계산량</td><td>약&nbsp;72배</td><td>24건&nbsp;묶음,&nbsp;GPU당</td></tr><tr><td>검증&nbsp;시간</td><td>17초</td><td>CPU&nbsp;24스레드</td></tr><tr><td>준비&nbsp;단계</td><td>약&nbsp;39분</td><td>모델&nbsp;1개</td></tr></tbody></table></div><div class="note">출처 앤트로픽 리서치 블로그(2026-11-02), 자체 발표&nbsp;기준</div><h3>글이 직접 적은&nbsp;한계</h3><p>앤트로픽은 이번 공개가 연구 프로토타입이라고 밝히고 한계를 나열했습니다. 빠른 실행 코드에는 형식 검증 보장이 없고(Lean 검증기는 있지만 C++ 검증기는 보장이 없습니다), 증명 대상은 정수 모델의 탐욕적 디코딩이라 부동소수점이나 샘플링 응답은 어느 위치에서 어긋날 수 있습니다. MoE 구조만 지원하고 맥락은 1,024토큰까지이며 부채널 공격은 이번 범위 밖입니다. 모델 가중치는 포함되지 않아서 사용자가 허깅페이스에서 메타의 라마 4 라이선스로 따로 받아야 합니다. 기술 보고서와 프로토콜 명세, 코드는 앤트로픽의 깃허브(anthropics/FlashProve)⁠에 올라와 있고 한국어 지원이나 서비스 적용 일정은 글에 없습니다.</p></div>
     <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>쓰고 있는 AI 서비스가 실제로 어떤 모델로 답하는지 확인할 방법을 알고 계신가요?</div>
-    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/tutorial/auto-update-site/" data-ev="next:/tutorial/auto-update-site/"><span>튜토리얼</span>워드프레스⁠·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는&nbsp;9단계</a><a href="/tools/redact/" data-ev="next:/tools/redact/"><span>무료 도구</span>개인정보 자동&nbsp;가리기</a><a href="/dict/anthropic/" data-ev="next:/dict/anthropic/"><span>AI 사전</span>앤트로픽 뜻</a></nav>
+    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/guide/security/" data-ev="next:/guide/security/"><span>길잡이</span>내 사이트와 AI 계정, 보안 점검하기</a><a href="/tutorial/auto-update-site/" data-ev="next:/tutorial/auto-update-site/"><span>튜토리얼</span>워드프레스⁠·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는&nbsp;9단계</a><a href="/tools/redact/" data-ev="next:/tools/redact/"><span>무료 도구</span>개인정보 자동&nbsp;가리기</a></nav>
     <div class="src"><b>원문</b><a href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noopener">앤트로픽 리서치 — Progress on provable inference for large language models&nbsp;· https://www.anthropic.com/research/provable-inference</a></div>
     <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>앤트로픽 프런티어&nbsp;레드팀</td></tr><tr><th>날짜</th><td>2026년 11월 2일(미국 시각 게시, 3일&nbsp;수정)</td></tr><tr><th>무엇</th><td>플래시프루브, 모델 응답의 출처를 증명하는 프로토타입</td></tr><tr><th>핵심 숫자</th><td>H100 1대에서 초당 약 110토큰, 요청당 증명 약 19MB</td></tr><tr><th>공개 범위</th><td>Apache&nbsp;2.0 오픈소스(코드⁠·Lean 증명⁠·문서)</td></tr><tr><th>원문</th><td>앤트로픽 리서치&nbsp;블로그</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noopener">앤트로픽 리서치 — Progress on provable inference for large language models</a></div></details></div>
     
@@ -158,8 +159,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=6f4b72bb"></script>
-<script src="/assets/app.js?v=6f4b72bb"></script>
+<script src="/assets/data-lite.js?v=f4f751ed"></script>
+<script src="/assets/app.js?v=f4f751ed"></script>
 
 
 </body></html>
