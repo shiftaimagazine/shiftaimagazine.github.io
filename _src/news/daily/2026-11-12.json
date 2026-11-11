@@ -1,0 +1,564 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-12-gemini-intelligence-pixel-motorola",
+   "cat": "모델·제품",
+   "date": "2026-11-12",
+   "time": "06:46",
+   "title": "제미나이 인텔리전스, 픽셀 10·모토로라로",
+   "sub": "램블러·위젯 만들기 등 새 기능 · 모토로라 시그니처 27은 11월 19일 미국 예약 · 작업 자동화 영국·인도·일본 확대",
+   "hook": "구글이 11월 10일(미국 시각) 제미나이 인텔리전스(Gemini Intelligence)를 모토로라 시그니처 27과 픽셀 10 계열로 넓히고 램블러, 위젯 만들기 같은 새 기능을 발표했습니다. 한국 출시 일정은 원문에 없습니다.",
+   "try": "픽셀 10이나 갤럭시 S26을 쓴다면 설정에서 제미나이 인텔리전스 기능이 켜지는지 확인하고, 말로 위젯 하나를 만들어 보세요.",
+   "who": "픽셀이나 갤럭시 S26 같은 안드로이드 최신 기기를 쓰는 분",
+   "verdict": {
+    "v": "watch",
+    "why": "기능 대부분이 일부 국가·언어 한정이고 한국 일정은 원문에 나오지 않습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글(Google) 안드로이드 AI 팀"
+    ],
+    [
+     "날짜",
+     "2026년 11월 10일(미국 시각)"
+    ],
+    [
+     "새 기기",
+     "모토로라 시그니처 27(11월 19일 미국 예약), 픽셀 10 계열(픽셀 드롭)"
+    ],
+    [
+     "새 기능",
+     "램블러, 작업 자동화 확대, 위젯 만들기, 기기 도움"
+    ],
+    [
+     "제공 범위",
+     "일부 국가·언어(작업 자동화는 영국·인도·일본 확대)"
+    ],
+    [
+     "원문",
+     "구글 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 10일(미국 시각) 안드로이드 기기용 AI 기능 묶음인 제미나이 인텔리전스(Gemini Intelligence)를 더 많은 기기로 넓혔습니다. 모토로라(Motorola)의 첫 제미나이 인텔리전스 기기인 모토로라 시그니처 27(motorola signature 27)은 11월 19일 미국에서 예약 판매를 시작하고, 같은 날 픽셀 드롭으로 픽셀 10(Pixel 10), 픽셀 10 프로 XL, 픽셀 10 프로 폴드가 최신 기능을 받습니다."
+    },
+    {
+     "ul": [
+      [
+       "말한 생각을 글로 정리하는 램블러",
+       "음성을 실시간으로 깔끔한 글로 바꿈"
+      ],
+      [
+       "음식 주문·택시 호출·예약을 제미나이에 맡김",
+       "작업 자동화가 영국·인도·일본으로 확대"
+      ],
+      [
+       "말로 설명해 만드는 위젯",
+       "앞으로 몇 주에 걸쳐 제공"
+      ]
+     ]
+    },
+    {
+     "h": "말한 내용을 정리하고 주문까지 맡깁니다"
+    },
+    {
+     "p": "램블러(Rambler)는 말로 풀어놓은 생각을 실시간으로 깔끔하게 정리된 글로 바꿔 주는 기능이며 픽셀 10, 픽셀 10 프로, 픽셀 10 프로 XL, 픽셀 10 프로 폴드와 모토로라 시그니처 27에서 쓸 수 있습니다. 작업 자동화는 음식 주문, 택시 호출, 예약처럼 여러 앱에 걸친 일을 제미나이에게 시키는 기능으로, 영국과 인도, 일본으로 넓어집니다. 이 기능은 18세 이상 이용자가 대상이고 사용량이 많으면 구독이 필요할 수 있다고 각주에 적혀 있습니다."
+    },
+    {
+     "h": "위젯과 기기 설정도 말로 바꿉니다"
+    },
+    {
+     "p": "위젯 만들기(Create My Widget)는 원하는 모양을 평소 쓰는 말로 설명하면 코딩 없이 맞춤 위젯을 만들어 주고 지메일, 캘린더, 검색의 정보를 가져올 수 있습니다. 앞으로 몇 주에 걸쳐 제공되고 픽셀 워치에도 같은 기간 안에 들어옵니다. 기기 도움(Device Assistance)은 저장 공간 정리, 위치 정보에 접근하는 앱 확인, 중요한 전화는 받으면서 방해 요소만 끄는 설정을 폰에 말로 시킬 수 있게 하며 안드로이드 17 이상을 쓰는 일부 기기에서 동작합니다."
+    },
+    {
+     "h": "한국 일정과 기기 범위는 나와 있지 않습니다"
+    },
+    {
+     "p": "원문은 기능 대부분을 ‘일부 국가와 언어’에서 제공한다고만 적고 국가 목록을 싣지 않았습니다. 이름이 나온 국가는 작업 자동화의 영국, 인도, 일본뿐입니다. 제미나이 인텔리전스는 올여름 픽셀 11과 삼성 갤럭시 Z 폴드8 울트라, Z 폴드8, Z 플립8, S26 시리즈에서 먼저 시작했고 구글은 지난달 이 기능을 위해 설계한 첫 노트북 구글북(Googlebook)도 내놓았습니다. 안드로이드 오토의 선제 제안은 ‘곧’ 들어온다고만 하고 날짜가 없습니다."
+    }
+   ],
+   "ask": "말로 위젯을 만들거나 폰 설정을 바꿀 수 있다면 가장 먼저 어떤 일을 시키고 싶나요?",
+   "sources": [
+    [
+     "구글 블로그 — Gemini Intelligence: New features, on more devices",
+     "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/"
+    ]
+   ],
+   "terms": [
+    "제미나이",
+    "제미나이 인텔리전스",
+    "안드로이드",
+    "에이전트",
+    "지메일",
+    "온디바이스 AI"
+   ],
+   "image": {
+    "page": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Intelligence_Signature27_Hero_2784x156.width-1300.jpg",
+    "credit": "이미지: Google",
+    "alt": "제미나이 인텔리전스 모토로라 시그니처 27 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "published 2026-11-10T19:00:00+00:00 (Karthik Thirumalai)"
+    },
+    {
+     "claim": "기기 확대",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "Gemini Intelligence is now available on more devices, including motorola signature 27 and Pixel 10."
+    },
+    {
+     "claim": "모토로라 예약 11월 19일",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "available for pre-order in the U.S. on November 19"
+    },
+    {
+     "claim": "램블러",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "which turns spoken thoughts into clean, organized text in real-time"
+    },
+    {
+     "claim": "작업 자동화",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "lets you ask Gemini to handle logistics like ordering food, hailing rides, or booking reservations"
+    },
+    {
+     "claim": "작업 자동화 확대 국가",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "Expanding to the UK, India, and Japan"
+    },
+    {
+     "claim": "위젯 만들기",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "lets you design a personalized widget with a simple description in your own words"
+    },
+    {
+     "claim": "위젯 제공 시기",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "Rolling out over the next few weeks."
+    },
+    {
+     "claim": "기기 도움",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "helps you control, change, or fix your device by just asking your phone for help."
+    },
+    {
+     "claim": "안드로이드 17",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "select Android devices running Android 17 or later"
+    },
+    {
+     "claim": "올여름 시작 기기",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "from the Pixel 11 to the Samsung Galaxy Z Fold8 Ultra, Z Fold8, Z Flip8 and S26 series"
+    },
+    {
+     "claim": "구글북",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "quote": "the first laptop designed for Gemini Intelligence."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-12-gemini-robotics-2-5",
+   "cat": "연구",
+   "date": "2026-11-12",
+   "time": "06:45",
+   "title": "제미나이 로보틱스 2.5, 200개 작업 평가",
+   "sub": "구글 딥마인드의 VLA 모델 · 성공률 30~100% 높음(자체 발표) · 로봇 파트너에게 먼저 제공",
+   "hook": "구글 딥마인드가 11월 10일(미국 시각) 비전 언어 행동 모델 제미나이 로보틱스 2.5(Gemini Robotics 2.5)를 발표했습니다. 200개 넘는 작업에서 이전 기준보다 성공률이 30~100% 높았다고 합니다(자체 발표 기준).",
+   "try": "딥마인드 원문의 로보틱스 2와 2.5 성공률 비교 그래프를 열어 관심 있는 작업 두 가지가 얼마나 나아졌는지 직접 비교해 보세요.",
+   "who": "로봇과 피지컬 AI 연구 동향을 따라가는 개발자·기획자",
+   "verdict": {
+    "v": "watch",
+    "why": "로봇 파트너에게 먼저 제공되고 API나 가격은 원문에 나오지 않습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글 딥마인드(Google DeepMind)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 10일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "비전 언어 행동(VLA) 모델 제미나이 로보틱스 2.5"
+    ],
+    [
+     "평가",
+     "200개 넘는 작업, 성공률 30~100% 높음(자체 발표 기준)"
+    ],
+    [
+     "제공 대상",
+     "로봇 파트너에게 순차 제공(API·가격은 원문에 없음)"
+    ],
+    [
+     "원문",
+     "구글 딥마인드 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글 딥마인드(Google DeepMind)가 11월 10일(미국 시각) 자사에서 가장 뛰어난 비전 언어 행동(VLA) 모델이라는 제미나이 로보틱스 2.5(Gemini Robotics 2.5)를 발표했습니다. 로봇이 배울 수 있는 기술의 폭과 배우는 속도를 높이는 것이 목표이고 손재주, 신뢰성, 안전의 세 부문에서 진전을 내세웠습니다."
+    },
+    {
+     "ul": [
+      [
+       "200개 넘는 작업에서 성공률 30~100% 상승",
+       "이전 기준 모델보다 작업 종류에 따라, 20~30% 더 빠름(자체 발표 기준)"
+      ],
+      [
+       "자동차 부품 담기 시험에서 성공률 96%",
+       "메르세데스-벤츠 생산 라인 시험 운용(자체 발표 기준)"
+      ],
+      [
+       "로봇용 탈옥 시험 ASIMOV-jailbreak 공개",
+       "제미나이 4 아르곤의 탈옥 저항 99.5%"
+      ]
+     ]
+    },
+    {
+     "h": "집게로 음식 담기부터 리본 묶기까지"
+    },
+    {
+     "p": "딥마인드는 200개 넘는 작업으로 모델을 평가했고 예로 집게로 음식 담기, 선물 상자에 리본 묶기, 피펫으로 액체 옮기기를 들었습니다. 이전 기준 모델과 비교하면 성공률이 작업 종류에 따라 30%에서 100%까지 높고 작업을 끝내는 속도는 20~30% 빠릅니다. 로보틱스 연구는 제미나이 4 아르곤(Gemini 4 Argon)이 가상 연습과 디지털 트윈을 만들어 주는 시뮬레이션 엔진 역할을 하면서 속도가 붙었다고 합니다."
+    },
+    {
+     "table": {
+      "head": [
+       "작업",
+       "로보틱스 2",
+       "로보틱스 2.5"
+      ],
+      "rows": [
+       [
+        "공구함 뚜껑 닫기",
+        "0%",
+        "93%"
+       ],
+       [
+        "집게로 페이스트리 담기",
+        "5%",
+        "100%"
+       ],
+       [
+        "리본 매듭 풀기",
+        "0%",
+        "70%"
+       ],
+       [
+        "머그컵 걸이에서 내리기",
+        "29%",
+        "75%"
+       ],
+       [
+        "쓰레기를 쓰레받기에 쓸어 담기",
+        "0%",
+        "52%"
+       ],
+       [
+        "바지 개기",
+        "0%",
+        "40%"
+       ]
+      ],
+      "note": "구글 딥마인드 블로그 그래프 설명 기준, 회사 자체 발표 수치"
+     }
+    },
+    {
+     "h": "자동차 공장 시험 운용은 성공률 96%"
+    },
+    {
+     "p": "메르세데스-벤츠는 헝가리 케치케메트와 독일 지델핑겐 공장에서 시험 운용에 참여했고, 아프트로닉(Apptronik)의 휴머노이드 아폴로 2(Apollo 2)가 금속 브래킷을 순서용 용기에 담는 부품 담기 작업에서 성공률 96%를 기록했습니다. 아폴로 2는 손가락 다섯 개에 22자유도인 샤르파웨이브(SharpaWave) 손을 씁니다. 프랑카(Franka)의 두 손가락 평행 그리퍼 로봇 프랑카 듀오도 파트너로 소개됩니다."
+    },
+    {
+     "h": "장애물 33%, 사람 주변 43% 더 안전하게"
+    },
+    {
+     "p": "추론 시점에 위험을 피하도록 안내하는 기능을 넣자 장애물 주변에서 안전하게 작업을 끝낸 비율이 33%, 사람 가까이에서는 43% 올랐습니다. 딥마인드는 로봇을 노린 탈옥 시험을 따로 만들어 ASIMOV-jailbreak라는 이름의 오픈소스 벤치마크로 공개했는데, 위험한 요청을 장면 수십 곳에 숨긴 프롬프트 수백 개로 이뤄집니다. 제미나이 4 아르곤의 탈옥 저항은 99.5%이고 이전 기준인 제미나이 로보틱스 ER 2는 82%였습니다. 제미나이 로보틱스 2.5는 로봇 파트너에게 순차로 제공되며 공개 API와 가격은 원문에 나와 있지 않습니다."
+    }
+   ],
+   "ask": "공장이나 가정에서 로봇이 가장 먼저 맡았으면 하는 일은 무엇인가요?",
+   "sources": [
+    [
+     "구글 딥마인드 블로그 — Gemini Robotics 2.5 accelerates real-world general dexterity",
+     "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/"
+    ],
+    [
+     "허깅페이스 — ASIMOV-jailbreak 데이터셋",
+     "https://huggingface.co/datasets/google/asimov_agentic"
+    ]
+   ],
+   "terms": [
+    "구글 딥마인드",
+    "제미나이",
+    "비전 언어 행동 모델(VLA)",
+    "피지컬 AI",
+    "디지털 트윈",
+    "시뮬레이션",
+    "벤치마크",
+    "오픈소스"
+   ],
+   "image": {
+    "page": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+    "og": "https://lh3.googleusercontent.com/F1CrVEYRb8lJOyyxGgcyow-Td1de-nkp7K8MZrhjrKPANJUc0EYB754Ninn-Yrppjdb54nolOWo6Rk8iDaRNuixWwLaEKc0K9ImGooxen9fj9IOh=w1200-h630-n-nu-rw",
+    "credit": "이미지: Google DeepMind",
+    "alt": "제미나이 로보틱스 2.5 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "published 2026-11-10T15:00:00Z (Carolina Parada)"
+    },
+    {
+     "claim": "VLA 모델",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "Today, we are introducing Gemini Robotics 2.5, our most capable vision-language-action (VLA) model to date."
+    },
+    {
+     "claim": "200개 작업",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "We evaluated the model across 200 distinct tasks"
+    },
+    {
+     "claim": "성공률 30~100%",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "Gemini Robotics 2.5 achieves a 30% to 100% higher success rate depending on the type of task"
+    },
+    {
+     "claim": "20~30% 빠름",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "tasks completed 20% to 30% faster"
+    },
+    {
+     "claim": "벤츠 96%",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "Achieving a 96% success rate, this pilot shows promising progress toward widespread real-world industrial applications."
+    },
+    {
+     "claim": "안전 33%·43%",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "this capability boosted safe task completion around obstacles by 33% and around nearby people by 43%."
+    },
+    {
+     "claim": "ASIMOV-jailbreak",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "a new open-source benchmark containing hundreds of prompts that disguise unsafe requests across dozens of scenes."
+    },
+    {
+     "claim": "탈옥 저항 99.5%",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "Argon achieves a 99.5% jailbreak resistance"
+    },
+    {
+     "claim": "제공 대상",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "Gemini Robotics 2.5 is rolling out to our robotics partners."
+    },
+    {
+     "claim": "그래프 수치(공구함 0→93 등)",
+     "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+     "quote": "chart alt text: Close lid of black toolbox 0% → 93%; Packing pastries with tongs 5% → 100%; Untying ribbon bows 0% → 70%; Unhang mug to table 29% → 75%; Sweep trash into dustpan with brush 0% → 52%; Folding pants 0% → 40%"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-12-nvidia-openshell-cncf",
+   "cat": "보안·안전",
+   "date": "2026-11-12",
+   "time": "06:44",
+   "title": "엔비디아, 에이전트 통제 오픈셸 기증",
+   "sub": "CNCF 샌드박스 프로젝트로 · 쿠버네티스용 NVKE·NVKR 공개 프리뷰 · 모델 준비 8분에서 31초(자체 발표)",
+   "hook": "엔비디아가 11월 10일(미국 시각) 에이전트를 안전하게 쓰고 통제하는 오픈소스 런타임 오픈셸(OpenShell)을 CNCF에 기증했습니다. 쿠버네티스용 NVKE·NVKR과 스냅샷 같은 오픈소스 인프라도 함께 내놨습니다.",
+   "try": "에이전트를 회사 서버에 붙일 계획이 있다면 엔비디아 블로그 원문의 오픈셸 설명을 읽고 우리 팀 에이전트에 걸 접근 정책을 적어 보세요.",
+   "who": "AI 에이전트를 회사 서버에서 운영하려는 개발자·인프라 담당자",
+   "verdict": {
+    "v": "watch",
+    "why": "오픈셸 정식 출시일은 없고 NVKE·NVKR도 공개 프리뷰 단계입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "엔비디아(NVIDIA) 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 10일(미국 시각)"
+    ],
+    [
+     "행사",
+     "KubeCon + CloudNativeCon North America"
+    ],
+    [
+     "기증",
+     "오픈셸(OpenShell)을 CNCF에 기증, CNCF 샌드박스 프로젝트"
+    ],
+    [
+     "새 오픈소스",
+     "NVKE·NVKR(공개 프리뷰), 스냅샷(Snapshot)"
+    ],
+    [
+     "원문",
+     "엔비디아 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "엔비디아(NVIDIA)가 11월 10일(미국 시각) 북미 쿠버네티스 행사 KubeCon + CloudNativeCon North America에서 오픈셸(OpenShell)을 클라우드 네이티브 컴퓨팅 재단(CNCF)에 기증했다고 블로그에 밝혔습니다. 오픈셸은 자율 에이전트를 보호하고 통제하는 오픈소스 런타임이며, CNCF는 리눅스재단 산하 비영리 단체입니다."
+    },
+    {
+     "ul": [
+      [
+       "오픈셸을 CNCF에 기증",
+       "에이전트가 도구를 쓸 때 정책을 강제하는 런타임"
+      ],
+      [
+       "에이전트용 쿠버네티스 부품 공개",
+       "NVKE·NVKR은 공개 프리뷰, 스냅샷은 오픈소스"
+      ],
+      [
+       "모델 준비 시간 약 8분에서 31초",
+       "크루소의 GLM-5.3 시험 결과(자체 발표 기준)"
+      ]
+     ]
+    },
+    {
+     "h": "에이전트가 도구를 쓸 때 정책을 겁니다"
+    },
+    {
+     "p": "오픈셸은 에이전트가 도구를 쓰고 추론 서비스에 접근하고 작업을 실행하는 순간에 정해진 규칙을 그대로 적용하는 런타임입니다. 팀은 자기 컴퓨팅 자원, 추론 제공사, 인증 정보 저장소, 모니터링 도구를 연결해 쓸 수 있습니다. 수백 개 조직이 이미 써 봤고 출시 후 1년이 안 되는 사이 수만 건의 기여가 모였습니다. CNCF 샌드박스 프로젝트가 되면 오픈셸을 제품에 넣는 조직들이 운영을 맡습니다. 리눅스재단의 짐 젬린(Jim Zemlin) CEO는 에이전트에게 안전한 실행 환경을 주는 일이 클라우드 네이티브 커뮤니티의 새 인프라 과제라고 말했습니다."
+    },
+    {
+     "h": "에이전트 작업을 쿠버네티스에서 돌리는 부품"
+    },
+    {
+     "p": "엔비디아는 구글에서 시작된 에이전트 서브스트레이트(Agent Substrate)에도 기여합니다. 오래 도는 에이전트 작업을 쿠버네티스에서 규모 있게 운영하는 오픈소스 프레임워크이고, 작업 사이에는 에이전트 환경을 보존하다가 에이전트가 놀 때는 컴퓨팅 자원을 풀어 줍니다. 엔비디아와 구글은 오픈셸과 에이전트 서브스트레이트를 합치는 작업도 하고 있으며 날짜는 나와 있지 않습니다. 엔비디아 쿠버네티스 엔진(NVKE)과 쿠버네티스 레시피(NVKR)는 GPU 인프라의 쿠버네티스 클러스터 수명 관리를 자동화하고 서명되고 버전이 고정된 이미지를 제공하며 지금 공개 프리뷰입니다. 미란티스, 레이프, 스펙트로 클라우드, SK텔레콤 같은 업체가 통합을 맞추고 있습니다."
+    },
+    {
+     "h": "모델 불러오기를 건너뛰는 스냅샷"
+    },
+    {
+     "p": "스냅샷(Snapshot)은 체크포인트로 저장한 복제본을 모델을 다시 불러오거나 예열하지 않고 몇 초 안에 되살리는 오픈소스 부품입니다. 크루소(Crusoe)가 크루소 클라우드에서 GLM-5.3으로 시험하자 준비 시간이 약 8분에서 31초로 줄었습니다. 크루소와 세터 클라우드는 엔비디아 HGX B300 시스템에서 스냅샷을 평가한 설계 파트너입니다. 오픈셸의 정식 릴리스 날짜는 원문에 나와 있지 않습니다."
+    }
+   ],
+   "ask": "회사에서 AI 에이전트에게 서버 접근 권한을 준다면 어떤 규칙부터 걸어 두고 싶나요?",
+   "sources": [
+    [
+     "엔비디아 블로그 — NVIDIA Expands Open Source Commitment With OpenShell Donation and New AI Infrastructure",
+     "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/"
+    ]
+   ],
+   "terms": [
+    "엔비디아",
+    "에이전트",
+    "오픈소스",
+    "리눅스재단",
+    "CNCF",
+    "쿠버네티스",
+    "GPU",
+    "프레임워크"
+   ],
+   "image": {
+    "page": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+    "og": "https://blogs.nvidia.com/wp-content/uploads/2026/11/end-to-end-key-visual-kubecon-blog-1920x1080-5915250-v2.jpg",
+    "credit": "이미지: NVIDIA",
+    "alt": "엔비디아 쿠버콘 오픈셸 기증 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "published 2026-11-10T16:00:03+00:00 (Warren Barkley)"
+    },
+    {
+     "claim": "오픈셸 정의",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "an open source runtime for securing and governing autonomous agents"
+    },
+    {
+     "claim": "정책 강제",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "It applies deterministic controls to agent activity, so teams can enforce policies as agents use tools"
+    },
+    {
+     "claim": "CNCF 샌드박스",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "As a CNCF Sandbox project, OpenShell will be governed by the organizations building it into their products"
+    },
+    {
+     "claim": "수백 개 조직",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "Hundreds of organizations have put OpenShell to use"
+    },
+    {
+     "claim": "수만 건 기여",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "tens of thousands of contributions in less than a year since launch"
+    },
+    {
+     "claim": "젬린 발언",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "The cloud-native community has a new infrastructure challenge: giving agents secure environments in which to operate,"
+    },
+    {
+     "claim": "에이전트 서브스트레이트",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "Agent Substrate preserves agent environments between tasks while releasing compute when idle."
+    },
+    {
+     "claim": "NVKE·NVKR",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "They automate cluster lifecycle management and provide signed, version-pinned images."
+    },
+    {
+     "claim": "공개 프리뷰",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "now available in public preview"
+    },
+    {
+     "claim": "스냅샷",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "restores checkpointed replicas in seconds, without model reload or warmup"
+    },
+    {
+     "claim": "크루소 시험",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "Crusoe tested GLM-5.3 on Crusoe Cloud: time to ready cut from roughly eight minutes to 31 seconds"
+    },
+    {
+     "claim": "설계 파트너·HGX B300",
+     "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+     "quote": "Design partners Crusoe and Saturn Cloud evaluated Snapshot on NVIDIA HGX B300 systems"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "챗GPT 비즈니스 프로필(Introducing Businesses in ChatGPT)",
+   "reason": "오픈AI 원문 페이지를 열지 못해(권한 요청 미응답) 숫자·조건을 확인하지 못했습니다. 언론 보도만 있어 쓰지 않았습니다."
+  },
+  {
+   "topic": "클로드 미팅스·앤트로픽 오피스 제품군",
+   "reason": "앤트로픽·클로드 공식 페이지에서 확인되지 않았고 지원 문서 릴리스 노트에도 11월 10일 항목이 없었습니다."
+  },
+  {
+   "topic": "노션 서드파티 AI 업체(Fireworks AI) 보안 사고",
+   "reason": "노션 공지 페이지를 열지 못해 원문 확인에 실패했습니다."
+  },
+  {
+   "topic": "제미나이 4 카본 정식 공개",
+   "reason": "10월 30일 기사로 이미 다룬 제품입니다."
+  }
+ ]
+}
