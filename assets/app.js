@@ -25,7 +25,7 @@ const textOf = b=>(b||[]).map(x=>x.p||x.lead||x.q||(x.ul?x.ul.flat().join(" "):"
 const readMin = b=>Math.max(1,Math.round(textOf(b).replace(/\s/g,"").length/350));
 const imgOf = a=>a.image&&a.image.src ? a.image : {src:"img/logo.webp",credit:""};
 const fig = (im,cls="")=>`<figure class="${cls}"><img src="${im.src}" alt="${esc(im.alt||"")}" loading="lazy">${im.credit?`<figcaption>${esc(im.credit)}</figcaption>`:""}</figure>`;
-const thumb = im=>`<img class="thumb" src="${im.src}" alt="" loading="lazy">`;
+const thumb = im=>`<img class="thumb" src="${im.src}" alt="${esc(im.alt||"")}" loading="lazy">`;   // 기사 사진은 사진 설명(image.alt)을 넣는다. 제목을 그림으로 만든 표지(튜토리얼·도구)는 제목과 겹치니 비워 둔다
 
 // 수정 기록(글 아래)·틀린 곳 알려 주기(메일, 11/3~)
 const updHTML = x=>x.upd&&x.upd.length ? `<div class="upd"><b>수정 기록</b><ul>${x.upd.map(([d,t])=>`<li><time datetime="${esc(d)}">${fmtDate(d)}</time> ${esc(t)}</li>`).join("")}</ul></div>` : "";
