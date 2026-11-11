@@ -44,13 +44,17 @@ def hits(p):  # 상위 100개 경로(페이지·이벤트). 그보다 많으면 
             DIAG.append(f'대체 요청 {sorted(alt)} 도 빈 값(키 {sorted(d2.keys())})')
     RAW[p] = d
     out = list(d.get('hits') or [])
-    for _ in range(9):   # 경로가 100개를 넘으면 이미 받은 것을 빼고 이어서 받는다(최대 1,000개)
+    pid = lambda h: h.get('path_id', h.get('id'))
+    for n in range(9):   # 경로가 100개를 넘으면 이미 받은 것을 빼고 이어서 받는다(최대 1,000개)
         if not d.get('more') or not out: break
-        try: d = api('/stats/hits', limit=100, daily='true', exclude_paths=[h['path_id'] for h in out if h.get('path_id') is not None], **rng(p))
-        except Exception as e: DIAG.append(f'이어 받기 실패: {str(e)[:120]}'); break
-        new = [h for h in d.get('hits') or [] if h.get('path_id') not in {x.get('path_id') for x in out}]
-        if not new: break
-        out += new
+        seen = {pid(x) for x in out}; ids = [pid(h) for h in out if pid(h) is not None]; got = []
+        for key, val in (('exclude_paths', ids), ('exclude_paths[]', ids), ('exclude_paths', ','.join(map(str, ids)))):   # 서버가 받는 목록 모양을 차례로 시도
+            try: d2 = api('/stats/hits', limit=100, daily='true', **{key: val}, **rng(p))
+            except Exception as e: DIAG.append(f'이어 받기({key}) 실패: {str(e)[:100]}'); continue
+            got = [h for h in d2.get('hits') or [] if pid(h) not in seen]
+            if got: d = d2; break
+        if not got: DIAG.append(f'이어 받기 {n + 1}번째에서 새 경로 없음(받은 경로 {len(out)}개, path_id 있는 것 {len(ids)}개, 첫 항목 키 {sorted(out[0].keys())})'); break
+        out += got
     if d.get('more'): MORE.append(f'{p[0]}~{p[1]}')
     return out
 
