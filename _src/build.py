@@ -861,6 +861,37 @@ page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀
      f'<main id="v-guideindex"><div class="ph"><span class="hk2">GUIDE</span><h1>AI 길잡이</h1><p><span class="nw">하려는 일부터 고르세요.</span> <span class="nw">따라 할 순서와 프롬프트,</span> <span class="nw">무료 도구와 관련 기사가</span> <span class="nw">함께 붙어 있습니다.</span></p></div>\n'
      f'  <div class="trel-tools vsidx">{"".join(_card("/guide/" + g["id"] + "/", g["h1"], g["card"]) for g in GUIDES)}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('AI 길잡이', '/guide/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 길잡이', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/guide/{g['id']}/", 'name': g['h1']} for i, g in enumerate(GUIDES)]}))
+# 스레드 실용 팁 모음(/tips/, 11/11~): _src/fetch_tips.py 가 shift-threads 의 올린 글 기록에서 받아 쌓은 news/tips.json 을 그대로 그린다.
+#  스레드 글투(해요체)라 사이트 문체 검사 대상이 아니다. '복붙용 프롬프트'로 시작하는 덩어리는 복사 버튼을 붙인다.
+TIPS = json.load(open(SRC + 'news/tips.json')) if os.path.exists(SRC + 'news/tips.json') else []
+if TIPS:
+    _TAGKO = {'Copy Prompt': '복붙 프롬프트', 'Prompt Tip': '프롬프트 팁', 'AI Tip': 'AI 팁', 'Gemini Tip': '제미나이 팁', 'ChatGPT Tip': '챗GPT 팁', 'Claude Tip': '클로드 팁', 'Free Tool': '무료 도구', 'Privacy Tip': '개인정보 팁'}
+    _host = lambda u: re.sub(r'^https://(www\.)?', '', u).split('/')[0]
+    _lk = lambda s: re.sub(r'https://[^\s<]+', lambda m: f'<a href="{m.group(0)}" target="_blank" rel="noopener">{_host(m.group(0).replace("&amp;", "&"))}</a>', esc(s))
+    _para = lambda s: ''.join('<p>' + '<br>'.join(_lk(x) for x in blk.split('\n')) + '</p>' for blk in re.split(r'\n\s*\n', s) if blk.strip())
+    def _tip(t):
+        tid = 'tip-' + t['id'].replace('-howto', ''); y, m, d = t['date'].split('-'); out = ''
+        for part in t['parts'][1:]:
+            head, _, rest = part.partition('\n')
+            if head.startswith('복붙') and '프롬프트' in head and rest.strip():
+                pr, _, note = rest.strip().partition('\n※'); pr = pr.strip()
+                out += (f'<div class="pr gpr"><b>복사해서 쓰는 프롬프트</b><div class="pt">{esc(pr)}</div><div class="pra"><button class="copy dark" data-copy="{esc(pr)}">복사하기</button></div></div>'
+                        + (f'<p class="tipn">※{_lk(note)}</p>' if note.strip() else ''))
+            else: out += f'<div class="tipb tipx">{_para(part)}</div>'
+        return (f'<article class="tip" id="{tid}">\n  <div class="tipk"><span>{esc(_TAGKO.get(t["tag"], t["tag"] or "실용 팁"))}</span><time datetime="{t["date"]}">{int(m)}월 {int(d)}일</time></div>\n'
+                f'  <h2><a href="#{tid}">{esc(t["title"])}</a></h2>\n' + (f'  <p class="tipsub">{esc(t["sub"])}</p>\n' if t.get('sub') else '')
+                + f'  <div class="tipb">{_para(t["parts"][0])}</div>\n  {out}\n'
+                f'  <p class="tipf"><a href="{esc(t["link"])}" target="_blank" rel="noopener" data-ev="tips-threads:{tid}">스레드에서 보기 ↗</a></p>\n</article>\n')
+    _tid = lambda t: 'tip-' + t['id'].replace('-howto', '')
+    page('/tips/', 'tips', f'AI 실용 팁 모음 {len(TIPS)}개 — 복붙 프롬프트·무료 도구, 날마다 쌓이는 팁 · SHIFT AI',
+         '거절 메일, 회의 메모, 엑셀 수식, 계약서 검토처럼 바로 써먹는 AI 팁을 날짜순으로 모았습니다. SHIFT AI 스레드에 날마다 올리는 팁이 그대로 쌓이고, 프롬프트는 복사해서 붙여 넣으면 됩니다.',
+         '<main id="v-tips"><div class="narrow tips">\n  <div class="ph"><span class="hk2">TIPS</span><h1>실용 팁 모음</h1><p><span class="nw">SHIFT AI 스레드에 날마다 올리는</span> <span class="nw">실용 팁을 모았습니다.</span> <span class="nw">프롬프트는 복사해서</span> <span class="nw">그대로 붙여 넣으면 됩니다.</span></p></div>\n'
+         f'  <nav class="tiptoc" aria-label="팁 목록"><b>모아 둔 팁 {len(TIPS)}개</b><ol>' + ''.join(f'<li><a href="#{_tid(t)}">{esc(t["title"])}</a></li>' for t in TIPS[:40]) + '</ol></nav>\n'
+         + ''.join(_tip(t) for t in TIPS)
+         + '  <p class="tipmore">새 팁은 <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드 @shift_ai_magazine</a>에 먼저 올라옵니다. 일 단위로 묶은 프롬프트는 <a href="/prompts/">복붙 프롬프트 모음</a>에 있습니다.</p>\n'
+         f'{FOLLOWBOX}\n</div></main>', OG_SITE, 'website',
+         LD(crumbs(('실용 팁 모음', '/tips/')), {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'SHIFT AI 실용 팁 모음', 'url': SITE + '/tips/', 'inLanguage': 'ko', 'publisher': PUBLISHER,
+            'mainEntity': {'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': t['title'], 'url': f"{SITE}/tips/#{_tid(t)}"} for i, t in enumerate(TIPS[:100])]}}))
 page('/search/', 'search', '검색 · SHIFT AI', 'SHIFT의 AI 뉴스·데일리 이슈·튜토리얼·AI 사전을 한 번에 찾습니다.', STATIC['search'], OG_SITE, 'website', '', 'noindex,follow')
 
 # 파일 변환 모음(/tools/convert/, 11/5~): 변환표 + 변환 도구 카드 + 자주 묻는 질문. 변환표 칸은 news/convert.json.
@@ -895,6 +926,7 @@ if _cvtools: last['/tools/convert/'] = max(t.get('mod') or t['date'] for t in _c
 for _p, _d in WEEK_LAST.items(): last[_p] = _d
 for _p, _d in GUIDE_LAST.items(): last[_p] = _d
 if GUIDE_LAST: last['/guide/'] = max(GUIDE_LAST.values())
+if TIPS: last['/tips/'] = max(t['date'] for t in TIPS)
 if WEEK_LAST: last['/weekly/'] = max(WEEK_LAST.values())
 for _p, _u in UPD.items(): last[_p] = max([last.get(_p, '')] + [x[0] for x in _u])
 # 대표 이미지(구글 이미지 검색): 기사·튜토리얼·칼럼·데일리·무료 도구. 사이트 로고는 넣지 않는다.

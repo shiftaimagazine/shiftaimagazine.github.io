@@ -7,6 +7,7 @@ on:
   # 주간 메일 구독 칸 여는 시각(2026-11-11 00:05 한국 시간 = 11-10 15:05 UTC). _src/newsletter/config.json start 와 맞춤
   schedule:
     - cron: '5 15 10 11 *'
+    - cron: '10 3 * * *'   # 날마다 12:10(한국 시간): 그날 스레드에 올린 실용 팁을 /tips/ 에 쌓는다(_src/fetch_tips.py)
   workflow_dispatch:
 permissions:
   contents: write
@@ -35,6 +36,8 @@ jobs:
           curl -sfL -o ~/.local/share/fonts/NotoSansKR.ttf "https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf" && fc-cache -f >/dev/null || echo "글꼴 받기 실패(캡처 한글이 깨질 수 있음)"
       - name: 새 기사 사진 받기
         run: python3 _src/fetch_images.py
+      - name: 스레드 실용 팁 받기
+        run: python3 _src/fetch_tips.py
       - name: 사이트 만들기
         run: sh _src/build.sh
       - name: 결과 커밋
