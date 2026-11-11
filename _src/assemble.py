@@ -291,6 +291,17 @@ if __name__ == '__main__':
         style_check('용어 풀이 ' + k, [m['ex']] + [x[1] for x in m.get('diff', [])] + [_untag(x[1]) for x in m.get('faq', [])])
         _term[k]['more'] = {'ex': m['ex'], 'diff': [[n, d, (f"/dict/{_term[n]['s']}/" if n in _term else '')] for n, d in m.get('diff', [])],
                             'faq': m.get('faq', []), 'src': m.get('src', [])}
+    # 헷갈리는 용어 비교(11/11~): news/term_diff.json → /dict/diff/<id>/ (build.py 가 그림). 두 용어 페이지에 이 글로 가는 링크(t['dl'])를 붙인다.
+    TD = J('term_diff.json')['diffs'] if os.path.exists(N + 'term_diff.json') else []
+    assert len({d['id'] for d in TD}) == len(TD), 'term_diff id 겹침'
+    for d in TD:
+        assert re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', d.get('id', '')) and d.get('a') in _term and d.get('b') in _term, ('term_diff: id 형식이나 사전에 없는 용어', d.get('id'))
+        for k in ('title', 'h1', 'one', 'rows', 'body', 'date'): assert d.get(k), ('term_diff 항목 없음', d['id'], k)
+        assert ' — ' in d['title'] and all(len(r) == 3 for r in d['rows']), ('term_diff title(— 포함)·rows(3칸) 형식', d['id'])
+        for _, ans in d.get('faq', []): assert not re.search(r'<(?!/?a\b)|<a (?!href="/[^"]*">)', ans), ('term_diff FAQ 에는 <a href="/..."> 만', d['id'])
+        for u in d.get('links', []): assert u.startswith('/') and u.endswith('/'), ('term_diff links 는 사이트 안 주소', d['id'], u)
+        style_check('용어 비교 ' + d['id'], [d['one']] + d['body'] + [_untag(x[1]) for x in d.get('faq', [])])
+        for k in ('a', 'b'): _term[d[k]].setdefault('dl', []).append([d['title'].split(' — ')[0], f"/dict/diff/{d['id']}/"])
     _vs = J('vs.json'); _vsv = _vs['services']
     VSL = [{'id': q['id'], 't': f"{_vsv[q['a']]['name']} vs {_vsv[q['b']]['name']}", 'k': [_vsv[q['a']]['dict'], _vsv[q['b']]['dict']]} for q in _vs['pairs']]
     DATA = {'ARTICLES': out, 'TUTORIALS': TUTS, 'TUT_CATS': TUT_CATS, 'TOOLS': TOOLS, 'AI_PRICES': PR, 'RESOURCES': old['resources'], 'COLUMNS': cols, 'DAILY': DAILY, 'TERMS': TERMS, 'VS': VSL,

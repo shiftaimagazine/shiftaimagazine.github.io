@@ -628,6 +628,20 @@ html.theme-anim,html.theme-anim *{transition:background-color .35s ease,border-c
 .term-page .tsrc{margin:22px 0 0;font-size:13.5px;color:var(--sub);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
 .term-page .tsrc b{font-size:12.5px}
 .term-page .tsrc a{color:var(--sub)}
+.term-page .tdl{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;font-size:15px}
+.term-page .tdl b{font-size:13px;color:var(--sub)}
+.term-page .tdl a{color:var(--ink);font-weight:600}
+.dictmore{margin:0 0 14px;font-size:15px}
+.dictmore a{color:var(--ink);font-weight:600}
+.tdiffp .tdifft th:nth-child(n+2){font-size:14px;color:var(--ink)}
+.tdiffp .tdifft td{font-size:15px;line-height:1.65}
+.tdiffp .tdifft td:first-child{white-space:nowrap;font-size:13.5px;color:var(--sub)}
+.tdiffp .tdiffb{font-size:17px;line-height:1.85;margin:0 0 1.1em}
+.tdiffp .tbl{margin:8px 0 22px}
+.tdiffp .tdifft{table-layout:fixed}
+.tdiffp .tdifft th:first-child{width:18%}
+.tdiffp .tdifft td{word-break:keep-all;overflow-wrap:break-word}
+@media (max-width:640px){.tdiffp .tdifft th:first-child{width:21%}.tdiffp .tdifft td:first-child{white-space:normal}.tdiffp .tdifft td{font-size:14.5px;padding-right:8px}}
 .term-page .sec h2 small{font-size:14px;color:var(--sub);font-weight:600;margin-left:6px}
 .term-page .sec{margin-top:36px}
 .term dt a{color:inherit;text-decoration:none}

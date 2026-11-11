@@ -861,6 +861,36 @@ page('/guide/', 'guide', 'AI 길잡이 — 회의록·PDF 요약·메일·엑셀
      f'<main id="v-guideindex"><div class="ph"><span class="hk2">GUIDE</span><h1>AI 길잡이</h1><p><span class="nw">하려는 일부터 고르세요.</span> <span class="nw">따라 할 순서와 프롬프트,</span> <span class="nw">무료 도구와 관련 기사가</span> <span class="nw">함께 붙어 있습니다.</span></p></div>\n'
      f'  <div class="trel-tools vsidx">{"".join(_card("/guide/" + g["id"] + "/", g["h1"], g["card"]) for g in GUIDES)}</div>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
      LD(crumbs(('AI 길잡이', '/guide/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'AI 길잡이', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/guide/{g['id']}/", 'name': g['h1']} for i, g in enumerate(GUIDES)]}))
+# 헷갈리는 AI 용어 비교(/dict/diff/, 11/11~): news/term_diff.json. 사전의 두 용어를 표 하나로 견주고 두 용어 페이지와 서로 잇는다(검사는 assemble.py).
+DIFFS = json.load(open(SRC + 'news/term_diff.json'))['diffs'] if os.path.exists(SRC + 'news/term_diff.json') else []
+_slugT = {x['s']: x for x in TERMS}
+def _difflink(u):
+    m = re.fullmatch(r'/dict/([a-z0-9-]+)/', u)
+    if m: x = _slugT[m.group(1)]; return u, f"{x['t']} 뜻", x['d']
+    h, t, k = rel_item(u); return h, t, k
+for d in DIFFS:
+    u = f"/dict/diff/{d['id']}/"; A_, B_ = _termBy[d['a']], _termBy[d['b']]; short = d['title'].split(' — ')[0]
+    rows = ''.join(f'<tr><td>{esc(r[0])}</td><td>{esc(r[1])}</td><td>{esc(r[2])}</td></tr>' for r in d['rows'])
+    faq = d.get('faq', [])
+    main = (f'<main id="v-diff"><article class="article narrow guide tdiffp">\n  <a class="back" href="/dict/diff/">← 헷갈리는 AI 용어</a>\n  <span class="cat">AI 사전 · 헷갈리는 말</span>\n'
+            f'  <h1>{esc(d["h1"])}</h1>\n  <p class="deck">{esc(d["one"])}</p>\n'
+            f'  <div class="tbl"><table class="dtable tdifft"><thead><tr><th></th><th>{esc(d["a"])}</th><th>{esc(d["b"])}</th></tr></thead><tbody>{rows}</tbody></table></div>\n'
+            + ''.join(f'  <p class="tdiffb">{esc(x)}</p>\n' for x in d['body'])
+            + '  <div class="sec"><h2>한 줄 뜻</h2></div>\n  <dl class="terms">' + ''.join(f'<div class="term"><dt><a href="/dict/{x["s"]}/">{esc(x["t"])}</a><small>{esc(x.get("en") or "")}</small></dt><dd>{esc(x["d"])}</dd></div>' for x in (A_, B_)) + '</dl>\n'
+            + (_faq(faq) if faq else '')
+            + ('  <div class="sec"><h2>이어서 보기</h2></div>\n  <div class="trel-tools">' + ''.join(_card(h, t, k) for h, t, k in map(_difflink, d.get('links', []))) + '</div>\n' if d.get('links') else '')
+            + '  <nav class="trel" aria-label="다른 비교"><h2>다른 헷갈리는 말</h2><div class="trel-tools">' + ''.join(_card(f"/dict/diff/{x['id']}/", x['title'].split(' — ')[0], x['one']) for x in DIFFS if x is not d) + '</div></nav>\n'
+            + f'{FOLLOWBOX}\n</article></main>')
+    ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': short, 'description': d['one'], 'image': [f'{SITE}/{OG_SITE}'], 'datePublished': kst(d['date']), 'dateModified': kst(d['date']),
+          'author': AUTHOR, 'publisher': PUBLISHER, 'mainEntityOfPage': SITE + u, 'inLanguage': 'ko',
+          'about': [{'@type': 'DefinedTerm', 'name': x['t'], 'url': f"{SITE}/dict/{x['s']}/"} for x in (A_, B_)]}
+    fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': _abs(x)}} for q, x in faq]}
+    page(u, 'diff-' + d['id'], d['title'] + ' · SHIFT AI 사전', d['one'], main, OG_SITE, 'article', LD(*([ld, crumbs(('AI 사전', '/dict/'), ('헷갈리는 말', '/dict/diff/'), (short, u))] + ([fq] if faq else []))))
+if DIFFS:
+    page('/dict/diff/', 'diff', '헷갈리는 AI 용어 차이 — 에이전트·챗봇, RAG·파인튜닝, 머신러닝·딥러닝 · SHIFT AI 사전', '비슷해 보여 자주 섞어 쓰는 AI 용어를 둘씩 견줬습니다. 한 문장 답과 비교표, 자주 묻는 질문으로 차이를 확인하고 AI 사전의 뜻풀이로 이어서 봅니다.',
+         '<main id="v-diffindex"><div class="ph"><span class="hk2">AI DICTIONARY</span><h1>헷갈리는 AI 용어</h1><p><span class="nw">비슷해 보여 섞어 쓰는 말을</span> <span class="nw">둘씩 견줬습니다.</span> <span class="nw">한 문장 답과 비교표로</span> <span class="nw">차이를 확인하세요.</span></p></div>\n'
+         f'  <div class="trel-tools vsidx">{"".join(_card("/dict/diff/" + d["id"] + "/", d["title"].split(" — ")[0], d["one"]) for d in DIFFS)}</div>\n  <p class="dictmore"><a href="/dict/">AI 사전 전체 {len(TERMS)}개 보기 →</a></p>\n{FOLLOWBOX}\n</main>', OG_SITE, 'website',
+         LD(crumbs(('AI 사전', '/dict/'), ('헷갈리는 말', '/dict/diff/')), {'@context': 'https://schema.org', '@type': 'ItemList', 'name': '헷갈리는 AI 용어', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': f"{SITE}/dict/diff/{d['id']}/", 'name': d['title'].split(' — ')[0]} for i, d in enumerate(DIFFS)]}))
 # 스레드 실용 팁 모음(/tips/, 11/11~): _src/fetch_tips.py 가 shift-threads 의 올린 글 기록에서 받아 쌓은 news/tips.json 을 그대로 그린다.
 #  스레드 글투(해요체)라 사이트 문체 검사 대상이 아니다. '복붙용 프롬프트'로 시작하는 덩어리는 복사 버튼을 붙인다.
 TIPS = json.load(open(SRC + 'news/tips.json')) if os.path.exists(SRC + 'news/tips.json') else []
@@ -927,6 +957,8 @@ for _p, _d in WEEK_LAST.items(): last[_p] = _d
 for _p, _d in GUIDE_LAST.items(): last[_p] = _d
 if GUIDE_LAST: last['/guide/'] = max(GUIDE_LAST.values())
 if TIPS: last['/tips/'] = max(t['date'] for t in TIPS)
+if DIFFS: last['/dict/diff/'] = max(d['date'] for d in DIFFS)
+for d in DIFFS: last[f"/dict/diff/{d['id']}/"] = d['date']
 if WEEK_LAST: last['/weekly/'] = max(WEEK_LAST.values())
 for _p, _u in UPD.items(): last[_p] = max([last.get(_p, '')] + [x[0] for x in _u])
 # 대표 이미지(구글 이미지 검색): 기사·튜토리얼·칼럼·데일리·무료 도구. 사이트 로고는 넣지 않는다.
