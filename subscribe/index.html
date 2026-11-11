@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=9e1c6ac6"></script>
+<script src="/assets/theme.js?v=8612cd89"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=9e1c6ac6">
+<link rel="stylesheet" href="/assets/site.css?v=8612cd89">
 </head>
 <body data-route="subscribe" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -103,9 +103,10 @@
     <h2 id="subCTitle">구독을 확정할까요?</h2>
     <p id="subCMsg">아래 버튼을 누르면 <b id="subCEmail"></b> 주소로 주간 메일이&nbsp;갑니다.</p>
     <button class="btn" type="button" id="subCBtn">구독 확정하기</button>
+    <nav class="nxbox" id="subCNext" aria-label="먼저 써 볼 것" hidden=""><b>월요일 메일을 기다리는 동안 먼저 써&nbsp;보세요</b><a href="/prompts/" data-ev="subscribe-next:/prompts/"><span>프롬프트</span>복붙 프롬프트&nbsp;모음</a><a href="/tools/" data-ev="subscribe-next:/tools/"><span>무료 도구</span>설치⁠·가입 없이 쓰는 무료&nbsp;도구</a><a href="/guide/" data-ev="subscribe-next:/guide/"><span>AI 길잡이</span>회의록⁠·PDF 요약⁠·메일⁠·엑셀, 일 단위로 찾는 AI&nbsp;활용법</a></nav>
   </section>
   <section class="subbox" aria-label="주간 메일 구독">
-  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다.</p></div>
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다. <a class="smpl" href="/subscribe/#sample" data-ev="subscribe:sample-link">어떤 메일인지 먼저&nbsp;보기</a></p></div>
   <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
     <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
     <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
@@ -115,6 +116,16 @@
     <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
     <p class="submsg" role="status" aria-live="polite"></p>
   </form>
+</section>
+  <section class="mailsample" id="sample" aria-label="주간 메일 견본">
+  <div class="sec"><h2>이런 메일이&nbsp;갑니다</h2></div>
+  <p class="msnote">11월 2일~8일 기사로 만든 견본입니다. 실제 메일도 같은 틀로&nbsp;갑니다.</p>
+  <div class="msframe"><div class="mshead"><span>제목</span>[SHIFT AI] 이번 주 AI 핫 이슈&nbsp;· 11월 2일~8일</div>
+  <p class="msintro">11월 2일~8일 한 주 동안 AI 기사 20개를 원문부터 읽고 썼습니다. 그중 꼭 볼 5개를 골랐습니다. 판정은 지켜보세요 15입니다.</p>
+  <ol class="mslist"><li><span class="msk">01&nbsp;· 모델⁠·제품<i class="vd vd-watch">지켜보세요</i></span><a href="/news/2026-11-08-meta-muse-spaces/">메타 뮤즈 스페이스, 말로 앱을&nbsp;만든다</a><p>메타가 11월 6일(미국 시각) 뮤즈⁠(Muse) 앱에 '스페이스'를 추가했습니다. 만들고 싶은 화면을 말로 설명하면 뮤즈가 만들어 주며, 뮤즈가 제공되는 모든 곳에서 오늘부터 쓸 수 있습니다.</p></li><li><span class="msk">02&nbsp;· 모델⁠·제품<i class="vd vd-watch">지켜보세요</i></span><a href="/news/2026-11-07-gemini-omni-1-2-flash/">제미나이 옴니&nbsp;1.2 플래시, 15초&nbsp;영상</a><p>제미나이 옴니&nbsp;1.2 플래시(Gemini Omni&nbsp;1.2 Flash)⁠는 구글 딥마인드가 11월 5일 정식 출시한 동영상 생성⁠·편집 모델입니다. 영상은 최대 15초로 늘었고 720p 가격은 초당&nbsp;0.07달러로 내려갔습니다.</p></li><li><span class="msk">03&nbsp;· 보안⁠·안전<i class="vd vd-watch">지켜보세요</i></span><a href="/news/2026-11-06-anthropic-flashprove/">앤트로픽 플래시프루브, 모델 출처를 암호로&nbsp;증명</a><p>앤트로픽(Anthropic)⁠이 AI 답변이 개발사가 말한 바로 그 모델에서 나왔는지 영지식 증명으로 확인하는 프로토타입 플래시프루브(FlashProve)⁠를 오픈소스로 공개했습니다. H100&nbsp;한 대에서 초당 약 110토큰의 증명을 만들지만 아직 연구용입니다.</p></li><li><span class="msk">04&nbsp;· 보안⁠·안전<i class="vd vd-watch">지켜보세요</i></span><a href="/news/2026-11-05-postman-agent-plugins-autoinstall/">포스트맨, 클로드 코드 플러그인 자동 설치&nbsp;의혹</a><p>포스트맨(Postman) 데스크톱 앱이 클로드 코드와 코덱스에 자체 플러그인을 사용자 동의 없이 설치했다는 보고가 깃허브 이슈로 올라와 있습니다. 보고자의 로그와 설정 파일 기록, 11월 3일 추가 재현 댓글을 정리했습니다.</p></li><li><span class="msk">05&nbsp;· 연구<i class="vd vd-watch">지켜보세요</i></span><a href="/news/2026-11-04-hf-transformers-mic/">허깅페이스 MIC, PR 단계에서 버그&nbsp;찾는다</a><p>허깅페이스(Hugging Face)⁠가 트랜스포머스 라이브러리에 모델 통합 계약⁠(MIC)⁠을 제안했습니다. 실제 모델의 설정으로 줄여 만든 작은 모델에 사용 경로를 돌려 보고, 사람이 검토한 기준 결과와 같은지 CPU에서 확인하는 방식입니다.</p></li></ol>
+  <p class="msmore">이어서 ‘한 줄로 보는 다른 소식’ 10개&nbsp;· ‘이번 주 따라 해 볼 것’ 2개가 실립니다.</p>
+  </div>
+  <p class="mslink"><a href="/subscribe/sample/" data-ev="subscribe:sample-full">메일 모양 그대로&nbsp;보기</a></p>
 </section>
   <article class="essay">
     <h2>메일에 담기는&nbsp;것</h2>
@@ -134,7 +145,7 @@
         <tr><td>해지</td><td>모든 메일 아래 '구독 해지' 링크&nbsp;한&nbsp;번</td></tr>
       </tbody>
     </table></div>
-    <p>어떤 소식이 담기는지 먼저 보고 싶다면 <a href="/weekly/">주간 AI 판정</a>을 열어 보세요. 매일 소식은 <a href="/daily/">데일리 이슈</a>에서 봅니다.</p>
+    <p>지난 주들의 기사와 판정은 <a href="/weekly/">주간 AI 판정</a>에 모아 둡니다. 매일 소식은 <a href="/daily/">데일리 이슈</a>에서 봅니다.</p>
   </article>
 <section class="followbox">
   <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
@@ -165,8 +176,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=9e1c6ac6"></script>
-<script src="/assets/app.js?v=9e1c6ac6"></script>
+<script src="/assets/data-lite.js?v=8612cd89"></script>
+<script src="/assets/app.js?v=8612cd89"></script>
 
 
 </body></html>

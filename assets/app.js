@@ -717,7 +717,7 @@ document.addEventListener("submit",async e=>{
   b.addEventListener("click",async ()=>{
     b.disabled=true; b.textContent="확정하는 중…";
     const j=await subPost(f?f.dataset.api:"","/confirm",{t});
-    if(j.ok){ $("#subCTitle").textContent="구독이 확정됐습니다"; $("#subCMsg").textContent=`돌아오는 월요일 아침 7시부터 ${em||"이 주소"}로 주간 메일이 갑니다. 해지는 메일 아래 '구독 해지' 링크 한 번이면 됩니다.`; b.remove(); if(f) f.closest(".subbox").hidden=true; try{ localStorage.setItem("shift-sub","1"); }catch(_){} track("subscribe:confirm","구독 확정"); }
+    if(j.ok){ $("#subCTitle").textContent="구독이 확정됐습니다"; $("#subCMsg").textContent=`돌아오는 월요일 아침 7시부터 ${em||"이 주소"}로 주간 메일이 갑니다. 해지는 메일 아래 '구독 해지' 링크 한 번이면 됩니다.`; b.remove(); if($("#subCNext")) $("#subCNext").hidden=false; if(f) f.closest(".subbox").hidden=true; try{ localStorage.setItem("shift-sub","1"); }catch(_){} track("subscribe:confirm","구독 확정"); }
     else { $("#subCTitle").textContent="구독을 확정하지 못했습니다"; $("#subCMsg").textContent=SUB_ERR[j.error]||"잠시 뒤 다시 눌러 주세요."; b.disabled=false; b.textContent="다시 시도"; if(j.error==="expired"||j.error==="bad") b.remove(); }
   });
 })();
