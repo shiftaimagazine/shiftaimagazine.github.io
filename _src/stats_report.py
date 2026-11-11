@@ -35,9 +35,9 @@ def cnt(h): return h.get('count') if h.get('count') is not None else (h.get('cou
 
 MORE = []; RAW = {}; DIAG = []
 def hits(p):  # 상위 100개 경로(페이지·이벤트). 그보다 많으면 보고서에 적는다
-    d = api('/stats/hits', limit=100, **rng(p))
-    if not d.get('hits'):   # 2026-11-09: 합계는 있는데 목록이 비어 옴 → 다른 요청 모양으로 다시 받아 본다
-        for alt in ({'limit': 100, 'daily': 'true', **rng(p)}, {'limit': 20, **rng(p)}, rng(p), {'limit': 100}):
+    d = api('/stats/hits', limit=100, daily='true', **rng(p))   # daily=true 가 없으면 GoatCounter 가 404 를 준다(2026-11-11 확인)
+    if not d.get('hits'):   # 그래도 비면 다른 요청 모양으로 다시 받아 보고 진단 줄을 남긴다
+        for alt in ({'limit': 100, **rng(p)}, {'limit': 20, 'daily': 'true', **rng(p)}, {'daily': 'true', **rng(p)}):
             try: d2 = api('/stats/hits', **alt)
             except Exception as e: DIAG.append(f'대체 요청 {sorted(alt)} 실패: {str(e)[:120]}'); continue
             if d2.get('hits'): DIAG.append(f'대체 요청 {sorted(alt)} 로 목록 {len(d2["hits"])}개 받음'); d = d2; break
