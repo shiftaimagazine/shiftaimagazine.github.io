@@ -1998,7 +1998,7 @@ footer .fbrand img{height:44px;width:auto}
 .h2-t .ln.l2>span{animation-delay:.15s}
 .h2-sub{margin:0;font-size:19px;line-height:1.65;color:var(--sub)}
 .nw{display:inline-block;white-space:nowrap}
-.h2-f1{animation:h2Fade .8s ease .5s both}.h2-f2{animation:h2Fade .8s ease .7s both}.h2-f3{animation:h2Fade .8s ease .9s both}.h2-f4{animation:h2Fade .8s ease 1.05s both}.h2-f5{animation:h2Fade 1s ease 1.3s both}
+.h2-f1{animation:h2Fade .8s ease .5s both}.h2-f2{animation:h2Fade .8s ease .7s both}.h2-f3{animation:h2Fade .8s ease .9s both}.h2-f4{animation:h2Fade .8s ease 1.05s both}.h2-f5{animation:h2Up .9s cubic-bezier(.2,.8,.2,1) .15s both}@keyframes h2Up{from{transform:translateY(18px)}to{transform:none}}  /* 11/12 속도: 띠는 투명도로 숨기지 않고 살짝 올라오기만 — 투명도 페이드(1.3초 뒤 시작)가 끝날 때까지 첫 화면에서 가장 큰 그림(LCP)이 안 잡혀 모바일 LCP 7초대였음 */
 .hs2{position:relative;display:flex;align-items:center;width:100%;max-width:600px;height:62px;box-sizing:border-box;border:1.5px solid var(--ink);border-radius:999px;background:var(--bg);text-align:left}
 .hs2 input{position:absolute;inset:0;width:100%;height:100%;box-sizing:border-box;border:0;border-radius:999px;background:transparent;padding:0 120px 0 24px;font:inherit;font-size:17px;color:var(--ink);outline:none}
 .hs2:focus-within{box-shadow:0 0 0 4px rgba(162,59,44,.16)}
