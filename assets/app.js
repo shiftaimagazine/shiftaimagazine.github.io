@@ -80,7 +80,7 @@ const homeTutPick = (n=8)=>{ const xs=[...TUTORIALS].sort((a,b)=>b.date.localeCo
 // 홈 무료 도구 카드(11/6 A안): 썸네일 + 분류 + 이름 + 한 줄
 const hcardHTML = t=>`<a class="hcard" href="${t.href}" data-ev="home-tool:${esc(t.id)}"><span class="ph">${t.thumb?`<img src="${t.thumb}" alt="" loading="lazy" decoding="async">`:""}</span><span class="hc-b"><span class="k">${esc(t.tag)}</span><b>${tp(toolName(t))}</b><span class="d">${tp(t.cover&&t.cover.line||t.desc||"")}</span></span></a>`;
 // 썸네일 띠: 같은 줄을 두 번 이어 붙여 끊김 없이 흐르게(두 번째 줄은 화면 읽기·탭 이동에서 뺌)
-const wallRow = xs=>{ const one=(x,h,k)=>`<a href="${x.href}"${h?' tabindex="-1" aria-hidden="true"':` data-ev="home-wall:${esc(x.id)}"`}><img src="${x.src}" alt="${h?"":esc(x.alt)}"${!h&&k<5?' fetchpriority="low"':' loading="lazy"'} decoding="async"></a>`;
+const wallRow = xs=>{ const one=(x,h,k)=>`<a href="${x.href}"${h?' tabindex="-1" aria-hidden="true"':` data-ev="home-wall:${esc(x.id)}"`}><img src="${x.src}" alt="${h?"":esc(x.alt)}"${!h&&k<2?' fetchpriority="high"':(!h&&k<5?' fetchpriority="low"':' loading="lazy"')} decoding="async"></a>`;
   return xs.map((x,k)=>one(x,false,k)).join("") + xs.map((x,k)=>one(x,true,k)).join(""); };  // 첫 화면에 보이는 앞쪽 5장은 바로 불러 빈 칸이 안 보이게
 // 흐르는 띠 속도 맞추기(11/6~ 사용자 요청): 도구·튜토리얼·판정 띠 모두 같은 속도(초당 23px, 처음 도구 띠의 절반)로 흐른다.
 // 줄마다 길이가 달라도 같은 빠르기가 되도록 길이(복제 포함의 절반) ÷ 속도로 시간을 정한다.
@@ -94,8 +94,10 @@ function renderHome2(d){
   if($("#newsMore")) $("#newsMore").innerHTML = `<span class="sr">최신 기사 </span>AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기 <span class="ne" aria-hidden="true">↗</span>`;
   const tw = TOOLS.filter(t=>t.thumb).slice(0,10).map(t=>({href:t.href,src:t.thumb,alt:toolName(t),id:t.id}));
   const uw = homeTutPick(10).filter(t=>t.thumb).map(t=>({href:P(t.id),src:t.thumb,alt:t.title,id:t.id}));
-  if($("#hWall1")) $("#hWall1").innerHTML = wallRow(tw);
-  if($("#hWall2")) $("#hWall2").innerHTML = wallRow(uw);
+  // 11/12 속도: 미리 그린 페이지에서는 띠를 다시 만들지 않는다. 다시 만들면 첫 화면에서 가장 큰 그림(띠 첫 카드)이 스크립트를 다 받은 뒤에야 새로 그려져 모바일 LCP 가 8초대로 잡혔다.
+  const keepWall = PRE && $("#hWall1") && $("#hWall1").children.length && $("#hWall2") && $("#hWall2").children.length;
+  if($("#hWall1") && !keepWall) $("#hWall1").innerHTML = wallRow(tw);
+  if($("#hWall2") && !keepWall) $("#hWall2").innerHTML = wallRow(uw);
   if($("#hTicker")){ const xs = sorted.slice(0,6), one = (a,h)=>`<a href="${P("a-"+a.id)}"${h?' tabindex="-1" aria-hidden="true"':` data-ev="home-ticker:${esc(a.id)}"`}>${vchip(a)}<span>${tp(a.title)}</span></a>`;
     const row = h=>`<div class="tk-g"><b class="tk-k">SHIFT 판정</b>${xs.map(a=>one(a,h)).join("")}</div>`; $("#hTicker").innerHTML = row(false)+row(true); }
   requestAnimationFrame(syncMarq); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(syncMarq);
