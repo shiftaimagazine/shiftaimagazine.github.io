@@ -236,6 +236,9 @@ AUTHOR = {'@type': 'Organization', 'name': 'SHIFT AI 편집부', 'url': SITE + '
 
 def page(path, route, title, desc, main, og, typ='website', extra='', robots='index,follow,max-image-preview:large', secmeta=None):
     url = SITE + path
+    # 11/12 속도: 본문 끝 스크립트(data·app)는 defer 로 — 글과 그림이 먼저 그려지고 스크립트는 뒤에서 받는다(모바일 첫 그리기·LCP).
+    # 도구 페이지처럼 머리에 defer 위젯 스크립트가 있는 페이지는 실행 순서(app.js → 위젯)가 바뀌면 안 되므로 예전 그대로 둔다.
+    _df = '' if '<script defer src="/assets/' in extra else ' defer'
     doc = f'''<!doctype html>
 <html lang="ko">
 <head>
@@ -271,8 +274,8 @@ def page(path, route, title, desc, main, og, typ='website', extra='', robots='in
 {SUBBOX if NL_LIVE and route != 'subscribe' else ''}</div>
 {footer}
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data.js?v={VER}"></script>
-<script src="/assets/app.js?v={VER}"></script>
+<script src="/assets/data.js?v={VER}"{_df}></script>
+<script src="/assets/app.js?v={VER}"{_df}></script>
 </body>
 </html>
 '''
