@@ -42,6 +42,7 @@ server.listen(0, '127.0.0.1', async () => {
         const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
         while ((n = w.nextNode())) if (n.data.includes('·')) n.data = n.data.replace(/(\S)·/g, '$1\u2060·');
       });
+      { const g = document.getElementById('gfont'); if (g) g.media = 'print'; }   // 글꼴 CSS 는 늘 media=print 로 저장(11/12 속도 — theme.js 가 받아지는 순간 바꿈)
       document.body.dataset.pre = '1'; return '<!doctype html>\n' + document.documentElement.outerHTML + '\n'; });
     if (errs.length) { console.error('JS error on', p, errs); process.exitCode = 1; }
     if (!FULL.has(p)) { const n0 = doc.length; doc = doc.replace(/<script src="\/assets\/data\.js\?v=/, '<script src="/assets/data-lite.js?v='); if (doc.length === n0) { console.error('data.js 줄 없음', p); process.exitCode = 1; } }

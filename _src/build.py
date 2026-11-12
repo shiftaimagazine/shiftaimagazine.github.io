@@ -194,7 +194,7 @@ for _f in sorted(os.listdir(SRC + 'widgets')) if os.path.isdir(SRC + 'widgets') 
 VER = hashlib.sha1((data_js + app_js + css + theme_js).encode()).hexdigest()[:8]
 
 VERIFY = (open(SRC + 'verify-meta.html').read().strip() + '\n') if os.path.exists(SRC + 'verify-meta.html') else ''
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap">\n<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>'   # 11/12 속도: 글꼴 CSS(약 92KB, 남의 서버)가 첫 그리기를 막지 않게 media=print 로 받고 theme.js 가 받아지는 순간 화면에 적용(모바일 LCP 6.0초의 원인 둘 중 하나)
 # 방문 통계: GoatCounter(쿠키 없음, IP 저장 안 함). 개인정보처리방침 7일 전 공지 약속에 따라 시행일부터 센다. 미리 그리기(prerender)·로컬에서는 안 셈.
 GC_CODE, GC_START = 'shiftai', '2026-11-03T00:00:00+09:00'
 # 채널 표시(11/3): 주소의 ?from=th|ig|yt 또는 utm_source 가 있으면 들어온 곳을 쓰레드·인스타·유튜브로 센다(앱 안 브라우저는 들어온 곳을 안 넘겨줌).
@@ -453,7 +453,7 @@ for t in TERMS:
 # 404
 nf = '''<main id="v-404"><div class="notfound narrow"><h1>찾는 페이지가 없습니다</h1><p>주소가 바뀌었거나 지워진 글입니다. 아래에서 다시 찾아보세요.</p>
 <div class="acts"><a class="btn" href="/">첫 화면</a><a class="ghost" href="/news/">AI 뉴스</a><a class="ghost" href="/daily/">데일리 이슈</a></div></div></main>'''
-page('/404-tmp/', '404', '페이지를 찾을 수 없습니다 · SHIFT AI', 'SHIFT AI 매거진', nf, OG_SITE)
+page('/404-tmp/', '404', '페이지를 찾을 수 없습니다 · SHIFT AI', 'SHIFT AI 매거진', nf, OG_SITE, 'website', '', 'noindex,follow')
 PAGES.remove('/404-tmp/')
 # 무료 도구: 목록 + 도구마다 한 페이지(검색 노출용 설명·구조화 데이터)
 TOOLS = D.get('TOOLS', [])

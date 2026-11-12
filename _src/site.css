@@ -1543,8 +1543,9 @@ footer .fbrand img{height:44px;width:auto}
 /* ---- 홈 A안(11/6~ 사용자 결정): 원형 장식 뺌. 가운데 정렬 첫 화면 + 하고 싶은 일 버튼 + 썸네일 띠 + 판정 띠 + 검정 바닥글 흐르는 글자.
    줄바꿈: 제목 한 줄(.ln)과 부제 한 문장(.nw)은 그 안에서 끊지 않는다. 움직임은 '동작 줄이기'면 모두 끈다. ---- */
 @font-face{font-family:"SAI Display";src:url("/fonts/sofia-sans-condensed-900.woff2") format("woff2");font-weight:900;font-display:swap}
-@keyframes h2Rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
-@keyframes h2Fade{from{opacity:0}to{opacity:1}}
+/* 11/12 속도: 시작 투명도를 0 이 아니라 .01 로 — 0 이면 크롬이 큰 제목을 "보이는 글"로 치지 않아 글꼴이 바뀔 때까지 LCP 가 늦게 잡힘(모바일 6.0초). 눈에 보이는 차이는 없음 */
+@keyframes h2Rise{from{opacity:.01;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes h2Fade{from{opacity:.01}to{opacity:1}}
 @keyframes h2Roll{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-25%)}50%,70%{transform:translateY(-50%)}75%,95%{transform:translateY(-75%)}100%{transform:translateY(0)}}
 @keyframes h2MarqL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes h2MarqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}

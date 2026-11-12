@@ -7,3 +7,6 @@
 (function(){ var p=location.pathname; if(!/^\/tools\/[^\/]+\/$/.test(p)) return; var h=location.hash, v=null;
   if(h==="#guide") v="guide"; else if(h==="#use") v="tool"; else { try{ v=localStorage.getItem("shift-tg:"+p); }catch(e){} }
   document.documentElement.setAttribute("data-tpane", v==="tool" ? "tool" : "guide"); })();
+// 글꼴(11/12 속도): 구글 폰트 CSS 는 media=print 로 받아 두었다가(build.py FONTS, id=gfont) 받아지는 순간 화면에 적용한다. 그 전까지는 기기 글꼴로 보인다(display=swap 과 같은 흐름). 미리 그리기(prerender)는 바깥 요청을 막아서 이 값이 바뀌지 않는다.
+(function(){ function on(l){ if(l && l.id==="gfont" && l.media!=="all") l.media="all"; }
+  document.addEventListener("load", function(e){ on(e.target); }, true); })();   // 이 줄이 링크보다 먼저 실행되므로 load 를 놓치지 않는다. 못 받으면(막힘·오류) 기기 글꼴 그대로.
