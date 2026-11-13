@@ -426,5 +426,29 @@
   "credit": "이미지: NVIDIA",
   "alt": "엔비디아 쿠버콘 오픈셸 기증 대표 이미지",
   "auto": true
+ },
+ "2026-11-14-gemini-4-hydrogen": {
+  "src": "img/ph/2026-11-14-gemini-4-hydrogen.webp",
+  "credit": "이미지: Google",
+  "alt": "제미나이 4 하이드로젠 대표 이미지",
+  "auto": true
+ },
+ "2026-11-14-ibm-granite-llmon": {
+  "src": "img/ph/2026-11-14-ibm-granite-llmon.webp",
+  "credit": "이미지: IBM Granite · Hugging Face",
+  "alt": "LLMON 소개 대표 이미지",
+  "auto": true
+ },
+ "2026-11-14-gemini-decisions-api": {
+  "src": "img/ph/2026-11-14-gemini-decisions-api.webp",
+  "credit": "이미지: Google",
+  "alt": "제미나이 결정 API 대표 이미지",
+  "auto": true
+ },
+ "2026-11-14-alphagenome-2": {
+  "src": "img/ph/2026-11-14-alphagenome-2.webp",
+  "credit": "이미지: Google DeepMind",
+  "alt": "알파게놈 2 대표 이미지",
+  "auto": true
  }
 }
