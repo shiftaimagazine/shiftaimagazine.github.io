@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com https://shift-newsletter.shiftaimagazine.workers.dev; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>XYBench, 질문 속 오해 짚기 시험 · SHIFT AI</title>
+<meta name="description" content="Ai2가 11월 13일 AI가 질문 속 오해를 알아채는지 재는 시험 XYBench를 공개했습니다. 질문 8,115개로 모델 5종을 시험했더니 모두 물어본 방법의 해결책을 목표의 해결책보다 자주 답했습니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/news/2026-11-15-xybench/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XYBench, 질문 속 오해 짚기 시험 · SHIFT AI">
+<meta property="og:description" content="Ai2가 11월 13일 AI가 질문 속 오해를 알아채는지 재는 시험 XYBench를 공개했습니다. 질문 8,115개로 모델 5종을 시험했더니 모두 물어본 방법의 해결책을 목표의 해결책보다 자주 답했습니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/news/2026-11-15-xybench/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/a-2026-11-15-xybench.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=f7c77b1e"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-15T07:09:00+09:00">
+<meta property="article:section" content="연구">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "XYBench, 질문 속 오해 짚기 시험", "description": "Ai2가 11월 13일 AI가 질문 속 오해를 알아채는지 재는 시험 XYBench를 공개했습니다. 질문 8,115개로 모델 5종을 시험했더니 모두 물어본 방법의 해결책을 목표의 해결책보다 자주 답했습니다.", "image": ["https://shiftaimagazine.com/og/a-2026-11-15-xybench.jpg"], "datePublished": "2026-11-15T07:09:00+09:00", "dateModified": "2026-11-15T07:09:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI MAGAZINE", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-11-15-xybench/", "articleSection": "연구", "inLanguage": "ko", "keywords": "Ai2, XY 문제, 벤치마크, LLM, 데이터셋, 허깅페이스, 깃허브", "isBasedOn": ["https://allenai.org/blog/xybench", "https://arxiv.org/pdf/2609.06842"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 뉴스", "item": "https://shiftaimagazine.com/news/"}, {"@type": "ListItem", "position": 3, "name": "XYBench, 질문 속 오해 짚기 시험", "item": "https://shiftaimagazine.com/news/2026-11-15-xybench/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/site.css?v=f7c77b1e">
+</head>
+<body data-route="a-2026-11-15-xybench" id="top" class="has-sub" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="true" aria-current="true">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="false" aria-current="false">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <div class="sw" role="group" aria-label="SHIFT 매거진 바꾸기"><span aria-current="true">AI</span><a href="https://play.shiftaimagazine.com/?from=ai-header" title="SHIFT PLAY · 게임 뉴스·칼럼 매거진" data-ev="switch:play">PLAY</a></div>
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <details class="fol" id="fol">
+        <summary class="btn pill" aria-label="SHIFT 팔로우: 인스타그램·유튜브·스레드 고르기" aria-haspopup="true" aria-expanded="false">팔로우</summary>
+        <div class="folm" role="menu" aria-label="SHIFT 팔로우">
+          <a role="menuitem" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-ev="follow:ig"><i class="fi fi-ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></i><span><b>인스타그램</b><small>30초 영상으로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-ev="follow:yt"><i class="fi fi-yt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"></rect><path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"></path></svg></i><span><b>유튜브</b><small>쇼츠로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-ev="follow:th"><i class="fi fi-th" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"></circle><path d="M15.6 12v1.4a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.6 7.1"></path></svg></i><span><b>스레드</b><small>그날 나온 소식을 가장&nbsp;먼저</small></span></a>
+          <a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></i><span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식&nbsp;한&nbsp;통</small></span></a>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴"><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news" aria-current="page">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/tips/" data-sub="tips">실용 팁</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+      <a href="/dict/" data-sub="dict">AI 사전</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow art-news">
+    <a class="back" href="/news/">← AI&nbsp;뉴스</a>
+    <span class="cat">연구</span>
+    <h1><span class="tphw"><span class="tph">XYBench,</span> <span class="tph">질문 속 오해 짚기&nbsp;시험</span></span></h1><p class="deck">Ai2가 질문 8,115개로 모델 5종을 시험&nbsp;· 목표로 이끈 답은 사람 79%, GPT-⁠5 60%&nbsp;· 데이터⁠·코드&nbsp;공개</p>
+    <p class="who"><b>이런 분께 추천합니다</b><span>챗GPT⁠·클로드⁠·제미나이에 방법을 물어 업무를 처리하는&nbsp;직장인</span></p>
+    <div class="vcard"><div class="trynow"><b>오늘 바로 해&nbsp;보세요</b><span>챗봇에 방법을 물을 때 최종 목표도 한 문장 함께 적어 보내고, 목표에 맞는 해결책이 답에 들어오는지 비교해&nbsp;보세요.</span></div></div>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>2026.11.15 07:09</span><span class="dot"></span><span>4분 읽기</span></div>
+    <figure class="lead-fig"><img src="img/ph/2026-11-15-xybench.webp" alt="XYBench 블로그 대표 이미지" fetchpriority="high"><figcaption>이미지: Ai2</figcaption></figure>
+    <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>Ai2 연구진(카네기멜런대⁠·엔비디아⁠·존스홉킨스대 연구자와&nbsp;개발)</td></tr><tr><th>날짜</th><td>2026년 11월&nbsp;13일</td></tr><tr><th>무엇</th><td>질문 속 오해를 짚고 목표로 이끄는지 보는 시험 XYBench</td></tr><tr><th>핵심 숫자</th><td>질문 8,115개&nbsp;· 모델 5종 단일&nbsp;응답</td></tr><tr><th>공개 범위</th><td>논문⁠·데이터셋⁠·코드(라이선스 표기는 확인되지&nbsp;않음)</td></tr><tr><th>원문</th><td>Ai2 블로그⁠·arXiv 논문</td></tr></tbody></table></div>
+    <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>질문 8,115개.</b> 스택오버플로 1,557개, 스택익스체인지 184개, 직접 고른 102개, 위키하우 가이드 기반 6,272개입니다</li><li><b>요청한 방법의 해결책을 먼저 답합니다.</b> 스택오버플로 질문에서 요청한 방법의 해결책은 답의 75%에서 86%, 목표의 해결책은 59%에서 71%에 들어 있었습니다</li><li><b>목표로 이끈 답은 사람이 더 많습니다.</b> 상위 사람 답 79%, GPT-⁠5 60%, 클로드 소넷&nbsp;4.6 47%입니다</li></ul></div>
+    <div class="body"><p class="lead"><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="Ai2">Ai2</span>가 11월 13일 XYBench를 공개했습니다. 사용자가 잘못된 방법을 전제로 물었을 때 AI가 오해를 알아채고 진짜 목표로 안내하는지 재는 질문 8,115개짜리 시험이며 논문과 데이터, 코드가 함께 나왔습니다.</p><div class="glance m-only"><div class="gt"><b>오늘 바로 해 보세요</b><span>챗봇에 방법을 물을 때 최종 목표도 한 문장 함께 적어 보내고, 목표에 맞는 해결책이 답에 들어오는지 비교해&nbsp;보세요.</span></div><ul><li><b>질문 8,115개.</b> 스택오버플로 1,557개, 스택익스체인지 184개, 직접 고른 102개, 위키하우 가이드 기반 6,272개입니다</li><li><b>요청한 방법의 해결책을 먼저 답합니다.</b> 스택오버플로 질문에서 요청한 방법의 해결책은 답의 75%에서 86%, 목표의 해결책은 59%에서 71%에 들어 있었습니다</li><li><b>목표로 이끈 답은 사람이 더 많습니다.</b> 상위 사람 답 79%, GPT-⁠5 60%, 클로드 소넷&nbsp;4.6 47%입니다</li></ul></div><h3>프로스팅을 되직하게 만들기&nbsp;전에</h3><p><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="XY 문제">XY 문제</span>는 어떤 사람이 X를 이루려고 Y라는 방법이 통할 것이라 가정하고 Y에 대해 묻는 상황입니다. 원문의 예는 컵케이크 위에 바른 프로스팅이 자꾸 흘러내려서 더 되직하게 만드는 법을 묻는 질문이고, 실제 원인은 컵케이크가 아직 따뜻하다는 것입니다. 청소기의 경우에는 모델이 더 센 청소기를 여러 문단에 걸쳐 권하면서 막힌 호스는 짧게만 언급하는 답이 문제로 꼽혔습니다. 사람에게는 오해를 먼저 짚는 답이 더 쓸모 있는데, 모델의 답은 질문이 가리킨 방법 쪽으로 끌려가는 경향이 있었습니다.</p><h3>질문 출처와 채점&nbsp;방식</h3><p>포럼 질문에는 점수가 높은 사람 답 세 개와 채택된 답을 비교 대상으로 썼고, 위키하우 질문은 클로드 소넷&nbsp;4.5가 그럴듯한 오해를 바탕으로 만들었습니다. 요청한 방법만 답해도 문제가 거의 풀리는 예는 뺐습니다. 채점은 목표의 해결책을 말했는지, 그것을 강조했는지, 오해를 알아챘는지 세 가지로 하고 채점자는 클로드 소넷&nbsp;4.5입니다. 사람 검토자 두 명이 모델 답 500개를 확인했을 때 일치율은 해결책 포함 여부&nbsp;97.5%에서 100%, 오해 식별&nbsp;84.6%에서&nbsp;93.3%, 강조&nbsp;74.2%에서&nbsp;79.8%였습니다.</p><h3>다섯 모델이 질문에 끌려가는&nbsp;정도</h3><p>시험한 모델은 클로드 소넷&nbsp;4.6, GPT-⁠5, 제미나이&nbsp;3.1&nbsp;프로, 큐웬3.5-9B, 딥시크-V4 프로이고 질문마다 한 번씩 답하게 했습니다. 답이 주로 목표에 맞춰진 경우는 스택오버플로에서 35%에서 41%였고 47%에서 57%는 요청한 방법에 맞춰져 있었습니다.</p><div class="tbl"><table class="dtable"><thead><tr><th>&nbsp;답을&nbsp;쓴&nbsp;쪽</th><th>목표의&nbsp;해결책을&nbsp;말한&nbsp;비율</th><th>목표로&nbsp;이끈&nbsp;비율</th></tr></thead><tbody><tr><td>&nbsp;상위&nbsp;사람&nbsp;답</td><td>67%</td><td>79%</td></tr><tr><td>GPT-⁠5</td><td>71%</td><td>60%</td></tr><tr><td>큐웬3.5-⁠9B</td><td>64%</td><td>60%</td></tr><tr><td>딥시크-⁠V4&nbsp;프로</td><td>66%</td><td>55%</td></tr><tr><td>제미나이&nbsp;3.1&nbsp;프로</td><td>62%</td><td>54%</td></tr><tr><td>클로드&nbsp;소넷&nbsp;4.6</td><td>59%</td><td>47%</td></tr></tbody></table></div><div class="note">스택오버플로 질문 기준, Ai2 블로그 2026-11-13</div><p>요청한 방법의 해결책과 목표의 해결책 중 하나를 고르게 하면 GPT-⁠4.1을 더한 여섯 모델 모두 스택오버플로에서 71%에서 84%로 목표에 맞춘 답을 골랐습니다. 연구진은 좋은 조언을 알아보는 능력과 직접 만들어 내는 능력 사이에 간격이 있다고 해석합니다. 요청한 방법과 목표를 둘 다 알려 주면 소넷&nbsp;4.6이 목표의 해결책을 말하는 비율이 59%에서 67%로 올랐지만 오해를 식별하는 비율은 47%에서 34%로 내려갔고, 모든 모델이 오해 식별에서 사람에 못 미쳤습니다.</p><h3>영어 질문과 한 번 묻고 답하는&nbsp;형식</h3><p>시험은 영어 질문과 주로 절차형 문제를 다루고, 한 번 묻고 답하는 형식만 평가합니다. 채점을 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="LLM">LLM</span>이 맡았다는 점도 한계로 적혀 있습니다. 다른 언어와 여러 차례 이어지는 대화로 넓히는 일은 열린 방향으로 남아 있습니다. 데이터는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="허깅페이스">허깅페이스</span> allenai/XYBench-dataset, 코드는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="깃허브">깃허브</span> allenai/XYBench에 있고 두 페이지 모두 라이선스를 적지 않았습니다. Ai2는 이 논문이 EMNLP 2026에서 최우수 리소스 논문상을 받았다고 적었습니다.</p></div>
+    <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>AI에게 방법을 물었다가 진짜 문제는 다른 데 있었던 적이&nbsp;있나요?</div>
+    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/guide/verify-ai/" data-ev="next:/guide/verify-ai/"><span>길잡이</span>AI 답, 믿기 전에 확인하는&nbsp;법</a><a href="/tutorial/verify-numbers/" data-ev="next:/tutorial/verify-numbers/"><span>튜토리얼</span>AI가 말한 숫자⁠·날짜⁠·가격, 원문으로 확인하는 프롬프트&nbsp;9개</a><a href="/tools/prompt-check/" data-ev="next:/tools/prompt-check/"><span>무료 도구</span>프롬프트 점검기 (빠진 것⁠·흐린&nbsp;말&nbsp;찾기)</a></nav>
+    <div class="src"><b>원문</b><a href="https://allenai.org/blog/xybench" target="_blank" rel="noopener">Ai2 블로그 — XYBench: Helping with the problem behind the question&nbsp;· https://allenai.org/blog/xybench</a><a href="https://arxiv.org/pdf/2609.06842" target="_blank" rel="noopener">논문 — XYBench: Can LLMs Respond Pragmatically to Queries with Misconceptions?&nbsp;· https://arxiv.org/pdf/2609.06842</a></div>
+    <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>Ai2 연구진(카네기멜런대⁠·엔비디아⁠·존스홉킨스대 연구자와&nbsp;개발)</td></tr><tr><th>날짜</th><td>2026년 11월&nbsp;13일</td></tr><tr><th>무엇</th><td>질문 속 오해를 짚고 목표로 이끄는지 보는 시험 XYBench</td></tr><tr><th>핵심 숫자</th><td>질문 8,115개&nbsp;· 모델 5종 단일&nbsp;응답</td></tr><tr><th>공개 범위</th><td>논문⁠·데이터셋⁠·코드(라이선스 표기는 확인되지&nbsp;않음)</td></tr><tr><th>원문</th><td>Ai2 블로그⁠·arXiv 논문</td></tr></tbody></table></details><details><summary>원문 2곳</summary><div class="srcl"><a href="https://allenai.org/blog/xybench" target="_blank" rel="noopener">Ai2 블로그 — XYBench: Helping with the problem behind the question</a><a href="https://arxiv.org/pdf/2609.06842" target="_blank" rel="noopener">논문 — XYBench: Can LLMs Respond Pragmatically to Queries with Misconceptions?</a></div></details></div>
+    
+    <div class="chips"><a href="/dict/ai2/" title="AI 모델과 데이터를 연구하는 비영리 연구소입니다. 모델과 데이터를 허깅페이스에 공개하는 일이 많습니다.">Ai2</a><a href="/dict/xy-problem/" title="어떤 사람이 X라는 목표를 이루려고 Y라는 방법을 고른 뒤 목표 X 대신 방법 Y만 물어보는 상황입니다. Ai2의 XYBench는 AI가 이런 질문에서 진짜 목표를 짚는지 잽니다.">XY 문제</a><a href="/dict/benchmark/" title="모델 성능을 같은 조건으로 재는 시험입니다. 회사가 직접 잰 점수는 '자체 발표 기준'이고, 독립 기관이 잰 점수와 다를 수 있습니다.">벤치마크</a><a href="/dict/llm/" title="대규모 언어 모델입니다. 방대한 글로 학습해 글을 읽고 쓰는 AI로, 챗GPT·클로드·제미나이가 대표적입니다.">LLM</a><a href="/dict/dataset/" title="학습이나 평가에 쓰려고 모아 정리한 데이터 묶음입니다.">데이터셋</a><a href="/dict/hugging-face/" title="AI 모델과 데이터셋을 올리고 내려받는 공유 사이트입니다. 오픈 웨이트 모델 대부분이 여기에 공개됩니다.">허깅페이스</a><a href="/dict/github/" title="코드를 저장하고 여럿이 함께 고치는 웹 서비스입니다. 오픈소스 프로젝트 대부분이 여기에 코드와 새 버전을 공개합니다.">깃허브</a></div>
+    <div class="ask m-only"><small> 생각해&nbsp;볼&nbsp;질문</small>AI에게 방법을 물었다가 진짜 문제는 다른 데 있었던 적이&nbsp;있나요?</div>
+    <div class="links"><a href="/daily/2026-11-15/">2026.11.15 데일리&nbsp;이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 영상&nbsp;보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 의견&nbsp;남기기</a><a href="/news/2026-11-15-xybench/" data-copy="https://shiftaimagazine.com/news/2026-11-15-xybench/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20XYBench%2C%20%EC%A7%88%EB%AC%B8%20%EC%86%8D%20%EC%98%A4%ED%95%B4%20%EC%A7%9A%EA%B8%B0%20%EC%8B%9C%ED%97%98&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Fnews%2F2026-11-15-xybench%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려&nbsp;주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI&nbsp;·&nbsp;쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 기사</div><div class="list"><a class="post" href="/news/2026-11-15-llama-cpp-v1/"><img class="thumb" src="img/ph/2026-11-15-llama-cpp-v1.webp" alt="llama.cpp v1.0.0 블로그 대표 이미지" loading="lazy">
+  <div class="b"><span class="cat">커뮤니티⁠·문화<span class="vd vd-watch">지켜보세요</span></span><h3><span class="tphw"><span class="tph">llama.cpp v1.0.0,</span> <span class="tph">API 호환&nbsp;약속</span></span></h3><p>내 컴퓨터에서 AI 모델을 돌리는 오픈소스 엔진 llama.cpp가 11월 13일 v1.0.0을 냈습니다. 함께 쓰이는 ggml도 같은 번호가 됐고 공개 C API가 호환되지 않게 바뀌면 메이저 번호를 올리는 규칙이 붙었습니다.</p><div class="meta"><span>2026.11.15</span><span class="dot"></span><span>3분 읽기</span></div></div></a></div></div>
+  </article></main>
+<section class="subbox" aria-label="주간 메일 구독">
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다. <a class="smpl" href="/subscribe/#sample" data-ev="subscribe:sample-link">어떤 메일인지 먼저&nbsp;보기</a></p></div>
+  <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
+    <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
+    <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <label class="agree"><input type="checkbox" name="agree" required=""> <span>[필수] 이메일 주소 수집⁠·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required=""> <span>[필수] 개인정보 국외 이전(미국 Resend⁠·Cloudflare)⁠에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend⁠·Cloudflare로 전송⁠·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
+    <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
+    <p class="submsg" role="status" aria-live="polite"></p>
+  </form>
+</section></div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fsw"><span class="fsw-k">SHIFT 매거진&nbsp;바꾸기</span><div class="fsw-t" role="group" aria-label="SHIFT 매거진 바꾸기"><span class="on-ai" aria-current="true">SHIFT AI</span><a class="to-play" href="https://play.shiftaimagazine.com/?from=ai-footer">SHIFT PLAY</a></div><p>지금 보는 곳&nbsp;· 일하는 사람을 위한 AI&nbsp;매거진</p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/tips/">실용 팁</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="/subscribe/">주간 메일</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span class="ai">A</span><span class="ai">I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=f7c77b1e" defer=""></script>
+<script src="/assets/app.js?v=f7c77b1e" defer=""></script>
+
+
+</body></html>

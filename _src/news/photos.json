@@ -450,5 +450,23 @@
   "credit": "이미지: Google DeepMind",
   "alt": "알파게놈 2 대표 이미지",
   "auto": true
+ },
+ "2026-11-15-antigravity-teamwork": {
+  "src": "img/ph/2026-11-15-antigravity-teamwork.webp",
+  "credit": "이미지: Google Research",
+  "alt": "구글 리서치 안티그래비티 /teamwork 글 대표 이미지",
+  "auto": true
+ },
+ "2026-11-15-xybench": {
+  "src": "img/ph/2026-11-15-xybench.webp",
+  "credit": "이미지: Ai2",
+  "alt": "XYBench 블로그 대표 이미지",
+  "auto": true
+ },
+ "2026-11-15-llama-cpp-v1": {
+  "src": "img/ph/2026-11-15-llama-cpp-v1.webp",
+  "credit": "이미지: Hugging Face · ggml-org",
+  "alt": "llama.cpp v1.0.0 블로그 대표 이미지",
+  "auto": true
  }
 }
