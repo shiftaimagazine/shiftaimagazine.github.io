@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-11-15",
+  "lead": "2026-11-15-antigravity-teamwork",
+  "title": "안티그래비티 /teamwork 성과, XYBench, llama.cpp 1.0",
+  "summary": "구글 리서치는 안티그래비티의 /teamwork로 낸 수학 증명과 코드 재작성 성과를 공개했고, Ai2는 질문 속 오해를 짚는지 재는 XYBench를 내놨으며, llama.cpp는 API 호환 약속을 담은 v1.0.0을 냈습니다.",
+  "three": [
+   "구글 리서치는 쿠르타드-쿠마르 추측 증명에 린 4 코드 5,000만 줄을 썼고 연구자 1만 명에게 6개월 무료 사용을 신청받습니다",
+   "Ai2의 XYBench는 질문 8,115개로 시험했고 목표로 이끈 답은 사람 79%, GPT-5 60%였습니다",
+   "llama.cpp v1.0.0은 폐지 함수 35개를 지우고 호환이 깨지면 메이저 번호를 올리기로 했습니다"
+  ],
+  "items": [
+   "2026-11-15-antigravity-teamwork",
+   "2026-11-15-xybench",
+   "2026-11-15-llama-cpp-v1"
+  ]
+ },
+ {
   "date": "2026-11-14",
   "lead": "2026-11-14-gemini-4-hydrogen",
   "title": "제미나이 4 하이드로젠 출시, 명령 공격 방어 형식 LLMON 공개",
