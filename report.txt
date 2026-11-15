@@ -1,0 +1,77 @@
+SHIFT AI 주간 방문 통계  2026-11-09 ~ 2026-11-15 (한국 시간)  · 비교: 2026-11-02 ~ 2026-11-08
+
+== 페이지 조회수: 129 (지난주 194, -34%)
+== 전체 합계(/stats/total): 253 = 페이지 조회 129 + 이벤트 124  (위 페이지 조회수와 같아야 맞음)
+   날짜별: 11-09 39 · 11-10 18 · 11-11 30 · 11-12 70 · 11-13 33 · 11-14 31 · 11-15 32 · 11-16 0
+   [진단] /stats/hits?limit=100&daily=true&start=2026-11-08T15%3A00%3A00Z&end=2026-11-15T15%3A00%3A00Z → 404 b'{"error":"not found"}'
+   [진단] 대체 요청 ['end', 'limit', 'start'] 로 목록 89개 받음
+== 많이 본 페이지 상위 20 (조회수 · 지난주 대비)
+      30    -49%  /  SHIFT AI(시프트 AI) — 오늘의 AI 뉴스와 내 일에 쓰는 법, 무료 AI 도구
+       7      새로  /dict/nvidia  엔비디아(NVIDIA) — 뜻과 최신 소식 · SHIFT AI 사전
+       5    -29%  /news  AI 뉴스 — 오늘의 인공지능 소식 · SHIFT AI
+       4    -67%  /tools  무료 AI 도구 11가지 — 설치·가입 없이 브라우저에서 바로 · SHIFT AI
+       4    +33%  /tutorial/meeting-interpreter  영어 회의, 이제 못 알아들어도 됩니다. 무료 실시간 크롬 번역 · SHIFT AI 튜토리
+       3      새로  /tutorial/skills-developer  개발자가 깔아 두면 좋은 AI 스킬 7개, 계획·테스트·디버깅·보안 점검까지 · SHIFT
+       3      새로  /tutorial/skills-pm  기획자·PM이 깔아 두면 좋은 AI 스킬 7개, 기획서·인터뷰 정리·로드맵·보고까지 · S
+       3      새로  /verdict  AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요 · SHIFT AI
+       3      새로  /dict/data-center  데이터센터(Data center) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       3    +50%  /tutorial/claude-animation-styles  클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음 · SHIFT AI 튜토리얼
+       3    -40%  /dict/copilot  코파일럿(Copilot) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       3    -70%  /daily  AI 데일리 뉴스 — 날마다 정리하는 AI 이슈 · SHIFT AI
+       3    -57%  /about  소개 · SHIFT AI
+       2      새로  /guide/start  AI 처음이라면 — 챗GPT·클로드·제미나이 입문 순서 7단계 · SHIFT AI
+       2      새로  /subscribe  주간 메일 구독 — 매주 월요일 이번 주 AI 핫 이슈 · SHIFT AI
+       2      새로  /tutorial/ai-tutor  AI를 과외 선생님으로 쓰는 공부 프롬프트 9개 · SHIFT AI 튜토리얼
+       2      새로  /weekly  주간 AI 판정 — 이번 주 써볼 만한 AI, 지켜볼 AI, 과장된 AI · SHIFT A
+       2   +100%  /tutorial/skills-researcher  연구자·대학원생이 깔아 두면 좋은 AI 스킬 7개, 문헌 조사·통계·논문 쓰기·동료 평가까
+       2   +100%  /tools/interpreter  실시간 번역 자막 무료 — 영어 회의·유튜브를 한국어 자막으로(크롬) · SHIFT AI
+       2    -71%  /dict  AI 사전 — AI 용어 뜻 쉽게 풀이 · SHIFT AI
+== 종류별 조회수: 첫 화면 30 · 튜토리얼 25 · AI 사전 22 · 뉴스·기사 13 · 기타 10 · 무료 도구 10 · 판정 7 · 데일리 5 · AI 길잡이 5 · 칼럼 1 · 프롬프트 모음 1
+
+== 행동(이벤트) 이번 주 · 지난주
+-- 무료 도구 사용(페이지에서 처음 넣거나 누름): 3 (지난주 14)
+         1  /tools/pdf-sign/
+         1  /tools/excel-merge/
+         1  /tools/doc-compare/
+-- 무료 도구 실행 버튼: 2 (지난주 0)
+         2  /tools/interpreter/
+-- 무료 도구 결과 가져감(복사·저장): 2 (지난주 5)
+         1  /tools/pdf-sign/
+         1  /tools/excel-merge/
+-- 프롬프트 복사: 3 (지난주 1)
+         1  /tutorial/resume-review/
+         1  /tutorial/ai-tutor/
+         1  /tutorial/skills-researcher/
+-- 링크 복사: 0 (지난주 0)
+-- 무료 대체 프로그램 찾음: 0 (지난주 0)
+-- 대체 프로그램 못 찾음: 0 (지난주 0)
+-- 기사 끝 '함께 보면 좋은 콘텐츠' 클릭(간 곳): 0 (지난주 0)
+-- AI 사전 '바로 써 보기' 클릭(간 곳): 0 (지난주 0)
+-- 밖으로 나간 링크(사이트): 4 (지난주 4)
+         3  play.shiftaimagazine.com
+         1  threads.com
+-- 틀린 곳 알려 주기 누름: 0 (지난주 1)
+
+== 들어온 곳 상위 20 (조회수)
+      81  Google
+      65  (직접 들어옴·알 수 없음)
+      16  shiftaimagazine.com
+      14  m.search.daum.net/search
+      14  play.shiftaimagazine.com
+       7  search.daum.net/search
+       6  www.facebook.com
+       6  shiftaimagazine.com/guide/start
+       5  www.instagram.com
+       5  shiftaimagazine.com/weekly
+       3  daum.net
+       3  shiftaimagazine.com/daily
+       3  shiftaimagazine.com/tools
+       3  shiftaimagazine.com/prompts
+       3  shiftaimagazine.com/guide/meeting-notes
+       2  YouTube
+       2  ig
+       2  threads
+       2  www.youtube.com
+       2  shiftaimagazine.com/news
+
+== 화면 크기: 휴대폰 23% · 태블릿·작은 노트북 1% · 컴퓨터 45% · 큰 모니터 31%
