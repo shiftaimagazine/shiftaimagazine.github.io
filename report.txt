@@ -1,0 +1,81 @@
+SHIFT AI 구글 검색 성과  2026-10-16 ~ 2026-11-12 (28일) · 비교: 2026-09-18 ~ 2026-10-15 · 속성 sc-domain:shiftaimagazine.com
+== 전체: 클릭 62 (전 0, 새로) · 노출 2,940 (전 0, 새로) · 클릭률 2.1% · 평균 순위 14.7
+
+== 검색어 상위 30 (노출순: 노출 · 클릭 · 클릭률 · 평균 순위)
+      58 ·    0 ·  0.0% ·   9.6  pbc 뜻
+      41 ·    0 ·  0.0% ·   8.6  k12 뜻
+      38 ·    0 ·  0.0% ·  11.2  openai
+      34 ·    0 ·  0.0% ·  10.3  script 뜻
+      32 ·    0 ·  0.0% ·   9.0  그록
+      29 ·    0 ·  0.0% ·   5.4  release
+      29 ·    0 ·  0.0% ·   8.1  training
+      28 ·    0 ·  0.0% ·  10.7  sensitivity 뜻
+      27 ·    0 ·  0.0% ·   8.7  sensitivity
+      21 ·    0 ·  0.0% ·  14.8  cloud
+      20 ·    0 ·  0.0% ·   7.8  gpt 6
+      17 ·    0 ·  0.0% ·   9.7  vulnerability
+      15 ·    0 ·  0.0% ·   8.6  라이브러리
+      14 ·    0 ·  0.0% ·   7.8  alignment
+      14 ·    0 ·  0.0% ·   8.6  semiconductor
+      13 ·    0 ·  0.0% ·  10.9  cohere 뜻
+      13 ·    0 ·  0.0% ·  10.1  k-12 뜻
+      12 ·    0 ·  0.0% ·   7.2  algorithm
+      12 ·    0 ·  0.0% ·   9.1  gpt-6
+      12 ·    0 ·  0.0% ·  11.1  lean
+      12 ·    0 ·  0.0% ·   9.6  marketplace 뜻
+      11 ·    0 ·  0.0% ·   5.9  reasoning effort 뜻
+      11 ·    0 ·  0.0% ·   7.9  what is big tech?
+      10 ·    0 ·  0.0% ·  10.3  rendering
+       9 ·    0 ·  0.0% ·   8.4  big tech
+       9 ·    0 ·  0.0% ·  38.0  hbm
+       9 ·    0 ·  0.0% ·   9.1  kanana
+       8 ·    0 ·  0.0% ·  35.5  ai 코파일럿
+       8 ·    0 ·  0.0% ·   9.1  csv 뜻
+       8 ·    0 ·  0.0% ·  72.2  linux kernel
+
+== 기회 검색어 (노출 20회 이상, 순위 5~20위, 클릭률 3% 미만 → 제목·설명·내용을 보강하면 클릭이 늘 수 있는 것)
+      58 ·   9.6위  pbc 뜻
+      41 ·   8.6위  k12 뜻
+      38 ·  11.2위  openai
+      34 ·  10.3위  script 뜻
+      32 ·   9.0위  그록
+      29 ·   5.4위  release
+      29 ·   8.1위  training
+      28 ·  10.7위  sensitivity 뜻
+      27 ·   8.7위  sensitivity
+      21 ·  14.8위  cloud
+      20 ·   7.8위  gpt 6
+
+== 페이지 상위 30 (노출순: 노출 · 클릭 · 지난 28일 대비 노출)
+      61 ·   28 ·     새로  /
+      50 ·    1 ·     새로  https://play.shiftaimagazine.com/news/mh-wilds-switch2-preorder/
+      40 ·    1 ·     새로  /news/2026-10-19-tinyfish-students/
+      26 ·    1 ·     새로  /dict/alignment/
+      26 ·    1 ·     새로  /dict/cohere/
+      26 ·    1 ·     새로  /dict/lean/
+      16 ·    2 ·     새로  /tutorial/skills-developer/
+      14 ·    1 ·     새로  /news/2026-10-21-why-ai-text-hard-to-read/
+      13 ·    1 ·     새로  /tutorial/claude-animation-styles/
+      12 ·    2 ·     새로  /tutorial/skills-pm/
+      12 ·    1 ·     새로  /tutorial/skills-creator/
+      10 ·    2 ·     새로  /tutorial/skills-researcher/
+      10 ·    0 ·     새로  https://play.shiftaimagazine.com/calendar/
+       9 ·    7 ·     새로  https://play.shiftaimagazine.com/
+       7 ·    1 ·     새로  /news/2026-11-05-apple-age-rating-dating-companion/
+       7 ·    0 ·     새로  https://play.shiftaimagazine.com/about/
+       6 ·    2 ·     새로  /news/2026-10-29-meta-muse-singapore/
+       6 ·    1 ·     새로  /dict/notebooklm/
+       6 ·    1 ·     새로  /tutorial/ai-tutor/
+       5 ·    1 ·     새로  /dict/liquid-ai/
+       5 ·    1 ·     새로  /news/2026-11-08-amazon-alexa-text-shopping/
+       5 ·    1 ·     새로  /tutorial/redact-before-upload/
+       4 ·    1 ·     새로  /vs/chatgpt-vs-grok/
+       3 ·    2 ·     새로  /tutorial/skills-data/
+       3 ·    1 ·     새로  /dict/merge-window/
+       3 ·    0 ·     새로  https://play.shiftaimagazine.com/arcade/
+       2 ·    1 ·     새로  /news/2026-11-02-talos-volta-infostealer-llm/
+       2 ·    0 ·     새로  https://play.shiftaimagazine.com/corrections/
+       2 ·    0 ·     새로  https://play.shiftaimagazine.com/deals/
+       2 ·    0 ·     새로  https://play.shiftaimagazine.com/events/
+
+== 기기: desktop 클릭 50/노출 1,973 · mobile 클릭 12/노출 891 · tablet 클릭 0/노출 76
