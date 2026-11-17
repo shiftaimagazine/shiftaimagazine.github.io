@@ -486,5 +486,23 @@
   "credit": "화면: memory.stanford.edu",
   "alt": "스탠퍼드 메모릴라 프로젝트 페이지 첫 화면",
   "auto": true
+ },
+ "2026-11-18-california-ag-sues-openai": {
+  "src": "img/ph/2026-11-18-california-ag-sues-openai.webp",
+  "credit": "화면: oag.ca.gov",
+  "alt": "캘리포니아주 법무부 오픈AI 제소 보도자료 화면",
+  "auto": true
+ },
+ "2026-11-18-google-ask-maps-itineraries": {
+  "src": "img/ph/2026-11-18-google-ask-maps-itineraries.webp",
+  "credit": "이미지: Google",
+  "alt": "구글 지도 Ask Maps 휴일 여행 기능 소개 대표 이미지",
+  "auto": true
+ },
+ "2026-11-18-nvidia-ai-day-seoul": {
+  "src": "img/ph/2026-11-18-nvidia-ai-day-seoul.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 AI 데이 서울 행사 현장 대표 이미지",
+  "auto": true
  }
 }
