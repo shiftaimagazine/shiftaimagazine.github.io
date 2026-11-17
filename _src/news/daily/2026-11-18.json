@@ -102,10 +102,10 @@
    ],
    "image": {
     "page": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over",
-    "og": null,
+    "og": "https://oag.ca.gov/sites/default/files/og-link-card-24.jpg",
     "credit": "이미지: 캘리포니아주 법무부(California Department of Justice)",
     "alt": "캘리포니아주 법무부 오픈AI 제소 보도자료 화면",
-    "mode": "screenshot"
+    "mode": null
    },
    "verify": [
     {
