@@ -504,5 +504,23 @@
   "credit": "이미지: 캘리포니아주 법무부(California Department of Justice)",
   "alt": "캘리포니아주 법무부 오픈AI 제소 보도자료 화면",
   "auto": true
+ },
+ "2026-11-19-gemini-tasks-free": {
+  "src": "img/ph/2026-11-19-gemini-tasks-free.webp",
+  "credit": "이미지: Google",
+  "alt": "제미나이 태스크 소개 대표 이미지",
+  "auto": true
+ },
+ "2026-11-19-gemini-chat-retention": {
+  "src": "img/ph/2026-11-19-gemini-chat-retention.webp",
+  "credit": "화면: support.google.com",
+  "alt": "제미나이 앱 개인정보 도움말 화면",
+  "auto": true
+ },
+ "2026-11-19-nvidia-vera-rubin-mlperf": {
+  "src": "img/ph/2026-11-19-nvidia-vera-rubin-mlperf.webp",
+  "credit": "이미지: NVIDIA",
+  "alt": "엔비디아 베라 루빈 MLPerf 결과 대표 이미지",
+  "auto": true
  }
 }

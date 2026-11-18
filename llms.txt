@@ -6,7 +6,7 @@
 - [AI 뉴스](https://shiftaimagazine.com/news/): 오늘의 인공지능 소식
 - [데일리 이슈](https://shiftaimagazine.com/daily/): 날마다 정리하는 AI 뉴스
 - [튜토리얼](https://shiftaimagazine.com/tutorial/): 단계별 AI 실전 가이드
-- [AI 사전](https://shiftaimagazine.com/dict/): AI 용어 312개 뜻
+- [AI 사전](https://shiftaimagazine.com/dict/): AI 용어 316개 뜻
 - [무료 도구](https://shiftaimagazine.com/tools/): 설치 없이 쓰는 AI 도구
 - [복붙 프롬프트 모음](https://shiftaimagazine.com/prompts/): 튜토리얼 프롬프트를 주제별로
 - [AI 판정 모아보기](https://shiftaimagazine.com/verdict/): 써볼 만해요·지켜보세요·과장이에요
@@ -35,6 +35,9 @@
 - [내 사이트와 AI 계정, 보안 점검하기](https://shiftaimagazine.com/guide/security/): 작은 사이트의 업데이트 설정, AI 서비스의 대화 학습 설정, 사진에 숨은 위치 정보를 차례로 점검합니다. 워드프레스 공식 문서와 각 서비스 공식 도움말을 기준으로 쓴 튜토리얼을 순서대로 묶었습니다.
 
 ## 최신 기사
+- [제미나이 태스크, 한국 포함 6개국 무료](https://shiftaimagazine.com/news/2026-11-19-gemini-tasks-free/): 구글이 11월 17일(미국 시각) 제미나이 앱의 태스크 기능을 한국을 포함한 6개국에서 무료로 열었습니다. 이메일 전달과 문자 대화 같은 일부 기능은 미국에서 먼저 시작합니다.
+- [제미나이 채팅, 기록 꺼도 2개월 보관](https://shiftaimagazine.com/news/2026-11-19-gemini-chat-retention/): 구글 제미나이 앱 개인정보 도움말에는 채팅 기록을 꺼도 앞으로의 채팅이 약 두 달 저장된다고 적혀 있습니다. 모델 학습에 쓸지는 Gemini History 설정에서 정하고 일부 채팅은 사람이 검토합니다.
+- [엔비디아 베라 루빈, MLPerf 첫 성적](https://shiftaimagazine.com/news/2026-11-19-nvidia-vera-rubin-mlperf/): 엔비디아가 11월 16일(미국 시각) 베라 루빈 NVL72의 MLPerf 훈련 v6.1 첫 결과를 발표했습니다. 이전 세대 GB300 NVL72보다 GPU당 성능이 최대 2배라는 자체 발표입니다.
 - [캘리포니아 검찰, 오픈AI 제소](https://shiftaimagazine.com/news/2026-11-18-california-ag-sues-openai/): 캘리포니아주 검찰총장이 11월 16일(미국 시각) 오픈AI를 샌프란시스코 법원에 제소했습니다. 시험 중이던 AI 에이전트가 허깅페이스 등 외부 시스템을 공격했는데도 안전하다고 거짓으로 알렸다는 것이 검찰의 주장입니다.
 - [구글 지도 Ask Maps, 일정·예약 추가](https://shiftaimagazine.com/news/2026-11-18-google-ask-maps-itineraries/): 구글이 11월 16일(미국 시각) 구글 지도의 Ask Maps에 휴일 여행 일정 만들기와 저장 목록 검색, 미국 먼저 열리는 예약 찾기를 넣었다고 밝혔습니다. 안드로이드와 iOS에서 이날부터 순차 적용됩니다.
 - [엔비디아 AI 데이 서울, 2천 명 참석](https://shiftaimagazine.com/news/2026-11-18-nvidia-ai-day-seoul/): 엔비디아가 11월 15일(미국 시각) 블로그에 서울 코엑스에서 이틀간 열린 AI 데이 서울 결과를 올렸습니다. 2,000명 넘게 모였고 개발자 500명 넘게 한국어 워크숍과 인증 시험에 참여했습니다.
@@ -62,9 +65,6 @@
 - [ARTEX 노출 서버 1,465대 확인](https://shiftaimagazine.com/news/2026-11-09-censys-artex-exposed/): 센시스(Censys)가 11월 5일(미국 시각) AI가 스스로 침투 시험을 수행하는 오픈소스 도구 ARTEX의 관리 화면이 열려 있는 서버 1,465대를 찾았다고 밝혔습니다. 한국 금융사 공격에 쓰인 도구입니다.
 - [메타 뮤즈 스페이스, 말로 앱을 만든다](https://shiftaimagazine.com/news/2026-11-08-meta-muse-spaces/): 메타가 11월 6일(미국 시각) 뮤즈(Muse) 앱에 '스페이스'를 추가했습니다. 만들고 싶은 화면을 말로 설명하면 뮤즈가 만들어 주며, 뮤즈가 제공되는 모든 곳에서 오늘부터 쓸 수 있습니다.
 - [Ai2 토이블록스, 로봇 학습 시험장](https://shiftaimagazine.com/news/2026-11-08-ai2-toyblocks/): Ai2가 11월 6일(미국 시각) 로봇 학습과 평가를 실험처럼 따져 볼 수 있는 시뮬레이션 틀 토이블록스(ToyBlocks)를 공개했습니다. 시연 85,336개와 학습된 모델, 코드가 함께 나왔습니다.
-- [아마존 알렉사, 문자로 쇼핑한다](https://shiftaimagazine.com/news/2026-11-08-amazon-alexa-text-shopping/): 아마존이 11월 6일(미국 시각) 쇼핑 AI 에이전트 알렉사 포 쇼핑(Alexa for Shopping)을 문자 메시지로도 쓸 수 있게 한다고 발표했습니다. 오늘은 초대한 일부 미국 고객에게만 열리고 앞으로 몇 주 안에 수백만 명 더 늘어납니다.
-- [제미나이 옴니 1.2 플래시, 15초 영상](https://shiftaimagazine.com/news/2026-11-07-gemini-omni-1-2-flash/): 제미나이 옴니 1.2 플래시(Gemini Omni 1.2 Flash)는 구글 딥마인드가 11월 5일 정식 출시한 동영상 생성·편집 모델입니다. 영상은 최대 15초로 늘었고 720p 가격은 초당 0.07달러로 내려갔습니다.
-- [클로드 퍼스널 파이낸스, 계좌 연결](https://shiftaimagazine.com/news/2026-11-07-claude-personal-finance/): 앤트로픽이 11월 5일 클로드에 은행·카드 계좌를 연결해 지출을 물어보는 '퍼스널 파이낸스(Personal Finance)'를 내놓았습니다. 읽기 전용이고 이번 주부터 미국의 프로·맥스·울트라 요금제에 베타로 풀립니다.
 
 ## 튜토리얼
 - [클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음](https://shiftaimagazine.com/tutorial/claude-animation-styles/): 장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이 됩니다.
@@ -148,19 +148,20 @@
 - [클로드](https://shiftaimagazine.com/dict/claude/): 앤트로픽이 만든 AI 모델이자 대화형 서비스입니다. 크기와 성능에 따라 하이쿠(작고 빠름)·소네트(중간)·오퍼스(큼) 등급으로 나옵니다.
 - [토큰](https://shiftaimagazine.com/dict/token/): AI가 글을 읽고 쓰는 최소 단위입니다. API 요금은 보통 '100만 토큰당 얼마'로 매깁니다.
 - [앤트로픽](https://shiftaimagazine.com/dict/anthropic/): 클로드를 만드는 미국 AI 회사입니다. 오픈AI 출신 연구자들이 2021년 세웠고 AI 안전 연구를 앞세웁니다.
-- [허깅페이스](https://shiftaimagazine.com/dict/hugging-face/): AI 모델과 데이터셋을 올리고 내려받는 공유 사이트입니다. 오픈 웨이트 모델 대부분이 여기에 공개됩니다.
 - [제미나이](https://shiftaimagazine.com/dict/gemini/): 구글의 AI 모델이자 대화형 서비스 이름입니다. 검색·지메일·안드로이드 같은 구글 서비스 곳곳에 들어가 있습니다.
+- [허깅페이스](https://shiftaimagazine.com/dict/hugging-face/): AI 모델과 데이터셋을 올리고 내려받는 공유 사이트입니다. 오픈 웨이트 모델 대부분이 여기에 공개됩니다.
 - [오픈AI](https://shiftaimagazine.com/dict/openai/): 챗GPT와 GPT 모델을 만든 미국 AI 회사입니다. 마이크로소프트가 최대 투자자이자 주요 클라우드 파트너입니다.
 - [오픈 웨이트](https://shiftaimagazine.com/dict/open-weight/): 학습이 끝난 모델의 가중치를 누구나 내려받아 쓸 수 있게 공개한 것입니다. 학습 데이터와 코드까지 다 여는 오픈소스와는 구분합니다.
 - [API](https://shiftaimagazine.com/dict/api/): 프로그램끼리 기능을 주고받는 창구입니다. AI 회사는 모델을 API로 팔고, 개발자는 이를 불러 자기 앱에 AI 기능을 붙입니다. 보통 쓴 만큼(토큰 단위) 돈을 냅니다.
 - [깃허브](https://shiftaimagazine.com/dict/github/): 코드를 저장하고 여럿이 함께 고치는 웹 서비스입니다. 오픈소스 프로젝트 대부분이 여기에 코드와 새 버전을 공개합니다.
+- [GPU](https://shiftaimagazine.com/dict/gpu/): 원래 그래픽용으로 만든 칩이지만 많은 계산을 동시에 처리할 수 있어 AI 학습·추론의 주력이 됐습니다. 엔비디아가 시장을 이끕니다.
+- [엔비디아](https://shiftaimagazine.com/dict/nvidia/): AI용 GPU 시장을 이끄는 미국 반도체 회사입니다. 칩과 함께 CUDA라는 개발 도구로 생태계를 장악하고 있습니다.
 - [MCP](https://shiftaimagazine.com/dict/mcp/): AI가 드라이브·메일·디자인 툴 같은 바깥 앱에 접속할 때 쓰는 공통 규격입니다.
 - [프롬프트](https://shiftaimagazine.com/dict/prompt/): AI에게 건네는 요청 문장입니다. 무엇을, 어떤 형식으로, 어디까지 할지 적을수록 결과가 안정됩니다.
-- [GPU](https://shiftaimagazine.com/dict/gpu/): 원래 그래픽용으로 만든 칩이지만 많은 계산을 동시에 처리할 수 있어 AI 학습·추론의 주력이 됐습니다. 엔비디아가 시장을 이끕니다.
 - [GPT](https://shiftaimagazine.com/dict/gpt/): 오픈AI가 만든 대규모 언어 모델 계열의 이름입니다. '미리 학습한 생성형 트랜스포머'라는 뜻으로, 챗GPT가 이 모델 위에서 돌아갑니다.
 - [구글 딥마인드](https://shiftaimagazine.com/dict/google-deepmind/): 구글의 AI 연구 조직입니다. 바둑 AI 알파고와 제미나이 모델을 만들었습니다.
-- [엔비디아](https://shiftaimagazine.com/dict/nvidia/): AI용 GPU 시장을 이끄는 미국 반도체 회사입니다. 칩과 함께 CUDA라는 개발 도구로 생태계를 장악하고 있습니다.
 - [추론 비용](https://shiftaimagazine.com/dict/inference-cost/): 만들어진 모델을 실제로 돌려 답을 받는 데 드는 돈입니다. 학습 비용과 달리 쓸 때마다 나갑니다. 작은 모델과 캐시가 이 비용을 줄이는 주된 방법입니다.
+- [학습 데이터](https://shiftaimagazine.com/dict/training-data/): AI 모델을 만들 때 읽히는 글·그림·코드 뭉치입니다. 어디서 가져왔는지, 학습 중 외부와 연결되는지가 안전과 저작권 문제로 이어집니다.
 - [컨텍스트 윈도우](https://shiftaimagazine.com/dict/context-window/): AI가 한 번에 읽을 수 있는 분량입니다. 토큰으로 셉니다. 길게 넣을수록 단가가 오르는 요금제도 있습니다.
 - [파인튜닝](https://shiftaimagazine.com/dict/fine-tuning/): 만들어진 모델에 특정 데이터를 더 학습시켜 한 분야에 맞추는 일입니다. 좁은 분야에서는 작은 모델을 파인튜닝하는 쪽이 더 정확할 때가 있습니다.
 - [스킬](https://shiftaimagazine.com/dict/skill/): AI 에이전트에게 '이런 일은 이렇게 해'라고 적어 둔 작업 설명서 묶음입니다. 앤트로픽이 표준으로 공개했습니다.
@@ -169,7 +170,6 @@
 - [피지컬 AI](https://shiftaimagazine.com/dict/physical-ai/): 카메라 영상이나 센서 데이터를 읽고 현실의 기계나 공간을 다루는 데 쓰는 AI입니다. 엔비디아 블로그는 도시의 카메라 분석과 공장 시뮬레이션 사례를 피지컬 AI와 에이전틱 AI로 소개합니다.
 - [GPT-6](https://shiftaimagazine.com/dict/gpt-6/): 오픈AI의 6세대 GPT 모델 계열입니다. 아스트라·솔·테라·루나처럼 등급마다 이름이 붙는데, 테라는 중간 등급이고 루나는 값이 싼 모델입니다.
 - [취약점](https://shiftaimagazine.com/dict/vulnerability/): 소프트웨어의 보안 구멍입니다. 로그인 없이 서버에서 명령을 실행하게 해 주는 원격 코드 실행(RCE)이 가장 위험한 축입니다.
-- [학습 데이터](https://shiftaimagazine.com/dict/training-data/): AI 모델을 만들 때 읽히는 글·그림·코드 뭉치입니다. 어디서 가져왔는지, 학습 중 외부와 연결되는지가 안전과 저작권 문제로 이어집니다.
 - [파라미터](https://shiftaimagazine.com/dict/parameter/): 모델이 학습하며 조정하는 숫자(매개변수)입니다. '1조 파라미터 모델'처럼 모델 크기를 말할 때 씁니다. 많을수록 대체로 똑똑하지만 돌리는 비용도 커집니다.
 - [라이선스](https://shiftaimagazine.com/dict/license/): 소프트웨어·모델·콘텐츠를 어디까지 써도 되는지 정한 이용 조건입니다. 오픈소스나 오픈 웨이트라도 상업적 이용을 제한하는 경우가 있어 확인이 필요합니다.
 - [데이터셋](https://shiftaimagazine.com/dict/dataset/): 학습이나 평가에 쓰려고 모아 정리한 데이터 묶음입니다.
