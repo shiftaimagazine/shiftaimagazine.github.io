@@ -1,0 +1,489 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-19-gemini-tasks-free",
+   "cat": "모델·제품",
+   "date": "2026-11-19",
+   "time": "06:46",
+   "title": "제미나이 태스크, 한국 포함 6개국 무료",
+   "sub": "홈 화면 토글로 작업 맡기기 · 제미나이 4 하이드로젠 기반 · 이메일·문자 연동은 미국 먼저",
+   "hook": "구글이 11월 17일(미국 시각) 제미나이 앱의 태스크 기능을 한국을 포함한 6개국에서 무료로 열었습니다. 이메일 전달과 문자 대화 같은 일부 기능은 미국에서 먼저 시작합니다.",
+   "try": "제미나이 앱 홈 화면에서 채팅을 태스크로 바꾸는 토글이 보이면 자료 찾기나 일정 정리 같은 일을 하나 맡기고 결과를 직접 확인해 보세요.",
+   "who": "제미나이로 일정 정리·자료 찾기·구매를 맡겨 보려는 직장인",
+   "verdict": {
+    "v": "watch",
+    "why": "한국이 무료 제공 국가에 들어가지만 이메일·문자 같은 고급 기능의 한국 일정은 글에 없습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글(Google) 제미나이 앱 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 17일(미국 시각), 한국어판 11월 18일"
+    ],
+    [
+     "무엇",
+     "제미나이 태스크 무료 제공과 새 기능"
+    ],
+    [
+     "제공 국가",
+     "미국·일본·한국·캐나다·호주·인도"
+    ],
+    [
+     "미국 먼저",
+     "이메일 전달·문자 대화"
+    ],
+    [
+     "원문",
+     "구글 블로그 영문·한국어판"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 17일(미국 시각) 제미나이(Gemini) 앱의 태스크 기능을 미국·일본·한국·캐나다·호주·인도 6개국에서 무료로 열었습니다. 작업에는 새 모델 제미나이 4 하이드로젠(Gemini 4 Hydrogen)이 쓰이고 대상은 수억 명 규모의 이용자입니다."
+    },
+    {
+     "ul": [
+      [
+       "6개국에서 무료",
+       "한국을 포함한 6개국에서 순차적으로 열립니다"
+      ],
+      [
+       "홈 화면 토글로 시작",
+       "채팅에서 태스크로 바꾸면 작업 모드가 됩니다"
+      ],
+      [
+       "이메일·문자는 미국 먼저",
+       "gemini@google.com 전달과 문자 대화가 미국에서 시작됩니다"
+      ]
+     ]
+    },
+    {
+     "h": "한국에서 열리는 것과 미국 먼저인 것"
+    },
+    {
+     "p": "영문 글과 한국어판은 모두 한국을 6개국에 넣었습니다. 한국어판은 미국을 시작으로 다양한 고급 기능을 새로 선보인다고 적었지만 한국에서 어떤 기능이 언제 열리는지는 따로 나와 있지 않습니다. 무료 이용 한도도 숫자로 밝히지 않았습니다. 이메일 전달과 문자 대화는 미국에서 먼저 시작하며 문자 대화는 앱 설정의 채널에서 전화번호를 인증해 켭니다. 이 기능에는 미국 전화번호와 지원 통신사가 필요하고 전화 걸기 기능은 인디애나·루이지애나·미네소타·몬태나·네브래스카에서 쓸 수 없습니다."
+    },
+    {
+     "h": "홈 화면 토글 하나로 작업 모드"
+    },
+    {
+     "p": "사용자는 홈 화면의 토글을 채팅에서 태스크로 바꿔 작업을 맡깁니다. 제미나이는 60개가 넘는 인기 앱과 연결되고 개발자는 커넥티드 앱스 플랫폼(Connected Apps Platform) 참여를 신청할 수 있습니다. 영수증과 배송 추적 정보는 구글 월렛(Google Wallet)으로 들어오며 월렛은 이날부터 iOS로 넓어집니다."
+    },
+    {
+     "h": "구매는 지출 한도를 먼저 정합니다"
+    },
+    {
+     "p": "구매 작업에는 에이전트 결제 프로토콜(AP2)이 쓰입니다. 협력 카드사는 마스터카드와 비자이고 아메리칸 익스프레스는 곧 들어옵니다. 사용자가 최대 지출 한도를 미리 정할 수 있으며 카드 포인트와 캐시백, 구매 보호 혜택도 그대로 적립된다고 합니다. 구매 전에는 사용자에게 확인을 요청하고 자주 쓰는 작업은 항상 허용으로 바꿀 수 있습니다."
+    },
+    {
+     "h": "계정마다 따로 배정되는 가상 머신"
+    },
+    {
+     "p": "작업은 구글 클라우드의 에이전트 컴퓨트 엔진(Agent Compute Engine)에서 실행되며 계정마다 하드웨어로 격리된 전용 가상 머신이 배정됩니다. 구글은 다음 단계로 유니버설 커머스 프로토콜(UCP)을 제미나이에 통합하겠다고 적었습니다."
+    }
+   ],
+   "ask": "반복해서 하는 온라인 일 가운데 AI에게 맡기기 전에 직접 확인하고 싶은 단계는 무엇인가요?",
+   "sources": [
+    [
+     "구글 블로그 — Put Gemini to work for you",
+     "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+    ],
+    [
+     "구글 블로그 한국어판 — 제미나이에게 업무를 맡겨보세요",
+     "https://blog.google/intl/ko-kr/company-news/technology/tasks-in-gemini-free-new-features-kr/"
+    ]
+   ],
+   "terms": [
+    "제미나이",
+    "에이전트",
+    "제미나이 4 하이드로젠",
+    "제미나이 태스크",
+    "AP2"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_2784_x_1566_1.width-1300.png",
+    "credit": "이미지: Google",
+    "alt": "제미나이 태스크 소개 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "제공 국가·무료",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "rolling out free of charge for hundreds of millions of people across the U.S., Japan, Korea, Canada, Australia, and India"
+    },
+    {
+     "claim": "모델",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "using our new Gemini 4 Hydrogen model"
+    },
+    {
+     "claim": "토글",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "flip the home-screen toggle from Chat to Task"
+    },
+    {
+     "claim": "이메일 전달",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "Starting in the U.S., you can also forward emails to gemini@google.com"
+    },
+    {
+     "claim": "60개 앱",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "Gemini connects with more than 60 popular apps"
+    },
+    {
+     "claim": "AP2",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "Gemini now uses the Agent Payments Protocol (AP2) to make purchases like this."
+    },
+    {
+     "claim": "아메리칸 익스프레스",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "American Express (coming soon)"
+    },
+    {
+     "claim": "UCP",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "we’ll integrate the Universal Commerce Protocol (UCP) into Gemini"
+    },
+    {
+     "claim": "게시일",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+     "quote": "Nov 17, 2026"
+    },
+    {
+     "claim": "한국어판 게시일",
+     "url": "https://blog.google/intl/ko-kr/company-news/technology/tasks-in-gemini-free-new-features-kr/",
+     "quote": "2026년 11월 18일"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-19-gemini-chat-retention",
+   "cat": "정책·저작권",
+   "date": "2026-11-19",
+   "time": "06:45",
+   "title": "제미나이 채팅, 기록 꺼도 2개월 보관",
+   "sub": "구글 도움말 11월 16일 수정 · 학습 사용은 설정에서 선택 · 검토된 채팅은 최대 3년",
+   "hook": "구글 제미나이 앱 개인정보 도움말에는 채팅 기록을 꺼도 앞으로의 채팅이 약 두 달 저장된다고 적혀 있습니다. 모델 학습에 쓸지는 Gemini History 설정에서 정하고 일부 채팅은 사람이 검토합니다.",
+   "try": "제미나이 앱의 Gemini History 설정을 열어 채팅 저장과 모델 학습 사용이 지금 어떻게 되어 있는지 확인해 보세요.",
+   "who": "제미나이에 업무 메일·문서·개인 고민을 입력하는 분",
+   "verdict": {
+    "v": "watch",
+    "why": "기록을 꺼도 약 두 달 저장된다고 적혀 있어 민감한 내용은 입력 전에 따져 볼 일입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글 제미나이 앱 도움말(개인정보 허브)"
+    ],
+    [
+     "날짜",
+     "마지막 수정 2026년 11월 16일"
+    ],
+    [
+     "무엇",
+     "기록을 꺼도 채팅이 약 두 달 저장된다는 안내"
+    ],
+    [
+     "자동 삭제",
+     "기본 18개월, 3개월·36개월·삭제 안 함 선택"
+    ],
+    [
+     "검토된 채팅",
+     "최대 3년 보관"
+    ],
+    [
+     "원문",
+     "구글 제미나이 앱 도움말"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)의 제미나이 앱 개인정보 도움말에는 채팅 기록(Gemini History)을 꺼도 앞으로의 채팅이 계정에 저장된다고 적혀 있습니다. 보관 기간은 약 두 달이며 도움말의 마지막 수정일은 2026년 11월 16일입니다."
+    },
+    {
+     "ul": [
+      [
+       "기록을 꺼도 저장",
+       "임시 채팅과 기록을 끈 채팅이 계정에 저장됩니다"
+      ],
+      [
+       "학습 사용은 설정에서 선택",
+       "텍스트와 업로드를 모델 학습에 쓸지 Gemini History에서 정합니다"
+      ],
+      [
+       "검토된 채팅은 최대 3년",
+       "일부 채팅은 사람 검토자가 봅니다"
+      ]
+     ]
+    },
+    {
+     "h": "72시간에서 약 두 달로 달라진 문구"
+    },
+    {
+     "p": "2025년 8월 구글 블로그는 임시 채팅이 응답과 피드백 처리를 위해 최대 72시간 보관된다고 적었습니다. 지금 도움말은 임시 채팅과 기록을 끈 채팅이 약 두 달 동안 계정에 저장된다고 적습니다. 기록을 켜 둔 활동은 18개월이 지나면 자동으로 삭제되는 것이 기본값이고 3개월이나 36개월로 바꾸거나 삭제하지 않게 둘 수도 있습니다."
+    },
+    {
+     "h": "학습에 쓰일지는 Gemini History에서"
+    },
+    {
+     "p": "텍스트와 업로드를 포함한 채팅 내용을 구글이 생성형 AI 모델 학습에 쓸지는 Gemini History에서 정합니다. 임시 채팅은 구글 AI 모델 학습에 쓰이지 않습니다. 설정과 상관없이 구글은 사용자에게 답하기 위해 채팅 내용을 사용합니다."
+    },
+    {
+     "h": "사람 검토자가 보는 채팅"
+    },
+    {
+     "p": "일부 채팅은 사람 검토자가 검토합니다. 앞으로의 채팅이 학습을 위해 검토되는 것은 언제든 멈출 수 있으며 이미 검토된 채팅은 최대 3년 보관됩니다. 이 글은 영어 도움말을 근거로 썼고 한국어 도움말의 문구와 적용 시점은 확인하지 못했습니다."
+    }
+   ],
+   "ask": "제미나이나 다른 AI 챗봇에 입력해도 되는 내용과 입력하지 않을 내용을 직장에서 구분해 두셨나요?",
+   "sources": [
+    [
+     "구글 제미나이 앱 도움말 — Gemini Apps Privacy Hub",
+     "https://support.google.com/gemini/answer/13594961?hl=en-GB"
+    ],
+    [
+     "구글 블로그 — Gemini app personalizes responses based on past chats, plus new privacy controls",
+     "https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/"
+    ]
+   ],
+   "terms": [
+    "제미나이",
+    "학습 데이터",
+    "임시 채팅"
+   ],
+   "image": {
+    "page": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+    "og": null,
+    "credit": "이미지: Google",
+    "alt": "제미나이 앱 개인정보 도움말 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "기록 꺼도 약 2개월",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "Even if Gemini History is turned off, future chats will still be saved for around two months"
+    },
+    {
+     "claim": "임시 채팅 약 2개월",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "retained with your account for around two months"
+    },
+    {
+     "claim": "자동 삭제 18개월",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "automatically deleted after 18 months"
+    },
+    {
+     "claim": "학습 설정",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "You can control whether Google uses your chat content, including text and uploads, to train generative AI models in Gemini History."
+    },
+    {
+     "claim": "임시 채팅 학습 제외",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "Temporary chats are not used to train Google's AI models."
+    },
+    {
+     "claim": "사람 검토",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "A subset of chats is reviewed by human reviewers"
+    },
+    {
+     "claim": "검토 중단",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "You can stop your future chats from being reviewed to train generative AI models at any time"
+    },
+    {
+     "claim": "3년",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "Reviewed chats are retained for up to three years."
+    },
+    {
+     "claim": "수정일",
+     "url": "https://support.google.com/gemini/answer/13594961?hl=en-GB",
+     "quote": "Last updated: 16 November 2026"
+    },
+    {
+     "claim": "72시간(2025년 8월 글)",
+     "url": "https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/",
+     "quote": "They are kept for up to 72 hours to respond to you and to process any feedback"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-19-nvidia-vera-rubin-mlperf",
+   "cat": "연구",
+   "date": "2026-11-19",
+   "time": "06:44",
+   "title": "엔비디아 베라 루빈, MLPerf 첫 성적",
+   "sub": "훈련 v6.1 GPU당 최대 2배 · 에이전트 AI 전력당 처리량 10배 이상 · 자체 발표 기준",
+   "hook": "엔비디아가 11월 16일(미국 시각) 베라 루빈 NVL72의 MLPerf 훈련 v6.1 첫 결과를 발표했습니다. 이전 세대 GB300 NVL72보다 GPU당 성능이 최대 2배라는 자체 발표입니다.",
+   "try": "MLCommons의 MLPerf 결과 페이지를 열어 엔비디아 발표의 비교 수치와 다른 제출 기관의 결과를 나란히 읽어 보세요.",
+   "who": "AI 서비스의 속도와 요금이 칩에서 정해지는 과정이 궁금한 IT 담당자",
+   "verdict": {
+    "v": "watch",
+    "why": "엔드포인트 결과는 MLCommons 검증을 기다리는 잠정치이고 수치는 엔비디아가 직접 낸 발표입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "엔비디아(NVIDIA) 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 16일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "MLPerf 훈련 v6.1과 엔드포인트 첫 제출 결과"
+    ],
+    [
+     "핵심 숫자",
+     "GB300 NVL72 대비 GPU당 최대 2배(자체 발표 기준)"
+    ],
+    [
+     "제출 기관",
+     "20곳"
+    ],
+    [
+     "원문",
+     "엔비디아 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "엔비디아(NVIDIA)가 11월 16일(미국 시각) 새 시스템 베라 루빈(Vera Rubin) NVL72의 MLPerf 훈련 v6.1 결과를 내놨습니다. 엔비디아는 이전 세대 GB300 NVL72보다 GPU당 성능이 최대 2배라고 밝혔습니다(자체 발표 기준)."
+    },
+    {
+     "ul": [
+      [
+       "훈련 v6.1 전 과제 제출",
+       "엔비디아 플랫폼은 이번 회차 모든 과제에 결과를 낸 유일한 플랫폼이라고 합니다"
+      ],
+      [
+       "DeepSeek-V3 훈련 시간",
+       "GPU를 4배로 늘리자 16분에서 약 4분으로 줄었습니다"
+      ],
+      [
+       "엔드포인트 첫 제출",
+       "에이전트 AI 전력당 처리량이 이전 세대보다 10배 넘게 높다는 주장입니다"
+      ]
+     ]
+    },
+    {
+     "h": "GPU 256개에서 1,024개로 늘렸을 때"
+    },
+    {
+     "p": "MLPerf 훈련 v6.1에는 20개 기관이 결과를 냈고 엔비디아는 모든 과제를 휩쓸었다고 적었습니다(자체 발표 기준). 베라 루빈 NVL72는 DeepSeek-V3 훈련에서 GPU를 256개에서 1,024개로 늘릴 때 약 97% 효율을 유지했습니다. GPU를 4배로 늘리자 훈련 시간은 16분에서 약 4분으로 줄었습니다. 엔비디아는 GB300 시스템 10,240개 GPU로도 같은 시험을 돌렸으며 이번 회차에서 가장 큰 규모라고 설명합니다. 마이크로소프트 애저는 GB200 시스템으로 같은 10,240개 GPU 규모를 맞췄습니다."
+    },
+    {
+     "h": "전력당 처리량을 재는 엔드포인트"
+    },
+    {
+     "p": "MLPerf 엔드포인트(Endpoints) v1.0은 11월 9일에 공개됐고 엔비디아는 이번에 처음 제출했습니다. 키미 K3(Kimi K3) 모델에서 베라 루빈 NVL72는 사용자당 초당 50토큰이라는 같은 최소 응답 속도 조건으로 GB300 NVL72보다 전력당 처리량이 10배 넘게 높았습니다. 그림 설명에는 베라 루빈이 가속기 32개로 초당 41,414.2토큰을 100.89kW에서 냈고 GB300은 가속기 48개로 초당 2,210.4토큰을 60kW에서 낸 것으로 나옵니다."
+    },
+    {
+     "h": "잠정 결과라는 단서"
+    },
+    {
+     "p": "베라 루빈의 엔드포인트 결과는 MLCommons 검증이 끝나지 않은 잠정치이며 동료 평가에 따라 바뀔 수 있다고 원문에 적혀 있습니다. 블로그는 세미애널리시스의 AgentX와 아티피셜 애널리시스의 AgentPerf에서도 앞섰다고 했지만 구체 수치는 싣지 않았습니다. 한국 클라우드나 서비스에 이 시스템이 언제 들어오는지는 글에 나오지 않습니다."
+    }
+   ],
+   "ask": "쓰고 있는 AI 서비스의 속도나 요금이 어떤 칩과 시스템 위에서 정해지는지 알고 계신가요?",
+   "sources": [
+    [
+     "엔비디아 블로그 — NVIDIA Sweeps MLPerf Training and Endpoints as Vera Rubin Debuts With Leading Performance",
+     "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/"
+    ]
+   ],
+   "terms": [
+    "엔비디아",
+    "GPU",
+    "벤치마크",
+    "MLPerf",
+    "베라 루빈"
+   ],
+   "image": {
+    "page": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+    "og": "https://blogs.nvidia.com/wp-content/uploads/2026/11/vera-rubin-mlperf-training-endpoints.png",
+    "credit": "이미지: NVIDIA",
+    "alt": "엔비디아 베라 루빈 MLPerf 결과 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "전 과제 휩쓺",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "NVIDIA swept every MLPerf Training v6.1 benchmark"
+    },
+    {
+     "claim": "유일",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "The NVIDIA platform was the only one with results on every benchmark this round"
+    },
+    {
+     "claim": "GPU당 2배",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "Vera Rubin NVL72 delivered up to 2x more performance per GPU than the highly optimized NVIDIA GB300 NVL72 system"
+    },
+    {
+     "claim": "97%",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "Vera Rubin NVL72 scaled from 256 to 1,024 GPUs with about 97% efficiency"
+    },
+    {
+     "claim": "16분→4분",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "quadrupling the GPUs cut time to train from 16 minutes to about four"
+    },
+    {
+     "claim": "10,240",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "NVIDIA also ran the benchmark on 10,240 GPUs with GB300 systems, representing the largest scale in this round."
+    },
+    {
+     "claim": "20개 기관",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "submissions from 20 organizations"
+    },
+    {
+     "claim": "엔드포인트 10배",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "in its first MLPerf Endpoints submission, delivered more than 10x generational gains in throughput per watt for agentic AI"
+    },
+    {
+     "claim": "잠정",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "pending MLCommons Association verification, results are subject to change pending peer review."
+    },
+    {
+     "claim": "게시일",
+     "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+     "quote": "November 16, 2026"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI GPT-6.2 아스트라·솔 / 챗GPT 세일즈 / 나토 사이버 방어",
+   "reason": "openai.com 페이지가 열리지 않아 숫자·조건을 확인하지 못함"
+  },
+  {
+   "topic": "하버드 AI 코딩 에이전트 코드 리뷰 병목 연구",
+   "reason": "원문 논문을 찾지 못함(검색된 논문은 퀸스대 연구로 주장과 달랐음)"
+  },
+  {
+   "topic": "미국 AI 칩 원격 접속 수출통제 강화",
+   "reason": "BIS 공식 원문을 열지 못하고 법무법인·언론 해설만 확인됨"
+  }
+ ]
+}
