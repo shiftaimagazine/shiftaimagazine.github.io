@@ -522,5 +522,23 @@
   "credit": "이미지: NVIDIA",
   "alt": "엔비디아 베라 루빈 MLPerf 결과 대표 이미지",
   "auto": true
+ },
+ "2026-11-20-gemini-4-neon": {
+  "src": "img/ph/2026-11-20-gemini-4-neon.webp",
+  "credit": "이미지: Google",
+  "alt": "제미나이 4 네온 소개 대표 이미지",
+  "auto": true
+ },
+ "2026-11-20-copilot-home-autopilot": {
+  "src": "img/ph/2026-11-20-copilot-home-autopilot.webp",
+  "credit": "이미지: Microsoft",
+  "alt": "마이크로소프트 이그나이트 코파일럿 소개 대표 이미지",
+  "auto": true
+ },
+ "2026-11-20-ai-mode-temporary-threads": {
+  "src": "img/ph/2026-11-20-ai-mode-temporary-threads.webp",
+  "credit": "이미지: Google",
+  "alt": "AI 모드 임시 스레드 소개 이미지",
+  "auto": true
  }
 }
