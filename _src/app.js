@@ -32,7 +32,7 @@ const updHTML = x=>x.upd&&x.upd.length ? `<div class="upd"><b>수정 기록</b><
 const updMeta = x=>x.upd&&x.upd.length ? `<span class="dot"></span><span>${fmtDate(x.upd[x.upd.length-1][0])} 수정</span>` : "";
 const fixLink = (title, path)=>`<a href="mailto:shiftai.magazine@gmail.com?subject=${encodeURIComponent("[정정 요청] "+title)}&body=${encodeURIComponent("페이지: https://shiftaimagazine.com"+path+"\n틀린 곳:\n바른 내용과 근거(원문 링크):\n")}">틀린 곳 알려 주기</a>`;
 // 함께 보면 좋은 콘텐츠(11/3~, 이름 11/5~): 빌드할 때(assemble.py) 기사·칼럼마다 고른 길잡이·튜토리얼·무료 도구·AI 사전
-const nxHTML = x=>x.nx&&x.nx.length ? `<nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은 콘텐츠</b>${x.nx.map(([k,h,t])=>`<a href="${esc(h)}" data-ev="next:${esc(h)}"><span>${esc(k)}</span>${esc(t)}</a>`).join("")}</nav>` : "";
+const nxHTML = x=>x.nx&&x.nx.length ? `<nav class="nxbox" aria-label="같이 읽으면 좋은 글"><b>같이 읽으면 좋은 글</b>${x.nx.map(([k,h,t])=>`<a href="${esc(h)}" data-ev="next:${esc(h)}"><span>${esc(k)}</span>${esc(t)}</a>`).join("")}</nav>` : "";
 const VD = {try:["써볼 만해요","vd-try"], watch:["지켜보세요","vd-watch"], hype:["과장이에요","vd-hype"]};  // 기사 판정(11/2~)
 const vdTag = a=>a.verdict&&VD[a.verdict.v] ? `<span class="vd ${VD[a.verdict.v][1]}">${VD[a.verdict.v][0]}</span>` : "";
 const postHTML = a=>`<a class="post" href="${P("a-"+a.id)}">${thumb(imgOf(a))}
@@ -532,7 +532,7 @@ function renderTutorial(t){
       <ol>${t.items.map((it,k)=>`<li><a href="#s${k+1}"><span>${tutLabel(t,k)}</span>${esc(it.h)}</a></li>`).join("")}</ol></div>`;
   const quick = t.quick&&t.quick.lines&&t.quick.lines.length ? `<div class="quick"><b>바쁘면 이것만</b><ol>${t.quick.lines.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>${(t.quick.links||[]).length?`<div class="ql">${t.quick.links.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join("")}</div>`:""}</div>` : "";
   const master = t.master&&t.master.prompt ? `<details class="master"><summary><b>통째로 맡기는 프롬프트</b><span>${esc(t.master.tool||"AI")}에 붙여 넣으면 이 글의 단계를 대신 진행합니다</span></summary><div class="pr"><div class="pt">${esc(t.master.prompt)}</div><button class="copy dark" data-copy="${esc(t.master.prompt)}">복사하기</button></div></details>` : "";
-  const limits = t.limits&&t.limits.length ? `<div class="limits"><b>솔직히 한계</b><ul>${t.limits.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
+  const limits = t.limits&&t.limits.length ? `<div class="limits"><b>할 수 없는 것</b><ul>${t.limits.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
   const srcs = t.sources&&t.sources.length ? `<div class="src"><b>공식 자료</b>${t.sources.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)} · ${esc(u)}</a>`).join("")}</div>` : "";
   $("#v-article").innerHTML = `<article class="article narrow tut-page">
     <a class="back" href="/tutorial/">← 튜토리얼</a>
@@ -569,7 +569,7 @@ function renderDaily(d){
     <h1>${tp(d.title)}</h1>${d.summary?`<p class="deck">${esc(d.summary)}</p>`:""}
     <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>소식 ${its.length}건</span></div>
     ${lead?fig(imgOf(lead),"lead-fig"):""}
-    ${d.three&&d.three.length?`<div class="box three"><b>오늘의 3줄</b><ol>${d.three.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
+    ${d.three&&d.three.length?`<div class="box three"><b>세 줄로 보는 오늘</b><ol>${d.three.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
     <div class="items">${its.map((a,k)=>`<a class="it" href="${P("a-"+a.id)}"><span class="n">${String(k+1).padStart(2,"0")}</span><div><span class="cat">${esc(a.cat)}</span><h3>${tp(a.title)}</h3><p>${esc(a.hook)}</p></div><figure>${thumb(imgOf(a))}</figure></a>`).join("")}</div>
     ${nums.length?`<div class="sec" style="margin-top:40px"><h2>숫자로 보는 오늘</h2></div><div class="tbl"><table class="dtable"><thead><tr><th>소식</th><th>숫자</th></tr></thead><tbody>${nums.map(([a,v])=>`<tr><td>${tp(a.title)}</td><td>${esc(v)}</td></tr>`).join("")}</tbody></table></div>`:""}
     <div class="links">${prev?`<a href="${P("d-"+prev.date)}">← ${fmtDate(prev.date)}</a>`:""}${next?`<a href="${P("d-"+next.date)}">${fmtDate(next.date)} →</a>`:""}${linkCopy("d-"+d.date,"링크 복사")}</div>
@@ -601,7 +601,7 @@ function renderTerm(t){
     ${t.dl&&t.dl.length?`<p class="tdl"><b>비교해서 보기</b>${t.dl.map(([n,h])=>`<a href="${esc(h)}" data-ev="dict-diff:${esc(h)}">${esc(n)}</a>`).join("")}</p>`:""}
     ${arts.length?`<div class="sec"><h2>${esc(t.t)} ${brand?"최신 소식":"관련 기사"} <small>${arts.length}건</small></h2></div><div class="list">${arts.map(postHTML).join("")}</div>`:""}
     ${tuts.length?`<div class="sec"><h2>${esc(t.t)} 튜토리얼</h2></div><div class="list">${tuts.map(tutHTML).join("")}</div>`:""}
-    ${co.length?`<div class="sec"><h2>함께 보면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
+    ${co.length?`<div class="sec"><h2>같이 알아 두면 좋은 용어</h2></div><dl class="terms">${co.map(x=>`<div class="term"><dt><a href="${TP(x)}">${esc(x.t)}</a><small>${esc(x.en)}</small></dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`:""}
     ${(typeof VS!=="undefined"?VS:[]).some(v=>v.k.includes(t.s))?`<div class="sec"><h2>요금·무료 범위 비교</h2></div><div class="vslinks">${VS.filter(v=>v.k.includes(t.s)).map(v=>`<a href="/vs/${v.id}/">${esc(v.t)}</a>`).join("")}</div>`:""}
     <div class="links"><a href="/dict/">AI 사전 전체 ${TERMS.length}개</a><a href="/search/?q=${encodeURIComponent(t.t)}">‘${esc(t.t)}’ 검색</a>${linkCopy("w-"+t.s,"링크 복사")}</div>
     ${FOLLOWBOX}
