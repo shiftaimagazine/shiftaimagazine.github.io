@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=cec34f19"></script>
+<script src="/assets/theme.js?v=7ced1afe"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/site.css?v=cec34f19">
+<link rel="stylesheet" href="/assets/site.css?v=7ced1afe">
 </head>
 <body data-route="a-2026-11-14-gemini-decisions-api" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -115,7 +115,7 @@
     <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>질문 최대 1,000개를 한 번에.</b> 예⁠·아니오, 선택⁠(2~255개), 점수 질문을 한 번의 계산으로 처리합니다</li><li><b>입력 100만 토큰당&nbsp;0.10달러.</b> 출력 토큰은 과금하지 않습니다</li><li><b>AI 스튜디오에 무료 단계.</b> 제미나이 API로 바로 쓸 수 있습니다</li></ul></div>
     <div class="body"><p class="lead"><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="구글 딥마인드">구글 딥마인드</span>(Google DeepMind)⁠가 11월 11일(미국 시각) 제미나이 결정 API(Gemini Decisions API)⁠를 공개했습니다. 새 모델 제미나이 결정 1(gemini-decision-⁠1)⁠로 예⁠·아니오, 선택지 고르기, 점수 매기기 같은 닫힌 질문을 한 번에 최대 1,000개까지 처리하는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="엔드포인트">엔드포인트</span>이며, 끝에서 끝까지 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="지연 시간">지연 시간</span>은 150~250ms입니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-try">SHIFT 판정&nbsp;· 써볼 만해요</i><span>AI 스튜디오 무료 단계에서 써 볼 수 있고 입력 값이 100만 토큰당&nbsp;0.10달러로 적혀 있습니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>구글 AI 스튜디오 무료 단계에서 자주 하는 분류 작업 하나를 예⁠·아니오 질문 몇 개로 바꿔 넣고, 답마다 붙는 신뢰도 점수를 확인해&nbsp;보세요.</span></div><ul><li><b>질문 최대 1,000개를 한 번에.</b> 예⁠·아니오, 선택⁠(2~255개), 점수 질문을 한 번의 계산으로 처리합니다</li><li><b>입력 100만 토큰당&nbsp;0.10달러.</b> 출력 토큰은 과금하지 않습니다</li><li><b>AI 스튜디오에 무료 단계.</b> 제미나이 API로 바로 쓸 수 있습니다</li></ul></div><h3>답마다 신뢰도 점수가 붙습니다</h3><p>하나의 입력에 질문을 여러 개 붙이는 구조입니다. 입력은 텍스트⁠·이미지⁠·오디오⁠·영상⁠·PDF를 256K 토큰까지 받습니다. 질문은 예⁠·아니오, 2개에서 255개 사이의 선택지, 0부터 시작하는 순서 있는 기준표로 매기는 점수 세 종류입니다. 모든 답에는 0에서 1 사이의 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="신뢰도 점수">신뢰도 점수</span>가 붙고, 모델은 후보 선택지를 한 번의 계산으로 채점해 확률과 신뢰도를 돌려줍니다. 원문 예시는 휴게실 바닥에 쏟아진 액체 사진을 올리고 닦아야 하는지, 청소 담당을 부를지, 회의를 시작해도 되는지를 세 가지 질문으로 묻는 코드입니다.</p><h3>질문이 100개여도 시간은 거의 같습니다</h3><p>모델 연산 시간의 중앙값은 50~100ms이고 끝에서 끝까지는 150~250ms입니다. 컨텍스트가 16K 토큰까지일 때 요청당 질문이 1개에서 100개로 늘어도 시간이 거의 일정하게 유지된다고 구글은 적었습니다. 정확도와 보정 오차는 비교 차트로만 제시되어 글에 숫자가 없고, 구글은 제미나이 결정 1이 보정 오차가 가장 낮았다고 말합니다.</p><h3>값은 입력에만 붙습니다</h3><p>입력은 100만 토큰당&nbsp;0.10달러이고 출력 토큰은 0달러입니다. 여러 질문이 공유하는 입력은 요청당 한 번만 청구되고 질문이 늘면 그 질문의 지시와 기준에 쓰인 토큰만 더해집니다. 구글이 고른 비교 시험 묶음에서는 인터랙션스 API를 쓴 제미나이&nbsp;3.5 플래시 라이트보다 거의 5배 쌌다고 합니다(자체 발표 기준). 무료 단계는 구글 AI 스튜디오에서 시제품을 만들 때 쓸 수 있습니다.</p><h3>이미 구글 서비스 안에서 쓰입니다</h3><p><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="제미나이 노트북">제미나이 노트북</span>에서는 질문을 어느 경로로 보낼지 정하는 데 쓰여 응답 지연이 최대 40% 줄었습니다. 구글 랩스의 CC는 200개가 넘는 이모지 중 하나를 고르는 데 쓰고, 구글 검색은 MCP 도구의 안전 장치로 씁니다. 구글 클라우드의 제미나이 지원은 곧 들어오고 오픈라우터⁠·랭체인⁠·버셀⁠·라이트LLM 같은 외부 도구 연동이 순차로 열리고 있습니다. 서비스 지역과 정식 출시 여부는 원문에 나와 있지 않습니다.</p></div>
     <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>회사나 개인 업무에서 매일 반복하는 분류 작업이 있다면 무엇인가요?</div>
-    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/guide/ai-cost-save/" data-ev="next:/guide/ai-cost-save/"><span>길잡이</span>AI 구독료⁠·사용료&nbsp;줄이기</a><a href="/tutorial/claude-code-save-usage/" data-ev="next:/tutorial/claude-code-save-usage/"><span>튜토리얼</span>클로드 코드 한도가 금방 바닥난다면, 기본 기능만으로 오래 쓰는&nbsp;7단계</a><a href="/tools/ai-subscriptions/" data-ev="next:/tools/ai-subscriptions/"><span>무료 도구</span>AI 구독료&nbsp;계산기</a></nav>
+    <nav class="nxbox" aria-label="같이 읽으면 좋은 글"><b>같이 읽으면&nbsp;좋은&nbsp;글</b><a href="/guide/ai-cost-save/" data-ev="next:/guide/ai-cost-save/"><span>길잡이</span>AI 구독료⁠·사용료&nbsp;줄이기</a><a href="/tutorial/claude-code-save-usage/" data-ev="next:/tutorial/claude-code-save-usage/"><span>튜토리얼</span>클로드 코드 한도가 금방 바닥난다면, 기본 기능만으로 오래 쓰는&nbsp;7단계</a><a href="/tools/ai-subscriptions/" data-ev="next:/tools/ai-subscriptions/"><span>무료 도구</span>AI 구독료&nbsp;계산기</a></nav>
     <div class="src"><b>원문</b><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">구글 블로그 — Gemini Decisions API: Fast, calibrated multimodal decisions&nbsp;· https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/</a></div>
     <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>구글 딥마인드(Google DeepMind) 블로그</td></tr><tr><th>날짜</th><td>2026년 11월 11일(미국&nbsp;시각)</td></tr><tr><th>무엇</th><td>제미나이 결정 API와 모델 gemini-decision-⁠1</td></tr><tr><th>처리량</th><td>한 번에 질문 최대 1,000개, 지연 시간 150~250ms</td></tr><tr><th>가격</th><td>입력 100만 토큰당&nbsp;0.10달러&nbsp;· 출력 과금&nbsp;없음</td></tr><tr><th>원문</th><td>구글 블로그</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">구글 블로그 — Gemini Decisions API: Fast, calibrated multimodal decisions</a></div></details></div>
     
@@ -162,8 +162,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=cec34f19" defer=""></script>
-<script src="/assets/app.js?v=cec34f19" defer=""></script>
+<script src="/assets/data-lite.js?v=7ced1afe" defer=""></script>
+<script src="/assets/app.js?v=7ced1afe" defer=""></script>
 
 
 </body></html>

@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=cec34f19"></script>
+<script src="/assets/theme.js?v=7ced1afe"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/site.css?v=cec34f19">
+<link rel="stylesheet" href="/assets/site.css?v=7ced1afe">
 </head>
 <body data-route="a-2026-11-06-phonon-tts-on-device" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -115,7 +115,7 @@
     <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>작은 모델 두 가지.</b> Phonon 31m(영어, Apache&nbsp;2.0)⁠과 Phonon 40m(5개 언어,&nbsp;비상업)</li><li><b>CPU 스트리밍 첫 소리까지 28ms.</b> Phonon 31m 기준, 비교 모델 Pocket TTS는 165ms</li><li><b>한국어는 지원 언어에 없음.</b> 원하면 맞춤 학습을 해 준다고 글에 적혀&nbsp;있음</li></ul></div>
     <div class="body"><p class="lead">음성 AI 업체 Gradium이 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="허깅페이스">허깅페이스</span>(Hugging Face) 블로그에 11월 5일 올린 글에서 온디바이스 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="음성 합성">음성 합성</span> 모델 'Phonon TTS'를 자세히 소개했습니다. 크기는 약 65MB와 75MB로 서버나 네트워크 없이 돌고 입력한 글이 기기 밖으로 나가지 않으며, 두 주 전 공개 뒤 내려받기가 20만 회를 넘었습니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정&nbsp;· 지켜보세요</i><span>한국어는 지원하지 않고 상업 이용이 가능한 모델은 영어판 하나뿐입니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>허깅페이스 스페이스의 Phonon 데모에서 영어 문장을 넣어 소리를 들어 보고, 내 용도에 언어와 라이선스가 맞는지 확인해&nbsp;보세요.</span></div><ul><li><b>작은 모델 두 가지.</b> Phonon 31m(영어, Apache&nbsp;2.0)⁠과 Phonon 40m(5개 언어,&nbsp;비상업)</li><li><b>CPU 스트리밍 첫 소리까지 28ms.</b> Phonon 31m 기준, 비교 모델 Pocket TTS는 165ms</li><li><b>한국어는 지원 언어에 없음.</b> 원하면 맞춤 학습을 해 준다고 글에 적혀&nbsp;있음</li></ul></div><h3>기기 안에서 돌아가는 65MB</h3><p>Phonon은 약 65MB와 75MB 두 가지 크기로 나옵니다. 내장 목소리가 100개가 넘고 Gradium Studio에서 나만의 목소리를 만들 수 있으며, 실행 프레임워크 ptts는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="CPU">CPU</span>(인텔, 암, 웹어셈블리), GPU(CUDA, Vulkan, Metal, WebGPU), <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="NPU">NPU</span>(애플 Core ML, 스냅드래곤)⁠까지 10개가 넘는 환경을 지원합니다. 트랜스포머스(Transformers) v5.21부터는 라이브러리에서 바로 불러 쓸 수 있습니다.</p><h3>첫 소리까지 28ms, 순위는&nbsp;상위권</h3><p>CPU에서 스트리밍할 때 첫 오디오가 나오기까지의 시간(95번째 백분위수)⁠은 Phonon 31m 영어판이 28ms로 1위, 40m 영어판이 38ms로 2위였고 Pocket TTS는 165ms였습니다. 오픈 TTS 리더보드는 23개 언어에서 알아듣기 쉬움, 속도, 자연스러움을 재는데 Phonon은 독일어와 스페인어에서 알아듣기 쉬움 1위, 평가한 모든 언어에서 상위 3위에 들었고 비교 대상에는 크기가 최대 100배인 모델도 있습니다. 허깅페이스 허브에 올라온 음성 합성 모델은 9,000개가 넘습니다(자체 발표&nbsp;기준).</p><div class="tbl"><table class="dtable"><thead><tr><th>모델</th><th>언어</th><th>라이선스</th><th>첫&nbsp;소리&nbsp;시간</th></tr></thead><tbody><tr><td>Phonon&nbsp;31m</td><td>영어</td><td>Apache&nbsp;2.0(상업 이용&nbsp;가능)</td><td>28ms</td></tr><tr><td>Phonon&nbsp;40m</td><td>5개&nbsp;언어</td><td>비상업</td><td>38ms⁠(영어판&nbsp;기준)</td></tr></tbody></table></div><div class="note">출처 허깅페이스 블로그(2026-11-05), 자체 발표&nbsp;기준</div><h3>한국어를 쓰려면 알아 둘 언어와 라이선스</h3><p>상업 제품에 무료로 쓸 수 있는 모델은 영어 전용 Phonon 31m 하나이고, 다섯 언어를 다 말하는 Phonon 40m은 비상업 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="라이선스">라이선스</span>(CC BY-NC)⁠입니다. 리더보드의 자연스러움 지표에는 한국어용 KOMOS가 들어 있지만 Phonon이 말하는 언어에 한국어는 없습니다. 글은 한국어, 아랍어, 일본어가 필요하면 맞춰 학습해 줄 수 있다고 적었는데 디자인 파트너를 통해 하는 일이고 공개된 모델은 아닙니다. 글에는 점수 값이 아니라 순위만 나와 있고 기기별 실제 속도 표도 없습니다.</p></div>
     <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>앱이나 업무 도구에서 글을 읽어 주는 기능이 필요하다면 서버 없이 기기에서 돌리는 쪽을 고려하시나요?</div>
-    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/guide/ai-cost-save/" data-ev="next:/guide/ai-cost-save/"><span>길잡이</span>AI 구독료⁠·사용료&nbsp;줄이기</a><a href="/tutorial/claude-code-save-usage/" data-ev="next:/tutorial/claude-code-save-usage/"><span>튜토리얼</span>클로드 코드 한도가 금방 바닥난다면, 기본 기능만으로 오래 쓰는&nbsp;7단계</a><a href="/tools/ai-subscriptions/" data-ev="next:/tools/ai-subscriptions/"><span>무료 도구</span>AI 구독료&nbsp;계산기</a></nav>
+    <nav class="nxbox" aria-label="같이 읽으면 좋은 글"><b>같이 읽으면&nbsp;좋은&nbsp;글</b><a href="/guide/ai-cost-save/" data-ev="next:/guide/ai-cost-save/"><span>길잡이</span>AI 구독료⁠·사용료&nbsp;줄이기</a><a href="/tutorial/claude-code-save-usage/" data-ev="next:/tutorial/claude-code-save-usage/"><span>튜토리얼</span>클로드 코드 한도가 금방 바닥난다면, 기본 기능만으로 오래 쓰는&nbsp;7단계</a><a href="/tools/ai-subscriptions/" data-ev="next:/tools/ai-subscriptions/"><span>무료 도구</span>AI 구독료&nbsp;계산기</a></nav>
     <div class="src"><b>원문</b><a href="https://huggingface.co/blog/phonon-tts" target="_blank" rel="noopener">허깅페이스 블로그 — A Closer Look at Phonon TTS&nbsp;· https://huggingface.co/blog/phonon-tts</a></div>
     <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>Gradium(허깅페이스 블로그&nbsp;게시)</td></tr><tr><th>날짜</th><td>2026년 11월&nbsp;5일</td></tr><tr><th>무엇</th><td>온디바이스 음성 합성 모델 Phonon 31m⁠·40m</td></tr><tr><th>핵심 숫자</th><td>크기 약 65MB⁠·75MB, 첫 소리까지 28ms</td></tr><tr><th>지원 언어</th><td>영어⁠·프랑스어⁠·독일어⁠·스페인어⁠·포르투갈어</td></tr><tr><th>원문</th><td>허깅페이스 블로그</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://huggingface.co/blog/phonon-tts" target="_blank" rel="noopener">허깅페이스 블로그 — A Closer Look at Phonon&nbsp;TTS</a></div></details></div>
     
@@ -162,8 +162,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=cec34f19" defer=""></script>
-<script src="/assets/app.js?v=cec34f19" defer=""></script>
+<script src="/assets/data-lite.js?v=7ced1afe" defer=""></script>
+<script src="/assets/app.js?v=7ced1afe" defer=""></script>
 
 
 </body></html>

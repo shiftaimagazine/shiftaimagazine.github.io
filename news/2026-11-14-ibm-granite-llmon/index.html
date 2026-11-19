@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=cec34f19"></script>
+<script src="/assets/theme.js?v=7ced1afe"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/site.css?v=cec34f19">
+<link rel="stylesheet" href="/assets/site.css?v=7ced1afe">
 </head>
 <body data-route="a-2026-11-14-ibm-granite-llmon" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -115,7 +115,7 @@
     <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>지시와 데이터를 전용 기호로 구분.</b> 여섯 가지 구분 기호가 태그의 시작과 끝, 중첩을 표시합니다</li><li><b>공격 방어 시험에서 앞섰다고 보고.</b> OPI 벤치마크에서 최고 프런티어 모델보다 47%, 최고 오픈소스 모델보다 95%&nbsp;더 막았습니다(자체 발표&nbsp;기준)</li><li><b>실험용 미리보기.</b> 원문이 프로덕션에는 맞지 않는다고 적었습니다</li></ul></div>
     <div class="body"><p class="lead">IBM 그래니트(Granite) 팀이 11월 12일 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="허깅페이스">허깅페이스</span>(Hugging Face) 블로그에서 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="LLMON">LLMON</span>이라는 입력 형식을 소개하고, 이 형식으로 학습한 실험용 모델 granite-⁠4.1-3b-LLMON-preview와 granite-⁠4.1-8b-LLMON-preview를 내놨습니다. LLMON(LLM Object Notation)⁠은 '레몬'으로 읽으며, 지시와 데이터의 경계를 모델 전용 기호로 표시해 외부 문서에 숨은 명령을 따르는 문제를 줄이려는 형식입니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정&nbsp;· 지켜보세요</i><span>실험용 미리보기 모델이고 원문이 프로덕션에는 맞지 않는다고 밝혔습니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>허깅페이스 블로그 원문에서 LLMON 설명을 읽고, 쓰는 챗봇이 외부 문서 속 명령에 넘어가는지 확인할 시험 항목을 세 개 적어&nbsp;보세요.</span></div><ul><li><b>지시와 데이터를 전용 기호로 구분.</b> 여섯 가지 구분 기호가 태그의 시작과 끝, 중첩을 표시합니다</li><li><b>공격 방어 시험에서 앞섰다고 보고.</b> OPI 벤치마크에서 최고 프런티어 모델보다 47%, 최고 오픈소스 모델보다 95%&nbsp;더 막았습니다(자체 발표&nbsp;기준)</li><li><b>실험용 미리보기.</b> 원문이 프로덕션에는 맞지 않는다고 적었습니다</li></ul></div><h3>JSON 대신 모델 전용 구분 기호를&nbsp;씁니다</h3><p>원문은 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="JSON">JSON</span>이 파서에 맞춰 설계된 형식이라고 말합니다. 토크나이저는 JSON 문법을 강제하지 않아서 중괄호⁠·따옴표⁠·콜론 토큰이 일반 글에도 나옵니다. 중첩 깊이도 괄호 수를 세어 알아내야 하는데 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="트랜스포머">트랜스포머</span>는 긴 구간에서 이 계산에 약하다는 설명입니다. LLMON은 XML과 비슷한 마크업이면서 구분 기호를 문자가 아닌 예약된 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="특수 토큰">특수 토큰</span>으로 둡니다. 태그에는 고유 ID가 붙어 문맥 어디에 있는 지시든 가리켜 데이터에 묶을 수 있고, 블록 하나를 가리키는 데는 어떤 ID를 쓰든 토큰이 두 개 듭니다. 기존 채팅 템플릿에 덧붙여 쓰는 형식이며, 이미 있는 JSON은 변환기로 손실 없이 LLMON으로 바꿨다가 되돌릴 수 있습니다.</p><h3>외부 문서 속 명령에 얼마나 넘어가는지 쟀습니다</h3><p>시험은 OPI, ASB, StruQ 세 가지 벤치마크이고 방어력은 1에서 공격 성공률을 뺀 값입니다. 팀은 OPI에서 이 문제가 사실상 사라졌다고 평가했습니다. 시험한 최고 프런티어 모델보다 공격을 47%&nbsp;더 피했고 최고 오픈소스 모델보다는 95%&nbsp;더 피했다는 내용입니다. ASB와 StruQ에서도 비슷한 경향이 나왔지만 점수는 글에 적혀 있지 않고 차트 그림으로만 실렸습니다. 일반 능력은 그래니트&nbsp;4.1 인스트럭트 모델과 같은 수준이라고&nbsp;합니다.</p><h3>학습 방식과 남은&nbsp;한계</h3><p>모델은 그래니트&nbsp;4.1&nbsp;기본⁠(base) 체크포인트에서 출발했고 공개된 인스트럭트 모델은 쓰지 않았습니다. 추론⁠·RLHF⁠·지식 보정⁠·수학을 다루는 GRPO 강화학습 단계를 다섯 번 거친 뒤 온폴리시 선호 쌍 천 개로 DPO를 한 번 더 했습니다. 팀은 이 방어가 학습으로 얻은 행동이며 강제되는 보장은 아니라고 적었습니다. 시험도 고정된 간접 프롬프트 주입만 다루고, 상대에 맞춰 바뀌는 여러 턴 공격은 대응을 연구하는 중입니다. 라이선스는 글에 나와 있지 않습니다.</p></div>
     <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>내가 쓰는 AI 도구가 외부 문서 속 명령에 넘어가는지 확인해 본 적이&nbsp;있나요?</div>
-    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/guide/security/" data-ev="next:/guide/security/"><span>길잡이</span>내 사이트와 AI 계정, 보안 점검하기</a><a href="/tutorial/auto-update-site/" data-ev="next:/tutorial/auto-update-site/"><span>튜토리얼</span>워드프레스⁠·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는&nbsp;9단계</a><a href="/tools/redact/" data-ev="next:/tools/redact/"><span>무료 도구</span>개인정보 자동&nbsp;가리기</a></nav>
+    <nav class="nxbox" aria-label="같이 읽으면 좋은 글"><b>같이 읽으면&nbsp;좋은&nbsp;글</b><a href="/guide/security/" data-ev="next:/guide/security/"><span>길잡이</span>내 사이트와 AI 계정, 보안 점검하기</a><a href="/tutorial/auto-update-site/" data-ev="next:/tutorial/auto-update-site/"><span>튜토리얼</span>워드프레스⁠·호스팅 사이트, 자동 업데이트 켜고 보안 점검하는&nbsp;9단계</a><a href="/tools/redact/" data-ev="next:/tools/redact/"><span>무료 도구</span>개인정보 자동&nbsp;가리기</a></nav>
     <div class="src"><b>원문</b><a href="https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite" target="_blank" rel="noopener">허깅페이스 블로그(IBM 그래니트) — LLMON: An LLM-Native Markup Language, now in Granite&nbsp;4.1 3B and 8B&nbsp;· https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite</a></div>
     <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>IBM 그래니트(Granite) 팀, 허깅페이스&nbsp;블로그</td></tr><tr><th>날짜</th><td>2026년 11월&nbsp;12일</td></tr><tr><th>무엇</th><td>LLMON 입력 형식, 그래니트&nbsp;4.1 3B⁠·8B 미리보기&nbsp;모델</td></tr><tr><th>핵심 숫자</th><td>OPI 시험에서 공격을 최고 프런티어 모델보다 47%, 최고 오픈소스 모델보다 95%&nbsp;더 피함(자체 발표&nbsp;기준)</td></tr><tr><th>상태</th><td>실험용 미리보기, 프로덕션용은&nbsp;아님</td></tr><tr><th>원문</th><td>허깅페이스 블로그</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite" target="_blank" rel="noopener">허깅페이스 블로그(IBM 그래니트) — LLMON: An LLM-Native Markup Language, now in Granite&nbsp;4.1 3B and&nbsp;8B</a></div></details></div>
     
@@ -162,8 +162,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=cec34f19" defer=""></script>
-<script src="/assets/app.js?v=cec34f19" defer=""></script>
+<script src="/assets/data-lite.js?v=7ced1afe" defer=""></script>
+<script src="/assets/app.js?v=7ced1afe" defer=""></script>
 
 
 </body></html>

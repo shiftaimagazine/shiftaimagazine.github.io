@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=cec34f19"></script>
+<script src="/assets/theme.js?v=7ced1afe"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/site.css?v=cec34f19">
+<link rel="stylesheet" href="/assets/site.css?v=7ced1afe">
 </head>
 <body data-route="a-2026-11-10-hope-moe-expert-pruning" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -115,7 +115,7 @@
     <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>전문가 쌍의 상호작용을 점수에 반영.</b> 기존 1차 방법은 전문가를 하나씩&nbsp;평가</li><li><b>50% 가지치기에서 평균 순위 1.58.</b> 다음 방법인 REAP은&nbsp;2.42(자체 평가&nbsp;기준)</li><li><b>표준 허깅페이스 체크포인트로 저장.</b> vLLM⁠·SGLang을 고칠 필요&nbsp;없음</li></ul></div>
     <div class="body"><p class="lead"><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="아마존">아마존</span>(Amazon) 연구진이 11월 9일 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="허깅페이스">허깅페이스</span>(Hugging Face) 블로그에 MoE(전문가 혼합) 언어 모델에서 전문가를 영구히 지우는 방법 HOPE(Higher-Order Pruning of Experts)⁠를 소개했습니다. 전문가를 하나씩 따로 점수 매기던 기존 방법과 달리, 두 전문가가 함께 일하는 정도까지 계산에 넣어 지울 전문가를 고릅니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정&nbsp;· 지켜보세요</i><span>저자들이 자체 평가한 결과이고 메모리 절감량 수치는 글에 없습니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>원문 글의 SWE-Bench Pro 결과 그림을 열어 가지치기 비율별로 어떤 방법이 앞서는지 직접 확인해&nbsp;보세요.</span></div><ul><li><b>전문가 쌍의 상호작용을 점수에 반영.</b> 기존 1차 방법은 전문가를 하나씩&nbsp;평가</li><li><b>50% 가지치기에서 평균 순위 1.58.</b> 다음 방법인 REAP은&nbsp;2.42(자체 평가&nbsp;기준)</li><li><b>표준 허깅페이스 체크포인트로 저장.</b> vLLM⁠·SGLang을 고칠 필요&nbsp;없음</li></ul></div><h3>전문가는 혼자 일하지 않습니다</h3><p>MoE는 층마다 전문가 여러 개를 두고 입력마다 일부만 켜는 구조라서 모델 크기에 비해 계산량이 적습니다. 글은 전문가들이 꾸준히 함께 켜지는 안정적인 협력 집단을 이룬다고 보고, 이 관계를 무시한 채 전문가를 하나씩 지우면 짝을 잃은 전문가가 남는다고 설명합니다. HOPE는 전문가 쌍마다 함께 켜졌을 때의 기여도를 모은 행렬을 만들고, 지울 개수를 정해 두면 그 행렬의 값이 최소가 되는 조합을 찾습니다.</p><h3>계산은 한 번, 층마다&nbsp;몇&nbsp;초</h3><p>보정 데이터를 한 번 통과시켜 전문가별 출력 크기와 동시 활성 통계를 기록하고, 이 값으로 층마다 몇 초 안에 지울 전문가를 정합니다. 결과는 표준 허깅페이스 체크포인트로 저장되며 코드는 GitHub awslabs/HOPE에 공개됐습니다. 행렬의 대각선 값은 기존 방법 REAP의 전문가 순위와 거의 같아서(스피어만 상관&nbsp;0.988) 성능 차이는 대각선 밖의 상호작용 항에서 나온다는 것이 저자들의 설명입니다.</p><h3>SWE-Bench Pro에서 지운 모델과 원본을&nbsp;비교</h3><p>평가는 Tulu3 모음과 에이전트 코딩 시험 SWE-Bench Pro로 했고, <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="가지치기">가지치기</span> 비율은 10%에서 50%까지 바꿨으며 REAP⁠·MAN⁠·EAN⁠·Frequency 네 방법과 겨뤘습니다. 모든 조건의 평균 순위는 HOPE가&nbsp;2.07이고 1위가 39%, 2위 이내가 67%입니다. Qwen3.5-35B-A3B의 전문가를 50% 지웠을 때 SWE-Bench Pro 점수는 HOPE가&nbsp;42.3으로 지우지 않은 모델의&nbsp;41.8과 비슷했고 REAP은&nbsp;36.2였습니다.</p><h3>10~20%에서는 차이가 줄어듭니다</h3><p>저자들은 가지치기 비율이 10~20%일 때 REAP과 MAN이 HOPE와 겨룰 만하다고 적었습니다. HOPE는 층을 하나씩 따로 계산해서 층 사이의 상호작용을 보지 못하고, 세 개 이상 전문가가 묶인 효과도 계산하지 않습니다. 글은 Qwen3.5-122B의 구조를 설명하지만 이 모델의 가지치기 결과는 싣지 않았습니다.</p></div>
     <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>모델을 절반으로 줄이는 방법이 나온다면 내 업무용 AI를 직접 돌려 볼 의향이 있으신가요?</div>
-    <nav class="nxbox" aria-label="함께 보면 좋은 콘텐츠"><b>함께 보면 좋은&nbsp;콘텐츠</b><a href="/guide/verify-ai/" data-ev="next:/guide/verify-ai/"><span>길잡이</span>AI 답, 믿기 전에 확인하는&nbsp;법</a><a href="/tutorial/verify-numbers/" data-ev="next:/tutorial/verify-numbers/"><span>튜토리얼</span>AI가 말한 숫자⁠·날짜⁠·가격, 원문으로 확인하는 프롬프트&nbsp;9개</a><a href="/tools/prompt-check/" data-ev="next:/tools/prompt-check/"><span>무료 도구</span>프롬프트 점검기 (빠진 것⁠·흐린&nbsp;말&nbsp;찾기)</a></nav>
+    <nav class="nxbox" aria-label="같이 읽으면 좋은 글"><b>같이 읽으면&nbsp;좋은&nbsp;글</b><a href="/guide/verify-ai/" data-ev="next:/guide/verify-ai/"><span>길잡이</span>AI 답, 믿기 전에 확인하는&nbsp;법</a><a href="/tutorial/verify-numbers/" data-ev="next:/tutorial/verify-numbers/"><span>튜토리얼</span>AI가 말한 숫자⁠·날짜⁠·가격, 원문으로 확인하는 프롬프트&nbsp;9개</a><a href="/tools/prompt-check/" data-ev="next:/tools/prompt-check/"><span>무료 도구</span>프롬프트 점검기 (빠진 것⁠·흐린&nbsp;말&nbsp;찾기)</a></nav>
     <div class="src"><b>원문</b><a href="https://huggingface.co/blog/amazon/higher-order-pruning-experts" target="_blank" rel="noopener">허깅페이스 블로그⁠(아마존) — Your Experts Have Partners. There's HOPE for Keeping Them Together&nbsp;· https://huggingface.co/blog/amazon/higher-order-pruning-experts</a><a href="https://arxiv.org/abs/2609.18916" target="_blank" rel="noopener">arXiv — HOPE 논문&nbsp;· https://arxiv.org/abs/2609.18916</a><a href="https://github.com/awslabs/HOPE" target="_blank" rel="noopener">GitHub — awslabs/HOPE&nbsp;· https://github.com/awslabs/HOPE</a></div>
     <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>아마존 연구진(허깅페이스 블로그)</td></tr><tr><th>날짜</th><td>2026년 11월&nbsp;9일</td></tr><tr><th>무엇</th><td>MoE 전문가 가지치기 방법 HOPE</td></tr><tr><th>핵심 숫자</th><td>50% 가지치기 평균 순위&nbsp;1.58(2위 REAP&nbsp;2.42, 자체&nbsp;평가)</td></tr><tr><th>시험 모델</th><td>Qwen3.5-35B-A3B 등</td></tr><tr><th>공개</th><td>논문 arXiv&nbsp;2609.18916, 코드 awslabs/HOPE</td></tr></tbody></table></details><details><summary>원문 3곳</summary><div class="srcl"><a href="https://huggingface.co/blog/amazon/higher-order-pruning-experts" target="_blank" rel="noopener">허깅페이스 블로그⁠(아마존) — Your Experts Have Partners. There's HOPE for Keeping Them Together</a><a href="https://arxiv.org/abs/2609.18916" target="_blank" rel="noopener">arXiv — HOPE 논문</a><a href="https://github.com/awslabs/HOPE" target="_blank" rel="noopener">GitHub — awslabs/HOPE</a></div></details></div>
     
@@ -162,8 +162,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=cec34f19" defer=""></script>
-<script src="/assets/app.js?v=cec34f19" defer=""></script>
+<script src="/assets/data-lite.js?v=7ced1afe" defer=""></script>
+<script src="/assets/app.js?v=7ced1afe" defer=""></script>
 
 
 </body></html>

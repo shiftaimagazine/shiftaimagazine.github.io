@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=cec34f19"></script>
+<script src="/assets/theme.js?v=7ced1afe"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/site.css?v=cec34f19">
+<link rel="stylesheet" href="/assets/site.css?v=7ced1afe">
 </head>
 <body data-route="t-claude-code-save-usage" id="top" class="has-sub" data-pre="1">
 <a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 3개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
@@ -242,7 +242,7 @@ paths:
         
       </div></section></div>
     <div class="bonus"><b>보너스&nbsp;· 긴 세션에서 사용량이 늘어나는 경우&nbsp;점검</b><ol><li>구독 요금제 안에서는 메인 대화의 캐시가 1시간, API 키⁠·사용 크레딧⁠·클라우드 제공업체에서는 5분 유지됩니다. 그보다 오래 쉬고 보낸 첫 메시지는 대화 전체를 다시 처리합니다</li><li>오래 비울 대화는 떠나기 전에 /compact로 줄여 둡니다. 캐시가 식은 뒤의 /compact는 대화 전체를 캐시 없이 읽어 더 비쌉니다</li><li>/loop 같은 세션 예약 작업은 쉬는 동안에도 간격마다 대화 전체를 보내므로, 필요 없어지면 멈춥니다</li><li>에이전트 팀(agent teams)⁠은 팀원마다 컨텍스트를 따로 써서, 팀원이 계획 모드로 일하면 보통 세션보다 토큰을 약 7배&nbsp;씁니다</li></ol></div>
-    <div class="limits"><b>솔직히 한계</b><ul><li>명령과 설정은 2026년 10월 27일 공식 문서에서 확인했고 직접 실행해 보지는 않았습니다. 화면이나 이름이 다르면 claude -⁠-⁠version으로 버전을 확인하고 공식 문서를 다시&nbsp;봅니다.</li><li>/usage의 금액과 사용처 비율은 지금 컴퓨터의 기록으로 계산한 추정치입니다. 정확한 청구와 한도는 claude.ai 요금제 설정이나 Claude Console 사용량 페이지에서 확인합니다.</li><li>경로 지정 규칙과 하위 폴더의 CLAUDE.md는 압축하면 요약에 묻혔다가 필요할 때 다시 읽힙니다. 꼭 지킬 규칙은 프로젝트 루트의 CLAUDE.md에 둡니다. effort를 낮추면 복잡한 작업의 결과가 나빠질 수 있습니다.</li><li>Read 거부 규칙은 grep -r처럼 파일 이름을 적지 않는 명령이나 스크립트가 직접 여는 파일까지 막지는 못합니다. 운영체제 수준에서 막으려면 샌드박스를&nbsp;켭니다.</li></ul></div>
+    <div class="limits"><b>할 수&nbsp;없는&nbsp;것</b><ul><li>명령과 설정은 2026년 10월 27일 공식 문서에서 확인했고 직접 실행해 보지는 않았습니다. 화면이나 이름이 다르면 claude -⁠-⁠version으로 버전을 확인하고 공식 문서를 다시&nbsp;봅니다.</li><li>/usage의 금액과 사용처 비율은 지금 컴퓨터의 기록으로 계산한 추정치입니다. 정확한 청구와 한도는 claude.ai 요금제 설정이나 Claude Console 사용량 페이지에서 확인합니다.</li><li>경로 지정 규칙과 하위 폴더의 CLAUDE.md는 압축하면 요약에 묻혔다가 필요할 때 다시 읽힙니다. 꼭 지킬 규칙은 프로젝트 루트의 CLAUDE.md에 둡니다. effort를 낮추면 복잡한 작업의 결과가 나빠질 수 있습니다.</li><li>Read 거부 규칙은 grep -r처럼 파일 이름을 적지 않는 명령이나 스크립트가 직접 여는 파일까지 막지는 못합니다. 운영체제 수준에서 막으려면 샌드박스를&nbsp;켭니다.</li></ul></div>
     <div class="src"><b>공식 자료</b><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Manage costs effectively&nbsp;· https://code.claude.com/docs⁠/⁠en/costs</a><a href="https://code.claude.com/docs/en/commands" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Commands&nbsp;· https://code.claude.com/docs⁠/⁠en/commands</a><a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· How Claude remembers your project&nbsp;· https://code.claude.com/docs⁠/⁠en/memory</a><a href="https://code.claude.com/docs/en/model-config" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Model configuration&nbsp;· https://code.claude.com/docs⁠/⁠en/model-config</a><a href="https://code.claude.com/docs/en/context-window" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Explore the context window&nbsp;· https://code.claude.com/docs⁠/⁠en/context-window</a><a href="https://code.claude.com/docs/en/prompt-caching" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· How Claude Code uses prompt caching&nbsp;· https://code.claude.com/docs⁠/⁠en/prompt-caching</a><a href="https://code.claude.com/docs/en/permissions" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Configure permissions&nbsp;· https://code.claude.com/docs⁠/⁠en/permissions</a><a href="https://code.claude.com/docs/en/settings" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Settings files and precedence&nbsp;· https://code.claude.com/docs⁠/⁠en/settings</a><a href="https://code.claude.com/docs/en/interactive-mode" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Interactive mode&nbsp;(/btw)&nbsp;· https://code.claude.com/docs⁠/⁠en/interactive-mode</a><a href="https://code.claude.com/docs/en/statusline" target="_blank" rel="noopener">클로드 코드 문서&nbsp;· Customize your status line&nbsp;· https://code.claude.com/docs⁠/⁠en/statusline</a></div>
     
     
@@ -287,8 +287,8 @@ paths:
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=cec34f19" defer=""></script>
-<script src="/assets/app.js?v=cec34f19" defer=""></script>
+<script src="/assets/data-lite.js?v=7ced1afe" defer=""></script>
+<script src="/assets/app.js?v=7ced1afe" defer=""></script>
 
 
 </body></html>
