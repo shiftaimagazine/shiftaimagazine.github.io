@@ -1,0 +1,631 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-20-gemini-4-neon",
+   "cat": "모델·제품",
+   "date": "2026-11-20",
+   "time": "06:48",
+   "title": "제미나이 4 네온, 입력 100만 토큰 3달러",
+   "sub": "카본보다 작업당 비용 32% 낮음 · AI 프로·울트라 구독자는 앱에서 선택 · 100만 토큰 컨텍스트",
+   "hook": "구글(Google)이 제미나이 4 네온(Gemini 4 Neon)을 내놓았습니다. 입력 100만 토큰당 3달러에 컨텍스트 창 100만 토큰이며, 제미나이 앱에서는 AI 프로·울트라 구독자가 고를 수 있습니다.",
+   "try": "구글 AI 프로나 울트라를 쓰고 있다면 제미나이 앱의 모델 선택 메뉴에서 제미나이 4 네온을 골라 평소 맡기던 긴 작업 하나를 돌려 보세요.",
+   "who": "제미나이 앱 AI 프로·울트라 구독자, API로 에이전트를 돌리는 개발자",
+   "verdict": {
+    "v": "watch",
+    "why": "구독자와 API 이용자는 바로 쓰지만 순위와 비용 절감은 모두 구글이 낸 수치입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글(Google) 제미나이 모델 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 18일(미국 시각, 딥마인드 블로그 게시 기준)"
+    ],
+    [
+     "무엇",
+     "제미나이 4 가족의 세 번째 모델 제미나이 4 네온"
+    ],
+    [
+     "가격",
+     "입력 100만 토큰당 3달러, 출력 15달러, 캐시 입력 0.15달러"
+    ],
+    [
+     "제공",
+     "제미나이 API(구글 AI 스튜디오), 제미나이 앱 AI 프로·울트라"
+    ],
+    [
+     "원문",
+     "구글 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 18일(미국 시각) 제미나이 4 네온(Gemini 4 Neon)을 내놓았습니다. 소프트웨어 개발과 지식 업무, 과학 작업에서 여러 단계를 끝까지 처리하는 모델이며 입력 100만 토큰당 3달러에 컨텍스트 창 100만 토큰으로 제공됩니다."
+    },
+    {
+     "ul": [
+      [
+       "입력 100만 토큰당 3달러",
+       "캐시된 입력은 0.15달러, 출력은 15달러입니다"
+      ],
+      [
+       "앱은 AI 프로·울트라 구독자부터",
+       "제미나이 앱의 모델 선택 메뉴에서 고르고 API는 구글 AI 스튜디오에서 열렸습니다"
+      ],
+      [
+       "카본보다 작업당 비용 32% 낮음",
+       "구글이 자체 발표한 비교 수치입니다"
+      ]
+     ]
+    },
+    {
+     "h": "카본과 하이드로젠 사이에서 맡는 자리"
+    },
+    {
+     "p": "제미나이 4 가족에서 카본은 가장 어렵고 긴 프로젝트를, 하이드로젠은 빠른 일상 작업을 맡습니다. 네온은 그 사이에서 깊이와 효율의 균형을 맡는 모델입니다. 구글은 네온이 여러 단계의 작업을 지름길로 건너뛰거나 결과를 지어내지 않고 끝내도록 훈련됐다고 설명합니다. 발표문에는 한국 출시나 한국어 성능에 관한 언급이 없습니다."
+    },
+    {
+     "h": "구독자와 개발자가 만나는 경로"
+    },
+    {
+     "p": "개발자는 제미나이 API의 구글 AI 스튜디오에서 네온을 쓰고 기업 이용자는 제미나이 포 비즈니스(Gemini for business)에서 API나 모델 선택 메뉴로 씁니다. 안티그래비티(Antigravity)는 유료 AI 프로·울트라 구독자에게 열렸고 제미나이 앱은 AI 프로·울트라 구독자가 대상입니다. 무료 이용자에게 언제 열리는지는 글에 나와 있지 않습니다."
+    },
+    {
+     "h": "순위표에 오른 점수들"
+    },
+    {
+     "p": "발표문은 제3자 평가에서 얻은 점수를 여럿 실었습니다. 아래 표는 그 가운데 일부이며 모두 구글이 자체 발표한 수치입니다."
+    },
+    {
+     "table": {
+      "head": [
+       "시험",
+       "점수",
+       "구글이 적은 순위"
+      ],
+      "rows": [
+       [
+        "아티피셜 애널리시스 지능 지수",
+        "61",
+        "전체 3위"
+       ],
+       [
+        "밸스 지수(Vals Index)",
+        "70.9%",
+        "2위"
+       ],
+       [
+        "코딩 에이전트 지수",
+        "58.6",
+        "전체 1위"
+       ],
+       [
+        "터미널벤치 4.1",
+        "65.2%",
+        "-"
+       ],
+       [
+        "재피어 오토메이션벤치",
+        "56.3%",
+        "전체 1위"
+       ],
+       [
+        "터미널벤치 사이언스",
+        "70.5%",
+        "최고 수준"
+       ],
+       [
+        "HLE-Diamond",
+        "71.3%",
+        "최고 수준"
+       ],
+       [
+        "SEC-bench Pro",
+        "90.5%",
+        "최고 성능"
+       ]
+      ],
+      "note": "출처 구글 블로그, 점수는 모두 구글 발표 기준"
+     }
+    },
+    {
+     "h": "보안용 네온은 며칠 뒤 방어 담당자에게"
+    },
+    {
+     "p": "사이버 보안용 네온은 신뢰받는 방어 담당자에게 페어윈드 프로그램(Fairwind Program)으로 앞으로 며칠 안에 순차 제공됩니다. 일반 이용자용 모델과 어떻게 다른지는 발표문에 자세히 나와 있지 않습니다."
+    }
+   ],
+   "ask": "긴 작업을 AI에게 맡길 때 모델마다 걸리는 비용과 시간을 따져 본 적이 있나요?",
+   "sources": [
+    [
+     "구글 블로그 — Introducing Gemini 4 Neon",
+     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+    ]
+   ],
+   "terms": [
+    "제미나이",
+    "제미나이 4 카본",
+    "제미나이 4 하이드로젠",
+    "제미나이 4 네온",
+    "토큰",
+    "컨텍스트 윈도우",
+    "벤치마크",
+    "안티그래비티",
+    "API"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+    "og": null,
+    "credit": "이미지: Google",
+    "alt": "제미나이 4 네온 소개 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일(딥마인드 블로그 게시 목록 2026-11-18)",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Introducing Gemini 4 Neon"
+    },
+    {
+     "claim": "지능 지수 61, 전체 3위",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Neon ranks ahead of comparable models and #3 overall with a score of 61 on the Artificial Analysis Intelligence Index"
+    },
+    {
+     "claim": "입력 가격 3달러",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "The model is priced at $3 per million input tokens"
+    },
+    {
+     "claim": "캐시 입력 0.15달러, 출력 15달러, 컨텍스트 창",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "($0.15 per million cached input tokens, a 95% discount) and $15 per million output tokens, with a 1 million-token context window."
+    },
+    {
+     "claim": "카본보다 작업당 비용 32% 낮음",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "it pairs a high Artificial Analysis Intelligence Index score with a 32% lower cost per task than Carbon."
+    },
+    {
+     "claim": "API·AI 스튜디오 제공",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Gemini 4 Neon is rolling out today in the Gemini API in Google AI Studio"
+    },
+    {
+     "claim": "제미나이 앱 제공 대상",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "If you’re a Google AI Pro or Ultra subscriber, you can select Gemini 4 Neon from the model drop-down in the Gemini app."
+    },
+    {
+     "claim": "안티그래비티 제공",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "for paid Google AI Pro and Ultra subscribers in Google Antigravity"
+    },
+    {
+     "claim": "제미나이 포 비즈니스",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Use Gemini 4 Neon in Gemini for business (via the API or model drop-down)"
+    },
+    {
+     "claim": "페어윈드 프로그램",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Gemini 4 Neon for cyber is rolling out to trusted defenders in the coming days as part of the Fairwind Program."
+    },
+    {
+     "claim": "밸스 지수 70.9%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "on benchmarks like the Vals Index, it ranks #2 (70.9%)"
+    },
+    {
+     "claim": "코딩 에이전트 지수 58.6",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "ranking #1 overall on the Artificial Analysis Coding Agent Index (58.6)"
+    },
+    {
+     "claim": "터미널벤치 4.1 65.2%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "with a score of 65.2% on Terminal-Bench 4.1"
+    },
+    {
+     "claim": "오토메이션벤치 56.3%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "It achieves #1 overall on both Zapier’s AutomationBench (56.3%)"
+    },
+    {
+     "claim": "터미널벤치 사이언스·HLE-Diamond",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Neon is best in class on Terminal-Bench Science (70.5%), RiemannBench (84.0%), and HLE-Diamond (71.3%)."
+    },
+    {
+     "claim": "SEC-bench Pro 90.5%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Neon achieves state-of-the-art performance on SEC-bench Pro (90.5%)"
+    },
+    {
+     "claim": "카본·하이드로젠 역할",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "While Carbon tackles your hardest, long-horizon projects and Hydrogen handles fast everyday execution"
+    },
+    {
+     "claim": "깊이와 효율의 균형",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Neon balances depth and efficiency."
+    },
+    {
+     "claim": "지름길·지어내기 없이 끝냄",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "Neon is trained to complete multi-step work without cutting corners, fabricating results"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-20-copilot-home-autopilot",
+   "cat": "비즈니스·일자리",
+   "date": "2026-11-20",
+   "time": "06:47",
+   "title": "코파일럿 홈·오토파일럿, 이그나이트 공개",
+   "sub": "워드·엑셀·파워포인트를 앱 안에서 · 오토파일럿은 프런티어 고객부터 · 코드는 몇 주 뒤",
+   "hook": "마이크로소프트(Microsoft)가 이그나이트(Ignite) 2026에서 코파일럿 앱을 개편했습니다. 채팅과 코워크가 모인 홈과 오피스 인 코파일럿은 정식 출시됐고 오토파일럿은 일부 고객부터 열렸습니다.",
+   "try": "회사 계정으로 코파일럿을 쓴다면 앱 홈에서 채팅과 코워크가 합쳐졌는지, 앱 안에서 워드·엑셀 작업이 열리는지 확인해 보세요.",
+   "who": "회사 계정으로 마이크로소프트 코파일럿을 쓰는 직장인과 IT 담당자",
+   "verdict": {
+    "v": "watch",
+    "why": "홈과 오피스는 정식이지만 오토파일럿·투데이·코드는 일부 고객이나 예정 단계입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "마이크로소프트(Microsoft) 코파일럿 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 17일(미국 시각), 이그나이트 2026"
+    ],
+    [
+     "정식 출시",
+     "홈, 오피스 인 코파일럿, 코파일럿 매니지드 런타임"
+    ],
+    [
+     "일부 고객부터",
+     "오토파일럿(프런티어 고객), 투데이(비공개 미리보기)"
+    ],
+    [
+     "앞으로 몇 주 안",
+     "코드 정식 출시"
+    ],
+    [
+     "원문",
+     "마이크로소프트 코파일럿 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "마이크로소프트(Microsoft)가 11월 17일(미국 시각) 이그나이트(Ignite) 2026에서 코파일럿 앱을 개편했습니다. 채팅과 코워크(Cowork)를 한곳에 모은 홈과 워드·엑셀·파워포인트 기능을 앱 안에서 쓰는 오피스 인 코파일럿(Office in Copilot)이 정식 출시됐습니다."
+    },
+    {
+     "ul": [
+      [
+       "홈과 오피스 인 코파일럿 정식 출시",
+       "채팅과 코워크가 한곳에 모이고 오피스 기능이 코파일럿 앱 안으로 들어옵니다"
+      ],
+      [
+       "오토파일럿은 프런티어 고객부터",
+       "자체 ID와 메모리, 도구를 가진 개인용 자율 에이전트입니다"
+      ],
+      [
+       "코드는 몇 주 뒤, 투데이는 비공개 미리보기",
+       "앱이나 대시보드를 만드는 기능과 하루 현황 화면입니다"
+      ]
+     ]
+    },
+    {
+     "h": "정식으로 열린 것과 아직 아닌 것"
+    },
+    {
+     "p": "발표된 기능마다 제공 단계가 달라서 표로 정리했습니다. 가격 수치는 발표문 본문에 없습니다."
+    },
+    {
+     "table": {
+      "head": [
+       "기능",
+       "하는 일",
+       "상태"
+      ],
+      "rows": [
+       [
+        "홈",
+        "채팅과 코워크가 모인 시작 화면",
+        "정식 출시"
+       ],
+       [
+        "오피스 인 코파일럿",
+        "워드·엑셀·파워포인트를 앱 안에서 사용",
+        "정식 출시"
+       ],
+       [
+        "코파일럿 매니지드 런타임",
+        "만든 앱을 회사 테넌트 안에서 호스팅하고 관리",
+        "정식 출시"
+       ],
+       [
+        "오토파일럿",
+        "개인용 자율 에이전트",
+        "프런티어 고객에게 롤아웃 시작"
+       ],
+       [
+        "코드",
+        "설명을 입력해 앱을 만드는 기능",
+        "앞으로 몇 주 안에 정식 출시"
+       ],
+       [
+        "투데이",
+        "메일·일정·대화를 한눈에 보는 화면",
+        "비공개 미리보기(앱·아웃룩)"
+       ]
+      ],
+      "note": "출처 마이크로소프트 코파일럿 블로그"
+     }
+    },
+    {
+     "h": "오피스를 따로 열지 않고 문서를 만듭니다"
+    },
+    {
+     "p": "마이크로소프트는 오피스의 모든 힘을 코파일럿 앱 안으로 가져온다고 적었습니다. 코파일럿이 계량기를 돌리지 않고 파워포인트 덱이나 엑셀 시트를 만들 수 있는 유일한 AI 도구라는 것이 마이크로소프트의 주장입니다. 한국 출시와 한국어 지원은 발표문 본문에 나오지 않습니다."
+    },
+    {
+     "h": "오토파일럿은 회사 안에서 자기 ID를 갖습니다"
+    },
+    {
+     "p": "오토파일럿은 이용 회사의 테넌트 안에 있으면서 자기 ID와 메모리, 도구를 갖습니다. 오토파일럿마다 마이크로소프트 엔트라 에이전트 ID(Microsoft Entra Agent ID)와 이름이 붙은 관리자가 지정됩니다. 롤아웃은 프런티어(Frontier) 고객부터 시작했습니다."
+    },
+    {
+     "h": "비용 비교와 이용 규모는 회사 자체 발표입니다"
+    },
+    {
+     "p": "발표문은 비슷한 품질을 기준으로 일반 사용자에게 코파일럿이 클로드보다 84%, 챗GPT보다 63% 저렴하다고 적었습니다(자체 발표 기준). 지금 포천 500대 기업의 80% 가까이가 코워크를 쓴다는 수치도 같은 글에 있습니다. 코드의 정식 출시일은 앞으로 몇 주 안이라고만 되어 있습니다."
+    }
+   ],
+   "ask": "지금 쓰는 회사 AI에서 문서를 만들 때 앱을 오가는 단계는 몇 번인가요?",
+   "sources": [
+    [
+     "마이크로소프트 코파일럿 블로그 — Copilot at Microsoft Ignite",
+     "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+    ]
+   ],
+   "terms": [
+    "코파일럿",
+    "오토파일럿",
+    "에이전트"
+   ],
+   "image": {
+    "page": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+    "og": "https://www.microsoft.com/en-us/copilot/blog/wp-content/uploads/sites/2/2026/11/Copilot-Blog-Header_Hero-Blog_Ignite-FY27_social-resize.png",
+    "credit": "이미지: Microsoft",
+    "alt": "마이크로소프트 이그나이트 코파일럿 소개 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "홈·오피스 정식 출시",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "**Home**, where **Chat** and **Cowork** come together, and **Office in Copilot** are now generally available."
+    },
+    {
+     "claim": "오피스 기능을 앱 안으로",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Today, we’re bringing the full power of Office directly into the Copilot app."
+    },
+    {
+     "claim": "계량기 주장",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "This is the only AI tool where you can create a PowerPoint deck or Excel spreadsheet without spinning a meter"
+    },
+    {
+     "claim": "오토파일럿 롤아웃",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Autopilot is beginning to roll out to Frontier customers today."
+    },
+    {
+     "claim": "오토파일럿 ID·메모리·도구",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Autopilot lives in your tenant and has its own identity, memory, and tools."
+    },
+    {
+     "claim": "엔트라 에이전트 ID와 관리자",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Each Autopilot has its own Microsoft Entra Agent ID and a named manager."
+    },
+    {
+     "claim": "코드 출시 시점",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Code will become generally available in the coming weeks"
+    },
+    {
+     "claim": "투데이 비공개 미리보기",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Today is currently in private preview in the Copilot app and Outlook."
+    },
+    {
+     "claim": "매니지드 런타임 정식",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Apps are securely hosted and managed in your tenant with the Copilot Managed Runtime, generally available today."
+    },
+    {
+     "claim": "비용 비교",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "for comparable quality, Copilot is 84% cheaper than Claude and 63% cheaper than ChatGPT for an everyday user."
+    },
+    {
+     "claim": "포천 500대 기업 80%",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Today nearly 80% of the Fortune 500 companies use Cowork."
+    },
+    {
+     "claim": "게시일",
+     "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+     "quote": "Nov 17, 2026"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-20-ai-mode-temporary-threads",
+   "cat": "보안·안전",
+   "date": "2026-11-20",
+   "time": "06:46",
+   "title": "구글 AI 모드, 임시 스레드 추가",
+   "sub": "아이콘 하나로 기록·개인화 없이 질문 · 닫으면 사라짐 · 전 세계 순차 제공",
+   "hook": "구글(Google)이 검색의 AI 모드에 임시 스레드를 넣었습니다. 임시 스레드에서 한 질문은 계정과 분리되어 기록에 남지 않고, 스레드를 닫으면 사라집니다.",
+   "try": "구글 검색 AI 모드에서 오른쪽 위의 임시 스레드 아이콘을 눌러, 기록에 남기고 싶지 않은 질문 하나를 던져 보세요.",
+   "who": "구글 AI 모드에서 기록에 남기기 싫은 질문을 하는 분",
+   "verdict": {
+    "v": "watch",
+    "why": "전 세계 순차 제공이라 한국 계정에 언제 열리는지는 글에 나와 있지 않습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글(Google) 검색 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 17일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "AI 모드의 임시 스레드"
+    ],
+    [
+     "켜는 법",
+     "AI 모드 오른쪽 위의 임시 스레드 아이콘"
+    ],
+    [
+     "제공",
+     "데스크톱·모바일 브라우저, AI 모드가 지원하는 모든 언어"
+    ],
+    [
+     "원문",
+     "구글 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 17일(미국 시각) 검색의 AI 모드(AI Mode)에 임시 스레드(temporary threads)를 넣었습니다. 임시 스레드에서 하는 질문은 계정과 분리되고 기록에 저장되지 않으며 스레드를 닫으면 사라집니다."
+    },
+    {
+     "ul": [
+      [
+       "아이콘 하나로 시작",
+       "설정을 바꿀 필요 없이 AI 모드 오른쪽 위의 아이콘을 누릅니다"
+      ],
+      [
+       "기록과 개인화에서 분리",
+       "답은 과거 선호에 영향받지 않고 이후 개인화에도 반영되지 않습니다"
+      ],
+      [
+       "전 세계 순차 제공",
+       "데스크톱과 모바일 브라우저에서 AI 모드가 지원하는 모든 언어로 열립니다"
+      ]
+     ]
+    },
+    {
+     "h": "스레드를 닫으면 사라집니다"
+    },
+    {
+     "p": "임시 스레드는 AI 모드 오른쪽 위의 아이콘을 누르고 질문하면 시작됩니다. 설정을 따로 바꿀 일은 없습니다. 구글은 스레드를 닫으면 내용이 사라지고 이용자는 평소처럼 검색으로 돌아갈 수 있다고 적었습니다. 글에는 보관 기간 같은 숫자가 없습니다."
+    },
+    {
+     "h": "과거 기록이 답에 섞이지 않습니다"
+    },
+    {
+     "p": "세션이 계정과 완전히 분리되기 때문에 답이 과거 선호의 영향을 받지 않고 이후 개인화에도 반영되지 않으며 기록에도 저장되지 않습니다. 일반 AI 모드 대화에서 쌓이는 맥락을 이 스레드에는 가져오지 않는 방식입니다."
+    },
+    {
+     "h": "한국에서 열리는 시점은 나와 있지 않습니다"
+    },
+    {
+     "p": "기능은 데스크톱과 모바일 브라우저에서 AI 모드가 지원하는 모든 언어로 전 세계에 순차 제공됩니다. 한국이나 한국어를 따로 꼽은 대목은 없고 구글 앱 안에서도 열리는지는 적혀 있지 않습니다."
+    }
+   ],
+   "ask": "AI 검색에 기록으로 남기고 싶지 않은 질문을 해 본 적이 있나요?",
+   "sources": [
+    [
+     "구글 블로그 — Temporary threads in AI Mode",
+     "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/"
+    ]
+   ],
+   "terms": [
+    "AI 모드",
+    "임시 스레드"
+   ],
+   "image": {
+    "page": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AIM_Temporary_Thread_Stills_2784x1566_1.max-1440x810.png",
+    "credit": "이미지: Google",
+    "alt": "AI 모드 임시 스레드 소개 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "임시 스레드 제공",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "Temporary threads are now available in AI Mode in Search."
+    },
+    {
+     "claim": "설정 변경 불필요",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "There's no need to adjust your settings"
+    },
+    {
+     "claim": "아이콘 위치",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "simply click the temporary threads icon in the upper right corner of AI Mode"
+    },
+    {
+     "claim": "계정과 분리",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "Because your session is completely detached from your account"
+    },
+    {
+     "claim": "개인화·기록 영향 없음",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "your responses won't be informed by past preferences, affect future personalization, or be saved to your history."
+    },
+    {
+     "claim": "닫으면 사라짐",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "Once you close the thread, it's gone, letting you go back to searching as usual."
+    },
+    {
+     "claim": "전 세계·브라우저·언어",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "This feature is rolling out globally on desktop and mobile browsers across all languages supported in AI Mode."
+    },
+    {
+     "claim": "게시일",
+     "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+     "quote": "2026-11-17"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI GPT-6.2 아스트라·솔 / 코덱스 샌드박스",
+   "reason": "openai.com 원문이 열리지 않아(도구 출처 제한) 숫자·조건을 확인하지 못함"
+  },
+  {
+   "topic": "딥마인드 지니 4 정식 제공(11/18)",
+   "reason": "deepmind.google 원문이 열리지 않아 확인하지 못함"
+  },
+  {
+   "topic": "제미나이 앱 저사양 안드로이드 지원(11/18)",
+   "reason": "블로그 원문이 열리지 않아 확인하지 못함"
+  },
+  {
+   "topic": "엔비디아 RTX 스파크 데스크톱 출시",
+   "reason": "해당 블로그 원문이 열리지 않았고 노트북 출시(10월)와 겹침"
+  }
+ ]
+}
