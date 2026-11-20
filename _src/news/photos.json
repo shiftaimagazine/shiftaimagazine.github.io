@@ -540,5 +540,23 @@
   "credit": "이미지: Google",
   "alt": "AI 모드 임시 스레드 소개 이미지",
   "auto": true
+ },
+ "2026-11-21-genie-4-project-genie": {
+  "src": "img/ph/2026-11-21-genie-4-project-genie.webp",
+  "credit": "이미지: Google",
+  "alt": "프로젝트 지니 Genie 4 업데이트 대표 이미지",
+  "auto": true
+ },
+ "2026-11-21-gemini-api-tool-retrieval": {
+  "src": "img/ph/2026-11-21-gemini-api-tool-retrieval.webp",
+  "credit": "이미지: Google",
+  "alt": "제미나이 API 도구 검색 대표 이미지",
+  "auto": true
+ },
+ "2026-11-21-gemini-mac-computer-use": {
+  "src": "img/ph/2026-11-21-gemini-mac-computer-use.webp",
+  "credit": "이미지: Google",
+  "alt": "맥용 제미나이 컴퓨터 사용 대표 이미지",
+  "auto": true
  }
 }
