@@ -1,5 +1,21 @@
 [
  {
+  "date": "2026-11-21",
+  "lead": "2026-11-21-gemini-mac-computer-use",
+  "title": "맥용 제미나이 컴퓨터 사용, Genie 4 공개, 제미나이 API 도구 검색",
+  "summary": "구글이 맥용 제미나이 앱에 컴퓨터 사용을 열었고 Genie 4를 울트라 구독자에게 공개했으며 제미나이 API에는 도구 검색을 미리보기로 더했습니다.",
+  "three": [
+   "맥용 제미나이 컴퓨터 사용은 미국 영어로 플러스·프로·울트라 구독자에게 열렸고 한국 일정은 없습니다",
+   "Genie 4는 Google AI Ultra 구독자가 쓰며 Genie 3 세션은 한 번에 최대 3분(기존 60초)입니다",
+   "제미나이 API 도구 검색은 별도 요금 없이 제미나이 3.6 이상에서 미리보기로 제공됩니다"
+  ],
+  "items": [
+   "2026-11-21-gemini-mac-computer-use",
+   "2026-11-21-genie-4-project-genie",
+   "2026-11-21-gemini-api-tool-retrieval"
+  ]
+ },
+ {
   "date": "2026-11-20",
   "lead": "2026-11-20-gemini-4-neon",
   "title": "제미나이 4 네온, 코파일럿 오토파일럿, AI 모드 임시 스레드",

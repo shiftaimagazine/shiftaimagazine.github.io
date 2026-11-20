@@ -1,0 +1,499 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-21-genie-4-project-genie",
+   "cat": "연구",
+   "date": "2026-11-21",
+   "time": "06:39",
+   "title": "구글 Genie 4, 울트라 구독자에 공개",
+   "sub": "입력하는 대로 세계가 바뀌고 소리도 생성 · 한 번에 최대 3분 · 프로는 대기 명단",
+   "hook": "구글 딥마인드(Google DeepMind)의 월드 모델 Genie 4가 프로젝트 지니(Project Genie)에서 Google AI Ultra 구독자에게 열렸습니다. 이동하는 중에 프롬프트를 입력해 세계를 바꾸고 장면에 맞는 소리도 실시간으로 만듭니다.",
+   "try": "Google AI Ultra를 쓴다면 labs.google/projectgenie에서 날씨를 바꾸는 프롬프트를 넣어 보고, Pro라면 같은 페이지에서 대기 명단에 올려 보세요.",
+   "who": "Google AI Ultra·Pro 구독자, 월드 모델을 써 보려는 창작자",
+   "verdict": {
+    "v": "watch",
+    "why": "울트라 구독자에게만 열렸고 프로는 대기 명단이며 한 번에 최대 3분입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글 딥마인드(Google DeepMind)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 18일(미국 시각), 연구 발표는 10월 27일"
+    ],
+    [
+     "무엇",
+     "Genie 4 공개, Genie 3 업데이트, 프로젝트 지니 에이전트와 커뮤니티 갤러리"
+    ],
+    [
+     "대상",
+     "Google AI Ultra 구독자(Pro 구독자는 대기 명단)"
+    ],
+    [
+     "세션 길이",
+     "Genie 3 기준 한 번 생성에 최대 3분(이전 60초)"
+    ],
+    [
+     "원문",
+     "구글 블로그 2건"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글 딥마인드(Google DeepMind)가 11월 18일(미국 시각) 프로젝트 지니(Project Genie)에 Genie 4를 열었습니다. 글로 설명한 가상 세계를 실시간으로 만들어 돌아다니게 하는 월드 모델이며, 이번에 처음으로 장면에 맞춰 바뀌는 소리가 함께 나옵니다. 지금은 Google AI Ultra 구독자가 대상입니다."
+    },
+    {
+     "ul": [
+      [
+       "이동하면서 프롬프트로 세계 편집",
+       "날씨 변경, 캐릭터 추가, 행동 방향 변경이 예시로 나옵니다"
+      ],
+      [
+       "장면에 맞춰 바뀌는 실시간 소리",
+       "Genie 4에서 처음 제공됩니다"
+      ],
+      [
+       "Ultra 구독자가 먼저",
+       "Pro 구독자는 같은 페이지에서 대기 명단에 올릴 수 있습니다"
+      ]
+     ]
+    },
+    {
+     "h": "10월 연구 발표에서 이번 공개까지"
+    },
+    {
+     "p": "구글은 10월 27일 글에서 Genie 4를 실시간 상호작용 시뮬레이션을 위한 새 월드 모델로 소개하고 제한된 신뢰 테스터 그룹에 먼저 내보냈습니다. 같은 글에는 Gemini Omni가 실제 외형과 행동을 고정하고 다른 제미나이 모델이 장면의 일관성을 위한 추론을 맡는다는 설명이 있습니다. 용도로는 로봇과 에이전트의 안전한 학습 환경, 영화, 저널리즘, 게임, 제조가 나옵니다. 11월 18일 글은 이 모델을 Project Genie의 Ultra 구독자에게 확대한다는 내용입니다."
+    },
+    {
+     "h": "세계 안에서 걸어 다니며 고치는 방식"
+    },
+    {
+     "p": "탐색하는 동안 새 프롬프트를 입력하면 환경이 실시간으로 바뀝니다. Genie 3 쪽에도 업데이트가 있어서 한 번 생성에 최대 3분까지 탐색할 수 있고(기존 60초) 여러 세계를 이어 붙이거나 360도 파노라마 이미지로 세계를 시작할 수 있습니다. 세계 안에서 실시간으로 이벤트를 일으키는 기능도 더해졌습니다. Genie 3는 모델 선택기에 그대로 남습니다."
+    },
+    {
+     "h": "자연어로 세계를 만드는 에이전트와 갤러리"
+    },
+    {
+     "p": "프로젝트 지니 에이전트는 대화로 세계를 만들고 배경 음악도 맞춥니다. 제미나이가 화면을 보고 다음 행동을 제안하거나 이벤트를 일으키기도 합니다. 만든 세계는 커뮤니티 갤러리에 올려 다른 사람이 돌아다니고 리믹스하게 할 수 있습니다."
+    },
+    {
+     "h": "구글이 아직 풀고 있다고 적은 과제"
+    },
+    {
+     "p": "프로젝트 지니에서 만든 모든 영상과 오디오에는 SynthID 워터마크가 들어가고 모델의 입력과 출력은 안전 검사를 거칩니다. 구글은 Genie 3와 4를 아직 연구 단계의 월드 모델로 규정하면서 카메라 지연, 복잡한 물리 상호작용, 실시간 오디오 정밀도, 장기 장면 지속성을 해결 중인 과제로 꼽았습니다. 가격과 국가 조건, 해상도, 프레임 속도는 두 글 어디에도 나오지 않습니다."
+    }
+   ],
+   "ask": "말로 설명한 세계를 3분 동안 돌아다닐 수 있다면 가장 먼저 어떤 장면을 만들어 보고 싶나요?",
+   "sources": [
+    [
+     "구글 블로그 — Project Genie update featuring Genie 4",
+     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
+    ],
+    [
+     "구글 블로그 — We’re announcing Genie 4",
+     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
+    ]
+   ],
+   "terms": [
+    "월드 모델",
+    "Genie 4",
+    "시뮬레이션",
+    "프롬프트",
+    "SynthID",
+    "에이전트",
+    "구글 AI 구독"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/resized_ProjectGenie_Thumbnail_v02.width-1300.png",
+    "credit": "이미지: Google",
+    "alt": "프로젝트 지니 Genie 4 업데이트 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "11월 18일 게시 / Ultra 구독자 대상·Pro 대기 명단",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+     "quote": "Google AI Pro members can join the waitlist on the same page."
+    },
+    {
+     "claim": "이동 중 프롬프트로 환경 편집",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+     "quote": "Just type a new prompt while you navigate your world and you can edit your environments in real time."
+    },
+    {
+     "claim": "처음 제공되는 실시간 네이티브 오디오",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+     "quote": "For the first time, Genie 4 pairs these visuals with real-time native audio that adapts as the scene unfolds"
+    },
+    {
+     "claim": "3분(기존 60초), 세계 연결",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+     "quote": "Explore for up to 3 minutes per generation (up from 60 seconds), or link multiple worlds together for longer journeys."
+    },
+    {
+     "claim": "SynthID 워터마크",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+     "quote": "All video and audio generated in Project Genie includes SynthID watermarking"
+    },
+    {
+     "claim": "해결 중인 과제",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+     "quote": "we are actively tackling key challenges such as camera latency, intricate physical interactions"
+    },
+    {
+     "claim": "10월 27일 제한된 테스터 롤아웃",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
+     "quote": "We have started rolling out Genie 4 to a limited group of trusted testers."
+    },
+    {
+     "claim": "네이티브 오디오",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
+     "quote": "Every world also generates native audio on the fly, including ambient sounds, music, and interactive dialogue."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-21-gemini-api-tool-retrieval",
+   "cat": "모델·제품",
+   "date": "2026-11-21",
+   "time": "06:40",
+   "title": "제미나이 API 도구 검색, 미리보기 공개",
+   "sub": "필요한 도구 정보만 그때 불러오는 방식 · 별도 요금 없음 · 제미나이 3.6 이상에서 사용",
+   "hook": "구글(Google)이 제미나이 API에 도구 검색(Tool Retrieval)을 미리보기로 열었습니다. 에이전트에 도구가 수백 개 연결돼도 필요한 도구의 매개변수 정보만 그때그때 불러오는 방식이며 별도 요금은 없습니다.",
+   "try": "제미나이 API로 에이전트를 만든다면 자주 안 쓰는 도구 몇 개에 defer_loading을 켜고 입력 토큰이 얼마나 달라지는지 재 보세요.",
+   "who": "제미나이 API에 도구를 많이 연결한 에이전트를 만드는 개발자",
+   "verdict": {
+    "v": "watch",
+    "why": "미리보기이고 절감 효과는 원문에 숫자가 없어 직접 재 봐야 합니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글(Google) 개발자 블로그"
+    ],
+    [
+     "날짜",
+     "2026년 11월 19일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "제미나이 API 도구 검색(인터랙션스 API에서 미리보기)"
+    ],
+    [
+     "지원 모델",
+     "제미나이 3.6 이상, 제미나이 4 전 모델"
+    ],
+    [
+     "요금",
+     "별도 요금 없음(호출한 모델의 표준 요금)"
+    ],
+    [
+     "원문",
+     "구글 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 19일(미국 시각) 제미나이 API에 도구 검색(Tool Retrieval)을 내놓았습니다. 에이전트가 연결된 도구의 매개변수 정보를 요청마다 전부 보내지 않고 필요할 때만 불러오게 하는 기능이며, 인터랙션스 API(Interactions API)에서 미리보기로 열렸습니다."
+    },
+    {
+     "ul": [
+      [
+       "도구 이름과 설명만 먼저 전달",
+       "매개변수 스키마는 모델이 필요하다고 판단할 때 불러옵니다"
+      ],
+      [
+       "별도 요금 없음",
+       "입력과 출력 토큰은 호출한 모델의 표준 요금으로 청구됩니다"
+      ],
+      [
+       "제미나이 3.6 이상과 제미나이 4 전 모델",
+       "인터랙션스 API에서 미리보기로 열렸습니다"
+      ]
+     ]
+    },
+    {
+     "h": "도구가 수백 개가 되면 생기는 일"
+    },
+    {
+     "p": "에이전트가 도구 수십 개에서 수백 개에 연결되면 요청마다 모든 도구의 매개변수 스키마를 보내는 비용이 빠르게 커집니다. 구글은 이 방식이 입력 토큰 수와 지연 시간을 늘리고 후보 목록이 길어질수록 도구 선택 정확도를 떨어뜨린다고 설명합니다. 도구 검색은 모델이 먼저 도구 이름과 설명만 보고 필요한 도구를 고른 뒤 그 도구의 스키마만 받아 가는 구조입니다. 인덱스를 만들거나 따로 호스팅할 필요는 없습니다."
+    },
+    {
+     "h": "설정은 두 곳만 고치면 됩니다"
+    },
+    {
+     "p": "요청의 tools 배열에 tool_search 도구를 넣고 나중에 불러올 도구마다 defer_loading을 true로 지정합니다. 원문 코드 예시는 파이썬에서 client.interactions.create를 부르며 모델 이름으로 gemini-4-hydrogen을 썼습니다. 응답의 interaction.steps에는 tool_search_call, tool_search_result, function_call 단계가 차례로 나타납니다."
+    },
+    {
+     "p": "자체 도구 저장소를 쓰는 경우 tool_search에 execution을 client로 지정하고 검색 결과를 function_result로 돌려줍니다. 원격 MCP 서버는 mcp_server 도구에 defer_loading을 켜면 서버의 모든 도구가 필요할 때 로드됩니다."
+    },
+    {
+     "h": "토큰이 줄어드는 조건과 청구 방식"
+    },
+    {
+     "p": "도구 검색 자체에는 별도 요금이 없고 입력과 출력 토큰은 호출한 모델의 표준 요금으로 계산됩니다. 다만 tool_search를 켜면 고정된 소량의 입력 토큰이 더해지고 모델이 불러온 스키마는 대화가 끝날 때까지 입력으로 청구됩니다. 원문은 불러오지 않는 스키마가 불러오는 스키마보다 많을 때 토큰이 절약되며 큰 도구 모음에서는 보통 그렇다고 적었습니다. 정확도나 절감률 같은 구체적인 수치는 원문에 없고 실제 트래픽으로 직접 재 보라는 안내만 있습니다."
+    }
+   ],
+   "ask": "지금 만드는 에이전트에는 한 번도 부르지 않는 도구가 몇 개나 붙어 있나요?",
+   "sources": [
+    [
+     "구글 블로그 — Gemini API tool retrieval for efficient agent scaling",
+     "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
+    ]
+   ],
+   "terms": [
+    "도구 검색",
+    "에이전트",
+    "토큰",
+    "API",
+    "MCP",
+    "제미나이 4 하이드로젠"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Tool_retrieval_hero.width-1300.png",
+    "credit": "이미지: Google",
+    "alt": "제미나이 API 도구 검색 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "게시일·미리보기·인터랙션스 API",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "Today we're launching Tool Retrieval in the Gemini API, available in preview in the Interactions API."
+    },
+    {
+     "claim": "도구가 늘면 토큰·지연·정확도 문제",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "It inflates input token counts, adds latency, and lowers tool-selection accuracy as the candidate list grows."
+    },
+    {
+     "claim": "인덱스 불필요",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "There's no index to build or host."
+    },
+    {
+     "claim": "별도 요금 없음",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "Tool Retrieval has no separate charge."
+    },
+    {
+     "claim": "표준 요금",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "Input and output tokens are billed at the standard rates for the model you call."
+    },
+    {
+     "claim": "지원 모델",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "Tool Retrieval works with Gemini 3.6 and later models, including all Gemini 4 models, in the Interactions API."
+    },
+    {
+     "claim": "토큰 절약 조건",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "You save tokens when the schemas you never load outweigh the ones you do, which is the usual case for large libraries."
+    },
+    {
+     "claim": "직접 측정",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "quote": "Measure it against your own traffic."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-21-gemini-mac-computer-use",
+   "cat": "보안·안전",
+   "date": "2026-11-21",
+   "time": "06:41",
+   "title": "맥용 제미나이 컴퓨터 사용, 미국 영어부터",
+   "sub": "플러스·프로·울트라 구독자 대상 · 애플 실리콘 맥과 macOS 15 이상 · 한국 일정 없음",
+   "hook": "구글(Google)이 맥용 제미나이 앱에 컴퓨터 사용 기능을 열었습니다. 클릭과 입력, 메뉴 이동, 양식 입력을 대신 처리하며 지금은 미국에서 영어로만 AI 플러스·프로·울트라 구독자에게 제공됩니다.",
+   "try": "지원 문서에서 허용 앱과 차단 앱을 정하는 방법을 읽고, 내 맥에서 맡길 앱과 절대 맡기지 않을 앱을 미리 나눠 적어 보세요.",
+   "who": "맥에서 제미나이 유료 구독을 쓰는 직장인",
+   "verdict": {
+    "v": "watch",
+    "why": "한국 일정이 없고 지금은 미국 영어 사용자만 쓸 수 있습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글(Google) 제미나이 앱 블로그와 도움말"
+    ],
+    [
+     "날짜",
+     "2026년 11월 19일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "맥용 제미나이 앱의 컴퓨터 사용(클릭·입력·메뉴·양식)"
+    ],
+    [
+     "대상",
+     "미국 영어, Google AI 플러스·프로·울트라 개인 계정"
+    ],
+    [
+     "요구 사양",
+     "애플 실리콘 맥, macOS 세쿼이아 15.0 이상"
+    ],
+    [
+     "원문",
+     "구글 블로그, 제미나이 앱 도움말"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글(Google)이 11월 19일(미국 시각) 맥용 제미나이 앱에 컴퓨터 사용 기능을 열었습니다. 사용자가 할 일을 말로 설명하면 제미나이가 클릭, 입력, 메뉴 이동, 양식 입력을 대신 처리합니다. 지금은 미국에서 영어로만 제공됩니다."
+    },
+    {
+     "ul": [
+      [
+       "일은 격리된 백그라운드 창에서",
+       "채팅창에서 실시간 미리보기를 보고 주 화면과 커서는 그대로 쓸 수 있습니다"
+      ],
+      [
+       "미국 영어와 유료 구독자 개인 계정",
+       "한국이나 한국어 일정은 두 문서 어디에도 없습니다"
+      ],
+      [
+       "민감한 작업은 확인을 거침",
+       "앱별 허용·차단 목록과 작업 중지 버튼이 있습니다"
+      ]
+     ]
+    },
+    {
+     "h": "사진 보정부터 지출 보고서까지 맡길 수 있는 일"
+    },
+    {
+     "p": "구글 블로그가 든 예는 사진 일괄 색보정, 로컬 PDF에서 무게·치수·주소를 뽑아 배송 견적 양식 채우기, 대시보드 지표로 구글 슬라이드 발표 자료 만들기, 로컬 폴더의 옷 사진을 분석해 중고 거래 플랫폼에 올리기입니다. 도움말에는 다운로드 폴더의 영수증으로 지출 보고서를 쓰거나 여행 사진을 라이트룸에서 보정해 4K PNG로 내보내는 예가 나옵니다. 작업이 별도 창에서 진행되기 때문에 사용자는 다른 일을 계속할 수 있습니다."
+    },
+    {
+     "h": "권한은 설정에서 직접 켭니다"
+    },
+    {
+     "p": "사용하려면 설정에서 Allow Gemini to work with your Mac을 켜고 필요하면 손쉬운 사용과 화면·시스템 오디오 녹화 권한도 줘야 합니다. 앱을 처음 쓸 때는 거부, 한 번 허용, 항상 허용 중에서 고르며 항상 허용한 앱은 허용 앱 목록에 쌓입니다. 차단 앱 목록에 넣은 앱은 제미나이가 열거나 쓰지 못합니다. 민감한 작업은 계속하기 전에 확인을 묻고 작업 중에는 작업 중지 버튼으로 끝낼 수 있습니다. 파일 백업 설정을 켜면 작업 중 임시 백업을 만들려고 시도하지만 항상 가능한 것은 아닙니다."
+    },
+    {
+     "h": "도움말이 직접 적은 위험"
+    },
+    {
+     "p": "도움말은 제미나이가 실수하거나 예상하지 못한 행동을 할 수 있고 로그인된 계정과 활성 세션에 접근한다고 적었습니다. 앱 특성상 되돌릴 수 없는 작업이 있으며 화면에 보이는 믿을 수 없는 내용이 제미나이를 조종해 다른 허용 앱에서 일하게 만들 수도 있습니다. 코드 편집기나 개발자 도구를 허용하면 셸 실행이나 넓은 파일 시스템 변경이 가능해지고 데스크톱과 메시지 앱에 보이는 다단계 인증 코드를 읽거나 조작할 수 있습니다. 일부 제3자 앱의 자동화는 그 앱의 이용약관과 충돌할 수 있습니다."
+    },
+    {
+     "h": "쓸 수 있는 조건"
+    },
+    {
+     "p": "블로그는 이 기능이 맥용 제미나이 앱에서 미국 영어로 순차 제공된다고 적었고 요구 사양은 애플 실리콘 맥과 macOS 세쿼이아 15.0 이상입니다. 업무용이나 학교용 계정은 제외되고 개인 계정에서만 쓸 수 있습니다. 도움말은 더 나은 결과를 위해 제미나이 4 하이드로젠 이상 모델을 고르라고 안내합니다. 무료 요금제가 대상에 들어가는지는 원문에 적혀 있지 않습니다."
+    }
+   ],
+   "ask": "맥에서 하루에 반복하는 클릭 작업 가운데 AI에게 맡겨도 되는 것은 무엇인가요?",
+   "sources": [
+    [
+     "구글 블로그 — Let Gemini tackle repetitive chores on your Mac",
+     "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/"
+    ],
+    [
+     "제미나이 앱 도움말 — Use Gemini to work with apps on your Mac",
+     "https://support.google.com/gemini/answer/18956635?hl=en-GB"
+    ]
+   ],
+   "terms": [
+    "컴퓨터 사용",
+    "프롬프트 인젝션",
+    "다단계 인증",
+    "에이전트",
+    "구글 AI 구독",
+    "제미나이 4 하이드로젠"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/hero_header_CU_copy.width-1300.png",
+    "credit": "이미지: Google",
+    "alt": "맥용 제미나이 컴퓨터 사용 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "미국 영어 제공",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+     "quote": "Computer use is rolling out in English in the U.S. in the Gemini app for Mac."
+    },
+    {
+     "claim": "격리된 백그라운드 창",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+     "quote": "Gemini works inside an isolated background window with a live preview right in your chat."
+    },
+    {
+     "claim": "클릭·입력·메뉴·양식",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+     "quote": "Just describe what you need, and Gemini handles the clicking, typing, menus, and forms for you."
+    },
+    {
+     "claim": "Apple Silicon, macOS 15",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+     "quote": "Requires an Apple Silicon Mac running macOS Sequoia 15.0+."
+    },
+    {
+     "claim": "구독 등급",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+     "quote": "Google AI Plus, Pro and Ultra users"
+    },
+    {
+     "claim": "할 수 있는 동작",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "When you give Gemini permission, it can type, click, scroll, and navigate menus to do work on your behalf."
+    },
+    {
+     "claim": "민감한 작업 확인",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "For sensitive tasks, Gemini will ask you for confirmation before continuing."
+    },
+    {
+     "claim": "임시 백업",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "Gemini will try to create a temporary backup while working, but is not always able to do so."
+    },
+    {
+     "claim": "개인 계정만",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "For now, this is only available in Gemini tasks for personal accounts, not work or school accounts."
+    },
+    {
+     "claim": "실수 가능",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "Gemini can make mistakes and do unexpected things."
+    },
+    {
+     "claim": "되돌릴 수 없는 작업",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "some actions are irreversible because of the app."
+    },
+    {
+     "claim": "권한 설정 이름",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "Allow Gemini to work with your Mac"
+    },
+    {
+     "claim": "권장 모델",
+     "url": "https://support.google.com/gemini/answer/18956635?hl=en-GB",
+     "quote": "Gemini Hydrogen 4 or newer models"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "ChatGPT 라이브 받아쓰기(Live Dictation)",
+   "reason": "OpenAI 공식 원문(릴리스 노트)이 열리지 않아 확인하지 못했고 언론 보도만 있었음"
+  },
+  {
+   "topic": "앤트로픽 나스닥 상장",
+   "reason": "회사 보도자료·SEC 서류 등 1차 출처를 이번 실행에서 열어 확인하지 못했고 언론 보도만 있었음"
+  },
+  {
+   "topic": "시그널의 AI 화면 읽기 차단",
+   "reason": "시그널 공식 글을 찾지 못했고 언론 보도만 있었음"
+  }
+ ]
+}
