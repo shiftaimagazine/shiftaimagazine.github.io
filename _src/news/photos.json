@@ -558,5 +558,23 @@
   "credit": "이미지: Google",
   "alt": "맥용 제미나이 컴퓨터 사용 대표 이미지",
   "auto": true
+ },
+ "2026-11-22-signal-blocks-os-ai": {
+  "src": "img/ph/2026-11-22-signal-blocks-os-ai.webp",
+  "credit": "이미지: Signal",
+  "alt": "시그널 개인정보 보호 블로그 글 대표 이미지",
+  "auto": true
+ },
+ "2026-11-22-inkling-2-mini": {
+  "src": "img/ph/2026-11-22-inkling-2-mini.webp",
+  "credit": "이미지: Hugging Face",
+  "alt": "인클링 2 미니 허깅페이스 모델 카드 대표 이미지",
+  "auto": true
+ },
+ "2026-11-22-openai-medchembench": {
+  "src": "img/ph/2026-11-22-openai-medchembench.webp",
+  "credit": "이미지: OpenAI",
+  "alt": "MedChemBench 평가 소개 이미지",
+  "auto": true
  }
 }
