@@ -1,0 +1,59 @@
+링크 점검: 바깥 링크 406개 · 끊김 1 · 확인 필요 26
+
+== 끊김 (고쳐야 함)
+404  https://kdenlive.org/en/about/
+    쓰는 곳: /tools/free-alternatives/
+
+== 확인 필요 (봇을 막는 사이트일 수 있음 — 브라우저로 열어 확인)
+400  https://help.instagram.com/761121959519495
+    쓰는 곳: /tutorial/image-mockups/
+403  https://ideogram.ai/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/express/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/acrobat/acrobat-pro.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/express/pricing
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/aftereffects.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/audition.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/illustrator.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/photoshop-lightroom.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/photoshop.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/kr/products/premiere.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.adobe.com/products/firefly/plans.html
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.blender.org/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.blender.org/about/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.blender.org/about/license/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.blender.org/download/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.blender.org/features/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/download/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/draw/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/ko_kr/pro/
+    쓰는 곳: /tools/free-alternatives/
+403  https://www.canva.com/newsroom/news/canva-craft/
+    쓰는 곳: /news/2026-10-22-canva-craft/
+연결 실패  https://www.klac.or.kr
+    쓰는 곳: /tutorial/contract-review/
+403  https://www.midjourney.com/
+    쓰는 곳: /tools/free-alternatives/
+502  https://www.samsungsvc.co.kr/solution/1847983
+    쓰는 곳: /tutorial/recording-to-minutes/
+403  https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm
+    쓰는 곳: /news/2026-10-27-anthropic-s1-ipo/
