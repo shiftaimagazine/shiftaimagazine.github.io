@@ -1,0 +1,78 @@
+SHIFT AI 구글 검색 성과  2026-10-23 ~ 2026-11-19 (28일) · 비교: 2026-09-25 ~ 2026-10-22 · 속성 sc-domain:shiftaimagazine.com
+== 전체: 클릭 106 (전 0, 새로) · 노출 7,116 (전 0, 새로) · 클릭률 1.5% · 평균 순위 15.7
+
+== 검색어 상위 30 (노출순: 노출 · 클릭 · 클릭률 · 평균 순위)
+      86 ·    0 ·  0.0% ·   8.5  k12 뜻
+      68 ·    0 ·  0.0% ·   5.3  github
+      43 ·    0 ·  0.0% ·  18.8  linux foundation
+      40 ·    0 ·  0.0% ·   9.3  gpt 6
+      28 ·    0 ·  0.0% ·  20.9  cloud
+      27 ·    0 ·  0.0% ·  13.4  lean
+      25 ·    1 ·  4.0% ·   9.1  크레딧
+      25 ·    0 ·  0.0% ·  10.0  algorithm
+      21 ·    0 ·  0.0% ·   7.4  gpt-6
+      21 ·    0 ·  0.0% ·  10.4  k-12 뜻
+      17 ·    0 ·  0.0% ·   8.7  alignment
+      16 ·    0 ·  0.0% ·   8.4  big tech
+      16 ·    0 ·  0.0% ·  61.4  linux kernel
+      14 ·    0 ·  0.0% ·  11.0  cohere 뜻
+      14 ·    0 ·  0.0% ·  12.4  csv 뜻
+      14 ·    0 ·  0.0% ·  71.6  long term support
+      13 ·    0 ·  0.0% ·   6.4  alignment 뜻
+      13 ·    0 ·  0.0% ·  38.8  hbm
+      12 ·    0 ·  0.0% ·  60.1  diffusion model
+      12 ·    0 ·  0.0% ·   8.8  kanana
+      10 ·    0 ·  0.0% ·  35.4  ai 코파일럿
+       9 ·    0 ·  0.0% ·  10.1  llama 뜻
+       8 ·    0 ·  0.0% ·  12.2  ai-2
+       8 ·    0 ·  0.0% ·   6.9  gpt6
+       7 ·    0 ·  0.0% ·  77.9  api키
+       7 ·    0 ·  0.0% ·   9.9  ctf 뜻
+       6 ·    0 ·  0.0% ·  36.8  2fa
+       6 ·    0 ·  0.0% ·  69.2  apache 2.0
+       6 ·    0 ·  0.0% ·   3.2  leaderboard
+       6 ·    0 ·  0.0% ·  62.0  llm
+
+== 기회 검색어 (노출 20회 이상, 순위 5~20위, 클릭률 3% 미만 → 제목·설명·내용을 보강하면 클릭이 늘 수 있는 것)
+      86 ·   8.5위  k12 뜻
+      68 ·   5.3위  github
+      43 ·  18.8위  linux foundation
+      40 ·   9.3위  gpt 6
+      27 ·  13.4위  lean
+      25 ·  10.0위  algorithm
+      21 ·   7.4위  gpt-6
+      21 ·  10.4위  k-12 뜻
+
+== 페이지 상위 30 (노출순: 노출 · 클릭 · 지난 28일 대비 노출)
+      87 ·   29 ·     새로  /
+      63 ·    1 ·     새로  https://play.shiftaimagazine.com/news/mh-wilds-switch2-preorder/
+      48 ·    1 ·     새로  /dict/alignment/
+      46 ·    1 ·     새로  /dict/lean/
+      45 ·    1 ·     새로  /news/2026-10-19-tinyfish-students/
+      44 ·    6 ·     새로  /tutorial/claude-animation-styles/
+      42 ·    1 ·     새로  /dict/credit/
+      38 ·    6 ·     새로  /tutorial/skills-researcher/
+      35 ·    5 ·     새로  /tutorial/skills-developer/
+      35 ·    1 ·     새로  /about/
+      29 ·    1 ·     새로  /dict/cohere/
+      20 ·    2 ·     새로  /tutorial/skills-creator/
+      19 ·    1 ·     새로  /dict/notebooklm/
+      18 ·    3 ·     새로  /tutorial/ai-tutor/
+      16 ·   10 ·     새로  https://play.shiftaimagazine.com/
+      15 ·    3 ·     새로  /tutorial/skills-pm/
+      15 ·    1 ·     새로  /news/2026-10-21-why-ai-text-hard-to-read/
+      14 ·    3 ·     새로  /news/2026-10-29-meta-muse-singapore/
+      14 ·    1 ·     새로  /dict/opt-out/
+      12 ·    3 ·     새로  /tutorial/skills-data/
+      12 ·    1 ·     새로  /dict/plaid/
+      11 ·    1 ·     새로  https://play.shiftaimagazine.com/events/
+      10 ·    2 ·     새로  /column/korean-ai-models/
+       9 ·    2 ·     새로  /tutorial/redact-before-upload/
+       9 ·    1 ·     새로  /dict/liquid-ai/
+       3 ·    3 ·     새로  /tutorial/premortem/
+       3 ·    1 ·     새로  /dict/merge-window/
+       3 ·    1 ·     새로  /dict/ransomware/
+       3 ·    1 ·     새로  /dict/simready/
+       1 ·    1 ·     새로  /dict/alphaproof-code/
+
+== 기기: desktop 클릭 85/노출 5,099 · mobile 클릭 21/노출 1,878 · tablet 클릭 0/노출 139
