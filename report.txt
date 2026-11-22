@@ -1,0 +1,68 @@
+SHIFT AI 주간 방문 통계  2026-11-16 ~ 2026-11-22 (한국 시간)  · 비교: 2026-11-09 ~ 2026-11-15
+
+== 페이지 조회수: 106 (지난주 129, -18%)
+== 전체 합계(/stats/total): 216 = 페이지 조회 106 + 이벤트 110  (위 페이지 조회수와 같아야 맞음)
+   날짜별: 11-16 27 · 11-17 39 · 11-18 39 · 11-19 45 · 11-20 33 · 11-21 17 · 11-22 12 · 11-23 4
+   [진단] /stats/hits?limit=100&daily=true&start=2026-11-15T15%3A00%3A00Z&end=2026-11-22T15%3A00%3A00Z → 404 b'{"error":"not found"}'
+   [진단] 대체 요청 ['end', 'limit', 'start'] 로 목록 65개 받음
+== 많이 본 페이지 상위 20 (조회수 · 지난주 대비)
+      21    -30%  /  SHIFT AI(시프트 AI) — 오늘의 AI 뉴스와 내 일에 쓰는 법, 무료 AI 도구
+       6      새로  /tutorial/premortem  아이디어·계획을 AI에게 반대편에서 검증시키는 프롬프트 9개 · SHIFT AI 튜토리얼
+       6   +100%  /tutorial/claude-animation-styles  클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음 · SHIFT AI 튜토리얼
+       5   +150%  /tutorial/skills-researcher  연구자·대학원생이 깔아 두면 좋은 AI 스킬 7개, 문헌 조사·통계·논문 쓰기·동료 평가까
+       4   +300%  /dict/lean  린(Lean) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       4     +0%  /tools  무료 AI 도구 11가지 — 설치·가입 없이 브라우저에서 바로 · SHIFT AI
+       3      새로  /column/korean-ai-models  하이퍼클로바X·엑사원·카나나·솔라·A.X, 국산 AI 모델 한 번에 정리 · SHIFT A
+       2      새로  /dict/initial-public-offering  기업공개(IPO) 뜻 — Initial Public Offering, 쉽게 풀이한 AI 용
+       2      새로  /dict/public-benefit-corporation  공익법인(PBC) 뜻 — Public Benefit Corporation, 쉽게 풀이한 A
+       2      새로  /dict/credit  크레딧(Credit) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       2      새로  /news/2026-11-14-gemini-decisions-api  제미나이 결정 API, 질문 1,000개를 한 번에 · SHIFT AI
+       2      새로  /daily/2026-11-15  2026년 11월 15일 AI 데일리 뉴스 — 안티그래비티 /teamwork 성과, XYB
+       2    -33%  /tutorial/skills-developer  개발자가 깔아 두면 좋은 AI 스킬 7개, 계획·테스트·디버깅·보안 점검까지 · SHIFT
+       2     +0%  /tutorial/ai-tutor  AI를 과외 선생님으로 쓰는 공부 프롬프트 9개 · SHIFT AI 튜토리얼
+       2    -33%  /verdict  AI 판정 모아보기 — 써볼 만해요·지켜보세요·과장이에요 · SHIFT AI
+       2      새로  /tutorial/redact-before-upload  회사 엑셀, 개인정보 가리고 AI에 올리는 3단계와 프롬프트 9개 · SHIFT AI 튜토
+       2    -33%  /dict/copilot  코파일럿(Copilot) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+       2   +100%  /tutorial  튜토리얼 · AI 실전 꿀팁 · SHIFT AI
+       2     +0%  /dict  AI 사전 — AI 용어 뜻 쉽게 풀이 · SHIFT AI
+       1      새로  /dict/leaderboard  리더보드(Leaderboard) 뜻 — 쉽게 풀이한 AI 용어 · SHIFT AI 사전
+== 종류별 조회수: 튜토리얼 32 · AI 사전 24 · 첫 화면 21 · 뉴스·기사 8 · 기타 6 · 무료 도구 4 · 칼럼 3 · 데일리 3 · 판정 3 · AI 길잡이 1 · 프롬프트 모음 1
+
+== 행동(이벤트) 이번 주 · 지난주
+-- 무료 도구 사용(페이지에서 처음 넣거나 누름): 0 (지난주 3)
+-- 무료 도구 실행 버튼: 0 (지난주 2)
+-- 무료 도구 결과 가져감(복사·저장): 0 (지난주 2)
+-- 프롬프트 복사: 4 (지난주 3)
+         3  /tutorial/premortem/
+         1  /tutorial/skills-researcher/
+-- 링크 복사: 0 (지난주 0)
+-- 무료 대체 프로그램 찾음: 0 (지난주 0)
+-- 대체 프로그램 못 찾음: 0 (지난주 0)
+-- 기사 끝 '함께 보면 좋은 콘텐츠' 클릭(간 곳): 0 (지난주 0)
+-- AI 사전 '바로 써 보기' 클릭(간 곳): 0 (지난주 0)
+-- 밖으로 나간 링크(사이트): 4 (지난주 4)
+         3  github.com
+         1  support.claude.com
+-- 틀린 곳 알려 주기 누름: 0 (지난주 0)
+
+== 들어온 곳 상위 20 (조회수)
+      98  Google
+      61  (직접 들어옴·알 수 없음)
+      17  m.search.daum.net/search
+       8  shiftaimagazine.com
+       6  search.daum.net/search
+       6  play.shiftaimagazine.com
+       3  www.facebook.com
+       2  Newsletter
+       2  www.instagram.com
+       2  shiftaimagazine.com/tools
+       2  shiftaimagazine.com/prompts
+       2  shiftaimagazine.com/notify-Samsung_new
+       2  shiftaimagazine.com/dict/plaid
+       1  shiftaimagazine.com/dict
+       1  shiftaimagazine.com/news
+       1  shiftaimagazine.com/guide/start
+       1  shiftaimagazine.com/tips
+       1  shiftaimagazine.com/news/2026-11-16-nvidia-simready-pick-place
+
+== 화면 크기: 휴대폰 22% · 태블릿·작은 노트북 13% · 컴퓨터 46% · 큰 모니터 18%
