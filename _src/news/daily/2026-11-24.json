@@ -1,0 +1,283 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-24-openai-perplexity-limits",
+   "cat": "연구",
+   "date": "2026-11-24",
+   "time": "06:43",
+   "title": "오픈AI, 퍼플렉시티 공개와 한계선 제안",
+   "sub": "최고과학자 파초키 글 · GPT-3.5 약 0.99, GPT-4 약 0.91 · 개발사 공통 한계 제안",
+   "hook": "오픈AI(OpenAI) 최고과학자 야쿠브 파초키가 11월 22일 블로그 글에서 AI 개발사들이 퍼플렉시티를 같은 잣대로 비교하자고 제안했습니다. 오픈AI는 자사 모델의 내부 수치를 공개하고 개발사 공통 한계도 함께 내놓았습니다.",
+   "try": "오픈AI 원문의 각주 2~4번을 읽고 로그 퍼플렉시티 0.99, 0.91, 0.76이 어떤 데이터로 잰 값인지 직접 확인해 보세요.",
+   "who": "AI 모델 성능 발표를 비교하며 읽는 개발자·연구자",
+   "facts": [
+    [
+     "발표 주체",
+     "오픈AI(OpenAI), 최고과학자 야쿠브 파초키(Jakub Pachocki)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 22일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "퍼플렉시티를 개발사 간 비교 지표로 쓰자는 제안과 내부 수치 공개"
+    ],
+    [
+     "핵심 숫자",
+     "GPT-3.5 약 0.99, GPT-4 약 0.91, 이후 모델 0.8 미만(로그 퍼플렉시티)"
+    ],
+    [
+     "측정 데이터",
+     "오픈AI 내부 코드베이스의 고정된 한 시점 사본"
+    ],
+    [
+     "원문",
+     "오픈AI 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "오픈AI(OpenAI) 최고과학자 야쿠브 파초키(Jakub Pachocki)가 11월 22일(미국 시각) 블로그 글 '퍼플렉시티와 지능'에서 AI 개발사들이 사전 학습의 진척을 같은 지표로 비교하자고 제안했습니다. 오픈AI는 첫걸음으로 자사 모델의 내부 수치를 공개했고 개발사들이 넘지 않기로 약속하는 '공통 한계'도 함께 내놓았습니다."
+    },
+    {
+     "ul": [
+      [
+       "퍼플렉시티를 개발사 간 비교 지표로",
+       "모델이 다음 토큰을 얼마나 잘 맞히는지 재는 값이고 낮을수록 예측이 좋습니다"
+      ],
+      [
+       "GPT-3.5 약 0.99, GPT-4 약 0.91",
+       "오픈AI 내부 코드베이스에서 잰 로그 퍼플렉시티입니다"
+      ],
+      [
+       "개발사 공통 한계 제안",
+       "AI 행동을 이해하고 감시하는 능력이 구체적인 기준에 이르기 전에는 넘지 않기로 약속하자는 내용입니다"
+      ]
+     ]
+    },
+    {
+     "h": "다음 토큰을 맞히는 점수로 진척을 잽니다"
+    },
+    {
+     "p": "파초키는 지금의 AI 지능이 아주 큰 자료로 압축기, 곧 예측기를 학습시키는 데서 대부분 나온다고 보고 그 진척을 퍼플렉시티로 추적하자고 썼습니다. 퍼플렉시티는 모델이 다음 토큰을 평균적으로 얼마나 잘 예측하는지를 나타내며 실제로는 이 값의 로그인 교차 엔트로피 손실을 추적한다고 각주에 적었습니다. 공개가 경쟁사에 현재 위치를 알려 주는 일이라 고민했지만 업계 전체의 안전 기준을 세우는 일이 더 급하다고 판단했습니다. 이 지표는 AI 검색 서비스 퍼플렉시티와는 다른 말입니다."
+    },
+    {
+     "h": "벤치마크가 포화된 뒤에도 남는 숫자"
+    },
+    {
+     "p": "파초키는 모델 개발을 큰 컴퓨터로 방대한 자료를 사전 학습하는 단계와 프롬프트, 파인튜닝, 강화학습으로 잠재 능력을 끌어내는 단계로 나눕니다. 앞 단계에서는 예측하기 어려운 능력이 갑자기 생긴다는 것이 그의 설명입니다. 하류 평가의 범위는 빠르게 바뀔 수 있고 현대 벤치마크 대부분은 GPT-4 즈음에 거의 포화됐지만 사전 학습 진척은 앞으로도 의미 있는 정보를 줄 가능성이 높다고 봅니다. AI가 연구자를 대신하는 장면이 완전한 재귀적 자기 개선으로 이어지는 것은 사람의 통제를 위해 피해야 한다고 보면서도, AI가 사전 학습 알고리즘 연구에 참여하는 단계에서 큰 도약이 있을 수 있다고 내다봤습니다."
+    },
+    {
+     "h": "공개된 값은 문장 속 몇 개입니다"
+    },
+    {
+     "p": "글에서 숫자가 나오는 곳은 본문 문장입니다. GPT-3.5는 오픈AI의 현재 주요 평가 데이터에서 로그 퍼플렉시티 약 0.99, GPT-4는 약 0.91이고 그 뒤 모델들은 0.8 아래로 내려가면서 사이버 보안과 수학에서 새로운 능력이 나타났습니다. 약 0.76인 모델로 바꾸자 열린 수학 문제에서 새로운 결과가 나오기 시작했다고 합니다. 평가 데이터는 오픈AI 내부 코드베이스의 고정된 한 시점 사본이며 GPT-2와 GPT-3는 학습 자료 때문에 코드 예측이 일반 능력을 가늠하는 기준으로 맞지 않아 같은 값을 내지 않았습니다."
+    },
+    {
+     "table": {
+      "head": [
+       "모델",
+       "로그 퍼플렉시티",
+       "글의 설명"
+      ],
+      "rows": [
+       [
+        "GPT-2",
+        "수치 없음",
+        "옛 데이터에서 퍼플렉시티 최고 기록"
+       ],
+       [
+        "GPT-3.5",
+        "약 0.99",
+        "유창한 대화, 챗GPT의 바탕"
+       ],
+       [
+        "GPT-4",
+        "약 0.91",
+        "생각의 사슬 추론을 잘 활용"
+       ],
+       [
+        "이름 없는 이후 모델",
+        "0.8 미만 / 약 0.76",
+        "사이버 보안·수학 능력 / 수학 난제에서 획기적 결과"
+       ]
+      ],
+      "note": "출처 오픈AI 블로그, 2026년 11월 22일. 오픈AI 내부 코드베이스 평가 기준"
+     }
+    },
+    {
+     "h": "다음 구간과 개발사 공통 한계"
+    },
+    {
+     "p": "파초키는 다음에 지켜볼 구간으로 로그 퍼플렉시티 약 0.68~0.7을 짚으면서 그 구간에서 어떤 능력이 나올지는 모른다고 썼습니다. 수학 문제에서 갑자기 결과가 쏟아진 것처럼 사전 학습 연구에서도 빠른 진전이 이어질 수 있고 그 시기가 빠르면 2027년이라고 봅니다. 한편 정렬 감사 능력이 더 떨어지고 모델이 평가와 학습을 알아차리는 정도가 커질 수 있다는 우려도 적었습니다. 그래서 퍼플렉시티 등을 바탕으로 한 공통 한계를 정해 두고, AI 행동을 이해하고 감시하는 능력이 구체적인 기준에 이르기 전에는 개발사들이 넘지 않기로 약속하자고 제안했습니다. 예로 든 기준은 생각의 사슬 감시기의 후속 기술입니다."
+    },
+    {
+     "h": "퍼플렉시티로 재기 어려운 것"
+    },
+    {
+     "p": "이 지표의 약점은 글에 네 가지로 직접 나옵니다. 개발사마다 평가 데이터와 학습 데이터 구성이 달라 비교가 어렵고 실제 과제와 곧바로 이어지지 않으며 생각의 사슬 추론은 퍼플렉시티를 낮추지 않는데도 능력은 크게 올립니다. 바닥에 해당하는 값도 알려져 있지 않습니다. 오픈AI는 다른 개발사의 수치 공개를 바란다고 했을 뿐 후속 공개 일정은 글에 나와 있지 않습니다."
+    }
+   ],
+   "ask": "AI 개발사들이 모델 학습 지표를 서로 공개하면 발표 숫자를 믿기가 쉬워질까요?",
+   "sources": [
+    [
+     "오픈AI — Perplexity and Intelligence",
+     "https://openai.com/index/perplexity-and-intelligence/"
+    ]
+   ],
+   "terms": [
+    "퍼플렉시티(지표)",
+    "교차 엔트로피 손실",
+    "생각의 사슬",
+    "홀드아웃 데이터",
+    "사전 학습",
+    "벤치마크",
+    "정렬",
+    "오픈AI",
+    "프런티어 모델"
+   ],
+   "image": {
+    "page": "https://openai.com/index/perplexity-and-intelligence/",
+    "og": "https://images.ctfassets.net/kftzwdyauwt9/6rIIhCRSKrhIfe385Onmcz/aca2d190553c62fd5d49efb5d5ce1eb6/perplexity-and-intelligence-social.png?w=1600&h=900&fit=fill",
+    "credit": "이미지: OpenAI",
+    "alt": "오픈AI 퍼플렉시티와 지능 글 대표 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "작성자·날짜",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "November 22, 2026 / By Jakub Pachocki, Chief Scientist at OpenAI"
+    },
+    {
+     "claim": "비교 지표 제안",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "I argue for establishing perplexity (or, equivalently, cross-entropy loss) as a metric to compare between model developers"
+    },
+    {
+     "claim": "퍼플렉시티 정의",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "Perplexity measures how well a model predicts the next token on average; lower perplexity means better predictions."
+    },
+    {
+     "claim": "로그를 추적",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "In practice, we generally track the log of perplexity, also called cross-entropy loss."
+    },
+    {
+     "claim": "공개 고민",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "Publishing our internal perplexity measurements took some consideration"
+    },
+    {
+     "claim": "GPT-3.5 0.99",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "at a log-perplexity of ~0.99 on our current main evaluation dataset"
+    },
+    {
+     "claim": "GPT-4 0.91",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "at ~0.91, was proficient at utilizing chain-of-thought reasoning productively."
+    },
+    {
+     "claim": "0.8 미만",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "we have reached losses below 0.8"
+    },
+    {
+     "claim": "0.76",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "Once we upgraded to a model of log-perplexity ~0.76, it started producing groundbreaking results."
+    },
+    {
+     "claim": "측정 데이터",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "The primary held-out datasets we've been using since GPT-3.5 are sourced from our internal codebase, and those are the numbers reported here (for a fixed snapshot)."
+    },
+    {
+     "claim": "GPT-2·3 제외 이유",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "how well they predict code is a poor proxy for their general capabilities"
+    },
+    {
+     "claim": "포화",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "largely saturated around GPT‑4"
+    },
+    {
+     "claim": "유익성",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "likely to stay informative"
+    },
+    {
+     "claim": "재귀적 자기 개선",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "full recursive self-improvement"
+    },
+    {
+     "claim": "다음 구간",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "~0.68-0.7 log-perplexity window"
+    },
+    {
+     "claim": "2027",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "as soon as 2027 we could conceivably see a similar avalanche of fundamental pretraining advancements"
+    },
+    {
+     "claim": "공통 한계",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "I further propose common limits, based on perplexity and other measurements"
+    },
+    {
+     "claim": "감시 기준",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "a certain concrete milestone"
+    },
+    {
+     "claim": "예시 기준",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "(such as the development of a successor to CoT monitors)"
+    },
+    {
+     "claim": "CoT와 퍼플렉시티",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "chain-of-thought reasoning does not reduce perplexity achieved by the model"
+    },
+    {
+     "claim": "비교의 어려움",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "Different developers use different evaluation datasets and train on different data mixtures."
+    },
+    {
+     "claim": "투명성 희망",
+     "url": "https://openai.com/index/perplexity-and-intelligence/",
+     "quote": "I hope to see more transparency about it across the industry"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "메타 뮤즈·월마트 에이전트 게이트웨이 블랙프라이데이 쇼핑",
+   "reason": "월마트·메타의 1차 발표문을 찾지 못함(언론·요약 글뿐)"
+  },
+  {
+   "topic": "주 정부들의 SpaceX(xAI) 그록 딥페이크 소송",
+   "reason": "언론 보도만 확인되고 주 검찰 보도자료 원문을 열지 못함"
+  },
+  {
+   "topic": "GLM-5.4(Z.ai)",
+   "reason": "공식 릴리스 노트에 GLM-5.4 항목이 없음"
+  },
+  {
+   "topic": "오픈AI 닷츠·사용 정책(11월 20일 시행)",
+   "reason": "원문 날짜가 9월 29일·11월 1일 안팎이라 36시간 기준에 맞지 않음"
+  },
+  {
+   "topic": "구글 워크스페이스 11월 20일 업데이트들",
+   "reason": "원문 날짜가 11월 20일이라 36시간 기준에 맞지 않음"
+  }
+ ]
+}
