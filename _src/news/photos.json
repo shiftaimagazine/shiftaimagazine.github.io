@@ -576,5 +576,47 @@
   "credit": "이미지: OpenAI",
   "alt": "MedChemBench 평가 소개 이미지",
   "auto": true
+ },
+ "2026-11-13-notion-fireworks-ai-incident": {
+  "src": "img/ph/2026-11-13-notion-fireworks-ai-incident.webp",
+  "credit": "화면: notion.com",
+  "alt": "노션 보안 공지 페이지 화면",
+  "auto": true
+ },
+ "2026-11-13-google-tabletop": {
+  "src": "img/ph/2026-11-13-google-tabletop.webp",
+  "credit": "이미지: Google",
+  "alt": "구글 랩스 테이블톱 소개 이미지",
+  "auto": true
+ },
+ "2026-11-13-botpsy-0-8b": {
+  "src": "img/ph/2026-11-13-botpsy-0-8b.webp",
+  "credit": "이미지: Tether AI Research",
+  "alt": "BotPsy 소개 허깅페이스 블로그",
+  "auto": true
+ },
+ "2026-11-17-qwen4-max": {
+  "src": "img/ph/2026-11-17-qwen4-max.webp",
+  "credit": "이미지: Alibaba Cloud",
+  "alt": "알리바바 큐원4 맥스 발표 글",
+  "auto": true
+ },
+ "2026-11-17-apple-health-ai-usage-study": {
+  "src": "img/ph/2026-11-17-apple-health-ai-usage-study.webp",
+  "credit": "이미지: Apple",
+  "alt": "애플 헬스 AI 사용 연구 앱 화면",
+  "auto": true
+ },
+ "2026-11-23-dragos-ai-prompt-canaries": {
+  "src": "img/ph/2026-11-23-dragos-ai-prompt-canaries.webp",
+  "credit": "화면: dragos.com",
+  "alt": "드라고스 AI 공급망 카나리 연구 블로그 화면",
+  "auto": true
+ },
+ "2026-11-23-gemini-tasks-duplex-calls": {
+  "src": "img/ph/2026-11-23-gemini-tasks-duplex-calls.webp",
+  "credit": "이미지: Google Research",
+  "alt": "제미나이와 전화 통화 작업을 잇는 구글 리서치 그림",
+  "auto": true
  }
 }
