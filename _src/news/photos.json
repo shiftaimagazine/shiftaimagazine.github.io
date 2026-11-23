@@ -606,5 +606,17 @@
   "credit": "이미지: Apple",
   "alt": "애플 헬스 AI 사용 연구 앱 화면",
   "auto": true
+ },
+ "2026-11-23-dragos-ai-prompt-canaries": {
+  "src": "img/ph/2026-11-23-dragos-ai-prompt-canaries.webp",
+  "credit": "이미지: Dragos",
+  "alt": "드라고스 AI 공급망 카나리 연구 블로그 대표 이미지",
+  "auto": true
+ },
+ "2026-11-23-gemini-tasks-duplex-calls": {
+  "src": "img/ph/2026-11-23-gemini-tasks-duplex-calls.webp",
+  "credit": "이미지: Google Research",
+  "alt": "전화 음성 파형과 식당 아이콘이 제미나이 아이콘으로 이어지는 구글 리서치 그림",
+  "auto": true
  }
 }
