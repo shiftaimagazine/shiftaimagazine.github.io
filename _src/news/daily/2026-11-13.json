@@ -1,0 +1,540 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-13-notion-fireworks-ai-incident",
+   "cat": "보안·안전",
+   "date": "2026-11-13",
+   "time": "21:40",
+   "title": "노션 AI 대화 기록, 협력사 해킹에 노출",
+   "sub": "추론 업체 파이어웍스 AI 사고 · 워크스페이스 1% 미만 · 인사이트 기능 중단",
+   "hook": "노션(Notion)이 추론 업체 파이어웍스 AI(Fireworks AI)가 해킹을 당해 노션 AI 대화 기록 일부가 노출됐다고 보안 공지를 고쳐 올렸습니다. 영향을 받은 곳은 노션 워크스페이스의 1% 미만이고 해당 고객에게는 11월 9일 따로 연락했습니다.",
+   "try": "노션 AI에 비밀번호나 API 키를 붙여 넣은 적이 있다면 노션에서 온 안내 메일이 있는지 확인하고 그 키를 새로 발급해 보세요.",
+   "who": "노션 AI에 업무 문서와 자료를 넣어 쓰는 분",
+   "facts": [
+    [
+     "발표 주체",
+     "노션(Notion) 보안 공지"
+    ],
+    [
+     "날짜",
+     "2026년 11월 12일 개정판(경과는 11월 2~12일)"
+    ],
+    [
+     "무엇",
+     "추론 업체 파이어웍스 AI 해킹으로 노션 AI 대화 기록 노출"
+    ],
+    [
+     "영향 범위",
+     "노션 워크스페이스 1% 미만, 인사이트(Insights) 기능용 대화 기록"
+    ],
+    [
+     "노션의 조치",
+     "파이어웍스 연결 끊기, 인사이트 중단, 노출된 노션 API 키 폐기"
+    ],
+    [
+     "원문",
+     "노션 보안 공지(Fireworks AI incident)"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "노션(Notion)이 11월 12일 고친 보안 공지에서 노션 AI에 오픈 웨이트 모델을 돌려 주던 추론 업체 파이어웍스 AI(Fireworks AI)가 해킹을 당해 노션 AI 대화 기록 일부가 빠져나갔다고 알렸습니다. 영향을 받은 곳은 노션 워크스페이스의 1% 미만이고 노션은 해당 고객에게 11월 9일 직접 연락했습니다."
+    },
+    {
+     "ul": [
+      [
+       "인사이트 기능에 쓰인 대화 기록이 노출",
+       "대부분은 작성자와 워크스페이스 표시가 없는 기록입니다"
+      ],
+      [
+       "처음엔 시험용 데이터라고 했다가 범위가 커짐",
+       "11월 6일 고객 데이터 가능성, 8일 최종 범위 확정"
+      ],
+      [
+       "노출된 노션 API 키는 11월 11일 폐기",
+       "다른 회사가 발급한 키는 그 회사에 알렸습니다"
+      ]
+     ]
+    },
+    {
+     "h": "시험용 데이터에서 고객 대화로 바뀐 일주일"
+    },
+    {
+     "p": "파이어웍스는 11월 2일 저녁 노션에 일부 데이터가 공격자에게 접근당했다고 처음 알렸습니다. 노션이 살펴본 그 데이터는 노션 AI를 시험할 때 쓰는 합성 데이터였고 고객 데이터는 들어 있지 않았습니다. 노션은 조심하는 뜻에서 11월 3일 아침까지 파이어웍스와 시스템 연결을 끊었고 4일에는 파이어웍스 쪽에 있던 자기 데이터를 모두 지웠습니다. 상황이 바뀐 것은 11월 6일입니다. 파이어웍스가 고객 데이터도 공격자 손에 들어갔을 수 있다고 다시 알렸고 8일에 최종 피해 범위를 확정했습니다."
+    },
+    {
+     "h": "인사이트 기능에 쓰인 대화가 빠져나갔습니다"
+    },
+    {
+     "p": "최종 범위에 들어간 것은 인사이트(Insights) 기능에 쓰인 노션 AI 대화 기록입니다. 노션은 영향을 받은 워크스페이스 대부분에서 이 기록이 누가 썼는지, 어느 워크스페이스에서 왔는지 표시가 없는 상태였다고 설명합니다. 다른 노션 기능은 영향을 받지 않았다고 공지는 적었습니다. 인사이트 기능은 조사가 끝날 때까지 꺼 두었고 파이어웍스를 거쳐 오픈 웨이트 모델을 제공하던 일도 그만뒀습니다."
+    },
+    {
+     "h": "대화에 붙여 넣은 열쇠까지 바꿔야 합니다"
+    },
+    {
+     "p": "노션은 조사하면서 영향을 받은 메시지 안에서 노션 API 키를 찾아냈고 11월 11일 그 키를 폐기했습니다. 다른 회사가 발급한 API 키는 11월 12일 각 발급 회사에 알렸습니다. 공지는 사고 기간에 비밀번호나 API 키 같은 자격 증명을 노션 AI에 넣었다면 그 값을 바꾸라고 안내합니다. 연락을 받지 않은 고객은 아직 영향을 받은 것으로 확인되지 않았으니 지금 할 일이 없다는 것이 노션의 설명입니다. 나중에 영향이 확인되면 그 고객에게 직접 연락하겠다고 덧붙였으며 조사는 아직 진행 중입니다."
+    }
+   ],
+   "ask": "업무용 AI 대화창에 API 키나 비밀번호를 붙여 넣은 적이 있나요?",
+   "sources": [
+    [
+     "노션 보안 공지 — Fireworks AI incident",
+     "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor"
+    ]
+   ],
+   "terms": [
+    "노션",
+    "파이어웍스 AI",
+    "API 키",
+    "오픈 웨이트",
+    "추론"
+   ],
+   "image": {
+    "page": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+    "og": null,
+    "credit": "이미지: Notion",
+    "alt": "노션 보안 공지 페이지 화면",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "11월 2일 첫 통보, 합성 데이터",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "On the evening of November 2, Fireworks notified Notion that a small set of data had been accessed by malicious actors."
+    },
+    {
+     "claim": "합성 데이터, 고객 데이터 없음",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "Upon investigation, the dataset included Notion AI synthetic testing data, and no Notion AI customer data was involved."
+    },
+    {
+     "claim": "11월 3일 연결 끊기",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "Out of an abundance of caution, by the morning of November 3, Notion disconnected its systems from Fireworks"
+    },
+    {
+     "claim": "11월 4일 데이터 삭제",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "Out of an abundance of caution, on November 4, Notion deleted all its data in the Fireworks system."
+    },
+    {
+     "claim": "11월 6일 고객 데이터 가능성",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "On November 6, Fireworks notified Notion that malicious actors may have accessed potential customer data."
+    },
+    {
+     "claim": "11월 8일 최종 범위",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "On November 8, Fireworks confirmed the final impacted dataset."
+    },
+    {
+     "claim": "11월 9일 고객 연락",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "On November 9, Notion reached out to impacted customers."
+    },
+    {
+     "claim": "워크스페이스 1% 미만",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "how it's impacting <1% of Notion workspaces."
+    },
+    {
+     "claim": "인사이트 기능 대화 기록",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "it included Notion AI chat transcripts used for the Insights feature"
+    },
+    {
+     "claim": "작성자·워크스페이스 표시 없음",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "\"Unattributable\" means the chats weren't labeled with who wrote them or which workspace they came from"
+    },
+    {
+     "claim": "인사이트 중단",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "The Insights feature has been disabled as we investigate this incident"
+    },
+    {
+     "claim": "오픈 웨이트 제공 중단",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "we are no longer serving open-weight models through Fireworks."
+    },
+    {
+     "claim": "11월 11일 노션 API 키 폐기",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "On November 11, we revoked exposed Notion API keys that were found in affected user messages during our investigation."
+    },
+    {
+     "claim": "11월 12일 다른 회사 키 통보",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "on November 12 we reported exposed third-party API keys found in affected user messages to the vendors that issued them."
+    },
+    {
+     "claim": "연락 없으면 할 일 없음",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "If you haven't heard from us, we haven't identified your workspace as affected, and no action is needed right now."
+    },
+    {
+     "claim": "자격 증명 바꾸기",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "passwords, API keys, or other credentials into Notion AI during the timeframe of the incident, rotate them."
+    },
+    {
+     "claim": "다른 기능 영향 없음",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "No other Notion features were affected, and we continue to monitor this incident."
+    },
+    {
+     "claim": "11월 12일 개정판",
+     "url": "https://notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+     "quote": "Updated version: November 12, 2026."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-13-google-tabletop",
+   "cat": "모델·제품",
+   "date": "2026-11-13",
+   "time": "21:39",
+   "title": "구글 테이블톱, 여럿이 함께 쓰는 AI 공간",
+   "sub": "구글 랩스 실험 · 링크·파일 넣으면 일정표·투표판 생성 · 미국 18세 이상 대기 명단",
+   "hook": "구글 랩스(Google Labs)가 11월 11일 여러 사람이 한 공간에서 함께 쓰는 AI 실험 테이블톱(Tabletop)을 공개했습니다. 링크와 파일을 모아 두고 부탁하면 여행 일정표, 저녁 메뉴 투표, 비용 나누기 화면을 만들어 줍니다. 지금은 미국 18세 이상만 대기 명단으로 씁니다.",
+   "try": "모임 준비를 단톡방 공지와 투표로 하고 있다면 테이블톱 공개 글에 나온 일정표·투표·비용 나누기 예시를 지금 방식과 비교해 보세요.",
+   "who": "단톡방으로 모임·여행 일정을 맞추는 분",
+   "verdict": {
+    "v": "watch",
+    "why": "미국 18세 이상만 대기 명단으로 쓸 수 있고 한국 출시와 요금은 발표되지 않았습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "구글 랩스(Google Labs)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 11일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "여럿이 동시에 쓰는 AI 협업 공간 실험 '테이블톱'"
+    ],
+    [
+     "만드는 것",
+     "여행 일정표, 저녁 메뉴 투표, 비용 나누기, 대회 대진표"
+    ],
+    [
+     "대상",
+     "미국 18세 이상, 대기 명단(labs.google/tabletop)"
+    ],
+    [
+     "원문",
+     "구글 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "구글 랩스(Google Labs)가 11월 11일(미국 시각) 여러 사람이 한 공간에서 실시간으로 함께 쓰는 AI 실험 테이블톱(Tabletop)을 공개했습니다. 가족 여행이나 동네 운동 모임, 각자 음식을 가져오는 파티처럼 여럿이 의견을 모아야 하는 일을 한곳에서 정하게 하려는 서비스이고 지금은 미국 18세 이상만 대기 명단으로 신청할 수 있습니다."
+    },
+    {
+     "ul": [
+      [
+       "링크·파일·메모를 모으고 부탁하면 화면을 만듦",
+       "@tabletop에 요청하거나 시작용 틀을 고릅니다"
+      ],
+      [
+       "초대 링크 하나로 여럿이 동시에 사용",
+       "구글은 구글 문서처럼 함께 쓴다고 설명합니다"
+      ],
+      [
+       "미국 18세 이상, 대기 명단",
+       "요금과 지원 언어는 공개 글에 없습니다"
+      ]
+     ]
+    },
+    {
+     "h": "일정표와 투표판을 부탁 한마디로 만듭니다"
+    },
+    {
+     "p": "쓰는 순서는 단순합니다. 함께 볼 링크와 파일, 아이디어를 공간에 모은 뒤 @tabletop을 불러 요청하거나 미리 준비된 시작용 틀을 고르면 테이블톱이 여럿이 눌러 볼 수 있는 화면을 만들어 줍니다. 구글이 든 예는 상호작용하는 여행 일정표, 저녁 메뉴 투표, 비용 나누기 계산판, 대회 대진표입니다. 결과물이 글자로 된 답이 아니라 모두가 함께 쓰는 화면이라는 점에서 일반 챗봇과 쓰임이 다릅니다."
+    },
+    {
+     "h": "단체 대화방에 초대 링크를 올립니다"
+    },
+    {
+     "p": "공간이 준비되면 초대 링크를 단체 대화방에 올려 다른 사람들을 부릅니다. 링크를 받은 사람들은 구글 문서처럼 같은 공간에 동시에 들어와 쓸 수 있습니다. 모임 날짜 투표와 여행 경비 나누기처럼 의견을 모으고 계산하는 일을 한 화면에서 함께 처리하는 방식입니다. 공개 글을 쓴 사람은 구글 랩스에서 디자인과 엔지니어링을 이끄는 로먼 누릭(Roman Nurik)입니다."
+    },
+    {
+     "h": "한국에서는 아직 신청할 수 없습니다"
+    },
+    {
+     "p": "테이블톱은 미국에서 18세 이상 사용자에게 대기 명단 방식으로 열리고 있으며 신청은 labs.google/tabletop에서 받습니다. 공개 글에는 요금과 지원 언어, 어떤 AI 모델이 쓰이는지가 나오지 않습니다. 구글 랩스의 실험 서비스라 정식 출시나 한국 일정에 대한 언급도 없습니다."
+    }
+   ],
+   "ask": "모임 일정을 정할 때 단톡방 공지와 투표 말고 다른 도구를 써 본 적이 있나요?",
+   "sources": [
+    [
+     "구글 블로그 — Try Tabletop: Customizable, collaborative spaces for groups",
+     "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/"
+    ]
+   ],
+   "terms": [
+    "구글 랩스",
+    "챗봇"
+   ],
+   "image": {
+    "page": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+    "og": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/labs_tabletop_blog_image_2784x1566.max-1440x810.jpg",
+    "credit": "이미지: Google",
+    "alt": "구글 랩스 테이블톱 소개 이미지",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "11월 11일, 구글 랩스 실험",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+     "quote": "Today, we're introducing Tabletop, a new Google Labs experiment built for real-time collaboration."
+    },
+    {
+     "claim": "미국 18세 이상 대기 명단",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+     "quote": "Tabletop is rolling out in the U.S. (18+) via waitlist."
+    },
+    {
+     "claim": "구글 문서처럼 동시에",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+     "quote": "drop the invite link in your group chat to let everyone jump in and use it at the same time, like in a Google Doc."
+    },
+    {
+     "claim": "만드는 화면 예",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+     "quote": "interactive itineraries, dinner polls, expense splitters, and tournament brackets"
+    },
+    {
+     "claim": "글쓴이",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+     "quote": "Roman Nurik, Design & Engineering Lead, Google Labs"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-13-botpsy-0-8b",
+   "cat": "연구",
+   "date": "2026-11-13",
+   "time": "21:38",
+   "title": "BotPsy, 8억 파라미터 비서 모델 공개",
+   "sub": "테더 AI 리서치 · 큐원3.5-0.8B 기반 함수 호출 특화 · 아파치 2.0 오픈 웨이트",
+   "hook": "테더 AI 리서치(Tether AI Research)가 11월 11일 허깅페이스에 기기 안에서 돌릴 수 있는 8억 파라미터 비서 모델 BotPsy를 공개했습니다. 함수 호출 시험 BFCL v4 점수가 기반 모델 23.4에서 44.0으로 올랐다고 밝혔습니다(자체 발표 기준).",
+   "try": "llama.cpp를 써 본 적이 있다면 허깅페이스의 BotPsy-0.8B GGUF 파일을 받아 일정 잡기나 메일 정리 같은 간단한 요청을 영어로 시켜 보세요.",
+   "who": "노트북이나 기기 안에서 작은 AI 모델을 돌려 보는 개발자",
+   "verdict": {
+    "v": "watch",
+    "why": "점수는 자체 발표이고 영어 위주로 시험해 한국어 성능은 확인되지 않았습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "테더 AI 리서치(Tether AI Research)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 11일"
+    ],
+    [
+     "무엇",
+     "함수 호출·에이전트 작업용 8억 파라미터 모델 BotPsy"
+    ],
+    [
+     "기반 모델",
+     "큐원3.5-0.8B(Qwen3.5-0.8B)"
+    ],
+    [
+     "공개 방식",
+     "아파치 2.0 오픈 웨이트(연구·교육용), GGUF 파일 함께 공개"
+    ],
+    [
+     "원문",
+     "허깅페이스 블로그"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "테더 AI 리서치(Tether AI Research)가 11월 11일 허깅페이스 블로그에서 8억(0.8B) 파라미터짜리 비서 모델 BotPsy를 공개했습니다. 큐원3.5-0.8B(Qwen3.5-0.8B)를 바탕으로 함수 호출과 에이전트 작업에 맞게 만든 모델이며 휴대폰이나 노트북처럼 기기 안에서 돌리는 쓰임을 염두에 두었습니다."
+    },
+    {
+     "ul": [
+      [
+       "함수 호출 점수가 기반 모델의 약 2배",
+       "BFCL v4 23.4에서 44.0으로(자체 발표 기준)"
+      ],
+      [
+       "검색·일정·메일 같은 쉬운 작업용",
+       "저자들은 낮은 난도부터 중간 난도에 맞는다고 적었습니다"
+      ],
+      [
+       "아파치 2.0으로 가중치 공개",
+       "llama.cpp에서 쓰는 GGUF 파일도 올라왔습니다"
+      ]
+     ]
+    },
+    {
+     "h": "도구를 부르는 일에 맞춘 작은 모델"
+    },
+    {
+     "p": "함수 호출은 AI가 대화하다가 필요한 도구를 골라 정해진 형식으로 부르는 기능입니다. BotPsy가 맡는 분야는 웹 검색과 조사, 여행과 생활, 쇼핑과 금융, 기기·차량 제어, 파일과 문서, 달력, 메일과 메시지입니다. 저자들은 이 모델이 낮은 난도에서 중간 난도까지의 작업에 가장 잘 맞는다고 적었습니다."
+    },
+    {
+     "table": {
+      "head": [
+       "시험",
+       "큐원3.5-0.8B",
+       "BotPsy"
+      ],
+      "rows": [
+       [
+        "BFCL v4(함수 호출)",
+        "23.4",
+        "44.0"
+       ],
+       [
+        "ACEBench(에이전트)",
+        "30.1",
+        "58.7"
+       ],
+       [
+        "τ-bench(에이전트)",
+        "23.2",
+        "51.5"
+       ],
+       [
+        "IFEval(지시 따르기)",
+        "59.7",
+        "90.8"
+       ],
+       [
+        "IFBench(지시 따르기)",
+        "22.0",
+        "55.9"
+       ]
+      ],
+      "note": "출처 테더 AI 리서치 허깅페이스 블로그, 자체 측정"
+     }
+    },
+    {
+     "h": "크기가 2.5배인 모델에 진 시험도 실었습니다"
+    },
+    {
+     "p": "공개 글은 점수가 오른 표와 함께 지는 결과도 적었습니다. 크기가 2.5배인 큐원3.5-2B-Think는 Claw-Eval에서 48.9로 BotPsy의 46.5보다 높았습니다. 자동 레드팀 시험에서 위험한 답을 내는 비율은 기반 모델 36%에서 BotPsy 21%로 줄었습니다. 모든 수치는 테더 쪽이 직접 잰 것이고 다른 곳의 검증은 아직 없습니다."
+    },
+    {
+     "h": "한국어는 시험 목록에 없습니다"
+    },
+    {
+     "p": "BotPsy는 주로 영어로 학습하고 시험했으며 저자들도 영어로 쓰기를 권합니다. 여러 언어 지시 따르기 시험에서는 중국어, 프랑스어, 힌디어, 이탈리아어, 포르투갈어, 러시아어, 스페인어를 쟀고 힌디어와 러시아어 점수가 많이 낮았습니다. 한국어는 시험한 언어에 들어 있지 않습니다. 가중치는 아파치 2.0 라이선스로 연구·교육용 공개됐고 QVAC SDK와 llama.cpp에서 쓰는 GGUF 파일도 있습니다. 저자들은 돈이나 개인정보, 건강이 걸린 일처럼 위험이 큰 자동 결정에는 쓰지 말라고 적었습니다."
+    }
+   ],
+   "ask": "회사 일정이나 메일 정리를 기기 안에서 도는 작은 모델에 맡긴다면 어떤 일부터 시켜 보고 싶나요?",
+   "sources": [
+    [
+     "허깅페이스 블로그 — BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+     "https://huggingface.co/blog/qvac/botpsy"
+    ]
+   ],
+   "terms": [
+    "파라미터",
+    "함수 호출",
+    "큐원",
+    "오픈 웨이트",
+    "아파치 2.0",
+    "llama.cpp",
+    "GGUF",
+    "온디바이스 AI"
+   ],
+   "image": {
+    "page": "https://huggingface.co/blog/qvac/botpsy",
+    "og": null,
+    "credit": "이미지: Tether AI Research",
+    "alt": "BotPsy 소개 허깅페이스 블로그",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "큐원3.5-0.8B 기반, 기기 안 실행",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "designed for function calling and agentic workflows, built on top of Qwen3.5-0.8B and suitable for on-device deployment."
+    },
+    {
+     "claim": "8억 파라미터, 테더 AI 리서치",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "Tether AI Research introduces BotPsy, a 0.8B-parameter model"
+    },
+    {
+     "claim": "11월 11일 공개",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "Published November 11, 2026"
+    },
+    {
+     "claim": "작업 분야",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "web search & research, travel & lifestyle, commerce & finance ... device & vehicle control, files & documents, calendar, and email & messaging."
+    },
+    {
+     "claim": "낮은~중간 난도",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "it is best suited to tasks of low to medium difficulty."
+    },
+    {
+     "claim": "BFCL v4 23.4→44.0 등 표",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "BFCL v4 23.4 / 44.0, ACEBench 30.1 / 58.7, τ-bench 23.2 / 51.5, IFEval 59.7 / 90.8, IFBench 22.0 / 55.9"
+    },
+    {
+     "claim": "Claw-Eval 48.9 대 46.5",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "On Claw-Eval, Qwen3.5-2B-Think leads (48.9 vs 46.5)."
+    },
+    {
+     "claim": "위험한 답 21% 대 36%",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "BotPsy produces unsafe responses 21% of the time, compared with 36% for its base model."
+    },
+    {
+     "claim": "아파치 2.0 연구·교육용",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "BotPsy will be released with open weights under the Apache 2.0 license for research and educational use."
+    },
+    {
+     "claim": "영어 권장",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "BotPsy has been primarily trained and tested in English, which is the recommended language."
+    },
+    {
+     "claim": "힌디어·러시아어 낮음",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "it performs well in most of them, but scores much lower in Hindi and Russian."
+    },
+    {
+     "claim": "고위험 결정 금지",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "It is not intended for safety-critical or high-stakes automated decisions,"
+    },
+    {
+     "claim": "GGUF 파일",
+     "url": "https://huggingface.co/blog/qvac/botpsy",
+     "quote": "as GGUF files for the QVAC SDK and llama.cpp."
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "TSMC의 앤트로픽·오픈AI 최대 10억 달러 투자",
+   "reason": "11월 10일 이사회 결정이라 36시간이 지났고 TSMC 공시 원문을 열어 확인하지 못했습니다."
+  },
+  {
+   "topic": "유나이티드항공의 AI 에이전트 항공권 예약 금지",
+   "reason": "언론 보도만 있고 회사 원문을 찾지 못했습니다."
+  },
+  {
+   "topic": "오픈AI 아동 안전 연구 지원",
+   "reason": "openai.com 원문을 열어 확인하지 못했습니다."
+  }
+ ]
+}

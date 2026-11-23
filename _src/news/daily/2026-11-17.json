@@ -1,0 +1,576 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-17-qwen4-max",
+   "cat": "모델·제품",
+   "date": "2026-11-17",
+   "time": "21:40",
+   "title": "큐원4 맥스, 작업당 비용 약 60% 절감",
+   "sub": "알리바바 큐원4 첫 모델 · 총 2.4조·활성 710억 파라미터 · 입력 100만 토큰당 1.5달러",
+   "hook": "알리바바(Alibaba)가 11월 16일 큐원4 시리즈의 첫 모델 큐원4 맥스(Qwen4-Max)를 공개했습니다. 총 2.4조 파라미터 가운데 토큰마다 710억 개만 쓰는 MoE 모델이고 자체 평가 Work360에서 작업당 평균 비용을 이전 모델보다 약 60% 줄였다고 밝혔습니다.",
+   "try": "알리바바 클라우드 모델 스튜디오 싱가포르 지역의 100만 토큰 무료 한도로 큐원4 맥스에 긴 보고서 요약을 맡겨 지금 쓰는 모델과 결과를 비교해 보세요.",
+   "who": "API로 여러 AI 모델 값을 비교하며 쓰는 개발자·기획자",
+   "verdict": {
+    "v": "watch",
+    "why": "API로 바로 쓸 수 있지만 비용 절감과 성능 수치는 알리바바 자체 평가 결과입니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "알리바바(Alibaba) 큐원 팀"
+    ],
+    [
+     "날짜",
+     "2026년 11월 16일(항저우)"
+    ],
+    [
+     "무엇",
+     "큐원4 시리즈 첫 모델 큐원4 맥스(Qwen4-Max)"
+    ],
+    [
+     "규모",
+     "총 2.4조 파라미터, 토큰당 710억 활성, 입력 100만 토큰"
+    ],
+    [
+     "가격",
+     "입력 100만 토큰당 1.5달러, 출력 4.5달러(싱가포르 지역)"
+    ],
+    [
+     "원문",
+     "알리바바 클라우드 블로그·모델 스튜디오 요금 페이지"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "알리바바(Alibaba)가 11월 16일 큐원4 시리즈의 첫 모델인 큐원4 맥스(Qwen4-Max)를 공개하고 큐원클라우드(QwenCloud)의 API와 토큰 플랜으로 바로 열었습니다. 회사는 큐원 계열에서 가장 성능이 높은 모델이라고 소개했고 자체 평가에서 작업 하나를 끝내는 데 드는 평균 비용이 이전 모델 큐원3.8 맥스보다 약 60% 줄었다고 밝혔습니다(자체 발표 기준)."
+    },
+    {
+     "ul": [
+      [
+       "총 2.4조 파라미터, 토큰마다 710억만 사용",
+       "큐원3.8 맥스보다 활성 파라미터가 25% 적습니다"
+      ],
+      [
+       "입력 100만 토큰, 이미지 이해 기본 탑재",
+       "큐원워크·큐원스튜디오에서도 쓸 수 있습니다"
+      ],
+      [
+       "작은 큐원4 모델은 '곧' 공개",
+       "큐원4 맥스의 가중치 공개 계획은 밝히지 않았습니다"
+      ]
+     ]
+    },
+    {
+     "h": "같은 2.4조 규모에서 쓰는 부분을 줄였습니다"
+    },
+    {
+     "p": "큐원4 맥스는 전체 파라미터 2.4조 개 가운데 글자 조각(토큰) 하나를 처리할 때 710억 개만 꺼내 쓰는 혼합 전문가(MoE) 구조입니다. 알리바바는 같은 2.4조 규모였던 큐원3.8 맥스보다 활성 파라미터가 25% 적다고 설명했습니다. 한 번에 받는 입력은 100만 토큰이고 이미지를 이해하는 능력이 처음부터 함께 학습돼 있습니다. 쓸 수 있는 곳은 큐원클라우드 API와 토큰 플랜, 알리바바의 큐원워크(QwenWork)와 큐원스튜디오(QwenStudio)입니다."
+    },
+    {
+     "h": "비용 절감은 자체 평가 Work360 기준입니다"
+    },
+    {
+     "p": "알리바바가 내세운 숫자는 대부분 자체 평가에서 나왔습니다. 721개 전문 분야의 업무 과제로 짠 사내 평가 Work360에서 큐원4 맥스는 이전 모델보다 전체 성적이 높았고 작업당 평균 비용은 약 60% 줄었습니다. 추론 강도를 '높음'으로 둘 때 쓰는 토큰은 큐원3.8 맥스보다 35% 적었다고 합니다. 실제 코딩 순위표인 코드 아레나(Code Arena)에서는 6위에 올랐다고 적었습니다. 클라우드 자원 배치를 스스로 고치는 기능도 소개했는데 시험에서 데이터 라벨링용 모델 호출 비용이 평균 9% 줄고 오프라인 CPU 재배치는 14배 넘게 빨라졌습니다."
+    },
+    {
+     "h": "싱가포르 지역은 입력 100만 토큰당 1.5달러"
+    },
+    {
+     "table": {
+      "head": [
+       "지역",
+       "입력(100만 토큰)",
+       "출력(100만 토큰)",
+       "캐시 적중 입력"
+      ],
+      "rows": [
+       [
+        "싱가포르(국제 배포)",
+        "1.5달러",
+        "4.5달러",
+        "0.075달러"
+       ],
+       [
+        "베이징·홍콩·프랑크푸르트·도쿄 등",
+        "1.413달러",
+        "4.24달러",
+        "0.071달러"
+       ]
+      ],
+      "note": "출처 알리바바 클라우드 모델 스튜디오 요금 페이지, 할인 없는 정가 기준"
+     }
+    },
+    {
+     "p": "알리바바 클라우드 모델 스튜디오 요금 페이지를 보면 생각 모드와 일반 모드의 값이 같고 입력이 100만 토큰 이하일 때 위 값이 적용됩니다. 100만 토큰 무료 한도는 싱가포르 지역에만 있습니다. 큐원4 맥스 발표문은 작은 큐원4 모델의 가중치를 '곧' 전 세계 개발자에게 공개하겠다고만 했고 시기와 크기는 적지 않았습니다. 한국어를 얼마나 잘하는지도 발표문에 따로 나오지 않습니다."
+    }
+   ],
+   "ask": "지금 쓰는 AI 모델의 API 값과 비교하면 큐원4 맥스의 입력·출력 값은 어느 쪽이 더 싼가요?",
+   "sources": [
+    [
+     "알리바바 클라우드 블로그 — Alibaba Unveils Qwen4-Max",
+     "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783"
+    ],
+    [
+     "알리바바 클라우드 모델 스튜디오 — Model inference pricing",
+     "https://alibabacloud.com/help/en/model-studio/model-pricing"
+    ]
+   ],
+   "terms": [
+    "큐원",
+    "혼합 전문가(MoE)",
+    "파라미터",
+    "컨텍스트 윈도우",
+    "토큰",
+    "API",
+    "알리바바 클라우드",
+    "추론 강도",
+    "벤치마크"
+   ],
+   "image": {
+    "page": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+    "og": null,
+    "credit": "이미지: Alibaba Cloud",
+    "alt": "알리바바 큐원4 맥스 발표 글",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "11월 16일 항저우 발표",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Hangzhou, China, November 16, 2026"
+    },
+    {
+     "claim": "큐원 계열 최고 성능",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Alibaba has released Qwen4-Max, the most capable model in the Qwen family to date."
+    },
+    {
+     "claim": "2.4조 MoE",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Built as an MoE model with 2.4 trillion total parameters"
+    },
+    {
+     "claim": "710억 활성",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Qwen4-Max activates only 71 billion per token"
+    },
+    {
+     "claim": "활성 25% 적음",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "25% fewer activated parameters compared to Qwen3.8-Max at the same 2.4T scale"
+    },
+    {
+     "claim": "100만 토큰, 네이티브 비전",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Featuring 2.4 trillion total parameters, native vision capabilities, and a one-million-token context window"
+    },
+    {
+     "claim": "큐원클라우드 토큰 플랜·API",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Qwen4-Max is available now on QwenCloud via the Token Plan and API."
+    },
+    {
+     "claim": "큐원워크·큐원스튜디오",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Users can also access the model across Alibaba platforms, including QwenWork and QwenStudio."
+    },
+    {
+     "claim": "코드 아레나 6위",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "It ranked 6th on Code Arena, a real-world coding leaderboard"
+    },
+    {
+     "claim": "Work360 721개 분야",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "a proprietary benchmark evaluating performance on challenging industry tasks across 721 specialized fields"
+    },
+    {
+     "claim": "토큰 35% 적게",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "while using 35% fewer tokens at High effort reasoning mode"
+    },
+    {
+     "claim": "작업당 비용 약 60%",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "reducing the average cost per task by around 60%"
+    },
+    {
+     "claim": "라벨링 호출 비용 9%",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "this reduced data-annotation model call costs by an average of 9%"
+    },
+    {
+     "claim": "CPU 재배치 14배",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "accelerated offline CPU rescheduling speeds by more than 14 times"
+    },
+    {
+     "claim": "작은 모델 곧 공개",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Open-weight, smaller-scale models from the Qwen4 series will soon be released to developers worldwide"
+    },
+    {
+     "claim": "캐시 적중 0.075달러",
+     "url": "https://alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+     "quote": "Input (Implicit Cache Hit) is priced at $0.075 per 1M tokens."
+    },
+    {
+     "claim": "싱가포르 1.5/4.5달러, 무료 100만 토큰",
+     "url": "https://alibabacloud.com/help/en/model-studio/model-pricing",
+     "quote": "qwen4-max Singapore International Non-thinking and thinking modes 0<Token≤1M $1.5 $4.5 ... 1 million Tokens"
+    },
+    {
+     "claim": "다른 지역 1.413/4.24달러",
+     "url": "https://alibabacloud.com/help/en/model-studio/model-pricing",
+     "quote": "qwen4-max China (Beijing) / Hong Kong / Germany (Frankfurt) / Japan (Tokyo) 0<Token≤1M $1.413 $4.24"
+    },
+    {
+     "claim": "무료 한도는 싱가포르만",
+     "url": "https://alibabacloud.com/help/en/model-studio/model-pricing",
+     "quote": "only in the Singapore region"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-17-apple-health-ai-usage-study",
+   "cat": "연구",
+   "date": "2026-11-17",
+   "time": "21:39",
+   "title": "애플 건강 AI 연구, 최대 20만 명 모집",
+   "sub": "오픈에비던스와 만든 미국 연구 앱 · 21세 이상·아이폰 15 프로 이후 · AI 학습에 안 씀",
+   "hook": "애플(Apple)이 11월 15일(미국 시각) 사람들이 건강 질문에 AI를 어떻게 쓰는지 살피는 애플 헬스 AI 사용 연구를 미국에서 시작했습니다. 임상 AI 플랫폼 오픈에비던스(OpenEvidence)와 만든 앱이 답마다 의학 논문 출처를 붙이며 최대 20만 명이 참여할 수 있습니다.",
+   "try": "AI에게 건강 질문을 자주 한다면 지금 쓰는 챗봇의 답에 의학 논문 같은 출처가 붙는지, 진단처럼 단정하는 말이 있는지 오늘 한 번 확인해 보세요.",
+   "who": "챗봇에 건강 질문을 자주 하는 아이폰 사용자",
+   "verdict": {
+    "v": "watch",
+    "why": "미국 21세 이상과 아이폰 15 프로 이후 기종만 참여하는 연구용 앱이라 한국에서는 쓸 수 없습니다."
+   },
+   "facts": [
+    [
+     "발표 주체",
+     "애플(Apple)"
+    ],
+    [
+     "날짜",
+     "2026년 11월 15일(미국 시각)"
+    ],
+    [
+     "무엇",
+     "건강 질문용 AI 사용 연구와 전용 앱(Apple Health AI Usage Study)"
+    ],
+    [
+     "함께 만든 곳",
+     "임상 AI 플랫폼 오픈에비던스(OpenEvidence)"
+    ],
+    [
+     "참여 조건",
+     "미국 21세 이상, 아이폰 15 프로 이후·iOS 26 이상, 최대 20만 명"
+    ],
+    [
+     "원문",
+     "애플 뉴스룸"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "애플(Apple)이 11월 15일(미국 시각) 사람들이 일상의 건강 질문에 대화형 AI를 어떻게 쓰고 이해하고 평가하는지 알아보는 '애플 헬스 AI 사용 연구(Apple Health AI Usage Study)'를 미국에서 시작했습니다. 참여자는 전용 앱에서 건강 질문을 하고 답을 받은 뒤 답의 품질을 직접 평가합니다."
+    },
+    {
+     "ul": [
+      [
+       "답마다 동료 평가를 거친 의학 논문 출처",
+       "NEJM·JAMA·네이처 같은 출처를 붙입니다"
+      ],
+      [
+       "미국 21세 이상, 최대 20만 명",
+       "아이폰 15 프로 이후·iOS 26 이상이 필요합니다"
+      ],
+      [
+       "연구 데이터는 AI 학습에 쓰지 않음",
+       "건강 앱 데이터 공유는 참여자가 고릅니다"
+      ]
+     ]
+    },
+    {
+     "h": "의료진이 쓰는 임상 AI를 붙였습니다"
+    },
+    {
+     "p": "앱의 답은 의료진이 널리 쓰는 임상 AI 플랫폼 오픈에비던스(OpenEvidence)의 기술로 만들어집니다. 답마다 근거가 된 동료 평가 논문 링크가 붙고 출처로는 뉴잉글랜드 의학 저널(NEJM), 미국의사협회지(JAMA), 네이처(Nature)가 이름이 올라 있습니다. 어려운 의학 정보를 쉬운 말로 풀어 주는 일과 진료를 받으러 가기 전에 준비를 돕는 일도 연구가 살피는 쓰임입니다. 걱정스러운 질문을 감지하면 의료진이나 다른 도움을 찾으라고 권하는 안전장치도 들어 있습니다."
+    },
+    {
+     "h": "참여 조건과 개인정보 약속"
+    },
+    {
+     "p": "연구에는 미국에 사는 21세 이상만 참여할 수 있고 애플 인텔리전스를 쓰는 아이폰 15 프로 이후 기종에 iOS 26 이상이 깔려 있어야 합니다. 최대 참여 인원은 20만 명입니다. 참여자는 안정 시 심박수, 활동량, 수면, 검사 결과 같은 헬스킷(HealthKit) 데이터를 연구에 넘길지 직접 정하고 설문 답을 낼지도 고릅니다. 애플은 연구 데이터를 AI 모델 학습에 쓰지 않는다고 밝혔고 보관하는 연구 데이터와 참여자 신원을 지키는 보안 장치를 갖췄다고 적었습니다."
+    },
+    {
+     "h": "진단 도구가 아니라 연구용 앱입니다"
+    },
+    {
+     "p": "애플은 이 앱이 어떤 질환을 진단하거나 치료하려는 것이 아니고 의료진의 조언을 대신하지도 않는다고 분명히 했습니다. 애플의 건강·피트니스 담당 부사장 섬불 데사이(Sumbul Desai)는 별도의 연구를 꾸리는 것이 사람들이 일상에서 건강 AI를 어떻게 쓰고 이해하고 평가하는지 알아내는 가장 신중한 방법이라고 말했습니다. 연구 기간과 결과를 공개할 시점은 발표문에 나오지 않고 다른 나라로 넓힐 계획도 적혀 있지 않습니다."
+    }
+   ],
+   "ask": "챗봇에게 건강 질문을 할 때 답에 붙은 출처를 직접 열어 본 적이 있나요?",
+   "sources": [
+    [
+     "애플 뉴스룸 — Apple launches research study to explore the use of AI for health",
+     "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/"
+    ]
+   ],
+   "terms": [
+    "애플",
+    "애플 인텔리전스",
+    "오픈에비던스",
+    "헬스킷",
+    "챗봇"
+   ],
+   "image": {
+    "page": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+    "og": "https://www.apple.com/newsroom/images/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/tile/Apple-Health-AI-Usage-Study-hero-lp.jpg.og.jpg?202611191559",
+    "credit": "이미지: Apple",
+    "alt": "애플 헬스 AI 사용 연구 앱 화면",
+    "mode": null
+   },
+   "verify": [
+    {
+     "claim": "미국에서 연구 시작",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "Apple today announced the launch of the Apple Health AI Usage Study in the United States"
+    },
+    {
+     "claim": "오픈에비던스",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "a leading clinical AI platform widely used by healthcare professionals"
+    },
+    {
+     "claim": "최대 20만 명, 21세 이상",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "open to up to 200,000 eligible participants age 21 and older across the United States"
+    },
+    {
+     "claim": "아이폰 15 프로 이후·iOS 26",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "To join, participants must have an Apple Intelligence-enabled iPhone (iPhone 15 Pro or later) running iOS 26 or later."
+    },
+    {
+     "claim": "논문 출처",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "see linked, peer-reviewed clinical citations that ground each response"
+    },
+    {
+     "claim": "NEJM·JAMA·네이처",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "established sources such as The New England Journal of Medicine, Journal of the American Medical Association, and Nature"
+    },
+    {
+     "claim": "진료 준비",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "help participants better prepare for clinical visits with their own doctors"
+    },
+    {
+     "claim": "안전장치",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "The study app features safety guardrails that are intended to detect certain concerning questions"
+    },
+    {
+     "claim": "헬스킷 선택 공유",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "Participants can also choose to share HealthKit data types"
+    },
+    {
+     "claim": "AI 학습에 안 씀",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "study data will not be used to train AI models"
+    },
+    {
+     "claim": "진단·치료용 아님",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "The study app is not meant to diagnose or treat any condition, or replace the advice of medical professionals."
+    },
+    {
+     "claim": "섬불 데사이 발언",
+     "url": "https://apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+     "quote": "conducting a dedicated research study is the most thoughtful way ... to understand how people engage with, comprehend, and evaluate health AI in everyday life,"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-17-san-francisco-declaration",
+   "cat": "정책·저작권",
+   "date": "2026-11-17",
+   "time": "21:38",
+   "title": "한국 등 10개국, AI 공급망 공동 보호 선언",
+   "sub": "팍스 실리카 샌프란시스코 선언 · 민감 기술·핵심 기반시설 함께 지키기 · 실무 그룹 설치",
+   "hook": "한국과 미국, 일본 등 10개국이 11월 15일(미국 시각) 샌프란시스코에서 AI 공급망의 민감 기술과 핵심 기반시설을 함께 지키자는 샌프란시스코 선언에 서명했습니다. 팍스 실리카(Pax Silica) 정상 모임에서 나온 선언으로 참여국끼리 실무 그룹을 만들기로 했습니다.",
+   "try": "반도체·데이터센터·물류처럼 AI 공급망에 닿은 회사에서 일한다면 호주 정부가 올린 선언문 전문에서 '민감 기술' 정의 문단을 직접 읽어 보세요.",
+   "who": "반도체·클라우드·물류 기업에서 대외 협력을 맡은 분",
+   "facts": [
+    [
+     "서명국",
+     "미국, 한국, 일본, 호주, 인도, 이스라엘, 카타르, 싱가포르, 아랍에미리트, 영국"
+    ],
+    [
+     "날짜",
+     "2026년 11월 15일(샌프란시스코 팍스 실리카 정상 모임)"
+    ],
+    [
+     "무엇",
+     "AI 공급망의 민감 기술·핵심 기반시설 공동 보호 선언"
+    ],
+    [
+     "후속 조치",
+     "참여국끼리 실무 그룹 설치"
+    ],
+    [
+     "담지 않은 것",
+     "특정 국가 이름, 수출통제라는 표현, 예산·기한"
+    ],
+    [
+     "원문",
+     "호주 산업과학자원부가 공개한 선언문 전문"
+    ]
+   ],
+   "body": [
+    {
+     "lead": "한국을 포함한 10개국이 11월 15일(미국 시각) 샌프란시스코에서 열린 팍스 실리카(Pax Silica) 정상 모임에서 '지속되는 번영의 안전한 기반에 관한 샌프란시스코 선언'에 서명했습니다. 선언은 AI 공급망에서 지켜야 할 기술과 시설이 무엇인지 참여국이 함께 쓸 정의를 담았고 이를 실제 일로 옮길 실무 그룹을 만들기로 했습니다."
+    },
+    {
+     "ul": [
+      [
+       "10개국 서명, 한국 포함",
+       "미국·일본·호주·인도·영국 등이 함께했습니다"
+      ],
+      [
+       "민감 기술과 핵심 기반시설을 정의",
+       "부품·소프트웨어부터 항만·통신·에너지망까지 담았습니다"
+      ],
+      [
+       "실무 그룹을 만들기로",
+       "특정 국가 이름과 예산·기한은 없습니다"
+      ]
+     ]
+    },
+    {
+     "h": "지킬 대상을 두 갈래로 나눴습니다"
+    },
+    {
+     "p": "선언은 보호할 대상을 민감 기술과 핵심 기반시설로 나눠 적었습니다. 민감 기술은 초지능(SI) 공급망에 꼭 필요한 제품, 소프트웨어, 소재, 지식, 부품과 그 생산 수단 가운데 적대 세력이 훔치거나 손에 넣으면 군사·정보상 이점이나 지나친 경제적 지렛대를 주게 되는 것을 말합니다. 핵심 기반시설에는 항만과 터미널, 운송·통신·물류망, 정보통신과 에너지 기반, 이런 시설을 조율하는 디지털 플랫폼이 들어갑니다. 선언문 각주는 일부 참여국에게 '초지능'이 곧 '인공지능'을 뜻한다고 밝혀 두었습니다."
+    },
+    {
+     "h": "함께 지키고 의존을 줄이자는 약속"
+    },
+    {
+     "p": "참여국은 이 기술과 기반시설을 지키는 일이 공동의 과업이라고 확인했고 경제 안보가 국가 안보의 바탕이라고 적었습니다. 지나친 의존을 줄이려면 여러 곳으로 나뉜 믿을 만한 공급망이 필요하다는 문장도 들어 있습니다. 민감 기술을 보호하는 각국 정책을 집행할 때 서로 협력한다는 내용은 앞서 나온 팍스 실리카 선언을 다시 확인하는 형식으로 담겼습니다. 이 다짐을 실제 업무로 옮기려고 참여국끼리 실무 그룹을 만들기로 했습니다."
+    },
+    {
+     "h": "수출통제나 특정 국가는 적지 않았습니다"
+    },
+    {
+     "p": "선언문에는 특정 국가의 이름이 나오지 않고 수출통제라는 표현도, 예산이나 기한도 없습니다. 실무 그룹이 몇 개인지와 각 그룹이 무엇을 맡는지도 문서에 적혀 있지 않습니다. 서명국은 미국, 호주, 인도, 이스라엘, 일본, 한국, 카타르, 싱가포르, 아랍에미리트, 영국입니다. 호주 산업과학자원부는 11월 17일 선언문 전문을 누리집에 올렸습니다."
+    }
+   ],
+   "ask": "회사가 다루는 부품이나 소프트웨어가 선언문의 '민감 기술' 정의에 들어갈까요?",
+   "sources": [
+    [
+     "호주 산업과학자원부 — The San Francisco Declaration on the Secure Foundations of Enduring Prosperity",
+     "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026"
+    ]
+   ],
+   "terms": [
+    "팍스 실리카",
+    "반도체",
+    "인공지능",
+    "AGI"
+   ],
+   "image": {
+    "page": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+    "og": null,
+    "credit": "이미지: 호주 산업과학자원부",
+    "alt": "샌프란시스코 선언 전문을 올린 호주 정부 페이지",
+    "mode": "screenshot"
+   },
+   "verify": [
+    {
+     "claim": "11월 15일 샌프란시스코 서명",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "The following governments signed the declaration at the Pax Silica Summit in San Francisco on 15 November 2026:"
+    },
+    {
+     "claim": "서명국 10개",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "United States of America, Australia, India, Israel, Japan, Republic of Korea, Qatar, Singapore, United Arab Emirates, United Kingdom."
+    },
+    {
+     "claim": "민감 기술 정의",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "First, sensitive technologies – including goods, software, materials, knowledge, components and inputs used to produce them,"
+    },
+    {
+     "claim": "군사·정보 이점, 경제적 지렛대",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "would confer a meaningful military or intelligence advantage, or undue economic leverage over the participants,"
+    },
+    {
+     "claim": "핵심 기반시설 정의",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "This includes the ports, terminals, transport, communications, and logistics networks"
+    },
+    {
+     "claim": "정보통신·에너지",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "the ICT and energy infrastructure that their operations depend on,"
+    },
+    {
+     "claim": "디지털 플랫폼",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "as well as the digital platforms that facilitate their coordination and management,"
+    },
+    {
+     "claim": "공동의 과업",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "We affirm that the safeguarding of these sensitive technologies and critical infrastructure is a shared endeavour;"
+    },
+    {
+     "claim": "경제 안보가 국가 안보의 바탕",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "economic security is fundamental to national security"
+    },
+    {
+     "claim": "의존 줄이기",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "reducing excessive dependencies through diversified and trusted supply chains"
+    },
+    {
+     "claim": "정책 집행 협력",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "Reaffirming the importance of cooperation on the enforcement of our respective policies to protect sensitive technologies and critical infrastructure from undue access, influence, or control, as stated in the Pax Silica Declaration;"
+    },
+    {
+     "claim": "실무 그룹",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "Resolved to establish working groups among us to give effect to our shared vision of super intelligence (SI)*-led growth and economic security"
+    },
+    {
+     "claim": "초지능 각주",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "For some participants, 'super intelligence' refers to 'artificial intelligence'."
+    },
+    {
+     "claim": "11월 17일 게시",
+     "url": "https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026",
+     "quote": "Date published: 17 November 2026"
+    }
+   ]
+  }
+ ],
+ "dropped": [
+  {
+   "topic": "오픈AI '격자 위 표준 모형' 연구와 과학 블로그 개설",
+   "reason": "openai.com 원문을 열어 확인하지 못했습니다."
+  },
+  {
+   "topic": "오더블 AI 오디오북 찾기 기능",
+   "reason": "언론 보도만 있고 회사 원문을 찾지 못했습니다."
+  }
+ ]
+}
