@@ -130,8 +130,8 @@
     "page": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
     "og": null,
     "credit": "이미지: Dragos",
-    "alt": "드라고스 AI 공급망 카나리 연구 블로그 화면",
-    "mode": "screenshot"
+    "alt": "드라고스 AI 공급망 카나리 연구 블로그 대표 이미지",
+    "mode": null
    },
    "verify": [
     {
@@ -293,9 +293,9 @@
    ],
    "image": {
     "page": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/",
-    "og": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
+    "og": "https://storage.googleapis.com/gweb-research2023-media/original_images/Duplex1-TasksInGeminiHero.png",
     "credit": "이미지: Google Research",
-    "alt": "제미나이와 전화 통화 작업을 잇는 구글 리서치 그림",
+    "alt": "전화 음성 파형과 식당 아이콘이 제미나이 아이콘으로 이어지는 구글 리서치 그림",
     "mode": null
    },
    "verify": [
