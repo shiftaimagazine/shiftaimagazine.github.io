@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url><loc>https://shiftaimagazine.com/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/news/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/tutorial/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/daily/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/</loc><lastmod>2026-11-23</lastmod></url>
+<url><loc>https://shiftaimagazine.com/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/news/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/tutorial/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/daily/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/tools/</loc><lastmod>2026-11-09</lastmod></url>
-<url><loc>https://shiftaimagazine.com/prompts/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/verdict/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/about/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/subscribe/</loc><lastmod>2026-11-23</lastmod></url>
+<url><loc>https://shiftaimagazine.com/prompts/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/verdict/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/about/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/subscribe/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/news/2026-11-24-openai-perplexity-limits/</loc><lastmod>2026-11-24</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-24-openai-perplexity-limits.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/news/2026-11-23-dragos-ai-prompt-canaries/</loc><lastmod>2026-11-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-23-dragos-ai-prompt-canaries.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/news/2026-11-23-gemini-tasks-duplex-calls/</loc><lastmod>2026-11-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-23-gemini-tasks-duplex-calls.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/news/2026-11-22-signal-blocks-os-ai/</loc><lastmod>2026-11-22</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-22-signal-blocks-os-ai.webp</image:loc></image:image></url>
@@ -186,6 +187,7 @@
 <url><loc>https://shiftaimagazine.com/column/ads-in-free-chatbots/</loc><lastmod>2026-10-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/chatgpt-ads.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/column/company-ai-takes-sides/</loc><lastmod>2026-10-22</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/whatsapp-redact.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/column/cheap-small-models/</loc><lastmod>2026-10-21</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/haiku.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/daily/2026-11-24/</loc><lastmod>2026-11-24</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-24-openai-perplexity-limits.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/daily/2026-11-23/</loc><lastmod>2026-11-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-23-dragos-ai-prompt-canaries.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/daily/2026-11-22/</loc><lastmod>2026-11-22</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-22-signal-blocks-os-ai.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/daily/2026-11-21/</loc><lastmod>2026-11-21</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-21-gemini-mac-computer-use.webp</image:loc></image:image></url>
@@ -221,11 +223,11 @@
 <url><loc>https://shiftaimagazine.com/daily/2026-10-20/</loc><lastmod>2026-10-20</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/voxtral.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/daily/2026-10-19/</loc><lastmod>2026-10-19</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/whatsapp-redact.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/dict/agent/</loc><lastmod>2026-11-23</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/alignment/</loc><lastmod>2026-11-11</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/alignment/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/token/</loc><lastmod>2026-11-21</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/inference-cost/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/open-weight/</loc><lastmod>2026-11-22</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/benchmark/</loc><lastmod>2026-11-22</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/benchmark/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/open-source/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/vulnerability/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/cve-cvss/</loc><lastmod>2026-10-29</lastmod></url>
@@ -311,7 +313,7 @@
 <url><loc>https://shiftaimagazine.com/dict/neural-network/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/model/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/training/</loc><lastmod>2026-11-11</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/pre-training/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/pre-training/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/dataset/</loc><lastmod>2026-11-15</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/prompt-engineering/</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/text-to-image/</loc><lastmod>2026-10-29</lastmod></url>
@@ -334,7 +336,7 @@
 <url><loc>https://shiftaimagazine.com/dict/ai-security-institute-aisi/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/gpt/</loc><lastmod>2026-11-22</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/chatgpt/</loc><lastmod>2026-10-29</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/openai/</loc><lastmod>2026-11-22</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/openai/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/codex/</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/sora/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/claude/</loc><lastmod>2026-11-11</lastmod></url>
@@ -353,7 +355,7 @@
 <url><loc>https://shiftaimagazine.com/dict/deepseek/</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/kimi/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/mistral-ai/</loc><lastmod>2026-10-31</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/perplexity/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/perplexity/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/midjourney/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/cursor/</loc><lastmod>2026-11-01</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/hugging-face/</loc><lastmod>2026-11-22</lastmod></url>
@@ -408,7 +410,7 @@
 <url><loc>https://shiftaimagazine.com/dict/physical-ai/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/digital-twin/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/agentic-ai/</loc><lastmod>2026-11-04</lastmod></url>
-<url><loc>https://shiftaimagazine.com/dict/frontier-model/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/frontier-model/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/synthetic-data/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/small-language-model/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/vision-language-model/</loc><lastmod>2026-11-08</lastmod></url>
@@ -563,6 +565,10 @@
 <url><loc>https://shiftaimagazine.com/dict/dragos/</loc><lastmod>2026-11-23</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/zero-data-retention/</loc><lastmod>2026-11-23</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/google-duplex/</loc><lastmod>2026-11-23</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/perplexity-metric/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/cross-entropy-loss/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/chain-of-thought/</loc><lastmod>2026-11-24</lastmod></url>
+<url><loc>https://shiftaimagazine.com/dict/held-out-data/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/tools/doc-compare/</loc><lastmod>2026-11-09</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/doc-compare.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/tools/excel-merge/</loc><lastmod>2026-11-09</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/excel-merge.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/tools/pdf-sign/</loc><lastmod>2026-11-09</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/tools/pdf-sign.webp</image:loc></image:image></url>
@@ -594,20 +600,20 @@
 <url><loc>https://shiftaimagazine.com/vs/claude-vs-gemini/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/vs/chatgpt-vs-grok/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://shiftaimagazine.com/vs/</loc><lastmod>2026-11-02</lastmod></url>
-<url><loc>https://shiftaimagazine.com/weekly/2026-11-23/</loc><lastmod>2026-11-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-23-gemini-tasks-duplex-calls.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/weekly/2026-11-23/</loc><lastmod>2026-11-24</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-23-gemini-tasks-duplex-calls.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/2026-11-16/</loc><lastmod>2026-11-22</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-22-signal-blocks-os-ai.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/2026-11-09/</loc><lastmod>2026-11-15</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-14-gemini-decisions-api.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/2026-11-02/</loc><lastmod>2026-11-08</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-11-08-meta-muse-spaces.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/2026-10-26/</loc><lastmod>2026-11-01</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/2026-10-30-nvidia-nemotron-transcribe.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/weekly/2026-10-19/</loc><lastmod>2026-10-25</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/ph/canva-craft.webp</image:loc></image:image></url>
-<url><loc>https://shiftaimagazine.com/weekly/</loc><lastmod>2026-11-23</lastmod></url>
+<url><loc>https://shiftaimagazine.com/weekly/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/guide/start/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-free-vs-paid.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/meeting-notes/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-meeting-notes.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/pdf-summary/</loc><lastmod>2026-11-09</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-pdf-to-markdown.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/email-reply/</loc><lastmod>2026-11-19</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-email-replies.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/excel-ai/</loc><lastmod>2026-11-20</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-spreadsheet-formulas.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/privacy/</loc><lastmod>2026-11-19</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-privacy-settings.webp</image:loc></image:image></url>
-<url><loc>https://shiftaimagazine.com/guide/verify-ai/</loc><lastmod>2026-11-22</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-verify-numbers.webp</image:loc></image:image></url>
+<url><loc>https://shiftaimagazine.com/guide/verify-ai/</loc><lastmod>2026-11-24</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-verify-numbers.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/resume/</loc><lastmod>2026-11-03</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-resume-review.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/ai-cost-save/</loc><lastmod>2026-11-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-claude-code-save-usage.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/presentation/</loc><lastmod>2026-11-05</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-presentation.webp</image:loc></image:image></url>
@@ -616,7 +622,7 @@
 <url><loc>https://shiftaimagazine.com/guide/automation/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-n8n-first-automation.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/video/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-reels-script.webp</image:loc></image:image></url>
 <url><loc>https://shiftaimagazine.com/guide/security/</loc><lastmod>2026-11-23</lastmod><image:image><image:loc>https://shiftaimagazine.com/img/cover/t-auto-update-site.webp</image:loc></image:image></url>
-<url><loc>https://shiftaimagazine.com/guide/</loc><lastmod>2026-11-23</lastmod></url>
+<url><loc>https://shiftaimagazine.com/guide/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/diff/agent-vs-chatbot/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/diff/rag-vs-fine-tuning/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://shiftaimagazine.com/dict/diff/llm-vs-generative-ai/</loc><lastmod>2026-11-11</lastmod></url>

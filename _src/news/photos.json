@@ -618,5 +618,11 @@
   "credit": "이미지: Google Research",
   "alt": "전화 음성 파형과 식당 아이콘이 제미나이 아이콘으로 이어지는 구글 리서치 그림",
   "auto": true
+ },
+ "2026-11-24-openai-perplexity-limits": {
+  "src": "img/ph/2026-11-24-openai-perplexity-limits.webp",
+  "credit": "이미지: OpenAI",
+  "alt": "오픈AI 퍼플렉시티와 지능 글 대표 이미지",
+  "auto": true
  }
 }
