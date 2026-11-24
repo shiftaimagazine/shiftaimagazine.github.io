@@ -624,5 +624,23 @@
   "credit": "이미지: OpenAI",
   "alt": "오픈AI 퍼플렉시티와 지능 글 대표 이미지",
   "auto": true
+ },
+ "2026-11-25-claude-ship": {
+  "src": "img/ph/2026-11-25-claude-ship.webp",
+  "credit": "이미지: Anthropic",
+  "alt": "앤트로픽 클로드 쉽 소개 글 대표 이미지",
+  "auto": true
+ },
+ "2026-11-25-amazon-decart": {
+  "src": "img/ph/2026-11-25-amazon-decart.webp",
+  "credit": "화면: aboutamazon.com",
+  "alt": "아마존 데카르트 기술 인수 발표 페이지",
+  "auto": true
+ },
+ "2026-11-25-shirudo-linux": {
+  "src": "img/ph/2026-11-25-shirudo-linux.webp",
+  "credit": "화면: isovalent.com",
+  "alt": "시스코·오픈AI 시루도 소개 블로그 화면",
+  "auto": true
  }
 }

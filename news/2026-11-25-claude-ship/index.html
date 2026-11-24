@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com https://shift-newsletter.shiftaimagazine.workers.dev; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>클로드 쉽, PR 검토부터 승인까지 · SHIFT AI</title>
+<meta name="description" content="앤트로픽(Anthropic)이 11월 23일 풀 리퀘스트를 검토하고 고치고 승인하는 기능 묶음 '클로드 쉽(Claude Ship)'을 베타로 내놓았습니다. 팀이 저장소에 적어 둔 정책에 따라 클로드가 병합해도 되는 변경을 직접 승인합니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/news/2026-11-25-claude-ship/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="클로드 쉽, PR 검토부터 승인까지 · SHIFT AI">
+<meta property="og:description" content="앤트로픽(Anthropic)이 11월 23일 풀 리퀘스트를 검토하고 고치고 승인하는 기능 묶음 '클로드 쉽(Claude Ship)'을 베타로 내놓았습니다. 팀이 저장소에 적어 둔 정책에 따라 클로드가 병합해도 되는 변경을 직접 승인합니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/news/2026-11-25-claude-ship/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/a-2026-11-25-claude-ship.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=98ded58e"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-25T06:45:00+09:00">
+<meta property="article:section" content="모델·제품">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "클로드 쉽, PR 검토부터 승인까지", "description": "앤트로픽(Anthropic)이 11월 23일 풀 리퀘스트를 검토하고 고치고 승인하는 기능 묶음 '클로드 쉽(Claude Ship)'을 베타로 내놓았습니다. 팀이 저장소에 적어 둔 정책에 따라 클로드가 병합해도 되는 변경을 직접 승인합니다.", "image": ["https://shiftaimagazine.com/og/a-2026-11-25-claude-ship.jpg"], "datePublished": "2026-11-25T06:45:00+09:00", "dateModified": "2026-11-25T06:45:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI MAGAZINE", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/news/2026-11-25-claude-ship/", "articleSection": "모델·제품", "inLanguage": "ko", "keywords": "앤트로픽, 클로드 쉽, 클로드 코드, 풀 리퀘스트(PR), 깃허브, 저장소, 베타, 토큰, 제로 데이터 보존(ZDR), 분류기, 코딩 에이전트", "isBasedOn": ["https://claude.com/resources/articles/introducing-claude-ship"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "AI 뉴스", "item": "https://shiftaimagazine.com/news/"}, {"@type": "ListItem", "position": 3, "name": "클로드 쉽, PR 검토부터 승인까지", "item": "https://shiftaimagazine.com/news/2026-11-25-claude-ship/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/site.css?v=98ded58e">
+</head>
+<body data-route="a-2026-11-25-claude-ship" id="top" class="has-sub" data-pre="1">
+
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="true" aria-current="true">AI 소식</a>
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="false" aria-current="false">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <div class="sw" role="group" aria-label="SHIFT 매거진 바꾸기"><span aria-current="true">AI</span><a href="https://play.shiftaimagazine.com/?from=ai-header" title="SHIFT PLAY · 게임 뉴스·칼럼 매거진" data-ev="switch:play">PLAY</a></div>
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <details class="fol" id="fol">
+        <summary class="btn pill" aria-label="SHIFT 팔로우: 인스타그램·유튜브·스레드 고르기" aria-haspopup="true" aria-expanded="false">팔로우</summary>
+        <div class="folm" role="menu" aria-label="SHIFT 팔로우">
+          <a role="menuitem" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-ev="follow:ig"><i class="fi fi-ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></i><span><b>인스타그램</b><small>30초 영상으로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-ev="follow:yt"><i class="fi fi-yt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"></rect><path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"></path></svg></i><span><b>유튜브</b><small>쇼츠로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-ev="follow:th"><i class="fi fi-th" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"></circle><path d="M15.6 12v1.4a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.6 7.1"></path></svg></i><span><b>스레드</b><small>그날 나온 소식을 가장&nbsp;먼저</small></span></a>
+          <a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></i><span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식&nbsp;한&nbsp;통</small></span></a>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴"><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news" aria-current="page">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴" hidden=""><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial">튜토리얼</a>
+      <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/tips/" data-sub="tips">실용 팁</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+      <a href="/dict/" data-sub="dict">AI 사전</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow art-news">
+    <a class="back" href="/news/">← AI&nbsp;뉴스</a>
+    <span class="cat">모델⁠·제품</span>
+    <h1><span class="tphw"><span class="tph">클로드 쉽,</span> <span class="tph">PR 검토부터 승인까지</span></span></h1><p class="deck">앤트로픽 베타 출시&nbsp;· Team⁠·Enterprise 플랜의 깃허브 저장소&nbsp;· 사용량은 토큰&nbsp;과금</p>
+    <p class="who"><b>이런 분께 추천합니다</b><span>깃허브로 코드를 관리하는 개발팀 리더와 저장소&nbsp;관리자</span></p>
+    <div class="vcard"><a class="vdbox vd-watch" href="/verdict/"><b>SHIFT 판정&nbsp;· 지켜보세요</b><span>베타 단계이고 Team⁠·Enterprise 플랜의 깃허브 저장소에서만 쓸 수 있습니다.</span></a><div class="trynow"><b>오늘 바로 해&nbsp;보세요</b><span>클로드 Team이나 Enterprise를 쓰는 팀이라면 저장소 한 곳에서 관찰 전용 모드로 먼저 켜 보고 승인 정책 파일 초안을 관리자와 상의해&nbsp;보세요.</span></div></div>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>2026.11.25 06:45</span><span class="dot"></span><span>3분 읽기</span></div>
+    <figure class="lead-fig"><img src="img/ph/2026-11-25-claude-ship.webp" alt="앤트로픽 클로드 쉽 소개 글 대표 이미지" fetchpriority="high"><figcaption>이미지: Anthropic</figcaption></figure>
+    <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>앤트로픽(Anthropic)</td></tr><tr><th>날짜</th><td>2026년 11월 23일(미국&nbsp;시각)</td></tr><tr><th>무엇</th><td>PR 검토⁠·수정⁠·승인 기능 묶음 클로드&nbsp;쉽&nbsp;베타</td></tr><tr><th>대상</th><td>Claude Team⁠·Enterprise 플랜, 깃허브&nbsp;저장소</td></tr><tr><th>요금</th><td>토큰 과금, 관리자가 지출 한도&nbsp;설정</td></tr><tr><th>원문</th><td>claude.com 소개&nbsp;글</td></tr></tbody></table></div>
+    <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>세 기능 묶음.</b> 코드 리뷰는 정식 출시이고 PR 스튜어드와 클로드 어프루벌스는 베타입니다</li><li><b>Team⁠⁠·Enterprise 플랜의 깃허브 저장소.</b> 제로 데이터 보존 조직은 쓸 수 없습니다</li><li><b>사용량은 토큰으로 과금.</b> 관리자가 지출 한도를 정할 수 있습니다</li></ul></div>
+    <div class="body"><p class="lead"><span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="앤트로픽">앤트로픽</span>(Anthropic)⁠이 11월 23일(미국 시각) <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="풀 리퀘스트(PR)">풀 리퀘스트⁠(PR)</span>를 검토하고 고치고 승인까지 맡는 기능 묶음 '<span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="클로드 쉽">클로드 쉽</span>(Claude Ship)'을 베타로 내놓았습니다. 코드 리뷰, PR 스튜어드(PR Steward), 클로드 어프루벌스(Claude Approvals) 세 가지로 이뤄져 있고 팀이 정해 둔 정책에 따라 병합해도 되는 변경을 클로드가 직접 승인합니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정&nbsp;· 지켜보세요</i><span>베타 단계이고 Team⁠·Enterprise 플랜의 깃허브 저장소에서만 쓸 수 있습니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>클로드 Team이나 Enterprise를 쓰는 팀이라면 저장소 한 곳에서 관찰 전용 모드로 먼저 켜 보고 승인 정책 파일 초안을 관리자와 상의해&nbsp;보세요.</span></div><ul><li><b>세 기능 묶음.</b> 코드 리뷰는 정식 출시이고 PR 스튜어드와 클로드 어프루벌스는 베타입니다</li><li><b>Team⁠⁠·Enterprise 플랜의 깃허브 저장소.</b> 제로 데이터 보존 조직은 쓸 수 없습니다</li><li><b>사용량은 토큰으로 과금.</b> 관리자가 지출 한도를 정할 수 있습니다</li></ul></div><h3>검토, 수리, 승인이 따로 움직입니다</h3><p>코드 리뷰는 여러 관점으로 PR을 깊게 살피고 찾은 문제를 적대적으로 검증한 뒤 분류해서 PR에 올립니다. 리뷰 수준은 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="저장소">저장소</span>마다 퀵, 스탠더드, 딥(Quick, Standard, Deep) 중에서 고릅니다. PR 스튜어드는 실패한 CI 검사와 병합 충돌, 리뷰 의견을 처리해 PR을 초록불 상태로 유지하려고 하지만 PR을 승인하거나 병합하지 않도록 설계되었습니다. 푸시할 때마다 무엇을 바꿨고 어떻게 되돌리는지 댓글을 남기고 개발자는 @claude로 지시하거나 @claude stop으로 멈춥니다.</p><h3>승인 여부는 저장소 안의 정책 파일이 정합니다</h3><p>클로드 어프루벌스는 팀이 저장소 안의 파일로 써 둔 승인 정책을 적용합니다. 소개 글은 이를 더 똑똑한 CODEOWNERS 파일에 비유합니다. 정책이 허용하는 일상적인 변경은 클로드가 스스로 승인하고 특정 상황에서는 사람의 승인을 요구할 수 있으며 판단 신호로는 코드 리뷰 결과나 자연어 분류기를 쓸 수 있습니다. 앤트로픽은 먼저 관찰 전용(observe-only) 모드로 켜서 신뢰를 쌓으라고 권하고 기존 브랜치 보호와 필수 검사도 그대로 쓸 수 있습니다.</p><h3>개발자는 /ship, 관리자는 저장소&nbsp;단위로</h3><p>개발자는 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="클로드 코드">클로드 코드</span>의 새 /ship 명령으로 푸시와 PR 열기, 리뷰, 실패한 검사 처리까지 맡길 수 있습니다. 무엇을 병합할 수 있는지는 개발자의 권한과 저장소의 브랜치 규칙에 따르고 /ship은 클로드 코드와 데스크톱 앱에 이날부터 순차 배포됩니다. 관리자가 저장소 단위로 켜면 그 저장소의 PR 전체에 적용되고 저장소마다 리뷰 수준과 실행 시점, 지출 한도를 정합니다.</p><h3>요금과 쓸 수 없는&nbsp;조직</h3><p>사용량은 토큰으로 과금되므로 켜면 조직 비용이 늘 수 있고 비용은 포함되는 PR의 수와 크기, 리뷰 수준, 실행 빈도, PR 스튜어드의 작업량에 따라 달라집니다. 클로드 어프루벌스에는 기본 요금이 없지만 정책에 쓰는 분류기가 쓴 토큰은 청구됩니다. 자격이 되는 Enterprise 조직은 클로드 쉽 크레딧을 최소 1만 달러 받을 수 있고 2027년 1월 15일까지 청구한 뒤 30일 안에 써야 합니다. 제로 데이터 보존, HIPAA 구성, 고객 관리 암호화 키를 쓰는 조직은 이용할 수 없으며 국가별 제공 여부는 소개 글에 나오지 않습니다.</p></div>
+    <div class="ask"><small> 생각해&nbsp;볼&nbsp;질문</small>팀의 코드 리뷰에서 사람이 꼭 봐야 하는 변경과 맡겨도 되는 변경을 나눠 본 적이&nbsp;있나요?</div>
+    <nav class="nxbox" aria-label="같이 읽으면 좋은 글"><b>같이 읽으면&nbsp;좋은&nbsp;글</b><a href="/guide/coding/" data-ev="next:/guide/coding/"><span>길잡이</span>클로드 코드, 처음부터 시작하기</a><a href="/tutorial/claude-code-first/" data-ev="next:/tutorial/claude-code-first/"><span>튜토리얼</span>코딩 몰라도 되는 클로드 코드 첫 설치와 첫 작업,&nbsp;7단계</a><a href="/guide/ai-cost-save/" data-ev="next:/guide/ai-cost-save/"><span>길잡이</span>AI 구독료⁠·사용료&nbsp;줄이기</a></nav>
+    <div class="src"><b>원문</b><a href="https://claude.com/resources/articles/introducing-claude-ship" target="_blank" rel="noopener">앤트로픽 — Introducing Claude Ship&nbsp;· https://claude.com/resources/articles/introducing-claude-ship</a></div>
+    <div class="mfold m-only"><details><summary>핵심 정보&nbsp;6개</summary><table class="facts"><tbody><tr><th>발표 주체</th><td>앤트로픽(Anthropic)</td></tr><tr><th>날짜</th><td>2026년 11월 23일(미국&nbsp;시각)</td></tr><tr><th>무엇</th><td>PR 검토⁠·수정⁠·승인 기능 묶음 클로드&nbsp;쉽&nbsp;베타</td></tr><tr><th>대상</th><td>Claude Team⁠·Enterprise 플랜, 깃허브&nbsp;저장소</td></tr><tr><th>요금</th><td>토큰 과금, 관리자가 지출 한도&nbsp;설정</td></tr><tr><th>원문</th><td>claude.com 소개&nbsp;글</td></tr></tbody></table></details><details><summary>원문 1곳</summary><div class="srcl"><a href="https://claude.com/resources/articles/introducing-claude-ship" target="_blank" rel="noopener">앤트로픽 — Introducing Claude Ship</a></div></details></div>
+    
+    <div class="chips"><a href="/dict/anthropic/" title="클로드를 만드는 미국 AI 회사입니다. 오픈AI 출신 연구자들이 2021년 세웠고 AI 안전 연구를 앞세웁니다.">앤트로픽</a><a href="/dict/claude-ship/" title="앤트로픽이 풀 리퀘스트의 검토, 수정, 승인을 맡기려고 내놓은 기능 묶음입니다. 코드 리뷰, PR 스튜어드, 클로드 어프루벌스로 이뤄지고 2026년 11월 23일 베타로 나왔습니다.">클로드 쉽</a><a href="/dict/claude-code/" title="앤트로픽의 코딩 에이전트입니다. 터미널이나 편집기에서 말로 시키면 코드를 읽고 고치고 명령까지 실행합니다.">클로드 코드</a><a href="/dict/pull-request/" title="내가 고친 코드를 원래 프로젝트에 합쳐 달라고 요청하는 것입니다. 다른 개발자와 자동 검사가 이 단계에서 코드를 살펴봅니다.">풀 리퀘스트⁠(PR)</a><a href="/dict/github/" title="코드를 저장하고 여럿이 함께 고치는 웹 서비스입니다. 오픈소스 프로젝트 대부분이 여기에 코드와 새 버전을 공개합니다.">깃허브</a><a href="/dict/repository/" title="프로젝트의 코드와 파일, 바뀐 기록을 한곳에 모아 둔 곳입니다. 깃허브에 올린 저장소는 '레포(repo)'라고도 부릅니다.">저장소</a><a href="/dict/beta/" title="정식 출시 전에 일부 사용자에게 먼저 공개하는 시험판입니다. 기능이 바뀌거나 오류가 있을 수 있습니다. 정식 출시는 GA(General Availability)라고 부릅니다.">베타</a><a href="/dict/token/" title="AI가 글을 읽고 쓰는 최소 단위입니다. API 요금은 보통 '100만 토큰당 얼마'로 매깁니다.">토큰</a><a href="/dict/zero-data-retention/" title="AI 공급사가 요청과 답을 처리한 뒤 저장하지 않겠다고 약속하는 설정이나 계약 조건입니다. 요청이 다른 업체로 넘어가면 그 업체까지 지켜진다는 보장은 없습니다.">제로 데이터 보존⁠(ZDR)</a><a href="/dict/classifier/" title="입력된 이미지나 글이 정해 둔 범주 중 어디에 속하는지 가려내는 AI 모델입니다.">분류기</a><a href="/dict/coding-agent/" title="코드 저장소를 읽고 고친 뒤 테스트와 명령 실행까지 스스로 하는 AI 에이전트입니다. 클로드 코드·코덱스·커서가 대표적입니다.">코딩 에이전트</a></div>
+    <div class="ask m-only"><small> 생각해&nbsp;볼&nbsp;질문</small>팀의 코드 리뷰에서 사람이 꼭 봐야 하는 변경과 맡겨도 되는 변경을 나눠 본 적이&nbsp;있나요?</div>
+    <div class="links"><a href="/daily/2026-11-25/">2026.11.25 데일리&nbsp;이슈</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">30초 영상&nbsp;보기</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 의견&nbsp;남기기</a><a href="/news/2026-11-25-claude-ship/" data-copy="https://shiftaimagazine.com/news/2026-11-25-claude-ship/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20%ED%81%B4%EB%A1%9C%EB%93%9C%20%EC%89%BD%2C%20PR%20%EA%B2%80%ED%86%A0%EB%B6%80%ED%84%B0%20%EC%8A%B9%EC%9D%B8%EA%B9%8C%EC%A7%80&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Fnews%2F2026-11-25-claude-ship%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려&nbsp;주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI&nbsp;·&nbsp;쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 기사</div><div class="list"><a class="post" href="/news/2026-11-25-amazon-decart/"><img class="thumb" src="img/ph/2026-11-25-amazon-decart.webp" alt="아마존 데카르트 기술 인수 발표 페이지" loading="lazy">
+  <div class="b"><span class="cat">비즈니스⁠·일자리</span><h3>아마존, 데카르트 최적화 기술&nbsp;인수</h3><p>아마존⁠(Amazon)⁠이 11월 23일 데카르트⁠(Decart)⁠의 '데카르트 최적화 스택⁠(DOS)' 기술을 사들이기로 계약했다고 발표했습니다. 공동 창업자 3명과 연구진이 아마존에 합류하고 가격은 발표문에 나오지 않습니다.</p><div class="meta"><span>2026.11.25</span><span class="dot"></span><span>2분 읽기</span></div></div></a></div></div>
+  </article></main>
+<section class="subbox" aria-label="주간 메일 구독">
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다. <a class="smpl" href="/subscribe/#sample" data-ev="subscribe:sample-link">어떤 메일인지 먼저&nbsp;보기</a></p></div>
+  <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
+    <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
+    <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <label class="agree"><input type="checkbox" name="agree" required=""> <span>[필수] 이메일 주소 수집⁠·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required=""> <span>[필수] 개인정보 국외 이전(미국 Resend⁠·Cloudflare)⁠에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend⁠·Cloudflare로 전송⁠·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
+    <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
+    <p class="submsg" role="status" aria-live="polite"></p>
+  </form>
+</section></div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fsw"><span class="fsw-k">SHIFT 매거진&nbsp;바꾸기</span><div class="fsw-t" role="group" aria-label="SHIFT 매거진 바꾸기"><span class="on-ai" aria-current="true">SHIFT AI</span><a class="to-play" href="https://play.shiftaimagazine.com/?from=ai-footer">SHIFT PLAY</a></div><p>지금 보는 곳&nbsp;· 일하는 사람을 위한 AI&nbsp;매거진</p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/tips/">실용 팁</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="/subscribe/">주간 메일</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span class="ai">A</span><span class="ai">I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=98ded58e" defer=""></script>
+<script src="/assets/app.js?v=98ded58e" defer=""></script>
+
+
+</body></html>
