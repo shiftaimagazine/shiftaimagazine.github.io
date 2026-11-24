@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
-<script src="/assets/theme.js?v=98ded58e"></script>
+<script src="/assets/theme.js?v=41b0022a"></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
 <meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/site.css?v=98ded58e">
+<link rel="stylesheet" href="/assets/site.css?v=41b0022a">
 </head>
 <body data-route="a-2026-11-25-shirudo-linux" id="top" class="has-sub" data-pre="1">
 
@@ -110,7 +110,7 @@
     <p class="who"><b>이런 분께 추천합니다</b><span>리눅스 서버와 쿠버네티스를 운영하는 보안⁠·인프라&nbsp;담당자</span></p>
     <div class="vcard"><a class="vdbox vd-watch" href="/verdict/"><b>SHIFT 판정&nbsp;· 지켜보세요</b><span>원문의 효과 확인은 자바 시연 한 건 수준이라 아직 넓게 검증되지 않았습니다.</span></a><div class="trynow"><b>오늘 바로 해&nbsp;보세요</b><span>회사 서버 담당자에게 긴급 패치를 바로 적용하기 어려울 때 쓰는 임시 방어 수단이 있는지 물어보고 시루도 소개 글을 함께 읽어&nbsp;보세요.</span></div></div>
     <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>2026.11.25 06:43</span><span class="dot"></span><span>3분 읽기</span></div>
-    <figure class="lead-fig"><img src="img/ph/2026-11-25-shirudo-linux.webp" alt="시스코·오픈AI 시루도 소개 블로그 화면" fetchpriority="high"><figcaption>화면: isovalent.com</figcaption></figure>
+    <figure class="lead-fig"><img src="img/ph/2026-11-25-shirudo-linux.webp" alt="시스코·오픈AI 시루도 소개 블로그 화면" fetchpriority="high"><figcaption>이미지: Cisco Isovalent</figcaption></figure>
     <div class="box"><b>한눈에 보기</b><table class="facts"><tbody><tr><th>발표 주체</th><td>시스코⁠(Cisco)⁠·오픈AI⁠(OpenAI)</td></tr><tr><th>날짜</th><td>2026년 11월 23일(미국&nbsp;시각)</td></tr><tr><th>무엇</th><td>패치 전 임시 방어를 넣는 오픈소스 보안&nbsp;플랫폼</td></tr><tr><th>방식</th><td>eBPF 기반 완화책, 코덱스를 제어부로&nbsp;시연</td></tr><tr><th>배포</th><td>서명된&nbsp;.bee 패키지, OCI 레지스트리</td></tr><tr><th>원문</th><td>시스코 아이소발런트&nbsp;블로그</td></tr></tbody></table></div>
     <div class="box keyp"><b> 세&nbsp;줄&nbsp;요약</b><ul><li><b>전체 패치 대신 작은 임시 방어.</b> 실행 중인 커널이나 워크로드에 목표를 좁힌 완화책을 넣습니다</li><li><b>에이전트가 방어 코드를 작성.</b> 시연에서는 코덱스가 취약점 탐색부터 배포 감시까지 맡았습니다</li><li><b>재시작 없이 적용.</b> 서명된 패키지를 TPM으로 검증해 반영합니다</li></ul></div>
     <div class="body"><p class="lead">시스코⁠(Cisco)⁠와 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="오픈AI">오픈AI</span>(OpenAI)⁠가 11월 23일(미국 시각) <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="오픈소스">오픈소스</span> 보안 플랫폼 '<span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="시루도">시루도</span>(Shirudo)'를 공개했습니다. 시루도는 운영체제와 워크로드를 패치가 적용되기 전까지 지켜 주는 도구이고 이름은 일본어로 방패를 뜻합니다. 소개 글은 공개되기 전에 악용되는 취약점이 늘고 있다는 문제의식에서 출발합니다.</p><div class="glance m-only"><a class="gv" href="/verdict/"><i class="vd-watch">SHIFT 판정&nbsp;· 지켜보세요</i><span>원문의 효과 확인은 자바 시연 한 건 수준이라 아직 넓게 검증되지 않았습니다.</span></a><div class="gt"><b>오늘 바로 해 보세요</b><span>회사 서버 담당자에게 긴급 패치를 바로 적용하기 어려울 때 쓰는 임시 방어 수단이 있는지 물어보고 시루도 소개 글을 함께 읽어&nbsp;보세요.</span></div><ul><li><b>전체 패치 대신 작은 임시 방어.</b> 실행 중인 커널이나 워크로드에 목표를 좁힌 완화책을 넣습니다</li><li><b>에이전트가 방어 코드를 작성.</b> 시연에서는 코덱스가 취약점 탐색부터 배포 감시까지 맡았습니다</li><li><b>재시작 없이 적용.</b> 서명된 패키지를 TPM으로 검증해 반영합니다</li></ul></div><h3>패치가 닿기 전의 빈틈을 메웁니다</h3><p>시루도는 전체 소프트웨어 패치를 설치하고 재시작하는 대신 실행 중인 커널이나 워크로드에 작은 완화책(mitigation)⁠을 보냅니다. 완화책은 취약한 경로를 막거나 취약한 코드를 고친 코드로 바꾸거나 탐지용 가시성을 더하는 세 가지 모양입니다. 소개 글은 수정이 대부분의 시스템에 닿기까지 며칠, 몇 주, 때로는 몇 달이 걸린다고 적습니다. 시루도는 아이소발런트(Isovalent)⁠가 2022년 오픈소스로 공개한 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="eBPF">eBPF</span> 기반 보안 플랫폼 테트라곤(Tetragon)⁠을 <span class="tm" tabindex="0" role="button" aria-expanded="false" data-t="에이전트">에이전트</span>용으로 다시 쓴 것입니다.</p><h3>에이전트가 코드로 방어합니다</h3><p>글쓴이들은 기계 속도의 방어를 하려면 에이전트가 자연어인 코드로 일하게 해야 한다고 설명합니다. 시연에서는 코덱스⁠(Codex)⁠가 에이전트 제어부를 맡아 취약점을 찾고, 재현 코드와 검증을 포함한 완화 코드를 만들고, 서명된 완화책을 영향받는 노드에 배포하며 상태를 지켜보고, 공격 시도로 늘어나는 적중 횟수를 감시하는 네 단계를 밟았습니다. 자바 애플리케이션에는 eBPF 대신 에이전트가 만든 자바 바이트코드를 넣는 방식을 썼습니다.</p><h3>서명과 커널 검증이 안전장치입니다</h3><p>대상 컴퓨터의 제어부는 부팅 때 운영체제에 올라가는 eBPF 프로그램이며 커널이 실행 전에 모든 eBPF 프로그램을 검증합니다. 시루도는 상시 실행되는 데몬 없이 한 번 실행되는 명령줄 도구로 만들어졌고 운영자가 서명된&nbsp;.bee 패키지를 OCI 레지스트리로 배포하면 대상이 TPM으로 서명을 검증합니다. 실시간 완화책은 커널에 내장된 보호를 대신하지 않고 보완하는 용도이며 자바 시연에서는 완화책이 취약점 악용을 막는 데 효과가 있는 것으로 보인다는 문장이 나옵니다. 라이선스와 정식 릴리스 여부는 글에 적혀 있지 않고 협업은 깃허브에서 누구에게나 열려 있습니다.</p></div>
@@ -162,8 +162,8 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="/assets/data-lite.js?v=98ded58e" defer=""></script>
-<script src="/assets/app.js?v=98ded58e" defer=""></script>
+<script src="/assets/data-lite.js?v=41b0022a" defer=""></script>
+<script src="/assets/app.js?v=41b0022a" defer=""></script>
 
 
 </body></html>
