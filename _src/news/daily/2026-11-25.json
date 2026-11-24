@@ -444,10 +444,10 @@
    ],
    "image": {
     "page": "https://isovalent.com/blog/post/cisco-openai-shirudo/",
-    "og": null,
+    "og": "https://isovalent.com/images/og-alt.png",
     "credit": "이미지: Cisco Isovalent",
     "alt": "시스코·오픈AI 시루도 소개 블로그 화면",
-    "mode": "screenshot"
+    "mode": null
    },
    "verify": [
     {
