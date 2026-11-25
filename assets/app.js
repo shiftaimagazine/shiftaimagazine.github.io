@@ -89,9 +89,9 @@ const syncMarq = ()=>document.querySelectorAll(".hwall .wl-t, .hticker .tk-t").f
 let marqT=0; addEventListener("resize",()=>{ clearTimeout(marqT); marqT=setTimeout(syncMarq,200); });
 addEventListener("load",syncMarq); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(syncMarq);  // 미리 그린 페이지도 열 때마다 화면 폭에 맞춰 다시 잰다
 function renderHome2(d){
-  if(d){ $("#hPill").href=P("d-"+d.date); $("#hPillT").textContent=`${mdShort(d.date)} · 오늘 기사 ${dayItems(d).length}건`; }
+  // 11/25~ 첫 화면 알약은 소식 대신 따라 하기로('AI 실전 매거진' 자리). 소식은 아래 '이번 주 판정' 한 줄 목록으로 줄임
+  if($("#hPillT")) $("#hPillT").textContent = `튜토리얼 ${TUTORIALS.length}편 · 결과부터 보고 따라 하기`;
   if($("#hAll")) $("#hAll").textContent = `AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기`;
-  if($("#newsMore")) $("#newsMore").innerHTML = `<span class="sr">최신 기사 </span>AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기 <span class="ne" aria-hidden="true">↗</span>`;
   const tw = TOOLS.filter(t=>t.thumb).slice(0,10).map(t=>({href:t.href,src:t.thumb,alt:toolName(t),id:t.id}));
   const uw = homeTutPick(10).filter(t=>t.thumb).map(t=>({href:P(t.id),src:t.thumb,alt:t.title,id:t.id}));
   // 11/12 속도: 미리 그린 페이지에서는 띠를 다시 만들지 않는다. 다시 만들면 첫 화면에서 가장 큰 그림(띠 첫 카드)이 스크립트를 다 받은 뒤에야 새로 그려져 모바일 LCP 가 8초대로 잡혔다.
@@ -149,15 +149,15 @@ function motion(){
 
 function renderHome(){
   if($("#hRoles") && $("#hRoles").children.length>1) return;  // 미리 그려 둔 페이지는 이미 채워져 있다
-  const d = dailySorted[0], its = d ? dayItems(d) : [];
-  if(d){ const lead=dayPhoto(d), im=lead?imgOf(lead):null; const [y,m,dd]=d.date.split("-").map(Number); const w=new Date(Date.UTC(y,m-1,dd)).getUTCDay();
-    $("#dailyHome").href = P("d-"+d.date);
-    $("#dailyHome").innerHTML = `${im?`<span class="df-fig"><img src="${im.src}" alt="${esc(im.alt||"")}" loading="lazy">${im.credit?`<span class="df-cr">${esc(im.credit)}</span>`:""}</span>`:""}<span class="df-b"><span class="df-k">데일리 이슈 · ${m}월 ${dd}일 ${WD[w]}요일</span><b>${tp(d.title)}</b><ol>${its.slice(0,3).map(a=>`<li>${tp(a.title)}</li>`).join("")}</ol><span class="df-go">이날 소식 ${its.length}건 보기 <span class="ar">→</span></span></span>`; }
-  $("#homeNews").innerHTML = sorted.filter(a=>!its.includes(a)).slice(0,4).map(ncardHTML).join("");
-  $("#homeNewsM").innerHTML = sorted.slice(0,4).map(postHTML).join("");
+  const d = dailySorted[0];
+  // 이번 주 판정(11/25~): 지난 7일 기사 중 판정이 붙은 것 6개까지. 적으면 최근 판정으로 채움
+  const lastD = sorted.length ? sorted[0].date : "", wk = lastD ? new Date(Date.parse(lastD+"T00:00:00Z")-6*864e5).toISOString().slice(0,10) : "";
+  const hasV = a=>a.verdict&&VD[a.verdict.v]; let vs = sorted.filter(a=>hasV(a)&&a.date>=wk).slice(0,6);
+  if(vs.length<4) vs = sorted.filter(hasV).slice(0,6);
+  $("#homeVerd").innerHTML = vs.map(a=>`<li><a href="${P("a-"+a.id)}" data-ev="home-verd:${esc(a.id)}">${vchip(a)}<b>${tp(a.title)}</b><span class="hv-d">${mdShort(a.date)}</span></a></li>`).join("");
   renderHome2(d);
-  const rl = sorted.slice(0,3);
-  $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT 편집부입니다.</b><p>방금 보신 영상의 기사 전문과 오늘 올라온 기사를 아래에 모아 두었습니다.</p><div class="acts">${rl.map(a=>`<a href="${P("a-"+a.id)}">${tp(a.title)}</a>`).join("")}</div>`;
+  const rl = [...homeTutPick(2).map(t=>({href:P(t.id),t:t.title})), ...TOOLS.slice(0,1).map(t=>({href:t.href,t:toolName(t)}))];
+  $("#reelwelcome").innerHTML = `<b>릴스 보고 오셨군요. 반갑습니다, SHIFT 편집부입니다.</b><p>영상에 나온 도구와 따라 하는 방법은 아래에서 바로 볼 수 있습니다.</p><div class="acts">${rl.map(x=>`<a href="${x.href}">${tp(x.t)}</a>`).join("")}<a href="/tools/">무료 도구 전체</a></div>`;
 }
 
 // AI 뉴스 목록 = 기사 + 칼럼(분류 "칼럼")
@@ -756,7 +756,7 @@ if(window.matchMedia){ const mq=matchMedia("(prefers-color-scheme: dark)"); (mq.
 function init(){
   const r = ROUTE;
   if(!PRE){
-    if($("#dailyHome")) renderHome();
+    if($("#homeVerd")) renderHome();
     renderNews(); renderDict(); renderLists(); renderAbout(); renderPrompts(); renderVerdict();
     if(r.startsWith("a-") && byId[r.slice(2)]) renderArticle(byId[r.slice(2)]);
     else if(r.startsWith("t-") && tutById[r]) renderTutorial(tutById[r]);
