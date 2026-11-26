@@ -2198,3 +2198,19 @@ footer .fsw p{margin:0;font-size:12.5px;color:#8A8A87}
 .totable td.low{background:#FFF4C2;color:#3d2e00}
 .totable td:focus{outline:2px solid var(--accent);outline-offset:-2px}
 .totable td.num{text-align:right;font-variant-numeric:tabular-nums}
+
+/* 사진 얼굴·번호판 모자이크(11/26) */
+.pmlist{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px}
+.pmlist button{position:relative;flex:none;width:64px;height:64px;border:2px solid var(--line);border-radius:8px;padding:0;overflow:hidden;background:var(--bg2);cursor:pointer}
+.pmlist button.on{border-color:var(--accent)}
+.pmlist img{width:100%;height:100%;object-fit:cover;display:block}
+.pmlist span{position:absolute;right:3px;bottom:3px;font-size:11px;font-weight:800;background:var(--ink);color:var(--bg);border-radius:999px;padding:0 6px}
+.pmstage{display:flex;justify-content:center;background:var(--bg2);border-radius:10px;padding:8px}
+.pmwrap{position:relative;line-height:0}
+.pmwrap canvas{display:block;border-radius:4px}
+.pmboxes{position:absolute;left:0;top:0;touch-action:none;cursor:crosshair}
+.pmbox{position:absolute;border:2px dashed #fff;outline:2px dashed #111;outline-offset:-4px;cursor:move;box-sizing:border-box}
+.pmbox.auto-plate{border-color:#FFD43B}
+.pmdel{position:absolute;right:-12px;top:-12px;width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:#b42318;color:#fff;font-size:15px;line-height:20px;cursor:pointer;padding:0}
+.pmrs{position:absolute;right:-7px;bottom:-7px;width:16px;height:16px;border-radius:4px;background:#fff;border:2px solid #111;cursor:nwse-resize}
+@media (max-width:560px){.pmdel{width:30px;height:30px}.pmrs{width:22px;height:22px;right:-10px;bottom:-10px}}

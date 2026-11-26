@@ -464,6 +464,10 @@ TOOLS = D.get('TOOLS', [])
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
 TOOL_SEO = {
+    'photo-mosaic': dict(js='photo-mosaic.js', title='사진 얼굴 모자이크 무료 — 얼굴 자동으로 찾아 가리기, 번호판 모자이크(업로드 없이)',
+                desc='블로그·중고 거래·단톡방에 올리기 전에 사진 속 얼굴을 자동으로 찾아 모자이크·흐림·검은 칸으로 가리고, 차 번호판과 빠진 곳은 끌어서 더 가립니다. 20장까지 한 번에 하고, 저장한 사진에는 위치 정보가 남지 않습니다. 사진은 서버에 올리지 않습니다.',
+                alt=['사진 모자이크', '얼굴 모자이크', '사진 얼굴 가리기', '번호판 모자이크', '자동 모자이크', '사진 블러 처리'],
+                feat=['얼굴 자동 찾기(정면·옆얼굴)', '번호판 후보 찾기', '끌어서 칸 그리기·옮기기·크기 바꾸기', '모자이크·흐리게·검은 칸', '얼굴은 둥글게 가리기', '20장 한 번에·ZIP', '저장할 때 위치 정보(EXIF) 빼기']),
     'table-ocr': dict(js='table-ocr.js', title='표 사진 엑셀 변환 무료 — 이미지·캡처 속 표를 칸 구조 그대로 엑셀로(한국어 OCR)',
                 desc='종이 표를 찍은 사진이나 화면 캡처 속 표를 줄·칸·합친 칸 구조 그대로 읽어 엑셀(.xlsx)로 만듭니다. 한국어·영어 글자를 읽고, 결과를 화면에서 고친 뒤 받으며, 숫자는 계산되는 숫자로 넣습니다. 사진은 서버에 올리지 않습니다.',
                 alt=['표 사진 엑셀 변환', '이미지 표 엑셀 변환', '사진 엑셀 변환', '캡처 표 엑셀', '표 OCR'],
@@ -714,7 +718,7 @@ for t in TOOLS:
     fq = faq_of(v)
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
     if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
-    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf', 'table-ocr') else None)
+    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf', 'table-ocr', 'photo-mosaic') else None)
 # AI 서비스 비교(/vs/, 11/2~): news/vs.json — 요금제 칼럼(10/29 각 사 공식 페이지 확인)에 실린 사실만 쓴다. 칼럼을 고칠 때 같이 고칠 것.
 VS = json.load(open(SRC + 'news/vs.json'))
 _VS, _vsc = VS['services'], next((c for c in C if c['id'] == 'c-ai-plans-compare'), None)
