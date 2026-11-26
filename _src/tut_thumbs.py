@@ -11,7 +11,7 @@ F = lambda path, size: ImageFont.truetype(path, size, index=1 if path.endswith('
 ACCENT = (162, 59, 44)
 W, H = 960, 540
 LOGO = {'t-pdf-to-markdown'}
-BUSY = {'t-meeting-interpreter', 't-redact-before-upload', 't-spreadsheet-formulas', 't-resume-review', 't-pdf-to-markdown'}
+BUSY = {'t-free-game-dev-assets', 't-meeting-interpreter', 't-redact-before-upload', 't-spreadsheet-formulas', 't-resume-review', 't-pdf-to-markdown'}
 
 def wrap(d, text, font, width):
     words, lines, cur = text.split(' '), [], ''
