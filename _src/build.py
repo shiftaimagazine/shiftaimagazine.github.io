@@ -464,6 +464,10 @@ TOOLS = D.get('TOOLS', [])
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
 TOOL_SEO = {
+    'table-ocr': dict(js='table-ocr.js', title='표 사진 엑셀 변환 무료 — 이미지·캡처 속 표를 칸 구조 그대로 엑셀로(한국어 OCR)',
+                desc='종이 표를 찍은 사진이나 화면 캡처 속 표를 줄·칸·합친 칸 구조 그대로 읽어 엑셀(.xlsx)로 만듭니다. 한국어·영어 글자를 읽고, 결과를 화면에서 고친 뒤 받으며, 숫자는 계산되는 숫자로 넣습니다. 사진은 서버에 올리지 않습니다.',
+                alt=['표 사진 엑셀 변환', '이미지 표 엑셀 변환', '사진 엑셀 변환', '캡처 표 엑셀', '표 OCR'],
+                feat=['표 선으로 줄·칸 나누기', '합친 칸(병합 셀) 찾기', '선이 없는 표는 글자 자리로 나누기', '기울어진 사진 바로잡기', '한국어·영어 글자 인식', '화면에서 칸 고치기', '숫자는 계산되는 숫자로', '.xlsx·CSV 받기·표 복사']),
     'video-trim': dict(js='video-trim.js', title='영상 자르기·동영상 용량 줄이기 무료 — MP4 압축, 1080p·720p·25MB 이하로(설치 없이)',
                 desc='휴대폰·카메라로 찍은 영상에서 필요한 구간만 잘라 MP4로 저장하고, 해상도(1080p·720p·480p)와 화질, 25MB 같은 목표 용량을 골라 동영상 용량을 줄입니다. 소리는 다시 압축하지 않고 옮기며, 영상은 서버에 올리지 않고 브라우저 안에서 처리합니다.',
                 alt=['영상 자르기', '동영상 자르기', '동영상 용량 줄이기', '영상 압축', 'MP4 자르기', '동영상 압축 사이트'],
@@ -710,7 +714,7 @@ for t in TOOLS:
     fq = faq_of(v)
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
     if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
-    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf') else None)
+    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf', 'table-ocr') else None)
 # AI 서비스 비교(/vs/, 11/2~): news/vs.json — 요금제 칼럼(10/29 각 사 공식 페이지 확인)에 실린 사실만 쓴다. 칼럼을 고칠 때 같이 고칠 것.
 VS = json.load(open(SRC + 'news/vs.json'))
 _VS, _vsc = VS['services'], next((c for c in C if c['id'] == 'c-ai-plans-compare'), None)
