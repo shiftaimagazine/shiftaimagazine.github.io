@@ -464,6 +464,10 @@ TOOLS = D.get('TOOLS', [])
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
 TOOL_SEO = {
+    'pdf-compress': dict(js='pdf-compress.js', title='PDF 용량 줄이기 무료 — PDF 압축, 글자는 그대로 사진만 줄이기(10MB 이하로, 업로드 없이)',
+                desc='메일·제출 사이트에 안 올라가는 PDF의 용량을 줄입니다. 글자·표·링크는 그대로 두고 PDF 안의 사진만 줄이거나, 스캔본은 쪽을 그림으로 다시 만들어 크게 줄입니다. 10MB·5MB 이하처럼 목표 용량을 정할 수 있고, 파일은 서버에 올리지 않습니다.',
+                alt=['PDF 용량 줄이기', 'PDF 압축', 'PDF 파일 크기 줄이기', 'PDF 용량 줄이는 법', 'PDF 10MB 이하로', '스캔 PDF 압축'],
+                feat=['PDF 안의 사진만 줄이기(글자·표·링크 그대로)', '사진을 쪽에 보이는 크기에 맞춰 줄이기', '스캔본은 쪽을 그림으로 다시 만들기', '화질 우선·보통·용량 우선', '목표 용량(20MB~1MB 이하)에 맞추기', '흑백으로 줄이기', '원래 PDF와 나란히 비교', '여러 파일 한 번에(20개)·ZIP']),
     'doc-compare': dict(js='doc-compare.js', title='문서 비교 무료 — 한글 HWP·워드·PDF 두 파일 차이 찾기(계약서 수정본 비교)',
                 desc='계약서·보고서의 원본과 수정본 두 파일을 넣으면 바뀐 곳을 색으로 표시하고 목록으로 정리합니다. 한글(HWP·HWPX)·워드(DOCX)·PDF·텍스트를 서로 섞어 비교하고, 금액·날짜처럼 숫자가 바뀐 곳은 따로 표시합니다. 파일은 서버에 올리지 않습니다.',
                 alt=['문서 비교', '텍스트 비교', '파일 비교', '계약서 비교', 'HWP 비교', '워드 문서 비교', 'PDF 비교'],
