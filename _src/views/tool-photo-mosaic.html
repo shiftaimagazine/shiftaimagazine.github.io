@@ -1,0 +1,75 @@
+<main id="v-tool-photo-mosaic">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 개인정보</span>
+  <h1>사진 얼굴·번호판 모자이크</h1>
+  <p class="deck">블로그·중고 거래·단톡방에 사진을 올리기 전에 사람 얼굴과 차 번호판을 가립니다. 얼굴은 알아서 찾아 칸을 쳐 주고, 빠진 곳은 끌어서 더 그립니다. 사진은 서버에 올리지 않고 이 브라우저 안에서 처리하며, 저장한 사진에는 위치 정보가 남지 않습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>사진 넣기</h2>
+    <label class="odrop" id="pmDrop" tabindex="0">
+      <input type="file" id="pmFile" accept="image/*,.heic,.heif" multiple>
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>한 번에 20장까지 · JPG·PNG·WebP·아이폰 HEIC · 캡처는 Ctrl+V</span>
+    </label>
+    <div class="trow"><label class="inl"><input type="checkbox" id="pmAuto" checked> 넣으면 얼굴 알아서 찾기</label></div>
+  </section>
+
+  <section class="tstep" id="pmEdit" hidden>
+    <h2><i>2</i>가릴 곳 확인하기 <small id="pmCount" aria-live="polite"></small></h2>
+    <div class="pmlist" id="pmList" hidden></div>
+    <div class="pmstage" id="pmStage"><div class="pmwrap"><canvas id="pmView"></canvas><div class="pmboxes" id="pmBoxes"></div></div></div>
+    <p class="hint" id="pmHint"></p>
+    <div class="trow">
+      <button class="ghost" type="button" id="pmPlate">번호판 후보 찾기</button>
+      <button class="ghost" type="button" id="pmClear">이 사진의 칸 모두 지우기</button>
+      <button class="ghost" type="button" id="pmRemove">이 사진 빼기</button>
+    </div>
+    <div class="trow">
+      <span class="meta">가리는 방식</span>
+      <div class="seg mini" role="radiogroup" aria-label="가리는 방식">
+        <label><input type="radio" name="pmMode" value="pixel" checked><span><b>모자이크</b></span></label>
+        <label><input type="radio" name="pmMode" value="blur"><span><b>흐리게</b></span></label>
+        <label><input type="radio" name="pmMode" value="black"><span><b>검은 칸</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <span class="meta">세기</span>
+      <div class="seg mini" role="radiogroup" aria-label="세기">
+        <label><input type="radio" name="pmStr" value="normal" checked><span><b>보통</b></span></label>
+        <label><input type="radio" name="pmStr" value="strong"><span><b>세게</b></span></label>
+      </div>
+      <label class="inl"><input type="checkbox" id="pmRound" checked> 얼굴은 둥글게</label>
+    </div>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>저장하기</h2>
+    <div class="trow">
+      <button class="btn" type="button" id="pmSave" data-ev="tool-done:/tools/photo-mosaic/">이 사진 저장</button>
+      <button class="ghost" type="button" id="pmZip" hidden>모두 ZIP으로 받기</button>
+      <label class="inl">파일 형식 <select id="pmFmt"><option value="same">원래대로</option><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select></label>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>얼굴은 OpenCV의 얼굴 학습 데이터로 찾습니다. 정면과 옆얼굴은 잘 찾지만, 작게 찍힌 얼굴, 고개를 많이 숙인 얼굴, 마스크·선글라스를 쓴 얼굴은 놓칠 수 있습니다. 저장하기 전에 꼭 확인하세요.</li>
+      <li>번호판은 '번호판 후보 찾기'를 눌렀을 때만 찾습니다. 글자가 몰린 가로로 긴 밝은 칸을 찾는 방식이라 간판·글자를 번호판으로 잡거나 번호판을 놓칠 수 있습니다.</li>
+      <li>흐리게는 세기가 약하면 알아볼 수도 있습니다. 확실히 가려야 하면 모자이크 '세게'나 검은 칸을 쓰세요.</li>
+      <li>저장한 사진에는 찍은 위치·날짜·기종 같은 사진 정보(EXIF)가 들어가지 않습니다. 얼굴 학습 데이터는 <a href="https://github.com/opencv/opencv/tree/4.x/data/haarcascades" target="_blank" rel="noopener">OpenCV</a>(Intel License)의 것을 SHIFT 서버에 그대로 두고 처음 한 번 받아 옵니다.</li>
+    </ul>
+    <p>다음 단계: 글 속 전화번호·주민번호를 가리려면 <a href="/tools/redact/">개인정보 자동 가리기</a>를, 사진 위치 정보만 지우려면 <a href="/tools/exif-remove/">사진 위치정보 지우기</a>를 쓰세요.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 얼굴 찾기와 모자이크 모두 이 브라우저 안에서 합니다. 아이 사진이나 가족 사진도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>얼굴을 못 찾으면 어떻게 하나요?</summary><p>사진 위에서 가릴 곳을 손가락이나 마우스로 끌면 칸이 생깁니다. 칸은 끌어서 옮기고, 오른쪽 아래 모서리로 크기를 바꾸고, ×로 지웁니다.</p></details>
+    <details><summary>모자이크를 되돌릴 수 있나요?</summary><p>저장한 사진의 모자이크는 원래 모습으로 되돌릴 수 없게 칸을 크게 뭉갭니다. 다만 약하게 흐리게 한 사진은 얼굴 윤곽을 알아볼 수 있으니, 확실히 가리려면 모자이크 '세게'나 검은 칸을 고르세요.</p></details>
+    <details><summary>여러 장을 한 번에 할 수 있나요?</summary><p>20장까지 한 번에 넣으면 장마다 얼굴을 찾아 둡니다. 위쪽 작은 사진을 눌러 한 장씩 확인하고 '모두 ZIP으로 받기'로 한꺼번에 받으세요.</p></details>
+    <details><summary>화질이 떨어지나요?</summary><p>가린 곳 말고는 원래 크기 그대로 저장합니다. JPG는 다시 저장하면서 조금 압축되고, 화질이 중요하면 파일 형식을 PNG로 고르세요.</p></details>
+  </section>
+</article>
+</main>
