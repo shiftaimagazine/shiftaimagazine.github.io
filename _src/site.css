@@ -471,7 +471,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .35s ease,border-c
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tbadges span:last-child{background:#173022;color:#a6e3bb}}
 :root[data-theme="dark"] .tbadges span:last-child{background:#173022;color:#a6e3bb}
 .tstep{margin:30px 0 0}
-.tstep h2{font-size:19px;display:flex;align-items:center;gap:10px;margin:0 0 8px}
+.tstep h2{font-size:19px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 8px}
 .tstep h2 i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:13px;flex:none}
 .tstep h2 small{font-size:13px;color:var(--sub);font-weight:500}
 .tstep .hint{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.6}
