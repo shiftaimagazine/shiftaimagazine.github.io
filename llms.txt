@@ -67,7 +67,7 @@
 - [llama.cpp v1.0.0, API 호환 약속](https://shiftaimagazine.com/news/2026-11-15-llama-cpp-v1/): 내 컴퓨터에서 AI 모델을 돌리는 오픈소스 엔진 llama.cpp가 11월 13일 v1.0.0을 냈습니다. 함께 쓰이는 ggml도 같은 번호가 됐고 공개 C API가 호환되지 않게 바뀌면 메이저 번호를 올리는 규칙이 붙었습니다.
 
 ## 튜토리얼
-- [AI 티 나는 웹페이지, 무료 스킬 Hallmark로 바꾸는 5단계 (테마 50개)](https://shiftaimagazine.com/tutorial/hallmark-design-skill/): Hallmark는 클로드 코드 같은 코딩 에이전트가 웹페이지를 만들 때 쓰는 무료 디자인 스킬입니다. 설치 한 줄과 주문 한 줄로 테마 50개 중 내용에 맞는 것을 골라 페이지를 만들고 이미 만든 페이지도 다시 디자인합니다.
+- [AI 티 나는 웹페이지, 무료 스킬 Hallmark로 바꾸는 5단계 (테마 50개)](https://shiftaimagazine.com/tutorial/hallmark-design-skill/): Hallmark는 클로드 코드 같은 코딩 에이전트가 웹페이지를 만들 때 쓰는 무료 디자인 스킬입니다. 설치 명령 한 줄을 넣고 만들 페이지를 한 문장으로 적으면 테마 50개 가운데 내용에 맞는 것을 골라 페이지를 만들고 이미 만든 페이지도 다시 디자인해 줍니다.
 - [게임 만들 때 쓰는 무료 자료 459개, 상업용만 골라 쓰는 4단계](https://shiftaimagazine.com/tutorial/free-game-dev-assets/): 3D 모델·효과음·폰트·셰이더까지 게임 제작용 무료 자료 459곳을 모은 Free Game Dev Assets에서 상업용으로 쓸 수 있는 자료만 골라내는 방법입니다. 마지막 단계에서는 고른 자료를 클로드에 넘겨 라이선스 표와 크레딧 문구를 만듭니다.
 - [클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음](https://shiftaimagazine.com/tutorial/claude-animation-styles/): 장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이 됩니다.
 - [유튜버·크리에이터가 깔아 두면 좋은 AI 스킬 7개, 내 말투 학습·훅·썸네일·영상 제작까지](https://shiftaimagazine.com/tutorial/skills-creator/): 내 말투 학습, 첫 줄 훅과 릴스 대본, 썸네일 기획, 코드로 만드는 영상, AI 음성 입히기에 쓰는 스킬을 골랐습니다. 크리에이터가 만든 소셜 미디어 스킬과 리모션·일레븐랩스 공식 스킬이 중심입니다.
