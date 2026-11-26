@@ -5,7 +5,6 @@
 (function(){
 "use strict";
 const $ = id=>document.getElementById(id);
-if(!$("vtDrop")) return;
 const esc = s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const mb = n=>n>=1073741824 ? (n/1073741824).toFixed(2)+"GB" : n>=1048576 ? (n/1048576).toFixed(1)+"MB" : Math.max(1,Math.round(n/1024))+"KB";
 const sleep = ms=>new Promise(r=>setTimeout(r,ms));
@@ -190,7 +189,7 @@ async function transcode(D, o, onp, ctl){
     const t = f.timestamp/1e6;
     if(t < s0-1e-4 || t >= s1-1e-4 || encErr){ f.close(); return; }
     let vf = f;
-    if(f.displayWidth!==tw || f.displayHeight!==th){ cx.drawImage(f, 0, 0, tw, th); vf = new VideoFrame(cv, {timestamp: f.timestamp, duration: f.duration || undefined}); f.close(); }
+    if(f.displayWidth!==tw || f.displayHeight!==th || o.draw){ cx.drawImage(f, 0, 0, tw, th); if(o.draw) o.draw(cx, t - s0, tw, th); vf = new VideoFrame(cv, {timestamp: f.timestamp, duration: f.duration || undefined}); f.close(); }
     const ts = Math.round((t - s0)*1e6), key = t - lastKey >= 2;
     const vf2 = new VideoFrame(vf, {timestamp: ts}); vf.close();
     if(key) lastKey = t;
@@ -270,6 +269,10 @@ async function record(file, o, onp, ctl){
   if(ctl.stop) throw new Error("stop");
   return {blob: new Blob(parts, {type: mime.split(";")[0]}), live:true, mime};
 }
+
+// 다른 도구(영상 자막)도 같은 영상 엔진을 쓴다: 고른 구간을 다시 압축하면서 o.draw(ctx, 초, 가로, 세로)로 화면 위에 글자를 그릴 수 있다
+self.SHIFT_VT = {demux, transcode};
+if(!$("vtDrop")) return;
 
 // ---------- 화면 ----------
 let F = null, D = null, out = null, busy = false, loading = false, ctl = {stop:false}, srcUrl = null;

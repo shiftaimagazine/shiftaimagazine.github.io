@@ -1,0 +1,80 @@
+<main id="v-tool-audio-to-text">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 회의 · AI</span>
+  <h1>회의 녹음 → 글자 (음성 받아쓰기)</h1>
+  <p class="deck">회의·강의·인터뷰를 녹음한 파일을 AI가 글자로 받아씁니다. 말한 시각을 함께 적고, 받아쓴 글은 텍스트·자막 파일로 받거나 회의록 정리 프롬프트와 함께 복사합니다. 녹음은 서버에 올리지 않고 이 브라우저 안에서 받아씁니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>녹음은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>녹음 파일 넣기</h2>
+    <label class="odrop" id="asDrop" tabindex="0">
+      <input type="file" id="asFile" accept="audio/*,video/*,.m4a,.mp3,.wav,.aac,.ogg,.flac,.amr,.3gp,.mp4,.mov,.webm">
+      <b>여기를 눌러 녹음 파일을 고르거나 끌어다 놓으세요</b>
+      <span>M4A(아이폰 음성 메모)·MP3·WAV·AAC, 줌·화상 회의 녹화 MP4도 됩니다</span>
+    </label>
+    <p class="hint" id="asInfo"></p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>받아쓰기</h2>
+    <div class="trow">
+      <span class="meta">방식</span>
+      <div class="seg mini" role="radiogroup" aria-label="받아쓰기 방식">
+        <label><input type="radio" name="asModel" value="fast" checked><span><b>빠르게</b></span></label>
+        <label><input type="radio" name="asModel" value="best"><span><b>정확하게</b></span></label>
+      </div>
+      <label class="inl">말하는 언어 <select id="asLang">
+        <option value="korean">한국어</option>
+        <option value="english">영어</option>
+        <option value="japanese">일본어</option>
+        <option value="chinese">중국어</option>
+      </select></label>
+    </div>
+    <p class="hint" id="asEst"></p>
+    <div class="trow">
+      <button class="btn" type="button" id="asGo" data-ev="tool-done:/tools/audio-to-text/" disabled>받아쓰기</button>
+      <button class="ghost" type="button" id="asStop" hidden>멈추기</button>
+    </div>
+    <div class="obar" id="asBar" hidden><i></i></div>
+    <p class="hint" id="asStatus" aria-live="polite"></p>
+    <div class="aslive" id="asLiveW" hidden><p id="asLive"></p></div>
+  </section>
+
+  <section class="tstep" id="asOut" hidden>
+    <h2><i>3</i>받아쓴 글 받기</h2>
+    <div class="trow">
+      <b class="meta" id="asCount"></b>
+      <label class="inl"><input type="checkbox" id="asTs" checked> 시각 표시</label>
+      <label class="inl"><input type="checkbox" id="asPara" checked> 쉰 곳에서 문단 나누기</label>
+    </div>
+    <textarea class="astext" id="asText" rows="14" aria-label="받아쓴 글" spellcheck="false"></textarea>
+    <p class="hint">위 글을 바로 고칠 수 있습니다. '시각 표시'나 '문단 나누기'를 바꾸면 고친 내용이 처음 받아쓴 글로 돌아가니, 그것부터 고르고 고치세요.</p>
+    <div class="trow">
+      <button class="btn" type="button" id="asPrompt">회의록 정리 프롬프트와 함께 복사</button>
+      <button class="ghost" type="button" id="asCopy">글만 복사</button>
+      <button class="ghost" type="button" id="asTxt">텍스트(.txt) 받기</button>
+      <button class="ghost" type="button" id="asSrt">자막 파일(.srt) 받기</button>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>받아쓰기는 OpenAI가 공개한 음성 인식 모델 Whisper(Apache-2.0 라이선스)를 브라우저 안에서 돌립니다. 처음 한 번 모델 파일을 Hugging Face에서 받고(빠르게 약 75MB, 정확하게 약 250MB · 그래픽 카드로 계산할 때는 더 큰 파일을 받습니다), 다음부터는 브라우저에 저장된 파일을 씁니다. 녹음은 밖으로 보내지 않습니다.</li>
+      <li>누가 말했는지는 나누지 않습니다. 사람 이름·전문 용어·숫자가 틀릴 수 있으니, 회의록에 옮기기 전에 중요한 부분은 녹음을 다시 들어 확인하세요.</li>
+      <li>1시간 녹음은 컴퓨터에 따라 수십 분 걸릴 수 있습니다. 받아쓰는 동안 이 탭을 열어 두세요. 중간에 멈추면 거기까지 받아쓴 글을 쓸 수 있습니다.</li>
+      <li>회의를 녹음하기 전에는 참석자에게 녹음한다고 알리세요.</li>
+    </ul>
+    <p>다음 단계: 받아쓴 글을 회의록과 할 일 목록으로 정리하는 방법은 <a href="/tutorial/recording-to-minutes/">회의 녹음 파일에서 회의록과 할 일까지</a>와 <a href="/tutorial/meeting-notes/">회의록·녹취를 할 일 목록으로 바꾸는 프롬프트</a>에 있습니다.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>녹음이 서버로 올라가나요?</summary><p>올라가지 않습니다. 받아쓰기는 이 브라우저 안에서 합니다. 인터넷으로 오가는 것은 처음 한 번 받는 AI 모델 파일뿐이라, 사내 회의 녹음도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>얼마나 걸리나요?</summary><p>컴퓨터 성능에 따라 다릅니다. 저희가 그래픽 카드 없이 CPU로 시험했을 때 '빠르게'는 녹음 길이의 3분의 1쯤, '정확하게'는 녹음 길이와 비슷하게 걸렸습니다. 브라우저가 그래픽 카드(WebGPU)를 쓸 수 있으면 그래픽 카드로 계산합니다. 받는 중에는 남은 시간을 보여 줍니다.</p></details>
+    <details><summary>말한 사람을 나눠 주나요?</summary><p>나누지 않습니다. 받아쓴 글을 AI에게 넘길 때 참석자 이름과 역할을 함께 알려 주면 누가 한 말인지 짐작해 정리하게 할 수 있지만, 틀릴 수 있으니 확인이 필요합니다.</p></details>
+    <details><summary>휴대폰에서도 되나요?</summary><p>됩니다. 다만 휴대폰은 메모리가 적어 '빠르게'를 권하고, 30분이 넘는 녹음은 컴퓨터에서 하는 편이 안정적입니다.</p></details>
+    <details><summary>요약이나 회의록 정리도 해 주나요?</summary><p>이 도구는 받아쓰기까지만 합니다. '회의록 정리 프롬프트와 함께 복사'를 누르면 결정 사항·할 일·요약을 표로 정리해 달라는 지시문이 붙은 채로 복사되니, 쓰는 AI 채팅(챗GPT·클로드·제미나이 등)에 붙여 넣으세요.</p></details>
+  </section>
+</article>
+</main>

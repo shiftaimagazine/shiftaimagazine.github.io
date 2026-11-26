@@ -1,0 +1,101 @@
+<main id="v-tool-video-subtitle">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 영상 · AI</span>
+  <h1>영상 자막 자동 만들기</h1>
+  <p class="deck">릴스·쇼츠·유튜브 영상의 말소리를 AI가 받아써서 시간이 맞는 자막을 만듭니다. 틀린 글자를 화면에서 고친 뒤 자막 파일(.srt)로 받거나, 자막을 영상 위에 입힌 MP4로 받습니다. 받아쓰기도 영상 만들기도 이 브라우저 안에서 하고, 영상은 서버에 올리지 않습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>영상은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>영상 넣기</h2>
+    <label class="odrop" id="asDrop" tabindex="0">
+      <input type="file" id="asFile" accept="video/*,audio/*,.mp4,.mov,.m4v,.webm,.mp3,.m4a,.wav">
+      <b>여기를 눌러 영상을 고르거나 끌어다 놓으세요</b>
+      <span>MP4·MOV(휴대폰·카메라 영상). 소리 파일(M4A·MP3·WAV)을 넣으면 자막 파일만 만듭니다</span>
+    </label>
+    <div class="asprev" id="asPrev" hidden>
+      <div class="asstage"><video id="asPlayer" controls playsinline preload="metadata"></video><canvas id="asOver" aria-hidden="true"></canvas></div>
+    </div>
+    <p class="hint" id="asInfo"></p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>받아쓰기</h2>
+    <div class="trow">
+      <span class="meta">방식</span>
+      <div class="seg mini" role="radiogroup" aria-label="받아쓰기 방식">
+        <label><input type="radio" name="asModel" value="fast" checked><span><b>빠르게</b></span></label>
+        <label><input type="radio" name="asModel" value="best"><span><b>정확하게</b></span></label>
+      </div>
+      <label class="inl">말하는 언어 <select id="asLang">
+        <option value="korean">한국어</option>
+        <option value="english">영어</option>
+        <option value="japanese">일본어</option>
+        <option value="chinese">중국어</option>
+      </select></label>
+    </div>
+    <p class="hint" id="asEst"></p>
+    <div class="trow">
+      <button class="btn" type="button" id="asGo" data-ev="tool-done:/tools/video-subtitle/" disabled>자막 만들기</button>
+      <button class="ghost" type="button" id="asStop" hidden>멈추기</button>
+    </div>
+    <div class="obar" id="asBar" hidden><i></i></div>
+    <p class="hint" id="asStatus" aria-live="polite"></p>
+    <div class="aslive" id="asLiveW" hidden><p id="asLive"></p></div>
+  </section>
+
+  <section class="tstep" id="asOut" hidden>
+    <h2><i>3</i>자막 고치고 받기</h2>
+    <p class="hint"><b id="asCount"></b> 글자를 눌러 고치고, ▶로 그 자리부터 들어 보세요. 시간은 '1:05.5'(1분 5.5초)처럼 고칠 수 있습니다.</p>
+    <ol class="aslist" id="asList"></ol>
+    <div class="trow">
+      <span class="meta">자리</span>
+      <div class="seg mini" role="radiogroup" aria-label="자막 자리">
+        <label><input type="radio" name="asPos" value="bot" checked><span><b>아래</b></span></label>
+        <label><input type="radio" name="asPos" value="mid"><span><b>가운데</b></span></label>
+        <label><input type="radio" name="asPos" value="top"><span><b>위</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <span class="meta">크기</span>
+      <div class="seg mini" role="radiogroup" aria-label="자막 크기">
+        <label><input type="radio" name="asSize" value="s"><span><b>작게</b></span></label>
+        <label><input type="radio" name="asSize" value="m" checked><span><b>보통</b></span></label>
+        <label><input type="radio" name="asSize" value="l"><span><b>크게</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <span class="meta">모양</span>
+      <div class="seg mini" role="radiogroup" aria-label="자막 모양">
+        <label><input type="radio" name="asLook" value="line" checked><span><b>흰 글자·검은 테두리</b></span></label>
+        <label><input type="radio" name="asLook" value="yellow"><span><b>노란 글자</b></span></label>
+        <label><input type="radio" name="asLook" value="band"><span><b>검은 띠</b></span></label>
+      </div>
+    </div>
+    <p class="hint">모양은 위 영상에서 재생하며 바로 확인할 수 있습니다.</p>
+    <div class="trow">
+      <button class="btn" type="button" id="asBurn">자막 입힌 MP4 받기</button>
+      <button class="ghost" type="button" id="asSrt">자막 파일(.srt) 받기</button>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>받아쓰기는 OpenAI가 공개한 음성 인식 모델 Whisper(Apache-2.0 라이선스)를 브라우저 안에서 돌립니다. 처음 한 번 모델 파일을 Hugging Face에서 받고(빠르게 약 75MB, 정확하게 약 250MB · 그래픽 카드로 계산할 때는 더 큰 파일을 받습니다), 다음부터는 브라우저에 저장된 파일을 씁니다. 영상과 소리는 밖으로 보내지 않습니다.</li>
+      <li>AI 받아쓰기라 사람 이름·전문 용어·숫자가 틀릴 수 있습니다. 올리기 전에 자막을 한 번 읽어 보세요. 음악이 크거나 여러 사람이 겹쳐 말하면 더 많이 틀립니다.</li>
+      <li>'정확하게'는 한국어를 더 잘 받아쓰지만 더 오래 걸리고 메모리를 더 씁니다. 휴대폰에서는 '빠르게'를 권합니다.</li>
+      <li>자막 입힌 MP4는 '영상 자르기' 도구와 같은 방식(WebCodecs)으로 영상을 다시 압축해 만듭니다. 소리는 다시 압축하지 않고 그대로 옮깁니다. 아이폰 고효율(HEVC) 영상은 그 형식을 풀 수 있는 브라우저에서만 됩니다.</li>
+    </ul>
+    <p>다음 단계: 필요한 구간만 남기려면 <a href="/tools/video-trim/">영상 자르기·용량 줄이기</a>를, 대본부터 쓰려면 <a href="/tutorial/reels-script/">쇼츠·릴스 대본 프롬프트</a>를 보세요.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>영상이 서버로 올라가나요?</summary><p>올라가지 않습니다. 받아쓰기와 영상 만들기는 모두 이 브라우저 안에서 합니다. 인터넷으로 오가는 것은 처음 한 번 받는 AI 모델 파일뿐입니다.</p></details>
+    <details><summary>얼마나 걸리나요?</summary><p>컴퓨터 성능에 따라 다릅니다. 저희가 그래픽 카드 없이 CPU로 시험했을 때 '빠르게'는 영상 길이의 3분의 1쯤, '정확하게'는 영상 길이와 비슷하게 걸렸습니다. 브라우저가 그래픽 카드(WebGPU)를 쓸 수 있으면 그래픽 카드로 계산합니다. 받는 중에는 남은 시간을 보여 줍니다.</p></details>
+    <details><summary>자막 파일(.srt)은 어디에 쓰나요?</summary><p>유튜브 스튜디오의 '자막' 메뉴에 올리거나, 캡컷·프리미어 프로·다빈치 리졸브 같은 편집 프로그램에 불러와 글꼴과 움직임을 직접 꾸밀 때 씁니다.</p></details>
+    <details><summary>영어 영상을 한국어 자막으로 바꿀 수 있나요?</summary><p>이 도구는 말한 언어 그대로 받아씁니다. 번역은 하지 않습니다. 받은 자막 파일을 AI에게 '시간 표시는 그대로 두고 글만 한국어로 옮겨 줘'라고 맡기는 방법이 있습니다.</p></details>
+    <details><summary>자막 글꼴이나 색을 더 바꿀 수 있나요?</summary><p>자리(아래·가운데·위), 크기 3단계, 모양 3가지(흰 글자·노란 글자·검은 띠)를 고를 수 있습니다. 더 꾸미려면 자막 파일(.srt)을 받아 편집 프로그램에서 바꾸세요.</p></details>
+  </section>
+</article>
+</main>

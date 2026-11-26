@@ -463,7 +463,24 @@ TOOLS = D.get('TOOLS', [])
 # 검색 노출(11/2): 도구마다 사람들이 실제로 검색하는 이름(이미지 텍스트 추출, 개인정보 마스킹, 프롬프트 생성기 …)을 제목·설명·다른 이름에 넣는다.
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
+AI_JS = ('asr.js', 'bg-remove.js', 'upscale.js')
 TOOL_SEO = {
+    'video-subtitle': dict(js='asr.js', title='영상 자막 자동 생성 무료 — AI가 받아써서 SRT 자막·자막 입힌 MP4로(업로드 없이)',
+                desc='릴스·쇼츠·유튜브 영상의 말소리를 AI(Whisper)가 받아써서 시간이 맞는 자막을 만듭니다. 화면에서 고친 뒤 SRT 자막 파일로 받거나 자막을 입힌 MP4로 받습니다. 한국어·영어·일본어·중국어를 받아쓰고, 영상은 서버에 올리지 않습니다.',
+                alt=['영상 자막 자동 생성', '자동 자막', '자막 만들기', 'SRT 자막 만들기', '릴스 자막', '쇼츠 자막', '동영상 자막 입히기'],
+                feat=['AI 받아쓰기(Whisper, 브라우저 안에서)', '빠르게·정확하게 두 가지', '한국어·영어·일본어·중국어 받아쓰기', '자막 글자·시각 고치기', 'SRT 자막 파일 받기', '자막 입힌 MP4(H.264) 만들기', '자막 자리·크기·모양 고르기', '세로 영상 방향 유지']),
+    'audio-to-text': dict(js='asr.js', title='음성 텍스트 변환 무료 — 회의 녹음 받아쓰기, 녹음 파일을 글자로(업로드 없이)',
+                desc='회의·강의·인터뷰 녹음 파일(M4A·MP3·WAV·MP4)을 AI(Whisper)가 글자로 받아씁니다. 말한 시각을 함께 적고, 텍스트·SRT로 받거나 회의록 정리 프롬프트와 함께 복사합니다. 녹음은 서버에 올리지 않고 브라우저 안에서 받아씁니다.',
+                alt=['음성 텍스트 변환', '녹음 텍스트 변환', '회의 녹음 받아쓰기', '녹취록 만들기', '음성 받아쓰기', 'STT'],
+                feat=['AI 받아쓰기(Whisper, 브라우저 안에서)', 'M4A·MP3·WAV·AAC·MP4 녹음', '말한 시각 표시', '쉰 곳에서 문단 나누기', '텍스트(.txt)·자막(.srt) 받기', '회의록 정리 프롬프트와 함께 복사', '중간에 멈춰도 받아쓴 만큼 쓰기']),
+    'bg-remove': dict(js='bg-remove.js', title='사진 배경 지우기 무료 — 누끼 따기, 배경 제거해 투명 PNG로(AI, 업로드 없이)',
+                desc='사람·물건·동물 사진에서 AI가 배경만 지워 투명 PNG로 만듭니다(누끼 따기). 흰색이나 원하는 색 배경으로 바꾸고, 덜 지워진 곳은 붓으로 고칩니다. 20장까지 한 번에 하고, 사진은 서버에 올리지 않습니다.',
+                alt=['사진 배경 지우기', '배경 제거', '누끼 따기', '누끼 사이트', '투명 배경 만들기', '이미지 배경 제거'],
+                feat=['AI 배경 지우기(BiRefNet, 브라우저 안에서)', '투명 PNG·흰색·원하는 색 배경', '붓으로 더 지우기·되살리기', '원래 사진과 나란히 비교', '대상에 맞춰 여백 자르기', '20장 한 번에·ZIP', 'HEIC 사진 열기', '저장할 때 위치 정보(EXIF) 빼기']),
+    'upscale': dict(js='upscale.js', title='사진 화질 올리기 무료 — 이미지 해상도 2배·4배 키우기(AI 업스케일, 업로드 없이)',
+                desc='작게 저장된 사진이나 오래된 휴대폰 사진을 AI(Swin2SR)가 2배·4배로 키우면서 흐린 곳과 압축 자국을 다듬습니다. 그냥 늘린 사진과 나란히 비교한 뒤 저장합니다. 상품·문서 사진에는 쓰지 마세요. 사진은 서버에 올리지 않습니다.',
+                alt=['사진 화질 올리기', '이미지 화질 개선', '해상도 높이기', '사진 크게 키우기', 'AI 업스케일', '이미지 업스케일링'],
+                feat=['AI로 2배·4배 키우기(Swin2SR, 브라우저 안에서)', '휴대폰·웹 사진의 압축 자국 다듬기(4배)', '그냥 늘린 사진과 나란히 비교', '실제 크기로 확대해 보기', 'PNG 투명 배경 유지', 'JPG·PNG로 저장', '상품·문서 사진 사용 주의 안내']),
     'photo-mosaic': dict(js='photo-mosaic.js', title='사진 얼굴 모자이크 무료 — 얼굴 자동으로 찾아 가리기, 번호판 모자이크(업로드 없이)',
                 desc='블로그·중고 거래·단톡방에 올리기 전에 사진 속 얼굴을 자동으로 찾아 모자이크·흐림·검은 칸으로 가리고, 차 번호판과 빠진 곳은 끌어서 더 가립니다. 20장까지 한 번에 하고, 저장한 사진에는 위치 정보가 남지 않습니다. 사진은 서버에 올리지 않습니다.',
                 alt=['사진 모자이크', '얼굴 모자이크', '사진 얼굴 가리기', '번호판 모자이크', '자동 모자이크', '사진 블러 처리'],
@@ -717,8 +734,10 @@ for t in TOOLS:
     v = v.replace('</article>', upd_box(t['href']) + nav + '</article>')
     fq = faq_of(v)
     extra = LD(*([ld, crumbs(('무료 도구', '/tools/'), (t['title'], t['href']))] + ([fq] if fq else [])))
-    if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"></script>\n'
-    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf', 'table-ocr', 'photo-mosaic') else None)
+    # AI 도구(받아쓰기·배경 지우기·화질 올리기)는 /assets/ai-worker.js 안에서 모델을 돌린다. 워커 주소에도 판 번호를 붙이려고 data-worker 로 넘긴다.
+    #  모델 파일(Hugging Face)·계산용 .wasm(jsDelivr)은 그 워커가 받는다. URL 로 만든 워커는 이 페이지의 <meta> CSP 를 물려받지 않으므로 페이지 CSP 는 그대로 둔다.
+    if js: extra += f'<script defer src="/assets/{js}?v={WIDGET_VER.get(js, VER)}"' + (f' data-worker="/assets/ai-worker.js?v={WIDGET_VER.get("ai-worker.js", VER)}"' if js in AI_JS else '') + '></script>\n'
+    page(t['href'], 'tool-' + t['id'], f"{S['title']} · SHIFT AI", S['desc'], v, og, 'website', extra, secmeta=SECMETA_EVAL if t['id'] in ('heic-to-jpg', 'ocr', 'jpg-to-pdf', 'table-ocr', 'photo-mosaic', 'bg-remove', 'upscale') else None)
 # AI 서비스 비교(/vs/, 11/2~): news/vs.json — 요금제 칼럼(10/29 각 사 공식 페이지 확인)에 실린 사실만 쓴다. 칼럼을 고칠 때 같이 고칠 것.
 VS = json.load(open(SRC + 'news/vs.json'))
 _VS, _vsc = VS['services'], next((c for c in C if c['id'] == 'c-ai-plans-compare'), None)

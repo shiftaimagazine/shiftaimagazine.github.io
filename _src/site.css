@@ -2214,3 +2214,38 @@ footer .fsw p{margin:0;font-size:12.5px;color:#8A8A87}
 .pmdel{position:absolute;right:-12px;top:-12px;width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:#b42318;color:#fff;font-size:15px;line-height:20px;cursor:pointer;padding:0}
 .pmrs{position:absolute;right:-7px;bottom:-7px;width:16px;height:16px;border-radius:4px;background:#fff;border:2px solid #111;cursor:nwse-resize}
 @media (max-width:560px){.pmdel{width:30px;height:30px}.pmrs{width:22px;height:22px;right:-10px;bottom:-10px}}
+
+/* 영상 자막·회의 녹음 받아쓰기(11/26) */
+.asprev{margin-top:12px}
+.asstage{position:relative;background:#000;border-radius:10px;overflow:hidden}
+.asstage video{display:block;width:100%;max-height:62vh;background:#000}
+.asstage canvas{position:absolute;pointer-events:none}
+.aslive{max-height:180px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg2);margin-top:6px}
+.aslive p{margin:0;font-size:14.5px;line-height:1.7;color:var(--ink);white-space:pre-wrap}
+.aslist{list-style:none;margin:8px 0 14px;padding:0;max-height:52vh;overflow:auto;border:1px solid var(--line);border-radius:10px}
+.aslist li{display:grid;grid-template-columns:auto 1fr auto auto;gap:6px;align-items:start;padding:8px 10px;border-top:1px solid var(--line)}
+.aslist li:first-child{border-top:0}
+.ast{display:flex;flex-direction:column;gap:3px}
+.ast input{width:74px;font-family:inherit;font-size:12.5px;font-weight:600;line-height:1.3;font-variant-numeric:tabular-nums;padding:3px 5px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--sub)}
+.ast input.bad{border-color:#b42318;color:#b42318}
+.aslist textarea{width:100%;min-height:52px;resize:vertical;font-family:inherit;font-size:15px;line-height:1.5;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.aslist button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font-size:13px;padding:0}
+.aslist .asdel{color:#b42318}
+.astext{width:100%;font-family:inherit;font-size:15px;line-height:1.75;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);resize:vertical;margin:8px 0 6px;box-sizing:border-box}
+.obar.load i{background:var(--sub)}
+@media (max-width:560px){.aslist li{grid-template-columns:1fr auto auto}.ast{grid-column:1/-1;flex-direction:row}.aslist textarea{grid-column:1}}
+
+/* 사진 배경 지우기·화질 올리기(11/26) */
+.bgstage{display:flex;justify-content:center;align-items:center;background:var(--bg2);border-radius:10px;padding:8px;min-height:120px}
+.bgstage canvas{display:block;max-width:100%;border-radius:4px;touch-action:none}
+.bgstage.chk canvas{background:repeating-conic-gradient(#d9d9d9 0 25%,#fff 0 50%) 0 0/16px 16px}
+.bgstage canvas.brush{cursor:crosshair}
+.bgsplit input{width:180px}
+#bgColor{width:44px;height:34px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.pmlist canvas{width:100%;height:100%;display:block}
+.upwarn{border:2px solid #b42318;background:#FEF3F2;color:#7a271a;border-radius:10px;padding:12px 14px;margin:0 0 14px;font-size:14.5px;line-height:1.6}
+.upwarn b{display:block;color:#b42318;margin-bottom:2px}
+:root[data-theme="dark"] .upwarn{background:#2a1513;color:#fecdca}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .upwarn{background:#2a1513;color:#fecdca}}
+.upstage.zoom{display:block;overflow:auto;max-height:72vh}
+.upstage.zoom canvas{max-width:none}

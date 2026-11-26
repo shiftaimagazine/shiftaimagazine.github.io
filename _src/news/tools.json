@@ -1,5 +1,109 @@
 [
  {
+  "id": "video-subtitle",
+  "title": "영상 자막 자동 만들기 (AI 받아쓰기 · SRT · 자막 입힌 MP4)",
+  "desc": "릴스·쇼츠 영상의 말소리를 AI가 받아써서 시간이 맞는 자막을 만듭니다. 화면에서 고친 뒤 SRT 파일로 받거나 자막을 입힌 MP4로 받고, 영상은 서버에 올리지 않습니다.",
+  "href": "/tools/video-subtitle/",
+  "tag": "자막",
+  "cover": {
+   "t": "영상 자막\n자동 만들기",
+   "line": "AI가 받아쓰고\n영상에 바로 입히기"
+  },
+  "rel": [
+   "/tools/video-trim/",
+   "/tools/audio-to-text/",
+   "/tutorial/reels-script/"
+  ],
+  "thumb": "img/tools/video-subtitle.webp",
+  "date": "2026-11-26",
+  "mod": "2026-11-26",
+  "glyph": "CC",
+  "where": "내 브라우저",
+  "kw": "영상 자막 자동 생성, 자동 자막, 자막 만들기, 자막 자동 생성 사이트, srt 자막 만들기, 릴스 자막, 쇼츠 자막, 동영상 자막 입히기, 유튜브 자막 만들기, whisper",
+  "cats": [
+   "AI 활용",
+   "사진·이미지"
+  ]
+ },
+ {
+  "id": "bg-remove",
+  "title": "사진 배경 지우기 (누끼 · 투명 PNG)",
+  "desc": "사람·물건·동물 사진에서 AI가 배경만 지워 투명 PNG로 만듭니다. 흰색이나 원하는 색 배경으로 바꾸고 덜 지워진 곳은 붓으로 고치며, 사진은 서버에 올리지 않습니다.",
+  "href": "/tools/bg-remove/",
+  "tag": "누끼",
+  "cover": {
+   "t": "사진 배경\n지우기",
+   "line": "AI가 누끼를 따서\n투명 PNG로"
+  },
+  "rel": [
+   "/tools/upscale/",
+   "/tools/image-resize/",
+   "/tools/pdf-sign/"
+  ],
+  "thumb": "img/tools/bg-remove.webp",
+  "date": "2026-11-26",
+  "mod": "2026-11-26",
+  "glyph": "✂▢",
+  "where": "내 브라우저",
+  "kw": "사진 배경 지우기, 배경 제거, 누끼 따기, 누끼 사이트, 투명 배경 만들기, 이미지 배경 제거, 배경 지우는 사이트, png 배경 제거, remove bg",
+  "cats": [
+   "AI 활용",
+   "사진·이미지"
+  ]
+ },
+ {
+  "id": "upscale",
+  "title": "사진 화질 올리기 (AI로 2배·4배 키우기)",
+  "desc": "작게 저장된 사진이나 오래된 휴대폰 사진을 AI가 2배·4배로 키우면서 흐린 곳을 다듬습니다. 그냥 늘린 사진과 비교해 저장하고, 상품·문서 사진에는 쓰지 않도록 안내합니다.",
+  "href": "/tools/upscale/",
+  "tag": "화질",
+  "cover": {
+   "t": "사진 화질\n올리기",
+   "line": "AI로 2배·4배\n선명하게 키우기"
+  },
+  "rel": [
+   "/tools/bg-remove/",
+   "/tools/image-resize/",
+   "/tools/heic-to-jpg/"
+  ],
+  "thumb": "img/tools/upscale.webp",
+  "date": "2026-11-26",
+  "mod": "2026-11-26",
+  "glyph": "×4",
+  "where": "내 브라우저",
+  "kw": "사진 화질 올리기, 이미지 화질 개선, 해상도 높이기, 사진 크게 키우기, ai 업스케일, 이미지 업스케일링, 사진 선명하게, 저화질 사진 고화질로, upscale",
+  "cats": [
+   "AI 활용",
+   "사진·이미지"
+  ]
+ },
+ {
+  "id": "audio-to-text",
+  "title": "회의 녹음 → 글자 (음성 받아쓰기)",
+  "desc": "회의·강의·인터뷰 녹음 파일을 AI가 글자로 받아쓰고 말한 시각을 함께 적습니다. 텍스트로 받거나 회의록 정리 프롬프트와 함께 복사하고, 녹음은 서버에 올리지 않습니다.",
+  "href": "/tools/audio-to-text/",
+  "tag": "받아쓰기",
+  "cover": {
+   "t": "회의 녹음\n→ 글자",
+   "line": "녹음 파일을 받아쓰고\n회의록 프롬프트까지"
+  },
+  "rel": [
+   "/tutorial/recording-to-minutes/",
+   "/tutorial/meeting-notes/",
+   "/tools/interpreter/"
+  ],
+  "thumb": "img/tools/audio-to-text.webp",
+  "date": "2026-11-26",
+  "mod": "2026-11-26",
+  "glyph": "STT",
+  "where": "내 브라우저",
+  "kw": "음성 텍스트 변환, 녹음 텍스트 변환, 회의 녹음 받아쓰기, 녹취록 만들기, 음성 받아쓰기, stt, 녹음 파일 텍스트, 강의 녹음 받아쓰기, m4a 텍스트 변환, whisper",
+  "cats": [
+   "AI 활용",
+   "번역·회의"
+  ]
+ },
+ {
   "id": "photo-mosaic",
   "title": "사진 얼굴·번호판 모자이크 (자동으로 찾아 가리기)",
   "desc": "블로그·중고 거래에 올리기 전에 사진 속 얼굴을 알아서 찾아 모자이크·흐림·검은 칸으로 가리고, 번호판과 빠진 곳은 끌어서 더 가립니다. 저장한 사진에는 위치 정보가 남지 않고, 사진은 서버에 올리지 않습니다.",
