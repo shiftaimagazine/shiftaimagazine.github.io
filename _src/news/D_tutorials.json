@@ -6699,6 +6699,170 @@
     "tag": "SHIFT AI 무료 정리본",
     "line": "게임 무료 자료 459개, 상업용만 고르기"
    }
+  },
+  {
+   "id": "t-hallmark-design-skill",
+   "date": "2026-11-26",
+   "cat": "스킬·MCP",
+   "tool": [
+    "Claude Code"
+   ],
+   "kind": "steps",
+   "level": "입문",
+   "time": "15분",
+   "tools": "클로드 코드(또는 Codex·OpenCode), Node.js 18 이상, 터미널",
+   "title": "AI 티 나는 웹페이지, 무료 스킬 Hallmark로 바꾸는 5단계 (테마 50개)",
+   "deck": "Hallmark는 클로드 코드 같은 코딩 에이전트가 웹페이지를 만들 때 쓰는 무료 디자인 스킬입니다. 설치 한 줄과 주문 한 줄로 테마 50개 중 내용에 맞는 것을 골라 페이지를 만들고 이미 만든 페이지도 다시 디자인합니다.",
+   "why": "Hallmark 사이트는 같은 프롬프트로 Opus 5.5만 만든 페이지와 Hallmark를 쓴 페이지를 나란히 보여 줍니다. Hallmark 자체 검사기로 잰 문제 수가 앞쪽은 26개, 뒤쪽은 0개였습니다(Hallmark 자체 측정).",
+   "intro": "Hallmark는 GitHub에 MIT 라이선스로 공개된 디자인 스킬입니다. 테마는 Editorial 20개, Modern minimal 12개, Atmospheric 9개, Playful 9개로 모두 50개이고 테마마다 종이 질감·글꼴·색·사진 쓰는 방식이 정해져 있습니다. 배치는 만들 때마다 새로 짜서 같은 테마라도 페이지 구성이 달라집니다. 공식 사이트는 클로드 코드·Codex·OpenCode에서 쓸 수 있다고 적고, GitHub 설명에는 Cursor도 들어 있습니다. SHIFT 릴스 'AI 티 안 나는 웹페이지' 편에서 보여 드린 스킬이 이것입니다.",
+   "quick": {
+    "lines": [
+     "터미널에서 npx skills add nutlope/hallmark -g 한 줄로 설치합니다(Node.js 18 이상).",
+     "클로드 코드에서 /hallmark 뒤에 만들 페이지를 한 문장으로 적습니다. 내용에 맞는 테마 3개를 골라 보여 줍니다.",
+     "이미 만든 페이지는 /hallmark redesign 파일 경로 로 다시 디자인합니다."
+    ],
+    "links": [
+     [
+      "Hallmark 공식 사이트(테마 50개 보기)",
+      "https://www.usehallmark.com"
+     ],
+     [
+      "GitHub 저장소",
+      "https://github.com/Nutlope/hallmark"
+     ]
+    ]
+   },
+   "master": {
+    "tool": "Claude Code",
+    "prompt": "역할: 너는 웹페이지를 만드는 디자이너 겸 개발자야.\n맥락: 이 폴더에 [만들 페이지 이름] 페이지를 만들려고 해. AI가 만든 티가 나지 않게 Hallmark 디자인 스킬을 쓸 거야.\n입력: 페이지 설명 = [누가, 무엇을 파는지, 방문자가 눌러야 할 버튼 하나]. 쓸 사진과 숫자 = [내가 가진 사진 경로, 실제 숫자].\n작업:\n1) Hallmark 스킬이 설치돼 있는지 확인하고, 없으면 npx skills add nutlope/hallmark -g --agent claude-code 로 설치해.\n2) /hallmark 로 위 설명의 페이지를 만들어. 테마 후보 3개를 보여 주고 내가 고르면 그 테마로 진행해.\n3) 사진·숫자는 내가 준 것만 쓰고, 없는 것은 비워 두고 물어봐.\n제약: 사진·후기·숫자를 지어내지 마. 파일은 index.html 하나로.\n출력: 완성된 index.html 과 브라우저로 여는 방법.\n검증: 완성 뒤 Hallmark 검사(sloplint)를 돌려 지적된 것을 고치고, 고친 내용을 짧게 알려 줘."
+   },
+   "items": [
+    {
+     "h": "Node.js 버전 확인하기",
+     "time": "2분",
+     "d": "설치 명령이 Node.js로 돌아가서 버전부터 봅니다.",
+     "how": "터미널을 열고 아래 명령을 입력합니다. 공식 문서는 Node.js 18 이상을 요구합니다. 숫자가 18보다 작거나 명령을 찾을 수 없다고 나오면 nodejs.org에서 LTS 버전을 먼저 설치합니다.",
+     "code": [
+      {
+       "label": "터미널",
+       "cmd": "node -v",
+       "ok": "v18 이상의 버전 번호가 나오면 다음 단계로 갑니다."
+      }
+     ]
+    },
+    {
+     "h": "Hallmark 설치하기",
+     "time": "2분",
+     "d": "한 줄이면 내 컴퓨터의 코딩 에이전트에 스킬이 붙습니다.",
+     "how": "아래 명령을 터미널에 붙여 넣습니다. -g 는 컴퓨터 전체에 설치하는 옵션이라 어느 폴더에서든 쓸 수 있습니다. 지금 폴더에서만 쓰고 싶으면 -g 를 빼고 실행합니다.",
+     "code": [
+      {
+       "label": "터미널",
+       "cmd": "npx skills add nutlope/hallmark -g",
+       "ok": "공식 문서 기준으로 설치가 끝나면 클로드 코드에서 /hallmark 를 쓸 수 있습니다."
+      },
+      {
+       "label": "클로드 코드에만 설치할 때",
+       "cmd": "npx skills add nutlope/hallmark -g --agent claude-code",
+       "ok": "공식 사이트에 적힌 클로드 코드 전용 설치 명령입니다."
+      }
+     ],
+     "more": [
+      "클로드 코드 플러그인으로 넣는 방법도 있습니다. 클로드 코드 안에서 /plugin marketplace add nutlope/hallmark 를 입력한 뒤 /plugin install hallmark@hallmark 를 입력하면 되고 이때는 /hallmark:hallmark 로 부릅니다."
+     ]
+    },
+    {
+     "h": "테마 50개 둘러보기",
+     "time": "3분",
+     "d": "주문하기 전에 공식 사이트에서 테마 분위기를 한 번 봐 두면 고르기 쉽습니다.",
+     "how": "usehallmark.com의 'Fifty themes to start from' 칸에서 분류별로 테마를 볼 수 있습니다. 테마는 종이 질감·글꼴·색·사진 쓰는 방식의 묶음이고 페이지 배치는 만들 때마다 새로 정해집니다.",
+     "table": {
+      "head": [
+       "분류",
+       "테마 수",
+       "예시"
+      ],
+      "rows": [
+       [
+        "Editorial",
+        "20",
+        "Almanac, Broadside, Newsprint"
+       ],
+       [
+        "Modern minimal",
+        "12",
+        "Cobalt, Grid, Lumen"
+       ],
+       [
+        "Atmospheric",
+        "9",
+        "Dusk, Midnight, Solstice"
+       ],
+       [
+        "Playful",
+        "9",
+        "Arcade, Sticker, Carnival"
+       ]
+      ]
+     },
+     "more": [
+      "예시 테마 이름은 공식 사이트의 테마 목록에서 옮긴 것입니다. 어떤 테마가 어느 분류에 드는지는 사이트에서 분류 버튼을 눌러 확인합니다."
+     ]
+    },
+    {
+     "h": "한 줄로 페이지 주문하기",
+     "time": "5분",
+     "d": "설명은 길게 쓰기보다 누가, 무엇을, 방문자가 무엇을 눌러야 하는지만 적습니다.",
+     "how": "클로드 코드를 페이지를 만들 폴더에서 열고 /hallmark 뒤에 한 문장으로 주문합니다. 공식 사이트 설명대로라면 Hallmark는 먼저 사진·실제 숫자 같은 재료를 묻고, 내용에 맞는 테마 3개를 골라 보여 준 뒤 페이지를 만듭니다. 테마 없이 처음부터 만들고 싶으면 custom이라고 말합니다.",
+     "prompt": "/hallmark 동네 빵집 '오늘의 식빵' 소개 페이지. 매일 굽는 빵 3가지, 영업시간, 위치, 전화 걸기 버튼 하나",
+     "more": [
+      "Hallmark는 사진과 숫자를 지어내지 않고 사용자에게 받는다고 공식 사이트에 적혀 있습니다. 가게 사진이나 실제 가격이 있으면 미리 폴더에 넣어 두면 좋습니다."
+     ],
+     "bad": "❌ /hallmark 멋있는 홈페이지 만들어 줘",
+     "good": "✅ /hallmark 동네 빵집 소개 페이지. 오늘의 빵 3가지, 영업시간, 전화 버튼 하나"
+    },
+    {
+     "h": "이미 만든 페이지 다시 디자인하고 검사하기",
+     "time": "3분",
+     "d": "예전에 AI로 만든 페이지가 있다면 처음부터 다시 만들 필요는 없습니다.",
+     "how": "/hallmark redesign 뒤에 페이지 파일 경로를 적으면 기존 페이지를 Hallmark 방식으로 다시 디자인합니다. GitHub 설명에 따르면 다시 디자인한 결과는 이전과 나란히 비교할 수 있게 넘겨줍니다. 다 만든 뒤에는 Hallmark 검사기 sloplint로 남은 문제를 확인합니다.",
+     "code": [
+      {
+       "label": "클로드 코드",
+       "cmd": "/hallmark redesign index.html",
+       "ok": "기존 페이지를 바탕으로 새 디자인을 만듭니다(공식 문서 기준)."
+      },
+      {
+       "label": "터미널",
+       "cmd": "sloplint index.html",
+       "ok": "공식 사이트 예시에서는 문제가 없으면 '0 fail, 0 warn'이 나옵니다."
+      }
+     ],
+     "more": [
+      "검사기는 사진 위 글자 대비가 낮은 곳, 채운 버튼 두 개가 나란히 붙은 곳, 사진 자리에 그라데이션을 넣은 곳 같은 것을 찾아냅니다. 실제 브라우저로 검사하려면 공식 문서대로 puppeteer-core와 크롬이 필요합니다."
+     ]
+    }
+   ],
+   "limits": [
+    "비교에 나온 '문제 26개 → 0개'는 Hallmark가 만든 검사기로 잰 숫자입니다.",
+    "코딩 에이전트(클로드 코드·Codex·OpenCode 등)가 있어야 하고 쓰는 만큼 그 서비스의 사용량이 듭니다. claude.ai 웹 채팅에서 쓰는 방법은 공식 문서에 없습니다.",
+    "지원하는 에이전트 목록이 공식 사이트(클로드 코드·Codex·OpenCode)와 GitHub 설명(Cursor 포함)에서 조금 다릅니다.",
+    "명령어와 옵션은 2026년 11월 26일 공식 사이트·GitHub 기준이라 바뀔 수 있습니다."
+   ],
+   "sources": [
+    [
+     "Hallmark 공식 사이트",
+     "https://www.usehallmark.com"
+    ],
+    [
+     "GitHub: Nutlope/hallmark",
+     "https://github.com/Nutlope/hallmark"
+    ]
+   ],
+   "cover": {
+    "tag": "SHIFT AI 무료 정리본",
+    "line": "AI 티 나는 페이지, 한 줄로 바꾸기"
+   }
   }
  ]
 }
