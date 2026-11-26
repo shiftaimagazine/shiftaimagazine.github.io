@@ -464,6 +464,10 @@ TOOLS = D.get('TOOLS', [])
 #  자주 묻는 질문은 화면에 보이는 views/tool-<id>.html 의 <section class="tfaq"> 에서 읽어 FAQPage 로도 낸다(화면과 구조화 데이터가 늘 같게).
 _NPR = len(json.load(open(SRC + 'news/ai_prices.json'))['models']) if os.path.exists(SRC + 'news/ai_prices.json') else 0
 TOOL_SEO = {
+    'video-trim': dict(js='video-trim.js', title='영상 자르기·동영상 용량 줄이기 무료 — MP4 압축, 1080p·720p·25MB 이하로(설치 없이)',
+                desc='휴대폰·카메라로 찍은 영상에서 필요한 구간만 잘라 MP4로 저장하고, 해상도(1080p·720p·480p)와 화질, 25MB 같은 목표 용량을 골라 동영상 용량을 줄입니다. 소리는 다시 압축하지 않고 옮기며, 영상은 서버에 올리지 않고 브라우저 안에서 처리합니다.',
+                alt=['영상 자르기', '동영상 자르기', '동영상 용량 줄이기', '영상 압축', 'MP4 자르기', '동영상 압축 사이트'],
+                feat=['MP4·MOV 구간 자르기(시작·끝 시각 지정)', 'H.264 MP4로 다시 압축', '해상도 원래·1080p·720p·480p', '화질 우선·보통·용량 우선', '목표 용량(100MB~8MB 이하)', '소리 그대로 옮기기·소리 빼기', '세로 영상 방향 유지', 'WebM 등은 실시간 녹화로 만들기']),
     'pdf-compress': dict(js='pdf-compress.js', title='PDF 용량 줄이기 무료 — PDF 압축, 글자는 그대로 사진만 줄이기(10MB 이하로, 업로드 없이)',
                 desc='메일·제출 사이트에 안 올라가는 PDF의 용량을 줄입니다. 글자·표·링크는 그대로 두고 PDF 안의 사진만 줄이거나, 스캔본은 쪽을 그림으로 다시 만들어 크게 줄입니다. 10MB·5MB 이하처럼 목표 용량을 정할 수 있고, 파일은 서버에 올리지 않습니다.',
                 alt=['PDF 용량 줄이기', 'PDF 압축', 'PDF 파일 크기 줄이기', 'PDF 용량 줄이는 법', 'PDF 10MB 이하로', '스캔 PDF 압축'],

@@ -1,0 +1,109 @@
+<main id="v-tool-video-trim">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 영상</span>
+  <h1>영상 자르기·용량 줄이기</h1>
+  <p class="deck">릴스·쇼츠에 올리거나 카톡·메일로 보낼 영상에서 필요한 구간만 잘라 MP4로 저장하고, 해상도와 화질을 골라 용량을 줄입니다. 프로그램 설치 없이 이 브라우저 안에서 처리하고, 영상은 서버에 올리지 않습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>영상은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>영상 넣기</h2>
+    <label class="odrop" id="vtDrop" tabindex="0">
+      <input type="file" id="vtFile" accept="video/*,.mp4,.mov,.m4v,.webm">
+      <b>여기를 눌러 영상을 고르거나 끌어다 놓으세요</b>
+      <span>MP4·MOV(휴대폰·카메라 영상)를 가장 빠르게 처리합니다</span>
+    </label>
+    <div class="vtprev" id="vtPrev" hidden>
+      <video id="vtPlayer" controls playsinline preload="metadata"></video>
+      <div class="vtinfo" id="vtInfo"></div>
+    </div>
+    <p class="hint" id="vtMode"></p>
+  </section>
+
+  <div id="vtSet" hidden>
+  <section class="tstep">
+    <h2><i>2</i>남길 구간 고르기</h2>
+    <p class="hint vtlen" id="vtLen"></p>
+    <div class="vtrange" id="vtRange">
+      <input type="range" id="vtA" min="0" max="1" step="0.01" value="0" aria-label="시작 위치">
+      <input type="range" id="vtB" min="0" max="1" step="0.01" value="1" aria-label="끝 위치">
+    </div>
+    <div class="trow">
+      <label class="inl">시작 <input id="vtStart" type="text" inputmode="decimal" value="0:00.0"></label>
+      <label class="inl">끝 <input id="vtEnd" type="text" inputmode="decimal" value="0:00.0"></label>
+      <button class="ghost" type="button" id="vtSetA">지금 장면을 시작으로</button>
+      <button class="ghost" type="button" id="vtSetB">지금 장면을 끝으로</button>
+      <button class="ghost" type="button" id="vtPlaySel">고른 구간 재생</button>
+    </div>
+    <p class="hint">위 영상을 재생하다 멈추고 '지금 장면을 시작으로'를 누르면 그 자리부터 남깁니다. 시간은 '1:05.5'(1분 5.5초)처럼 적어도 됩니다.</p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>크기·용량 정하기</h2>
+    <div class="trow">
+      <span class="meta">해상도</span>
+      <div class="seg mini" role="radiogroup" aria-label="해상도">
+        <label><input type="radio" name="vtRes" value="0"><span><b>원래 크기</b></span></label>
+        <label><input type="radio" name="vtRes" value="1080" checked><span><b>1080p</b></span></label>
+        <label><input type="radio" name="vtRes" value="720"><span><b>720p</b></span></label>
+        <label><input type="radio" name="vtRes" value="480"><span><b>480p</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <span class="meta">화질</span>
+      <div class="seg mini" role="radiogroup" aria-label="화질">
+        <label><input type="radio" name="vtQ" value="hi"><span><b>화질 우선</b></span></label>
+        <label><input type="radio" name="vtQ" value="mid" checked><span><b>보통</b></span></label>
+        <label><input type="radio" name="vtQ" value="low"><span><b>용량 우선</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <label class="inl">목표 용량 <select id="vtTarget">
+        <option value="0">정하지 않음</option>
+        <option value="104857600">100MB 이하</option>
+        <option value="52428800">50MB 이하</option>
+        <option value="26214400">25MB 이하 (메일 첨부)</option>
+        <option value="10485760">10MB 이하</option>
+        <option value="8388608">8MB 이하</option>
+      </select></label>
+      <label class="inl"><input type="checkbox" id="vtMute"> 소리 빼기</label>
+    </div>
+    <p class="hint" id="vtEst"></p>
+  </section>
+  </div>
+
+  <section class="tstep" id="vtGoRow" hidden>
+    <h2><i>4</i>만들어 받기</h2>
+    <div class="trow">
+      <button class="btn" type="button" id="vtGo" data-ev="tool-done:/tools/video-trim/" disabled>MP4로 만들기</button>
+      <button class="ghost" type="button" id="vtStop" hidden>멈추기</button>
+    </div>
+    <div class="obar" id="vtBar" hidden><i></i></div>
+    <p class="hint" id="vtHint" aria-live="polite"></p>
+    <div class="vtout" id="vtOut" hidden>
+      <video id="vtOutV" controls playsinline></video>
+      <div class="vtinfo" id="vtOutI"></div>
+      <a class="btn" id="vtDl" href="#" download>내려받기</a>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>MP4·MOV 영상은 브라우저에 들어 있는 영상 압축 기능(WebCodecs)으로 고른 구간만 다시 압축해 H.264 MP4로 만듭니다. 소리(AAC)는 다시 압축하지 않고 그대로 옮겨서 음질이 바뀌지 않습니다.</li>
+      <li>WebM처럼 다른 형식은 '실시간 녹화' 방식으로 만듭니다. 고른 길이만큼 시간이 걸리고, 그동안 이 탭을 열어 두어야 합니다.</li>
+      <li>아이폰의 고효율(HEVC) 영상은 그 형식을 풀 수 있는 브라우저(사파리, 맥·윈도의 크롬 등)에서만 열립니다. 열리지 않으면 아이폰 '설정 &gt; 카메라 &gt; 포맷'에서 '높은 호환성'으로 찍은 영상을 쓰세요.</li>
+      <li>HDR로 찍은 영상은 일반 화면용 색으로 바뀌어 원래보다 덜 화사해 보일 수 있습니다.</li>
+    </ul>
+    <p>다음 단계: 영상에 들어갈 사진 크기를 맞추려면 <a href="/tools/image-resize/">이미지 압축·인스타 규격 자르기</a>를, 올리기 전에 사진 위치 정보를 지우려면 <a href="/tools/exif-remove/">사진 위치정보 지우기</a>를 쓰세요.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>영상이 서버로 올라가나요?</summary><p>올라가지 않습니다. 자르기와 압축은 모두 이 브라우저 안에서 합니다. 가족 영상이나 회사 내부 영상도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>얼마나 걸리나요?</summary><p>MP4·MOV는 컴퓨터의 영상 처리 기능을 써서 보통 영상 길이보다 빨리 끝납니다. 기기 성능과 해상도에 따라 다르고, 4K 영상이나 오래된 휴대폰에서는 더 걸립니다. '실시간 녹화' 방식은 고른 길이만큼 걸립니다.</p></details>
+    <details><summary>카톡이나 메일로 보내려면 어떻게 고르나요?</summary><p>메일 첨부는 '25MB 이하'를 고르세요. 목표 용량을 고르면 고른 구간 길이에 맞춰 화질을 정합니다. 구간이 길면 화질이 많이 떨어지니, 필요한 부분만 남기거나 해상도를 720p로 낮추는 편이 낫습니다.</p></details>
+    <details><summary>릴스·쇼츠용 세로 영상도 되나요?</summary><p>됩니다. 휴대폰으로 세로로 찍은 영상은 방향 정보를 그대로 옮겨서 세로로 재생됩니다. 해상도를 1080p로 고르면 짧은 쪽이 1080픽셀이 됩니다.</p></details>
+    <details><summary>화면을 잘라 내거나(크롭) 자막을 넣을 수 있나요?</summary><p>이 도구는 구간 자르기와 용량 줄이기만 합니다. 화면 비율을 바꾸거나 자막을 넣는 기능은 없습니다.</p></details>
+  </section>
+</article>
+</main>

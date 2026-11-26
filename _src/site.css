@@ -2168,3 +2168,21 @@ footer .fsw p{margin:0;font-size:12.5px;color:#8A8A87}
 .pcview.zoom .pcvs{overflow:auto;max-height:70vh}
 .pcview.zoom .pcvs canvas{max-width:none}
 @media (max-width:640px){.pcvg{grid-template-columns:1fr}.pcview.zoom .pcvs{max-height:46vh}}
+
+/* 영상 자르기·용량 줄이기(11/26) */
+.vtprev,.vtout{margin-top:12px;display:grid;gap:8px}
+.vtprev video,.vtout video{width:100%;max-height:60vh;background:#000;border-radius:10px;display:block}
+.vtinfo b{display:block;font-size:14.5px;color:var(--ink);overflow-wrap:anywhere}
+.vtinfo span{font-size:13px;color:var(--sub)}
+.vtinfo .vtnew{display:inline;font-size:13.5px}
+.vtout .btn{justify-self:start}
+#vtEst em{display:block;font-style:normal;color:#b42318;margin-top:4px}
+.vtrange{position:relative;height:34px;margin:6px 0 4px;--a:0%;--b:100%}
+.vtrange::before{content:"";position:absolute;left:0;right:0;top:15px;height:4px;border-radius:4px;background:linear-gradient(to right,var(--line) var(--a),var(--accent) var(--a),var(--accent) var(--b),var(--line) var(--b))}
+.vtrange input{position:absolute;left:0;top:0;width:100%;height:34px;margin:0;background:none;pointer-events:none;-webkit-appearance:none;appearance:none}
+.vtrange input::-webkit-slider-runnable-track{background:none;border:0}
+.vtrange input::-moz-range-track{background:none;border:0}
+.vtrange input::-webkit-slider-thumb{pointer-events:auto;-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);cursor:pointer;margin-top:0}
+.vtrange input::-moz-range-thumb{pointer-events:auto;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);cursor:pointer}
+.trow .inl input#vtStart,.trow .inl input#vtEnd{width:92px;min-width:0;flex:none}
+.vtlen{font-weight:700;color:var(--ink)!important;margin:0!important}
