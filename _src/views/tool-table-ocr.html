@@ -1,0 +1,74 @@
+<main id="v-tool-table-ocr">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 글자 인식</span>
+  <h1>표 사진 → 엑셀 변환</h1>
+  <p class="deck">종이 서류의 표를 찍은 사진이나 화면 캡처 속 표를 칸 구조 그대로 읽어 엑셀(.xlsx)로 만듭니다. 줄·칸을 나누고 합친 칸까지 찾아 주고, 결과를 화면에서 고친 뒤 받습니다. 사진은 서버에 올리지 않고 이 브라우저 안에서 읽습니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>표 사진 넣기</h2>
+    <label class="odrop" id="toDrop" tabindex="0">
+      <input type="file" id="toFile" accept="image/*,.heic,.heif">
+      <b>여기를 눌러 표 사진을 고르거나 끌어다 놓으세요</b>
+      <span>캡처한 표는 Ctrl+V로 바로 붙여 넣어도 됩니다 · JPG·PNG·WebP·아이폰 HEIC</span>
+    </label>
+    <figure class="toprev" id="toPrev" hidden><canvas id="toPrevC"></canvas><figcaption id="toPrevT"></figcaption></figure>
+  </section>
+
+  <section class="tstep">
+    <h2><i>2</i>읽기</h2>
+    <div class="trow">
+      <span class="meta">표 모양</span>
+      <div class="seg mini" role="radiogroup" aria-label="표 모양">
+        <label><input type="radio" name="toShape" value="auto" checked><span><b>알아서 찾기</b></span></label>
+        <label><input type="radio" name="toShape" value="text"><span><b>선이 없는 표</b></span></label>
+      </div>
+    </div>
+    <div class="trow">
+      <span class="meta">글자</span>
+      <div class="seg mini" role="radiogroup" aria-label="글자">
+        <label><input type="radio" name="toLang" value="kor+eng" checked><span><b>한국어+영어</b></span></label>
+        <label><input type="radio" name="toLang" value="eng"><span><b>영어·숫자만</b></span></label>
+      </div>
+    </div>
+    <div class="trow"><button class="btn" type="button" id="toGo" data-ev="tool-done:/tools/table-ocr/" disabled>표 읽기</button></div>
+    <div class="obar" id="toBar" hidden><i></i></div>
+    <p class="hint" id="toStatus" aria-live="polite"></p>
+  </section>
+
+  <section class="tstep" id="toOut" hidden>
+    <h2><i>3</i>고치고 받기 <small id="toInfo"></small></h2>
+    <p class="hint" id="toLow"></p>
+    <div class="totable" id="toTable"></div>
+    <div class="trow">
+      <label class="inl"><input type="checkbox" id="toHead" checked> 첫 줄은 제목 줄</label>
+      <label class="inl"><input type="checkbox" id="toNum" checked> 숫자는 숫자로(쉼표·원 빼고 계산되게)</label>
+    </div>
+    <div class="trow">
+      <button class="btn" type="button" id="toXlsx">엑셀(.xlsx)로 받기</button>
+      <button class="ghost" type="button" id="toCopy">표 복사(엑셀·시트에 붙여 넣기)</button>
+      <button class="ghost" type="button" id="toCsv">CSV로 받기</button>
+    </div>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>표 선이 또렷하게 찍힌 사진일수록 칸을 정확히 나눕니다. 표가 사진 대부분을 차지하게, 위에서 똑바로 찍으세요. 조금 기울어진 사진은 알아서 바로잡습니다.</li>
+      <li>글자 인식이 틀릴 수 있습니다. 특히 금액·날짜는 받기 전에 사진과 한 번 비교하세요. 확신하지 못한 칸은 노랗게 표시합니다.</li>
+      <li>손글씨, 아주 작은 글자, 구겨지거나 크게 휘어진 종이는 잘 읽지 못합니다.</li>
+      <li>글자 인식 프로그램은 오픈소스 <a href="https://github.com/naptha/tesseract.js" target="_blank" rel="noopener">tesseract.js</a>(Apache-2.0)와 한국어·영어 학습 데이터입니다. 처음 한 번 SHIFT 서버에서 받아 오고(약 9MB), 사진은 이 페이지 밖으로 나가지 않습니다.</li>
+    </ul>
+    <p>다음 단계: 받은 표를 챗GPT·클로드에 올릴 때는 <a href="/tools/table-to-markdown/">엑셀 → 마크다운 표 변환</a>으로 바꾸면 AI가 칸을 정확히 읽습니다. 표 말고 글만 뽑으려면 <a href="/tools/ocr/">사진 속 글자 뽑기</a>를 쓰세요.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 표 선 찾기와 글자 인식 모두 이 브라우저 안에서 합니다. 거래명세서·급여 명세처럼 남에게 보이면 안 되는 표도 밖으로 나가지 않습니다.</p></details>
+    <details><summary>선이 없는 표도 되나요?</summary><p>됩니다. 선이 없으면 글자가 놓인 자리로 줄과 칸을 나눕니다. 칸이 잘못 나뉘면 표 모양을 '선이 없는 표'로 바꿔 다시 읽어 보세요. 가로선만 있는 표는 줄은 선으로, 칸은 글자 자리로 나눕니다.</p></details>
+    <details><summary>합친 칸(병합 셀)은 어떻게 되나요?</summary><p>칸 사이 선이 끊긴 곳을 합친 칸으로 보고, 엑셀에서도 같은 칸을 합쳐 둡니다. 선이 없는 표에서는 합친 칸을 찾지 못합니다.</p></details>
+    <details><summary>숫자가 글자로 들어가지 않나요?</summary><p>'숫자는 숫자로'를 켜 두면 1,234나 1,000원 같은 칸에서 쉼표·원을 빼고 엑셀이 계산할 수 있는 숫자로 넣습니다. 0으로 시작하는 번호(0012)나 날짜처럼 보이는 칸은 글자 그대로 둡니다.</p></details>
+    <details><summary>PDF 안의 표도 되나요?</summary><p>PDF는 <a href="/tools/pdf-to-jpg/">PDF → JPG 변환</a>으로 쪽을 사진으로 바꾼 뒤 넣으세요. 글자를 고를 수 있는 PDF라면 <a href="/tools/pdf-to-text/">PDF 글자 뽑기</a>가 더 정확합니다.</p></details>
+  </section>
+</article>
+</main>
