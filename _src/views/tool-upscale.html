@@ -1,0 +1,73 @@
+<main id="v-tool-upscale">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 사진 · AI</span>
+  <h1>사진 화질 올리기 (2배·4배 키우기)</h1>
+  <p class="deck">작게 저장된 사진이나 오래된 휴대폰 사진을 AI가 2배·4배로 키우면서 흐린 곳과 압축 자국을 다듬습니다. 그냥 늘린 사진과 나란히 비교한 뒤 저장합니다. 사진은 서버에 올리지 않고 이 브라우저 안에서 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <div class="upwarn" role="note"><b>상품 사진·문서 사진에는 쓰지 마세요</b>AI는 흐린 부분을 그럴듯하게 새로 그려 넣습니다. 상품의 글자·무늬·질감, 문서·영수증·계약서의 글자와 숫자가 원래와 다르게 바뀔 수 있어, 판매용 상품 사진이나 제출·증빙용 서류에 쓰면 사실과 다른 사진이 됩니다. 추억 사진, 프로필·배경 사진, 디자인 시안처럼 보기 좋게 만드는 용도로만 쓰세요.</div>
+
+  <section class="tstep">
+    <h2><i>1</i>사진 넣기</h2>
+    <label class="odrop" id="upDrop" tabindex="0">
+      <input type="file" id="upFile" accept="image/*,.heic,.heif">
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>JPG·PNG·WebP·아이폰 HEIC · 캡처한 사진은 붙여 넣기(Ctrl+V)도 됩니다</span>
+    </label>
+    <p class="hint" id="upInfo"></p>
+  </section>
+
+  <div id="upWork" hidden>
+  <section class="tstep">
+    <h2><i>2</i>배율 고르고 키우기</h2>
+    <div class="trow">
+      <span class="meta">배율</span>
+      <div class="seg mini" role="radiogroup" aria-label="배율">
+        <label><input type="radio" name="upScale" value="4" checked><span><b>4배 · 선명하게 다듬기</b></span></label>
+        <label><input type="radio" name="upScale" value="2"><span><b>2배 · 빠르게</b></span></label>
+      </div>
+    </div>
+    <p class="hint" id="upEst"></p>
+    <div class="trow">
+      <button class="btn" type="button" id="upGo" data-ev="tool-done:/tools/upscale/" disabled>키우기</button>
+      <button class="ghost" type="button" id="upStop" hidden>멈추기</button>
+    </div>
+    <div class="obar" id="upBar" hidden><i></i></div>
+    <p class="hint" id="upStatus" aria-live="polite"></p>
+  </section>
+
+  <section class="tstep">
+    <h2><i>3</i>비교하고 저장</h2>
+    <div class="bgstage upstage" id="upStage"><canvas id="upCanvas"></canvas></div>
+    <div class="trow">
+      <label class="inl bgsplit">왼쪽: 그냥 늘림 · 오른쪽: AI <input type="range" id="upSplit" min="0" max="100" value="50" aria-label="비교 위치"></label>
+      <label class="inl"><input type="checkbox" id="upZoom"> 실제 크기로 보기</label>
+    </div>
+    <div class="trow" id="upSaveRow" hidden>
+      <label class="inl" id="upSizeW">저장 크기 <select id="upSize"><option value="1">키운 크기 그대로</option><option value="2">절반으로(원래의 2배)</option></select></label>
+      <label class="inl">저장 형식 <select id="upFmt"><option value="same">원래 형식에 맞춤</option><option value="jpg">JPG(용량 작게)</option><option value="png">PNG(손실 없이)</option></select></label>
+      <button class="btn" type="button" id="upSave">저장</button>
+    </div>
+  </section>
+  </div>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>키우는 일은 공개 AI 모델 Swin2SR(Apache-2.0 라이선스)을 브라우저 안에서 돌려서 합니다. 처음 한 번 모델 파일(2배 약 7MB, 4배 약 21MB · 그래픽 카드로 계산할 때는 더 큰 파일)을 Hugging Face에서 받고, 사진은 밖으로 보내지 않습니다.</li>
+      <li>'4배 · 선명하게 다듬기'는 휴대폰·메신저·웹에서 받아 흐리거나 압축 자국이 있는 사진에 맞춘 모델로, 자국을 정리하면서 키웁니다. 4배까지 필요 없으면 저장할 때 '절반으로(원래의 2배)'를 고르세요. '2배 · 빠르게'는 압축 자국이 거의 없는 깨끗한 사진을 빨리 키우는 모델이라, 흐린 사진에서는 그냥 늘린 것과 차이가 작습니다.</li>
+      <li>CPU로 계산하면 시간이 오래 걸려, 2배는 긴 쪽 1200픽셀, 4배는 480픽셀 이하 사진만 받습니다(휴대폰은 더 작게). 필요한 부분만 잘라서 넣으면 빨라집니다.</li>
+      <li>얼굴은 원래 사람과 조금 다르게 보일 수 있습니다. 증명사진이나 신분 확인용 사진에는 쓰지 마세요.</li>
+    </ul>
+    <p>다음 단계: 배경을 지우려면 <a href="/tools/bg-remove/">사진 배경 지우기</a>를, 인스타그램 크기에 맞추려면 <a href="/tools/image-resize/">이미지 압축·인스타 규격 자르기</a>를 쓰세요.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 키우는 일은 이 브라우저 안에서 합니다. 인터넷으로 오가는 것은 처음 한 번 받는 AI 모델 파일뿐입니다.</p></details>
+    <details><summary>상품 사진이나 스캔한 문서에는 왜 쓰면 안 되나요?</summary><p>AI는 사진에 없던 세부를 그럴듯하게 만들어 채웁니다. 상품의 원단 무늬나 상표 글자, 문서의 숫자가 실제와 달라질 수 있어 사는 사람이나 받는 사람을 속이는 사진이 될 수 있습니다. 글자를 읽어야 하는 문서는 <a href="/tools/ocr/">이미지 글자 추출</a>처럼 글자를 그대로 옮기는 도구를 쓰세요.</p></details>
+    <details><summary>얼마나 걸리나요?</summary><p>저희가 그래픽 카드 없이 CPU 하나로 시험했을 때 '4배'는 256×256 사진에 1분 40초쯤, '2배'는 400×375 사진에 50초쯤 걸렸습니다. 컴퓨터에 CPU 코어가 많으면 사진을 나눠 여러 곳에서 함께 계산해 더 빨리 끝나고, 브라우저가 그래픽 카드(WebGPU)를 쓸 수 있으면 그래픽 카드로 계산합니다. 키우는 중에는 남은 시간을 보여 줍니다.</p></details>
+    <details><summary>흐릿하게 찍힌 사진도 선명해지나요?</summary><p>초점이 크게 빗나갔거나 많이 흔들린 사진은 되살리기 어렵습니다. 작게 줄여 저장했거나 압축으로 뭉개진 사진에서 효과가 가장 큽니다.</p></details>
+  </section>
+</article>
+</main>

@@ -1,0 +1,87 @@
+<main id="v-tool-bg-remove">
+<article class="article tool">
+  <a class="back" href="/tools/">← 무료 도구</a>
+  <span class="cat">무료 도구 · 사진 · AI</span>
+  <h1>사진 배경 지우기 (투명 PNG)</h1>
+  <p class="deck">사람·물건·동물 사진에서 AI가 배경만 지워 투명 PNG로 만듭니다. 흰색이나 원하는 색 배경으로 바꿀 수 있고, 덜 지워진 곳은 붓으로 고칩니다. 사진은 서버에 올리지 않고 이 브라우저 안에서 처리합니다.</p>
+  <div class="tbadges"><span>무료</span><span>설치·가입 없음</span><span>사진은 이 브라우저 안에서만 처리 · 어디에도 올리지 않음</span></div>
+
+  <section class="tstep">
+    <h2><i>1</i>사진 넣기</h2>
+    <label class="odrop" id="bgDrop" tabindex="0">
+      <input type="file" id="bgFile" accept="image/*,.heic,.heif" multiple>
+      <b>여기를 눌러 사진을 고르거나 끌어다 놓으세요</b>
+      <span>JPG·PNG·WebP·아이폰 HEIC, 한 번에 20장까지 · 캡처한 사진은 붙여 넣기(Ctrl+V)도 됩니다</span>
+    </label>
+    <p class="hint" id="bgEst"></p>
+    <div class="obar" id="bgBar" hidden><i></i></div>
+    <p class="hint" id="bgStatus" aria-live="polite"></p>
+    <button class="ghost" type="button" id="bgRetry" hidden>못 한 사진 다시 해 보기</button>
+  </section>
+
+  <section class="tstep" id="bgWork" hidden>
+    <h2><i>2</i>확인하고 고치기</h2>
+    <div class="pmlist bglist" id="bgList"></div>
+    <div class="bgstage" id="bgStage"><canvas id="bgCanvas"></canvas></div>
+    <p class="hint" id="bgInfo"></p>
+    <div id="bgTools">
+      <div class="trow">
+        <label class="inl bgsplit">원래 사진과 비교 <input type="range" id="bgSplit" min="0" max="100" value="0" aria-label="왼쪽에 원래 사진을 보여 줄 너비"></label>
+      </div>
+      <div class="trow">
+        <span class="meta">붓</span>
+        <div class="seg mini" role="radiogroup" aria-label="붓">
+          <label><input type="radio" name="bgBrush" value="view" checked><span><b>보기만</b></span></label>
+          <label><input type="radio" name="bgBrush" value="erase"><span><b>더 지우기</b></span></label>
+          <label><input type="radio" name="bgBrush" value="keep"><span><b>되살리기</b></span></label>
+        </div>
+        <label class="inl">굵기 <input type="range" id="bgSize" min="6" max="90" value="28"></label>
+        <button class="ghost" type="button" id="bgUndo" disabled>되돌리기</button>
+        <button class="ghost" type="button" id="bgReset">처음 결과로</button>
+      </div>
+      <p class="hint">'더 지우기'를 고르고 남은 배경을 문지르면 지워지고, '되살리기'로 잘려 나간 곳을 문지르면 원래 사진이 돌아옵니다.</p>
+    </div>
+  </section>
+
+  <section class="tstep" id="bgOut">
+    <h2><i>3</i>배경 고르고 저장</h2>
+    <div class="trow">
+      <span class="meta">배경</span>
+      <div class="seg mini" role="radiogroup" aria-label="배경">
+        <label><input type="radio" name="bgBg" value="none" checked><span><b>투명(PNG)</b></span></label>
+        <label><input type="radio" name="bgBg" value="white"><span><b>흰색</b></span></label>
+        <label><input type="radio" name="bgBg" value="color"><span><b>색 고르기</b></span></label>
+      </div>
+      <input type="color" id="bgColor" value="#f3e9dc" aria-label="배경 색">
+    </div>
+    <div class="trow">
+      <label class="inl"><input type="checkbox" id="bgTrim"> 대상에 맞춰 여백 자르기</label>
+    </div>
+    <div class="trow">
+      <button class="btn" type="button" id="bgSave" data-ev="tool-done:/tools/bg-remove/">이 사진 저장</button>
+      <button class="ghost" type="button" id="bgZip" hidden>다 된 사진 모두 받기(ZIP)</button>
+      <button class="ghost" type="button" id="bgRemove">이 사진 빼기</button>
+    </div>
+    <p class="hint">투명 배경은 PNG로, 흰색·색 배경은 JPG로 저장합니다. 저장한 사진에는 촬영 정보(EXIF·위치)가 남지 않습니다.</p>
+  </section>
+
+  <div class="box">
+    <b>먼저 알아 둘 것</b>
+    <ul class="plain">
+      <li>배경을 나누는 일은 공개 AI 모델 BiRefNet(MIT 라이선스)을 브라우저 안에서 돌려서 합니다. 처음 한 번 모델 파일(약 100MB)을 Hugging Face에서 받고, 다음부터는 브라우저에 저장된 파일을 씁니다. 사진은 밖으로 보내지 않습니다.</li>
+      <li>머리카락·털·유리·연기처럼 경계가 흐린 곳, 배경과 색이 비슷한 곳은 덜 지워지거나 함께 지워질 수 있습니다. 저장하기 전에 확대해서 보고 붓으로 고치세요.</li>
+      <li>긴 쪽이 4096픽셀보다 큰 사진은 4096픽셀로 줄여서 처리합니다.</li>
+      <li>다른 사람이 나온 사진, 다른 사람이 만든 사진을 쓸 때는 그 사람의 허락과 저작권을 확인하세요.</li>
+    </ul>
+    <p>다음 단계: 인스타그램 크기에 맞추려면 <a href="/tools/image-resize/">이미지 압축·인스타 규격 자르기</a>를, 작은 사진을 키우려면 <a href="/tools/upscale/">사진 화질 올리기</a>를 쓰세요.</p>
+  </div>
+  <section class="tfaq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>사진이 서버로 올라가나요?</summary><p>올라가지 않습니다. 배경 지우기는 이 브라우저 안에서 합니다. 인터넷으로 오가는 것은 처음 한 번 받는 AI 모델 파일뿐입니다.</p></details>
+    <details><summary>얼마나 걸리나요?</summary><p>저희가 그래픽 카드 없이 CPU로 시험했을 때 모델을 받은 뒤 사진 한 장에 10초 안팎 걸렸습니다(첫 장은 모델을 준비하느라 20초쯤). 브라우저가 그래픽 카드(WebGPU)를 쓸 수 있으면 그래픽 카드로 계산합니다.</p></details>
+    <details><summary>투명 PNG가 뭔가요?</summary><p>배경 자리가 비어 있는 PNG 사진입니다. 상세 페이지·썸네일·발표 자료에 올리면 그 아래 색이나 무늬가 그대로 비칩니다. 투명 배경을 지원하지 않는 곳에 올리면 배경이 흰색이나 검은색으로 바뀔 수 있으니, 그럴 때는 '흰색' 배경으로 저장하세요.</p></details>
+    <details><summary>도장 사진의 흰 바탕만 지우고 싶어요.</summary><p>도장·서명처럼 흰 종이 위의 빨간·검은 글씨는 <a href="/tools/pdf-sign/">PDF 서명 넣기</a>의 '도장 사진 흰 바탕 지우기'가 더 깔끔합니다.</p></details>
+    <details><summary>상업용으로 써도 되나요?</summary><p>이 도구와 AI 모델(MIT 라이선스)은 쓰는 목적을 따로 제한하지 않습니다. 다만 사진 자체의 저작권·초상권은 사진 주인과 찍힌 사람에게 있으니 따로 확인하세요.</p></details>
+  </section>
+</article>
+</main>
