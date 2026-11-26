@@ -648,5 +648,17 @@
   "credit": "화면: arxiv.org",
   "alt": "arXiv에 올라온 퓨즈 논문 첫 화면",
   "auto": true
+ },
+ "2026-11-27-google-workspace-mcp-tiers": {
+  "src": "img/ph/2026-11-27-google-workspace-mcp-tiers.webp",
+  "credit": "화면: developers.google.com",
+  "alt": "구글 개발자 문서 워크스페이스 에이전트 도구와 API 표준 모델",
+  "auto": true
+ },
+ "2026-11-27-chatgpt-codex-shared-usage": {
+  "src": "img/ph/2026-11-27-chatgpt-codex-shared-usage.webp",
+  "credit": "이미지: OpenAI",
+  "alt": "오픈AI 챗GPT 요금제 안내 페이지",
+  "auto": true
  }
 }
