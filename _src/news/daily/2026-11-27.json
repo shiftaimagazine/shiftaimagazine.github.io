@@ -1,0 +1,166 @@
+{
+ "articles": [
+  {
+   "id": "2026-11-27-google-workspace-mcp-tiers",
+   "cat": "비즈니스·일자리",
+   "date": "2026-11-27",
+   "time": "06:46",
+   "title": "워크스페이스 AI 에이전트, MCP로만",
+   "sub": "지메일·드라이브·캘린더 사용량 2단계 · 표준은 하루 5,000건 무료 · 2027년 2월 1일 강제",
+   "hook": "구글이 11월 24일(미국 시각) 워크스페이스 MCP 서버와 명령줄 도구를 정식 출시하고 지메일·드라이브·캘린더 API 사용량을 표준과 확장 두 단계로 나눴습니다. AI 에이전트는 2027년 2월 1일부터 MCP로만 접근해야 합니다.",
+   "try": "지메일이나 캘린더에 외부 AI 앱을 연결해 쓰는 팀이라면 관리자에게 그 앱이 관리 콘솔 API 제어에 어떻게 등록돼 있는지 확인해 보세요.",
+   "who": "지메일·드라이브·캘린더에 외부 AI 앱을 연결해 쓰는 팀과 관리자",
+   "facts": [
+    ["발표 주체", "구글 워크스페이스(Google Workspace)"],
+    ["날짜", "2026년 11월 24일(미국 시각)"],
+    ["무엇", "MCP 서버·CLI 정식 출시와 API 사용량 표준·확장 2단계"],
+    ["핵심 숫자", "표준 단계 프로젝트당 제품별 하루 5,000건, 확장 단계 2027년 4월 1일부터 청구"],
+    ["대상", "지메일·드라이브·캘린더 등을 쓰는 개발자와 조직 관리자"],
+    ["원문", "워크스페이스 업데이트 블로그, 구글 개발자 문서"]
+   ],
+   "body": [
+    {"lead": "구글이 11월 24일(미국 시각) 구글 워크스페이스(Google Workspace) MCP 서버와 명령줄 도구(CLI)를 정식 출시하고 지메일·드라이브·캘린더 API 사용량을 표준과 확장 두 단계로 나눴습니다. AI 에이전트가 워크스페이스 데이터를 쓰려면 REST API를 직접 부르지 않고 MCP를 거쳐야 하며 기술적 강제는 2027년 2월 1일에 시작됩니다."},
+    {"ul": [
+      ["MCP 서버와 CLI 정식 출시", "지메일·드라이브·문서·시트·슬라이드·캘린더·챗·태스크에 연결합니다"],
+      ["표준은 무료, 확장은 유료", "표준은 하루 5,000건까지 쓰고 확장은 2027년 4월 1일부터 청구합니다"],
+      ["2027년 2월 1일 MCP 강제", "REST API를 직접 부르는 에이전트는 표준 한도에 묶입니다"]
+    ]},
+    {"h": "에이전트의 출입구가 MCP 서버로 모입니다"},
+    {"p": "구글이 직접 운영하는 MCP 서버는 클라우드와 웹에서 도는 AI 에이전트가 지메일, 드라이브, 문서, 시트, 슬라이드, 캘린더, 챗, 태스크의 미리 만들어 둔 도구를 부르는 통로입니다. 킵(Keep)은 준비 중입니다. 터미널에서 일하는 에이전트에게는 CLI가 따로 있고 에이전트용 스킬 묶음과 범위를 좁힌 로그인이 들어 있습니다. 블로그는 MCP 도구가 워크스페이스 경계 안에서 정리한 요약을 돌려주고 CLI는 여러 도구를 한 번에 엮을 수 있어서 토큰 비용과 지연이 줄어든다고 설명했습니다. 두 기능 모두 모든 워크스페이스 고객과 개발자가 쓸 수 있고 관리자 설정과 사용량 대시보드는 2주 안에 순차 적용됩니다."},
+    {"h": "무료 표준 단계와 4월부터 청구되는 확장 단계"},
+    {"p": "표준 단계는 비용이 없고 정식 MCP 서버 기준으로 프로젝트당 제품별 하루 5,000건까지 요청할 수 있으며 구글 클라우드 청구 계정도 카드도 필요하지 않습니다. 한도를 넘으면 시간 창이 초기화될 때까지 요청이 늦춰집니다. 구글에 따르면 활성 개발자의 99% 넘게가 표준 단계에 있습니다(자체 발표 기준). 확장 단계는 청구 계정을 연결한 프로젝트가 쓰며 과금은 2027년 4월 1일에 시작하고 그 전에는 청구하지 않습니다. 지메일·캘린더·드라이브의 MCP 사용량에는 하루 무료 허용량이 없어서 첫 요청부터 청구 대상이 됩니다. 돈을 내는 쪽은 프로젝트에 연결된 청구 계정의 개발자이고 최종 사용자에게 청구한다는 내용은 두 문서에 없습니다."},
+    {"table": {"head": ["날짜", "일정"], "rows": [["2026년 11월 24일", "표준·확장 두 단계 시작, 사용량 대시보드 공개"], ["2027년 2월 1일", "AI 에이전트의 MCP 이용 기술적 강제 시작, 워크스페이스 AI 도구 부속 약관 효력"], ["2027년 4월 1일", "확장 단계 과금과 표준 한도 적용 시작"]], "note": "출처 구글 워크스페이스 업데이트 블로그와 구글 개발자 문서, 2026년 11월 24일"}},
+    {"h": "외부 AI 앱을 쓰는 조직이 볼 관리자 설정"},
+    {"p": "관리자는 관리 콘솔의 보안 아래 API 제어에서 외부 AI 도구와 MCP 서버, CLI, API 접근을 관리하고 사람이 확인하는 규칙과 에이전트 감사 로그를 설정할 수 있습니다. 외부 AI 에이전트는 OAuth 로그인 때 자신을 밝히고 워크스페이스 MCP 서버를 거쳐 연결해야 합니다. 초안 작성 같은 일상 작업은 그대로 매끄럽게 두고 외부 파일 읽기나 데이터 공유처럼 민감한 작업에만 사용자 확인을 걸 수 있습니다. 2027년 2월 1일부터 적용되는 워크스페이스 AI 도구 부속 약관에는 API에서 받은 데이터를 오래 저장하거나 워크스페이스 API를 긁어 가는 행위의 금지가 들어 있습니다."},
+    {"h": "요금표와 지메일 발송 기능은 아직 나오지 않았습니다"},
+    {"p": "확장 단계의 요금은 라이트, 미디엄, 플러스, 프리미엄 네 구간으로 나뉘고 작업의 자원 사용량과 복잡도, 데이터 크기에 따라 정해집니다. 드라이브는 네 구간을 모두 쓰고 지메일은 세 구간, 캘린더는 한 구간을 씁니다. 두 문서에는 달러 금액이 없습니다. 지메일 MCP가 메일을 직접 보낼 수 있는지도 언급이 없으며 초안 작성이 매끄럽게 유지된다는 말만 있습니다. 다른 접근 방식에 대한 사용량 단계는 앞으로 몇 달 안에 바뀔 예정입니다."}
+   ],
+   "ask": "회사에서 쓰는 외부 AI 앱이 워크스페이스 데이터에 어떤 방식으로 접근하는지 알고 계신가요?",
+   "verdict": {"v": "watch", "why": "MCP는 지금 쓸 수 있지만 확장 단계 요금표가 없고 청구는 2027년 4월 1일부터입니다."},
+   "sources": [
+    ["구글 워크스페이스 업데이트 — MCP 서버, CLI, 표준 사용량 단계", "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html"],
+    ["구글 개발자 문서 — 에이전트 도구와 API 표준 모델", "https://developers.google.com/workspace/tools-safety"]
+   ],
+   "terms": ["구글 워크스페이스", "MCP", "CLI", "API", "에이전트", "토큰", "OAuth", "감사 로그"],
+   "image": {"page": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html", "og": null, "credit": "이미지: Google", "alt": "구글 워크스페이스 업데이트 블로그 MCP 서버와 사용량 단계 안내 글", "mode": null},
+   "verify": [
+    {"claim": "표준·확장 2단계, 지메일·드라이브·캘린더부터", "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html", "quote": "Starting today, the Workspace APIs, including MCP servers and CLI, will have two usage tiers, starting with Gmail, Drive, and Calendar."},
+    {"claim": "표준 단계 무료", "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html", "quote": "Standard tier: No cost, with published usage quotas (rate limits)."},
+    {"claim": "2027년 2월 1일 MCP 강제", "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html", "quote": "Technical enforcement begins on February 1, 2027."},
+    {"claim": "활성 개발자 99% 넘게 표준", "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html", "quote": "Over 99% of active developers"},
+    {"claim": "표준 단계 하루 5,000건", "url": "https://developers.google.com/workspace/tools-safety", "quote": "5,000 requests per day, per project, per product"},
+    {"claim": "확장 단계 과금 2027년 4월 1일", "url": "https://developers.google.com/workspace/tools-safety", "quote": "April 1, 2027"},
+    {"claim": "표준 단계 청구 없음", "url": "https://developers.google.com/workspace/tools-safety", "quote": "Usage on the Standard Tier never produces a charge on a Google Cloud bill."},
+    {"claim": "지메일·캘린더·드라이브 MCP는 첫 요청부터 청구", "url": "https://developers.google.com/workspace/tools-safety", "quote": "billed from the first request"},
+    {"claim": "11월 24일 발표", "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html", "quote": "Simplifying agent access while keeping organizations in control: MCP servers, CLI, standardized usage tiers, and admin policies"}
+   ]
+  },
+  {
+   "id": "2026-11-27-chatgpt-codex-shared-usage",
+   "cat": "모델·제품",
+   "date": "2026-11-27",
+   "time": "06:45",
+   "title": "챗GPT·코덱스, 12월부터 한 허용량",
+   "sub": "플러스·프로·비즈니스 요금제 · 설정의 사용량 메뉴에서 합친 잔여량 확인 · 인스턴트 채팅은 제외",
+   "hook": "오픈AI가 도움말 문서에서 12월부터 플러스, 프로, 비즈니스 요금제의 사용 허용량을 챗GPT와 코덱스가 함께 쓰게 된다고 안내했습니다. 인스턴트 채팅은 허용량에서 빠지지 않습니다.",
+   "try": "플러스·프로·비즈니스에서 챗GPT와 코덱스를 함께 쓴다면 12월 이후 설정의 사용량 메뉴에서 남은 양과 초기화 시각을 확인해 보세요.",
+   "who": "챗GPT와 코덱스를 함께 쓰는 플러스·프로·비즈니스 구독자",
+   "facts": [
+    ["발표 주체", "오픈AI(OpenAI) 도움말 센터"],
+    ["문서", "챗GPT와 코덱스 사용량 한도 이해하기"],
+    ["시작", "12월부터(정확한 날짜는 문서에 없음)"],
+    ["대상", "플러스·프로·비즈니스 요금제"],
+    ["확인 위치", "설정의 사용량 메뉴"],
+    ["원문", "help.openai.com 도움말"]
+   ],
+   "body": [
+    {"lead": "오픈AI(OpenAI)가 도움말 문서 '챗GPT와 코덱스 사용량 한도 이해하기'에서 12월부터 플러스, 프로, 비즈니스 요금제의 사용 허용량을 챗GPT와 코덱스가 함께 쓰게 된다고 안내했습니다. 워크(Work)의 에이전트 기능을 기본 챗GPT 화면으로 들여오는 변경에 맞춘 조치이며 문서에는 구체적인 허용량 수치도 정확한 시작 날짜도 나오지 않습니다."},
+    {"ul": [
+      ["하나로 합치는 허용량", "플러스·프로·비즈니스에서 챗GPT와 코덱스가 같은 허용량을 씁니다"],
+      ["합친 잔여량 확인", "설정의 사용량 메뉴에서 남은 양과 초기화 시각을 봅니다"],
+      ["인스턴트 채팅은 제외", "허용량에서 차감되지 않습니다"]
+    ]},
+    {"h": "두 도구가 한 허용량에서 빠져나갑니다"},
+    {"p": "문서에 따르면 12월부터 플러스, 프로, 비즈니스 요금제의 사용 허용량은 챗GPT와 코덱스에서 함께 차감됩니다. 허용량은 토큰으로 측정되고 더 고급 모델이나 복잡한 작업일수록 더 많이 씁니다. 챗GPT에서 에이전트처럼 여러 단계를 도는 작업을 돌리든 코덱스에서 코드 작업을 맡기든 같은 잔량이 줄어드는 구조입니다. 인스턴트 채팅은 허용량에서 차감되지 않는다고 문서에 적혀 있습니다."},
+    {"h": "남은 양은 설정에서 한 번에 봅니다"},
+    {"p": "합친 잔여 사용량과 초기화 시각은 설정의 사용량 메뉴에서 볼 수 있게 됩니다. 한도에 닿았을 때 문서가 안내하는 선택지는 초기화를 기다리거나 요금제를 올리거나 크레딧을 사서 해당 기능을 계속 쓰는 것입니다. 크레딧으로 이어 쓸 수 있는 기능의 범위는 '해당되는 기능'이라고만 적혀 있어서 어떤 기능이 포함되는지는 문서만으로는 알 수 없습니다."},
+    {"table": {"head": ["요금제", "문서에 나온 내용"], "rows": [["플러스", "12월부터 챗GPT와 코덱스가 허용량을 공유"], ["프로", "12월부터 챗GPT와 코덱스가 허용량을 공유"], ["비즈니스", "12월부터 챗GPT와 코덱스가 허용량을 공유"], ["엔터프라이즈·무료·고", "이 문서에 언급 없음"]], "note": "출처 오픈AI 도움말 센터, 2026년 11월 27일 확인"}},
+    {"h": "문서가 말하지 않는 부분"},
+    {"p": "오픈AI는 대부분의 사용자가 지금보다 더 자주 초기화를 기다릴 필요는 없을 것으로 예상한다고 적었습니다. 요금제별 허용량 수치, 초기화 주기, 코덱스 작업이 허용량을 얼마나 쓰는지는 문서에 없고 엔터프라이즈·무료·고 요금제에 대한 안내도 없습니다. 12월 정확한 적용일과 합쳐진 뒤 메뉴 모습은 이 문서가 갱신되는 시점에 확인할 수 있습니다."}
+   ],
+   "ask": "챗GPT와 코덱스 중 한 달 동안 허용량을 더 많이 쓰는 쪽은 어디인가요?",
+   "verdict": {"v": "watch", "why": "12월 적용이 예고됐을 뿐 요금제별 허용량 수치가 문서에 나오지 않습니다."},
+   "sources": [
+    ["오픈AI 도움말 — 챗GPT와 코덱스 사용량 한도 이해하기", "https://help.openai.com/en/articles/20001625"]
+   ],
+   "terms": ["오픈AI", "챗GPT", "코덱스", "토큰", "사용량 제한", "크레딧"],
+   "image": {"page": "https://help.openai.com/en/articles/20001625", "og": null, "credit": "이미지: OpenAI", "alt": "오픈AI 도움말 센터 챗GPT와 코덱스 사용량 한도 문서", "mode": "screenshot"},
+   "verify": [
+    {"claim": "12월부터 세 요금제의 허용량을 챗GPT와 코덱스가 공유", "url": "https://help.openai.com/en/articles/20001625", "quote": "Starting in December, Plus, Pro, and Business plans' usage allowance will be shared across ChatGPT and Codex as we bring the agentic capabilities of Work into the main ChatGPT experience."},
+    {"claim": "고급 모델·복잡한 작업이 허용량을 더 씀", "url": "https://help.openai.com/en/articles/20001625", "quote": "More advanced models and complex tasks generally use more of your allowance."},
+    {"claim": "인스턴트 채팅은 차감되지 않음", "url": "https://help.openai.com/en/articles/20001625", "quote": "Instant chat will not draw from your usage."},
+    {"claim": "대부분은 초기화를 더 자주 기다리지 않을 것으로 예상", "url": "https://help.openai.com/en/articles/20001625", "quote": "We expect most users won't need to wait for their usage to reset more often than they do now."},
+    {"claim": "합친 잔여량 확인 위치", "url": "https://help.openai.com/en/articles/20001625", "quote": "You will be able to see your combined remaining usage and reset times in Settings → Usage."},
+    {"claim": "한도에 닿았을 때의 선택지", "url": "https://help.openai.com/en/articles/20001625", "quote": "you can wait for it to reset, upgrade your plan, or buy credits to continue using eligible features"}
+   ]
+  },
+  {
+   "id": "2026-11-27-google-fuse-social-reasoning",
+   "cat": "연구",
+   "date": "2026-11-27",
+   "time": "06:44",
+   "title": "AI 비서의 눈치, 사람에 못 미쳤다",
+   "sub": "구글 리서치 '퓨즈' 시험 · 12개 모델 최고 83.7점, 사람 다수결 89.8점 · 예시 2만 1천 개 공개",
+   "hook": "구글 리서치와 히브리 대학교·케임브리지 대학교 연구진이 AI 비서가 사용자의 한쪽 이야기만 듣고 상대의 속마음을 맞히는 능력을 재는 시험 틀 '퓨즈(Fuse)'를 공개했습니다. 12개 모델 중 최고 점수는 83.7점으로 사람 다수결 89.8점에 못 미쳤습니다.",
+   "try": "AI 비서에게 사람 관계를 상담할 때는 상대가 한 말과 행동을 사실 위주로 최대한 자세히 적어서 물어보세요.",
+   "who": "AI 챗봇에 직장·인간관계 고민을 털어놓고 조언을 구하는 분",
+   "facts": [
+    ["발표 주체", "구글 리서치, 히브리 대학교, 케임브리지 대학교 연구진"],
+    ["날짜", "구글 리서치 블로그 소개 2026년 11월 25일(논문은 arXiv 2609.17496)"],
+    ["무엇", "사용자를 거친 이야기로 상대 동기를 맞히는 시험 틀 퓨즈"],
+    ["핵심 숫자", "12개 모델 최고 83.7점, 사람 다수결 89.8점"],
+    ["공개", "코드와 2만 1천 개 예시 데이터셋"],
+    ["원문", "arXiv 논문"]
+   ],
+   "body": [
+    {"lead": "구글 리서치와 히브리 대학교, 케임브리지 대학교 연구진이 AI 비서가 사용자의 한쪽 이야기만 듣고 상대의 속마음을 맞히는 능력을 재는 시험 틀 '퓨즈(Fuse)'를 논문으로 공개했습니다. 12개 모델에 적용했더니 가장 높은 점수가 83.7점으로 사람 다수결의 89.8점에 6점 넘게 못 미쳤습니다."},
+    {"ul": [
+      ["사용자를 거친 이야기로 시험", "숨은 동기를 가진 인물을 시뮬레이션하고 정답은 설정으로 정합니다"],
+      ["12개 모델 최고 83.7점", "사람 다수결은 89.8점이었습니다"],
+      ["코드와 2만 1천 개 예시 공개", "논문이 오픈소스로 낸다고 밝힌 자료입니다"]
+    ]},
+    {"h": "사용자의 이야기만 듣고 속마음을 맞혀야 합니다"},
+    {"p": "기존 시험은 모델에게 장면 전체를 보여 줬지만 실제 비서는 사용자가 전해 주는 부분적이고 한쪽으로 기운 이야기만 듣습니다. 논문의 예시는 새로 온 동료가 응원하는 것처럼 보이지만 사실은 사용자를 깎아내리는 것은 아닌지 묻는 상황입니다. 연구진은 알아맞힐 대상을 욕구, 의도, 믿음, 감정, 지식 다섯 범주의 동기로 좁혔습니다."},
+    {"h": "정답을 시뮬레이션으로 먼저 정해 둡니다"},
+    {"p": "시나리오 템플릿은 30개로 범주마다 6개씩이고 템플릿마다 서로 반대되는 동기 두 가지를 갖습니다. 동기마다 20번씩 돌려 1,200개의 시뮬레이션을 만들었습니다. 시뮬레이션 속 사용자가 비서에게 사건을 이야기하면 비서는 두 동기 중 하나를 고르고, 판정은 제미나이 3.1 플래시 라이트(Gemini 3.1 Flash-Lite)가 맡습니다. 점수는 정답 수에 보류한 답의 0.75배를 더해 전체로 나눈 값입니다. 사람 평가자 주석 2만 4천 건으로 시뮬레이션의 신뢰도를 점검했고 다수결 예측이 정답과 97% 맞았습니다."},
+    {"table": {"head": ["항목", "모델", "사람"], "rows": [["첫 메시지 최고 점수", "83.7점", "89.8점"], ["편향된 이야기에서 평균 점수 하락", "7.7점", "3.6점"], ["이야기를 자세히 했을 때 평균 점수 상승", "5.9점", "2.8점"]], "note": "출처 arXiv 2609.17496, 논문 속 평균 수치"}},
+    {"h": "사용자를 거치면 모든 모델의 점수가 내려갑니다"},
+    {"p": "사건을 직접 본 관찰자 설정에서는 클로드 오퍼스 5와 제미나이 3.7 플래시(Gemini 3.7 Flash)가 거의 완벽했는데 사용자의 이야기를 거치면 평가한 모든 모델에서 성능 격차가 생겼습니다. 사용자가 반대 믿음을 섞어 말하는 편향을 넣으면 모델 평균이 7.7점 내려갔고 사람은 3.6점 내려갔습니다. 이야기를 자세히 하면 모델 평균이 74.2점에서 80.1점으로 올랐습니다. 젬마(Gemma)와 클로드 계열 네 모델은 사례의 3분의 1 넘게 답을 보류했습니다."},
+    {"h": "대화를 길게 이어도 점수가 계속 오르지 않았습니다"},
+    {"p": "8번까지 주고받는 대화에서는 2~4번째 차례에서 가장 크게 올랐고 그 뒤로는 제자리이거나 내려갔습니다. 두 번째 차례에서 답을 정한 사례의 81%는 8번째 차례에도 같았습니다. 시나리오는 하나의 동기가 뚜렷한 경우로 한정되어 있고 시뮬레이터와 판정자가 같은 모델이라는 점이 한계로 적혀 있으며 연구진은 첫 메시지 평가를 초기 단계로 봤습니다."}
+   ],
+   "ask": "AI 비서에게 사람 관계 고민을 털어놓을 때 내 쪽 입장만 말하고 있지는 않나요?",
+   "sources": [
+    ["arXiv — Verifiable Social Reasoning for LLM Assistants", "https://arxiv.org/pdf/2609.17496"]
+   ],
+   "terms": ["구글 리서치", "벤치마크", "시뮬레이션", "LLM", "오픈소스", "사회적 추론", "제미나이"],
+   "image": {"page": "https://arxiv.org/abs/2609.17496", "og": null, "credit": "이미지: arXiv", "alt": "arXiv에 올라온 퓨즈 논문 첫 화면", "mode": "screenshot"},
+   "verify": [
+    {"claim": "사람 다수결 89.8점, 모델 최고 83.7점", "url": "https://arxiv.org/pdf/2609.17496", "quote": "no model exceeds 83.7 MSR, while the human majority baseline achieves 89.8 MSR"},
+    {"claim": "6점 넘는 격차", "url": "https://arxiv.org/pdf/2609.17496", "quote": "leaving a gap of over 6 MSR points for even the strongest model."},
+    {"claim": "시뮬레이션 다수결 정답 일치 97%", "url": "https://arxiv.org/pdf/2609.17496", "quote": "The majority-vote prediction matches the ground truth in 97% of cases."},
+    {"claim": "사용자를 거치면 모든 모델에서 격차", "url": "https://arxiv.org/pdf/2609.17496", "quote": "User mediation introduces a substantial performance gap across all evaluated models."},
+    {"claim": "편향이 모든 모델 점수를 낮춤", "url": "https://arxiv.org/pdf/2609.17496", "quote": "Introducing bias consistently degrades performance across all models."},
+    {"claim": "상세도 증가 시 74.2에서 80.1", "url": "https://arxiv.org/pdf/2609.17496", "quote": "the average model MSR increases by 5.9 points (74.2 to 80.1)"},
+    {"claim": "코드와 2만 1천 개 예시 공개", "url": "https://arxiv.org/pdf/2609.17496", "quote": "open-source Fuse and a dataset with 21k examples"},
+    {"claim": "2턴째 결정의 81%가 8턴째에도 유지", "url": "https://arxiv.org/pdf/2609.17496", "quote": "81% of these positions remain unchanged by turn 8"}
+   ]
+  }
+ ],
+ "dropped": [
+  {"topic": "AWS 위협 인텔리전스: 중국 연계 행위자의 카이른(Cairn) AI 에이전트가 제로데이 발견", "reason": "원문(AWS 보안 블로그)은 확인했으나 11월 20일 게시라 최근 36시간 기준을 벗어남"},
+  {"topic": "엔비디아 네모트론 3.5 파스 오픈 데이터·미세조정(허깅페이스 블로그)", "reason": "원문 페이지를 열지 못해 숫자를 확인할 수 없었음"},
+  {"topic": "캐릭터AI 이용자 대화 판매 계획에 대한 주 검찰총장 반대", "reason": "언론 보도만 있고 검찰 문서 원문을 찾지 못함"},
+  {"topic": "엔비디아 동남아 칩 출하 중단·황 CEO 관련 소식", "reason": "원문 없이 언론 보도뿐이고 독자가 오늘 해 볼 거리가 없음"}
+ ]
+}
