@@ -88,10 +88,18 @@ const MARQ_PX = 23;
 const syncMarq = ()=>document.querySelectorAll(".hwall .wl-t, .hticker .tk-t").forEach(el=>{ const half=el.scrollWidth/2; if(half>0) el.style.animationDuration=(half/MARQ_PX).toFixed(1)+"s"; });
 let marqT=0; addEventListener("resize",()=>{ clearTimeout(marqT); marqT=setTimeout(syncMarq,200); });
 addEventListener("load",syncMarq); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(syncMarq);  // 미리 그린 페이지도 열 때마다 화면 폭에 맞춰 다시 잰다
+// 흐르는 띠 멈춤(11/26~, 접근성 WCAG 2.2.2): 판정 띠 오른쪽 버튼(views/home.html #motionTog) 하나로 썸네일 띠·판정 띠·검색칸 예시를 함께 멈추고 다시 움직인다.
+// 고른 값은 이 브라우저에 기억(shift-motion), 다음에 열 때는 theme.js 가 그리기 전에 html.motion-off 를 붙인다. 모양은 site.css 「흐르는 띠 멈춤」
+document.addEventListener("click",e=>{ const b=e.target.closest("#motionTog"); if(!b) return;
+  const off=!document.documentElement.classList.contains("motion-off"); document.documentElement.classList.toggle("motion-off",off);
+  try{ localStorage.setItem("shift-motion",off?"off":"on"); }catch(_){} syncMotionTog(); });
+function syncMotionTog(){ const b=document.getElementById("motionTog"); if(!b) return; const off=document.documentElement.classList.contains("motion-off");
+  const t=off?"흐르는 띠 다시 움직이기":"흐르는 띠 멈추기"; b.setAttribute("aria-pressed",off?"true":"false"); b.setAttribute("aria-label",t); b.title=t; }
+syncMotionTog();
 function renderHome2(d){
   // 11/25~ 첫 화면 알약은 소식 대신 따라 하기로('AI 실전 매거진' 자리). 소식은 아래 '이번 주 판정' 한 줄 목록으로 줄임
   if($("#hPillT")) $("#hPillT").textContent = `튜토리얼 ${TUTORIALS.length}편 · 결과부터 보고 따라 하기`;
-  if($("#hAll")) $("#hAll").textContent = `AI 뉴스 ${ARTICLES.length+COLUMNS.length}개 전체 보기`;
+  if($("#hAll")) $("#hAll").textContent = `AI 뉴스·칼럼 ${ARTICLES.length+COLUMNS.length}개 전체 보기`;  // 11/26: 숫자가 기사+칼럼 합이라 이름도 같이
   const tw = TOOLS.filter(t=>t.thumb).slice(0,10).map(t=>({href:t.href,src:t.thumb,alt:toolName(t),id:t.id}));
   const uw = homeTutPick(10).filter(t=>t.thumb).map(t=>({href:P(t.id),src:t.thumb,alt:t.title,id:t.id}));
   // 11/12 속도: 미리 그린 페이지에서는 띠를 다시 만들지 않는다. 다시 만들면 첫 화면에서 가장 큰 그림(띠 첫 카드)이 스크립트를 다 받은 뒤에야 새로 그려져 모바일 LCP 가 8초대로 잡혔다.
@@ -227,7 +235,7 @@ function renderLists(){
   if($("#colGrid")) $("#colGrid").innerHTML = COLUMNS.map(colHTML).join("");
   renderTutList();
   renderTools();
-  if($("#resGrid")) $("#resGrid").innerHTML = RESOURCES.map(r=>`<div class="res"><a class="cv" href="${r.pdf}" target="_blank" rel="noopener"><img src="${r.cover}" alt="" loading="lazy"></a>
+  if($("#resGrid")) $("#resGrid").innerHTML = RESOURCES.map(r=>`<div class="res"><a class="cv" href="${r.pdf}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="${r.cover}" alt="" loading="lazy"></a>
     <div class="b"><span class="cat">PDF 정리본 · ${r.pages}쪽</span><h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p><div class="meta"><span>${fmtDate(r.date)}</span></div>
     <div class="acts"><a class="btn" href="${r.pdf}" target="_blank" rel="noopener">PDF 열기</a>${r.tut?`<a class="ghost" href="${P(r.tut)}">웹에서 읽기</a>`:""}</div></div></div>`).join("");
   if($("#dailyList")) $("#dailyList").innerHTML = dailySorted.map(drowHTML).join("");
@@ -414,7 +422,7 @@ function bodyHTML(body){
   return body.map(x=>{
     if(x.lead) return `<p class="lead">${esc(x.lead)}</p>`;
     if(x.p) return `<p>${esc(x.p)}</p>`;
-    if(x.h) return `<h3>${esc(x.h)}</h3>`;
+    if(x.h) return `<h2>${esc(x.h)}</h2>`;
     if(x.ul) return `<ul>${x.ul.map(([h,d])=>`<li><b>${esc(h)}.</b> ${esc(d)}</li>`).join("")}</ul>`;
     if(x.q) return `<div class="q">${esc(x.q)}<br><button class="copy" data-copy="${esc(x.q)}">복사하기</button></div>`;
     if(x.bars) return vizBars(x.bars);
@@ -516,7 +524,7 @@ function renderTutorial(t){
   const steps = t.kind==="steps";
   const code = c=>`<div class="code"><div class="cl"><span>${esc(c.label||"터미널")}</span><button class="copy" data-copy="${esc(c.cmd)}">복사</button></div><pre>${esc(c.cmd)}</pre>${c.ok?`<p class="ok"><b>확인</b>${esc(c.ok)}</p>`:""}</div>`;
   const items = t.items.map((it,k)=>`<section class="ti" id="s${k+1}"><div class="tb">
-        <h3><span class="sn">${tutLabel(t,k)}</span>${esc(it.h)}${it.time?`<small>${esc(it.time)}</small>`:""}</h3>
+        <h2><span class="sn">${tutLabel(t,k)}</span>${esc(it.h)}${it.time?`<small>${esc(it.time)}</small>`:""}</h2>
         <p class="d">${esc(it.d)}</p>
         ${it.img?`<figure class="tfig"><img src="${it.img.src}" alt="${esc(it.img.alt||it.h)}" loading="lazy">${it.img.cap?`<figcaption>${esc(it.img.cap)}</figcaption>`:""}</figure>`:""}
         ${it.how?`<div class="how">${steps?"":"<b>이렇게 쓰세요</b>"}${esc(it.how)}</div>`:""}
@@ -570,7 +578,7 @@ function renderDaily(d){
     <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>소식 ${its.length}건</span></div>
     ${lead?fig(imgOf(lead),"lead-fig"):""}
     ${d.three&&d.three.length?`<div class="box three"><b>세 줄로 보는 오늘</b><ol>${d.three.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:""}
-    <div class="items">${its.map((a,k)=>`<a class="it" href="${P("a-"+a.id)}"><span class="n">${String(k+1).padStart(2,"0")}</span><div><span class="cat">${esc(a.cat)}</span><h3>${tp(a.title)}</h3><p>${esc(a.hook)}</p></div><figure>${thumb(imgOf(a))}</figure></a>`).join("")}</div>
+    <h2 class="sr">오늘의 소식 ${its.length}건</h2><div class="items">${its.map((a,k)=>`<a class="it" href="${P("a-"+a.id)}"><span class="n">${String(k+1).padStart(2,"0")}</span><div><span class="cat">${esc(a.cat)}</span><h3>${tp(a.title)}</h3><p>${esc(a.hook)}</p></div><figure>${thumb(imgOf(a))}</figure></a>`).join("")}</div>
     ${nums.length?`<div class="sec" style="margin-top:40px"><h2>숫자로 보는 오늘</h2></div><div class="tbl"><table class="dtable"><thead><tr><th>소식</th><th>숫자</th></tr></thead><tbody>${nums.map(([a,v])=>`<tr><td>${tp(a.title)}</td><td>${esc(v)}</td></tr>`).join("")}</tbody></table></div>`:""}
     <div class="links">${prev?`<a href="${P("d-"+prev.date)}">← ${fmtDate(prev.date)}</a>`:""}${next?`<a href="${P("d-"+next.date)}">${fmtDate(next.date)} →</a>`:""}${linkCopy("d-"+d.date,"링크 복사")}</div>
     ${FOLLOWBOX}

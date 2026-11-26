@@ -657,7 +657,7 @@ def tool_tabs(v, t):
             '<button type="button" role="tab" id="ttTool" data-tp="tool" aria-controls="tpTool">도구 쓰기</button></div>\n')
     guide = ('  <section class="tguide" id="tpGuide" role="tabpanel" aria-labelledby="ttGuide">\n'
              f'    <div class="tgwhat"><p class="tglead">{esc(g["what"])}</p><b>이럴 때 씁니다</b><ul class="plain">{"".join(f"<li>{esc(x)}</li>" for x in g["when"])}</ul></div>\n'
-             f'    <ol class="tgsteps">{"".join(lis)}</ol>\n'
+             f'    <h2 class="sr">사용법 {n}단계</h2><ol class="tgsteps">{"".join(lis)}</ol>\n'   # 11/26: 제목 단계(h1→h3) 건너뛰지 않게 보이지 않는 h2
              '    <div class="tgend"><button type="button" class="btn" data-tp="tool">도구 쓰러 가기 →</button><span>한 번 도구를 열면 다음부터 이 도구는 바로 도구 화면으로 열립니다. 사용법은 위 탭에서 언제든 다시 볼 수 있습니다.</span></div>\n'
              '  </section>\n')
     a = m.start() + 1

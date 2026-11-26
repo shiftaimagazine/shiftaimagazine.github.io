@@ -158,7 +158,7 @@ figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 .article .body{font-size:18px;line-height:1.85;color:var(--text)}
 .article .body p{margin:0 0 1.3em;white-space:pre-line}
 .article .body .lead{font-size:19px;font-weight:500;color:var(--ink)}
-.article .body h3{font-size:23px;margin:38px 0 14px}
+.article .body h2,.article .body h3{font-size:23px;margin:38px 0 14px}
 .article .body ul{padding-left:20px;margin:0 0 1.3em;display:grid;gap:6px}
 .article .body ul li b{color:var(--ink)}
 .dtable{width:100%;border-collapse:collapse;font-size:15.5px;margin:0 0 1.3em}
@@ -208,9 +208,9 @@ figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 .tut-page .items{display:grid;gap:36px}
 .tut-page .ti{display:block;scroll-margin-top:132px}
 .tut-page .ti .tb{display:grid;gap:12px;min-width:0}
-.tut-page .ti h3{font-size:22px;line-height:1.35;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
-.tut-page .ti h3 .sn{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;white-space:nowrap}
-.tut-page .ti h3 small{font-size:13px;font-weight:600;color:var(--sub)}
+.tut-page .ti h2,.tut-page .ti h3{font-size:22px;line-height:1.35;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.tut-page .ti h2 .sn,.tut-page .ti h3 .sn{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.02em;white-space:nowrap}
+.tut-page .ti h2 small,.tut-page .ti h3 small{font-size:13px;font-weight:600;color:var(--sub)}
 .tut-page .ti .d{margin:-4px 0 0;font-size:16px;color:var(--text);line-height:1.75}
 .tut-page .how{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:15.5px;line-height:1.7;color:var(--ink)}
 .tut-page .how b{display:block;font-size:12.5px;color:var(--sub);margin-bottom:4px}
@@ -1564,7 +1564,7 @@ footer .fbrand img{height:44px;width:auto}
 .hs2{position:relative;display:flex;align-items:center;width:100%;max-width:600px;height:62px;box-sizing:border-box;border:1.5px solid var(--ink);border-radius:999px;background:var(--bg);text-align:left}
 .hs2 input{position:absolute;inset:0;width:100%;height:100%;box-sizing:border-box;border:0;border-radius:999px;background:transparent;padding:0 120px 0 24px;font:inherit;font-size:17px;color:var(--ink);outline:none}
 .hs2:focus-within{box-shadow:0 0 0 4px rgba(162,59,44,.16)}
-.hs2-hint{position:absolute;left:24px;right:120px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;font-size:17px;color:#8A8A8A;pointer-events:none;white-space:nowrap;overflow:hidden;transition:opacity .2s}
+.hs2-hint{position:absolute;left:24px;right:120px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;font-size:17px;color:var(--sub);pointer-events:none;white-space:nowrap;overflow:hidden;transition:opacity .2s}
 .hs2 input:focus~.hs2-hint,.hs2 input:not(:placeholder-shown)~.hs2-hint{opacity:0}
 .hs2 .roll{display:inline-block;height:1.5em;line-height:1.5em;overflow:hidden}
 .hs2 .roll>span{display:flex;flex-direction:column;animation:h2Roll 8s cubic-bezier(.7,0,.3,1) infinite}
@@ -1604,6 +1604,22 @@ footer .fbrand img{height:44px;width:auto}
 .hc-b .d{font-size:15px;line-height:1.55;color:var(--sub);text-wrap:pretty}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hticker{background:#0B0C0E}:root:not([data-theme="light"]) .hc-b .k,:root:not([data-theme="light"]) .hk2{color:#E07A68}}
 :root[data-theme="dark"] .hticker{background:#0B0C0E}
+/* 흐르는 띠 멈춤(11/26~, 접근성 WCAG 2.2.2): 마우스를 올리거나 키보드로 들어가도 멈추고, 판정 띠 오른쪽 버튼 하나로 썸네일 띠·판정 띠·검색칸 예시를 함께 멈춘다(html.motion-off, theme.js 가 그리기 전에 붙임) */
+.hwall:focus-within .wl-t,.hticker:focus-within .tk-t{animation-play-state:paused}
+html.motion-off .hwall .wl-t,html.motion-off .hticker .tk-t{animation-play-state:paused}
+html.motion-off .hs2 .roll>span{animation:none}
+.hticker{position:relative;--tkbg:#111111}
+:root[data-theme="dark"] .hticker{--tkbg:#0B0C0E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hticker{--tkbg:#0B0C0E}}
+.hticker .mtog{position:absolute;top:0;right:0;bottom:0;display:flex;align-items:center;justify-content:flex-end;width:96px;padding:0 var(--gr) 0 0;border:0;background:linear-gradient(90deg,rgba(17,17,17,0),var(--tkbg) 55%);color:#FFFFFF;cursor:pointer}
+.hticker .mtog i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.45)}
+.hticker .mtog svg{width:12px;height:12px;fill:currentColor}
+.hticker .mtog:hover i,.hticker .mtog:focus-visible i{background:#FFFFFF;color:#111111}
+.hticker .mtog:focus-visible{outline:none}
+.hticker .mtog:focus-visible i{outline:2px solid #FFFFFF;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.hticker .mtog{display:none}}
+.hticker .mtog .ic-play,html.motion-off .hticker .mtog .ic-pause{display:none}
+html.motion-off .hticker .mtog .ic-play{display:block}
 :root[data-theme="dark"] .hc-b .k,:root[data-theme="dark"] .hk2{color:#E07A68}
 /* 바닥글: 낮·밤 모두 검정 바탕, 흐르는 SHIFT AI MAGAZINE + 입체 화살표 */
 footer{background:#111111!important;color:#BDBDBA;border-top:0}
