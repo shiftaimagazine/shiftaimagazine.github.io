@@ -6888,6 +6888,140 @@
     "tag": "SHIFT AI 무료 정리본",
     "line": "AI 티 나는 페이지, 한 줄로 바꾸기"
    }
+  },
+  {
+   "id": "t-custom-gpt-migration",
+   "date": "2026-11-28",
+   "cat": "업무",
+   "tool": [
+    "ChatGPT"
+   ],
+   "kind": "steps",
+   "level": "입문",
+   "time": "15분",
+   "tools": "ChatGPT 웹(내가 만든 맞춤형 GPT가 있는 계정)",
+   "title": "내 GPT, 12월 11일 종료 전에 옮기는 5단계 (플러그인·프로젝트)",
+   "deck": "OpenAI가 맞춤형 GPT를 2026년 12월 11일에 종료합니다. 내가 만든 GPT는 플러그인으로 옮기는 버튼을 누르거나, 버튼이 아직 없으면 지시문을 새 프로젝트에 붙여 넣는 방법으로 그대로 이어 쓰면 됩니다.",
+   "why": "OpenAI 도움말에 따르면 종료일이 지나면 맞춤형 GPT와 GPT 페이지는 열리지 않습니다. 공들여 쓴 지시문과 올려 둔 파일을 미리 옮겨 두지 않으면 같은 비서를 처음부터 다시 만들어야 합니다. 예전 대화 기록은 종료 뒤에도 남는다고 적혀 있어서 따로 백업하지 않아도 됩니다.",
+   "intro": "이 글은 2026년 11월 28일에 확인한 OpenAI 도움말 'Custom GPT retirement and migration FAQ'를 바탕으로 정리했습니다. 도움말은 모든 ChatGPT 요금제가 대상이고 일부 기업·정부용 계정(FedRAMP, 연기 승인을 받은 기업 계정)은 2027년 2월 28일에 종료된다고 적고 있습니다. 내 계정에 다른 날짜 안내가 나오면 그 안내를 따르면 됩니다. SHIFT 릴스 '내 GPT, 모르면 큰일 나요' 편에서 다룬 내용입니다.",
+   "quick": {
+    "lines": [
+     "내 GPT(My GPTs)에서 Migrate to plugin을 누르면 지시문은 스킬로, 지식 파일은 참고 파일로 옮겨집니다.",
+     "버튼이 아직 없으면 새 프로젝트를 만들고 프로젝트 설정에 지시문을 붙여 넣은 뒤 쓰던 파일을 올립니다.",
+     "옮긴 뒤에는 자주 하던 부탁 몇 개로 예전처럼 답하는지 시험합니다. 예전 대화는 종료 뒤에도 남습니다."
+    ],
+    "links": [
+     [
+      "OpenAI 도움말: Custom GPT retirement and migration FAQ",
+      "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq"
+     ],
+     [
+      "OpenAI 도움말: Creating and editing GPTs",
+      "https://help.openai.com/en/articles/8554397"
+     ]
+    ]
+   },
+   "master": {
+    "tool": "ChatGPT",
+    "prompt": "역할: 너는 내가 쓰던 맞춤형 GPT를 새 프로젝트로 옮기는 걸 돕는 비서야.\n맥락: 맞춤형 GPT가 2026년 12월 11일에 종료돼서, 아래 GPT 지시문을 이 프로젝트의 지시문으로 옮기려고 해.\n입력: GPT 지시문 = [GPT 편집 화면에서 복사한 지시문 전체]. 지식 파일 목록 = [파일 이름들]. 자주 하던 부탁 = [예시 2개].\n작업:\n1) 지시문을 말투, 답 형식, 하지 말 것, 작업 순서로 나눠 정리해.\n2) 프로젝트 설정에 그대로 붙여 넣을 수 있게 지시문을 다시 써.\n3) 자주 하던 부탁 2개를 새 지시문대로 처리한 답을 보여 줘.\n제약: 원래 지시문에 없는 규칙을 더하지 마. 파일 내용은 지어내지 마.\n출력: 붙여 넣을 지시문 한 덩어리와 시험 답 2개.\n검증: 원래 지시문에서 빠진 규칙이 있으면 마지막에 목록으로 알려 줘."
+   },
+   "items": [
+    {
+     "h": "내 GPT가 언제 끝나는지 확인하기",
+     "time": "2분",
+     "d": "종료일은 GPT를 만든 계정이나 작업 공간을 따릅니다.",
+     "how": "OpenAI 도움말에는 맞춤형 GPT가 2026년 12월 11일에 종료되고 일부 기업·정부용 계정만 2027년 2월 28일이라고 적혀 있습니다. 여러 계정을 쓰는 사람은 GPT를 어느 계정에서 만들었는지 먼저 확인합니다. 회사 작업 공간에서 만든 공개 GPT는 개인 계정에서 열어도 그 회사 일정이 적용됩니다.",
+     "more": [
+      "새 GPT를 만들거나 게시하는 제한은 종료와 별개입니다. 개인 계정(Free·Go·Plus·Pro)은 이미 새 GPT를 만들 수 없지만 있던 GPT는 종료일까지 그대로 씁니다."
+     ],
+     "img": {
+      "src": "img/ph/custom-gpt-migration-1.webp",
+      "alt": "OpenAI 도움말의 'When are custom GPTs retiring?' 칸. 첫 문장 'Custom GPTs are scheduled to retire on Dec 11, 2026.'에 빨간 상자",
+      "cap": "OpenAI 도움말 'Custom GPT retirement and migration FAQ' · 맞춤형 GPT는 2026년 12월 11일 종료 예정 (2026-11-28 확인)"
+     }
+    },
+    {
+     "h": "옮길 GPT 고르고 지시문·파일 챙기기",
+     "time": "5분",
+     "d": "자주 쓰는 GPT부터 지시문과 지식 파일, 연결한 앱을 확인합니다.",
+     "how": "ChatGPT 웹에서 chatgpt.com/gpts 를 열고 내 GPT에서 GPT를 고른 뒤 Edit GPT를 누르면 지시문(Instructions)과 지식(Knowledge) 파일이 나옵니다. 지시문은 전체를 복사해 메모장에 저장해 두고 지식 파일은 처음 올렸던 원본을 한 폴더에 모아 둡니다. 결과를 비교할 수 있게 자주 하던 부탁도 두세 개 적어 둡니다.",
+     "more": [
+      "옮기기 전에 고칠 것이 있으면 먼저 고친 뒤 게시(Update)합니다. 옮길 때는 마지막으로 게시한 판만 넘어가고 저장만 해 둔 수정은 넘어가지 않습니다.",
+      "GPT 편집은 웹에서만 되고 모바일 앱에서는 GPT를 쓰는 것만 됩니다."
+     ],
+     "img": {
+      "src": "img/ph/custom-gpt-migration-2.webp",
+      "alt": "OpenAI 도움말의 'Do I need to take action immediately?' 칸. 쓰는 GPT를 정리하고 지시문·참고 파일·연결 앱을 확인하라는 안내",
+      "cap": "OpenAI 도움말 · 지금 할 일: 쓰는 GPT를 정리하고 지시문·참고 파일·연결 앱을 확인하고, 수정은 옮기기 전에 게시하라고 안내합니다"
+     }
+    },
+    {
+     "h": "방법 ①: Migrate to plugin 누르기",
+     "time": "3분",
+     "d": "버튼이 열린 계정이라면 가장 빠른 방법입니다.",
+     "how": "내 GPT에서 옮길 GPT의 Migrate to plugin을 누르고 안내를 따라 플러그인을 만듭니다. 도움말에 따르면 지시문은 플러그인 안의 스킬이 되고 지식 파일은 플러그인의 참고 파일로 복사되며 연결한 앱은 플러그인의 앱으로 들어갑니다. 새 플러그인은 나만 볼 수 있게 시작하고 다른 사람에게 자동으로 공유되지 않습니다.",
+     "more": [
+      "옮긴 뒤 원래 GPT는 종료일까지 쓸 수 있지만 읽기 전용이 되어 고칠 수 없습니다. 이후 수정은 플러그인에서 합니다.",
+      "GPT에서 고른 모델은 넘어가지 않습니다."
+     ],
+     "img": {
+      "src": "img/ph/custom-gpt-migration-3.webp",
+      "alt": "OpenAI 도움말의 'How do I start migration?' 칸. My GPTs와 Migrate to plugin에 빨간 상자",
+      "cap": "OpenAI 도움말 · 옮길 수 있게 되면 My GPTs에서 Migrate to plugin을 고릅니다 (한국어 화면에서는 이름이 다르게 보일 수 있습니다)"
+     }
+    },
+    {
+     "h": "방법 ②: 버튼이 없으면 프로젝트로 옮기기",
+     "time": "3분",
+     "d": "글쓰기·리서치·기획처럼 이어서 하는 일에 쓰던 GPT라면 프로젝트로도 충분합니다.",
+     "how": "사이드바에서 새 프로젝트(New project)를 만들고 프로젝트 설정(Project settings)의 지시문 칸에 2단계에서 복사한 지시문을 붙여 넣은 뒤, 모아 둔 파일을 올립니다. 그다음 프로젝트 안에서 새 대화를 시작하면 지시문과 파일을 함께 써서 답합니다.",
+     "prompt": "(프로젝트 첫 대화) 이 프로젝트 지시문대로 아래 부탁을 처리해 줘: [자주 하던 부탁]",
+     "more": [
+      "GPT와 나눈 예전 대화는 대화 기록에 남지만 프로젝트 안으로 옮길 수는 없습니다.",
+      "이 방법은 맞춤 액션(외부 서비스 연결)과 공유 설정을 옮기지 않습니다."
+     ],
+     "img": {
+      "src": "img/ph/custom-gpt-migration-4.webp",
+      "alt": "OpenAI 도움말의 'Can I use a project instead?' 칸. New project와 Project settings에 빨간 상자",
+      "cap": "OpenAI 도움말 · 사이드바의 New project → Project settings에 지시문을 넣고 참고 파일을 올리라고 안내합니다"
+     }
+    },
+    {
+     "h": "예전처럼 답하는지 시험하기",
+     "time": "2분",
+     "d": "옮긴 비서가 같은 부탁에 같은 결과를 내는지 종료일 전에 확인합니다.",
+     "how": "2단계에서 적어 둔 부탁과 조금 어려운 부탁 하나를 새 플러그인이나 프로젝트에 넣어 봅니다. 도움말은 지시문을 따르는지, 참고 파일을 쓰는지, 답의 형식이 맞는지, 필요한 도구가 붙어 있는지를 확인하라고 합니다. 다르게 답하면 지시문을 고친 뒤 다시 시험합니다.",
+     "more": [
+      "맞춤 액션을 쓰던 GPT는 그 연결이 자동으로 옮겨지지 않습니다. 쓸 수 있는 앱이 있는지 보고 없으면 따로 다시 연결해야 해서 시간이 더 걸립니다."
+     ],
+     "img": {
+      "src": "img/ph/custom-gpt-migration-5.webp",
+      "alt": "OpenAI 도움말의 'What happens to the original GPT after migration?' 칸. 종료일에 맞춤형 GPT와 GPT 페이지가 열리지 않는다는 문장에 빨간 상자",
+      "cap": "OpenAI 도움말 · 종료일이 지나면 맞춤형 GPT와 GPT 페이지는 열리지 않으니 그 전에 옮기고 시험하라고 안내합니다"
+     }
+    }
+   ],
+   "limits": [
+    "날짜와 방법은 2026년 11월 28일 OpenAI 도움말 기준입니다. 내 계정 안내에 다른 날짜가 나오면 그 안내를 따르세요.",
+    "Migrate to plugin 버튼은 계정마다 열리는 시기가 다릅니다. 아직 안 보이면 2번째 방법(프로젝트)으로 옮겨도 됩니다.",
+    "GPT에서 고른 모델, 맞춤 액션(외부 서비스 연결), 공유 설정은 옮겨지지 않습니다.",
+    "남이 만든 GPT는 직접 옮길 수 없습니다. 만든 사람의 안내를 확인하세요.",
+    "버튼과 메뉴 이름은 영어 도움말 기준이라 한국어 화면에서는 다르게 보일 수 있습니다."
+   ],
+   "sources": [
+    [
+     "OpenAI 도움말: Custom GPT retirement and migration FAQ",
+     "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq"
+    ],
+    [
+     "OpenAI 도움말: Creating and editing GPTs",
+     "https://help.openai.com/en/articles/8554397"
+    ]
+   ],
+   "cover": {
+    "tag": "SHIFT AI 무료 정리본",
+    "line": "내 GPT, 12월 11일 전에 옮기기"
+   }
   }
  ]
 }
