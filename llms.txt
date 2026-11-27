@@ -67,6 +67,7 @@
 - [메모릴라, 문서 모음을 16토큰으로](https://shiftaimagazine.com/news/2026-11-16-stanford-memorilla-16-tokens/): 스탠퍼드대 등 연구진이 문서 모음 전체를 읽어 질문마다 메모리 토큰 16개로 줄여 주는 모듈 메모릴라(Memorilla)를 공개했습니다. 언어 모델은 그대로 두고 모듈만 학습합니다.
 
 ## 튜토리얼
+- [ChatGPT 맞춤 GPT, 12월 11일 종료 전에 옮기는 5단계 (플러그인·프로젝트)](https://shiftaimagazine.com/tutorial/custom-gpt-migration/): OpenAI가 ChatGPT 속 맞춤 GPT(맞춤형 GPT)를 2026년 12월 11일에 종료합니다. 내가 만든 GPT는 플러그인으로 옮기는 버튼을 누르거나, 버튼이 아직 없으면 지시문을 새 프로젝트에 붙여 넣는 방법으로 그대로 이어 쓰면 됩니다.
 - [AI 티 나는 웹페이지, 무료 스킬 Hallmark로 바꾸는 5단계 (테마 50개)](https://shiftaimagazine.com/tutorial/hallmark-design-skill/): Hallmark는 클로드 코드 같은 코딩 에이전트가 웹페이지를 만들 때 쓰는 무료 디자인 스킬입니다. 설치 명령 한 줄을 넣고 만들 페이지를 한 문장으로 적으면 테마 50개 가운데 내용에 맞는 것을 골라 페이지를 만들고 이미 만든 페이지도 다시 디자인해 줍니다.
 - [게임 만들 때 쓰는 무료 자료 459개, 상업용만 골라 쓰는 4단계](https://shiftaimagazine.com/tutorial/free-game-dev-assets/): 3D 모델·효과음·폰트·셰이더까지 게임 제작용 무료 자료 459곳을 모은 Free Game Dev Assets에서 상업용으로 쓸 수 있는 자료만 골라내는 방법입니다. 마지막 단계에서는 고른 자료를 클로드에 넘겨 라이선스 표와 크레딧 문구를 만듭니다.
 - [클로드로 만드는 애니메이션 스타일 10가지, 프롬프트 모음](https://shiftaimagazine.com/tutorial/claude-animation-styles/): 장면 하나를 정해 두고 그리는 방식만 바꾸면 픽셀 아트부터 시네마틱 3D까지 10가지 애니메이션이 나옵니다. 그림 도구 없이 클로드가 코드로 그리고, 결과는 화면 녹화로 영상이 됩니다.

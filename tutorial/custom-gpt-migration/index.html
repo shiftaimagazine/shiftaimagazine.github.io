@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://shiftai.goatcounter.com; connect-src 'self' https://shiftai.goatcounter.com https://shift-newsletter.shiftaimagazine.workers.dev; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="/">
+<title>ChatGPT 맞춤 GPT, 12월 11일 종료 전에 옮기는 5단계 (플러그인·프로젝트) · SHIFT AI 튜토리얼</title>
+<meta name="description" content="OpenAI가 ChatGPT 속 맞춤 GPT(맞춤형 GPT)를 2026년 12월 11일에 종료합니다. 내가 만든 GPT는 플러그인으로 옮기는 버튼을 누르거나, 버튼이 아직 없으면 지시문을 새 프로젝트에 붙여 넣는 방법으로 그대로 이어 쓰면 됩니다.">
+<link rel="canonical" href="https://shiftaimagazine.com/tutorial/custom-gpt-migration/">
+<meta property="og:site_name" content="SHIFT AI MAGAZINE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPT 맞춤 GPT, 12월 11일 종료 전에 옮기는 5단계 (플러그인·프로젝트) · SHIFT AI 튜토리얼">
+<meta property="og:description" content="OpenAI가 ChatGPT 속 맞춤 GPT(맞춤형 GPT)를 2026년 12월 11일에 종료합니다. 내가 만든 GPT는 플러그인으로 옮기는 버튼을 누르거나, 버튼이 아직 없으면 지시문을 새 프로젝트에 붙여 넣는 방법으로 그대로 이어 쓰면 됩니다.">
+<meta property="og:url" content="https://shiftaimagazine.com/tutorial/custom-gpt-migration/">
+<meta property="og:image" content="https://shiftaimagazine.com/og/t-custom-gpt-migration.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<script src="/assets/theme.js?v=068672e8"></script>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="google-site-verification" content="HKri8m_oKks2hV5uI2imA7hGyiP-rDTyKO82EglrItw">
+<meta name="naver-site-verification" content="230a13b387152da342e80d780e67c3418eb4a147">
+<meta property="article:published_time" content="2026-11-28T09:00:00+09:00">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ChatGPT 맞춤 GPT, 12월 11일 종료 전에 옮기는 5단계 (플러그인·프로젝트)", "description": "OpenAI가 ChatGPT 속 맞춤 GPT(맞춤형 GPT)를 2026년 12월 11일에 종료합니다. 내가 만든 GPT는 플러그인으로 옮기는 버튼을 누르거나, 버튼이 아직 없으면 지시문을 새 프로젝트에 붙여 넣는 방법으로 그대로 이어 쓰면 됩니다.", "image": ["https://shiftaimagazine.com/og/t-custom-gpt-migration.jpg"], "datePublished": "2026-11-28T09:00:00+09:00", "dateModified": "2026-11-28T09:00:00+09:00", "author": {"@type": "Organization", "name": "SHIFT AI 편집부", "url": "https://shiftaimagazine.com/about/"}, "publisher": {"@type": "NewsMediaOrganization", "name": "SHIFT AI MAGAZINE", "url": "https://shiftaimagazine.com/", "logo": {"@type": "ImageObject", "url": "https://shiftaimagazine.com/img/brand/logo-800.png"}}, "isAccessibleForFree": true, "mainEntityOfPage": "https://shiftaimagazine.com/tutorial/custom-gpt-migration/", "articleSection": "튜토리얼 · 업무", "keywords": "ChatGPT", "inLanguage": "ko", "proficiencyLevel": "입문", "citation": ["https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq", "https://help.openai.com/en/articles/8554397"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SHIFT AI", "item": "https://shiftaimagazine.com/"}, {"@type": "ListItem", "position": 2, "name": "튜토리얼", "item": "https://shiftaimagazine.com/tutorial/"}, {"@type": "ListItem", "position": 3, "name": "ChatGPT 맞춤 GPT, 12월 11일 종료 전에 옮기는 5단계 (플러그인·프로젝트)", "item": "https://shiftaimagazine.com/tutorial/custom-gpt-migration/"}]}</script>
+<script defer="" src="/assets/stats.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="SHIFT AI" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" id="gfont" media="print" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/site.css?v=068672e8">
+</head>
+<body data-route="t-custom-gpt-migration" id="top" class="has-sub" data-pre="1">
+<a class="annc bleed" href="/tools/" data-ev="annc:/tools/"><span class="nb">NEW</span><span>새 무료 도구 4개가 나왔습니다</span><span class="go">써 보기 <span class="ar">→</span></span></a>
+<header class="bleed">
+  <div class="topbar">
+    <a class="logo" href="/" data-nav="home" aria-current="false"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256"></a>
+    <nav class="main" aria-label="목차">
+      <a href="/tutorial/" data-grp="learn" aria-controls="sub-learn" aria-expanded="true" aria-current="true">따라 하기</a>
+      <a href="/tools/" data-grp="tools" aria-controls="sub-tools" aria-expanded="false" aria-current="false">무료 도구</a>
+      <a href="/news/" data-grp="news" aria-controls="sub-news" aria-expanded="false" aria-current="false">AI 소식</a>
+      <a href="/about/" data-grp="about" aria-controls="sub-about" aria-expanded="false" aria-current="false">소개</a>
+    </nav>
+    <div class="tools">
+      <div class="sw" role="group" aria-label="SHIFT 매거진 바꾸기"><span aria-current="true">AI</span><a href="https://play.shiftaimagazine.com/?from=ai-header" title="SHIFT PLAY · 게임 뉴스·칼럼 매거진" data-ev="switch:play">PLAY</a></div>
+      <button class="sicon theme" type="button" id="themeBtn" aria-label="다크 모드" aria-pressed="false" title="낮·밤 화면 바꾸기"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"></path></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+      <a class="sicon" href="/search/" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+      <details class="fol" id="fol">
+        <summary class="btn pill" aria-label="SHIFT 팔로우: 인스타그램·유튜브·스레드 고르기" aria-haspopup="true" aria-expanded="false">팔로우</summary>
+        <div class="folm" role="menu" aria-label="SHIFT 팔로우">
+          <a role="menuitem" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-ev="follow:ig"><i class="fi fi-ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></i><span><b>인스타그램</b><small>30초 영상으로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-ev="follow:yt"><i class="fi fi-yt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"></rect><path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"></path></svg></i><span><b>유튜브</b><small>쇼츠로 보는 AI&nbsp;소식</small></span></a>
+          <a role="menuitem" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-ev="follow:th"><i class="fi fi-th" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"></circle><path d="M15.6 12v1.4a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.6 7.1"></path></svg></i><span><b>스레드</b><small>그날 나온 소식을 가장&nbsp;먼저</small></span></a>
+          <a role="menuitem" href="/subscribe/" data-ev="follow:mail"><i class="fi fi-ml" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></i><span><b>주간 메일</b><small>월요일 아침, 지난주 AI 소식&nbsp;한&nbsp;통</small></span></a>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="subnav" id="subnav">
+    <nav class="sub" id="sub-news" data-grp="news" aria-label="AI 소식 메뉴" hidden=""><div class="sub-in">
+      <a href="/daily/" data-sub="daily">데일리 이슈</a>
+      <a href="/news/" data-sub="news">AI 뉴스</a>
+      <a href="/news/?cat=%EC%B9%BC%EB%9F%BC" data-sub="column">칼럼</a>
+      <a href="/weekly/" data-sub="weekly">주간 판정</a>
+      <a href="/verdict/" data-sub="verdict">판정 모아보기</a>
+    </div></nav>
+    <nav class="sub" id="sub-learn" data-grp="learn" aria-label="따라 하기 메뉴"><div class="sub-in">
+      <a href="/tutorial/" data-sub="tutorial" aria-current="page">튜토리얼</a>
+      <a href="/guide/start/" data-sub="guide-start">AI 처음이라면</a>
+      <a href="/guide/" data-sub="guide">하고 싶은 일로&nbsp;찾기</a>
+      <a href="/prompts/" data-sub="prompts">복붙 프롬프트</a>
+      <a href="/tips/" data-sub="tips">실용 팁</a>
+      <a href="/vs/" data-sub="vs">AI 서비스&nbsp;비교</a>
+      <a href="/dict/" data-sub="dict">AI 사전</a>
+    </div></nav>
+    <nav class="sub" id="sub-tools" data-grp="tools" aria-label="무료 도구 메뉴" hidden=""><div class="sub-in">
+      <a href="/tools/" data-sub="tools">전체 도구</a>
+      <a href="/tools/?cat=AI%20%ED%99%9C%EC%9A%A9" data-sub="tc:AI 활용">AI 활용</a>
+      <a href="/tools/?cat=%ED%8C%8C%EC%9D%BC%20%EB%B3%80%ED%99%98" data-sub="tc:파일 변환">파일 변환</a>
+      <a href="/tools/?cat=PDF%C2%B7%EB%AC%B8%EC%84%9C" data-sub="tc:PDF·문서">PDF⁠·문서</a>
+      <a href="/tools/?cat=%EC%82%AC%EC%A7%84%C2%B7%EC%9D%B4%EB%AF%B8%EC%A7%80" data-sub="tc:사진·이미지">사진⁠·이미지</a>
+      <a href="/tools/?cat=%EA%B8%80%EC%93%B0%EA%B8%B0" data-sub="tc:글쓰기">글쓰기</a>
+      <a href="/tools/?cat=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4" data-sub="tc:개인정보">개인정보</a>
+      <a href="/tools/?cat=%EB%B9%84%EC%9A%A9%20%EC%A0%88%EC%95%BD" data-sub="tc:비용 절약">비용 절약</a>
+      <a href="/tools/?cat=%EB%B2%88%EC%97%AD%C2%B7%ED%9A%8C%EC%9D%98" data-sub="tc:번역·회의">번역⁠·회의</a>
+    </div></nav>
+    <nav class="sub" id="sub-about" data-grp="about" aria-label="소개 메뉴" hidden=""><div class="sub-in">
+      <a href="/about/" data-sub="about">SHIFT 소개</a>
+      <a href="/about/#verdict-how" data-sub="about-verdict">판정 기준</a>
+      <a href="/privacy/" data-sub="privacy">개인정보처리방침</a>
+      <a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener" data-sub="x-ig">인스타그램</a>
+      <a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener" data-sub="x-yt">유튜브</a>
+      <a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener" data-sub="x-th">스레드</a>
+    </div></nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="v-article"><article class="article narrow tut-page">
+    <a class="back" href="/tutorial/">← 튜토리얼</a>
+    <span class="cat">튜토리얼&nbsp;· 업무&nbsp;·&nbsp;입문</span>
+    <h1><span class="tphw"><span class="tph">ChatGPT 맞춤&nbsp;GPT,</span> <span class="tph">12월 11일 종료 전에 옮기는 5단계 (플러그인⁠⁠·프로젝트)</span></span></h1><p class="deck">OpenAI가 ChatGPT 속 맞춤 GPT(맞춤형 GPT)⁠를 2026년 12월 11일에 종료합니다. 내가 만든 GPT는 플러그인으로 옮기는 버튼을 누르거나, 버튼이 아직 없으면 지시문을 새 프로젝트에 붙여 넣는 방법으로 그대로 이어 쓰면&nbsp;됩니다.</p>
+    <div class="meta"><span>SHIFT 편집부</span><span class="dot"></span><span>2026.11.28</span><span class="dot"></span><span> 읽는&nbsp;데&nbsp;6분</span><span class="dot"></span><span>STEP 5개</span></div>
+    <div class="ttags"><a href="/tutorial/?tool=ChatGPT">ChatGPT</a></div>
+    <figure class="lead-fig"><img src="img/ph/custom-gpt-migration.webp" alt="" fetchpriority="high"><figcaption>OpenAI 도움말 Custom GPT retirement and migration FAQ 첫 화면&nbsp;· SHIFT 직접&nbsp;캡처</figcaption></figure>
+    
+    <div class="tinside"><div class="th"><b>이 글에&nbsp;담긴&nbsp;것</b><span>STEP 5개&nbsp;· 따라 하는 데&nbsp;15분</span></div>
+      <ol><li><a href="#s1"><span>STEP 1</span>내 GPT가 언제 끝나는지 확인하기</a></li><li><a href="#s2"><span>STEP 2</span>옮길 GPT 고르고 지시문⁠·파일&nbsp;챙기기</a></li><li><a href="#s3"><span>STEP 3</span>방법 ①: Migrate to plugin&nbsp;누르기</a></li><li><a href="#s4"><span>STEP 4</span>방법 ②: 버튼이 없으면 프로젝트로&nbsp;옮기기</a></li><li><a href="#s5"><span>STEP 5</span>예전처럼 답하는지 시험하기</a></li></ol></div>
+    <div class="quick"><b>바쁘면 이것만</b><ol><li>내 GPT(My GPTs)⁠에서 Migrate to plugin을 누르면 지시문은 스킬로, 지식 파일은 참고 파일로 옮겨집니다.</li><li>버튼이 아직 없으면 새 프로젝트를 만들고 프로젝트 설정에 지시문을 붙여 넣은 뒤 쓰던 파일을 올립니다.</li><li>옮긴 뒤에는 자주 하던 부탁 몇 개로 예전처럼 답하는지 시험합니다. 예전 대화는 종료 뒤에도 남습니다.</li></ol><div class="ql"><a href="https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq" target="_blank" rel="noopener">OpenAI 도움말: Custom GPT retirement and migration FAQ&nbsp;↗</a><a href="https://help.openai.com/en/articles/8554397" target="_blank" rel="noopener">OpenAI 도움말: Creating and editing GPTs&nbsp;↗</a></div></div>
+    <details class="master"><summary><b>통째로 맡기는 프롬프트</b><span>ChatGPT에 붙여 넣으면 이 글의 단계를 대신 진행합니다</span></summary><div class="pr"><div class="pt">역할: 너는 내가 쓰던 맞춤형 GPT를 새 프로젝트로 옮기는 걸 돕는 비서야.
+맥락: 맞춤형 GPT가 2026년 12월 11일에 종료돼서, 아래 GPT 지시문을 이 프로젝트의 지시문으로 옮기려고 해.
+입력: GPT 지시문 = [GPT 편집 화면에서 복사한 지시문 전체]. 지식 파일 목록 = [파일 이름들]. 자주 하던 부탁 = [예시 2개].
+작업:
+1)&nbsp;지시문을 말투, 답 형식, 하지 말 것, 작업 순서로 나눠 정리해.
+2)&nbsp;프로젝트 설정에 그대로 붙여 넣을 수 있게 지시문을 다시 써.
+3)&nbsp;자주 하던 부탁 2개를 새 지시문대로 처리한 답을 보여 줘.
+제약: 원래 지시문에 없는 규칙을 더하지 마. 파일 내용은 지어내지 마.
+출력: 붙여 넣을 지시문 한 덩어리와 시험 답 2개.
+검증: 원래 지시문에서 빠진 규칙이 있으면 마지막에 목록으로&nbsp;알려&nbsp;줘.</div><button class="copy dark" data-copy="역할: 너는 내가 쓰던 맞춤형 GPT를 새 프로젝트로 옮기는 걸 돕는 비서야.
+맥락: 맞춤형 GPT가 2026년 12월 11일에 종료돼서, 아래 GPT 지시문을 이 프로젝트의 지시문으로 옮기려고 해.
+입력: GPT 지시문 = [GPT 편집 화면에서 복사한 지시문 전체]. 지식 파일 목록 = [파일 이름들]. 자주 하던 부탁 = [예시 2개].
+작업:
+1) 지시문을 말투, 답 형식, 하지 말 것, 작업 순서로 나눠 정리해.
+2) 프로젝트 설정에 그대로 붙여 넣을 수 있게 지시문을 다시 써.
+3) 자주 하던 부탁 2개를 새 지시문대로 처리한 답을 보여 줘.
+제약: 원래 지시문에 없는 규칙을 더하지 마. 파일 내용은 지어내지 마.
+출력: 붙여 넣을 지시문 한 덩어리와 시험 답 2개.
+검증: 원래 지시문에서 빠진 규칙이 있으면 마지막에 목록으로 알려 줘.">복사하기</button></div></details>
+    <div class="prep"><div><b>필요한 것</b>ChatGPT 웹(내가 만든 맞춤형 GPT가 있는&nbsp;계정)</div><div><b>걸리는 시간</b>15분</div><div><b>왜 필요한가요</b>OpenAI 도움말에 따르면 종료일이 지나면 맞춤형 GPT와 GPT 페이지는 열리지 않습니다. 공들여 쓴 지시문과 올려 둔 파일을 미리 옮겨 두지 않으면 같은 비서를 처음부터 다시 만들어야 합니다. 예전 대화 기록은 종료 뒤에도 남는다고 적혀 있어서 따로 백업하지 않아도&nbsp;됩니다.</div></div>
+    <div class="intro">이 글은 2026년 11월 28일에 확인한 OpenAI 도움말 'Custom GPT retirement and migration FAQ'를 바탕으로 정리했습니다. 도움말은 모든 ChatGPT 요금제가 대상이고 일부 기업⁠·정부용 계정(FedRAMP, 연기 승인을 받은 기업 계정)⁠은 2027년 2월 28일에 종료된다고 적고 있습니다. 내 계정에 다른 날짜 안내가 나오면 그 안내를 따르면 됩니다. SHIFT 릴스 'ChatGPT 속 맞춤 GPT, 12월 11일에 사라져요' 편에서 다룬 내용입니다.</div>
+    <div class="items"><section class="ti" id="s1"><div class="tb">
+        <h3><span class="sn">STEP 1</span>내 GPT가 언제 끝나는지 확인하기<small>2분</small></h3>
+        <p class="d">종료일은 GPT를 만든 계정이나 작업 공간을 따릅니다.</p>
+        <figure class="tfig"><img src="img/ph/custom-gpt-migration-1.webp" alt="OpenAI 도움말의 'When are custom GPTs retiring?' 칸. 첫 문장 'Custom GPTs are scheduled to retire on Dec 11, 2026.'에 빨간 상자" loading="lazy"><figcaption>OpenAI 도움말 'Custom GPT retirement and migration FAQ'&nbsp;· 맞춤형 GPT는 2026년 12월 11일 종료 예정 (2026-11-28&nbsp;확인)</figcaption></figure>
+        <div class="how">OpenAI 도움말에는 맞춤형 GPT가 2026년 12월 11일에 종료되고 일부 기업⁠·정부용 계정만 2027년 2월 28일이라고 적혀 있습니다. 여러 계정을 쓰는 사람은 GPT를 어느 계정에서 만들었는지 먼저 확인합니다. 회사 작업 공간에서 만든 공개 GPT는 개인 계정에서 열어도 그 회사 일정이 적용됩니다.</div>
+        <p class="tp">새 GPT를 만들거나 게시하는 제한은 종료와 별개입니다. 개인 계정(Free⁠·Go⁠·Plus⁠·Pro)⁠은 이미 새 GPT를 만들 수 없지만 있던 GPT는 종료일까지 그대로&nbsp;씁니다.</p>
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s2"><div class="tb">
+        <h3><span class="sn">STEP 2</span>옮길 GPT 고르고 지시문⁠⁠·파일&nbsp;챙기기<small>5분</small></h3>
+        <p class="d">자주 쓰는 GPT부터 지시문과 지식 파일, 연결한 앱을 확인합니다.</p>
+        <figure class="tfig"><img src="img/ph/custom-gpt-migration-2.webp" alt="OpenAI 도움말의 'Do I need to take action immediately?' 칸. 쓰는 GPT를 정리하고 지시문·참고 파일·연결 앱을 확인하라는 안내" loading="lazy"><figcaption>OpenAI 도움말&nbsp;· 지금 할 일: 쓰는 GPT를 정리하고 지시문⁠·참고 파일⁠·연결 앱을 확인하고, 수정은 옮기기 전에 게시하라고 안내합니다</figcaption></figure>
+        <div class="how">ChatGPT 웹에서 chatgpt.com/gpts 를 열고 내 GPT에서 GPT를 고른 뒤 Edit GPT를 누르면 지시문(Instructions)⁠과 지식(Knowledge) 파일이 나옵니다. 지시문은 전체를 복사해 메모장에 저장해 두고 지식 파일은 처음 올렸던 원본을 한 폴더에 모아 둡니다. 결과를 비교할 수 있게 자주 하던 부탁도 두세 개 적어&nbsp;둡니다.</div>
+        <p class="tp">옮기기 전에 고칠 것이 있으면 먼저 고친 뒤 게시⁠(Update)⁠합니다. 옮길 때는 마지막으로 게시한 판만 넘어가고 저장만 해 둔 수정은 넘어가지 않습니다.</p><p class="tp">GPT 편집은 웹에서만 되고 모바일 앱에서는 GPT를 쓰는 것만&nbsp;됩니다.</p>
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s3"><div class="tb">
+        <h3><span class="sn">STEP 3</span>방법 ①: Migrate to plugin&nbsp;누르기<small>3분</small></h3>
+        <p class="d">버튼이 열린 계정이라면 가장 빠른 방법입니다.</p>
+        <figure class="tfig"><img src="img/ph/custom-gpt-migration-3.webp" alt="OpenAI 도움말의 'How do I start migration?' 칸. My GPTs와 Migrate to plugin에 빨간 상자" loading="lazy"><figcaption>OpenAI 도움말&nbsp;· 옮길 수 있게 되면 My GPTs에서 Migrate to plugin을 고릅니다 (한국어 화면에서는 이름이 다르게 보일 수 있습니다)</figcaption></figure>
+        <div class="how">내 GPT에서 옮길 GPT의 Migrate to plugin을 누르고 안내를 따라 플러그인을 만듭니다. 도움말에 따르면 지시문은 플러그인 안의 스킬이 되고 지식 파일은 플러그인의 참고 파일로 복사되며 연결한 앱은 플러그인의 앱으로 들어갑니다. 새 플러그인은 나만 볼 수 있게 시작하고 다른 사람에게 자동으로 공유되지 않습니다.</div>
+        <p class="tp">옮긴 뒤 원래 GPT는 종료일까지 쓸 수 있지만 읽기 전용이 되어 고칠 수 없습니다. 이후 수정은 플러그인에서&nbsp;합니다.</p><p class="tp">GPT에서 고른 모델은 넘어가지 않습니다.</p>
+        
+        
+        
+        
+        
+        
+      </div></section><section class="ti" id="s4"><div class="tb">
+        <h3><span class="sn">STEP 4</span>방법 ②: 버튼이 없으면 프로젝트로&nbsp;옮기기<small>3분</small></h3>
+        <p class="d">글쓰기⁠·리서치⁠·기획처럼 이어서 하는 일에 쓰던 GPT라면 프로젝트로도 충분합니다.</p>
+        <figure class="tfig"><img src="img/ph/custom-gpt-migration-4.webp" alt="OpenAI 도움말의 'Can I use a project instead?' 칸. New project와 Project settings에 빨간 상자" loading="lazy"><figcaption>OpenAI 도움말&nbsp;· 사이드바의 New project → Project settings에 지시문을 넣고 참고 파일을 올리라고 안내합니다</figcaption></figure>
+        <div class="how">사이드바에서 새 프로젝트(New project)⁠를 만들고 프로젝트 설정(Project settings)⁠의 지시문 칸에 2단계에서 복사한 지시문을 붙여 넣은 뒤, 모아 둔 파일을 올립니다. 그다음 프로젝트 안에서 새 대화를 시작하면 지시문과 파일을 함께 써서 답합니다.</div>
+        <p class="tp">GPT와 나눈 예전 대화는 대화 기록에 남지만 프로젝트 안으로 옮길 수는 없습니다.</p><p class="tp">이 방법은 맞춤 액션(외부 서비스 연결)⁠과 공유 설정을 옮기지 않습니다.</p>
+        
+        
+        
+        
+        <div class="pr"><b>복사해서 쓰는 프롬프트</b><div class="pt">(프로젝트 첫 대화) 이 프로젝트 지시문대로 아래 부탁을 처리해 줘: [자주 하던&nbsp;부탁]</div><button class="copy dark" data-copy="(프로젝트 첫 대화) 이 프로젝트 지시문대로 아래 부탁을 처리해 줘: [자주 하던 부탁]">복사하기</button></div>
+        
+      </div></section><section class="ti" id="s5"><div class="tb">
+        <h3><span class="sn">STEP 5</span>예전처럼 답하는지 시험하기<small>2분</small></h3>
+        <p class="d">옮긴 비서가 같은 부탁에 같은 결과를 내는지 종료일 전에 확인합니다.</p>
+        <figure class="tfig"><img src="img/ph/custom-gpt-migration-5.webp" alt="OpenAI 도움말의 'What happens to the original GPT after migration?' 칸. 종료일에 맞춤형 GPT와 GPT 페이지가 열리지 않는다는 문장에 빨간 상자" loading="lazy"><figcaption>OpenAI 도움말&nbsp;· 종료일이 지나면 맞춤형 GPT와 GPT 페이지는 열리지 않으니 그 전에 옮기고 시험하라고 안내합니다</figcaption></figure>
+        <div class="how">2단계에서 적어 둔 부탁과 조금 어려운 부탁 하나를 새 플러그인이나 프로젝트에 넣어 봅니다. 도움말은 지시문을 따르는지, 참고 파일을 쓰는지, 답의 형식이 맞는지, 필요한 도구가 붙어 있는지를 확인하라고 합니다. 다르게 답하면 지시문을 고친 뒤 다시 시험합니다.</div>
+        <p class="tp">맞춤 액션을 쓰던 GPT는 그 연결이 자동으로 옮겨지지 않습니다. 쓸 수 있는 앱이 있는지 보고 없으면 따로 다시 연결해야 해서 시간이 더 걸립니다.</p>
+        
+        
+        
+        
+        
+        
+      </div></section></div>
+    
+    <div class="limits"><b>할 수&nbsp;없는&nbsp;것</b><ul><li>날짜와 방법은 2026년 11월 28일 OpenAI 도움말 기준입니다. 내 계정 안내에 다른 날짜가 나오면 그 안내를 따르세요.</li><li>Migrate to plugin 버튼은 계정마다 열리는 시기가 다릅니다. 아직 안 보이면 2번째 방법⁠(프로젝트)⁠으로 옮겨도&nbsp;됩니다.</li><li>GPT에서 고른 모델, 맞춤 액션(외부 서비스 연결), 공유 설정은 옮겨지지 않습니다.</li><li>남이 만든 GPT는 직접 옮길 수 없습니다. 만든 사람의 안내를 확인하세요.</li><li>버튼과 메뉴 이름은 영어 도움말 기준이라 한국어 화면에서는 다르게 보일 수 있습니다.</li></ul></div>
+    <div class="src"><b>공식 자료</b><a href="https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq" target="_blank" rel="noopener">OpenAI 도움말: Custom GPT retirement and migration FAQ&nbsp;· https://help.openai.com⁠/⁠en/articles/20001519-custom-gpt-retirement-and-migration-faq</a><a href="https://help.openai.com/en/articles/8554397" target="_blank" rel="noopener">OpenAI 도움말: Creating and editing GPTs&nbsp;· https://help.openai.com⁠/⁠en/articles/8554397</a></div>
+    
+    
+    <div class="links"><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드에서 질문하기</a><a href="/tutorial/custom-gpt-migration/" data-copy="https://shiftaimagazine.com/tutorial/custom-gpt-migration/">링크 복사</a><a href="mailto:shiftai.magazine@gmail.com?subject=%5B%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD%5D%20ChatGPT%20%EB%A7%9E%EC%B6%A4%20GPT%2C%2012%EC%9B%94%2011%EC%9D%BC%20%EC%A2%85%EB%A3%8C%20%EC%A0%84%EC%97%90%20%EC%98%AE%EA%B8%B0%EB%8A%94%205%EB%8B%A8%EA%B3%84%20(%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%C2%B7%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)&amp;body=%ED%8E%98%EC%9D%B4%EC%A7%80%3A%20https%3A%2F%2Fshiftaimagazine.com%2Ftutorial%2Fcustom-gpt-migration%2F%0A%ED%8B%80%EB%A6%B0%20%EA%B3%B3%3A%0A%EB%B0%94%EB%A5%B8%20%EB%82%B4%EC%9A%A9%EA%B3%BC%20%EA%B7%BC%EA%B1%B0(%EC%9B%90%EB%AC%B8%20%EB%A7%81%ED%81%AC)%3A%0A">틀린 곳 알려&nbsp;주기</a></div>
+    <section class="followbox">
+  <div class="st"><span class="k">SHIFT 팔로우</span><h2>영상으로 보고, 기사로 자세히&nbsp;읽기</h2><p>30초 영상은 인스타그램과 유튜브 쇼츠에, 그날 나온 소식은 스레드에 가장 먼저 올립니다.</p></div>
+  <div class="fbtns">
+    <a class="fbtn" href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener"><b>인스타그램</b><span>@shift_ai_magazine</span></a>
+    <a class="fbtn" href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener"><b>유튜브</b><span>시프트 AI&nbsp;·&nbsp;쇼츠</span></a>
+    <a class="fbtn" href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener"><b>스레드</b><span>@shift_ai_magazine</span></a>
+  </div>
+</section>
+    <div class="next"><div class="lbl">다음 튜토리얼</div><div class="list"><a class="post" href="/tutorial/hallmark-design-skill/"><img class="thumb" src="img/cover/t-hallmark-design-skill.webp" alt="" loading="lazy">
+  <div class="b"><span class="cat">스킬⁠·MCP&nbsp;· 입문</span><h3><span class="tphw"><span class="tph">AI 티 나는 웹페이지,</span> <span class="tph">무료 스킬 Hallmark로 바꾸는 5단계 (테마&nbsp;50개)</span></span></h3><p>Hallmark는 클로드 코드 같은 코딩 에이전트가 웹페이지를 만들 때 쓰는 무료 디자인 스킬입니다. 설치 명령 한 줄을 넣고 만들 페이지를 한 문장으로 적으면 테마 50개 가운데 내용에 맞는 것을 골라 페이지를 만들고 이미 만든 페이지도 다시 디자인해&nbsp;줍니다.</p><div class="meta"><span>2026.11.26</span><span class="dot"></span><span>STEP 5개</span><span class="dot"></span><span> 읽는&nbsp;데&nbsp;7분</span></div></div></a></div></div>
+  </article></main>
+<section class="subbox" aria-label="주간 메일 구독">
+  <div class="st"><span class="k">주간 메일&nbsp;· 매주 월요일 아침&nbsp;7시</span><h2>이번 주 AI 핫 이슈를 메일 한&nbsp;통으로</h2><p>한 주 동안 나온 AI 소식 중 꼭 볼 것만 골라 월요일 아침에 보냅니다. 기사마다 판정과 원문 링크가 붙어 있습니다. 무료이고, 메일 아래 링크 한 번이면 해지됩니다. <a class="smpl" href="/subscribe/#sample" data-ev="subscribe:sample-link">어떤 메일인지 먼저&nbsp;보기</a></p></div>
+  <form class="subf" data-api="https://shift-newsletter.shiftaimagazine.workers.dev" novalidate="">
+    <div class="subrow"><label><span class="sr">이메일 주소</span><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" maxlength="254" required=""></label><button class="btn" type="submit">구독하기</button></div>
+    <label class="hp" aria-hidden="true">비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <label class="agree"><input type="checkbox" name="agree" required=""> <span>[필수] 이메일 주소 수집⁠·이용에 동의합니다.</span></label>
+    <label class="agree"><input type="checkbox" name="agree_abroad" required=""> <span>[필수] 개인정보 국외 이전(미국 Resend⁠·Cloudflare)⁠에 동의합니다.</span></label>
+    <p class="agreenote">메일 발송을 위해 주소가 미국 Resend⁠·Cloudflare로 전송⁠·보관됩니다. (<a href="/privacy/">개인정보처리방침</a>)</p>
+    <details class="agreed"><summary>동의 내용&nbsp;보기</summary><p>받는 정보: 이메일 주소&nbsp;· 쓰는 곳: 주간 메일 발송, 구독⁠·해지 관리&nbsp;· 보관: 해지할 때까지&nbsp;· 국외 이전: Resend(Plus Five Five, Inc., 미국, 메일 발송⁠·명단 보관), Cloudflare(Cloudflare, Inc., 미국, 신청 접수)⁠에 신청할 때 암호화된 통신으로 넘어갑니다. 동의하지 않아도 사이트의 글은 모두 그대로 읽을 수 있고, 메일만 받지 못합니다. 만 14세 미만은 구독할 수 없습니다. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>에 있습니다.</p></details>
+    <p class="submsg" role="status" aria-live="polite"></p>
+  </form>
+</section></div>
+<footer class="bleed">
+  <div class="fin">
+    <div class="fbrand"><img src="img/logo-wide.webp" alt="SHIFT AI MAGAZINE" width="1200" height="256" loading="lazy"><p><span>검색 말고 SHIFT.</span><span>일하는 사람을 위한 AI 매거진입니다.</span><span>틀린 내용은 메일로 알려&nbsp;주세요.</span></p></div>
+    <div class="fsw"><span class="fsw-k">SHIFT 매거진&nbsp;바꾸기</span><div class="fsw-t" role="group" aria-label="SHIFT 매거진 바꾸기"><span class="on-ai" aria-current="true">SHIFT AI</span><a class="to-play" href="https://play.shiftaimagazine.com/?from=ai-footer">SHIFT PLAY</a></div><p>지금 보는 곳&nbsp;· 일하는 사람을 위한 AI&nbsp;매거진</p></div>
+    <div class="fcols">
+      <div class="fgrp"><span>따라 하기</span><a href="/tutorial/">튜토리얼</a><a href="/prompts/">프롬프트</a><a href="/tips/">실용 팁</a><a href="/guide/">AI 길잡이</a></div>
+      <div class="fgrp"><span>쓰기</span><a href="/tools/">무료 도구</a><a href="/vs/">AI 비교</a><a href="/dict/">AI 사전</a><a href="/about/">소개</a></div>
+      <div class="fgrp"><span>읽기</span><a href="/daily/">데일리 이슈</a><a href="/news/">AI 뉴스</a><a href="/news/?cat=칼럼">칼럼</a><a href="/weekly/">주간 판정</a><a href="/verdict/">AI 판정</a></div>
+      <div class="fgrp"><span>팔로우</span><a href="/subscribe/">주간 메일</a><a href="https://www.instagram.com/shift_ai_magazine/" target="_blank" rel="noopener">인스타그램</a><a href="https://www.threads.com/@shift_ai_magazine" target="_blank" rel="noopener">스레드</a><a href="https://www.youtube.com/channel/UCWzwTQoe0q2IdwZV6BuopVw" target="_blank" rel="noopener">유튜브</a></div>
+    </div>
+    <a class="ftop" href="#top"> 맨&nbsp;위로&nbsp;↑</a>
+  </div>
+  <p class="flegal">© 2026 SHIFT AI MAGAZINE<i>·</i><span>shiftai.magazine@gmail.com</span><i>·</i><a href="/privacy/">개인정보처리방침</a><i>·</i><a href="/feed.xml">RSS</a></p>
+  <div class="fword" aria-hidden="true"><span>S</span><span>H</span><span>I</span><span>F</span><span>T</span> <span class="ai">A</span><span class="ai">I</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/assets/data-lite.js?v=068672e8" defer=""></script>
+<script src="/assets/app.js?v=068672e8" defer=""></script>
+
+
+</body></html>
